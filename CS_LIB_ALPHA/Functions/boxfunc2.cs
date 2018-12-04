@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (91, 1)
 // boxaTransform(boxas, shiftx, shifty, scalex, scaley) as Boxa
 // boxaTransform(BOXA *, l_int32, l_int32, l_float32, l_float32) as BOXA *
@@ -21,6 +22,7 @@ public partial class _All {
 ///  <param name="scalex">[in] - </param>
 ///  <param name="scaley">[in] - </param>
 ///   <returns>boxad, or NULL on error</returns>
+
 public static Boxa boxaTransform(
 				 Boxa boxas, 
 				 int shiftx, 
@@ -28,15 +30,22 @@ public static Boxa boxaTransform(
 				 Single scalex, 
 				 Single scaley){
 
-	IntPtr _Result = Natives.boxaTransform(boxas.Pointer,   shiftx,   shifty,   scalex,   scaley);
+
+
+	IntPtr _Result = Natives.boxaTransform(
+boxas.Pointer,   shiftx,   shifty,   scalex,   scaley);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (137, 1)
 // boxTransform(box, shiftx, shifty, scalex, scaley) as Box
 // boxTransform(BOX *, l_int32, l_int32, l_float32, l_float32) as BOX *
@@ -54,6 +63,7 @@ public static Boxa boxaTransform(
 ///  <param name="scalex">[in] - </param>
 ///  <param name="scaley">[in] - </param>
 ///   <returns>boxd, or NULL on error</returns>
+
 public static Box boxTransform(
 				 Box box, 
 				 int shiftx, 
@@ -61,15 +71,22 @@ public static Box boxTransform(
 				 Single scalex, 
 				 Single scaley){
 
-	IntPtr _Result = Natives.boxTransform(box.Pointer,   shiftx,   shifty,   scalex,   scaley);
+
+
+	IntPtr _Result = Natives.boxTransform(
+box.Pointer,   shiftx,   shifty,   scalex,   scaley);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Box(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (192, 1)
 // boxaTransformOrdered(boxas, shiftx, shifty, scalex, scaley, xcen, ycen, angle, order) as Boxa
 // boxaTransformOrdered(BOXA *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_float32, l_int32) as BOXA *
@@ -109,6 +126,7 @@ public static Box boxTransform(
 ///  <param name="angle">[in] - in radians clockwise is positive</param>
 ///  <param name="order">[in] - one of 6 combinations: L_TR_SC_RO, ...</param>
 ///   <returns>boxd, or NULL on error</returns>
+
 public static Boxa boxaTransformOrdered(
 				 Boxa boxas, 
 				 int shiftx, 
@@ -120,15 +138,22 @@ public static Boxa boxaTransformOrdered(
 				 Single angle, 
 				 int order){
 
-	IntPtr _Result = Natives.boxaTransformOrdered(boxas.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
+
+
+	IntPtr _Result = Natives.boxaTransformOrdered(
+boxas.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (280, 1)
 // boxTransformOrdered(boxs, shiftx, shifty, scalex, scaley, xcen, ycen, angle, order) as Box
 // boxTransformOrdered(BOX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_float32, l_int32) as BOX *
@@ -187,6 +212,7 @@ public static Boxa boxaTransformOrdered(
 ///  <param name="angle">[in] - in radians clockwise is positive</param>
 ///  <param name="order">[in] - one of 6 combinations: L_TR_SC_RO, ...</param>
 ///   <returns>boxd, or NULL on error</returns>
+
 public static Box boxTransformOrdered(
 				 Box boxs, 
 				 int shiftx, 
@@ -198,15 +224,22 @@ public static Box boxTransformOrdered(
 				 Single angle, 
 				 int order){
 
-	IntPtr _Result = Natives.boxTransformOrdered(boxs.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
+
+
+	IntPtr _Result = Natives.boxTransformOrdered(
+boxs.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Box(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (454, 1)
 // boxaRotateOrth(boxas, w, h, rotation) as Boxa
 // boxaRotateOrth(BOXA *, l_int32, l_int32, l_int32) as BOXA *
@@ -221,21 +254,29 @@ public static Box boxTransformOrdered(
 ///  <param name="h">[in] - of image in which the boxa is embedded</param>
 ///  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 ///   <returns>boxad, or NULL on error</returns>
+
 public static Boxa boxaRotateOrth(
 				 Boxa boxas, 
 				 int w, 
 				 int h, 
 				 int rotation){
 
-	IntPtr _Result = Natives.boxaRotateOrth(boxas.Pointer,   w,   h,   rotation);
+
+
+	IntPtr _Result = Natives.boxaRotateOrth(
+boxas.Pointer,   w,   h,   rotation);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (506, 1)
 // boxRotateOrth(box, w, h, rotation) as Box
 // boxRotateOrth(BOX *, l_int32, l_int32, l_int32) as BOX *
@@ -253,21 +294,29 @@ public static Boxa boxaRotateOrth(
 ///  <param name="h">[in] - of image in which the box is embedded</param>
 ///  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 ///   <returns>boxd, or NULL on error</returns>
+
 public static Box boxRotateOrth(
 				 Box box, 
 				 int w, 
 				 int h, 
 				 int rotation){
 
-	IntPtr _Result = Natives.boxRotateOrth(box.Pointer,   w,   h,   rotation);
+
+
+	IntPtr _Result = Natives.boxRotateOrth(
+box.Pointer,   w,   h,   rotation);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Box(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (560, 1)
 // boxaSort(boxas, sorttype, sortorder, pnaindex) as Boxa
 // boxaSort(BOXA *, l_int32, l_int32, NUMA **) as BOXA *
@@ -282,24 +331,31 @@ public static Box boxRotateOrth(
 ///  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///   <returns>boxad sorted version of boxas, or NULL on error</returns>
+
 public static Boxa boxaSort(
 				 Boxa boxas, 
 				 int sorttype, 
 				 int sortorder, 
 				out Numa pnaindex){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.boxaSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
+	IntPtr _Result = Natives.boxaSort(
+boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (684, 1)
 // boxaBinSort(boxas, sorttype, sortorder, pnaindex) as Boxa
 // boxaBinSort(BOXA *, l_int32, l_int32, NUMA **) as BOXA *
@@ -319,24 +375,31 @@ public static Boxa boxaSort(
 ///  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///   <returns>boxad sorted version of boxas, or NULL on error</returns>
+
 public static Boxa boxaBinSort(
 				 Boxa boxas, 
 				 int sorttype, 
 				 int sortorder, 
 				out Numa pnaindex){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.boxaBinSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
+	IntPtr _Result = Natives.boxaBinSort(
+boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (761, 1)
 // boxaSortByIndex(boxas, naindex) as Boxa
 // boxaSortByIndex(BOXA *, NUMA *) as BOXA *
@@ -346,19 +409,27 @@ public static Boxa boxaBinSort(
 ///  <param name="boxas">[in] - </param>
 ///  <param name="naindex">[in] - na that maps from the new boxa to the input boxa</param>
 ///   <returns>boxad sorted, or NULL on error</returns>
+
 public static Boxa boxaSortByIndex(
 				 Boxa boxas, 
 				 Numa naindex){
 
-	IntPtr _Result = Natives.boxaSortByIndex(boxas.Pointer, naindex.Pointer);
+
+
+	IntPtr _Result = Natives.boxaSortByIndex(
+boxas.Pointer, naindex.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (837, 1)
 // boxaSort2d(boxas, pnaad, delta1, delta2, minh1) as Boxaa
 // boxaSort2d(BOXA *, NUMAA **, l_int32, l_int32, l_int32) as BOXAA *
@@ -407,6 +478,7 @@ public static Boxa boxaSortByIndex(
 ///  <param name="delta2">[in] - min overlap that permits aggregation of a box onto a boxa of horizontally-aligned boxes pass 2</param>
 ///  <param name="minh1">[in] - components less than this height either join an existing boxa or are set aside for pass 2</param>
 ///   <returns>baa 2d sorted version of boxa, or NULL on error</returns>
+
 public static Boxaa boxaSort2d(
 				 Boxa boxas, 
 				out Numaa pnaad, 
@@ -414,18 +486,24 @@ public static Boxaa boxaSort2d(
 				 int delta2, 
 				 int minh1){
 
+
 	IntPtr pnaadPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.boxaSort2d(boxas.Pointer, out pnaadPtr,   delta1,   delta2,   minh1);
+	IntPtr _Result = Natives.boxaSort2d(
+boxas.Pointer, out pnaadPtr,   delta1,   delta2,   minh1);
 	
 
+
+//  
 	if (pnaadPtr == IntPtr.Zero) {pnaad = null;} else { pnaad = new Numaa(pnaadPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Boxaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1024, 1)
 // boxaSort2dByIndex(boxas, naa) as Boxaa
 // boxaSort2dByIndex(BOXA *, NUMAA *) as BOXAA *
@@ -435,19 +513,27 @@ public static Boxaa boxaSort2d(
 ///  <param name="boxas">[in] - </param>
 ///  <param name="naa">[in] - numaa that maps from the new baa to the input boxa</param>
 ///   <returns>baa sorted boxaa, or NULL on error</returns>
+
 public static Boxaa boxaSort2dByIndex(
 				 Boxa boxas, 
 				 Numaa naa){
 
-	IntPtr _Result = Natives.boxaSort2dByIndex(boxas.Pointer, naa.Pointer);
+
+
+	IntPtr _Result = Natives.boxaSort2dByIndex(
+boxas.Pointer, naa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1093, 1)
 // boxaExtractAsNuma(boxa, pnal, pnat, pnar, pnab, pnaw, pnah, keepinvalid) as int
 // boxaExtractAsNuma(BOXA *, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, l_int32) as l_ok
@@ -472,6 +558,7 @@ public static Boxaa boxaSort2dByIndex(
 ///  <param name="pnah">[out][optional] - array of heights</param>
 ///  <param name="keepinvalid">[in] - 1 to keep invalid boxes 0 to remove them</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int boxaExtractAsNuma(
 				 Boxa boxa, 
 				out Numa pnal, 
@@ -482,6 +569,7 @@ public static int boxaExtractAsNuma(
 				out Numa pnah, 
 				 int keepinvalid){
 
+
 	IntPtr pnalPtr = IntPtr.Zero;
 	IntPtr pnatPtr = IntPtr.Zero;
 	IntPtr pnarPtr = IntPtr.Zero;
@@ -489,9 +577,12 @@ public static int boxaExtractAsNuma(
 	IntPtr pnawPtr = IntPtr.Zero;
 	IntPtr pnahPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaExtractAsNuma(boxa.Pointer, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out pnawPtr, out pnahPtr,   keepinvalid);
+	int _Result = Natives.boxaExtractAsNuma(
+boxa.Pointer, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out pnawPtr, out pnahPtr,   keepinvalid);
 	
 
+
+//  
 	if (pnalPtr == IntPtr.Zero) {pnal = null;} else { pnal = new Numa(pnalPtr); };
 	if (pnatPtr == IntPtr.Zero) {pnat = null;} else { pnat = new Numa(pnatPtr); };
 	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
@@ -500,9 +591,11 @@ public static int boxaExtractAsNuma(
 	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1170, 1)
 // boxaExtractAsPta(boxa, pptal, pptat, pptar, pptab, pptaw, pptah, keepinvalid) as int
 // boxaExtractAsPta(BOXA *, PTA **, PTA **, PTA **, PTA **, PTA **, PTA **, l_int32) as l_ok
@@ -529,6 +622,7 @@ public static int boxaExtractAsNuma(
 ///  <param name="pptah">[out][optional] - array of heights vs. index</param>
 ///  <param name="keepinvalid">[in] - 1 to keep invalid boxes 0 to remove them</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int boxaExtractAsPta(
 				 Boxa boxa, 
 				out Pta pptal, 
@@ -539,6 +633,7 @@ public static int boxaExtractAsPta(
 				out Pta pptah, 
 				 int keepinvalid){
 
+
 	IntPtr pptalPtr = IntPtr.Zero;
 	IntPtr pptatPtr = IntPtr.Zero;
 	IntPtr pptarPtr = IntPtr.Zero;
@@ -546,9 +641,12 @@ public static int boxaExtractAsPta(
 	IntPtr pptawPtr = IntPtr.Zero;
 	IntPtr pptahPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaExtractAsPta(boxa.Pointer, out pptalPtr, out pptatPtr, out pptarPtr, out pptabPtr, out pptawPtr, out pptahPtr,   keepinvalid);
+	int _Result = Natives.boxaExtractAsPta(
+boxa.Pointer, out pptalPtr, out pptatPtr, out pptarPtr, out pptabPtr, out pptawPtr, out pptahPtr,   keepinvalid);
 	
 
+
+//  
 	if (pptalPtr == IntPtr.Zero) {pptal = null;} else { pptal = new Pta(pptalPtr); };
 	if (pptatPtr == IntPtr.Zero) {pptat = null;} else { pptat = new Pta(pptatPtr); };
 	if (pptarPtr == IntPtr.Zero) {pptar = null;} else { pptar = new Pta(pptarPtr); };
@@ -557,9 +655,11 @@ public static int boxaExtractAsPta(
 	if (pptahPtr == IntPtr.Zero) {pptah = null;} else { pptah = new Pta(pptahPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1251, 1)
 // boxaGetRankVals(boxa, fract, px, py, pw, ph) as int
 // boxaGetRankVals(BOXA *, l_float32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -587,6 +687,7 @@ public static int boxaExtractAsPta(
 ///  <param name="pw">[out][optional] - rank value of width</param>
 ///  <param name="ph">[out][optional] - rank value of height</param>
 ///   <returns>0 if OK, 1 on error or if the boxa is empty or has no valid boxes</returns>
+
 public static int boxaGetRankVals(
 				 Boxa boxa, 
 				 Single fract, 
@@ -595,14 +696,21 @@ public static int boxaGetRankVals(
 				out int pw, 
 				out int ph){
 
-	int _Result = Natives.boxaGetRankVals(boxa.Pointer,   fract, out  px, out  py, out  pw, out  ph);
+
+
+	int _Result = Natives.boxaGetRankVals(
+boxa.Pointer,   fract, out  px, out  py, out  pw, out  ph);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1317, 1)
 // boxaGetMedianVals(boxa, px, py, pw, ph) as int
 // boxaGetMedianVals(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -618,6 +726,7 @@ public static int boxaGetRankVals(
 ///  <param name="pw">[out][optional] - median value of width</param>
 ///  <param name="ph">[out][optional] - median value of height</param>
 ///   <returns>0 if OK, 1 on error or if the boxa is empty or has no valid boxes</returns>
+
 public static int boxaGetMedianVals(
 				 Boxa boxa, 
 				out int px, 
@@ -625,14 +734,21 @@ public static int boxaGetMedianVals(
 				out int pw, 
 				out int ph){
 
-	int _Result = Natives.boxaGetMedianVals(boxa.Pointer, out  px, out  py, out  pw, out  ph);
+
+
+	int _Result = Natives.boxaGetMedianVals(
+boxa.Pointer, out  px, out  py, out  pw, out  ph);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1343, 1)
 // boxaGetAverageSize(boxa, pw, ph) as int
 // boxaGetAverageSize(BOXA *, l_float32 *, l_float32 *) as l_ok
@@ -643,19 +759,27 @@ public static int boxaGetMedianVals(
 ///  <param name="pw">[out][optional] - average width</param>
 ///  <param name="ph">[out][optional] - average height</param>
 ///   <returns>0 if OK, 1 on error or if the boxa is empty</returns>
+
 public static int boxaGetAverageSize(
 				 Boxa boxa, 
 				out Single pw, 
 				out Single ph){
 
-	int _Result = Natives.boxaGetAverageSize(boxa.Pointer, out  pw, out  ph);
+
+
+	int _Result = Natives.boxaGetAverageSize(
+boxa.Pointer, out  pw, out  ph);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1398, 1)
 // boxaaGetExtent(baa, pw, ph, pbox, pboxa) as int
 // boxaaGetExtent(BOXAA *, l_int32 *, l_int32 *, BOX **, BOXA **) as l_ok
@@ -678,6 +802,7 @@ public static int boxaGetAverageSize(
 ///  <param name="pbox">[out][optional] - minimum box containing all boxa in boxaa</param>
 ///  <param name="pboxa">[out][optional] - boxa containing all boxes in each boxa in the boxaa</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int boxaaGetExtent(
 				 Boxaa baa, 
 				out int pw, 
@@ -685,19 +810,25 @@ public static int boxaaGetExtent(
 				out Box pbox, 
 				out Boxa pboxa){
 
+
 	IntPtr pboxPtr = IntPtr.Zero;
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaaGetExtent(baa.Pointer, out  pw, out  ph, out pboxPtr, out pboxaPtr);
+	int _Result = Natives.boxaaGetExtent(
+baa.Pointer, out  pw, out  ph, out pboxPtr, out pboxaPtr);
 	
 
+
+//  
 	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1478, 1)
 // boxaaFlattenToBoxa(baa, pnaindex, copyflag) as Boxa
 // boxaaFlattenToBoxa(BOXAA *, NUMA **, l_int32) as BOXA *
@@ -721,23 +852,30 @@ public static int boxaaGetExtent(
 ///  <param name="pnaindex">[out][optional] - the boxa index in the baa</param>
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
+
 public static Boxa boxaaFlattenToBoxa(
 				 Boxaa baa, 
 				out Numa pnaindex, 
 				 int copyflag){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.boxaaFlattenToBoxa(baa.Pointer, out pnaindexPtr,   copyflag);
+	IntPtr _Result = Natives.boxaaFlattenToBoxa(
+baa.Pointer, out pnaindexPtr,   copyflag);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1544, 1)
 // boxaaFlattenAligned(baa, num, fillerbox, copyflag) as Boxa
 // boxaaFlattenAligned(BOXAA *, l_int32, BOX *, l_int32) as BOXA *
@@ -758,23 +896,30 @@ public static Boxa boxaaFlattenToBoxa(
 ///  <param name="fillerbox">[in][optional] - that fills if necessary</param>
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
+
 public static Boxa boxaaFlattenAligned(
 				 Boxaa baa, 
 				 int num, 
 				 Box fillerbox, 
 				 int copyflag){
 
+
 	IntPtr fillerboxPtr = IntPtr.Zero; 	if (fillerbox != null) {fillerboxPtr = fillerbox.Pointer;}
 
-	IntPtr _Result = Natives.boxaaFlattenAligned(baa.Pointer,   num, fillerboxPtr,   copyflag);
+	IntPtr _Result = Natives.boxaaFlattenAligned(
+baa.Pointer,   num, fillerboxPtr,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1602, 1)
 // boxaEncapsulateAligned(boxa, num, copyflag) as Boxaa
 // boxaEncapsulateAligned(BOXA *, l_int32, l_int32) as BOXAA *
@@ -791,20 +936,28 @@ public static Boxa boxaaFlattenAligned(
 ///  <param name="num">[in] - number put into each boxa in the baa</param>
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>baa, or NULL on error</returns>
+
 public static Boxaa boxaEncapsulateAligned(
 				 Boxa boxa, 
 				 int num, 
 				 int copyflag){
 
-	IntPtr _Result = Natives.boxaEncapsulateAligned(boxa.Pointer,   num,   copyflag);
+
+
+	IntPtr _Result = Natives.boxaEncapsulateAligned(
+boxa.Pointer,   num,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1656, 1)
 // boxaaTranspose(baas) as Boxaa
 // boxaaTranspose(BOXAA *) as BOXAA *
@@ -826,18 +979,26 @@ public static Boxaa boxaEncapsulateAligned(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaTranspose/*"/>
 ///  <param name="baas">[in] - </param>
 ///   <returns>baad, or NULL on error</returns>
+
 public static Boxaa boxaaTranspose(
 				 Boxaa baas){
 
-	IntPtr _Result = Natives.boxaaTranspose(baas.Pointer);
+
+
+	IntPtr _Result = Natives.boxaaTranspose(
+baas.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc2.c (1715, 1)
 // boxaaAlignBox(baa, box, delta, pindex) as int
 // boxaaAlignBox(BOXAA *, BOX *, l_int32, l_int32 *) as l_ok
@@ -853,14 +1014,21 @@ public static Boxaa boxaaTranspose(
 ///  <param name="delta">[in] - amount by which consecutive components can miss in overlap and still be included in the array</param>
 ///  <param name="pindex">[out] - index of boxa with best overlap, or if none match, this is the index of the next boxa to be generated</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int boxaaAlignBox(
 				 Boxaa baa, 
 				 Box box, 
 				 int delta, 
 				out int pindex){
 
-	int _Result = Natives.boxaaAlignBox(baa.Pointer, box.Pointer,   delta, out  pindex);
+
+
+	int _Result = Natives.boxaaAlignBox(
+baa.Pointer, box.Pointer,   delta, out  pindex);
 	
+
+
+//  
 
 
 

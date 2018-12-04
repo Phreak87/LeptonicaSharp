@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (148, 1)
 // dewarpBuildPageModel(dew, debugfile) as int
 // dewarpBuildPageModel(L_DEWARP *, const char *) as l_ok
@@ -60,18 +61,26 @@ public partial class _All {
 ///  <param name="dew">[in] - </param>
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 if unable to build the model or on error</returns>
+
 public static int dewarpBuildPageModel(
 				 L_Dewarp dew, 
 				 String debugfile){
 
-	int _Result = Natives.dewarpBuildPageModel(dew.Pointer,   debugfile);
+
+
+	int _Result = Natives.dewarpBuildPageModel(
+dew.Pointer,   debugfile);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (294, 1)
 // dewarpFindVertDisparity(dew, ptaa, rotflag) as int
 // dewarpFindVertDisparity(L_DEWARP *, PTAA *, l_int32) as l_ok
@@ -104,19 +113,27 @@ public static int dewarpBuildPageModel(
 ///  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 ///  <param name="rotflag">[in] - 0 if using dewtopixs 1 if rotated by 90 degrees cw</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int dewarpFindVertDisparity(
 				 L_Dewarp dew, 
 				 Ptaa ptaa, 
 				 int rotflag){
 
-	int _Result = Natives.dewarpFindVertDisparity(dew.Pointer, ptaa.Pointer,   rotflag);
+
+
+	int _Result = Natives.dewarpFindVertDisparity(
+dew.Pointer, ptaa.Pointer,   rotflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (558, 1)
 // dewarpFindHorizDisparity(dew, ptaa) as int
 // dewarpFindHorizDisparity(L_DEWARP *, PTAA *) as l_ok
@@ -142,18 +159,26 @@ public static int dewarpFindVertDisparity(
 ///  <param name="dew">[in] - </param>
 ///  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 ///   <returns>0 if OK, 1 if horizontal disparity array is not built, or on error</returns>
+
 public static int dewarpFindHorizDisparity(
 				 L_Dewarp dew, 
 				 Ptaa ptaa){
 
-	int _Result = Natives.dewarpFindHorizDisparity(dew.Pointer, ptaa.Pointer);
+
+
+	int _Result = Natives.dewarpFindHorizDisparity(
+dew.Pointer, ptaa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (762, 1)
 // dewarpGetTextlineCenters(pixs, debugflag) as Ptaa
 // dewarpGetTextlineCenters(PIX *, l_int32) as PTAA *
@@ -169,19 +194,27 @@ public static int dewarpFindHorizDisparity(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>ptaa of center values of textlines</returns>
+
 public static Ptaa dewarpGetTextlineCenters(
 				 Pix pixs, 
 				 int debugflag){
 
-	IntPtr _Result = Natives.dewarpGetTextlineCenters(pixs.Pointer,   debugflag);
+
+
+	IntPtr _Result = Natives.dewarpGetTextlineCenters(
+pixs.Pointer,   debugflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Ptaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (916, 1)
 // dewarpRemoveShortLines(pixs, ptaas, fract, debugflag) as Ptaa
 // dewarpRemoveShortLines(PIX *, PTAA *, l_float32, l_int32) as PTAA *
@@ -193,21 +226,29 @@ public static Ptaa dewarpGetTextlineCenters(
 ///  <param name="fract">[in] - minimum fraction of longest line to keep</param>
 ///  <param name="debugflag">[in] - </param>
 ///   <returns>ptaad containing only lines of sufficient length, or NULL on error</returns>
+
 public static Ptaa dewarpRemoveShortLines(
 				 Pix pixs, 
 				 Ptaa ptaas, 
 				 Single fract, 
 				 int debugflag){
 
-	IntPtr _Result = Natives.dewarpRemoveShortLines(pixs.Pointer, ptaas.Pointer,   fract,   debugflag);
+
+
+	IntPtr _Result = Natives.dewarpRemoveShortLines(
+pixs.Pointer, ptaas.Pointer,   fract,   debugflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Ptaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (1378, 1)
 // dewarpFindHorizSlopeDisparity(dew, pixb, fractthresh, parity) as int
 // dewarpFindHorizSlopeDisparity(L_DEWARP *, PIX *, l_float32, l_int32) as l_ok
@@ -251,20 +292,28 @@ public static Ptaa dewarpRemoveShortLines(
 ///  <param name="fractthresh">[in] - (threshold fractional difference in density)</param>
 ///  <param name="parity">[in] - (0 if even page, 1 if odd page)</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int dewarpFindHorizSlopeDisparity(
 				 L_Dewarp dew, 
 				 Pix pixb, 
 				 Single fractthresh, 
 				 int parity){
 
-	int _Result = Natives.dewarpFindHorizSlopeDisparity(dew.Pointer, pixb.Pointer,   fractthresh,   parity);
+
+
+	int _Result = Natives.dewarpFindHorizSlopeDisparity(
+dew.Pointer, pixb.Pointer,   fractthresh,   parity);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (1606, 1)
 // dewarpBuildLineModel(dew, opensize, debugfile) as int
 // dewarpBuildLineModel(L_DEWARP *, l_int32, const char *) as l_ok
@@ -297,19 +346,27 @@ public static int dewarpFindHorizSlopeDisparity(
 ///  <param name="opensize">[in] - size of opening to remove perpendicular lines</param>
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 if unable to build the model or on error</returns>
+
 public static int dewarpBuildLineModel(
 				 L_Dewarp dew, 
 				 int opensize, 
 				 String debugfile){
 
-	int _Result = Natives.dewarpBuildLineModel(dew.Pointer,   opensize,   debugfile);
+
+
+	int _Result = Natives.dewarpBuildLineModel(
+dew.Pointer,   opensize,   debugfile);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp2.c (1790, 1)
 // dewarpaModelStatus(dewa, pageno, pvsuccess, phsuccess) as int
 // dewarpaModelStatus(L_DEWARPA *, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -324,14 +381,21 @@ public static int dewarpBuildLineModel(
 ///  <param name="pvsuccess">[out][optional] - 1 on success</param>
 ///  <param name="phsuccess">[out][optional] - 1 on success</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int dewarpaModelStatus(
 				 L_Dewarpa dewa, 
 				 int pageno, 
 				out int pvsuccess, 
 				out int phsuccess){
 
-	int _Result = Natives.dewarpaModelStatus(dewa.Pointer,   pageno, out  pvsuccess, out  phsuccess);
+
+
+	int _Result = Natives.dewarpaModelStatus(
+dewa.Pointer,   pageno, out  pvsuccess, out  phsuccess);
 	
+
+
+//  
 
 
 

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (204, 1)
 // pixScaleToGray(pixs, scalefactor) as Pix
 // pixScaleToGray(PIX *, l_float32) as PIX *
@@ -76,19 +77,27 @@ public partial class _All {
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 ///   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGray(
 				 Pix pixs, 
 				 Single scalefactor){
 
-	IntPtr _Result = Natives.pixScaleToGray(pixs.Pointer,   scalefactor);
+
+
+	IntPtr _Result = Natives.pixScaleToGray(
+pixs.Pointer,   scalefactor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (315, 1)
 // pixScaleToGrayFast(pixs, scalefactor) as Pix
 // pixScaleToGrayFast(PIX *, l_float32) as PIX *
@@ -112,19 +121,27 @@ public static Pix pixScaleToGray(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 ///   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGrayFast(
 				 Pix pixs, 
 				 Single scalefactor){
 
-	IntPtr _Result = Natives.pixScaleToGrayFast(pixs.Pointer,   scalefactor);
+
+
+	IntPtr _Result = Natives.pixScaleToGrayFast(
+pixs.Pointer,   scalefactor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (386, 1)
 // pixScaleToGray2(pixs) as Pix
 // pixScaleToGray2(PIX *) as PIX *
@@ -133,18 +150,26 @@ public static Pix pixScaleToGrayFast(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray2/*"/>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 2x in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGray2(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixScaleToGray2(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixScaleToGray2(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (443, 1)
 // pixScaleToGray3(pixs) as Pix
 // pixScaleToGray3(PIX *) as PIX *
@@ -160,18 +185,26 @@ public static Pix pixScaleToGray2(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray3/*"/>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 3x in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGray3(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixScaleToGray3(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixScaleToGray3(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (497, 1)
 // pixScaleToGray4(pixs) as Pix
 // pixScaleToGray4(PIX *) as PIX *
@@ -183,18 +216,26 @@ public static Pix pixScaleToGray3(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray4/*"/>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 4x in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGray4(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixScaleToGray4(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixScaleToGray4(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (552, 1)
 // pixScaleToGray6(pixs) as Pix
 // pixScaleToGray6(PIX *) as PIX *
@@ -206,18 +247,26 @@ public static Pix pixScaleToGray4(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray6/*"/>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 6x in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGray6(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixScaleToGray6(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixScaleToGray6(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (600, 1)
 // pixScaleToGray8(pixs) as Pix
 // pixScaleToGray8(PIX *) as PIX *
@@ -226,18 +275,26 @@ public static Pix pixScaleToGray6(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray8/*"/>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 8x in each direction, or NULL on error</returns>
+
 public static Pix pixScaleToGray8(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixScaleToGray8(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixScaleToGray8(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (649, 1)
 // pixScaleToGray16(pixs) as Pix
 // pixScaleToGray16(PIX *) as PIX *
@@ -246,18 +303,26 @@ public static Pix pixScaleToGray8(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray16/*"/>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 16x in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGray16(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixScaleToGray16(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixScaleToGray16(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (722, 1)
 // pixScaleToGrayMipmap(pixs, scalefactor) as Pix
 // pixScaleToGrayMipmap(PIX *, l_float32) as PIX *
@@ -286,19 +351,27 @@ public static Pix pixScaleToGray16(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 ///   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleToGrayMipmap(
 				 Pix pixs, 
 				 Single scalefactor){
 
-	IntPtr _Result = Natives.pixScaleToGrayMipmap(pixs.Pointer,   scalefactor);
+
+
+	IntPtr _Result = Natives.pixScaleToGrayMipmap(
+pixs.Pointer,   scalefactor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (810, 1)
 // pixScaleMipmap(pixs1, pixs2, scale) as Pix
 // pixScaleMipmap(PIX *, PIX *, l_float32) as PIX *
@@ -315,20 +388,28 @@ public static Pix pixScaleToGrayMipmap(
 ///  <param name="pixs2">[in] - low res -- 2x reduced -- 8 bpp, no cmap</param>
 ///  <param name="scale">[in] - reduction with respect to high res image,  is greater  0.5</param>
 ///   <returns>8 bpp pix, scaled down by reduction in each direction, or NULL on error.</returns>
+
 public static Pix pixScaleMipmap(
 				 Pix pixs1, 
 				 Pix pixs2, 
 				 Single scale){
 
-	IntPtr _Result = Natives.pixScaleMipmap(pixs1.Pointer, pixs2.Pointer,   scale);
+
+
+	IntPtr _Result = Natives.pixScaleMipmap(
+pixs1.Pointer, pixs2.Pointer,   scale);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (867, 1)
 // pixExpandReplicate(pixs, factor) as Pix
 // pixExpandReplicate(PIX *, l_int32) as PIX *
@@ -338,19 +419,27 @@ public static Pix pixScaleMipmap(
 ///  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 ///  <param name="factor">[in] - integer scale factor for replicative expansion</param>
 ///   <returns>pixd scaled up, or NULL on error.</returns>
+
 public static Pix pixExpandReplicate(
 				 Pix pixs, 
 				 int factor){
 
-	IntPtr _Result = Natives.pixExpandReplicate(pixs.Pointer,   factor);
+
+
+	IntPtr _Result = Natives.pixExpandReplicate(
+pixs.Pointer,   factor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (1014, 1)
 // pixScaleGrayMinMax(pixs, xfact, yfact, type) as Pix
 // pixScaleGrayMinMax(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -377,21 +466,29 @@ public static Pix pixExpandReplicate(
 ///  <param name="yfact">[in] - y downscaling factor integer</param>
 ///  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF</param>
 ///   <returns>pixd 8 bpp</returns>
+
 public static Pix pixScaleGrayMinMax(
 				 Pix pixs, 
 				 int xfact, 
 				 int yfact, 
 				 int type){
 
-	IntPtr _Result = Natives.pixScaleGrayMinMax(pixs.Pointer,   xfact,   yfact,   type);
+
+
+	IntPtr _Result = Natives.pixScaleGrayMinMax(
+pixs.Pointer,   xfact,   yfact,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (1121, 1)
 // pixScaleGrayMinMax2(pixs, type) as Pix
 // pixScaleGrayMinMax2(PIX *, l_int32) as PIX *
@@ -421,19 +518,27 @@ public static Pix pixScaleGrayMinMax(
 ///  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 ///  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF</param>
 ///   <returns>pixd 8 bpp downscaled by 2x</returns>
+
 public static Pix pixScaleGrayMinMax2(
 				 Pix pixs, 
 				 int type){
 
-	IntPtr _Result = Natives.pixScaleGrayMinMax2(pixs.Pointer,   type);
+
+
+	IntPtr _Result = Natives.pixScaleGrayMinMax2(
+pixs.Pointer,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (1204, 1)
 // pixScaleGrayRankCascade(pixs, level1, level2, level3, level4) as Pix
 // pixScaleGrayRankCascade(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -451,6 +556,7 @@ public static Pix pixScaleGrayMinMax2(
 ///  <param name="level3">[in] - rank thresholds, in set {0, 1, 2, 3, 4}</param>
 ///  <param name="level4">[in] - rank thresholds, in set {0, 1, 2, 3, 4}</param>
 ///   <returns>pixd 8 bpp, downscaled by up to 16x</returns>
+
 public static Pix pixScaleGrayRankCascade(
 				 Pix pixs, 
 				 int level1, 
@@ -458,15 +564,22 @@ public static Pix pixScaleGrayRankCascade(
 				 int level3, 
 				 int level4){
 
-	IntPtr _Result = Natives.pixScaleGrayRankCascade(pixs.Pointer,   level1,   level2,   level3,   level4);
+
+
+	IntPtr _Result = Natives.pixScaleGrayRankCascade(
+pixs.Pointer,   level1,   level2,   level3,   level4);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (1268, 1)
 // pixScaleGrayRank2(pixs, rank) as Pix
 // pixScaleGrayRank2(PIX *, l_int32) as PIX *
@@ -491,19 +604,27 @@ public static Pix pixScaleGrayRankCascade(
 ///  <param name="pixs">[in] - 8 bpp, no cmap</param>
 ///  <param name="rank">[in] - 1 (darkest), 2, 3, 4 (lightest)</param>
 ///   <returns>pixd 8 bpp, downscaled by 2x</returns>
+
 public static Pix pixScaleGrayRank2(
 				 Pix pixs, 
 				 int rank){
 
-	IntPtr _Result = Natives.pixScaleGrayRank2(pixs.Pointer,   rank);
+
+
+	IntPtr _Result = Natives.pixScaleGrayRank2(
+pixs.Pointer,   rank);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (1358, 1)
 // pixScaleAndTransferAlpha(pixd, pixs, scalex, scaley) as int
 // pixScaleAndTransferAlpha(PIX *, PIX *, l_float32, l_float32) as l_ok
@@ -518,20 +639,28 @@ public static Pix pixScaleGrayRank2(
 ///  <param name="scalex">[in] - both  is greater  0.0</param>
 ///  <param name="scaley">[in] - both  is greater  0.0</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixScaleAndTransferAlpha(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single scalex, 
 				 Single scaley){
 
-	int _Result = Natives.pixScaleAndTransferAlpha(pixd.Pointer, pixs.Pointer,   scalex,   scaley);
+
+
+	int _Result = Natives.pixScaleAndTransferAlpha(
+pixd.Pointer, pixs.Pointer,   scalex,   scaley);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // scale2.c (1436, 1)
 // pixScaleWithAlpha(pixs, scalex, scaley, pixg, fract) as Pix
 // pixScaleWithAlpha(PIX *, l_float32, l_float32, PIX *, l_float32) as PIX *
@@ -581,6 +710,7 @@ public static int pixScaleAndTransferAlpha(
 ///  <param name="pixg">[in][optional] - 8 bpp, can be null</param>
 ///  <param name="fract">[in] - between 0.0 and 1.0, with 0.0 fully transparent and 1.0 fully opaque</param>
 ///   <returns>pixd 32 bpp rgba, or NULL on error</returns>
+
 public static Pix pixScaleWithAlpha(
 				 Pix pixs, 
 				 Single scalex, 
@@ -588,13 +718,18 @@ public static Pix pixScaleWithAlpha(
 				 Pix pixg, 
 				 Single fract){
 
+
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixScaleWithAlpha(pixs.Pointer,   scalex,   scaley, pixgPtr,   fract);
+	IntPtr _Result = Natives.pixScaleWithAlpha(
+pixs.Pointer,   scalex,   scaley, pixgPtr,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }

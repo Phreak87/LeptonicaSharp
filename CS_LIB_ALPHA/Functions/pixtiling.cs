@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixtiling.c (121, 1)
 // pixTilingCreate(pixs, nx, ny, w, h, xoverlap, yoverlap) as PixTiling
 // pixTilingCreate(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXTILING *
@@ -38,6 +39,7 @@ public partial class _All {
 ///  <param name="xoverlap">[in] - overlap into neighboring tiles on each side</param>
 ///  <param name="yoverlap">[in] - overlap into neighboring tiles above and below</param>
 ///   <returns>pixtiling, or NULL on error</returns>
+
 public static PixTiling pixTilingCreate(
 				 Pix pixs, 
 				 int nx, 
@@ -47,15 +49,22 @@ public static PixTiling pixTilingCreate(
 				 int xoverlap, 
 				 int yoverlap){
 
-	IntPtr _Result = Natives.pixTilingCreate(pixs.Pointer,   nx,   ny,   w,   h,   xoverlap,   yoverlap);
+
+
+	IntPtr _Result = Natives.pixTilingCreate(
+pixs.Pointer,   nx,   ny,   w,   h,   xoverlap,   yoverlap);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new PixTiling(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixtiling.c (178, 1)
 // pixTilingDestroy(ppt) as Object
 // pixTilingDestroy(PIXTILING **) as void
@@ -63,19 +72,26 @@ public static PixTiling pixTilingCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingDestroy/*"/>
 ///  <param name="ppt">[in,out] - will be set to null before returning</param>
+
 public static void pixTilingDestroy(
 				ref PixTiling ppt){
 
+
 	IntPtr pptPtr = IntPtr.Zero; 	if (ppt != null) {pptPtr = ppt.Pointer;}
 
-	Natives.pixTilingDestroy(ref pptPtr);
+	Natives.pixTilingDestroy(
+ref pptPtr);
 	
 
+
+//  
 	if (pptPtr == IntPtr.Zero) {ppt = null;} else { ppt = new PixTiling(pptPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixtiling.c (208, 1)
 // pixTilingGetCount(pt, pnx, pny) as int
 // pixTilingGetCount(PIXTILING *, l_int32 *, l_int32 *) as l_ok
@@ -86,19 +102,27 @@ public static void pixTilingDestroy(
 ///  <param name="pnx">[out][optional] - nx can be null</param>
 ///  <param name="pny">[out][optional] - ny can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixTilingGetCount(
 				 PixTiling pt, 
 				out int pnx, 
 				out int pny){
 
-	int _Result = Natives.pixTilingGetCount(pt.Pointer, out  pnx, out  pny);
+
+
+	int _Result = Natives.pixTilingGetCount(
+pt.Pointer, out  pnx, out  pny);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixtiling.c (231, 1)
 // pixTilingGetSize(pt, pw, ph) as int
 // pixTilingGetSize(PIXTILING *, l_int32 *, l_int32 *) as l_ok
@@ -109,19 +133,27 @@ public static int pixTilingGetCount(
 ///  <param name="pw">[out][optional] - tile width can be null</param>
 ///  <param name="ph">[out][optional] - tile height can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixTilingGetSize(
 				 PixTiling pt, 
 				out int pw, 
 				out int ph){
 
-	int _Result = Natives.pixTilingGetSize(pt.Pointer, out  pw, out  ph);
+
+
+	int _Result = Natives.pixTilingGetSize(
+pt.Pointer, out  pw, out  ph);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixtiling.c (255, 1)
 // pixTilingGetTile(pt, i, j) as Pix
 // pixTilingGetTile(PIXTILING *, l_int32, l_int32) as PIX *
@@ -132,20 +164,28 @@ public static int pixTilingGetSize(
 ///  <param name="i">[in] - tile row index</param>
 ///  <param name="j">[in] - tile column index</param>
 ///   <returns>pixd tile with appropriate boundary (overlap) pixels added, or NULL on error</returns>
+
 public static Pix pixTilingGetTile(
 				 PixTiling pt, 
 				 int i, 
 				 int j){
 
-	IntPtr _Result = Natives.pixTilingGetTile(pt.Pointer,   i,   j);
+
+
+	IntPtr _Result = Natives.pixTilingGetTile(
+pt.Pointer,   i,   j);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixtiling.c (368, 1)
 // pixTilingNoStripOnPaint(pt) as int
 // pixTilingNoStripOnPaint(PIXTILING *) as l_ok
@@ -161,17 +201,25 @@ public static Pix pixTilingGetTile(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingNoStripOnPaint/*"/>
 ///  <param name="pt">[in] - pixtiling</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixTilingNoStripOnPaint(
 				 PixTiling pt){
 
-	int _Result = Natives.pixTilingNoStripOnPaint(pt.Pointer);
+
+
+	int _Result = Natives.pixTilingNoStripOnPaint(
+pt.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixtiling.c (390, 1)
 // pixTilingPaintTile(pixd, i, j, pixs, pt) as int
 // pixTilingPaintTile(PIX *, l_int32, l_int32, PIX *, PIXTILING *) as l_ok
@@ -184,6 +232,7 @@ public static int pixTilingNoStripOnPaint(
 ///  <param name="pixs">[in] - source: tile to be painted from</param>
 ///  <param name="pt">[in] - pixtiling struct</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixTilingPaintTile(
 				 Pix pixd, 
 				 int i, 
@@ -191,8 +240,14 @@ public static int pixTilingPaintTile(
 				 Pix pixs, 
 				 PixTiling pt){
 
-	int _Result = Natives.pixTilingPaintTile(pixd.Pointer,   i,   j, pixs.Pointer, pt.Pointer);
+
+
+	int _Result = Natives.pixTilingPaintTile(
+pixd.Pointer,   i,   j, pixs.Pointer, pt.Pointer);
 	
+
+
+//  
 
 
 

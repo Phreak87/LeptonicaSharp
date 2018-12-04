@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (108, 1)
 // pixExtractBoundary(pixs, type) as Pix
 // pixExtractBoundary(PIX *, l_int32) as PIX *
@@ -19,19 +20,27 @@ public partial class _All {
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="type">[in] - 0 for background pixels 1 for foreground pixels</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixExtractBoundary(
 				 Pix pixs, 
 				 int type){
 
-	IntPtr _Result = Natives.pixExtractBoundary(pixs.Pointer,   type);
+
+
+	IntPtr _Result = Natives.pixExtractBoundary(
+pixs.Pointer,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (148, 1)
 // pixMorphSequenceMasked(pixs, pixm, sequence, dispsep) as Pix
 // pixMorphSequenceMasked(PIX *, PIX *, const char *, l_int32) as PIX *
@@ -49,23 +58,30 @@ public static Pix pixExtractBoundary(
 ///  <param name="sequence">[in] - string specifying sequence of operations</param>
 ///  <param name="dispsep">[in] - horizontal separation in pixels between successive displays use zero to suppress display</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixMorphSequenceMasked(
 				 Pix pixs, 
 				 Pix pixm, 
 				 String sequence, 
 				 int dispsep){
 
+
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	IntPtr _Result = Natives.pixMorphSequenceMasked(pixs.Pointer, pixmPtr,   sequence,   dispsep);
+	IntPtr _Result = Natives.pixMorphSequenceMasked(
+pixs.Pointer, pixmPtr,   sequence,   dispsep);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (195, 1)
 // pixMorphSequenceByComponent(pixs, sequence, connectivity, minw, minh, pboxa) as Pix
 // pixMorphSequenceByComponent(PIX *, const char *, l_int32, l_int32, l_int32, BOXA **) as PIX *
@@ -93,6 +109,7 @@ public static Pix pixMorphSequenceMasked(
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///  <param name="pboxa">[out][optional] - return boxa of c.c. in pixs</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixMorphSequenceByComponent(
 				 Pix pixs, 
 				 String sequence, 
@@ -101,18 +118,24 @@ public static Pix pixMorphSequenceByComponent(
 				 int minh, 
 				out Boxa pboxa){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixMorphSequenceByComponent(pixs.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
+	IntPtr _Result = Natives.pixMorphSequenceByComponent(
+pixs.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (265, 1)
 // pixaMorphSequenceByComponent(pixas, sequence, minw, minh) as Pixa
 // pixaMorphSequenceByComponent(PIXA *, const char *, l_int32, l_int32) as PIXA *
@@ -135,21 +158,29 @@ public static Pix pixMorphSequenceByComponent(
 ///  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaMorphSequenceByComponent(
 				 Pixa pixas, 
 				 String sequence, 
 				 int minw, 
 				 int minh){
 
-	IntPtr _Result = Natives.pixaMorphSequenceByComponent(pixas.Pointer,   sequence,   minw,   minh);
+
+
+	IntPtr _Result = Natives.pixaMorphSequenceByComponent(
+pixas.Pointer,   sequence,   minw,   minh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (348, 1)
 // pixMorphSequenceByRegion(pixs, pixm, sequence, connectivity, minw, minh, pboxa) as Pix
 // pixMorphSequenceByRegion(PIX *, PIX *, const char *, l_int32, l_int32, l_int32, BOXA **) as PIX *
@@ -182,6 +213,7 @@ public static Pixa pixaMorphSequenceByComponent(
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///  <param name="pboxa">[out][optional] - return boxa of c.c. in pixm</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixMorphSequenceByRegion(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -191,18 +223,24 @@ public static Pix pixMorphSequenceByRegion(
 				 int minh, 
 				out Boxa pboxa){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixMorphSequenceByRegion(pixs.Pointer, pixm.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
+	IntPtr _Result = Natives.pixMorphSequenceByRegion(
+pixs.Pointer, pixm.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (427, 1)
 // pixaMorphSequenceByRegion(pixs, pixam, sequence, minw, minh) as Pixa
 // pixaMorphSequenceByRegion(PIX *, PIXA *, const char *, l_int32, l_int32) as PIXA *
@@ -228,6 +266,7 @@ public static Pix pixMorphSequenceByRegion(
 ///  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaMorphSequenceByRegion(
 				 Pix pixs, 
 				 Pixa pixam, 
@@ -235,15 +274,22 @@ public static Pixa pixaMorphSequenceByRegion(
 				 int minw, 
 				 int minh){
 
-	IntPtr _Result = Natives.pixaMorphSequenceByRegion(pixs.Pointer, pixam.Pointer,   sequence,   minw,   minh);
+
+
+	IntPtr _Result = Natives.pixaMorphSequenceByRegion(
+pixs.Pointer, pixam.Pointer,   sequence,   minw,   minh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (502, 1)
 // pixUnionOfMorphOps(pixs, sela, type) as Pix
 // pixUnionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
@@ -254,20 +300,28 @@ public static Pixa pixaMorphSequenceByRegion(
 ///  <param name="sela">[in] - </param>
 ///  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
 ///   <returns>pixd union of the specified morphological operation on pixs for each Sel in the Sela, or NULL on error</returns>
+
 public static Pix pixUnionOfMorphOps(
 				 Pix pixs, 
 				 Sela sela, 
 				 int type){
 
-	IntPtr _Result = Natives.pixUnionOfMorphOps(pixs.Pointer, sela.Pointer,   type);
+
+
+	IntPtr _Result = Natives.pixUnionOfMorphOps(
+pixs.Pointer, sela.Pointer,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (555, 1)
 // pixIntersectionOfMorphOps(pixs, sela, type) as Pix
 // pixIntersectionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
@@ -278,20 +332,28 @@ public static Pix pixUnionOfMorphOps(
 ///  <param name="sela">[in] - </param>
 ///  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
 ///   <returns>pixd intersection of the specified morphological operation on pixs for each Sel in the Sela, or NULL on error</returns>
+
 public static Pix pixIntersectionOfMorphOps(
 				 Pix pixs, 
 				 Sela sela, 
 				 int type){
 
-	IntPtr _Result = Natives.pixIntersectionOfMorphOps(pixs.Pointer, sela.Pointer,   type);
+
+
+	IntPtr _Result = Natives.pixIntersectionOfMorphOps(
+pixs.Pointer, sela.Pointer,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (613, 1)
 // pixSelectiveConnCompFill(pixs, connectivity, minw, minh) as Pix
 // pixSelectiveConnCompFill(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -303,21 +365,29 @@ public static Pix pixIntersectionOfMorphOps(
 ///  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///   <returns>pix with holes filled in selected c.c., or NULL on error</returns>
+
 public static Pix pixSelectiveConnCompFill(
 				 Pix pixs, 
 				 int connectivity, 
 				 int minw, 
 				 int minh){
 
-	IntPtr _Result = Natives.pixSelectiveConnCompFill(pixs.Pointer,   connectivity,   minw,   minh);
+
+
+	IntPtr _Result = Natives.pixSelectiveConnCompFill(
+pixs.Pointer,   connectivity,   minw,   minh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (684, 1)
 // pixRemoveMatchedPattern(pixs, pixp, pixe, x0, y0, dsize) as int
 // pixRemoveMatchedPattern(PIX *, PIX *, PIX *, l_int32, l_int32, l_int32) as l_ok
@@ -342,6 +412,7 @@ public static Pix pixSelectiveConnCompFill(
 ///  <param name="y0">[in] - center of Sel</param>
 ///  <param name="dsize">[in] - number of pixels on each side by which pixp is dilated before being subtracted from pixs valid values are {0, 1, 2, 3, 4}</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRemoveMatchedPattern(
 				 Pix pixs, 
 				 Pix pixp, 
@@ -350,14 +421,21 @@ public static int pixRemoveMatchedPattern(
 				 int y0, 
 				 int dsize){
 
-	int _Result = Natives.pixRemoveMatchedPattern(pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   dsize);
+
+
+	int _Result = Natives.pixRemoveMatchedPattern(
+pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   dsize);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (789, 1)
 // pixDisplayMatchedPattern(pixs, pixp, pixe, x0, y0, color, scale, nlevels) as Pix
 // pixDisplayMatchedPattern(PIX *, PIX *, PIX *, l_int32, l_int32, l_uint32, l_float32, l_int32) as PIX *
@@ -388,6 +466,7 @@ public static int pixRemoveMatchedPattern(
 ///  <param name="scale">[in] - reduction factor for output pixd</param>
 ///  <param name="nlevels">[in] - if scale  is smaller 1.0, threshold to this number of levels</param>
 ///   <returns>pixd 8 bpp, colormapped, or NULL on error</returns>
+
 public static Pix pixDisplayMatchedPattern(
 				 Pix pixs, 
 				 Pix pixp, 
@@ -398,15 +477,22 @@ public static Pix pixDisplayMatchedPattern(
 				 Single scale, 
 				 int nlevels){
 
-	IntPtr _Result = Natives.pixDisplayMatchedPattern(pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   color,   scale,   nlevels);
+
+
+	IntPtr _Result = Natives.pixDisplayMatchedPattern(
+pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   color,   scale,   nlevels);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (901, 1)
 // pixaExtendByMorph(pixas, type, niters, sel, include) as Pixa
 // pixaExtendByMorph(PIXA *, l_int32, l_int32, SEL *, l_int32) as PIXA *
@@ -430,6 +516,7 @@ public static Pix pixDisplayMatchedPattern(
 ///  <param name="sel">[in] - used for dilation, erosion uses 2x2 if null</param>
 ///  <param name="include">[in] - 1 to include a copy of the input pixas in pixad 0 to omit</param>
 ///   <returns>pixad   with derived pix, using all iterations, or NULL on error</returns>
+
 public static Pixa pixaExtendByMorph(
 				 Pixa pixas, 
 				 int type, 
@@ -437,15 +524,22 @@ public static Pixa pixaExtendByMorph(
 				 Sel sel, 
 				 int include){
 
-	IntPtr _Result = Natives.pixaExtendByMorph(pixas.Pointer,   type,   niters, sel.Pointer,   include);
+
+
+	IntPtr _Result = Natives.pixaExtendByMorph(
+pixas.Pointer,   type,   niters, sel.Pointer,   include);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (973, 1)
 // pixaExtendByScaling(pixas, nasc, type, include) as Pixa
 // pixaExtendByScaling(PIXA *, NUMA *, l_int32, l_int32) as PIXA *
@@ -465,21 +559,29 @@ public static Pixa pixaExtendByMorph(
 ///  <param name="type">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
 ///  <param name="include">[in] - 1 to include a copy of the input pixas in pixad 0 to omit</param>
 ///   <returns>pixad   with derived pix, using all scalings, or NULL on error</returns>
+
 public static Pixa pixaExtendByScaling(
 				 Pixa pixas, 
 				 Numa nasc, 
 				 int type, 
 				 int include){
 
-	IntPtr _Result = Natives.pixaExtendByScaling(pixas.Pointer, nasc.Pointer,   type,   include);
+
+
+	IntPtr _Result = Natives.pixaExtendByScaling(
+pixas.Pointer, nasc.Pointer,   type,   include);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1041, 1)
 // pixSeedfillMorph(pixs, pixm, maxiters, connectivity) as Pix
 // pixSeedfillMorph(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -499,21 +601,29 @@ public static Pixa pixaExtendByScaling(
 ///  <param name="maxiters">[in] - use 0 to go to completion</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd after filling into the mask or NULL on error</returns>
+
 public static Pix pixSeedfillMorph(
 				 Pix pixs, 
 				 Pix pixm, 
 				 int maxiters, 
 				 int connectivity){
 
-	IntPtr _Result = Natives.pixSeedfillMorph(pixs.Pointer, pixm.Pointer,   maxiters,   connectivity);
+
+
+	IntPtr _Result = Natives.pixSeedfillMorph(
+pixs.Pointer, pixm.Pointer,   maxiters,   connectivity);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1103, 1)
 // pixRunHistogramMorph(pixs, runtype, direction, maxsize) as Numa
 // pixRunHistogramMorph(PIX *, l_int32, l_int32, l_int32) as NUMA *
@@ -525,21 +635,29 @@ public static Pix pixSeedfillMorph(
 ///  <param name="direction">[in] - L_HORIZ, L_VERT</param>
 ///  <param name="maxsize">[in] - size of largest runlength counted</param>
 ///   <returns>numa of run-lengths</returns>
+
 public static Numa pixRunHistogramMorph(
 				 Pix pixs, 
 				 int runtype, 
 				 int direction, 
 				 int maxsize){
 
-	IntPtr _Result = Natives.pixRunHistogramMorph(pixs.Pointer,   runtype,   direction,   maxsize);
+
+
+	IntPtr _Result = Natives.pixRunHistogramMorph(
+pixs.Pointer,   runtype,   direction,   maxsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1203, 1)
 // pixTophat(pixs, hsize, vsize, type) as Pix
 // pixTophat(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -561,21 +679,29 @@ public static Numa pixRunHistogramMorph(
 ///  <param name="vsize">[in] - ditto</param>
 ///  <param name="type">[in] - L_TOPHAT_WHITE: image - opening L_TOPHAT_BLACK: closing - image</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixTophat(
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize, 
 				 int type){
 
-	IntPtr _Result = Natives.pixTophat(pixs.Pointer,   hsize,   vsize,   type);
+
+
+	IntPtr _Result = Natives.pixTophat(
+pixs.Pointer,   hsize,   vsize,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1303, 1)
 // pixHDome(pixs, height, connectivity) as Pix
 // pixHDome(PIX *, l_int32, l_int32) as PIX *
@@ -629,20 +755,28 @@ public static Pix pixTophat(
 ///  <param name="height">[in] - of seed below the filling maskhdome must be greater or equal 0</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
+
 public static Pix pixHDome(
 				 Pix pixs, 
 				 int height, 
 				 int connectivity){
 
-	IntPtr _Result = Natives.pixHDome(pixs.Pointer,   height,   connectivity);
+
+
+	IntPtr _Result = Natives.pixHDome(
+pixs.Pointer,   height,   connectivity);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1359, 1)
 // pixFastTophat(pixs, xsize, ysize, type) as Pix
 // pixFastTophat(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -673,21 +807,29 @@ public static Pix pixHDome(
 ///  <param name="ysize">[in] - height of max/min op, smoothing any integer greater or equal 1</param>
 ///  <param name="type">[in] - L_TOPHAT_WHITE: image - min L_TOPHAT_BLACK: max - image</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixFastTophat(
 				 Pix pixs, 
 				 int xsize, 
 				 int ysize, 
 				 int type){
 
-	IntPtr _Result = Natives.pixFastTophat(pixs.Pointer,   xsize,   ysize,   type);
+
+
+	IntPtr _Result = Natives.pixFastTophat(
+pixs.Pointer,   xsize,   ysize,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1421, 1)
 // pixMorphGradient(pixs, hsize, vsize, smoothing) as Pix
 // pixMorphGradient(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -699,21 +841,29 @@ public static Pix pixFastTophat(
 ///  <param name="vsize">[in] - ditto</param>
 ///  <param name="smoothing">[in] - half-width of convolution smoothing filter. The width is (2  smoothing + 1, so 0 is no-op.</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixMorphGradient(
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize, 
 				 int smoothing){
 
-	IntPtr _Result = Natives.pixMorphGradient(pixs.Pointer,   hsize,   vsize,   smoothing);
+
+
+	IntPtr _Result = Natives.pixMorphGradient(
+pixs.Pointer,   hsize,   vsize,   smoothing);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1475, 1)
 // pixaCentroids(pixa) as Pta
 // pixaCentroids(PIXA *) as PTA *
@@ -727,18 +877,26 @@ public static Pix pixMorphGradient(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCentroids/*"/>
 ///  <param name="pixa">[in] - of components 1 or 8 bpp</param>
 ///   <returns>pta of centroids relative to the UL corner of each pix, or NULL on error</returns>
+
 public static Pta pixaCentroids(
 				 Pixa pixa){
 
-	IntPtr _Result = Natives.pixaCentroids(pixa.Pointer);
+
+
+	IntPtr _Result = Natives.pixaCentroids(
+pixa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphapp.c (1527, 1)
 // pixCentroid(pix, centtab, sumtab, pxave, pyave) as int
 // pixCentroid(PIX *, l_int32 *, l_int32 *, l_float32 *, l_float32 *) as l_ok
@@ -755,6 +913,7 @@ public static Pta pixaCentroids(
 ///  <param name="pxave">[out] - coordinates of centroid, relative to the UL corner of the pix</param>
 ///  <param name="pyave">[out] - coordinates of centroid, relative to the UL corner of the pix</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixCentroid(
 				 Pix pix, 
 				 int[] centtab, 
@@ -762,8 +921,14 @@ public static int pixCentroid(
 				out Single pxave, 
 				out Single pyave){
 
-	int _Result = Natives.pixCentroid(pix.Pointer,   centtab,   sumtab, out  pxave, out  pyave);
+
+
+	int _Result = Natives.pixCentroid(
+pix.Pointer,   centtab,   sumtab, out  pxave, out  pyave);
 	
+
+
+//  
 
 
 

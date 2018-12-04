@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (182, 1)
 // l_jpegSetQuality(new_quality) as int
 // l_jpegSetQuality(l_int32) as l_int32
@@ -25,17 +26,25 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_jpegSetQuality/*"/>
 ///  <param name="new_quality">[in] - 1 - 100 75 is default 0 defaults to 75</param>
 ///   <returns>prev           previous quality</returns>
+
 public static int l_jpegSetQuality(
 				 int new_quality){
 
-	int _Result = Natives.l_jpegSetQuality(  new_quality);
+
+
+	int _Result = Natives.l_jpegSetQuality(
+  new_quality);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (217, 1)
 // setLeptDebugOK(allow) as Object
 // setLeptDebugOK(l_int32) as void
@@ -51,16 +60,24 @@ public static int l_jpegSetQuality(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/setLeptDebugOK/*"/>
 ///  <param name="allow">[in] - TRUE (1) or FALSE (0)</param>
+
 public static void setLeptDebugOK(
 				 int allow){
 
-	Natives.setLeptDebugOK(  allow);
+
+
+	Natives.setLeptDebugOK(
+  allow);
 	
+
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (242, 1)
 // pixaWriteFiles(rootname, pixa, format) as int
 // pixaWriteFiles(const char *, PIXA *, l_int32) as l_ok
@@ -75,19 +92,27 @@ public static void setLeptDebugOK(
 ///  <param name="pixa">[in] - </param>
 ///  <param name="format">[in] - defined in imageio.h see notes for default</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixaWriteFiles(
 				 String rootname, 
 				 Pixa pixa, 
 				 IFF format){
 
-	int _Result = Natives.pixaWriteFiles(  rootname, pixa.Pointer,  (int) format);
+
+
+	int _Result = Natives.pixaWriteFiles(
+  rootname, pixa.Pointer,  (int) format);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (295, 1)
 // pixWriteDebug(fname, pix, format) as int
 // pixWriteDebug(const char *, PIX *, l_int32) as l_ok
@@ -106,19 +131,27 @@ public static int pixaWriteFiles(
 ///  <param name="pix">[in] - </param>
 ///  <param name="format">[in] - defined in imageio.h</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixWriteDebug(
 				 String fname, 
 				 Pix pix, 
 				 IFF format){
 
-	int _Result = Natives.pixWriteDebug(  fname, pix.Pointer,  (int) format);
+
+
+	int _Result = Natives.pixWriteDebug(
+  fname, pix.Pointer,  (int) format);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (332, 1)
 // pixWrite(fname, pix, format) as int
 // pixWrite(const char *, PIX *, l_int32) as l_ok
@@ -142,19 +175,27 @@ public static int pixWriteDebug(
 ///  <param name="pix">[in] - </param>
 ///  <param name="format">[in] - defined in imageio.h</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixWrite(
 				 String fname, 
 				 Pix pix, 
 				 IFF format){
 
-	int _Result = Natives.pixWrite(  fname, pix.Pointer,  (int) format);
+
+
+	int _Result = Natives.pixWrite(
+  fname, pix.Pointer,  (int) format);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (365, 1)
 // pixWriteAutoFormat(filename, pix) as int
 // pixWriteAutoFormat(const char *, PIX *) as l_ok
@@ -164,18 +205,26 @@ public static int pixWrite(
 ///  <param name="filename">[in] - </param>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixWriteAutoFormat(
 				 String filename, 
 				 Pix pix){
 
-	int _Result = Natives.pixWriteAutoFormat(  filename, pix.Pointer);
+
+
+	int _Result = Natives.pixWriteAutoFormat(
+  filename, pix.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (392, 1)
 // pixWriteStream(fp, pix, format) as int
 // pixWriteStream(FILE *, PIX *, l_int32) as l_ok
@@ -186,19 +235,27 @@ public static int pixWriteAutoFormat(
 ///  <param name="pix">[in] - </param>
 ///  <param name="format">[in] - </param>
 ///   <returns>0 if OK 1 on error.</returns>
+
 public static int pixWriteStream(
 				 FILE fp, 
 				 Pix pix, 
 				 IFF format){
 
-	int _Result = Natives.pixWriteStream(fp.Pointer, pix.Pointer,  (int) format);
+
+
+	int _Result = Natives.pixWriteStream(
+fp.Pointer, pix.Pointer,  (int) format);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (484, 1)
 // pixWriteImpliedFormat(filename, pix, quality, progressive) as int
 // pixWriteImpliedFormat(const char *, PIX *, l_int32, l_int32) as l_ok
@@ -217,20 +274,28 @@ public static int pixWriteStream(
 ///  <param name="quality">[in] - iff JPEG 1 - 100, 0 for default</param>
 ///  <param name="progressive">[in] - iff JPEG 0 for baseline seq., 1 for progressive</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixWriteImpliedFormat(
 				 String filename, 
 				 Pix pix, 
 				 int quality, 
 				 int progressive){
 
-	int _Result = Natives.pixWriteImpliedFormat(  filename, pix.Pointer,   quality,   progressive);
+
+
+	int _Result = Natives.pixWriteImpliedFormat(
+  filename, pix.Pointer,   quality,   progressive);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (549, 1)
 // pixChooseOutputFormat(pix) as int
 // pixChooseOutputFormat(PIX *) as l_int32
@@ -246,17 +311,25 @@ public static int pixWriteImpliedFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixChooseOutputFormat/*"/>
 ///  <param name="pix">[in] - </param>
 ///   <returns>output format, or 0 on error</returns>
+
 public static int pixChooseOutputFormat(
 				 Pix pix){
 
-	int _Result = Natives.pixChooseOutputFormat(pix.Pointer);
+
+
+	int _Result = Natives.pixChooseOutputFormat(
+pix.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (584, 1)
 // getImpliedFileFormat(filename) as int
 // getImpliedFileFormat(const char *) as l_int32
@@ -269,17 +342,25 @@ public static int pixChooseOutputFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getImpliedFileFormat/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>output format, or IFF_UNKNOWN on error or invalid extension.</returns>
+
 public static int getImpliedFileFormat(
 				 String filename){
 
-	int _Result = Natives.getImpliedFileFormat(  filename);
+
+
+	int _Result = Natives.getImpliedFileFormat(
+  filename);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (625, 1)
 // pixGetAutoFormat(pix, pformat) as int
 // pixGetAutoFormat(PIX *, l_int32 *) as l_ok
@@ -298,18 +379,26 @@ public static int getImpliedFileFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetAutoFormat/*"/>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixGetAutoFormat(
 				 Pix pix, 
 				 object pformat){
 
-	int _Result = Natives.pixGetAutoFormat(pix.Pointer,   pformat);
+
+
+	int _Result = Natives.pixGetAutoFormat(
+pix.Pointer,   pformat);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (666, 1)
 // getFormatExtension(format) as String
 // getFormatExtension(l_int32) as const char *
@@ -322,17 +411,25 @@ public static int pixGetAutoFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getFormatExtension/*"/>
 ///  <param name="format">[in] - integer</param>
 ///   <returns>extension string, or NULL if format is out of range</returns>
+
 public static String getFormatExtension(
 				 IFF format){
 
-	String _Result = Natives.getFormatExtension( (int) format);
+
+
+	String _Result = Natives.getFormatExtension(
+ (int) format);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (701, 1)
 // pixWriteMem(pdata, psize, pix, format) as int
 // pixWriteMem(l_uint8 **, size_t *, PIX *, l_int32) as l_ok
@@ -355,23 +452,34 @@ public static String getFormatExtension(
 ///  <param name="pix">[in] - </param>
 ///  <param name="format">[in] - defined in imageio.h</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Pix pix, 
 				 IFF format){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMem(out  pdataPtr, out  psize, pix.Pointer,  (int) format);
+	int _Result = Natives.pixWriteMem(
+out  pdataPtr, out  psize, pix.Pointer,  (int) format);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[psize];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (801, 1)
 // l_fileDisplay(fname, x, y, scale) as int
 // l_fileDisplay(const char *, l_int32, l_int32, l_float32) as l_ok
@@ -392,20 +500,28 @@ public static int pixWriteMem(
 ///  <param name="y">[in] - location of display frame on the screen</param>
 ///  <param name="scale">[in] - scale factor (use 0 to skip display)</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int l_fileDisplay(
 				 String fname, 
 				 int x, 
 				 int y, 
 				 Single scale){
 
-	int _Result = Natives.l_fileDisplay(  fname,   x,   y,   scale);
+
+
+	int _Result = Natives.l_fileDisplay(
+  fname,   x,   y,   scale);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (877, 1)
 // pixDisplay(pixs, x, y) as int
 // pixDisplay(PIX *, l_int32, l_int32) as l_ok
@@ -450,21 +566,28 @@ public static int l_fileDisplay(
 ///  <param name="x">[in] - location of display frame on the screen</param>
 ///  <param name="y">[in] - location of display frame on the screen</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixDisplay(
 				 Pix pixs, 
 				 int x, 
 				 int y){
 
+
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixDisplay(pixs.Pointer,   x,   y);
+	int _Result = Natives.pixDisplay(
+pixs.Pointer,   x,   y);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (901, 1)
 // pixDisplayWithTitle(pixs, x, y, title, dispflag) as int
 // pixDisplayWithTitle(PIX *, l_int32, l_int32, const char *, l_int32) as l_ok
@@ -481,6 +604,7 @@ public static int pixDisplay(
 ///  <param name="title">[in][optional] - on frame can be NULL</param>
 ///  <param name="dispflag">[in] - 1 to write, else disabled</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixDisplayWithTitle(
 				 Pix pixs, 
 				 int x, 
@@ -488,16 +612,22 @@ public static int pixDisplayWithTitle(
 				 String title, 
 				 int dispflag){
 
+
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixDisplayWithTitle(pixs.Pointer,   x,   y,   title,   dispflag);
+	int _Result = Natives.pixDisplayWithTitle(
+pixs.Pointer,   x,   y,   title,   dispflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (1077, 1)
 // pixSaveTiled(pixs, pixa, scalefactor, newrow, space, dp) as int
 // pixSaveTiled(PIX *, PIXA *, l_float32, l_int32, l_int32, l_int32) as l_ok
@@ -511,6 +641,7 @@ public static int pixDisplayWithTitle(
 ///  <param name="space">[in] - horizontal and vertical spacing, in pixels</param>
 ///  <param name="dp">[in] - depth of pixa 8 or 32 bpp only used on first call</param>
 ///   <returns>0 if OK, 1 on error.</returns>
+
 public static int pixSaveTiled(
 				 Pix pixs, 
 				 Pixa pixa, 
@@ -519,14 +650,21 @@ public static int pixSaveTiled(
 				 int space, 
 				 int dp){
 
-	int _Result = Natives.pixSaveTiled(pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   dp);
+
+
+	int _Result = Natives.pixSaveTiled(
+pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   dp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (1128, 1)
 // pixSaveTiledOutline(pixs, pixa, scalefactor, newrow, space, linewidth, dp) as int
 // pixSaveTiledOutline(PIX *, PIXA *, l_float32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -569,6 +707,7 @@ public static int pixSaveTiled(
 ///  <param name="linewidth">[in] - width of added outline for image 0 for no outline</param>
 ///  <param name="dp">[in] - depth of pixa 8 or 32 bpp only used on first call</param>
 ///   <returns>0 if OK, 1 on error.</returns>
+
 public static int pixSaveTiledOutline(
 				 Pix pixs, 
 				 Pixa pixa, 
@@ -578,14 +717,21 @@ public static int pixSaveTiledOutline(
 				 int linewidth, 
 				 int dp){
 
-	int _Result = Natives.pixSaveTiledOutline(pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   linewidth,   dp);
+
+
+	int _Result = Natives.pixSaveTiledOutline(
+pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   linewidth,   dp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (1258, 1)
 // pixSaveTiledWithText(pixs, pixa, outwidth, newrow, space, linewidth, bmf, textstr, val, location) as int
 // pixSaveTiledWithText(PIX *, PIXA *, l_int32, l_int32, l_int32, l_int32, L_BMF *, const char *, l_uint32, l_int32) as l_ok
@@ -628,6 +774,7 @@ public static int pixSaveTiledOutline(
 ///  <param name="val">[in] - color to set the text</param>
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_AT_TOP, L_ADD_AT_BOT, L_ADD_BELOW</param>
 ///   <returns>0 if OK, 1 on error.</returns>
+
 public static int pixSaveTiledWithText(
 				 Pix pixs, 
 				 Pixa pixa, 
@@ -640,32 +787,46 @@ public static int pixSaveTiledWithText(
 				 uint val, 
 				 int location){
 
+
 	IntPtr bmfPtr = IntPtr.Zero; 	if (bmf != null) {bmfPtr = bmf.Pointer;}
 
-	int _Result = Natives.pixSaveTiledWithText(pixs.Pointer, pixa.Pointer,   outwidth,   newrow,   space,   linewidth, bmfPtr,   textstr,   val,   location);
+	int _Result = Natives.pixSaveTiledWithText(
+pixs.Pointer, pixa.Pointer,   outwidth,   newrow,   space,   linewidth, bmfPtr,   textstr,   val,   location);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (1300, 1)
 // l_chooseDisplayProg(selection) as Object
 // l_chooseDisplayProg(l_int32) as void
 ///  <remarks>
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_chooseDisplayProg/*"/>
+
 public static void l_chooseDisplayProg(
 				 int selection){
 
-	Natives.l_chooseDisplayProg(  selection);
+
+
+	Natives.l_chooseDisplayProg(
+  selection);
 	
+
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // writefile.c (1347, 1)
 // pixDisplayWrite(pixs, reduction) as int
 // pixDisplayWrite(PIX *, l_int32) as l_ok
@@ -698,14 +859,20 @@ public static void l_chooseDisplayProg(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayWrite/*"/>
 ///  <param name="reduction">[in] - -1 to reset/erase 0 to disable otherwise this is a reduction factor</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixDisplayWrite(
 				 Pix pixs, 
 				 int reduction){
 
+
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixDisplayWrite(pixs.Pointer,   reduction);
+	int _Result = Natives.pixDisplayWrite(
+pixs.Pointer,   reduction);
 	
+
+
+//  
 
 
 

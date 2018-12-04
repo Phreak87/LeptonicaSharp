@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (145, 1)
 // pixReadStreamPnm(fp) as Pix
 // pixReadStreamPnm(FILE *) as PIX *
@@ -14,18 +15,26 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamPnm/*"/>
 ///  <param name="fp">[in] - file stream opened for read</param>
 ///   <returns>pix, or NULL on error</returns>
+
 public static Pix pixReadStreamPnm(
 				 FILE fp){
 
-	IntPtr _Result = Natives.pixReadStreamPnm(fp.Pointer);
+
+
+	IntPtr _Result = Natives.pixReadStreamPnm(
+fp.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (447, 1)
 // readHeaderPnm(filename, pw, ph, pd, ptype, pbps, pspp) as int
 // readHeaderPnm(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -40,6 +49,7 @@ public static Pix pixReadStreamPnm(
 ///  <param name="pbps">[out][optional] - bits/sample</param>
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int readHeaderPnm(
 				 String filename, 
 				out int pw, 
@@ -49,14 +59,21 @@ public static int readHeaderPnm(
 				out int pbps, 
 				out int pspp){
 
-	int _Result = Natives.readHeaderPnm(  filename, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
+
+
+	int _Result = Natives.readHeaderPnm(
+  filename, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (490, 1)
 // freadHeaderPnm(fp, pw, ph, pd, ptype, pbps, pspp) as int
 // freadHeaderPnm(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -71,6 +88,7 @@ public static int readHeaderPnm(
 ///  <param name="pbps">[out][optional] - bits/sample</param>
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int freadHeaderPnm(
 				 FILE fp, 
 				out int pw, 
@@ -80,14 +98,21 @@ public static int freadHeaderPnm(
 				out int pbps, 
 				out int pspp){
 
-	int _Result = Natives.freadHeaderPnm(fp.Pointer, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
+
+
+	int _Result = Natives.freadHeaderPnm(
+fp.Pointer, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (667, 1)
 // pixWriteStreamPnm(fp, pix) as int
 // pixWriteStreamPnm(FILE *, PIX *) as l_ok
@@ -106,18 +131,26 @@ public static int freadHeaderPnm(
 ///  <param name="fp">[in] - file stream opened for write</param>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixWriteStreamPnm(
 				 FILE fp, 
 				 Pix pix){
 
-	int _Result = Natives.pixWriteStreamPnm(fp.Pointer, pix.Pointer);
+
+
+	int _Result = Natives.pixWriteStreamPnm(
+fp.Pointer, pix.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (786, 1)
 // pixWriteStreamAsciiPnm(fp, pix) as int
 // pixWriteStreamAsciiPnm(FILE *, PIX *) as l_ok
@@ -127,18 +160,26 @@ public static int pixWriteStreamPnm(
 ///  <param name="fp">[in] - file stream opened for write</param>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp to pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap to pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb to rgb ppm P3</returns>
+
 public static int pixWriteStreamAsciiPnm(
 				 FILE fp, 
 				 Pix pix){
 
-	int _Result = Natives.pixWriteStreamAsciiPnm(fp.Pointer, pix.Pointer);
+
+
+	int _Result = Natives.pixWriteStreamAsciiPnm(
+fp.Pointer, pix.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (908, 1)
 // pixWriteStreamPam(fp, pix) as int
 // pixWriteStreamPam(FILE *, PIX *) as l_ok
@@ -154,18 +195,26 @@ public static int pixWriteStreamAsciiPnm(
 ///  <param name="fp">[in] - file stream opened for write</param>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixWriteStreamPam(
 				 FILE fp, 
 				 Pix pix){
 
-	int _Result = Natives.pixWriteStreamPam(fp.Pointer, pix.Pointer);
+
+
+	int _Result = Natives.pixWriteStreamPam(
+fp.Pointer, pix.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (1084, 1)
 // pixReadMemPnm(data, size) as Pix
 // pixReadMemPnm(const l_uint8 *, size_t) as PIX *
@@ -178,19 +227,27 @@ public static int pixWriteStreamPam(
 ///  <param name="data">[in] - const pnm-encoded</param>
 ///  <param name="size">[in] - of data</param>
 ///   <returns>pix, or NULL on error</returns>
+
 public static Pix pixReadMemPnm(
 				 Byte[] data, 
 				 uint size){
 
-	IntPtr _Result = Natives.pixReadMemPnm(  data,   size);
+
+
+	IntPtr _Result = Natives.pixReadMemPnm(
+  data,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (1117, 1)
 // readHeaderMemPnm(data, size, pw, ph, pd, ptype, pbps, pspp) as int
 // readHeaderMemPnm(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -206,6 +263,7 @@ public static Pix pixReadMemPnm(
 ///  <param name="pbps">[out][optional] - bits/sample</param>
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int readHeaderMemPnm(
 				 Byte[] data, 
 				 uint size, 
@@ -216,14 +274,21 @@ public static int readHeaderMemPnm(
 				out int pbps, 
 				out int pspp){
 
-	int _Result = Natives.readHeaderMemPnm(  data,   size, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
+
+
+	int _Result = Natives.readHeaderMemPnm(
+  data,   size, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (1159, 1)
 // pixWriteMemPnm(pdata, psize, pix) as int
 // pixWriteMemPnm(l_uint8 **, size_t *, PIX *) as l_ok
@@ -238,22 +303,33 @@ public static int readHeaderMemPnm(
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixWriteMemPnm(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Pix pix){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMemPnm(out  pdataPtr, out  psize, pix.Pointer);
+	int _Result = Natives.pixWriteMemPnm(
+out  pdataPtr, out  psize, pix.Pointer);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[psize];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pnmio.c (1214, 1)
 // pixWriteMemPam(pdata, psize, pix) as int
 // pixWriteMemPam(l_uint8 **, size_t *, PIX *) as l_ok
@@ -268,17 +344,27 @@ public static int pixWriteMemPnm(
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixWriteMemPam(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Pix pix){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMemPam(out  pdataPtr, out  psize, pix.Pointer);
+	int _Result = Natives.pixWriteMemPam(
+out  pdataPtr, out  psize, pix.Pointer);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[psize];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;

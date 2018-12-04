@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (280, 1)
 // pixAffineSampledPta(pixs, ptad, ptas, incolor) as Pix
 // pixAffineSampledPta(PIX *, PTA *, PTA *, l_int32) as PIX *
@@ -42,21 +43,29 @@ public partial class _All {
 ///  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffineSampledPta(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixAffineSampledPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
+
+
+	IntPtr _Result = Natives.pixAffineSampledPta(
+pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (330, 1)
 // pixAffineSampled(pixs, vc, incolor) as Pix
 // pixAffineSampled(PIX *, l_float32 *, l_int32) as PIX *
@@ -76,20 +85,28 @@ public static Pix pixAffineSampledPta(
 ///  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffineSampled(
 				 Pix pixs, 
 				 Single[] vc, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixAffineSampled(pixs.Pointer,   vc,   incolor);
+
+
+	IntPtr _Result = Natives.pixAffineSampled(
+pixs.Pointer,   vc,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (423, 1)
 // pixAffinePta(pixs, ptad, ptas, incolor) as Pix
 // pixAffinePta(PIX *, PTA *, PTA *, l_int32) as PIX *
@@ -106,21 +123,29 @@ public static Pix pixAffineSampled(
 ///  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffinePta(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixAffinePta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
+
+
+	IntPtr _Result = Natives.pixAffinePta(
+pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (493, 1)
 // pixAffine(pixs, vc, incolor) as Pix
 // pixAffine(PIX *, l_float32 *, l_int32) as PIX *
@@ -136,20 +161,28 @@ public static Pix pixAffinePta(
 ///  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffine(
 				 Pix pixs, 
 				 Single[] vc, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixAffine(pixs.Pointer,   vc,   incolor);
+
+
+	IntPtr _Result = Natives.pixAffine(
+pixs.Pointer,   vc,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (549, 1)
 // pixAffinePtaColor(pixs, ptad, ptas, colorval) as Pix
 // pixAffinePtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
@@ -161,21 +194,29 @@ public static Pix pixAffine(
 ///  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffinePtaColor(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 uint colorval){
 
-	IntPtr _Result = Natives.pixAffinePtaColor(pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
+
+
+	IntPtr _Result = Natives.pixAffinePtaColor(
+pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (590, 1)
 // pixAffineColor(pixs, vc, colorval) as Pix
 // pixAffineColor(PIX *, l_float32 *, l_uint32) as PIX *
@@ -186,20 +227,28 @@ public static Pix pixAffinePtaColor(
 ///  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffineColor(
 				 Pix pixs, 
 				 Single[] vc, 
 				 uint colorval){
 
-	IntPtr _Result = Natives.pixAffineColor(pixs.Pointer,   vc,   colorval);
+
+
+	IntPtr _Result = Natives.pixAffineColor(
+pixs.Pointer,   vc,   colorval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (652, 1)
 // pixAffinePtaGray(pixs, ptad, ptas, grayval) as Pix
 // pixAffinePtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
@@ -211,21 +260,29 @@ public static Pix pixAffineColor(
 ///  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffinePtaGray(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 byte grayval){
 
-	IntPtr _Result = Natives.pixAffinePtaGray(pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
+
+
+	IntPtr _Result = Natives.pixAffinePtaGray(
+pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (694, 1)
 // pixAffineGray(pixs, vc, grayval) as Pix
 // pixAffineGray(PIX *, l_float32 *, l_uint8) as PIX *
@@ -236,20 +293,28 @@ public static Pix pixAffinePtaGray(
 ///  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffineGray(
 				 Pix pixs, 
 				 Single[] vc, 
 				 byte grayval){
 
-	IntPtr _Result = Natives.pixAffineGray(pixs.Pointer,   vc,   grayval);
+
+
+	IntPtr _Result = Natives.pixAffineGray(
+pixs.Pointer,   vc,   grayval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (782, 1)
 // pixAffinePtaWithAlpha(pixs, ptad, ptas, pixg, fract, border) as Pix
 // pixAffinePtaWithAlpha(PIX *, PTA *, PTA *, PIX *, l_float32, l_int32) as PIX *
@@ -298,6 +363,7 @@ public static Pix pixAffineGray(
 ///  <param name="fract">[in] - between 0.0 and 1.0, with 0.0 fully transparent and 1.0 fully opaque</param>
 ///  <param name="border">[in] - of pixels added to capture transformed source pixels</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffinePtaWithAlpha(
 				 Pix pixs, 
 				 Pta ptad, 
@@ -306,17 +372,23 @@ public static Pix pixAffinePtaWithAlpha(
 				 Single fract, 
 				 int border){
 
+
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixAffinePtaWithAlpha(pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
+	IntPtr _Result = Natives.pixAffinePtaWithAlpha(
+pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (931, 1)
 // getAffineXformCoeffs(ptas, ptad, pvc) as int
 // getAffineXformCoeffs(PTA *, PTA *, l_float32 **) as l_ok
@@ -375,22 +447,29 @@ public static Pix pixAffinePtaWithAlpha(
 ///  <param name="ptad">[in] - transformed 3 points primed</param>
 ///  <param name="pvc">[out] - vector of coefficients of transform</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int getAffineXformCoeffs(
 				 Pta ptas, 
 				 Pta ptad, 
 				out List<Single[]> pvc){
 
+
 	IntPtr pvcPtr = IntPtr.Zero;
 
-	int _Result = Natives.getAffineXformCoeffs(ptas.Pointer, ptad.Pointer, out  pvcPtr);
+	int _Result = Natives.getAffineXformCoeffs(
+ptas.Pointer, ptad.Pointer, out  pvcPtr);
 	
 
+
+//  
 	if (pvcPtr == null) {pvc = null;} else { pvc = null; };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (1024, 1)
 // affineInvertXform(vc, pvci) as int
 // affineInvertXform(l_float32 *, l_float32 **) as l_ok
@@ -422,21 +501,28 @@ public static int getAffineXformCoeffs(
 ///  <param name="vc">[in] - vector of 6 coefficients</param>
 ///  <param name="pvci">[out] - inverted transform</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int affineInvertXform(
 				 Single[] vc, 
 				out List<Single[]> pvci){
 
+
 	IntPtr pvciPtr = IntPtr.Zero;
 
-	int _Result = Natives.affineInvertXform(  vc, out  pvciPtr);
+	int _Result = Natives.affineInvertXform(
+  vc, out  pvciPtr);
 	
 
+
+//  
 	if (pvciPtr == null) {pvci = null;} else { pvci = null; };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (1107, 1)
 // affineXformSampledPt(vc, x, y, pxp, pyp) as int
 // affineXformSampledPt(l_float32 *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -454,6 +540,7 @@ public static int affineInvertXform(
 ///  <param name="pxp">[out] - transformed point</param>
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int affineXformSampledPt(
 				 Single[] vc, 
 				 int x, 
@@ -461,14 +548,21 @@ public static int affineXformSampledPt(
 				out int pxp, 
 				out int pyp){
 
-	int _Result = Natives.affineXformSampledPt(  vc,   x,   y, out  pxp, out  pyp);
+
+
+	int _Result = Natives.affineXformSampledPt(
+  vc,   x,   y, out  pxp, out  pyp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (1139, 1)
 // affineXformPt(vc, x, y, pxp, pyp) as int
 // affineXformPt(l_float32 *, l_int32, l_int32, l_float32 *, l_float32 *) as l_ok
@@ -486,6 +580,7 @@ public static int affineXformSampledPt(
 ///  <param name="pxp">[out] - transformed point</param>
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int affineXformPt(
 				 Single[] vc, 
 				 int x, 
@@ -493,14 +588,21 @@ public static int affineXformPt(
 				out Single pxp, 
 				out Single pyp){
 
-	int _Result = Natives.affineXformPt(  vc,   x,   y, out  pxp, out  pyp);
+
+
+	int _Result = Natives.affineXformPt(
+  vc,   x,   y, out  pxp, out  pyp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (1180, 1)
 // linearInterpolatePixelColor(datas, wpls, w, h, x, y, colorval, pval) as int
 // linearInterpolatePixelColor(l_uint32 *, l_int32, l_int32, l_int32, l_float32, l_float32, l_uint32, l_uint32 *) as l_ok
@@ -521,6 +623,7 @@ public static int affineXformPt(
 ///  <param name="colorval">[in] - color brought in from the outside when the input x,y location is outside the image in 0xrrggbb00 format)</param>
 ///  <param name="pval">[out] - interpolated color value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int linearInterpolatePixelColor(
 				 Byte[] datas, 
 				 int wpls, 
@@ -531,18 +634,24 @@ public static int linearInterpolatePixelColor(
 				 uint colorval, 
 				out uint pval){
 
+
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
 
-	int _Result = Natives.linearInterpolatePixelColor(  datasPtr,   wpls,   w,   h,   x,   y,   colorval, out  pval);
+	int _Result = Natives.linearInterpolatePixelColor(
+  datasPtr,   wpls,   w,   h,   x,   y,   colorval, out  pval);
 	
+
 	Marshal.FreeHGlobal(datasPtr);
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (1267, 1)
 // linearInterpolatePixelGray(datas, wpls, w, h, x, y, grayval, pval) as int
 // linearInterpolatePixelGray(l_uint32 *, l_int32, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32 *) as l_ok
@@ -563,6 +672,7 @@ public static int linearInterpolatePixelColor(
 ///  <param name="grayval">[in] - color brought in from the outside when the input x,y location is outside the image</param>
 ///  <param name="pval">[out] - interpolated gray value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int linearInterpolatePixelGray(
 				 Byte[] datas, 
 				 int wpls, 
@@ -573,18 +683,24 @@ public static int linearInterpolatePixelGray(
 				 int grayval, 
 				out int pval){
 
+
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
 
-	int _Result = Natives.linearInterpolatePixelGray(  datasPtr,   wpls,   w,   h,   x,   y,   grayval, out  pval);
+	int _Result = Natives.linearInterpolatePixelGray(
+  datasPtr,   wpls,   w,   h,   x,   y,   grayval, out  pval);
 	
+
 	Marshal.FreeHGlobal(datasPtr);
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (1346, 1)
 // gaussjordan(a, b, n) as int
 // gaussjordan(l_float32 **, l_float32 *, l_int32) as l_int32
@@ -607,21 +723,28 @@ public static int linearInterpolatePixelGray(
 ///  <param name="b">[in] - n x 1 right-hand side column vector</param>
 ///  <param name="n">[in] - dimension</param>
 ///   <returns>0 if ok, 1 on error</returns>
+
 public static int gaussjordan(
 				 List<Single[]> a, 
 				 Single[] b, 
 				 int n){
 
+
 	IntPtr aPtr = Marshal.AllocHGlobal(a.Count);
 
-	int _Result = Natives.gaussjordan(  aPtr,   b,   n);
+	int _Result = Natives.gaussjordan(
+  aPtr,   b,   n);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affine.c (1470, 1)
 // pixAffineSequential(pixs, ptad, ptas, bw, bh) as Pix
 // pixAffineSequential(PIX *, PTA *, PTA *, l_int32, l_int32) as PIX *
@@ -653,6 +776,7 @@ public static int gaussjordan(
 ///  <param name="bw">[in] - pixels of additional border width during computation</param>
 ///  <param name="bh">[in] - pixels of additional border height during computation</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAffineSequential(
 				 Pix pixs, 
 				 Pta ptad, 
@@ -660,11 +784,17 @@ public static Pix pixAffineSequential(
 				 int bw, 
 				 int bh){
 
-	IntPtr _Result = Natives.pixAffineSequential(pixs.Pointer, ptad.Pointer, ptas.Pointer,   bw,   bh);
+
+
+	IntPtr _Result = Natives.pixAffineSequential(
+pixs.Pointer, ptad.Pointer, ptas.Pointer,   bw,   bh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }

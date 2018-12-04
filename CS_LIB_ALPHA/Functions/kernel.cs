@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (106, 1)
 // kernelCreate(height, width) as L_Kernel
 // kernelCreate(l_int32, l_int32) as L_KERNEL *
@@ -23,19 +24,27 @@ public partial class _All {
 ///  <param name="height">[in] - </param>
 ///  <param name="width">[in] - </param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel kernelCreate(
 				 int height, 
 				 int width){
 
-	IntPtr _Result = Natives.kernelCreate(  height,   width);
+
+
+	IntPtr _Result = Natives.kernelCreate(
+  height,   width);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (144, 1)
 // kernelDestroy(pkel) as Object
 // kernelDestroy(L_KERNEL **) as void
@@ -43,19 +52,26 @@ public static L_Kernel kernelCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelDestroy/*"/>
 ///  <param name="pkel">[in,out] - to be nulled</param>
+
 public static void kernelDestroy(
 				ref L_Kernel pkel){
 
+
 	IntPtr pkelPtr = IntPtr.Zero; 	if (pkel != null) {pkelPtr = pkel.Pointer;}
 
-	Natives.kernelDestroy(ref pkelPtr);
+	Natives.kernelDestroy(
+ref pkelPtr);
 	
 
+
+//  
 	if (pkelPtr == IntPtr.Zero) {pkel = null;} else { pkel = new L_Kernel(pkelPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (175, 1)
 // kernelCopy(kels) as L_Kernel
 // kernelCopy(L_KERNEL *) as L_KERNEL *
@@ -64,18 +80,26 @@ public static void kernelDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelCopy/*"/>
 ///  <param name="kels">[in] - source kernel</param>
 ///   <returns>keld copy of kels, or NULL on error</returns>
+
 public static L_Kernel kernelCopy(
 				 L_Kernel kels){
 
-	IntPtr _Result = Natives.kernelCopy(kels.Pointer);
+
+
+	IntPtr _Result = Natives.kernelCopy(
+kels.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (211, 1)
 // kernelGetElement(kel, row, col, pval) as int
 // kernelGetElement(L_KERNEL *, l_int32, l_int32, l_float32 *) as l_ok
@@ -87,20 +111,28 @@ public static L_Kernel kernelCopy(
 ///  <param name="col">[in] - </param>
 ///  <param name="pval">[out] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int kernelGetElement(
 				 L_Kernel kel, 
 				 int row, 
 				 int col, 
 				out Single pval){
 
-	int _Result = Natives.kernelGetElement(kel.Pointer,   row,   col, out  pval);
+
+
+	int _Result = Natives.kernelGetElement(
+kel.Pointer,   row,   col, out  pval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (243, 1)
 // kernelSetElement(kel, row, col, val) as int
 // kernelSetElement(L_KERNEL *, l_int32, l_int32, l_float32) as l_ok
@@ -112,20 +144,28 @@ public static int kernelGetElement(
 ///  <param name="col">[in] - </param>
 ///  <param name="val">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int kernelSetElement(
 				 L_Kernel kel, 
 				 int row, 
 				 int col, 
 				 Single val){
 
-	int _Result = Natives.kernelSetElement(kel.Pointer,   row,   col,   val);
+
+
+	int _Result = Natives.kernelSetElement(
+kel.Pointer,   row,   col,   val);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (270, 1)
 // kernelGetParameters(kel, psy, psx, pcy, pcx) as int
 // kernelGetParameters(L_KERNEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -138,6 +178,7 @@ public static int kernelSetElement(
 ///  <param name="pcy">[out][optional] - each can be null</param>
 ///  <param name="pcx">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int kernelGetParameters(
 				 L_Kernel kel, 
 				out int psy, 
@@ -145,14 +186,21 @@ public static int kernelGetParameters(
 				out int pcy, 
 				out int pcx){
 
-	int _Result = Natives.kernelGetParameters(kel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
+
+
+	int _Result = Natives.kernelGetParameters(
+kel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (300, 1)
 // kernelSetOrigin(kel, cy, cx) as int
 // kernelSetOrigin(L_KERNEL *, l_int32, l_int32) as l_ok
@@ -163,19 +211,27 @@ public static int kernelGetParameters(
 ///  <param name="cy">[in] - </param>
 ///  <param name="cx">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int kernelSetOrigin(
 				 L_Kernel kel, 
 				 int cy, 
 				 int cx){
 
-	int _Result = Natives.kernelSetOrigin(kel.Pointer,   cy,   cx);
+
+
+	int _Result = Natives.kernelSetOrigin(
+kel.Pointer,   cy,   cx);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (322, 1)
 // kernelGetSum(kel, psum) as int
 // kernelGetSum(L_KERNEL *, l_float32 *) as l_ok
@@ -185,18 +241,26 @@ public static int kernelSetOrigin(
 ///  <param name="kel">[in] - kernel</param>
 ///  <param name="psum">[out] - sum of all kernel values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int kernelGetSum(
 				 L_Kernel kel, 
 				out Single psum){
 
-	int _Result = Natives.kernelGetSum(kel.Pointer, out  psum);
+
+
+	int _Result = Natives.kernelGetSum(
+kel.Pointer, out  psum);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (354, 1)
 // kernelGetMinMax(kel, pmin, pmax) as int
 // kernelGetMinMax(L_KERNEL *, l_float32 *, l_float32 *) as l_ok
@@ -207,19 +271,27 @@ public static int kernelGetSum(
 ///  <param name="pmin">[out][optional] - minimum value</param>
 ///  <param name="pmax">[out][optional] - maximum value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int kernelGetMinMax(
 				 L_Kernel kel, 
 				out Single pmin, 
 				out Single pmax){
 
-	int _Result = Natives.kernelGetMinMax(kel.Pointer, out  pmin, out  pmax);
+
+
+	int _Result = Natives.kernelGetMinMax(
+kel.Pointer, out  pmin, out  pmax);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (410, 1)
 // kernelNormalize(kels, normsum) as L_Kernel
 // kernelNormalize(L_KERNEL *, l_float32) as L_KERNEL *
@@ -234,19 +306,27 @@ public static int kernelGetMinMax(
 ///  <param name="kels">[in] - source kel, to be normalized</param>
 ///  <param name="normsum">[in] - desired sum of elements in keld</param>
 ///   <returns>keld normalized version of kels, or NULL on error or if sum of elements is very close to 0)</returns>
+
 public static L_Kernel kernelNormalize(
 				 L_Kernel kels, 
 				 Single normsum){
 
-	IntPtr _Result = Natives.kernelNormalize(kels.Pointer,   normsum);
+
+
+	IntPtr _Result = Natives.kernelNormalize(
+kels.Pointer,   normsum);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (456, 1)
 // kernelInvert(kels) as L_Kernel
 // kernelInvert(L_KERNEL *) as L_KERNEL *
@@ -259,18 +339,26 @@ public static L_Kernel kernelNormalize(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelInvert/*"/>
 ///  <param name="kels">[in] - source kel, to be inverted</param>
 ///   <returns>keld spatially inverted, about the origin, or NULL on error</returns>
+
 public static L_Kernel kernelInvert(
 				 L_Kernel kels){
 
-	IntPtr _Result = Natives.kernelInvert(kels.Pointer);
+
+
+	IntPtr _Result = Natives.kernelInvert(
+kels.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (499, 1)
 // create2dFloatArray(sy, sx) as List<Single[]>
 // create2dFloatArray(l_int32, l_int32) as l_float32 **
@@ -286,19 +374,35 @@ public static L_Kernel kernelInvert(
 ///  <param name="sy">[in] - rows == height</param>
 ///  <param name="sx">[in] - columns == width</param>
 ///   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx floats</returns>
+
 public static List<Single[]> create2dFloatArray(
 				 int sy, 
 				 int sx){
 
-	IntPtr _Result = Natives.create2dFloatArray(  sy,   sx);
+
+
+	IntPtr _Result = Natives.create2dFloatArray(
+  sy,   sx);
 	
 
 
-	List<Single[]> B = null; // Todo
+//  
+
+
+	IntPtr[] PTRArr = new IntPtr[1];
+	Marshal.Copy(_Result, PTRArr, 0, PTRArr.Length);
+	List<Single[]> B = new List<Single[]>();
+	foreach (IntPtr eintrag in PTRArr)
+	{{
+	  Single[] SingleLST = new Single[1];
+	  Marshal.Copy(eintrag, SingleLST, 0, SingleLST.Length);
+	  B.Add(SingleLST);
+	}}
 
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (526, 1)
 // kernelRead(fname) as L_Kernel
 // kernelRead(const char *) as L_KERNEL *
@@ -307,18 +411,26 @@ public static List<Single[]> create2dFloatArray(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelRead/*"/>
 ///  <param name="fname">[in] - filename</param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel kernelRead(
 				 String fname){
 
-	IntPtr _Result = Natives.kernelRead(  fname);
+
+
+	IntPtr _Result = Natives.kernelRead(
+  fname);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (555, 1)
 // kernelReadStream(fp) as L_Kernel
 // kernelReadStream(FILE *) as L_KERNEL *
@@ -327,18 +439,26 @@ public static L_Kernel kernelRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel kernelReadStream(
 				 FILE fp){
 
-	IntPtr _Result = Natives.kernelReadStream(fp.Pointer);
+
+
+	IntPtr _Result = Natives.kernelReadStream(
+fp.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (598, 1)
 // kernelWrite(fname, kel) as int
 // kernelWrite(const char *, L_KERNEL *) as l_ok
@@ -348,18 +468,26 @@ public static L_Kernel kernelReadStream(
 ///  <param name="fname">[in] - output file</param>
 ///  <param name="kel">[in] - kernel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int kernelWrite(
 				 String fname, 
 				 L_Kernel kel){
 
-	int _Result = Natives.kernelWrite(  fname, kel.Pointer);
+
+
+	int _Result = Natives.kernelWrite(
+  fname, kel.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (627, 1)
 // kernelWriteStream(fp, kel) as int
 // kernelWriteStream(FILE *, L_KERNEL *) as l_ok
@@ -369,18 +497,26 @@ public static int kernelWrite(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="kel">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int kernelWriteStream(
 				 FILE fp, 
 				 L_Kernel kel){
 
-	int _Result = Natives.kernelWriteStream(fp.Pointer, kel.Pointer);
+
+
+	int _Result = Natives.kernelWriteStream(
+fp.Pointer, kel.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (679, 1)
 // kernelCreateFromString(h, w, cy, cx, kdata) as L_Kernel
 // kernelCreateFromString(l_int32, l_int32, l_int32, l_int32, const char *) as L_KERNEL *
@@ -406,6 +542,7 @@ public static int kernelWriteStream(
 ///  <param name="cx">[in] - origin</param>
 ///  <param name="kdata">[in] - </param>
 ///   <returns>kernel of the given size, or NULL on error</returns>
+
 public static L_Kernel kernelCreateFromString(
 				 int h, 
 				 int w, 
@@ -413,15 +550,22 @@ public static L_Kernel kernelCreateFromString(
 				 int cx, 
 				 String kdata){
 
-	IntPtr _Result = Natives.kernelCreateFromString(  h,   w,   cy,   cx,   kdata);
+
+
+	IntPtr _Result = Natives.kernelCreateFromString(
+  h,   w,   cy,   cx,   kdata);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (765, 1)
 // kernelCreateFromFile(filename) as L_Kernel
 // kernelCreateFromFile(const char *) as L_KERNEL *
@@ -459,18 +603,26 @@ public static L_Kernel kernelCreateFromString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelCreateFromFile/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel kernelCreateFromFile(
 				 String filename){
 
-	IntPtr _Result = Natives.kernelCreateFromFile(  filename);
+
+
+	IntPtr _Result = Natives.kernelCreateFromFile(
+  filename);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (865, 1)
 // kernelCreateFromPix(pix, cy, cx) as L_Kernel
 // kernelCreateFromPix(PIX *, l_int32, l_int32) as L_KERNEL *
@@ -484,20 +636,28 @@ public static L_Kernel kernelCreateFromFile(
 ///  <param name="cy">[in] - origin of kernel</param>
 ///  <param name="cx">[in] - origin of kernel</param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel kernelCreateFromPix(
 				 Pix pix, 
 				 int cy, 
 				 int cx){
 
-	IntPtr _Result = Natives.kernelCreateFromPix(pix.Pointer,   cy,   cx);
+
+
+	IntPtr _Result = Natives.kernelCreateFromPix(
+pix.Pointer,   cy,   cx);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (926, 1)
 // kernelDisplayInPix(kel, size, gthick) as Pix
 // kernelDisplayInPix(L_KERNEL *, l_int32, l_int32) as PIX *
@@ -525,20 +685,28 @@ public static L_Kernel kernelCreateFromPix(
 ///  <param name="size">[in] - of grid interiors odd either 1 or a minimum size of 17 is enforced</param>
 ///  <param name="gthick">[in] - grid thickness either 0 or a minimum size of 2 is enforced</param>
 ///   <returns>pix display of kernel, or NULL on error</returns>
+
 public static Pix kernelDisplayInPix(
 				 L_Kernel kel, 
 				 int size, 
 				 int gthick){
 
-	IntPtr _Result = Natives.kernelDisplayInPix(kel.Pointer,   size,   gthick);
+
+
+	IntPtr _Result = Natives.kernelDisplayInPix(
+kel.Pointer,   size,   gthick);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (1040, 1)
 // parseStringForNumbers(str, seps) as Numa
 // parseStringForNumbers(const char *, const char *) as NUMA *
@@ -551,19 +719,27 @@ public static Pix kernelDisplayInPix(
 ///  <param name="str">[in] - string containing numbers not changed</param>
 ///  <param name="seps">[in] - string of characters that can be used between ints</param>
 ///   <returns>numa of numbers found, or NULL on error</returns>
+
 public static Numa parseStringForNumbers(
 				 String str, 
 				 String seps){
 
-	IntPtr _Result = Natives.parseStringForNumbers(  str,   seps);
+
+
+	IntPtr _Result = Natives.parseStringForNumbers(
+  str,   seps);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (1092, 1)
 // makeFlatKernel(height, width, cy, cx) as L_Kernel
 // makeFlatKernel(l_int32, l_int32, l_int32, l_int32) as L_KERNEL *
@@ -586,21 +762,29 @@ public static Numa parseStringForNumbers(
 ///  <param name="cy">[in] - origin of kernel</param>
 ///  <param name="cx">[in] - origin of kernel</param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel makeFlatKernel(
 				 int height, 
 				 int width, 
 				 int cy, 
 				 int cx){
 
-	IntPtr _Result = Natives.makeFlatKernel(  height,   width,   cy,   cx);
+
+
+	IntPtr _Result = Natives.makeFlatKernel(
+  height,   width,   cy,   cx);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (1137, 1)
 // makeGaussianKernel(halfheight, halfwidth, stdev, max) as L_Kernel
 // makeGaussianKernel(l_int32, l_int32, l_float32, l_float32) as L_KERNEL *
@@ -624,21 +808,29 @@ public static L_Kernel makeFlatKernel(
 ///  <param name="stdev">[in] - standard deviation</param>
 ///  <param name="max">[in] - value at (cx,cy)</param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel makeGaussianKernel(
 				 int halfheight, 
 				 int halfwidth, 
 				 Single stdev, 
 				 Single max){
 
-	IntPtr _Result = Natives.makeGaussianKernel(  halfheight,   halfwidth,   stdev,   max);
+
+
+	IntPtr _Result = Natives.makeGaussianKernel(
+  halfheight,   halfwidth,   stdev,   max);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (1191, 1)
 // makeGaussianKernelSep(halfheight, halfwidth, stdev, max, pkelx, pkely) as int
 // makeGaussianKernelSep(l_int32, l_int32, l_float32, l_float32, L_KERNEL **, L_KERNEL **) as l_ok
@@ -666,6 +858,7 @@ public static L_Kernel makeGaussianKernel(
 ///  <param name="pkelx">[out] - x part of kernel</param>
 ///  <param name="pkely">[out] - y part of kernel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int makeGaussianKernelSep(
 				 int halfheight, 
 				 int halfwidth, 
@@ -674,19 +867,25 @@ public static int makeGaussianKernelSep(
 				out L_Kernel pkelx, 
 				out L_Kernel pkely){
 
+
 	IntPtr pkelxPtr = IntPtr.Zero;
 	IntPtr pkelyPtr = IntPtr.Zero;
 
-	int _Result = Natives.makeGaussianKernelSep(  halfheight,   halfwidth,   stdev,   max, out pkelxPtr, out pkelyPtr);
+	int _Result = Natives.makeGaussianKernelSep(
+  halfheight,   halfwidth,   stdev,   max, out pkelxPtr, out pkelyPtr);
 	
 
+
+//  
 	if (pkelxPtr == IntPtr.Zero) {pkelx = null;} else { pkelx = new L_Kernel(pkelxPtr); };
 	if (pkelyPtr == IntPtr.Zero) {pkely = null;} else { pkely = new L_Kernel(pkelyPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // kernel.c (1236, 1)
 // makeDoGKernel(halfheight, halfwidth, stdev, ratio) as L_Kernel
 // makeDoGKernel(l_int32, l_int32, l_float32, l_float32) as L_KERNEL *
@@ -719,17 +918,24 @@ public static int makeGaussianKernelSep(
 ///  <param name="stdev">[in] - standard deviation of narrower gaussian</param>
 ///  <param name="ratio">[in] - of stdev for wide filter to stdev for narrow one</param>
 ///   <returns>kernel, or NULL on error</returns>
+
 public static L_Kernel makeDoGKernel(
 				 int halfheight, 
 				 int halfwidth, 
 				 Single stdev, 
 				 Single ratio){
 
-	IntPtr _Result = Natives.makeDoGKernel(  halfheight,   halfwidth,   stdev,   ratio);
+
+
+	IntPtr _Result = Natives.makeDoGKernel(
+  halfheight,   halfwidth,   stdev,   ratio);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }

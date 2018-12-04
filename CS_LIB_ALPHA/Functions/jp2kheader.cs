@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jp2kheader.c (75, 1)
 // readHeaderJp2k(filename, pw, ph, pbps, pspp) as int
 // readHeaderJp2k(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -18,6 +19,7 @@ public partial class _All {
 ///  <param name="pbps">[out][optional] - bits/sample</param>
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int readHeaderJp2k(
 				 String filename, 
 				out int pw, 
@@ -25,14 +27,21 @@ public static int readHeaderJp2k(
 				out int pbps, 
 				out int pspp){
 
-	int _Result = Natives.readHeaderJp2k(  filename, out  pw, out  ph, out  pbps, out  pspp);
+
+
+	int _Result = Natives.readHeaderJp2k(
+  filename, out  pw, out  ph, out  pbps, out  pspp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jp2kheader.c (112, 1)
 // freadHeaderJp2k(fp, pw, ph, pbps, pspp) as int
 // freadHeaderJp2k(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -45,6 +54,7 @@ public static int readHeaderJp2k(
 ///  <param name="pbps">[out][optional] - bits/sample</param>
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int freadHeaderJp2k(
 				 FILE fp, 
 				out int pw, 
@@ -52,14 +62,21 @@ public static int freadHeaderJp2k(
 				out int pbps, 
 				out int pspp){
 
-	int _Result = Natives.freadHeaderJp2k(fp.Pointer, out  pw, out  ph, out  pbps, out  pspp);
+
+
+	int _Result = Natives.freadHeaderJp2k(
+fp.Pointer, out  pw, out  ph, out  pbps, out  pspp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jp2kheader.c (167, 1)
 // readHeaderMemJp2k(data, size, pw, ph, pbps, pspp) as int
 // readHeaderMemJp2k(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -86,6 +103,7 @@ public static int freadHeaderJp2k(
 ///  <param name="pbps">[out][optional] - bits/sample</param>
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int readHeaderMemJp2k(
 				 Byte[] data, 
 				 uint size, 
@@ -94,14 +112,21 @@ public static int readHeaderMemJp2k(
 				out int pbps, 
 				out int pspp){
 
-	int _Result = Natives.readHeaderMemJp2k(  data,   size, out  pw, out  ph, out  pbps, out  pspp);
+
+
+	int _Result = Natives.readHeaderMemJp2k(
+  data,   size, out  pw, out  ph, out  pbps, out  pspp);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jp2kheader.c (240, 1)
 // fgetJp2kResolution(fp, pxres, pyres) as int
 // fgetJp2kResolution(FILE *, l_int32 *, l_int32 *) as l_int32
@@ -109,15 +134,21 @@ public static int readHeaderMemJp2k(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJp2kResolution/*"/>
 ///   <returns></returns>
+
 public static int fgetJp2kResolution(
 				 FILE fp, 
 				 object pxres, 
 				 object pyres){
 
+
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
-	int _Result = Natives.fgetJp2kResolution(fp.Pointer,   pxres,   pyres);
+	int _Result = Natives.fgetJp2kResolution(
+fp.Pointer,   pxres,   pyres);
 	
+
+
+//  
 
 
 

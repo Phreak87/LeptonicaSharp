@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ccthin.c (68, 1)
 // pixaThinConnected(pixas, type, connectivity, maxiters) as Pixa
 // pixaThinConnected(PIXA *, l_int32, l_int32, l_int32) as PIXA *
@@ -20,21 +21,29 @@ public partial class _All {
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///  <param name="maxiters">[in] - max number of iters allowed use 0 to iterate until completion</param>
 ///   <returns>pixds, or NULL on error</returns>
+
 public static Pixa pixaThinConnected(
 				 Pixa pixas, 
 				 int type, 
 				 int connectivity, 
 				 int maxiters){
 
-	IntPtr _Result = Natives.pixaThinConnected(pixas.Pointer,   type,   connectivity,   maxiters);
+
+
+	IntPtr _Result = Natives.pixaThinConnected(
+pixas.Pointer,   type,   connectivity,   maxiters);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ccthin.c (158, 1)
 // pixThinConnected(pixs, type, connectivity, maxiters) as Pix
 // pixThinConnected(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -84,21 +93,29 @@ public static Pixa pixaThinConnected(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///  <param name="maxiters">[in] - max number of iters allowed use 0 to iterate until completion</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixThinConnected(
 				 Pix pixs, 
 				 int type, 
 				 int connectivity, 
 				 int maxiters){
 
-	IntPtr _Result = Natives.pixThinConnected(pixs.Pointer,   type,   connectivity,   maxiters);
+
+
+	IntPtr _Result = Natives.pixThinConnected(
+pixs.Pointer,   type,   connectivity,   maxiters);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ccthin.c (220, 1)
 // pixThinConnectedBySet(pixs, type, sela, maxiters) as Pix
 // pixThinConnectedBySet(PIX *, l_int32, SELA *, l_int32) as PIX *
@@ -129,21 +146,29 @@ public static Pix pixThinConnected(
 ///  <param name="sela">[in] - of Sels for parallel composite HMTs</param>
 ///  <param name="maxiters">[in] - max number of iters allowed use 0 to iterate until completion</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixThinConnectedBySet(
 				 Pix pixs, 
 				 int type, 
 				 Sela sela, 
 				 int maxiters){
 
-	IntPtr _Result = Natives.pixThinConnectedBySet(pixs.Pointer,   type, sela.Pointer,   maxiters);
+
+
+	IntPtr _Result = Natives.pixThinConnectedBySet(
+pixs.Pointer,   type, sela.Pointer,   maxiters);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ccthin.c (341, 1)
 // selaMakeThinSets(index, debug) as Sela
 // selaMakeThinSets(l_int32, l_int32) as SELA *
@@ -175,15 +200,22 @@ public static Pix pixThinConnectedBySet(
 ///  <param name="index">[in] - into specific sets</param>
 ///  <param name="debug">[in] - 1 to output display of sela</param>
 ///   <returns>sela, or NULL on error</returns>
+
 public static Sela selaMakeThinSets(
 				 int index, 
 				 DebugOnOff debug){
 
-	IntPtr _Result = Natives.selaMakeThinSets(  index,  (int) debug);
+
+
+	IntPtr _Result = Natives.selaMakeThinSets(
+  index,  (int) debug);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sela(_Result);
 }

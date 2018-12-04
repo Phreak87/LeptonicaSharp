@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (168, 1)
 // pmsCreate(minsize, smallest, numalloc, logfile) as int
 // pmsCreate(size_t, size_t, NUMA *, const char *) as l_ok
@@ -36,20 +37,28 @@ public partial class _All {
 ///  <param name="numalloc">[in] - array with the number of data chunks for each size that are in the memory store</param>
 ///  <param name="logfile">[in] - use for debugging null otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pmsCreate(
 				 uint minsize, 
 				 uint smallest, 
 				 Numa numalloc, 
 				 String logfile){
 
-	int _Result = Natives.pmsCreate(  minsize,   smallest, numalloc.Pointer,   logfile);
+
+
+	int _Result = Natives.pmsCreate(
+  minsize,   smallest, numalloc.Pointer,   logfile);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (267, 1)
 // pmsDestroy() as Object
 // pmsDestroy() as void
@@ -60,15 +69,22 @@ public static int pmsCreate(
 ///  <remarks>
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsDestroy/*"/>
+
 public static void pmsDestroy(){
+
+
 
 	Natives.pmsDestroy();
 	
 
 
+//  
+
+
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (311, 1)
 // pmsCustomAlloc(nbytes) as Object
 // pmsCustomAlloc(size_t) as void *
@@ -85,11 +101,18 @@ public static void pmsDestroy(){
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsCustomAlloc/*"/>
 ///  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 ///   <returns>data ptr to chunk</returns>
+
 public static Object pmsCustomAlloc(
 				 uint nbytes){
 
-	IntPtr _Result = Natives.pmsCustomAlloc(  nbytes);
+
+
+	IntPtr _Result = Natives.pmsCustomAlloc(
+  nbytes);
 	
+
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -97,6 +120,7 @@ public static Object pmsCustomAlloc(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (355, 1)
 // pmsCustomDealloc(data) as Object
 // pmsCustomDealloc(void *) as void
@@ -104,20 +128,27 @@ public static Object pmsCustomAlloc(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsCustomDealloc/*"/>
 ///  <param name="data">[in] - to be freed or returned to the storage</param>
+
 public static void pmsCustomDealloc(
 				 Object data){
 
-		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	Natives.pmsCustomDealloc(  dataPtr);
+		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	Natives.pmsCustomDealloc(
+  dataPtr);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (406, 1)
 // pmsGetAlloc(nbytes) as Object
 // pmsGetAlloc(size_t) as void *
@@ -139,11 +170,18 @@ public static void pmsCustomDealloc(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsGetAlloc/*"/>
 ///  <param name="nbytes">[in] - </param>
 ///   <returns>data</returns>
+
 public static Object pmsGetAlloc(
 				 uint nbytes){
 
-	IntPtr _Result = Natives.pmsGetAlloc(  nbytes);
+
+
+	IntPtr _Result = Natives.pmsGetAlloc(
+  nbytes);
 	
+
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -151,6 +189,7 @@ public static Object pmsGetAlloc(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (437, 1)
 // pmsGetLevelForAlloc(nbytes, plevel) as int
 // pmsGetLevelForAlloc(size_t, l_int32 *) as l_ok
@@ -160,18 +199,26 @@ public static Object pmsGetAlloc(
 ///  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 ///  <param name="plevel">[out] - -1 if either too small or too large</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pmsGetLevelForAlloc(
 				 uint nbytes, 
 				out int plevel){
 
-	int _Result = Natives.pmsGetLevelForAlloc(  nbytes, out  plevel);
+
+
+	int _Result = Natives.pmsGetLevelForAlloc(
+  nbytes, out  plevel);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (476, 1)
 // pmsGetLevelForDealloc(data, plevel) as int
 // pmsGetLevelForDealloc(void *, l_int32 *) as l_ok
@@ -181,32 +228,45 @@ public static int pmsGetLevelForAlloc(
 ///  <param name="data">[in] - ptr to memory chunk</param>
 ///  <param name="plevel">[out] - level in memory store -1 if allocated outside the store</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pmsGetLevelForDealloc(
 				 Object data, 
 				out int plevel){
 
-		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	int _Result = Natives.pmsGetLevelForDealloc(  dataPtr, out  plevel);
+		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	int _Result = Natives.pmsGetLevelForDealloc(
+  dataPtr, out  plevel);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixalloc.c (511, 1)
 // pmsLogInfo() as Object
 // pmsLogInfo() as void
 ///  <remarks>
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsLogInfo/*"/>
+
 public static void pmsLogInfo(){
+
+
 
 	Natives.pmsLogInfo();
 	
+
+
+//  
 
 
 

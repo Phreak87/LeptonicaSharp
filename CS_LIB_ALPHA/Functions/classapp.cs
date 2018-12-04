@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // classapp.c (96, 1)
 // jbCorrelation(dirin, thresh, weight, components, rootname, firstpage, npages, renderflag) as int
 // jbCorrelation(const char *, l_float32, l_float32, l_int32, const char *, l_int32, l_int32, l_int32) as l_ok
@@ -28,6 +29,7 @@ public partial class _All {
 ///  <param name="npages">[in] - use 0 for all pages in dirin</param>
 ///  <param name="renderflag">[in] - 1 to render from templates 0 to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int jbCorrelation(
 				 String dirin, 
 				 Single thresh, 
@@ -38,14 +40,21 @@ public static int jbCorrelation(
 				 int npages, 
 				 int renderflag){
 
-	int _Result = Natives.jbCorrelation(  dirin,   thresh,   weight,   components,   rootname,   firstpage,   npages,   renderflag);
+
+
+	int _Result = Natives.jbCorrelation(
+  dirin,   thresh,   weight,   components,   rootname,   firstpage,   npages,   renderflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // classapp.c (178, 1)
 // jbRankHaus(dirin, size, rank, components, rootname, firstpage, npages, renderflag) as int
 // jbRankHaus(const char *, l_int32, l_float32, l_int32, const char *, l_int32, l_int32, l_int32) as l_ok
@@ -65,6 +74,7 @@ public static int jbCorrelation(
 ///  <param name="npages">[in] - use 0 for all pages in dirin</param>
 ///  <param name="renderflag">[in] - 1 to render from templates 0 to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int jbRankHaus(
 				 String dirin, 
 				 int size, 
@@ -75,14 +85,21 @@ public static int jbRankHaus(
 				 int npages, 
 				 int renderflag){
 
-	int _Result = Natives.jbRankHaus(  dirin,   size,   rank,   components,   rootname,   firstpage,   npages,   renderflag);
+
+
+	int _Result = Natives.jbRankHaus(
+  dirin,   size,   rank,   components,   rootname,   firstpage,   npages,   renderflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // classapp.c (266, 1)
 // jbWordsInTextlines(dirin, reduction, maxwidth, maxheight, thresh, weight, pnatl, firstpage, npages) as JbClasser
 // jbWordsInTextlines(const char *, l_int32, l_int32, l_int32, l_float32, l_float32, NUMA **, l_int32, l_int32) as JBCLASSER *
@@ -105,6 +122,7 @@ public static int jbRankHaus(
 ///  <param name="firstpage">[in] - 0-based</param>
 ///  <param name="npages">[in] - use 0 for all pages in dirin</param>
 ///   <returns>classer for the set of pages</returns>
+
 public static JbClasser jbWordsInTextlines(
 				 String dirin, 
 				 int reduction, 
@@ -116,18 +134,24 @@ public static JbClasser jbWordsInTextlines(
 				 int firstpage, 
 				 int npages){
 
+
 	IntPtr pnatlPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.jbWordsInTextlines(  dirin,   reduction,   maxwidth,   maxheight,   thresh,   weight, out pnatlPtr,   firstpage,   npages);
+	IntPtr _Result = Natives.jbWordsInTextlines(
+  dirin,   reduction,   maxwidth,   maxheight,   thresh,   weight, out pnatlPtr,   firstpage,   npages);
 	
 
+
+//  
 	if (pnatlPtr == IntPtr.Zero) {pnatl = null;} else { pnatl = new Numa(pnatlPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new JbClasser(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // classapp.c (378, 1)
 // pixGetWordsInTextlines(pixs, minwidth, minheight, maxwidth, maxheight, pboxad, ppixad, pnai) as int
 // pixGetWordsInTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, PIXA **, NUMA **) as l_ok
@@ -178,6 +202,7 @@ public static JbClasser jbWordsInTextlines(
 ///  <param name="ppixad">[out] - word images sorted in textline line order</param>
 ///  <param name="pnai">[out] - index of textline for each word</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixGetWordsInTextlines(
 				 Pix pixs, 
 				 int minwidth, 
@@ -188,21 +213,27 @@ public static int pixGetWordsInTextlines(
 				out Pixa ppixad, 
 				out Numa pnai){
 
+
 	IntPtr pboxadPtr = IntPtr.Zero;
 	IntPtr ppixadPtr = IntPtr.Zero;
 	IntPtr pnaiPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetWordsInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out ppixadPtr, out pnaiPtr);
+	int _Result = Natives.pixGetWordsInTextlines(
+pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out ppixadPtr, out pnaiPtr);
 	
 
+
+//  
 	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
 	if (ppixadPtr == IntPtr.Zero) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
 	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // classapp.c (453, 1)
 // pixGetWordBoxesInTextlines(pixs, minwidth, minheight, maxwidth, maxheight, pboxad, pnai) as int
 // pixGetWordBoxesInTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, NUMA **) as l_ok
@@ -225,6 +256,7 @@ public static int pixGetWordsInTextlines(
 ///  <param name="pboxad">[out] - word boxes sorted in textline line order</param>
 ///  <param name="pnai">[out][optional] - index of textline for each word</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixGetWordBoxesInTextlines(
 				 Pix pixs, 
 				 int minwidth, 
@@ -234,19 +266,25 @@ public static int pixGetWordBoxesInTextlines(
 				out Boxa pboxad, 
 				out Numa pnai){
 
+
 	IntPtr pboxadPtr = IntPtr.Zero;
 	IntPtr pnaiPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetWordBoxesInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out pnaiPtr);
+	int _Result = Natives.pixGetWordBoxesInTextlines(
+pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out pnaiPtr);
 	
 
+
+//  
 	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
 	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // classapp.c (515, 1)
 // boxaExtractSortedPattern(boxa, na) as Numaa
 // boxaExtractSortedPattern(BOXA *, NUMA *) as NUMAA *
@@ -264,19 +302,27 @@ public static int pixGetWordBoxesInTextlines(
 ///  <param name="boxa">[in] - typ. of word bounding boxes, in textline order</param>
 ///  <param name="na">[in] - index of textline for each box in boxa</param>
 ///   <returns>naa NUMAA, where each numa represents one textline, or NULL on error</returns>
+
 public static Numaa boxaExtractSortedPattern(
 				 Boxa boxa, 
 				 Numa na){
 
-	IntPtr _Result = Natives.boxaExtractSortedPattern(boxa.Pointer, na.Pointer);
+
+
+	IntPtr _Result = Natives.boxaExtractSortedPattern(
+boxa.Pointer, na.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // classapp.c (603, 1)
 // numaaCompareImagesByBoxes(naa1, naa2, nperline, nreq, maxshiftx, maxshifty, delx, dely, psame, debugflag) as int
 // numaaCompareImagesByBoxes(NUMAA *, NUMAA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32) as l_ok
@@ -323,6 +369,7 @@ public static Numaa boxaExtractSortedPattern(
 ///  <param name="psame">[out] - 1 if %nreq row matches are found 0 otherwise</param>
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaaCompareImagesByBoxes(
 				 Numaa naa1, 
 				 Numaa naa2, 
@@ -335,8 +382,14 @@ public static int numaaCompareImagesByBoxes(
 				out int psame, 
 				 int debugflag){
 
-	int _Result = Natives.numaaCompareImagesByBoxes(naa1.Pointer, naa2.Pointer,   nperline,   nreq,   maxshiftx,   maxshifty,   delx,   dely, out  psame,   debugflag);
+
+
+	int _Result = Natives.numaaCompareImagesByBoxes(
+naa1.Pointer, naa2.Pointer,   nperline,   nreq,   maxshiftx,   maxshifty,   delx,   dely, out  psame,   debugflag);
 	
+
+
+//  
 
 
 

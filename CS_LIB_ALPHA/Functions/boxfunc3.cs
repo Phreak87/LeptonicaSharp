@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (94, 1)
 // pixMaskConnComp(pixs, connectivity, pboxa) as Pix
 // pixMaskConnComp(PIX *, l_int32, BOXA **) as PIX *
@@ -21,23 +22,30 @@ public partial class _All {
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///  <param name="pboxa">[out][optional] - bounding boxes of c.c.</param>
 ///   <returns>pixd 1 bpp mask over the c.c., or NULL on error</returns>
+
 public static Pix pixMaskConnComp(
 				 Pix pixs, 
 				 int connectivity, 
 				out Boxa pboxa){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixMaskConnComp(pixs.Pointer,   connectivity, out pboxaPtr);
+	IntPtr _Result = Natives.pixMaskConnComp(
+pixs.Pointer,   connectivity, out pboxaPtr);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (148, 1)
 // pixMaskBoxa(pixd, pixs, boxa, op) as Pix
 // pixMaskBoxa(PIX *, PIX *, BOXA *, l_int32) as PIX *
@@ -67,23 +75,30 @@ public static Pix pixMaskConnComp(
 ///  <param name="boxa">[in] - of boxes, to paint</param>
 ///  <param name="op">[in] - L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>pixd with masking op over the boxes, or NULL on error</returns>
+
 public static Pix pixMaskBoxa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Boxa boxa, 
 				 int op){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixMaskBoxa(pixdPtr, pixs.Pointer, boxa.Pointer,   op);
+	IntPtr _Result = Natives.pixMaskBoxa(
+pixdPtr, pixs.Pointer, boxa.Pointer,   op);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (217, 1)
 // pixPaintBoxa(pixs, boxa, val) as Pix
 // pixPaintBoxa(PIX *, BOXA *, l_uint32) as PIX *
@@ -110,20 +125,28 @@ public static Pix pixMaskBoxa(
 ///  <param name="boxa">[in] - of boxes, to paint</param>
 ///  <param name="val">[in] - rgba color to paint</param>
 ///   <returns>pixd with painted boxes, or NULL on error</returns>
+
 public static Pix pixPaintBoxa(
 				 Pix pixs, 
 				 Boxa boxa, 
 				 uint val){
 
-	IntPtr _Result = Natives.pixPaintBoxa(pixs.Pointer, boxa.Pointer,   val);
+
+
+	IntPtr _Result = Natives.pixPaintBoxa(
+pixs.Pointer, boxa.Pointer,   val);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (283, 1)
 // pixSetBlackOrWhiteBoxa(pixs, boxa, op) as Pix
 // pixSetBlackOrWhiteBoxa(PIX *, BOXA *, l_int32) as PIX *
@@ -134,22 +157,29 @@ public static Pix pixPaintBoxa(
 ///  <param name="boxa">[in][optional] - of boxes, to clear or set</param>
 ///  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
 ///   <returns>pixd with boxes filled with white or black, or NULL on error</returns>
+
 public static Pix pixSetBlackOrWhiteBoxa(
 				 Pix pixs, 
 				 Boxa boxa, 
 				 int op){
 
+
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
-	IntPtr _Result = Natives.pixSetBlackOrWhiteBoxa(pixs.Pointer, boxaPtr,   op);
+	IntPtr _Result = Natives.pixSetBlackOrWhiteBoxa(
+pixs.Pointer, boxaPtr,   op);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (364, 1)
 // pixPaintBoxaRandom(pixs, boxa) as Pix
 // pixPaintBoxaRandom(PIX *, BOXA *) as PIX *
@@ -167,19 +197,27 @@ public static Pix pixSetBlackOrWhiteBoxa(
 ///  <param name="pixs">[in] - any depth, can be cmapped</param>
 ///  <param name="boxa">[in] - of boxes, to paint</param>
 ///   <returns>pixd with painted boxes, or NULL on error</returns>
+
 public static Pix pixPaintBoxaRandom(
 				 Pix pixs, 
 				 Boxa boxa){
 
-	IntPtr _Result = Natives.pixPaintBoxaRandom(pixs.Pointer, boxa.Pointer);
+
+
+	IntPtr _Result = Natives.pixPaintBoxaRandom(
+pixs.Pointer, boxa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (435, 1)
 // pixBlendBoxaRandom(pixs, boxa, fract) as Pix
 // pixBlendBoxaRandom(PIX *, BOXA *, l_float32) as PIX *
@@ -201,20 +239,28 @@ public static Pix pixPaintBoxaRandom(
 ///  <param name="boxa">[in] - of boxes, to blend/paint</param>
 ///  <param name="fract">[in] - of box color to use</param>
 ///   <returns>pixd 32 bpp, with blend/painted boxes, or NULL on error</returns>
+
 public static Pix pixBlendBoxaRandom(
 				 Pix pixs, 
 				 Boxa boxa, 
 				 Single fract){
 
-	IntPtr _Result = Natives.pixBlendBoxaRandom(pixs.Pointer, boxa.Pointer,   fract);
+
+
+	IntPtr _Result = Natives.pixBlendBoxaRandom(
+pixs.Pointer, boxa.Pointer,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (496, 1)
 // pixDrawBoxa(pixs, boxa, width, val) as Pix
 // pixDrawBoxa(PIX *, BOXA *, l_int32, l_uint32) as PIX *
@@ -231,21 +277,29 @@ public static Pix pixBlendBoxaRandom(
 ///  <param name="width">[in] - of lines</param>
 ///  <param name="val">[in] - rgba color to draw</param>
 ///   <returns>pixd with outlines of boxes added, or NULL on error</returns>
+
 public static Pix pixDrawBoxa(
 				 Pix pixs, 
 				 Boxa boxa, 
 				 int width, 
 				 uint val){
 
-	IntPtr _Result = Natives.pixDrawBoxa(pixs.Pointer, boxa.Pointer,   width,   val);
+
+
+	IntPtr _Result = Natives.pixDrawBoxa(
+pixs.Pointer, boxa.Pointer,   width,   val);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (560, 1)
 // pixDrawBoxaRandom(pixs, boxa, width) as Pix
 // pixDrawBoxaRandom(PIX *, BOXA *, l_int32) as PIX *
@@ -264,20 +318,28 @@ public static Pix pixDrawBoxa(
 ///  <param name="boxa">[in] - of boxes, to draw</param>
 ///  <param name="width">[in] - thickness of line</param>
 ///   <returns>pixd with box outlines drawn, or NULL on error</returns>
+
 public static Pix pixDrawBoxaRandom(
 				 Pix pixs, 
 				 Boxa boxa, 
 				 int width){
 
-	IntPtr _Result = Natives.pixDrawBoxaRandom(pixs.Pointer, boxa.Pointer,   width);
+
+
+	IntPtr _Result = Natives.pixDrawBoxaRandom(
+pixs.Pointer, boxa.Pointer,   width);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (634, 1)
 // boxaaDisplay(pixs, baa, linewba, linewb, colorba, colorb, w, h) as Pix
 // boxaaDisplay(PIX *, BOXAA *, l_int32, l_int32, l_uint32, l_uint32, l_int32, l_int32) as PIX *
@@ -304,6 +366,7 @@ public static Pix pixDrawBoxaRandom(
 ///  <param name="w">[in] - width of outupt pix use 0 if determined by %pixs or %baa</param>
 ///  <param name="h">[in] - height of outupt pix use 0 if determined by %pixs or %baa</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static Pix boxaaDisplay(
 				 Pix pixs, 
 				 Boxaa baa, 
@@ -314,17 +377,23 @@ public static Pix boxaaDisplay(
 				 int w, 
 				 int h){
 
+
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	IntPtr _Result = Natives.boxaaDisplay(pixsPtr, baa.Pointer,   linewba,   linewb,   colorba,   colorb,   w,   h);
+	IntPtr _Result = Natives.boxaaDisplay(
+pixsPtr, baa.Pointer,   linewba,   linewb,   colorba,   colorb,   w,   h);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (716, 1)
 // pixaDisplayBoxaa(pixas, baa, colorflag, width) as Pixa
 // pixaDisplayBoxaa(PIXA *, BOXAA *, l_int32, l_int32) as PIXA *
@@ -348,21 +417,29 @@ public static Pix boxaaDisplay(
 ///  <param name="colorflag">[in] - (L_DRAW_RED, L_DRAW_GREEN, etc)</param>
 ///  <param name="width">[in] - thickness of lines</param>
 ///   <returns>pixa with box outlines drawn on each pix, or NULL on error</returns>
+
 public static Pixa pixaDisplayBoxaa(
 				 Pixa pixas, 
 				 Boxaa baa, 
 				 int colorflag, 
 				 int width){
 
-	IntPtr _Result = Natives.pixaDisplayBoxaa(pixas.Pointer, baa.Pointer,   colorflag,   width);
+
+
+	IntPtr _Result = Natives.pixaDisplayBoxaa(
+pixas.Pointer, baa.Pointer,   colorflag,   width);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (835, 1)
 // pixSplitIntoBoxa(pixs, minsum, skipdist, delta, maxbg, maxcomps, remainder) as Boxa
 // pixSplitIntoBoxa(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as BOXA *
@@ -401,6 +478,7 @@ public static Pixa pixaDisplayBoxaa(
 ///  <param name="maxcomps">[in] - use 0 for unlimited number of subdivided components</param>
 ///  <param name="remainder">[in] - set to 1 to get b.b. of remaining stuff</param>
 ///   <returns>boxa of rectangles covering the fg of pixs, or NULL on error</returns>
+
 public static Boxa pixSplitIntoBoxa(
 				 Pix pixs, 
 				 int minsum, 
@@ -410,15 +488,22 @@ public static Boxa pixSplitIntoBoxa(
 				 int maxcomps, 
 				 int remainder){
 
-	IntPtr _Result = Natives.pixSplitIntoBoxa(pixs.Pointer,   minsum,   skipdist,   delta,   maxbg,   maxcomps,   remainder);
+
+
+	IntPtr _Result = Natives.pixSplitIntoBoxa(
+pixs.Pointer,   minsum,   skipdist,   delta,   maxbg,   maxcomps,   remainder);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (944, 1)
 // pixSplitComponentIntoBoxa(pix, box, minsum, skipdist, delta, maxbg, maxcomps, remainder) as Boxa
 // pixSplitComponentIntoBoxa(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as BOXA *
@@ -496,6 +581,7 @@ public static Boxa pixSplitIntoBoxa(
 ///  <param name="maxcomps">[in] - use 0 for unlimited number of subdivided components</param>
 ///  <param name="remainder">[in] - set to 1 to get b.b. of remaining stuff</param>
 ///   <returns>boxa of rectangles covering the fg of pix, or NULL on error</returns>
+
 public static Boxa pixSplitComponentIntoBoxa(
 				 Pix pix, 
 				 Box box, 
@@ -506,17 +592,23 @@ public static Boxa pixSplitComponentIntoBoxa(
 				 int maxcomps, 
 				 int remainder){
 
+
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixSplitComponentIntoBoxa(pix.Pointer, boxPtr,   minsum,   skipdist,   delta,   maxbg,   maxcomps,   remainder);
+	IntPtr _Result = Natives.pixSplitComponentIntoBoxa(
+pix.Pointer, boxPtr,   minsum,   skipdist,   delta,   maxbg,   maxcomps,   remainder);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (1308, 1)
 // makeMosaicStrips(w, h, direction, size) as Boxa
 // makeMosaicStrips(l_int32, l_int32, l_int32, l_int32) as BOXA *
@@ -537,21 +629,29 @@ public static Boxa pixSplitComponentIntoBoxa(
 ///  <param name="direction">[in] - L_SCAN_HORIZONTAL or L_SCAN_VERTICAL</param>
 ///  <param name="size">[in] - of strips in the scan direction</param>
 ///   <returns>boxa, or NULL on error</returns>
+
 public static Boxa makeMosaicStrips(
 				 int w, 
 				 int h, 
 				 int direction, 
 				 int size){
 
-	IntPtr _Result = Natives.makeMosaicStrips(  w,   h,   direction,   size);
+
+
+	IntPtr _Result = Natives.makeMosaicStrips(
+  w,   h,   direction,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (1388, 1)
 // boxaCompareRegions(boxa1, boxa2, areathresh, pnsame, pdiffarea, pdiffxor, ppixdb) as int
 // boxaCompareRegions(BOXA *, BOXA *, l_int32, l_int32 *, l_float32 *, l_float32 *, PIX **) as l_ok
@@ -588,6 +688,7 @@ public static Boxa makeMosaicStrips(
 ///  <param name="pdiffxor">[out][optional] - fractional difference in xor of regions</param>
 ///  <param name="ppixdb">[out][optional] - debug pix showing two boxa</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int boxaCompareRegions(
 				 Boxa boxa1, 
 				 Boxa boxa2, 
@@ -597,17 +698,23 @@ public static int boxaCompareRegions(
 				out Single pdiffxor, 
 				out Pix ppixdb){
 
+
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaCompareRegions(boxa1.Pointer, boxa2.Pointer,   areathresh, out  pnsame, out  pdiffarea, out  pdiffxor, out ppixdbPtr);
+	int _Result = Natives.boxaCompareRegions(
+boxa1.Pointer, boxa2.Pointer,   areathresh, out  pnsame, out  pdiffarea, out  pdiffxor, out ppixdbPtr);
 	
 
+
+//  
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (1532, 1)
 // pixSelectLargeULComp(pixs, areaslop, yslop, connectivity) as Box
 // pixSelectLargeULComp(PIX *, l_float32, l_int32, l_int32) as BOX *
@@ -636,21 +743,29 @@ public static int boxaCompareRegions(
 ///  <param name="yslop">[in] - number of pixels in y direction</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>box, or NULL on error</returns>
+
 public static Box pixSelectLargeULComp(
 				 Pix pixs, 
 				 Single areaslop, 
 				 int yslop, 
 				 int connectivity){
 
-	IntPtr _Result = Natives.pixSelectLargeULComp(pixs.Pointer,   areaslop,   yslop,   connectivity);
+
+
+	IntPtr _Result = Natives.pixSelectLargeULComp(
+pixs.Pointer,   areaslop,   yslop,   connectivity);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Box(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc3.c (1573, 1)
 // boxaSelectLargeULBox(boxas, areaslop, yslop) as Box
 // boxaSelectLargeULBox(BOXA *, l_float32, l_int32) as BOX *
@@ -664,16 +779,23 @@ public static Box pixSelectLargeULComp(
 ///  <param name="areaslop">[in] - fraction near but less than 1.0</param>
 ///  <param name="yslop">[in] - number of pixels in y direction</param>
 ///   <returns>box, or NULL on error</returns>
+
 public static Box boxaSelectLargeULBox(
 				 Boxa boxas, 
 				 Single areaslop, 
 				 int yslop){
 
-	IntPtr _Result = Natives.boxaSelectLargeULBox(boxas.Pointer,   areaslop,   yslop);
+
+
+	IntPtr _Result = Natives.boxaSelectLargeULBox(
+boxas.Pointer,   areaslop,   yslop);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Box(_Result);
 }

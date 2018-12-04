@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (165, 1)
 // numaErode(nas, size) as Numa
 // numaErode(NUMA *, l_int32) as NUMA *
@@ -28,19 +29,27 @@ public partial class _All {
 ///  <param name="nas">[in] - </param>
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad eroded, or NULL on error</returns>
+
 public static Numa numaErode(
 				 Numa nas, 
 				 int size){
 
-	IntPtr _Result = Natives.numaErode(nas.Pointer,   size);
+
+
+	IntPtr _Result = Natives.numaErode(
+nas.Pointer,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (233, 1)
 // numaDilate(nas, size) as Numa
 // numaDilate(NUMA *, l_int32) as NUMA *
@@ -55,19 +64,27 @@ public static Numa numaErode(
 ///  <param name="nas">[in] - </param>
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad dilated, or NULL on error</returns>
+
 public static Numa numaDilate(
 				 Numa nas, 
 				 int size){
 
-	IntPtr _Result = Natives.numaDilate(nas.Pointer,   size);
+
+
+	IntPtr _Result = Natives.numaDilate(
+nas.Pointer,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (301, 1)
 // numaOpen(nas, size) as Numa
 // numaOpen(NUMA *, l_int32) as NUMA *
@@ -82,19 +99,27 @@ public static Numa numaDilate(
 ///  <param name="nas">[in] - </param>
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad opened, or NULL on error</returns>
+
 public static Numa numaOpen(
 				 Numa nas, 
 				 int size){
 
-	IntPtr _Result = Natives.numaOpen(nas.Pointer,   size);
+
+
+	IntPtr _Result = Natives.numaOpen(
+nas.Pointer,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (347, 1)
 // numaClose(nas, size) as Numa
 // numaClose(NUMA *, l_int32) as NUMA *
@@ -116,19 +141,27 @@ public static Numa numaOpen(
 ///  <param name="nas">[in] - </param>
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad opened, or NULL on error</returns>
+
 public static Numa numaClose(
 				 Numa nas, 
 				 int size){
 
-	IntPtr _Result = Natives.numaClose(nas.Pointer,   size);
+
+
+	IntPtr _Result = Natives.numaClose(
+nas.Pointer,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (394, 1)
 // numaTransform(nas, shift, scale) as Numa
 // numaTransform(NUMA *, l_float32, l_float32) as NUMA *
@@ -142,20 +175,28 @@ public static Numa numaClose(
 ///  <param name="shift">[in] - add this to each number</param>
 ///  <param name="scale">[in] - multiply each number by this</param>
 ///   <returns>nad with all values shifted and scaled, or NULL on error</returns>
+
 public static Numa numaTransform(
 				 Numa nas, 
 				 Single shift, 
 				 Single scale){
 
-	IntPtr _Result = Natives.numaTransform(nas.Pointer,   shift,   scale);
+
+
+	IntPtr _Result = Natives.numaTransform(
+nas.Pointer,   shift,   scale);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (431, 1)
 // numaSimpleStats(na, first, last, pmean, pvar, prvar) as int
 // numaSimpleStats(NUMA *, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -169,6 +210,7 @@ public static Numa numaTransform(
 ///  <param name="pvar">[out][optional] - variance</param>
 ///  <param name="prvar">[out][optional] - rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaSimpleStats(
 				 Numa na, 
 				 int first, 
@@ -177,14 +219,21 @@ public static int numaSimpleStats(
 				out Single pvar, 
 				out Single prvar){
 
-	int _Result = Natives.numaSimpleStats(na.Pointer,   first,   last, out  pmean, out  pvar, out  prvar);
+
+
+	int _Result = Natives.numaSimpleStats(
+na.Pointer,   first,   last, out  pmean, out  pvar, out  prvar);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (511, 1)
 // numaWindowedStats(nas, wc, pnam, pnams, pnav, pnarv) as int
 // numaWindowedStats(NUMA *, l_int32, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
@@ -219,6 +268,7 @@ public static int numaSimpleStats(
 ///  <param name="pnav">[out][optional] - variance in window</param>
 ///  <param name="pnarv">[out][optional] - rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaWindowedStats(
 				 Numa nas, 
 				 int wc, 
@@ -227,23 +277,29 @@ public static int numaWindowedStats(
 				out Numa pnav, 
 				out Numa pnarv){
 
+
 	IntPtr pnamPtr = IntPtr.Zero;
 	IntPtr pnamsPtr = IntPtr.Zero;
 	IntPtr pnavPtr = IntPtr.Zero;
 	IntPtr pnarvPtr = IntPtr.Zero;
 
-	int _Result = Natives.numaWindowedStats(nas.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
+	int _Result = Natives.numaWindowedStats(
+nas.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
+
+//  
 	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
 	if (pnamsPtr == IntPtr.Zero) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
 	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (562, 1)
 // numaWindowedMean(nas, wc) as Numa
 // numaWindowedMean(NUMA *, l_int32) as NUMA *
@@ -258,19 +314,27 @@ public static int numaWindowedStats(
 ///  <param name="nas">[in] - </param>
 ///  <param name="wc">[in] - half width of the convolution window</param>
 ///   <returns>nad after low-pass filtering, or NULL on error</returns>
+
 public static Numa numaWindowedMean(
 				 Numa nas, 
 				 int wc){
 
-	IntPtr _Result = Natives.numaWindowedMean(nas.Pointer,   wc);
+
+
+	IntPtr _Result = Natives.numaWindowedMean(
+nas.Pointer,   wc);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (622, 1)
 // numaWindowedMeanSquare(nas, wc) as Numa
 // numaWindowedMeanSquare(NUMA *, l_int32) as NUMA *
@@ -285,19 +349,27 @@ public static Numa numaWindowedMean(
 ///  <param name="nas">[in] - </param>
 ///  <param name="wc">[in] - half width of the window</param>
 ///   <returns>nad containing windowed mean square values, or NULL on error</returns>
+
 public static Numa numaWindowedMeanSquare(
 				 Numa nas, 
 				 int wc){
 
-	IntPtr _Result = Natives.numaWindowedMeanSquare(nas.Pointer,   wc);
+
+
+	IntPtr _Result = Natives.numaWindowedMeanSquare(
+nas.Pointer,   wc);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (690, 1)
 // numaWindowedVariance(nam, nams, pnav, pnarv) as int
 // numaWindowedVariance(NUMA *, NUMA *, NUMA **, NUMA **) as l_ok
@@ -319,25 +391,32 @@ public static Numa numaWindowedMeanSquare(
 ///  <param name="pnav">[out][optional] - numa of variance -- the ms deviation from the mean</param>
 ///  <param name="pnarv">[out][optional] - numa of rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaWindowedVariance(
 				 Numa nam, 
 				 Numa nams, 
 				out Numa pnav, 
 				out Numa pnarv){
 
+
 	IntPtr pnavPtr = IntPtr.Zero;
 	IntPtr pnarvPtr = IntPtr.Zero;
 
-	int _Result = Natives.numaWindowedVariance(nam.Pointer, nams.Pointer, out pnavPtr, out pnarvPtr);
+	int _Result = Natives.numaWindowedVariance(
+nam.Pointer, nams.Pointer, out pnavPtr, out pnarvPtr);
 	
 
+
+//  
 	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (758, 1)
 // numaWindowedMedian(nas, halfwin) as Numa
 // numaWindowedMedian(NUMA *, l_int32) as NUMA *
@@ -359,19 +438,27 @@ public static int numaWindowedVariance(
 ///  <param name="nas">[in] - </param>
 ///  <param name="halfwin">[in] - half width of window over which the median is found</param>
 ///   <returns>nad after windowed median filtering, or NULL on error</returns>
+
 public static Numa numaWindowedMedian(
 				 Numa nas, 
 				 int halfwin){
 
-	IntPtr _Result = Natives.numaWindowedMedian(nas.Pointer,   halfwin);
+
+
+	IntPtr _Result = Natives.numaWindowedMedian(
+nas.Pointer,   halfwin);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (807, 1)
 // numaConvertToInt(nas) as Numa
 // numaConvertToInt(NUMA *) as NUMA *
@@ -380,18 +467,26 @@ public static Numa numaWindowedMedian(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaConvertToInt/*"/>
 ///  <param name="nas">[in] - source numa</param>
 ///   <returns>na with all values rounded to nearest integer, or NULL on error</returns>
+
 public static Numa numaConvertToInt(
 				 Numa nas){
 
-	IntPtr _Result = Natives.numaConvertToInt(nas.Pointer);
+
+
+	IntPtr _Result = Natives.numaConvertToInt(
+nas.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (859, 1)
 // numaMakeHistogram(na, maxbins, pbinsize, pbinstart) as Numa
 // numaMakeHistogram(NUMA *, l_int32, l_int32 *, l_int32 *) as NUMA *
@@ -418,21 +513,29 @@ public static Numa numaConvertToInt(
 ///  <param name="pbinsize">[out] - size of histogram bins</param>
 ///  <param name="pbinstart">[out][optional] - start val of minimum bin input NULL to force start at 0</param>
 ///   <returns>na consisiting of histogram of integerized values, or NULL on error.</returns>
+
 public static Numa numaMakeHistogram(
 				 Numa na, 
 				 int maxbins, 
 				out int pbinsize, 
 				out int pbinstart){
 
-	IntPtr _Result = Natives.numaMakeHistogram(na.Pointer,   maxbins, out  pbinsize, out  pbinstart);
+
+
+	IntPtr _Result = Natives.numaMakeHistogram(
+na.Pointer,   maxbins, out  pbinsize, out  pbinstart);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (971, 1)
 // numaMakeHistogramAuto(na, maxbins) as Numa
 // numaMakeHistogramAuto(NUMA *, l_int32) as NUMA *
@@ -457,19 +560,27 @@ public static Numa numaMakeHistogram(
 ///  <param name="na">[in] - numa of floats these may be integers</param>
 ///  <param name="maxbins">[in] - max number of histogram bins greater or equal 1</param>
 ///   <returns>na consisiting of histogram of quantized float values, or NULL on error.</returns>
+
 public static Numa numaMakeHistogramAuto(
 				 Numa na, 
 				 int maxbins){
 
-	IntPtr _Result = Natives.numaMakeHistogramAuto(na.Pointer,   maxbins);
+
+
+	IntPtr _Result = Natives.numaMakeHistogramAuto(
+na.Pointer,   maxbins);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1055, 1)
 // numaMakeHistogramClipped(na, binsize, maxsize) as Numa
 // numaMakeHistogramClipped(NUMA *, l_float32, l_float32) as NUMA *
@@ -488,20 +599,28 @@ public static Numa numaMakeHistogramAuto(
 ///  <param name="binsize">[in] - typically 1.0</param>
 ///  <param name="maxsize">[in] - of histogram ordinate</param>
 ///   <returns>na histogram of bins of size %binsize, starting with the na[0] (x = 0.0 and going up to a maximum of x = %maxsize, by increments of %binsize), or NULL on error</returns>
+
 public static Numa numaMakeHistogramClipped(
 				 Numa na, 
 				 Single binsize, 
 				 Single maxsize){
 
-	IntPtr _Result = Natives.numaMakeHistogramClipped(na.Pointer,   binsize,   maxsize);
+
+
+	IntPtr _Result = Natives.numaMakeHistogramClipped(
+na.Pointer,   binsize,   maxsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1104, 1)
 // numaRebinHistogram(nas, newsize) as Numa
 // numaRebinHistogram(NUMA *, l_int32) as NUMA *
@@ -511,19 +630,27 @@ public static Numa numaMakeHistogramClipped(
 ///  <param name="nas">[in] - input histogram</param>
 ///  <param name="newsize">[in] - number of old bins contained in each new bin</param>
 ///   <returns>nad more coarsely re-binned histogram, or NULL on error</returns>
+
 public static Numa numaRebinHistogram(
 				 Numa nas, 
 				 int newsize){
 
-	IntPtr _Result = Natives.numaRebinHistogram(nas.Pointer,   newsize);
+
+
+	IntPtr _Result = Natives.numaRebinHistogram(
+nas.Pointer,   newsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1153, 1)
 // numaNormalizeHistogram(nas, tsum) as Numa
 // numaNormalizeHistogram(NUMA *, l_float32) as NUMA *
@@ -533,19 +660,27 @@ public static Numa numaRebinHistogram(
 ///  <param name="nas">[in] - input histogram</param>
 ///  <param name="tsum">[in] - target sum of all numbers in dest histogram e.g., use %tsum= 1.0 if this represents a probability distribution</param>
 ///   <returns>nad normalized histogram, or NULL on error</returns>
+
 public static Numa numaNormalizeHistogram(
 				 Numa nas, 
 				 Single tsum){
 
-	IntPtr _Result = Natives.numaNormalizeHistogram(nas.Pointer,   tsum);
+
+
+	IntPtr _Result = Natives.numaNormalizeHistogram(
+nas.Pointer,   tsum);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1235, 1)
 // numaGetStatsUsingHistogram(na, maxbins, pmin, pmax, pmean, pvariance, pmedian, rank, prval, phisto) as int
 // numaGetStatsUsingHistogram(NUMA *, l_int32, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32, l_float32 *, NUMA **) as l_ok
@@ -595,6 +730,7 @@ public static Numa numaNormalizeHistogram(
 ///  <param name="prval">[out][optional] - value in na corresponding to %rank</param>
 ///  <param name="phisto">[out][optional] - Numa histogram use NULL to prevent</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaGetStatsUsingHistogram(
 				 Numa na, 
 				 int maxbins, 
@@ -607,17 +743,23 @@ public static int numaGetStatsUsingHistogram(
 				out Single prval, 
 				out Numa phisto){
 
+
 	IntPtr phistoPtr = IntPtr.Zero;
 
-	int _Result = Natives.numaGetStatsUsingHistogram(na.Pointer,   maxbins, out  pmin, out  pmax, out  pmean, out  pvariance, out  pmedian,   rank, out  prval, out phistoPtr);
+	int _Result = Natives.numaGetStatsUsingHistogram(
+na.Pointer,   maxbins, out  pmin, out  pmax, out  pmean, out  pvariance, out  pmedian,   rank, out  prval, out phistoPtr);
 	
 
+
+//  
 	if (phistoPtr == IntPtr.Zero) {phisto = null;} else { phisto = new Numa(phistoPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1326, 1)
 // numaGetHistogramStats(nahisto, startx, deltax, pxmean, pxmedian, pxmode, pxvariance) as int
 // numaGetHistogramStats(NUMA *, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -639,6 +781,7 @@ public static int numaGetStatsUsingHistogram(
 ///  <param name="pxmode">[out][optional] - mode value of histogram: xmode = x(imode), where y(xmode) greater or equal y(x(i)) for all i != imode</param>
 ///  <param name="pxvariance">[out][optional] - variance of x</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaGetHistogramStats(
 				 Numa nahisto, 
 				 Single startx, 
@@ -648,14 +791,21 @@ public static int numaGetHistogramStats(
 				out Single pxmode, 
 				out Single pxvariance){
 
-	int _Result = Natives.numaGetHistogramStats(nahisto.Pointer,   startx,   deltax, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
+
+
+	int _Result = Natives.numaGetHistogramStats(
+nahisto.Pointer,   startx,   deltax, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1375, 1)
 // numaGetHistogramStatsOnInterval(nahisto, startx, deltax, ifirst, ilast, pxmean, pxmedian, pxmode, pxvariance) as int
 // numaGetHistogramStatsOnInterval(NUMA *, l_float32, l_float32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -679,6 +829,7 @@ public static int numaGetHistogramStats(
 ///  <param name="pxmode">[out][optional] - mode value of histogram: xmode = x(imode), where y(xmode) greater or equal y(x(i)) for all i != imode</param>
 ///  <param name="pxvariance">[out][optional] - variance of x</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaGetHistogramStatsOnInterval(
 				 Numa nahisto, 
 				 Single startx, 
@@ -690,14 +841,21 @@ public static int numaGetHistogramStatsOnInterval(
 				out Single pxmode, 
 				out Single pxvariance){
 
-	int _Result = Natives.numaGetHistogramStatsOnInterval(nahisto.Pointer,   startx,   deltax,   ifirst,   ilast, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
+
+
+	int _Result = Natives.numaGetHistogramStatsOnInterval(
+nahisto.Pointer,   startx,   deltax,   ifirst,   ilast, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1462, 1)
 // numaMakeRankFromHistogram(startx, deltax, nasy, npts, pnax, pnay) as int
 // numaMakeRankFromHistogram(l_float32, l_float32, NUMA *, l_int32, NUMA **, NUMA **) as l_ok
@@ -711,6 +869,7 @@ public static int numaGetHistogramStatsOnInterval(
 ///  <param name="pnax">[out][optional] - array of x values in range</param>
 ///  <param name="pnay">[out] - rank array of specified npts</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaMakeRankFromHistogram(
 				 Single startx, 
 				 Single deltax, 
@@ -719,19 +878,25 @@ public static int numaMakeRankFromHistogram(
 				out Numa pnax, 
 				out Numa pnay){
 
+
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
 
-	int _Result = Natives.numaMakeRankFromHistogram(  startx,   deltax, nasy.Pointer,   npts, out pnaxPtr, out pnayPtr);
+	int _Result = Natives.numaMakeRankFromHistogram(
+  startx,   deltax, nasy.Pointer,   npts, out pnaxPtr, out pnayPtr);
 	
 
+
+//  
 	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
 	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1530, 1)
 // numaHistogramGetRankFromVal(na, rval, prank) as int
 // numaHistogramGetRankFromVal(NUMA *, l_float32, l_float32 *) as l_ok
@@ -756,19 +921,27 @@ public static int numaMakeRankFromHistogram(
 ///  <param name="rval">[in] - value of input sample for which we want the rank</param>
 ///  <param name="prank">[out] - fraction of total samples below rval</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaHistogramGetRankFromVal(
 				 Numa na, 
 				 Single rval, 
 				out Single prank){
 
-	int _Result = Natives.numaHistogramGetRankFromVal(na.Pointer,   rval, out  prank);
+
+
+	int _Result = Natives.numaHistogramGetRankFromVal(
+na.Pointer,   rval, out  prank);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1601, 1)
 // numaHistogramGetValFromRank(na, rank, prval) as int
 // numaHistogramGetValFromRank(NUMA *, l_float32, l_float32 *) as l_ok
@@ -793,19 +966,27 @@ public static int numaHistogramGetRankFromVal(
 ///  <param name="rank">[in] - fraction of total samples</param>
 ///  <param name="prval">[out] - approx. to the bin value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaHistogramGetValFromRank(
 				 Numa na, 
 				 Single rank, 
 				out Single prval){
 
-	int _Result = Natives.numaHistogramGetValFromRank(na.Pointer,   rank, out  prval);
+
+
+	int _Result = Natives.numaHistogramGetValFromRank(
+na.Pointer,   rank, out  prval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1681, 1)
 // numaDiscretizeRankAndIntensity(na, nbins, pnarbin, pnam, pnar, pnabb) as int
 // numaDiscretizeRankAndIntensity(NUMA *, l_int32, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
@@ -835,6 +1016,7 @@ public static int numaHistogramGetValFromRank(
 ///  <param name="pnar">[out][optional] - rank vs intensity this is a cumulative norm histogram</param>
 ///  <param name="pnabb">[out][optional] - intensity at the right bin boundary vs rank bin</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaDiscretizeRankAndIntensity(
 				 Numa na, 
 				 int nbins, 
@@ -843,23 +1025,29 @@ public static int numaDiscretizeRankAndIntensity(
 				out Numa pnar, 
 				out Numa pnabb){
 
+
 	IntPtr pnarbinPtr = IntPtr.Zero;
 	IntPtr pnamPtr = IntPtr.Zero;
 	IntPtr pnarPtr = IntPtr.Zero;
 	IntPtr pnabbPtr = IntPtr.Zero;
 
-	int _Result = Natives.numaDiscretizeRankAndIntensity(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr, out pnarPtr, out pnabbPtr);
+	int _Result = Natives.numaDiscretizeRankAndIntensity(
+na.Pointer,   nbins, out pnarbinPtr, out pnamPtr, out pnarPtr, out pnabbPtr);
 	
 
+
+//  
 	if (pnarbinPtr == IntPtr.Zero) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
 	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
 	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
 	if (pnabbPtr == IntPtr.Zero) {pnabb = null;} else { pnabb = new Numa(pnabbPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1829, 1)
 // numaGetRankBinValues(na, nbins, pnarbin, pnam) as int
 // numaGetRankBinValues(NUMA *, l_int32, NUMA **, NUMA **) as l_ok
@@ -877,25 +1065,32 @@ public static int numaDiscretizeRankAndIntensity(
 ///  <param name="pnarbin">[out][optional] - rank bin value vs array value</param>
 ///  <param name="pnam">[out][optional] - median intensity in a bin vs rank bin value, with %nbins of discretized rank values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaGetRankBinValues(
 				 Numa na, 
 				 int nbins, 
 				out Numa pnarbin, 
 				out Numa pnam){
 
+
 	IntPtr pnarbinPtr = IntPtr.Zero;
 	IntPtr pnamPtr = IntPtr.Zero;
 
-	int _Result = Natives.numaGetRankBinValues(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr);
+	int _Result = Natives.numaGetRankBinValues(
+na.Pointer,   nbins, out pnarbinPtr, out pnamPtr);
 	
 
+
+//  
 	if (pnarbinPtr == IntPtr.Zero) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
 	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (1924, 1)
 // numaSplitDistribution(na, scorefract, psplitindex, pave1, pave2, pnum1, pnum2, pnascore) as int
 // numaSplitDistribution(NUMA *, l_float32, l_int32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, NUMA **) as l_ok
@@ -947,6 +1142,7 @@ public static int numaGetRankBinValues(
 ///  <param name="pnum2">[out][optional] - population of upper distribution</param>
 ///  <param name="pnascore">[out][optional] - for debugging otherwise use NULL</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaSplitDistribution(
 				 Numa na, 
 				 Single scorefract, 
@@ -957,17 +1153,23 @@ public static int numaSplitDistribution(
 				out Single pnum2, 
 				out Numa pnascore){
 
+
 	IntPtr pnascorePtr = IntPtr.Zero;
 
-	int _Result = Natives.numaSplitDistribution(na.Pointer,   scorefract, out  psplitindex, out  pave1, out  pave2, out  pnum1, out  pnum2, out pnascorePtr);
+	int _Result = Natives.numaSplitDistribution(
+na.Pointer,   scorefract, out  psplitindex, out  pave1, out  pave2, out  pnum1, out  pnum2, out pnascorePtr);
 	
 
+
+//  
 	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2086, 1)
 // grayHistogramsToEMD(naa1, naa2, pnad) as int
 // grayHistogramsToEMD(NUMAA *, NUMAA *, NUMA **) as l_ok
@@ -993,22 +1195,29 @@ public static int numaSplitDistribution(
 ///  <param name="naa2">[in] - two numaa, each with one or more 256-element histograms</param>
 ///  <param name="pnad">[out] - nad of EM distances for each histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int grayHistogramsToEMD(
 				 Numaa naa1, 
 				 Numaa naa2, 
 				out Numa pnad){
 
+
 	IntPtr pnadPtr = IntPtr.Zero;
 
-	int _Result = Natives.grayHistogramsToEMD(naa1.Pointer, naa2.Pointer, out pnadPtr);
+	int _Result = Natives.grayHistogramsToEMD(
+naa1.Pointer, naa2.Pointer, out pnadPtr);
 	
 
+
+//  
 	if (pnadPtr == IntPtr.Zero) {pnad = null;} else { pnad = new Numa(pnadPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2152, 1)
 // numaEarthMoverDistance(na1, na2, pdist) as int
 // numaEarthMoverDistance(NUMA *, NUMA *, l_float32 *) as l_ok
@@ -1040,19 +1249,27 @@ public static int grayHistogramsToEMD(
 ///  <param name="na2">[in] - two numas of the same size, typically histograms</param>
 ///  <param name="pdist">[out] - EM distance</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaEarthMoverDistance(
 				 Numa na1, 
 				 Numa na2, 
 				out Single pdist){
 
-	int _Result = Natives.numaEarthMoverDistance(na1.Pointer, na2.Pointer, out  pdist);
+
+
+	int _Result = Natives.numaEarthMoverDistance(
+na1.Pointer, na2.Pointer, out  pdist);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2243, 1)
 // grayInterHistogramStats(naa, wc, pnam, pnams, pnav, pnarv) as int
 // grayInterHistogramStats(NUMAA *, l_int32, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
@@ -1102,6 +1319,7 @@ public static int numaEarthMoverDistance(
 ///  <param name="pnav">[out][optional] - variances</param>
 ///  <param name="pnarv">[out][optional] - rms deviations from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int grayInterHistogramStats(
 				 Numaa naa, 
 				 int wc, 
@@ -1110,23 +1328,29 @@ public static int grayInterHistogramStats(
 				out Numa pnav, 
 				out Numa pnarv){
 
+
 	IntPtr pnamPtr = IntPtr.Zero;
 	IntPtr pnamsPtr = IntPtr.Zero;
 	IntPtr pnavPtr = IntPtr.Zero;
 	IntPtr pnarvPtr = IntPtr.Zero;
 
-	int _Result = Natives.grayInterHistogramStats(naa.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
+	int _Result = Natives.grayInterHistogramStats(
+naa.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
+
+//  
 	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
 	if (pnamsPtr == IntPtr.Zero) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
 	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2333, 1)
 // numaFindPeaks(nas, nmax, fract1, fract2) as Numa
 // numaFindPeaks(NUMA *, l_int32, l_float32, l_float32) as NUMA *
@@ -1143,21 +1367,29 @@ public static int grayInterHistogramStats(
 ///  <param name="fract1">[in] - min fraction of peak value</param>
 ///  <param name="fract2">[in] - min slope</param>
 ///   <returns>peak na, or NULL on error.</returns>
+
 public static Numa numaFindPeaks(
 				 Numa nas, 
 				 int nmax, 
 				 Single fract1, 
 				 Single fract2){
 
-	IntPtr _Result = Natives.numaFindPeaks(nas.Pointer,   nmax,   fract1,   fract2);
+
+
+	IntPtr _Result = Natives.numaFindPeaks(
+nas.Pointer,   nmax,   fract1,   fract2);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2448, 1)
 // numaFindExtrema(nas, delta, pnav) as Numa
 // numaFindExtrema(NUMA *, l_float32, NUMA **) as NUMA *
@@ -1186,23 +1418,30 @@ public static Numa numaFindPeaks(
 ///  <param name="delta">[in] - relative amount to resolve peaks and valleys</param>
 ///  <param name="pnav">[out][optional] - values of extrema</param>
 ///   <returns>nad (locations of extrema, or NULL on error</returns>
+
 public static Numa numaFindExtrema(
 				 Numa nas, 
 				 Single delta, 
 				out Numa pnav){
 
+
 	IntPtr pnavPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.numaFindExtrema(nas.Pointer,   delta, out pnavPtr);
+	IntPtr _Result = Natives.numaFindExtrema(
+nas.Pointer,   delta, out pnavPtr);
 	
 
+
+//  
 	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2544, 1)
 // numaCountReversals(nas, minreversal, pnr, pnrpl) as int
 // numaCountReversals(NUMA *, l_float32, l_int32 *, l_float32 *) as l_ok
@@ -1219,20 +1458,28 @@ public static Numa numaFindExtrema(
 ///  <param name="pnr">[out][optional] - number of reversals</param>
 ///  <param name="pnrpl">[out] - ([optional] reversal density: reversals/length</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaCountReversals(
 				 Numa nas, 
 				 Single minreversal, 
 				out int pnr, 
 				out Single pnrpl){
 
-	int _Result = Natives.numaCountReversals(nas.Pointer,   minreversal, out  pnr, out  pnrpl);
+
+
+	int _Result = Natives.numaCountReversals(
+nas.Pointer,   minreversal, out  pnr, out  pnrpl);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2606, 1)
 // numaSelectCrossingThreshold(nax, nay, estthresh, pbestthresh) as int
 // numaSelectCrossingThreshold(NUMA *, NUMA *, l_float32, l_float32 *) as l_ok
@@ -1258,22 +1505,29 @@ public static int numaCountReversals(
 ///  <param name="estthresh">[in] - estimated pixel threshold for crossing: e.g., for images, white  is smallerto black typ. ~120</param>
 ///  <param name="pbestthresh">[out] - robust estimate of threshold to use</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaSelectCrossingThreshold(
 				 Numa nax, 
 				 Numa nay, 
 				 Single estthresh, 
 				out Single pbestthresh){
 
+
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
-	int _Result = Natives.numaSelectCrossingThreshold(naxPtr, nay.Pointer,   estthresh, out  pbestthresh);
+	int _Result = Natives.numaSelectCrossingThreshold(
+naxPtr, nay.Pointer,   estthresh, out  pbestthresh);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2713, 1)
 // numaCrossingsByThreshold(nax, nay, thresh) as Numa
 // numaCrossingsByThreshold(NUMA *, NUMA *, l_float32) as NUMA *
@@ -1288,22 +1542,29 @@ public static int numaSelectCrossingThreshold(
 ///  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 ///  <param name="thresh">[in] - threshold value for nay</param>
 ///   <returns>nad abscissa pts at threshold, or NULL on error</returns>
+
 public static Numa numaCrossingsByThreshold(
 				 Numa nax, 
 				 Numa nay, 
 				 Single thresh){
 
+
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
-	IntPtr _Result = Natives.numaCrossingsByThreshold(naxPtr, nay.Pointer,   thresh);
+	IntPtr _Result = Natives.numaCrossingsByThreshold(
+naxPtr, nay.Pointer,   thresh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2778, 1)
 // numaCrossingsByPeaks(nax, nay, delta) as Numa
 // numaCrossingsByPeaks(NUMA *, NUMA *, l_float32) as NUMA *
@@ -1318,22 +1579,29 @@ public static Numa numaCrossingsByThreshold(
 ///  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 ///  <param name="delta">[in] - parameter used to identify when a new peak can be found</param>
 ///   <returns>nad abscissa pts at threshold, or NULL on error</returns>
+
 public static Numa numaCrossingsByPeaks(
 				 Numa nax, 
 				 Numa nay, 
 				 Single delta){
 
+
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
-	IntPtr _Result = Natives.numaCrossingsByPeaks(naxPtr, nay.Pointer,   delta);
+	IntPtr _Result = Natives.numaCrossingsByPeaks(
+naxPtr, nay.Pointer,   delta);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2890, 1)
 // numaEvalBestHaarParameters(nas, relweight, nwidth, nshift, minwidth, maxwidth, pbestwidth, pbestshift, pbestscore) as int
 // numaEvalBestHaarParameters(NUMA *, l_float32, l_int32, l_int32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -1371,6 +1639,7 @@ public static Numa numaCrossingsByPeaks(
 ///  <param name="pbestshift">[out] - shift giving largest score</param>
 ///  <param name="pbestscore">[out][optional] - convolution with "Haar"-like comb</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaEvalBestHaarParameters(
 				 Numa nas, 
 				 Single relweight, 
@@ -1382,14 +1651,21 @@ public static int numaEvalBestHaarParameters(
 				out Single pbestshift, 
 				out Single pbestscore){
 
-	int _Result = Natives.numaEvalBestHaarParameters(nas.Pointer,   relweight,   nwidth,   nshift,   minwidth,   maxwidth, out  pbestwidth, out  pbestshift, out  pbestscore);
+
+
+	int _Result = Natives.numaEvalBestHaarParameters(
+nas.Pointer,   relweight,   nwidth,   nshift,   minwidth,   maxwidth, out  pbestwidth, out  pbestshift, out  pbestscore);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (2975, 1)
 // numaEvalHaarSum(nas, width, shift, relweight, pscore) as int
 // numaEvalHaarSum(NUMA *, l_float32, l_float32, l_float32, l_float32 *) as l_ok
@@ -1423,6 +1699,7 @@ public static int numaEvalBestHaarParameters(
 ///  <param name="relweight">[in] - relative weight of (-1 comb) / (+1 comb) contributions to the 'convolution'.  In effect, the convolution kernel is a comb consisting of alternating +1 and -weight.</param>
 ///  <param name="pscore">[out] - convolution with "Haar"-like comb</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int numaEvalHaarSum(
 				 Numa nas, 
 				 Single width, 
@@ -1430,14 +1707,21 @@ public static int numaEvalHaarSum(
 				 Single relweight, 
 				out Single pscore){
 
-	int _Result = Natives.numaEvalHaarSum(nas.Pointer,   width,   shift,   relweight, out  pscore);
+
+
+	int _Result = Natives.numaEvalHaarSum(
+nas.Pointer,   width,   shift,   relweight, out  pscore);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // numafunc2.c (3032, 1)
 // genConstrainedNumaInRange(first, last, nmax, use_pairs) as Numa
 // genConstrainedNumaInRange(l_int32, l_int32, l_int32, l_int32) as NUMA *
@@ -1457,17 +1741,24 @@ public static int numaEvalHaarSum(
 ///  <param name="nmax">[in] - maximum number of numbers to select  is greater  0</param>
 ///  <param name="use_pairs">[in] - 1 = select pairs of adjacent numbers 0 = select individual numbers</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static Numa genConstrainedNumaInRange(
 				 int first, 
 				 int last, 
 				 int nmax, 
 				 int use_pairs){
 
-	IntPtr _Result = Natives.genConstrainedNumaInRange(  first,   last,   nmax,   use_pairs);
+
+
+	IntPtr _Result = Natives.genConstrainedNumaInRange(
+  first,   last,   nmax,   use_pairs);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }

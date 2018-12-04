@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (125, 1)
 // setMsgSeverity(newsev) as int
 // setMsgSeverity(l_int32) as l_int32
@@ -23,17 +24,25 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/setMsgSeverity/*"/>
 ///  <param name="newsev">[in] - </param>
 ///   <returns>oldsev</returns>
+
 public static int setMsgSeverity(
 				 int newsev){
 
-	int _Result = Natives.setMsgSeverity(  newsev);
+
+
+	int _Result = Natives.setMsgSeverity(
+  newsev);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (176, 1)
 // returnErrorInt(msg, procname, ival) as int
 // returnErrorInt(const char *, const char *, l_int32) as l_int32
@@ -44,19 +53,27 @@ public static int setMsgSeverity(
 ///  <param name="procname">[in] - </param>
 ///  <param name="ival">[in] - return val</param>
 ///   <returns>ival typically 1 for an error return</returns>
+
 public static int returnErrorInt(
 				 String msg, 
 				 String procname, 
 				 int ival){
 
-	int _Result = Natives.returnErrorInt(  msg,   procname,   ival);
+
+
+	int _Result = Natives.returnErrorInt(
+  msg,   procname,   ival);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (194, 1)
 // returnErrorFloat(msg, procname, fval) as Single
 // returnErrorFloat(const char *, const char *, l_float32) as l_float32
@@ -67,19 +84,27 @@ public static int returnErrorInt(
 ///  <param name="procname">[in] - </param>
 ///  <param name="fval">[in] - return val</param>
 ///   <returns>fval</returns>
+
 public static Single returnErrorFloat(
 				 String msg, 
 				 String procname, 
 				 Single fval){
 
-	Single _Result = Natives.returnErrorFloat(  msg,   procname,   fval);
+
+
+	Single _Result = Natives.returnErrorFloat(
+  msg,   procname,   fval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (212, 1)
 // returnErrorPtr(msg, procname, pval) as Object
 // returnErrorPtr(const char *, const char *, void *) as void *
@@ -90,17 +115,23 @@ public static Single returnErrorFloat(
 ///  <param name="procname">[in] - </param>
 ///  <param name="pval">[in] - return val</param>
 ///   <returns>pval typically null</returns>
+
 public static Object returnErrorPtr(
 				 String msg, 
 				 String procname, 
 				 Object pval){
 
-		IntPtr pvalPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	IntPtr _Result = Natives.returnErrorPtr(  msg,   procname,   pvalPtr);
+		IntPtr pvalPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	IntPtr _Result = Natives.returnErrorPtr(
+  msg,   procname,   pvalPtr);
 	
+
 	Marshal.FreeHGlobal(pvalPtr);
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -108,6 +139,7 @@ public static Object returnErrorPtr(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (233, 1)
 // filesAreIdentical(fname1, fname2, psame) as int
 // filesAreIdentical(const char *, const char *, l_int32 *) as l_ok
@@ -118,19 +150,27 @@ public static Object returnErrorPtr(
 ///  <param name="fname2">[in] - </param>
 ///  <param name="psame">[out] - 1 if identical 0 if different</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int filesAreIdentical(
 				 String fname1, 
 				 String fname2, 
 				out int psame){
 
-	int _Result = Natives.filesAreIdentical(  fname1,   fname2, out  psame);
+
+
+	int _Result = Natives.filesAreIdentical(
+  fname1,   fname2, out  psame);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (303, 1)
 // convertOnLittleEnd16(shortin) as ushort
 // convertOnLittleEnd16(l_uint16) as l_uint16
@@ -138,17 +178,25 @@ public static int filesAreIdentical(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnLittleEnd16/*"/>
 ///   <returns></returns>
+
 public static ushort convertOnLittleEnd16(
 				 ushort shortin){
 
-	ushort _Result = Natives.convertOnLittleEnd16(  shortin);
+
+
+	ushort _Result = Natives.convertOnLittleEnd16(
+  shortin);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (309, 1)
 // convertOnBigEnd16(shortin) as ushort
 // convertOnBigEnd16(l_uint16) as l_uint16
@@ -156,17 +204,25 @@ public static ushort convertOnLittleEnd16(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnBigEnd16/*"/>
 ///   <returns></returns>
+
 public static ushort convertOnBigEnd16(
 				 ushort shortin){
 
-	ushort _Result = Natives.convertOnBigEnd16(  shortin);
+
+
+	ushort _Result = Natives.convertOnBigEnd16(
+  shortin);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (338, 1)
 // convertOnLittleEnd32(wordin) as uint
 // convertOnLittleEnd32(l_uint32) as l_uint32
@@ -174,17 +230,25 @@ public static ushort convertOnBigEnd16(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnLittleEnd32/*"/>
 ///   <returns></returns>
+
 public static uint convertOnLittleEnd32(
 				 uint wordin){
 
-	uint _Result = Natives.convertOnLittleEnd32(  wordin);
+
+
+	uint _Result = Natives.convertOnLittleEnd32(
+  wordin);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (345, 1)
 // convertOnBigEnd32(wordin) as uint
 // convertOnBigEnd32(l_uint32) as l_uint32
@@ -192,17 +256,25 @@ public static uint convertOnLittleEnd32(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnBigEnd32/*"/>
 ///   <returns></returns>
+
 public static uint convertOnBigEnd32(
 				 uint wordin){
 
-	uint _Result = Natives.convertOnBigEnd32(  wordin);
+
+
+	uint _Result = Natives.convertOnBigEnd32(
+  wordin);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (377, 1)
 // fileCorruptByDeletion(filein, loc, size, fileout) as int
 // fileCorruptByDeletion(const char *, l_float32, l_float32, const char *) as l_ok
@@ -226,20 +298,28 @@ public static uint convertOnBigEnd32(
 ///  <param name="size">[in] - fractional size of deletion</param>
 ///  <param name="fileout">[in] - corrupted file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int fileCorruptByDeletion(
 				 String filein, 
 				 Single loc, 
 				 Single size, 
 				 String fileout){
 
-	int _Result = Natives.fileCorruptByDeletion(  filein,   loc,   size,   fileout);
+
+
+	int _Result = Natives.fileCorruptByDeletion(
+  filein,   loc,   size,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (441, 1)
 // fileCorruptByMutation(filein, loc, size, fileout) as int
 // fileCorruptByMutation(const char *, l_float32, l_float32, const char *) as l_ok
@@ -263,20 +343,28 @@ public static int fileCorruptByDeletion(
 ///  <param name="size">[in] - fractional size of randomization</param>
 ///  <param name="fileout">[in] - corrupted file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int fileCorruptByMutation(
 				 String filein, 
 				 Single loc, 
 				 Single size, 
 				 String fileout){
 
-	int _Result = Natives.fileCorruptByMutation(  filein,   loc,   size,   fileout);
+
+
+	int _Result = Natives.fileCorruptByMutation(
+  filein,   loc,   size,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (499, 1)
 // genRandomIntegerInRange(range, seed, pval) as int
 // genRandomIntegerInRange(l_int32, l_int32, l_int32 *) as l_ok
@@ -291,19 +379,27 @@ public static int fileCorruptByMutation(
 ///  <param name="seed">[in] - use 0 to skip otherwise call srand</param>
 ///  <param name="pval">[out] - random integer in range {0 ... range-1}</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int genRandomIntegerInRange(
 				 int range, 
 				 int seed, 
 				out int pval){
 
-	int _Result = Natives.genRandomIntegerInRange(  range,   seed, out  pval);
+
+
+	int _Result = Natives.genRandomIntegerInRange(
+  range,   seed, out  pval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (536, 1)
 // lept_roundftoi(fval) as int
 // lept_roundftoi(l_float32) as l_int32
@@ -318,17 +414,25 @@ public static int genRandomIntegerInRange(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_roundftoi/*"/>
 ///  <param name="fval">[in] - </param>
 ///   <returns>value rounded to int</returns>
+
 public static int lept_roundftoi(
 				 Single fval){
 
-	int _Result = Natives.lept_roundftoi(  fval);
+
+
+	int _Result = Natives.lept_roundftoi(
+  fval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (568, 1)
 // l_hashStringToUint64(str, phash) as int
 // l_hashStringToUint64(const char *, l_uint64 *) as l_ok
@@ -353,18 +457,26 @@ public static int lept_roundftoi(
 ///  <param name="str">[in] - </param>
 ///  <param name="phash">[out] - hash vale</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_hashStringToUint64(
 				 String str, 
 				out ulong phash){
 
-	int _Result = Natives.l_hashStringToUint64(  str, out  phash);
+
+
+	int _Result = Natives.l_hashStringToUint64(
+  str, out  phash);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (614, 1)
 // l_hashPtToUint64(x, y, phash) as int
 // l_hashPtToUint64(l_int32, l_int32, l_uint64 *) as l_ok
@@ -389,19 +501,27 @@ public static int l_hashStringToUint64(
 ///  <param name="y">[in] - </param>
 ///  <param name="phash">[out] - hash value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_hashPtToUint64(
 				 int x, 
 				 int y, 
 				out ulong phash){
 
-	int _Result = Natives.l_hashPtToUint64(  x,   y, out  phash);
+
+
+	int _Result = Natives.l_hashPtToUint64(
+  x,   y, out  phash);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (654, 1)
 // l_hashFloat64ToUint64(nbuckets, val, phash) as int
 // l_hashFloat64ToUint64(l_int32, l_float64, l_uint64 *) as l_ok
@@ -429,19 +549,27 @@ public static int l_hashPtToUint64(
 ///  <param name="val">[in] - </param>
 ///  <param name="phash">[out] - hash value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_hashFloat64ToUint64(
 				 int nbuckets, 
 				 double val, 
 				out ulong phash){
 
-	int _Result = Natives.l_hashFloat64ToUint64(  nbuckets,   val, out  phash);
+
+
+	int _Result = Natives.l_hashFloat64ToUint64(
+  nbuckets,   val, out  phash);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (678, 1)
 // findNextLargerPrime(start, pprime) as int
 // findNextLargerPrime(l_int32, l_uint32 *) as l_ok
@@ -451,18 +579,26 @@ public static int l_hashFloat64ToUint64(
 ///  <param name="start">[in] - </param>
 ///  <param name="pprime">[out] - first prime larger than %start</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int findNextLargerPrime(
 				 int start, 
 				out uint pprime){
 
-	int _Result = Natives.findNextLargerPrime(  start, out  pprime);
+
+
+	int _Result = Natives.findNextLargerPrime(
+  start, out  pprime);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (713, 1)
 // lept_isPrime(n, pis_prime, pfactor) as int
 // lept_isPrime(l_uint64, l_int32 *, l_uint32 *) as l_ok
@@ -473,19 +609,27 @@ public static int findNextLargerPrime(
 ///  <param name="pis_prime">[out] - 1 if prime, 0 otherwise</param>
 ///  <param name="pfactor">[out][optional] - smallest divisor, or 0 on error or if prime</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int lept_isPrime(
 				 ulong n, 
 				out int pis_prime, 
 				out uint pfactor){
 
-	int _Result = Natives.lept_isPrime(  n, out  pis_prime, out  pfactor);
+
+
+	int _Result = Natives.lept_isPrime(
+  n, out  pis_prime, out  pfactor);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (764, 1)
 // convertIntToGrayCode(val) as uint
 // convertIntToGrayCode(l_uint32) as l_uint32
@@ -498,17 +642,25 @@ public static int lept_isPrime(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertIntToGrayCode/*"/>
 ///  <param name="val">[in] - integer value</param>
 ///   <returns>corresponding gray code value</returns>
+
 public static uint convertIntToGrayCode(
 				 uint val){
 
-	uint _Result = Natives.convertIntToGrayCode(  val);
+
+
+	uint _Result = Natives.convertIntToGrayCode(
+  val);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (777, 1)
 // convertGrayCodeToInt(val) as uint
 // convertGrayCodeToInt(l_uint32) as l_uint32
@@ -517,17 +669,25 @@ public static uint convertIntToGrayCode(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertGrayCodeToInt/*"/>
 ///  <param name="val">[in] - gray code value</param>
 ///   <returns>corresponding integer value</returns>
+
 public static uint convertGrayCodeToInt(
 				 uint val){
 
-	uint _Result = Natives.convertGrayCodeToInt(  val);
+
+
+	uint _Result = Natives.convertGrayCodeToInt(
+  val);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (799, 1)
 // getLeptonicaVersion() as String
 // getLeptonicaVersion() as char *
@@ -535,31 +695,45 @@ public static uint convertGrayCodeToInt(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getLeptonicaVersion/*"/>
 ///   <returns></returns>
+
 public static String getLeptonicaVersion(){
+
+
 
 	String _Result = Natives.getLeptonicaVersion();
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (946, 1)
 // startTimer() as Object
 // startTimer() as void
 ///  <remarks>
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/startTimer/*"/>
+
 public static void startTimer(){
+
+
 
 	Natives.startTimer();
 	
 
 
+//  
+
+
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (960, 1)
 // stopTimer() as Single
 // stopTimer() as l_float32
@@ -567,16 +741,23 @@ public static void startTimer(){
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stopTimer/*"/>
 ///   <returns></returns>
+
 public static Single stopTimer(){
+
+
 
 	Single _Result = Natives.stopTimer();
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (977, 1)
 // startTimerNested() as IntPtr
 // startTimerNested() as L_TIMER
@@ -584,16 +765,23 @@ public static Single stopTimer(){
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/startTimerNested/*"/>
 ///   <returns></returns>
+
 public static IntPtr startTimerNested(){
+
+
 
 	IntPtr _Result = Natives.startTimerNested();
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (994, 1)
 // stopTimerNested(utime_start) as Single
 // stopTimerNested(L_TIMER) as l_float32
@@ -601,34 +789,50 @@ public static IntPtr startTimerNested(){
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stopTimerNested/*"/>
 ///   <returns></returns>
+
 public static Single stopTimerNested(
 				 IntPtr utime_start){
 
-	Single _Result = Natives.stopTimerNested(  utime_start);
+
+
+	Single _Result = Natives.stopTimerNested(
+  utime_start);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (1013, 1)
 // l_getCurrentTime(sec, usec) as Object
 // l_getCurrentTime(l_int32 *, l_int32 *) as void
 ///  <remarks>
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_getCurrentTime/*"/>
+
 public static void l_getCurrentTime(
 				 object sec, 
 				 object usec){
 
-	Natives.l_getCurrentTime(  sec,   usec);
+
+
+	Natives.l_getCurrentTime(
+  sec,   usec);
 	
+
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (1053, 1)
 // startWallTimer() as L_WallTimer
 // startWallTimer() as L_WALLTIMER *
@@ -644,17 +848,24 @@ public static void l_getCurrentTime(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/startWallTimer/*"/>
 ///   <returns>walltimer-ptr</returns>
+
 public static L_WallTimer startWallTimer(){
+
+
 
 	IntPtr _Result = Natives.startWallTimer();
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_WallTimer(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (1069, 1)
 // stopWallTimer(ptimer) as Single
 // stopWallTimer(L_WALLTIMER **) as l_float32
@@ -663,20 +874,27 @@ public static L_WallTimer startWallTimer(){
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stopWallTimer/*"/>
 ///  <param name="ptimer">[in,out] - walltimer-ptr</param>
 ///   <returns>time wall time elapsed in seconds</returns>
+
 public static Single stopWallTimer(
 				ref L_WallTimer ptimer){
 
+
 	IntPtr ptimerPtr = IntPtr.Zero; 	if (ptimer != null) {ptimerPtr = ptimer.Pointer;}
 
-	Single _Result = Natives.stopWallTimer(ref ptimerPtr);
+	Single _Result = Natives.stopWallTimer(
+ref ptimerPtr);
 	
 
+
+//  
 	if (ptimerPtr == IntPtr.Zero) {ptimer = null;} else { ptimer = new L_WallTimer(ptimerPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils1.c (1104, 1)
 // l_getFormattedDate() as String
 // l_getFormattedDate() as char *
@@ -690,10 +908,16 @@ public static Single stopWallTimer(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_getFormattedDate/*"/>
 ///   <returns>formatted date string, or NULL on error</returns>
+
 public static String l_getFormattedDate(){
+
+
 
 	String _Result = Natives.l_getFormattedDate();
 	
+
+
+//  
 
 
 

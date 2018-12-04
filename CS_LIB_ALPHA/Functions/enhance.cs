@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (174, 1)
 // pixGammaTRC(pixd, pixs, gamma, minval, maxval) as Pix
 // pixGammaTRC(PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
@@ -57,6 +58,7 @@ public partial class _All {
 ///  <param name="minval">[in] - input value that gives 0 for output can be  is smaller 0</param>
 ///  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixGammaTRC(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -64,17 +66,23 @@ public static Pix pixGammaTRC(
 				 int minval, 
 				 int maxval){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixGammaTRC(pixdPtr, pixs.Pointer,   gamma,   minval,   maxval);
+	IntPtr _Result = Natives.pixGammaTRC(
+pixdPtr, pixs.Pointer,   gamma,   minval,   maxval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (242, 1)
 // pixGammaTRCMasked(pixd, pixs, pixm, gamma, minval, maxval) as Pix
 // pixGammaTRCMasked(PIX *, PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
@@ -96,6 +104,7 @@ public static Pix pixGammaTRC(
 ///  <param name="minval">[in] - input value that gives 0 for output can be  is smaller 0</param>
 ///  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixGammaTRCMasked(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -104,18 +113,24 @@ public static Pix pixGammaTRCMasked(
 				 int minval, 
 				 int maxval){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	IntPtr _Result = Natives.pixGammaTRCMasked(pixdPtr, pixs.Pointer, pixmPtr,   gamma,   minval,   maxval);
+	IntPtr _Result = Natives.pixGammaTRCMasked(
+pixdPtr, pixs.Pointer, pixmPtr,   gamma,   minval,   maxval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (306, 1)
 // pixGammaTRCWithAlpha(pixd, pixs, gamma, minval, maxval) as Pix
 // pixGammaTRCWithAlpha(PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
@@ -134,6 +149,7 @@ public static Pix pixGammaTRCMasked(
 ///  <param name="minval">[in] - input value that gives 0 for output can be  is smaller 0</param>
 ///  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixGammaTRCWithAlpha(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -141,17 +157,23 @@ public static Pix pixGammaTRCWithAlpha(
 				 int minval, 
 				 int maxval){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixGammaTRCWithAlpha(pixdPtr, pixs.Pointer,   gamma,   minval,   maxval);
+	IntPtr _Result = Natives.pixGammaTRCWithAlpha(
+pixdPtr, pixs.Pointer,   gamma,   minval,   maxval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (366, 1)
 // numaGammaTRC(gamma, minval, maxval) as Numa
 // numaGammaTRC(l_float32, l_int32, l_int32) as NUMA *
@@ -173,20 +195,28 @@ public static Pix pixGammaTRCWithAlpha(
 ///  <param name="minval">[in] - input value that gives 0 for output</param>
 ///  <param name="maxval">[in] - input value that gives 255 for output</param>
 ///   <returns>na, or NULL on error</returns>
+
 public static Numa numaGammaTRC(
 				 Single gamma, 
 				 int minval, 
 				 int maxval){
 
-	IntPtr _Result = Natives.numaGammaTRC(  gamma,   minval,   maxval);
+
+
+	IntPtr _Result = Natives.numaGammaTRC(
+  gamma,   minval,   maxval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (436, 1)
 // pixContrastTRC(pixd, pixs, factor) as Pix
 // pixContrastTRC(PIX *, PIX *, l_float32) as PIX *
@@ -221,22 +251,29 @@ public static Numa numaGammaTRC(
 ///  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 ///  <param name="factor">[in] - 0.0 is no enhancement</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixContrastTRC(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single factor){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixContrastTRC(pixdPtr, pixs.Pointer,   factor);
+	IntPtr _Result = Natives.pixContrastTRC(
+pixdPtr, pixs.Pointer,   factor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (498, 1)
 // pixContrastTRCMasked(pixd, pixs, pixm, factor) as Pix
 // pixContrastTRCMasked(PIX *, PIX *, PIX *, l_float32) as PIX *
@@ -256,24 +293,31 @@ public static Pix pixContrastTRC(
 ///  <param name="pixm">[in][optional] - null or 1 bpp</param>
 ///  <param name="factor">[in] - 0.0 is no enhancement</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixContrastTRCMasked(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Pix pixm, 
 				 Single factor){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	IntPtr _Result = Natives.pixContrastTRCMasked(pixdPtr, pixs.Pointer, pixmPtr,   factor);
+	IntPtr _Result = Natives.pixContrastTRCMasked(
+pixdPtr, pixs.Pointer, pixmPtr,   factor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (557, 1)
 // numaContrastTRC(factor) as Numa
 // numaContrastTRC(l_float32) as NUMA *
@@ -290,18 +334,26 @@ public static Pix pixContrastTRCMasked(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaContrastTRC/*"/>
 ///  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 ///   <returns>na, or NULL on error</returns>
+
 public static Numa numaContrastTRC(
 				 Single factor){
 
-	IntPtr _Result = Natives.numaContrastTRC(  factor);
+
+
+	IntPtr _Result = Natives.numaContrastTRC(
+  factor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (627, 1)
 // pixEqualizeTRC(pixd, pixs, fract, factor) as Pix
 // pixEqualizeTRC(PIX *, PIX *, l_float32, l_int32) as PIX *
@@ -341,23 +393,30 @@ public static Numa numaContrastTRC(
 ///  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixEqualizeTRC(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single fract, 
 				 int factor){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixEqualizeTRC(pixdPtr, pixs.Pointer,   fract,   factor);
+	IntPtr _Result = Natives.pixEqualizeTRC(
+pixdPtr, pixs.Pointer,   fract,   factor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (714, 1)
 // numaEqualizeTRC(pix, fract, factor) as Numa
 // numaEqualizeTRC(PIX *, l_float32, l_int32) as NUMA *
@@ -378,20 +437,28 @@ public static Pix pixEqualizeTRC(
 ///  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>nad, or NULL on error</returns>
+
 public static Numa numaEqualizeTRC(
 				 Pix pix, 
 				 Single fract, 
 				 int factor){
 
-	IntPtr _Result = Natives.numaEqualizeTRC(pix.Pointer,   fract,   factor);
+
+
+	IntPtr _Result = Natives.numaEqualizeTRC(
+pix.Pointer,   fract,   factor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (781, 1)
 // pixTRCMap(pixs, pixm, na) as int
 // pixTRCMap(PIX *, PIX *, NUMA *) as l_int32
@@ -417,21 +484,28 @@ public static Numa numaEqualizeTRC(
 ///  <param name="pixm">[in][optional] - 1 bpp mask</param>
 ///  <param name="na">[in] - mapping array</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static int pixTRCMap(
 				 Pix pixs, 
 				 Pix pixm, 
 				 Numa na){
 
+
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixTRCMap(pixs.Pointer, pixmPtr, na.Pointer);
+	int _Result = Natives.pixTRCMap(
+pixs.Pointer, pixmPtr, na.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (904, 1)
 // pixUnsharpMasking(pixs, halfwidth, fract) as Pix
 // pixUnsharpMasking(PIX *, l_int32, l_float32) as PIX *
@@ -452,20 +526,28 @@ public static int pixTRCMap(
 ///  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 ///  <param name="fract">[in] - fraction of edge added back into image</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixUnsharpMasking(
 				 Pix pixs, 
 				 int halfwidth, 
 				 Single fract){
 
-	IntPtr _Result = Natives.pixUnsharpMasking(pixs.Pointer,   halfwidth,   fract);
+
+
+	IntPtr _Result = Natives.pixUnsharpMasking(
+pixs.Pointer,   halfwidth,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (973, 1)
 // pixUnsharpMaskingGray(pixs, halfwidth, fract) as Pix
 // pixUnsharpMaskingGray(PIX *, l_int32, l_float32) as PIX *
@@ -486,20 +568,28 @@ public static Pix pixUnsharpMasking(
 ///  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 ///  <param name="fract">[in] - fraction of edge added back into image</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixUnsharpMaskingGray(
 				 Pix pixs, 
 				 int halfwidth, 
 				 Single fract){
 
-	IntPtr _Result = Natives.pixUnsharpMaskingGray(pixs.Pointer,   halfwidth,   fract);
+
+
+	IntPtr _Result = Natives.pixUnsharpMaskingGray(
+pixs.Pointer,   halfwidth,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1070, 1)
 // pixUnsharpMaskingFast(pixs, halfwidth, fract, direction) as Pix
 // pixUnsharpMaskingFast(PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -543,21 +633,29 @@ public static Pix pixUnsharpMaskingGray(
 ///  <param name="fract">[in] - fraction of high frequency added to image</param>
 ///  <param name="direction">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixUnsharpMaskingFast(
 				 Pix pixs, 
 				 int halfwidth, 
 				 Single fract, 
 				 int direction){
 
-	IntPtr _Result = Natives.pixUnsharpMaskingFast(pixs.Pointer,   halfwidth,   fract,   direction);
+
+
+	IntPtr _Result = Natives.pixUnsharpMaskingFast(
+pixs.Pointer,   halfwidth,   fract,   direction);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1141, 1)
 // pixUnsharpMaskingGrayFast(pixs, halfwidth, fract, direction) as Pix
 // pixUnsharpMaskingGrayFast(PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -575,21 +673,29 @@ public static Pix pixUnsharpMaskingFast(
 ///  <param name="fract">[in] - fraction of high frequency added to image</param>
 ///  <param name="direction">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixUnsharpMaskingGrayFast(
 				 Pix pixs, 
 				 int halfwidth, 
 				 Single fract, 
 				 int direction){
 
-	IntPtr _Result = Natives.pixUnsharpMaskingGrayFast(pixs.Pointer,   halfwidth,   fract,   direction);
+
+
+	IntPtr _Result = Natives.pixUnsharpMaskingGrayFast(
+pixs.Pointer,   halfwidth,   fract,   direction);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1190, 1)
 // pixUnsharpMaskingGray1D(pixs, halfwidth, fract, direction) as Pix
 // pixUnsharpMaskingGray1D(PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -607,21 +713,29 @@ public static Pix pixUnsharpMaskingGrayFast(
 ///  <param name="fract">[in] - fraction of high frequency added to image</param>
 ///  <param name="direction">[in] - filtering direction use L_HORIZ or L_VERT</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixUnsharpMaskingGray1D(
 				 Pix pixs, 
 				 int halfwidth, 
 				 Single fract, 
 				 int direction){
 
-	IntPtr _Result = Natives.pixUnsharpMaskingGray1D(pixs.Pointer,   halfwidth,   fract,   direction);
+
+
+	IntPtr _Result = Natives.pixUnsharpMaskingGray1D(
+pixs.Pointer,   halfwidth,   fract,   direction);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1324, 1)
 // pixUnsharpMaskingGray2D(pixs, halfwidth, fract) as Pix
 // pixUnsharpMaskingGray2D(PIX *, l_int32, l_float32) as PIX *
@@ -639,20 +753,28 @@ public static Pix pixUnsharpMaskingGray1D(
 ///  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 ///  <param name="fract">[in] - fraction of high frequency added to image</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixUnsharpMaskingGray2D(
 				 Pix pixs, 
 				 int halfwidth, 
 				 Single fract){
 
-	IntPtr _Result = Natives.pixUnsharpMaskingGray2D(pixs.Pointer,   halfwidth,   fract);
+
+
+	IntPtr _Result = Natives.pixUnsharpMaskingGray2D(
+pixs.Pointer,   halfwidth,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1469, 1)
 // pixModifyHue(pixd, pixs, fract) as Pix
 // pixModifyHue(PIX *, PIX *, l_float32) as PIX *
@@ -678,22 +800,29 @@ public static Pix pixUnsharpMaskingGray2D(
 ///  <param name="pixs">[in] - 32 bpp rgb</param>
 ///  <param name="fract">[in] - between -1.0 and 1.0</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixModifyHue(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single fract){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixModifyHue(pixdPtr, pixs.Pointer,   fract);
+	IntPtr _Result = Natives.pixModifyHue(
+pixdPtr, pixs.Pointer,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1542, 1)
 // pixModifySaturation(pixd, pixs, fract) as Pix
 // pixModifySaturation(PIX *, PIX *, l_float32) as PIX *
@@ -717,22 +846,29 @@ public static Pix pixModifyHue(
 ///  <param name="pixs">[in] - 32 bpp rgb</param>
 ///  <param name="fract">[in] - between -1.0 and 1.0</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixModifySaturation(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single fract){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixModifySaturation(pixdPtr, pixs.Pointer,   fract);
+	IntPtr _Result = Natives.pixModifySaturation(
+pixdPtr, pixs.Pointer,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1597, 1)
 // pixMeasureSaturation(pixs, factor, psat) as int
 // pixMeasureSaturation(PIX *, l_int32, l_float32 *) as l_int32
@@ -743,19 +879,27 @@ public static Pix pixModifySaturation(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///  <param name="psat">[out] - average saturation</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static int pixMeasureSaturation(
 				 Pix pixs, 
 				 int factor, 
 				out Single psat){
 
-	int _Result = Natives.pixMeasureSaturation(pixs.Pointer,   factor, out  psat);
+
+
+	int _Result = Natives.pixMeasureSaturation(
+pixs.Pointer,   factor, out  psat);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1658, 1)
 // pixModifyBrightness(pixd, pixs, fract) as Pix
 // pixModifyBrightness(PIX *, PIX *, l_float32) as PIX *
@@ -779,22 +923,29 @@ public static int pixMeasureSaturation(
 ///  <param name="pixs">[in] - 32 bpp rgb</param>
 ///  <param name="fract">[in] - between -1.0 and 1.0</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixModifyBrightness(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single fract){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixModifyBrightness(pixdPtr, pixs.Pointer,   fract);
+	IntPtr _Result = Natives.pixModifyBrightness(
+pixdPtr, pixs.Pointer,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1737, 1)
 // pixMosaicColorShiftRGB(pixs, roff, goff, boff, delta, nincr) as Pix
 // pixMosaicColorShiftRGB(PIX *, l_float32, l_float32, l_float32, l_float32, l_int32) as PIX *
@@ -824,6 +975,7 @@ public static Pix pixModifyBrightness(
 ///  <param name="delta">[in] - increments from center offsets [0.0 - 0.1] use 0.0 to get the default (0.04)</param>
 ///  <param name="nincr">[in] - number of increments in each (positive and negative) direction use 0 to get the default (2).</param>
 ///   <returns>pix, or NULL on error</returns>
+
 public static Pix pixMosaicColorShiftRGB(
 				 Pix pixs, 
 				 Single roff, 
@@ -832,15 +984,22 @@ public static Pix pixMosaicColorShiftRGB(
 				 Single delta, 
 				 int nincr){
 
-	IntPtr _Result = Natives.pixMosaicColorShiftRGB(pixs.Pointer,   roff,   goff,   boff,   delta,   nincr);
+
+
+	IntPtr _Result = Natives.pixMosaicColorShiftRGB(
+pixs.Pointer,   roff,   goff,   boff,   delta,   nincr);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1833, 1)
 // pixColorShiftRGB(pixs, rfract, gfract, bfract) as Pix
 // pixColorShiftRGB(PIX *, l_float32, l_float32, l_float32) as PIX *
@@ -869,21 +1028,29 @@ public static Pix pixMosaicColorShiftRGB(
 ///  <param name="gfract">[in] - fractional shift in green component</param>
 ///  <param name="bfract">[in] - fractional shift in blue component</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixColorShiftRGB(
 				 Pix pixs, 
 				 Single rfract, 
 				 Single gfract, 
 				 Single bfract){
 
-	IntPtr _Result = Natives.pixColorShiftRGB(pixs.Pointer,   rfract,   gfract,   bfract);
+
+
+	IntPtr _Result = Natives.pixColorShiftRGB(
+pixs.Pointer,   rfract,   gfract,   bfract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (1930, 1)
 // pixDarkenGray(pixd, pixs, thresh, satlimit) as Pix
 // pixDarkenGray(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -910,23 +1077,30 @@ public static Pix pixColorShiftRGB(
 ///  <param name="thresh">[in] - pixels with max component greater or equal %thresh are unchanged</param>
 ///  <param name="satlimit">[in] - pixels with saturation greater or equal %satlimit are unchanged</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixDarkenGray(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int thresh, 
 				 int satlimit){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixDarkenGray(pixdPtr, pixs.Pointer,   thresh,   satlimit);
+	IntPtr _Result = Natives.pixDarkenGray(
+pixdPtr, pixs.Pointer,   thresh,   satlimit);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (2002, 1)
 // pixMultConstantColor(pixs, rfact, gfact, bfact) as Pix
 // pixMultConstantColor(PIX *, l_float32, l_float32, l_float32) as PIX *
@@ -946,21 +1120,29 @@ public static Pix pixDarkenGray(
 ///  <param name="gfact">[in] - green multiplicative factor</param>
 ///  <param name="bfact">[in] - blue multiplicative factor</param>
 ///   <returns>pixd colormapped or rgb, with colors scaled, or NULL on error</returns>
+
 public static Pix pixMultConstantColor(
 				 Pix pixs, 
 				 Single rfact, 
 				 Single gfact, 
 				 Single bfact){
 
-	IntPtr _Result = Natives.pixMultConstantColor(pixs.Pointer,   rfact,   gfact,   bfact);
+
+
+	IntPtr _Result = Natives.pixMultConstantColor(
+pixs.Pointer,   rfact,   gfact,   bfact);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (2104, 1)
 // pixMultMatrixColor(pixs, kel) as Pix
 // pixMultMatrixColor(PIX *, L_KERNEL *) as PIX *
@@ -997,19 +1179,27 @@ public static Pix pixMultConstantColor(
 ///  <param name="pixs">[in] - colormapped or rgb</param>
 ///  <param name="kel">[in] - kernel 3x3 matrix of floats</param>
 ///   <returns>pixd colormapped or rgb, or NULL on error</returns>
+
 public static Pix pixMultMatrixColor(
 				 Pix pixs, 
 				 L_Kernel kel){
 
-	IntPtr _Result = Natives.pixMultMatrixColor(pixs.Pointer, kel.Pointer);
+
+
+	IntPtr _Result = Natives.pixMultMatrixColor(
+pixs.Pointer, kel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // enhance.c (2213, 1)
 // pixHalfEdgeByBandpass(pixs, sm1h, sm1v, sm2h, sm2v) as Pix
 // pixHalfEdgeByBandpass(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1046,6 +1236,7 @@ public static Pix pixMultMatrixColor(
 ///  <param name="sm2h">[in] - "half-widths" of smoothing filter sm2 require sm2 != sm1</param>
 ///  <param name="sm2v">[in] - "half-widths" of smoothing filter sm2 require sm2 != sm1</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixHalfEdgeByBandpass(
 				 Pix pixs, 
 				 int sm1h, 
@@ -1053,11 +1244,17 @@ public static Pix pixHalfEdgeByBandpass(
 				 int sm2h, 
 				 int sm2v){
 
-	IntPtr _Result = Natives.pixHalfEdgeByBandpass(pixs.Pointer,   sm1h,   sm1v,   sm2h,   sm2v);
+
+
+	IntPtr _Result = Natives.pixHalfEdgeByBandpass(
+pixs.Pointer,   sm1h,   sm1v,   sm2h,   sm2v);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }

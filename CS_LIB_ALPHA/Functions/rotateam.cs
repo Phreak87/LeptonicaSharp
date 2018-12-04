@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateam.c (149, 1)
 // pixRotateAM(pixs, angle, incolor) as Pix
 // pixRotateAM(PIX *, l_float32, l_int32) as PIX *
@@ -23,20 +24,28 @@ public partial class _All {
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateAM(
 				 Pix pixs, 
 				 Single angle, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixRotateAM(pixs.Pointer,   angle,   incolor);
+
+
+	IntPtr _Result = Natives.pixRotateAM(
+pixs.Pointer,   angle,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateam.c (212, 1)
 // pixRotateAMColor(pixs, angle, colorval) as Pix
 // pixRotateAMColor(PIX *, l_float32, l_uint32) as PIX *
@@ -54,20 +63,28 @@ public static Pix pixRotateAM(
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateAMColor(
 				 Pix pixs, 
 				 Single angle, 
 				 uint colorval){
 
-	IntPtr _Result = Natives.pixRotateAMColor(pixs.Pointer,   angle,   colorval);
+
+
+	IntPtr _Result = Natives.pixRotateAMColor(
+pixs.Pointer,   angle,   colorval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateam.c (266, 1)
 // pixRotateAMGray(pixs, angle, grayval) as Pix
 // pixRotateAMGray(PIX *, l_float32, l_uint8) as PIX *
@@ -85,20 +102,28 @@ public static Pix pixRotateAMColor(
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateAMGray(
 				 Pix pixs, 
 				 Single angle, 
 				 byte grayval){
 
-	IntPtr _Result = Natives.pixRotateAMGray(pixs.Pointer,   angle,   grayval);
+
+
+	IntPtr _Result = Natives.pixRotateAMGray(
+pixs.Pointer,   angle,   grayval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateam.c (447, 1)
 // pixRotateAMCorner(pixs, angle, incolor) as Pix
 // pixRotateAMCorner(PIX *, l_float32, l_int32) as PIX *
@@ -116,20 +141,28 @@ public static Pix pixRotateAMGray(
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateAMCorner(
 				 Pix pixs, 
 				 Single angle, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixRotateAMCorner(pixs.Pointer,   angle,   incolor);
+
+
+	IntPtr _Result = Natives.pixRotateAMCorner(
+pixs.Pointer,   angle,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateam.c (508, 1)
 // pixRotateAMColorCorner(pixs, angle, fillval) as Pix
 // pixRotateAMColorCorner(PIX *, l_float32, l_uint32) as PIX *
@@ -147,20 +180,28 @@ public static Pix pixRotateAMCorner(
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="fillval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateAMColorCorner(
 				 Pix pixs, 
 				 Single angle, 
 				 uint fillval){
 
-	IntPtr _Result = Natives.pixRotateAMColorCorner(pixs.Pointer,   angle,   fillval);
+
+
+	IntPtr _Result = Natives.pixRotateAMColorCorner(
+pixs.Pointer,   angle,   fillval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateam.c (562, 1)
 // pixRotateAMGrayCorner(pixs, angle, grayval) as Pix
 // pixRotateAMGrayCorner(PIX *, l_float32, l_uint8) as PIX *
@@ -178,20 +219,28 @@ public static Pix pixRotateAMColorCorner(
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateAMGrayCorner(
 				 Pix pixs, 
 				 Single angle, 
 				 byte grayval){
 
-	IntPtr _Result = Natives.pixRotateAMGrayCorner(pixs.Pointer,   angle,   grayval);
+
+
+	IntPtr _Result = Natives.pixRotateAMGrayCorner(
+pixs.Pointer,   angle,   grayval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateam.c (741, 1)
 // pixRotateAMColorFast(pixs, angle, colorval) as Pix
 // pixRotateAMColorFast(PIX *, l_float32, l_uint32) as PIX *
@@ -217,16 +266,23 @@ public static Pix pixRotateAMGrayCorner(
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateAMColorFast(
 				 Pix pixs, 
 				 Single angle, 
 				 uint colorval){
 
-	IntPtr _Result = Natives.pixRotateAMColorFast(pixs.Pointer,   angle,   colorval);
+
+
+	IntPtr _Result = Natives.pixRotateAMColorFast(
+pixs.Pointer,   angle,   colorval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotate.c (99, 1)
 // pixRotate(pixs, angle, type, incolor, width, height) as Pix
 // pixRotate(PIX *, l_float32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -41,6 +42,7 @@ public partial class _All {
 ///  <param name="width">[in] - original width use 0 to avoid embedding</param>
 ///  <param name="height">[in] - original height use 0 to avoid embedding</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotate(
 				 Pix pixs, 
 				 Single angle, 
@@ -49,15 +51,22 @@ public static Pix pixRotate(
 				 int width, 
 				 int height){
 
-	IntPtr _Result = Natives.pixRotate(pixs.Pointer,   angle,   type,   incolor,   width,   height);
+
+
+	IntPtr _Result = Natives.pixRotate(
+pixs.Pointer,   angle,   type,   incolor,   width,   height);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotate.c (241, 1)
 // pixEmbedForRotation(pixs, angle, incolor, width, height) as Pix
 // pixEmbedForRotation(PIX *, l_float32, l_int32, l_int32, l_int32) as PIX *
@@ -104,6 +113,7 @@ public static Pix pixRotate(
 ///  <param name="width">[in] - original width use 0 to avoid embedding</param>
 ///  <param name="height">[in] - original height use 0 to avoid embedding</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixEmbedForRotation(
 				 Pix pixs, 
 				 Single angle, 
@@ -111,15 +121,22 @@ public static Pix pixEmbedForRotation(
 				 int width, 
 				 int height){
 
-	IntPtr _Result = Natives.pixEmbedForRotation(pixs.Pointer,   angle,   incolor,   width,   height);
+
+
+	IntPtr _Result = Natives.pixEmbedForRotation(
+pixs.Pointer,   angle,   incolor,   width,   height);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotate.c (322, 1)
 // pixRotateBySampling(pixs, xcen, ycen, angle, incolor) as Pix
 // pixRotateBySampling(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -140,6 +157,7 @@ public static Pix pixEmbedForRotation(
 ///  <param name="angle">[in] - radians clockwise is positive</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateBySampling(
 				 Pix pixs, 
 				 int xcen, 
@@ -147,15 +165,22 @@ public static Pix pixRotateBySampling(
 				 Single angle, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixRotateBySampling(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
+
+
+	IntPtr _Result = Natives.pixRotateBySampling(
+pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotate.c (455, 1)
 // pixRotateBinaryNice(pixs, angle, incolor) as Pix
 // pixRotateBinaryNice(PIX *, l_float32, l_int32) as PIX *
@@ -183,20 +208,28 @@ public static Pix pixRotateBySampling(
 ///  <param name="angle">[in] - radians clockwise is positive about the center</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRotateBinaryNice(
 				 Pix pixs, 
 				 Single angle, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixRotateBinaryNice(pixs.Pointer,   angle,   incolor);
+
+
+	IntPtr _Result = Natives.pixRotateBinaryNice(
+pixs.Pointer,   angle,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotate.c (533, 1)
 // pixRotateWithAlpha(pixs, angle, pixg, fract) as Pix
 // pixRotateWithAlpha(PIX *, l_float32, PIX *, l_float32) as PIX *
@@ -250,19 +283,25 @@ public static Pix pixRotateBinaryNice(
 ///  <param name="pixg">[in][optional] - 8 bpp, can be null</param>
 ///  <param name="fract">[in] - between 0.0 and 1.0, with 0.0 fully transparent and 1.0 fully opaque</param>
 ///   <returns>pixd 32 bpp rgba, or NULL on error</returns>
+
 public static Pix pixRotateWithAlpha(
 				 Pix pixs, 
 				 Single angle, 
 				 Pix pixg, 
 				 Single fract){
 
+
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixRotateWithAlpha(pixs.Pointer,   angle, pixgPtr,   fract);
+	IntPtr _Result = Natives.pixRotateWithAlpha(
+pixs.Pointer,   angle, pixgPtr,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }

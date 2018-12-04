@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (138, 1)
 // generatePtaLine(x1, y1, x2, y2) as Pta
 // generatePtaLine(l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -20,21 +21,29 @@ public partial class _All {
 ///  <param name="x2">[in] - end point 2</param>
 ///  <param name="y2">[in] - end point 2</param>
 ///   <returns>pta, or NULL on error</returns>
+
 public static Pta generatePtaLine(
 				 int x1, 
 				 int y1, 
 				 int x2, 
 				 int y2){
 
-	IntPtr _Result = Natives.generatePtaLine(  x1,   y1,   x2,   y2);
+
+
+	IntPtr _Result = Natives.generatePtaLine(
+  x1,   y1,   x2,   y2);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (203, 1)
 // generatePtaWideLine(x1, y1, x2, y2, width) as Pta
 // generatePtaWideLine(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -47,6 +56,7 @@ public static Pta generatePtaLine(
 ///  <param name="y2">[in] - end point 2</param>
 ///  <param name="width">[in] - </param>
 ///   <returns>ptaj, or NULL on error</returns>
+
 public static Pta generatePtaWideLine(
 				 int x1, 
 				 int y1, 
@@ -54,15 +64,22 @@ public static Pta generatePtaWideLine(
 				 int y2, 
 				 int width){
 
-	IntPtr _Result = Natives.generatePtaWideLine(  x1,   y1,   x2,   y2,   width);
+
+
+	IntPtr _Result = Natives.generatePtaWideLine(
+  x1,   y1,   x2,   y2,   width);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (273, 1)
 // generatePtaBox(box, width) as Pta
 // generatePtaBox(BOX *, l_int32) as PTA *
@@ -76,19 +93,27 @@ public static Pta generatePtaWideLine(
 ///  <param name="box">[in] - </param>
 ///  <param name="width">[in] - of line</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta generatePtaBox(
 				 Box box, 
 				 int width){
 
-	IntPtr _Result = Natives.generatePtaBox(box.Pointer,   width);
+
+
+	IntPtr _Result = Natives.generatePtaBox(
+box.Pointer,   width);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (350, 1)
 // generatePtaBoxa(boxa, width, removedups) as Pta
 // generatePtaBoxa(BOXA *, l_int32, l_int32) as PTA *
@@ -105,20 +130,28 @@ public static Pta generatePtaBox(
 ///  <param name="width">[in] - </param>
 ///  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta generatePtaBoxa(
 				 Boxa boxa, 
 				 int width, 
 				 int removedups){
 
-	IntPtr _Result = Natives.generatePtaBoxa(boxa.Pointer,   width,   removedups);
+
+
+	IntPtr _Result = Natives.generatePtaBoxa(
+boxa.Pointer,   width,   removedups);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (405, 1)
 // generatePtaHashBox(box, spacing, width, orient, outline) as Pta
 // generatePtaHashBox(BOX *, l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -137,6 +170,7 @@ public static Pta generatePtaBoxa(
 ///  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 ///  <param name="outline">[in] - 0 to skip drawing box outline</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta generatePtaHashBox(
 				 Box box, 
 				 int spacing, 
@@ -144,15 +178,22 @@ public static Pta generatePtaHashBox(
 				 int orient, 
 				 int outline){
 
-	IntPtr _Result = Natives.generatePtaHashBox(box.Pointer,   spacing,   width,   orient,   outline);
+
+
+	IntPtr _Result = Natives.generatePtaHashBox(
+box.Pointer,   spacing,   width,   orient,   outline);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (505, 1)
 // generatePtaHashBoxa(boxa, spacing, width, orient, outline, removedups) as Pta
 // generatePtaHashBoxa(BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -177,6 +218,7 @@ public static Pta generatePtaHashBox(
 ///  <param name="outline">[in] - 0 to skip drawing box outline</param>
 ///  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta generatePtaHashBoxa(
 				 Boxa boxa, 
 				 int spacing, 
@@ -185,15 +227,22 @@ public static Pta generatePtaHashBoxa(
 				 int outline, 
 				 int removedups){
 
-	IntPtr _Result = Natives.generatePtaHashBoxa(boxa.Pointer,   spacing,   width,   orient,   outline,   removedups);
+
+
+	IntPtr _Result = Natives.generatePtaHashBoxa(
+boxa.Pointer,   spacing,   width,   orient,   outline,   removedups);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (565, 1)
 // generatePtaaBoxa(boxa) as Ptaa
 // generatePtaaBoxa(BOXA *) as PTAA *
@@ -209,18 +258,26 @@ public static Pta generatePtaHashBoxa(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaaBoxa/*"/>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>ptaa, or NULL on error</returns>
+
 public static Ptaa generatePtaaBoxa(
 				 Boxa boxa){
 
-	IntPtr _Result = Natives.generatePtaaBoxa(boxa.Pointer);
+
+
+	IntPtr _Result = Natives.generatePtaaBoxa(
+boxa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Ptaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (616, 1)
 // generatePtaaHashBoxa(boxa, spacing, width, orient, outline) as Ptaa
 // generatePtaaHashBoxa(BOXA *, l_int32, l_int32, l_int32, l_int32) as PTAA *
@@ -242,6 +299,7 @@ public static Ptaa generatePtaaBoxa(
 ///  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 ///  <param name="outline">[in] - 0 to skip drawing box outline</param>
 ///   <returns>ptaa, or NULL on error</returns>
+
 public static Ptaa generatePtaaHashBoxa(
 				 Boxa boxa, 
 				 int spacing, 
@@ -249,15 +307,22 @@ public static Ptaa generatePtaaHashBoxa(
 				 int orient, 
 				 int outline){
 
-	IntPtr _Result = Natives.generatePtaaHashBoxa(boxa.Pointer,   spacing,   width,   orient,   outline);
+
+
+	IntPtr _Result = Natives.generatePtaaHashBoxa(
+boxa.Pointer,   spacing,   width,   orient,   outline);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Ptaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (664, 1)
 // generatePtaPolyline(ptas, width, closeflag, removedups) as Pta
 // generatePtaPolyline(PTA *, l_int32, l_int32, l_int32) as PTA *
@@ -269,21 +334,29 @@ public static Ptaa generatePtaaHashBoxa(
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 ///  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta generatePtaPolyline(
 				 Pta ptas, 
 				 int width, 
 				 int closeflag, 
 				 int removedups){
 
-	IntPtr _Result = Natives.generatePtaPolyline(ptas.Pointer,   width,   closeflag,   removedups);
+
+
+	IntPtr _Result = Natives.generatePtaPolyline(
+ptas.Pointer,   width,   closeflag,   removedups);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (722, 1)
 // generatePtaGrid(w, h, nx, ny, width) as Pta
 // generatePtaGrid(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -296,6 +369,7 @@ public static Pta generatePtaPolyline(
 ///  <param name="ny">[in] - number of rectangles in each direction in grid</param>
 ///  <param name="width">[in] - of rendered lines</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta generatePtaGrid(
 				 int w, 
 				 int h, 
@@ -303,15 +377,22 @@ public static Pta generatePtaGrid(
 				 int ny, 
 				 int width){
 
-	IntPtr _Result = Natives.generatePtaGrid(  w,   h,   nx,   ny,   width);
+
+
+	IntPtr _Result = Natives.generatePtaGrid(
+  w,   h,   nx,   ny,   width);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (780, 1)
 // convertPtaLineTo4cc(ptas) as Pta
 // convertPtaLineTo4cc(PTA *) as PTA *
@@ -328,18 +409,26 @@ public static Pta generatePtaGrid(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertPtaLineTo4cc/*"/>
 ///  <param name="ptas">[in] - 8-connected line of points</param>
 ///   <returns>ptad 4-connected line, or NULL on error</returns>
+
 public static Pta convertPtaLineTo4cc(
 				 Pta ptas){
 
-	IntPtr _Result = Natives.convertPtaLineTo4cc(ptas.Pointer);
+
+
+	IntPtr _Result = Natives.convertPtaLineTo4cc(
+ptas.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (823, 1)
 // generatePtaFilledCircle(radius) as Pta
 // generatePtaFilledCircle(l_int32) as PTA *
@@ -357,18 +446,26 @@ public static Pta convertPtaLineTo4cc(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaFilledCircle/*"/>
 ///  <param name="radius">[in] - </param>
 ///   <returns>pta, or NULL on error</returns>
+
 public static Pta generatePtaFilledCircle(
 				 int radius){
 
-	IntPtr _Result = Natives.generatePtaFilledCircle(  radius);
+
+
+	IntPtr _Result = Natives.generatePtaFilledCircle(
+  radius);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (863, 1)
 // generatePtaFilledSquare(side) as Pta
 // generatePtaFilledSquare(l_int32) as PTA *
@@ -382,18 +479,26 @@ public static Pta generatePtaFilledCircle(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaFilledSquare/*"/>
 ///  <param name="side">[in] - </param>
 ///   <returns>pta, or NULL on error</returns>
+
 public static Pta generatePtaFilledSquare(
 				 int side){
 
-	IntPtr _Result = Natives.generatePtaFilledSquare(  side);
+
+
+	IntPtr _Result = Natives.generatePtaFilledSquare(
+  side);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (897, 1)
 // generatePtaLineFromPt(x, y, length, radang) as Pta
 // generatePtaLineFromPt(l_int32, l_int32, l_float64, l_float64) as PTA *
@@ -410,21 +515,29 @@ public static Pta generatePtaFilledSquare(
 ///  <param name="length">[in] - of line, including starting point</param>
 ///  <param name="radang">[in] - angle in radians, CW from horizontal</param>
 ///   <returns>pta, or NULL on error</returns>
+
 public static Pta generatePtaLineFromPt(
 				 int x, 
 				 int y, 
 				 double length, 
 				 double radang){
 
-	IntPtr _Result = Natives.generatePtaLineFromPt(  x,   y,   length,   radang);
+
+
+	IntPtr _Result = Natives.generatePtaLineFromPt(
+  x,   y,   length,   radang);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (921, 1)
 // locatePtRadially(xr, yr, dist, radang, px, py) as int
 // locatePtRadially(l_int32, l_int32, l_float64, l_float64, l_float64 *, l_float64 *) as l_ok
@@ -438,6 +551,7 @@ public static Pta generatePtaLineFromPt(
 ///  <param name="px">[out] - location of point</param>
 ///  <param name="py">[out] - location of point</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int locatePtRadially(
 				 int xr, 
 				 int yr, 
@@ -446,14 +560,21 @@ public static int locatePtRadially(
 				out Double[] px, 
 				out Double[] py){
 
-	int _Result = Natives.locatePtRadially(  xr,   yr,   dist,   radang, out  px, out  py);
+
+
+	int _Result = Natives.locatePtRadially(
+  xr,   yr,   dist,   radang, out  px, out  py);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (963, 1)
 // pixRenderPlotFromNuma(ppix, na, plotloc, linewidth, max, color) as int
 // pixRenderPlotFromNuma(PIX **, NUMA *, l_int32, l_int32, l_int32, l_uint32) as l_ok
@@ -476,6 +597,7 @@ public static int locatePtRadially(
 ///  <param name="max">[in] - maximum excursion in pixels from baseline</param>
 ///  <param name="color">[in] - plot color: 0xrrggbb00</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPlotFromNuma(
 				ref Pix ppix, 
 				 Numa na, 
@@ -484,17 +606,23 @@ public static int pixRenderPlotFromNuma(
 				 int max, 
 				 uint color){
 
+
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
-	int _Result = Natives.pixRenderPlotFromNuma(ref ppixPtr, na.Pointer,   plotloc,   linewidth,   max,   color);
+	int _Result = Natives.pixRenderPlotFromNuma(
+ref ppixPtr, na.Pointer,   plotloc,   linewidth,   max,   color);
 	
 
+
+//  
 	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1021, 1)
 // makePlotPtaFromNuma(na, size, plotloc, linewidth, max) as Pta
 // makePlotPtaFromNuma(NUMA *, l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -516,6 +644,7 @@ public static int pixRenderPlotFromNuma(
 ///  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
 ///  <param name="max">[in] - maximum excursion in pixels from baseline</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta makePlotPtaFromNuma(
 				 Numa na, 
 				 int size, 
@@ -523,15 +652,22 @@ public static Pta makePlotPtaFromNuma(
 				 int linewidth, 
 				 int max){
 
-	IntPtr _Result = Natives.makePlotPtaFromNuma(na.Pointer,   size,   plotloc,   linewidth,   max);
+
+
+	IntPtr _Result = Natives.makePlotPtaFromNuma(
+na.Pointer,   size,   plotloc,   linewidth,   max);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1077, 1)
 // pixRenderPlotFromNumaGen(ppix, na, orient, linewidth, refpos, max, drawref, color) as int
 // pixRenderPlotFromNumaGen(PIX **, NUMA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint32) as l_ok
@@ -556,6 +692,7 @@ public static Pta makePlotPtaFromNuma(
 ///  <param name="drawref">[in] - 1 to draw the reference line and the normal to it</param>
 ///  <param name="color">[in] - plot color: 0xrrggbb00</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPlotFromNumaGen(
 				ref Pix ppix, 
 				 Numa na, 
@@ -566,17 +703,23 @@ public static int pixRenderPlotFromNumaGen(
 				 int drawref, 
 				 uint color){
 
+
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
-	int _Result = Natives.pixRenderPlotFromNumaGen(ref ppixPtr, na.Pointer,   orient,   linewidth,   refpos,   max,   drawref,   color);
+	int _Result = Natives.pixRenderPlotFromNumaGen(
+ref ppixPtr, na.Pointer,   orient,   linewidth,   refpos,   max,   drawref,   color);
 	
 
+
+//  
 	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1142, 1)
 // makePlotPtaFromNumaGen(na, orient, linewidth, refpos, max, drawref) as Pta
 // makePlotPtaFromNumaGen(NUMA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -609,6 +752,7 @@ public static int pixRenderPlotFromNumaGen(
 ///  <param name="max">[in] - maximum excursion in pixels from baseline</param>
 ///  <param name="drawref">[in] - 1 to draw the reference line and the normal to it</param>
 ///   <returns>ptad, or NULL on error</returns>
+
 public static Pta makePlotPtaFromNumaGen(
 				 Numa na, 
 				 int orient, 
@@ -617,15 +761,22 @@ public static Pta makePlotPtaFromNumaGen(
 				 int max, 
 				 int drawref){
 
-	IntPtr _Result = Natives.makePlotPtaFromNumaGen(na.Pointer,   orient,   linewidth,   refpos,   max,   drawref);
+
+
+	IntPtr _Result = Natives.makePlotPtaFromNumaGen(
+na.Pointer,   orient,   linewidth,   refpos,   max,   drawref);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1254, 1)
 // pixRenderPta(pix, pta, op) as int
 // pixRenderPta(PIX *, PTA *, l_int32) as l_ok
@@ -649,19 +800,27 @@ public static Pta makePlotPtaFromNumaGen(
 ///  <param name="pta">[in] - arbitrary set of points</param>
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPta(
 				 Pix pix, 
 				 Pta pta, 
 				 int op){
 
-	int _Result = Natives.pixRenderPta(pix.Pointer, pta.Pointer,   op);
+
+
+	int _Result = Natives.pixRenderPta(
+pix.Pointer, pta.Pointer,   op);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1343, 1)
 // pixRenderPtaArb(pix, pta, rval, gval, bval) as int
 // pixRenderPtaArb(PIX *, PTA *, l_uint8, l_uint8, l_uint8) as l_ok
@@ -688,6 +847,7 @@ public static int pixRenderPta(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPtaArb(
 				 Pix pix, 
 				 Pta pta, 
@@ -695,14 +855,21 @@ public static int pixRenderPtaArb(
 				 byte gval, 
 				 byte bval){
 
-	int _Result = Natives.pixRenderPtaArb(pix.Pointer, pta.Pointer,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderPtaArb(
+pix.Pointer, pta.Pointer,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1418, 1)
 // pixRenderPtaBlend(pix, pta, rval, gval, bval, fract) as int
 // pixRenderPtaBlend(PIX *, PTA *, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
@@ -719,6 +886,7 @@ public static int pixRenderPtaArb(
 ///  <param name="bval">[in] - </param>
 ///  <param name="fract">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPtaBlend(
 				 Pix pix, 
 				 Pta pta, 
@@ -727,14 +895,21 @@ public static int pixRenderPtaBlend(
 				 byte bval, 
 				 Single fract){
 
-	int _Result = Natives.pixRenderPtaBlend(pix.Pointer, pta.Pointer,   rval,   gval,   bval,   fract);
+
+
+	int _Result = Natives.pixRenderPtaBlend(
+pix.Pointer, pta.Pointer,   rval,   gval,   bval,   fract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1483, 1)
 // pixRenderLine(pix, x1, y1, x2, y2, width, op) as int
 // pixRenderLine(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -749,6 +924,7 @@ public static int pixRenderPtaBlend(
 ///  <param name="width">[in] - thickness of line</param>
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderLine(
 				 Pix pix, 
 				 int x1, 
@@ -758,14 +934,21 @@ public static int pixRenderLine(
 				 int width, 
 				 int op){
 
-	int _Result = Natives.pixRenderLine(pix.Pointer,   x1,   y1,   x2,   y2,   width,   op);
+
+
+	int _Result = Natives.pixRenderLine(
+pix.Pointer,   x1,   y1,   x2,   y2,   width,   op);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1523, 1)
 // pixRenderLineArb(pix, x1, y1, x2, y2, width, rval, gval, bval) as int
 // pixRenderLineArb(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
@@ -782,6 +965,7 @@ public static int pixRenderLine(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderLineArb(
 				 Pix pix, 
 				 int x1, 
@@ -793,14 +977,21 @@ public static int pixRenderLineArb(
 				 byte gval, 
 				 byte bval){
 
-	int _Result = Natives.pixRenderLineArb(pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderLineArb(
+pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1564, 1)
 // pixRenderLineBlend(pix, x1, y1, x2, y2, width, rval, gval, bval, fract) as int
 // pixRenderLineBlend(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
@@ -818,6 +1009,7 @@ public static int pixRenderLineArb(
 ///  <param name="bval">[in] - </param>
 ///  <param name="fract">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderLineBlend(
 				 Pix pix, 
 				 int x1, 
@@ -830,14 +1022,21 @@ public static int pixRenderLineBlend(
 				 byte bval, 
 				 Single fract){
 
-	int _Result = Natives.pixRenderLineBlend(pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval,   fract);
+
+
+	int _Result = Natives.pixRenderLineBlend(
+pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval,   fract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1604, 1)
 // pixRenderBox(pix, box, width, op) as int
 // pixRenderBox(PIX *, BOX *, l_int32, l_int32) as l_ok
@@ -849,20 +1048,28 @@ public static int pixRenderLineBlend(
 ///  <param name="width">[in] - thickness of box lines</param>
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderBox(
 				 Pix pix, 
 				 Box box, 
 				 int width, 
 				 int op){
 
-	int _Result = Natives.pixRenderBox(pix.Pointer, box.Pointer,   width,   op);
+
+
+	int _Result = Natives.pixRenderBox(
+pix.Pointer, box.Pointer,   width,   op);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1642, 1)
 // pixRenderBoxArb(pix, box, width, rval, gval, bval) as int
 // pixRenderBoxArb(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
@@ -876,6 +1083,7 @@ public static int pixRenderBox(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderBoxArb(
 				 Pix pix, 
 				 Box box, 
@@ -884,14 +1092,21 @@ public static int pixRenderBoxArb(
 				 byte gval, 
 				 byte bval){
 
-	int _Result = Natives.pixRenderBoxArb(pix.Pointer, box.Pointer,   width,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderBoxArb(
+pix.Pointer, box.Pointer,   width,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1682, 1)
 // pixRenderBoxBlend(pix, box, width, rval, gval, bval, fract) as int
 // pixRenderBoxBlend(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
@@ -906,6 +1121,7 @@ public static int pixRenderBoxArb(
 ///  <param name="bval">[in] - </param>
 ///  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderBoxBlend(
 				 Pix pix, 
 				 Box box, 
@@ -915,14 +1131,21 @@ public static int pixRenderBoxBlend(
 				 byte bval, 
 				 Single fract){
 
-	int _Result = Natives.pixRenderBoxBlend(pix.Pointer, box.Pointer,   width,   rval,   gval,   bval,   fract);
+
+
+	int _Result = Natives.pixRenderBoxBlend(
+pix.Pointer, box.Pointer,   width,   rval,   gval,   bval,   fract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1721, 1)
 // pixRenderBoxa(pix, boxa, width, op) as int
 // pixRenderBoxa(PIX *, BOXA *, l_int32, l_int32) as l_ok
@@ -934,20 +1157,28 @@ public static int pixRenderBoxBlend(
 ///  <param name="width">[in] - thickness of line</param>
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderBoxa(
 				 Pix pix, 
 				 Boxa boxa, 
 				 int width, 
 				 int op){
 
-	int _Result = Natives.pixRenderBoxa(pix.Pointer, boxa.Pointer,   width,   op);
+
+
+	int _Result = Natives.pixRenderBoxa(
+pix.Pointer, boxa.Pointer,   width,   op);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1759, 1)
 // pixRenderBoxaArb(pix, boxa, width, rval, gval, bval) as int
 // pixRenderBoxaArb(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
@@ -961,6 +1192,7 @@ public static int pixRenderBoxa(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderBoxaArb(
 				 Pix pix, 
 				 Boxa boxa, 
@@ -969,14 +1201,21 @@ public static int pixRenderBoxaArb(
 				 byte gval, 
 				 byte bval){
 
-	int _Result = Natives.pixRenderBoxaArb(pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderBoxaArb(
+pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1800, 1)
 // pixRenderBoxaBlend(pix, boxa, width, rval, gval, bval, fract, removedups) as int
 // pixRenderBoxaBlend(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32) as l_ok
@@ -992,6 +1231,7 @@ public static int pixRenderBoxaArb(
 ///  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 ///  <param name="removedups">[in] - 1 to remove 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderBoxaBlend(
 				 Pix pix, 
 				 Boxa boxa, 
@@ -1002,14 +1242,21 @@ public static int pixRenderBoxaBlend(
 				 Single fract, 
 				 int removedups){
 
-	int _Result = Natives.pixRenderBoxaBlend(pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval,   fract,   removedups);
+
+
+	int _Result = Natives.pixRenderBoxaBlend(
+pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval,   fract,   removedups);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1843, 1)
 // pixRenderHashBox(pix, box, spacing, width, orient, outline, op) as int
 // pixRenderHashBox(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -1024,6 +1271,7 @@ public static int pixRenderBoxaBlend(
 ///  <param name="outline">[in] - 0 to skip drawing box outline</param>
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderHashBox(
 				 Pix pix, 
 				 Box box, 
@@ -1033,14 +1281,21 @@ public static int pixRenderHashBox(
 				 int outline, 
 				 int op){
 
-	int _Result = Natives.pixRenderHashBox(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   op);
+
+
+	int _Result = Natives.pixRenderHashBox(
+pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   op);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1893, 1)
 // pixRenderHashBoxArb(pix, box, spacing, width, orient, outline, rval, gval, bval) as int
 // pixRenderHashBoxArb(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -1057,6 +1312,7 @@ public static int pixRenderHashBox(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderHashBoxArb(
 				 Pix pix, 
 				 Box box, 
@@ -1068,14 +1324,21 @@ public static int pixRenderHashBoxArb(
 				 int gval, 
 				 int bval){
 
-	int _Result = Natives.pixRenderHashBoxArb(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderHashBoxArb(
+pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (1945, 1)
 // pixRenderHashBoxBlend(pix, box, spacing, width, orient, outline, rval, gval, bval, fract) as int
 // pixRenderHashBoxBlend(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
@@ -1093,6 +1356,7 @@ public static int pixRenderHashBoxArb(
 ///  <param name="bval">[in] - </param>
 ///  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderHashBoxBlend(
 				 Pix pix, 
 				 Box box, 
@@ -1105,14 +1369,21 @@ public static int pixRenderHashBoxBlend(
 				 int bval, 
 				 Single fract){
 
-	int _Result = Natives.pixRenderHashBoxBlend(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
+
+
+	int _Result = Natives.pixRenderHashBoxBlend(
+pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2003, 1)
 // pixRenderHashMaskArb(pix, pixm, x, y, spacing, width, orient, outline, rval, gval, bval) as int
 // pixRenderHashMaskArb(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -1135,6 +1406,7 @@ public static int pixRenderHashBoxBlend(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderHashMaskArb(
 				 Pix pix, 
 				 Pix pixm, 
@@ -1148,14 +1420,21 @@ public static int pixRenderHashMaskArb(
 				 int gval, 
 				 int bval){
 
-	int _Result = Natives.pixRenderHashMaskArb(pix.Pointer, pixm.Pointer,   x,   y,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderHashMaskArb(
+pix.Pointer, pixm.Pointer,   x,   y,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2071, 1)
 // pixRenderHashBoxa(pix, boxa, spacing, width, orient, outline, op) as int
 // pixRenderHashBoxa(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -1170,6 +1449,7 @@ public static int pixRenderHashMaskArb(
 ///  <param name="outline">[in] - 0 to skip drawing box outline</param>
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderHashBoxa(
 				 Pix pix, 
 				 Boxa boxa, 
@@ -1179,14 +1459,21 @@ public static int pixRenderHashBoxa(
 				 int outline, 
 				 int op){
 
-	int _Result = Natives.pixRenderHashBoxa(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   op);
+
+
+	int _Result = Natives.pixRenderHashBoxa(
+pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   op);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2121, 1)
 // pixRenderHashBoxaArb(pix, boxa, spacing, width, orient, outline, rval, gval, bval) as int
 // pixRenderHashBoxaArb(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -1203,6 +1490,7 @@ public static int pixRenderHashBoxa(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderHashBoxaArb(
 				 Pix pix, 
 				 Boxa boxa, 
@@ -1214,14 +1502,21 @@ public static int pixRenderHashBoxaArb(
 				 int gval, 
 				 int bval){
 
-	int _Result = Natives.pixRenderHashBoxaArb(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderHashBoxaArb(
+pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2173, 1)
 // pixRenderHashBoxaBlend(pix, boxa, spacing, width, orient, outline, rval, gval, bval, fract) as int
 // pixRenderHashBoxaBlend(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
@@ -1239,6 +1534,7 @@ public static int pixRenderHashBoxaArb(
 ///  <param name="bval">[in] - </param>
 ///  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderHashBoxaBlend(
 				 Pix pix, 
 				 Boxa boxa, 
@@ -1251,14 +1547,21 @@ public static int pixRenderHashBoxaBlend(
 				 int bval, 
 				 Single fract){
 
-	int _Result = Natives.pixRenderHashBoxaBlend(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
+
+
+	int _Result = Natives.pixRenderHashBoxaBlend(
+pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2227, 1)
 // pixRenderPolyline(pix, ptas, width, op, closeflag) as int
 // pixRenderPolyline(PIX *, PTA *, l_int32, l_int32, l_int32) as l_ok
@@ -1274,6 +1577,7 @@ public static int pixRenderHashBoxaBlend(
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPolyline(
 				 Pix pix, 
 				 Pta ptas, 
@@ -1281,14 +1585,21 @@ public static int pixRenderPolyline(
 				 int op, 
 				 int closeflag){
 
-	int _Result = Natives.pixRenderPolyline(pix.Pointer, ptas.Pointer,   width,   op,   closeflag);
+
+
+	int _Result = Natives.pixRenderPolyline(
+pix.Pointer, ptas.Pointer,   width,   op,   closeflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2272, 1)
 // pixRenderPolylineArb(pix, ptas, width, rval, gval, bval, closeflag) as int
 // pixRenderPolylineArb(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_int32) as l_ok
@@ -1306,6 +1617,7 @@ public static int pixRenderPolyline(
 ///  <param name="bval">[in] - </param>
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPolylineArb(
 				 Pix pix, 
 				 Pta ptas, 
@@ -1315,14 +1627,21 @@ public static int pixRenderPolylineArb(
 				 byte bval, 
 				 int closeflag){
 
-	int _Result = Natives.pixRenderPolylineArb(pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   closeflag);
+
+
+	int _Result = Natives.pixRenderPolylineArb(
+pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   closeflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2315, 1)
 // pixRenderPolylineBlend(pix, ptas, width, rval, gval, bval, fract, closeflag, removedups) as int
 // pixRenderPolylineBlend(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32, l_int32) as l_ok
@@ -1339,6 +1658,7 @@ public static int pixRenderPolylineArb(
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 ///  <param name="removedups">[in] - 1 to remove 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderPolylineBlend(
 				 Pix pix, 
 				 Pta ptas, 
@@ -1350,14 +1670,21 @@ public static int pixRenderPolylineBlend(
 				 int closeflag, 
 				 int removedups){
 
-	int _Result = Natives.pixRenderPolylineBlend(pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   fract,   closeflag,   removedups);
+
+
+	int _Result = Natives.pixRenderPolylineBlend(
+pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   fract,   closeflag,   removedups);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2356, 1)
 // pixRenderGridArb(pix, nx, ny, width, rval, gval, bval) as int
 // pixRenderGridArb(PIX *, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
@@ -1372,6 +1699,7 @@ public static int pixRenderPolylineBlend(
 ///  <param name="gval">[in] - </param>
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRenderGridArb(
 				 Pix pix, 
 				 int nx, 
@@ -1381,14 +1709,21 @@ public static int pixRenderGridArb(
 				 byte gval, 
 				 byte bval){
 
-	int _Result = Natives.pixRenderGridArb(pix.Pointer,   nx,   ny,   width,   rval,   gval,   bval);
+
+
+	int _Result = Natives.pixRenderGridArb(
+pix.Pointer,   nx,   ny,   width,   rval,   gval,   bval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2416, 1)
 // pixRenderRandomCmapPtaa(pix, ptaa, polyflag, width, closeflag) as Pix
 // pixRenderRandomCmapPtaa(PIX *, PTAA *, l_int32, l_int32, l_int32) as PIX *
@@ -1419,6 +1754,7 @@ public static int pixRenderGridArb(
 ///  <param name="width">[in] - thickness of line use only for polyline</param>
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise use only for polyline mode</param>
 ///   <returns>pixd cmapped, 8 bpp or NULL on error</returns>
+
 public static Pix pixRenderRandomCmapPtaa(
 				 Pix pix, 
 				 Ptaa ptaa, 
@@ -1426,15 +1762,22 @@ public static Pix pixRenderRandomCmapPtaa(
 				 int width, 
 				 int closeflag){
 
-	IntPtr _Result = Natives.pixRenderRandomCmapPtaa(pix.Pointer, ptaa.Pointer,   polyflag,   width,   closeflag);
+
+
+	IntPtr _Result = Natives.pixRenderRandomCmapPtaa(
+pix.Pointer, ptaa.Pointer,   polyflag,   width,   closeflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2485, 1)
 // pixRenderPolygon(ptas, width, pxmin, pymin) as Pix
 // pixRenderPolygon(PTA *, l_int32, l_int32 *, l_int32 *) as PIX *
@@ -1454,21 +1797,29 @@ public static Pix pixRenderRandomCmapPtaa(
 ///  <param name="pxmin">[out][optional] - min x value of input pts</param>
 ///  <param name="pymin">[out][optional] - min y value of input pts</param>
 ///   <returns>pix 1 bpp, with outline generated, or NULL on error</returns>
+
 public static Pix pixRenderPolygon(
 				 Pta ptas, 
 				 int width, 
 				out int pxmin, 
 				out int pymin){
 
-	IntPtr _Result = Natives.pixRenderPolygon(ptas.Pointer,   width, out  pxmin, out  pymin);
+
+
+	IntPtr _Result = Natives.pixRenderPolygon(
+ptas.Pointer,   width, out  pxmin, out  pymin);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2540, 1)
 // pixFillPolygon(pixs, pta, xmin, ymin) as Pix
 // pixFillPolygon(PIX *, PTA *, l_int32, l_int32) as PIX *
@@ -1489,21 +1840,29 @@ public static Pix pixRenderPolygon(
 ///  <param name="xmin">[in] - min values of vertices of polygon</param>
 ///  <param name="ymin">[in] - min values of vertices of polygon</param>
 ///   <returns>pixd with outline filled, or NULL on error</returns>
+
 public static Pix pixFillPolygon(
 				 Pix pixs, 
 				 Pta pta, 
 				 int xmin, 
 				 int ymin){
 
-	IntPtr _Result = Natives.pixFillPolygon(pixs.Pointer, pta.Pointer,   xmin,   ymin);
+
+
+	IntPtr _Result = Natives.pixFillPolygon(
+pixs.Pointer, pta.Pointer,   xmin,   ymin);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2619, 1)
 // pixRenderContours(pixs, startval, incr, outdepth) as Pix
 // pixRenderContours(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -1520,21 +1879,29 @@ public static Pix pixFillPolygon(
 ///  <param name="incr">[in] - increment to next contour must be  is greater  0</param>
 ///  <param name="outdepth">[in] - either 1 or depth of pixs</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixRenderContours(
 				 Pix pixs, 
 				 int startval, 
 				 int incr, 
 				 int outdepth){
 
-	IntPtr _Result = Natives.pixRenderContours(pixs.Pointer,   startval,   incr,   outdepth);
+
+
+	IntPtr _Result = Natives.pixRenderContours(
+pixs.Pointer,   startval,   incr,   outdepth);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2745, 1)
 // fpixAutoRenderContours(fpix, ncontours) as Pix
 // fpixAutoRenderContours(FPIX *, l_int32) as PIX *
@@ -1552,19 +1919,27 @@ public static Pix pixRenderContours(
 ///  <param name="fpix">[in] - </param>
 ///  <param name="ncontours">[in] - is greater  1,  is smaller 500, typ. about 50</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
+
 public static Pix fpixAutoRenderContours(
 				 FPix fpix, 
 				 int ncontours){
 
-	IntPtr _Result = Natives.fpixAutoRenderContours(fpix.Pointer,   ncontours);
+
+
+	IntPtr _Result = Natives.fpixAutoRenderContours(
+fpix.Pointer,   ncontours);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2783, 1)
 // fpixRenderContours(fpixs, incr, proxim) as Pix
 // fpixRenderContours(FPIX *, l_float32, l_float32) as PIX *
@@ -1582,20 +1957,28 @@ public static Pix fpixAutoRenderContours(
 ///  <param name="incr">[in] - increment between contours must be  is greater  0.0</param>
 ///  <param name="proxim">[in] - required proximity to target value default 0.15</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
+
 public static Pix fpixRenderContours(
 				 FPix fpixs, 
 				 Single incr, 
 				 Single proxim){
 
-	IntPtr _Result = Natives.fpixRenderContours(fpixs.Pointer,   incr,   proxim);
+
+
+	IntPtr _Result = Natives.fpixRenderContours(
+fpixs.Pointer,   incr,   proxim);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // graphics.c (2862, 1)
 // pixGeneratePtaBoundary(pixs, width) as Pta
 // pixGeneratePtaBoundary(PIX *, l_int32) as PTA *
@@ -1616,15 +1999,22 @@ public static Pix fpixRenderContours(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="width">[in] - of boundary line</param>
 ///   <returns>pta, or NULL on error</returns>
+
 public static Pta pixGeneratePtaBoundary(
 				 Pix pixs, 
 				 int width){
 
-	IntPtr _Result = Natives.pixGeneratePtaBoundary(pixs.Pointer,   width);
+
+
+	IntPtr _Result = Natives.pixGeneratePtaBoundary(
+pixs.Pointer,   width);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }

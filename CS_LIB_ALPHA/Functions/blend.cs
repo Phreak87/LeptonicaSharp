@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (174, 1)
 // pixBlend(pixs1, pixs2, x, y, fract) as Pix
 // pixBlend(PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -21,6 +22,7 @@ public partial class _All {
 ///  <param name="x">[in] - ,y  origin [UL corner] of pixs2 relative to the origin of pixs1 can be  is smaller 0</param>
 ///  <param name="fract">[in] - blending fraction</param>
 ///   <returns>pixd blended image, or NULL on error</returns>
+
 public static Pix pixBlend(
 				 Pix pixs1, 
 				 Pix pixs2, 
@@ -28,15 +30,22 @@ public static Pix pixBlend(
 				 int y, 
 				 Single fract){
 
-	IntPtr _Result = Natives.pixBlend(pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
+
+
+	IntPtr _Result = Natives.pixBlend(
+pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (262, 1)
 // pixBlendMask(pixd, pixs1, pixs2, x, y, fract, type) as Pix
 // pixBlendMask(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -66,6 +75,7 @@ public static Pix pixBlend(
 ///  <param name="fract">[in] - blending fraction</param>
 ///  <param name="type">[in] - L_BLEND_WITH_INVERSE, L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>
 ///   <returns>pixd if OK NULL on error</returns>
+
 public static Pix pixBlendMask(
 				 Pix pixd, 
 				 Pix pixs1, 
@@ -75,17 +85,23 @@ public static Pix pixBlendMask(
 				 Single fract, 
 				 int type){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendMask(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   type);
+	IntPtr _Result = Natives.pixBlendMask(
+pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (489, 1)
 // pixBlendGray(pixd, pixs1, pixs2, x, y, fract, type, transparent, transpix) as Pix
 // pixBlendGray(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_int32, l_int32, l_uint32) as PIX *
@@ -133,6 +149,7 @@ public static Pix pixBlendMask(
 ///  <param name="transparent">[in] - 1 to use transparency 0 otherwise</param>
 ///  <param name="transpix">[in] - pixel grayval in pixs2 that is to be transparent</param>
 ///   <returns>pixd if OK pixs1 on error</returns>
+
 public static Pix pixBlendGray(
 				 Pix pixd, 
 				 Pix pixs1, 
@@ -144,17 +161,23 @@ public static Pix pixBlendGray(
 				 int transparent, 
 				 uint transpix){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendGray(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   type,   transparent,   transpix);
+	IntPtr _Result = Natives.pixBlendGray(
+pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   type,   transparent,   transpix);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (688, 1)
 // pixBlendGrayInverse(pixd, pixs1, pixs2, x, y, fract) as Pix
 // pixBlendGrayInverse(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -194,6 +217,7 @@ public static Pix pixBlendGray(
 ///  <param name="x">[in] - ,y  origin [UL corner] of pixs2 relative to the origin of pixs1 can be  is smaller 0</param>
 ///  <param name="fract">[in] - blending fraction</param>
 ///   <returns>pixd if OK pixs1 on error</returns>
+
 public static Pix pixBlendGrayInverse(
 				 Pix pixd, 
 				 Pix pixs1, 
@@ -202,17 +226,23 @@ public static Pix pixBlendGrayInverse(
 				 int y, 
 				 Single fract){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendGrayInverse(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
+	IntPtr _Result = Natives.pixBlendGrayInverse(
+pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (820, 1)
 // pixBlendColor(pixd, pixs1, pixs2, x, y, fract, transparent, transpix) as Pix
 // pixBlendColor(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_int32, l_uint32) as PIX *
@@ -248,6 +278,7 @@ public static Pix pixBlendGrayInverse(
 ///  <param name="transparent">[in] - 1 to use transparency 0 otherwise</param>
 ///  <param name="transpix">[in] - pixel color in pixs2 that is to be transparent</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixBlendColor(
 				 Pix pixd, 
 				 Pix pixs1, 
@@ -258,17 +289,23 @@ public static Pix pixBlendColor(
 				 int transparent, 
 				 uint transpix){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendColor(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   transparent,   transpix);
+	IntPtr _Result = Natives.pixBlendColor(
+pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   transparent,   transpix);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (932, 1)
 // pixBlendColorByChannel(pixd, pixs1, pixs2, x, y, rfract, gfract, bfract, transparent, transpix) as Pix
 // pixBlendColorByChannel(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_float32, l_int32, l_uint32) as PIX *
@@ -276,6 +313,7 @@ public static Pix pixBlendColor(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendColorByChannel/*"/>
 ///   <returns></returns>
+
 public static Pix pixBlendColorByChannel(
 				 Pix pixd, 
 				 Pix pixs1, 
@@ -288,19 +326,25 @@ public static Pix pixBlendColorByChannel(
 				 int transparent, 
 				 uint transpix){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixs1Ptr = IntPtr.Zero; if (pixs1 != null) {pixs1Ptr = pixs1.Pointer;}
 	IntPtr pixs2Ptr = IntPtr.Zero; if (pixs2 != null) {pixs2Ptr = pixs2.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendColorByChannel(pixd.Pointer, pixs1.Pointer, pixs2.Pointer,   x,   y,   rfract,   gfract,   bfract,   transparent,   transpix);
+	IntPtr _Result = Natives.pixBlendColorByChannel(
+pixd.Pointer, pixs1.Pointer, pixs2.Pointer,   x,   y,   rfract,   gfract,   bfract,   transparent,   transpix);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (1061, 1)
 // pixBlendGrayAdapt(pixd, pixs1, pixs2, x, y, fract, shift) as Pix
 // pixBlendGrayAdapt(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -348,6 +392,7 @@ public static Pix pixBlendColorByChannel(
 ///  <param name="fract">[in] - blending fraction</param>
 ///  <param name="shift">[in] - greater or equal 0 but smaller or equal 128: shift of zero blend value from median source use -1 for default value</param>
 ///   <returns>pixd if OK pixs1 on error</returns>
+
 public static Pix pixBlendGrayAdapt(
 				 Pix pixd, 
 				 Pix pixs1, 
@@ -357,17 +402,23 @@ public static Pix pixBlendGrayAdapt(
 				 Single fract, 
 				 int shift){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendGrayAdapt(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   shift);
+	IntPtr _Result = Natives.pixBlendGrayAdapt(
+pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   shift);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (1235, 1)
 // pixFadeWithGray(pixs, pixb, factor, type) as Pix
 // pixFadeWithGray(PIX *, PIX *, l_float32, l_int32) as PIX *
@@ -388,21 +439,29 @@ public static Pix pixBlendGrayAdapt(
 ///  <param name="factor">[in] - multiplicative factor to apply to blender value</param>
 ///  <param name="type">[in] - L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixFadeWithGray(
 				 Pix pixs, 
 				 Pix pixb, 
 				 Single factor, 
 				 int type){
 
-	IntPtr _Result = Natives.pixFadeWithGray(pixs.Pointer, pixb.Pointer,   factor,   type);
+
+
+	IntPtr _Result = Natives.pixFadeWithGray(
+pixs.Pointer, pixb.Pointer,   factor,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (1349, 1)
 // pixBlendHardLight(pixd, pixs1, pixs2, x, y, fract) as Pix
 // pixBlendHardLight(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -410,6 +469,7 @@ public static Pix pixFadeWithGray(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendHardLight/*"/>
 ///   <returns></returns>
+
 public static Pix pixBlendHardLight(
 				 Pix pixd, 
 				 Pix pixs1, 
@@ -418,19 +478,25 @@ public static Pix pixBlendHardLight(
 				 int y, 
 				 Single fract){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixs1Ptr = IntPtr.Zero; if (pixs1 != null) {pixs1Ptr = pixs1.Pointer;}
 	IntPtr pixs2Ptr = IntPtr.Zero; if (pixs2 != null) {pixs2Ptr = pixs2.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendHardLight(pixd.Pointer, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
+	IntPtr _Result = Natives.pixBlendHardLight(
+pixd.Pointer, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (1555, 1)
 // pixBlendCmap(pixs, pixb, x, y, sindex) as int
 // pixBlendCmap(PIX *, PIX *, l_int32, l_int32, l_int32) as l_ok
@@ -462,6 +528,7 @@ public static Pix pixBlendHardLight(
 ///  <param name="y">[in] - UL corner of blender relative to pixs</param>
 ///  <param name="sindex">[in] - colormap index of pixels in pixs to be changed</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixBlendCmap(
 				 Pix pixs, 
 				 Pix pixb, 
@@ -469,14 +536,21 @@ public static int pixBlendCmap(
 				 int y, 
 				 int sindex){
 
-	int _Result = Natives.pixBlendCmap(pixs.Pointer, pixb.Pointer,   x,   y,   sindex);
+
+
+	int _Result = Natives.pixBlendCmap(
+pixs.Pointer, pixb.Pointer,   x,   y,   sindex);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (1692, 1)
 // pixBlendWithGrayMask(pixs1, pixs2, pixg, x, y) as Pix
 // pixBlendWithGrayMask(PIX *, PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -515,6 +589,7 @@ public static int pixBlendCmap(
 ///  <param name="x">[in] - UL corner of pixs2 and pixg with respect to pixs1</param>
 ///  <param name="y">[in] - UL corner of pixs2 and pixg with respect to pixs1</param>
 ///   <returns>pixd blended image, or NULL on error</returns>
+
 public static Pix pixBlendWithGrayMask(
 				 Pix pixs1, 
 				 Pix pixs2, 
@@ -522,17 +597,23 @@ public static Pix pixBlendWithGrayMask(
 				 int x, 
 				 int y){
 
+
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendWithGrayMask(pixs1.Pointer, pixs2.Pointer, pixgPtr,   x,   y);
+	IntPtr _Result = Natives.pixBlendWithGrayMask(
+pixs1.Pointer, pixs2.Pointer, pixgPtr,   x,   y);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (1846, 1)
 // pixBlendBackgroundToColor(pixd, pixs, box, color, gamma, minval, maxval) as Pix
 // pixBlendBackgroundToColor(PIX *, PIX *, BOX *, l_uint32, l_float32, l_int32, l_int32) as PIX *
@@ -564,6 +645,7 @@ public static Pix pixBlendWithGrayMask(
 ///  <param name="minval">[in] - args for grayscale TRC mapping</param>
 ///  <param name="maxval">[in] - args for grayscale TRC mapping</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixBlendBackgroundToColor(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -573,17 +655,23 @@ public static Pix pixBlendBackgroundToColor(
 				 int minval, 
 				 int maxval){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixBlendBackgroundToColor(pixdPtr, pixs.Pointer, box.Pointer,   color,   gamma,   minval,   maxval);
+	IntPtr _Result = Natives.pixBlendBackgroundToColor(
+pixdPtr, pixs.Pointer, box.Pointer,   color,   gamma,   minval,   maxval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (1926, 1)
 // pixMultiplyByColor(pixd, pixs, box, color) as Pix
 // pixMultiplyByColor(PIX *, PIX *, BOX *, l_uint32) as PIX *
@@ -605,23 +693,30 @@ public static Pix pixBlendBackgroundToColor(
 ///  <param name="box">[in] - region for filtering can be NULL)</param>
 ///  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixMultiplyByColor(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Box box, 
 				 uint color){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixMultiplyByColor(pixdPtr, pixs.Pointer, box.Pointer,   color);
+	IntPtr _Result = Natives.pixMultiplyByColor(
+pixdPtr, pixs.Pointer, box.Pointer,   color);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (2004, 1)
 // pixAlphaBlendUniform(pixs, color) as Pix
 // pixAlphaBlendUniform(PIX *, l_uint32) as PIX *
@@ -640,19 +735,27 @@ public static Pix pixMultiplyByColor(
 ///  <param name="pixs">[in] - 32 bpp rgba, with alpha</param>
 ///  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 ///   <returns>pixd 32 bpp rgb: pixs blended over uniform color %color, a clone of pixs if no alpha, and NULL on error</returns>
+
 public static Pix pixAlphaBlendUniform(
 				 Pix pixs, 
 				 uint color){
 
-	IntPtr _Result = Natives.pixAlphaBlendUniform(pixs.Pointer,   color);
+
+
+	IntPtr _Result = Natives.pixAlphaBlendUniform(
+pixs.Pointer,   color);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (2057, 1)
 // pixAddAlphaToBlend(pixs, fract, invert) as Pix
 // pixAddAlphaToBlend(PIX *, l_float32, l_int32) as PIX *
@@ -680,20 +783,28 @@ public static Pix pixAlphaBlendUniform(
 ///  <param name="fract">[in] - fade fraction in the alpha component</param>
 ///  <param name="invert">[in] - 1 to photometrically invert pixs</param>
 ///   <returns>pixd 32 bpp with alpha, or NULL on error</returns>
+
 public static Pix pixAddAlphaToBlend(
 				 Pix pixs, 
 				 Single fract, 
 				 int invert){
 
-	IntPtr _Result = Natives.pixAddAlphaToBlend(pixs.Pointer,   fract,   invert);
+
+
+	IntPtr _Result = Natives.pixAddAlphaToBlend(
+pixs.Pointer,   fract,   invert);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (2116, 1)
 // pixSetAlphaOverWhite(pixs) as Pix
 // pixSetAlphaOverWhite(PIX *) as PIX *
@@ -713,18 +824,26 @@ public static Pix pixAddAlphaToBlend(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetAlphaOverWhite/*"/>
 ///  <param name="pixs">[in] - colormapped or 32 bpp rgb no alpha</param>
 ///   <returns>pixd new pix with meaningful alpha component, or NULL on error</returns>
+
 public static Pix pixSetAlphaOverWhite(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixSetAlphaOverWhite(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixSetAlphaOverWhite(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // blend.c (2178, 1)
 // pixLinearEdgeFade(pixs, dir, fadeto, distfract, maxfade) as int
 // pixLinearEdgeFade(PIX *, l_int32, l_int32, l_float32, l_float32) as l_ok
@@ -746,6 +865,7 @@ public static Pix pixSetAlphaOverWhite(
 ///  <param name="distfract">[in] - fraction of width or height over which fading occurs</param>
 ///  <param name="maxfade">[in] - fraction of fading at the edge, smaller or equal 1.0</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixLinearEdgeFade(
 				 Pix pixs, 
 				 int dir, 
@@ -753,8 +873,14 @@ public static int pixLinearEdgeFade(
 				 Single distfract, 
 				 Single maxfade){
 
-	int _Result = Natives.pixLinearEdgeFade(pixs.Pointer,   dir,   fadeto,   distfract,   maxfade);
+
+
+	int _Result = Natives.pixLinearEdgeFade(
+pixs.Pointer,   dir,   fadeto,   distfract,   maxfade);
 	
+
+
+//  
 
 
 

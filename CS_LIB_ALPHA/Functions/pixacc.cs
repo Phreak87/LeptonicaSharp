@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (90, 1)
 // pixaccCreate(w, h, negflag) as Pixacc
 // pixaccCreate(l_int32, l_int32, l_int32) as PIXACC *
@@ -25,20 +26,28 @@ public partial class _All {
 ///  <param name="h">[in] - of 32 bpp internal Pix</param>
 ///  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 ///   <returns>pixacc, or NULL on error</returns>
+
 public static Pixacc pixaccCreate(
 				 int w, 
 				 int h, 
 				 int negflag){
 
-	IntPtr _Result = Natives.pixaccCreate(  w,   h,   negflag);
+
+
+	IntPtr _Result = Natives.pixaccCreate(
+  w,   h,   negflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixacc(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (131, 1)
 // pixaccCreateFromPix(pix, negflag) as Pixacc
 // pixaccCreateFromPix(PIX *, l_int32) as PIXACC *
@@ -51,19 +60,27 @@ public static Pixacc pixaccCreate(
 ///  <param name="pix">[in] - </param>
 ///  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 ///   <returns>pixacc, or NULL on error</returns>
+
 public static Pixacc pixaccCreateFromPix(
 				 Pix pix, 
 				 int negflag){
 
-	IntPtr _Result = Natives.pixaccCreateFromPix(pix.Pointer,   negflag);
+
+
+	IntPtr _Result = Natives.pixaccCreateFromPix(
+pix.Pointer,   negflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixacc(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (160, 1)
 // pixaccDestroy(ppixacc) as Object
 // pixaccDestroy(PIXACC **) as void
@@ -74,19 +91,26 @@ public static Pixacc pixaccCreateFromPix(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccDestroy/*"/>
 ///  <param name="ppixacc">[in,out] - to be nulled</param>
+
 public static void pixaccDestroy(
 				ref Pixacc ppixacc){
 
+
 	IntPtr ppixaccPtr = IntPtr.Zero; 	if (ppixacc != null) {ppixaccPtr = ppixacc.Pointer;}
 
-	Natives.pixaccDestroy(ref ppixaccPtr);
+	Natives.pixaccDestroy(
+ref ppixaccPtr);
 	
 
+
+//  
 	if (ppixaccPtr == IntPtr.Zero) {ppixacc = null;} else { ppixacc = new Pixacc(ppixaccPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (192, 1)
 // pixaccFinal(pixacc, outdepth) as Pix
 // pixaccFinal(PIXACC *, l_int32) as PIX *
@@ -96,19 +120,27 @@ public static void pixaccDestroy(
 ///  <param name="pixacc">[in] - </param>
 ///  <param name="outdepth">[in] - 8, 16 or 32 bpp</param>
 ///   <returns>pixd 8 , 16 or 32 bpp, or NULL on error</returns>
+
 public static Pix pixaccFinal(
 				 Pixacc pixacc, 
 				 int outdepth){
 
-	IntPtr _Result = Natives.pixaccFinal(pixacc.Pointer,   outdepth);
+
+
+	IntPtr _Result = Natives.pixaccFinal(
+pixacc.Pointer,   outdepth);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (215, 1)
 // pixaccGetPix(pixacc) as Pix
 // pixaccGetPix(PIXACC *) as PIX *
@@ -117,18 +149,26 @@ public static Pix pixaccFinal(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccGetPix/*"/>
 ///  <param name="pixacc">[in] - </param>
 ///   <returns>pix, or NULL on error</returns>
+
 public static Pix pixaccGetPix(
 				 Pixacc pixacc){
 
-	IntPtr _Result = Natives.pixaccGetPix(pixacc.Pointer);
+
+
+	IntPtr _Result = Natives.pixaccGetPix(
+pixacc.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (232, 1)
 // pixaccGetOffset(pixacc) as int
 // pixaccGetOffset(PIXACC *) as l_int32
@@ -137,17 +177,25 @@ public static Pix pixaccGetPix(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccGetOffset/*"/>
 ///  <param name="pixacc">[in] - </param>
 ///   <returns>offset, or -1 on error</returns>
+
 public static int pixaccGetOffset(
 				 Pixacc pixacc){
 
-	int _Result = Natives.pixaccGetOffset(pixacc.Pointer);
+
+
+	int _Result = Natives.pixaccGetOffset(
+pixacc.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (253, 1)
 // pixaccAdd(pixacc, pix) as int
 // pixaccAdd(PIXACC *, PIX *) as l_ok
@@ -157,18 +205,26 @@ public static int pixaccGetOffset(
 ///  <param name="pixacc">[in] - </param>
 ///  <param name="pix">[in] - to be added</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaccAdd(
 				 Pixacc pixacc, 
 				 Pix pix){
 
-	int _Result = Natives.pixaccAdd(pixacc.Pointer, pix.Pointer);
+
+
+	int _Result = Natives.pixaccAdd(
+pixacc.Pointer, pix.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (275, 1)
 // pixaccSubtract(pixacc, pix) as int
 // pixaccSubtract(PIXACC *, PIX *) as l_ok
@@ -178,18 +234,26 @@ public static int pixaccAdd(
 ///  <param name="pixacc">[in] - </param>
 ///  <param name="pix">[in] - to be subtracted</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaccSubtract(
 				 Pixacc pixacc, 
 				 Pix pix){
 
-	int _Result = Natives.pixaccSubtract(pixacc.Pointer, pix.Pointer);
+
+
+	int _Result = Natives.pixaccSubtract(
+pixacc.Pointer, pix.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (297, 1)
 // pixaccMultConst(pixacc, factor) as int
 // pixaccMultConst(PIXACC *, l_float32) as l_ok
@@ -199,18 +263,26 @@ public static int pixaccSubtract(
 ///  <param name="pixacc">[in] - </param>
 ///  <param name="factor">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaccMultConst(
 				 Pixacc pixacc, 
 				 Single factor){
 
-	int _Result = Natives.pixaccMultConst(pixacc.Pointer,   factor);
+
+
+	int _Result = Natives.pixaccMultConst(
+pixacc.Pointer,   factor);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixacc.c (325, 1)
 // pixaccMultConstAccumulate(pixacc, pix, factor) as int
 // pixaccMultConstAccumulate(PIXACC *, PIX *, l_float32) as l_ok
@@ -225,13 +297,20 @@ public static int pixaccMultConst(
 ///  <param name="pix">[in] - </param>
 ///  <param name="factor">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaccMultConstAccumulate(
 				 Pixacc pixacc, 
 				 Pix pix, 
 				 Single factor){
 
-	int _Result = Natives.pixaccMultConstAccumulate(pixacc.Pointer, pix.Pointer,   factor);
+
+
+	int _Result = Natives.pixaccMultConstAccumulate(
+pixacc.Pointer, pix.Pointer,   factor);
 	
+
+
+//  
 
 
 

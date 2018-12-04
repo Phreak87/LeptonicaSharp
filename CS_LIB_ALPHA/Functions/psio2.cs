@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (152, 1)
 // pixWritePSEmbed(filein, fileout) as int
 // pixWritePSEmbed(const char *, const char *) as l_ok
@@ -25,18 +26,26 @@ public partial class _All {
 ///  <param name="filein">[in] - input file, all depths, colormap OK</param>
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixWritePSEmbed(
 				 String filein, 
 				 String fileout){
 
-	int _Result = Natives.pixWritePSEmbed(  filein,   fileout);
+
+
+	int _Result = Natives.pixWritePSEmbed(
+  filein,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (205, 1)
 // pixWriteStreamPS(fp, pix, box, res, scale) as int
 // pixWriteStreamPS(FILE *, PIX *, BOX *, l_int32, l_float32) as l_ok
@@ -56,6 +65,7 @@ public static int pixWritePSEmbed(
 ///  <param name="res">[in] - can use 0 for default of 300 ppi</param>
 ///  <param name="scale">[in] - to prevent scaling, use either 1.0 or 0.0</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixWriteStreamPS(
 				 FILE fp, 
 				 Pix pix, 
@@ -63,16 +73,22 @@ public static int pixWriteStreamPS(
 				 int res, 
 				 Single scale){
 
+
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixWriteStreamPS(fp.Pointer, pix.Pointer, boxPtr,   res,   scale);
+	int _Result = Natives.pixWriteStreamPS(
+fp.Pointer, pix.Pointer, boxPtr,   res,   scale);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (303, 1)
 // pixWriteStringPS(pixs, box, res, scale) as String
 // pixWriteStringPS(PIX *, BOX *, l_int32, l_float32) as char *
@@ -139,20 +155,28 @@ public static int pixWriteStreamPS(
 ///  <param name="res">[in] - resolution, in printer ppi.  Use 0 for default 300 ppi.</param>
 ///  <param name="scale">[in] - scale factor.  If no scaling is desired, use either 1.0 or 0.0.   Scaling just resets the resolution parameter the actual scaling is done in the interpreter at rendering time.  This is important: it allows you to scale the image up without increasing the file size.</param>
 ///   <returns>ps string if OK, or NULL on error</returns>
+
 public static String pixWriteStringPS(
 				 Pix pixs, 
 				 Box box, 
 				 int res, 
 				 Single scale){
 
-	String _Result = Natives.pixWriteStringPS(pixs.Pointer, box.Pointer,   res,   scale);
+
+
+	String _Result = Natives.pixWriteStringPS(
+pixs.Pointer, box.Pointer,   res,   scale);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (413, 1)
 // generateUncompressedPS(hexdata, w, h, d, psbpl, bps, xpt, ypt, wpt, hpt, boxflag) as String
 // generateUncompressedPS(char *, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32, l_int32) as char *
@@ -174,6 +198,7 @@ public static String pixWriteStringPS(
 ///  <param name="hpt">[in] - rendered image size in pts</param>
 ///  <param name="boxflag">[in] - 1 to print out bounding box hint 0 to skip</param>
 ///   <returns>PS string, or NULL on error</returns>
+
 public static String generateUncompressedPS(
 				 String hexdata, 
 				 int w, 
@@ -187,14 +212,21 @@ public static String generateUncompressedPS(
 				 Single hpt, 
 				 int boxflag){
 
-	String _Result = Natives.generateUncompressedPS(  hexdata,   w,   h,   d,   psbpl,   bps,   xpt,   ypt,   wpt,   hpt,   boxflag);
+
+
+	String _Result = Natives.generateUncompressedPS(
+  hexdata,   w,   h,   d,   psbpl,   bps,   xpt,   ypt,   wpt,   hpt,   boxflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (522, 1)
 // getScaledParametersPS(box, wpix, hpix, res, scale, pxpt, pypt, pwpt, phpt) as Object
 // getScaledParametersPS(BOX *, l_int32, l_int32, l_int32, l_float32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as void
@@ -217,6 +249,7 @@ public static String generateUncompressedPS(
 ///  <param name="pypt">[out] - location of lly in pts</param>
 ///  <param name="pwpt">[out] - image width in pts</param>
 ///  <param name="phpt">[out] - image height in pts</param>
+
 public static void getScaledParametersPS(
 				 Box box, 
 				 int wpix, 
@@ -228,15 +261,21 @@ public static void getScaledParametersPS(
 				out Single pwpt, 
 				out Single phpt){
 
+
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	Natives.getScaledParametersPS(boxPtr,   wpix,   hpix,   res,   scale, out  pxpt, out  pypt, out  pwpt, out  phpt);
+	Natives.getScaledParametersPS(
+boxPtr,   wpix,   hpix,   res,   scale, out  pxpt, out  pypt, out  pwpt, out  phpt);
 	
+
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (601, 1)
 // convertByteToHexAscii(byteval, pnib1, pnib2) as Object
 // convertByteToHexAscii(l_uint8, char *, char *) as void
@@ -246,18 +285,26 @@ public static void getScaledParametersPS(
 ///  <param name="byteval">[in] - input byte</param>
 ///  <param name="pnib1">[out] - two hex ascii characters</param>
 ///  <param name="pnib2">[out] - two hex ascii characters</param>
+
 public static void convertByteToHexAscii(
 				 byte byteval, 
 				out String pnib1, 
 				out String pnib2){
 
-	Natives.convertByteToHexAscii(  byteval, out  pnib1, out  pnib2);
+
+
+	Natives.convertByteToHexAscii(
+  byteval, out  pnib1, out  pnib2);
 	
+
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (643, 1)
 // convertJpegToPSEmbed(filein, fileout) as int
 // convertJpegToPSEmbed(const char *, const char *) as l_ok
@@ -277,18 +324,26 @@ public static void convertByteToHexAscii(
 ///  <param name="filein">[in] - input jpeg file</param>
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertJpegToPSEmbed(
 				 String filein, 
 				 String fileout){
 
-	int _Result = Natives.convertJpegToPSEmbed(  filein,   fileout);
+
+
+	int _Result = Natives.convertJpegToPSEmbed(
+  filein,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (758, 1)
 // convertJpegToPS(filein, fileout, operation, x, y, res, scale, pageno, endpage) as int
 // convertJpegToPS(const char *, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
@@ -358,6 +413,7 @@ public static int convertJpegToPSEmbed(
 ///  <param name="pageno">[in] - page number must start with 1 you can use 0 if there is only one page</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertJpegToPS(
 				 String filein, 
 				 String fileout, 
@@ -369,14 +425,21 @@ public static int convertJpegToPS(
 				 int pageno, 
 				 int endpage){
 
-	int _Result = Natives.convertJpegToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
+
+
+	int _Result = Natives.convertJpegToPS(
+  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (817, 1)
 // convertJpegToPSString(filein, poutstr, pnbytes, x, y, res, scale, pageno, endpage) as int
 // convertJpegToPSString(const char *, char **, l_int32 *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
@@ -396,6 +459,7 @@ public static int convertJpegToPS(
 ///  <param name="pageno">[in] - page number must start with 1 you can use 0 if there is only one page</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertJpegToPSString(
 				 String filein, 
 				out String[] poutstr, 
@@ -407,17 +471,23 @@ public static int convertJpegToPSString(
 				 int pageno, 
 				 int endpage){
 
+
 	IntPtr poutstrPtr = IntPtr.Zero;
 
-	int _Result = Natives.convertJpegToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
+	int _Result = Natives.convertJpegToPSString(
+  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
 	
 
+
+//  
 	if (poutstrPtr == null) {poutstr = null;} else { poutstr = null; };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (911, 1)
 // generateJpegPS(filein, cid, xpt, ypt, wpt, hpt, pageno, endpage) as String
 // generateJpegPS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32) as char *
@@ -436,6 +506,7 @@ public static int convertJpegToPSString(
 ///  <param name="pageno">[in] - page number must start with 1 you can use 0 if there is only one page.</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>PS string, or NULL on error</returns>
+
 public static String generateJpegPS(
 				 String filein, 
 				 L_Compressed_Data cid, 
@@ -446,14 +517,21 @@ public static String generateJpegPS(
 				 int pageno, 
 				 int endpage){
 
-	String _Result = Natives.generateJpegPS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
+
+
+	String _Result = Natives.generateJpegPS(
+  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1039, 1)
 // convertG4ToPSEmbed(filein, fileout) as int
 // convertG4ToPSEmbed(const char *, const char *) as l_ok
@@ -476,18 +554,26 @@ public static String generateJpegPS(
 ///  <param name="filein">[in] - input tiff file</param>
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertG4ToPSEmbed(
 				 String filein, 
 				 String fileout){
 
-	int _Result = Natives.convertG4ToPSEmbed(  filein,   fileout);
+
+
+	int _Result = Natives.convertG4ToPSEmbed(
+  filein,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1145, 1)
 // convertG4ToPS(filein, fileout, operation, x, y, res, scale, pageno, maskflag, endpage) as int
 // convertG4ToPS(const char *, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32, l_int32) as l_ok
@@ -545,6 +631,7 @@ public static int convertG4ToPSEmbed(
 ///  <param name="maskflag">[in] - boolean: use TRUE if just painting through fg FALSE if painting both fg and bg.</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertG4ToPS(
 				 String filein, 
 				 String fileout, 
@@ -557,14 +644,21 @@ public static int convertG4ToPS(
 				 int maskflag, 
 				 int endpage){
 
-	int _Result = Natives.convertG4ToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
+
+
+	int _Result = Natives.convertG4ToPS(
+  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1208, 1)
 // convertG4ToPSString(filein, poutstr, pnbytes, x, y, res, scale, pageno, maskflag, endpage) as int
 // convertG4ToPSString(const char *, char **, l_int32 *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32, l_int32) as l_ok
@@ -587,6 +681,7 @@ public static int convertG4ToPS(
 ///  <param name="maskflag">[in] - boolean: use TRUE if just painting through fg FALSE if painting both fg and bg.</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertG4ToPSString(
 				 String filein, 
 				out String[] poutstr, 
@@ -599,17 +694,23 @@ public static int convertG4ToPSString(
 				 int maskflag, 
 				 int endpage){
 
+
 	IntPtr poutstrPtr = IntPtr.Zero;
 
-	int _Result = Natives.convertG4ToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
+	int _Result = Natives.convertG4ToPSString(
+  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
 	
 
+
+//  
 	if (poutstrPtr == null) {poutstr = null;} else { poutstr = null; };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1304, 1)
 // generateG4PS(filein, cid, xpt, ypt, wpt, hpt, maskflag, pageno, endpage) as String
 // generateG4PS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32, l_int32) as char *
@@ -629,6 +730,7 @@ public static int convertG4ToPSString(
 ///  <param name="pageno">[in] - page number must start with 1 you can use 0 if there is only one page.</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>PS string, or NULL on error</returns>
+
 public static String generateG4PS(
 				 String filein, 
 				 L_Compressed_Data cid, 
@@ -640,14 +742,21 @@ public static String generateG4PS(
 				 int pageno, 
 				 int endpage){
 
-	String _Result = Natives.generateG4PS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   maskflag,   pageno,   endpage);
+
+
+	String _Result = Natives.generateG4PS(
+  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   maskflag,   pageno,   endpage);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1438, 1)
 // convertTiffMultipageToPS(filein, fileout, fillfract) as int
 // convertTiffMultipageToPS(const char *, const char *, l_float32) as l_ok
@@ -666,19 +775,27 @@ public static String generateG4PS(
 ///  <param name="fileout">[in] - output ps file</param>
 ///  <param name="fillfract">[in] - factor for filling 8.5 x 11 inch page use 0.0 for DEFAULT_FILL_FRACTION</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertTiffMultipageToPS(
 				 String filein, 
 				 String fileout, 
 				 Single fillfract){
 
-	int _Result = Natives.convertTiffMultipageToPS(  filein,   fileout,   fillfract);
+
+
+	int _Result = Natives.convertTiffMultipageToPS(
+  filein,   fileout,   fillfract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1518, 1)
 // convertFlateToPSEmbed(filein, fileout) as int
 // convertFlateToPSEmbed(const char *, const char *) as l_ok
@@ -698,18 +815,26 @@ public static int convertTiffMultipageToPS(
 ///  <param name="filein">[in] - input file -- any format</param>
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertFlateToPSEmbed(
 				 String filein, 
 				 String fileout){
 
-	int _Result = Natives.convertFlateToPSEmbed(  filein,   fileout);
+
+
+	int _Result = Natives.convertFlateToPSEmbed(
+  filein,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1631, 1)
 // convertFlateToPS(filein, fileout, operation, x, y, res, scale, pageno, endpage) as int
 // convertFlateToPS(const char *, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
@@ -778,6 +903,7 @@ public static int convertFlateToPSEmbed(
 ///  <param name="pageno">[in] - page number must start with 1 you can use 0 if there is only one page.</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertFlateToPS(
 				 String filein, 
 				 String fileout, 
@@ -789,14 +915,21 @@ public static int convertFlateToPS(
 				 int pageno, 
 				 int endpage){
 
-	int _Result = Natives.convertFlateToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
+
+
+	int _Result = Natives.convertFlateToPS(
+  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1697, 1)
 // convertFlateToPSString(filein, poutstr, pnbytes, x, y, res, scale, pageno, endpage) as int
 // convertFlateToPSString(const char *, char **, l_int32 *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
@@ -824,6 +957,7 @@ public static int convertFlateToPS(
 ///  <param name="pageno">[in] - page number must start with 1 you can use 0 if there is only one page.</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertFlateToPSString(
 				 String filein, 
 				out String[] poutstr, 
@@ -835,17 +969,23 @@ public static int convertFlateToPSString(
 				 int pageno, 
 				 int endpage){
 
+
 	IntPtr poutstrPtr = IntPtr.Zero;
 
-	int _Result = Natives.convertFlateToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
+	int _Result = Natives.convertFlateToPSString(
+  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
 	
 
+
+//  
 	if (poutstrPtr == null) {poutstr = null;} else { poutstr = null; };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1781, 1)
 // generateFlatePS(filein, cid, xpt, ypt, wpt, hpt, pageno, endpage) as String
 // generateFlatePS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32) as char *
@@ -861,6 +1001,7 @@ public static int convertFlateToPSString(
 ///  <param name="pageno">[in] - page number must start with 1 you can use 0 if there is only one page</param>
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>PS string, or NULL on error</returns>
+
 public static String generateFlatePS(
 				 String filein, 
 				 L_Compressed_Data cid, 
@@ -871,14 +1012,21 @@ public static String generateFlatePS(
 				 int pageno, 
 				 int endpage){
 
-	String _Result = Natives.generateFlatePS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
+
+
+	String _Result = Natives.generateFlatePS(
+  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1922, 1)
 // pixWriteMemPS(pdata, psize, pix, box, res, scale) as int
 // pixWriteMemPS(l_uint8 **, size_t *, PIX *, BOX *, l_int32, l_float32) as l_ok
@@ -898,6 +1046,7 @@ public static String generateFlatePS(
 ///  <param name="res">[in] - can use 0 for default of 300 ppi</param>
 ///  <param name="scale">[in] - to prevent scaling, use either 1.0 or 0.0</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixWriteMemPS(
 				out Byte[] pdata, 
 				out uint psize, 
@@ -906,18 +1055,28 @@ public static int pixWriteMemPS(
 				 int res, 
 				 Single scale){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixWriteMemPS(out  pdataPtr, out  psize, pix.Pointer, boxPtr,   res,   scale);
+	int _Result = Natives.pixWriteMemPS(
+out  pdataPtr, out  psize, pix.Pointer, boxPtr,   res,   scale);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[psize];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1957, 1)
 // getResLetterPage(w, h, fillfract) as int
 // getResLetterPage(l_int32, l_int32, l_float32) as l_int32
@@ -928,19 +1087,27 @@ public static int pixWriteMemPS(
 ///  <param name="h">[in] - image height, pixels</param>
 ///  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
 ///   <returns>resolution</returns>
+
 public static int getResLetterPage(
 				 int w, 
 				 int h, 
 				 Single fillfract){
 
-	int _Result = Natives.getResLetterPage(  w,   h,   fillfract);
+
+
+	int _Result = Natives.getResLetterPage(
+  w,   h,   fillfract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (1982, 1)
 // getResA4Page(w, h, fillfract) as int
 // getResA4Page(l_int32, l_int32, l_float32) as l_int32
@@ -951,30 +1118,45 @@ public static int getResLetterPage(
 ///  <param name="h">[in] - image height, pixels</param>
 ///  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
 ///   <returns>resolution</returns>
+
 public static int getResA4Page(
 				 int w, 
 				 int h, 
 				 Single fillfract){
 
-	int _Result = Natives.getResA4Page(  w,   h,   fillfract);
+
+
+	int _Result = Natives.getResA4Page(
+  w,   h,   fillfract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // psio2.c (2001, 1)
 // l_psWriteBoundingBox(flag) as Object
 // l_psWriteBoundingBox(l_int32) as void
 ///  <remarks>
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_psWriteBoundingBox/*"/>
+
 public static void l_psWriteBoundingBox(
 				 int flag){
 
-	Natives.l_psWriteBoundingBox(  flag);
+
+
+	Natives.l_psWriteBoundingBox(
+  flag);
 	
+
+
+//  
 
 
 

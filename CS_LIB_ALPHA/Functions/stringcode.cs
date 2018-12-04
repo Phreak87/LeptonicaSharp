@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stringcode.c (156, 1)
 // strcodeCreate(fileno) as L_StrCode
 // strcodeCreate(l_int32) as L_STRCODE *
@@ -20,18 +21,26 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/strcodeCreate/*"/>
 ///  <param name="fileno">[in] - integer that labels the two output files</param>
 ///   <returns>initialized L_StrCode, or NULL on error</returns>
+
 public static L_StrCode strcodeCreate(
 				 int fileno){
 
-	IntPtr _Result = Natives.strcodeCreate(  fileno);
+
+
+	IntPtr _Result = Natives.strcodeCreate(
+  fileno);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_StrCode(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stringcode.c (223, 1)
 // strcodeCreateFromFile(filein, fileno, outdir) as int
 // strcodeCreateFromFile(const char *, l_int32, const char *) as l_ok
@@ -50,19 +59,27 @@ public static L_StrCode strcodeCreate(
 ///  <param name="fileno">[in] - integer that labels the two output files</param>
 ///  <param name="outdir">[in][optional] - if null, files are made in /tmp/lept/auto</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int strcodeCreateFromFile(
 				 String filein, 
 				 int fileno, 
 				 String outdir){
 
-	int _Result = Natives.strcodeCreateFromFile(  filein,   fileno,   outdir);
+
+
+	int _Result = Natives.strcodeCreateFromFile(
+  filein,   fileno,   outdir);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stringcode.c (289, 1)
 // strcodeGenerate(strcode, filein, type) as int
 // strcodeGenerate(L_STRCODE *, const char *, const char *) as l_ok
@@ -82,19 +99,27 @@ public static int strcodeCreateFromFile(
 ///  <param name="filein">[in] - input file with serialized data</param>
 ///  <param name="type">[in] - of data use the typedef string</param>
 ///   <returns>0 if OK, 1 on error.</returns>
+
 public static int strcodeGenerate(
 				 L_StrCode strcode, 
 				 String filein, 
 				 String type){
 
-	int _Result = Natives.strcodeGenerate(strcode.Pointer,   filein,   type);
+
+
+	int _Result = Natives.strcodeGenerate(
+strcode.Pointer,   filein,   type);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stringcode.c (336, 1)
 // strcodeFinalize(pstrcode, outdir) as int
 // strcodeFinalize(L_STRCODE **, const char *) as l_int32
@@ -104,21 +129,28 @@ public static int strcodeGenerate(
 ///  <param name="pstrcode">[in,out] - destroys after .c and .h files have been generated</param>
 ///  <param name="outdir">[in][optional] - if NULL, files are made in /tmp/lept/auto</param>
 ///   <returns>void</returns>
+
 public static int strcodeFinalize(
 				ref L_StrCode pstrcode, 
 				 String outdir){
 
+
 	IntPtr pstrcodePtr = IntPtr.Zero; 	if (pstrcode != null) {pstrcodePtr = pstrcode.Pointer;}
 
-	int _Result = Natives.strcodeFinalize(ref pstrcodePtr,   outdir);
+	int _Result = Natives.strcodeFinalize(
+ref pstrcodePtr,   outdir);
 	
 
+
+//  
 	if (pstrcodePtr == IntPtr.Zero) {pstrcode = null;} else { pstrcode = new L_StrCode(pstrcodePtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stringcode.c (525, 1)
 // l_getStructStrFromFile(filename, field, pstr) as int
 // l_getStructStrFromFile(const char *, l_int32, char **) as l_int32
@@ -135,17 +167,23 @@ public static int strcodeFinalize(
 ///  <param name="field">[in] - (L_STR_TYPE, L_STR_NAME, L_STR_READER, L_STR_MEMREADER)</param>
 ///  <param name="pstr">[out] - struct string for this file</param>
 ///   <returns>0 if found, 1 on error.</returns>
+
 public static int l_getStructStrFromFile(
 				 String filename, 
 				 int field, 
 				out String[] pstr){
 
+
 	IntPtr pstrPtr = IntPtr.Zero;
 
-	int _Result = Natives.l_getStructStrFromFile(  filename,   field, out  pstrPtr);
+	int _Result = Natives.l_getStructStrFromFile(
+  filename,   field, out  pstrPtr);
 	
 
+
+//  
 	if (pstrPtr == null) {pstr = null;} else { pstr = null; };
+
 
 
 	return _Result;

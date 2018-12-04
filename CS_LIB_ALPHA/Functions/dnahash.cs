@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (122, 1)
 // l_dnaHashCreate(nbuckets, initsize) as L_DnaHash
 // l_dnaHashCreate(l_int32, l_int32) as L_DNAHASH *
@@ -18,19 +19,27 @@ public partial class _All {
 ///  <param name="nbuckets">[in] - the number of buckets in the hash table, which should be prime.</param>
 ///  <param name="initsize">[in] - initial size of each allocated dna 0 for default</param>
 ///   <returns>ptr to new dnahash, or NULL on error</returns>
+
 public static L_DnaHash l_dnaHashCreate(
 				 int nbuckets, 
 				 int initsize){
 
-	IntPtr _Result = Natives.l_dnaHashCreate(  nbuckets,   initsize);
+
+
+	IntPtr _Result = Natives.l_dnaHashCreate(
+  nbuckets,   initsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_DnaHash(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (152, 1)
 // l_dnaHashDestroy(pdahash) as Object
 // l_dnaHashDestroy(L_DNAHASH **) as void
@@ -38,19 +47,26 @@ public static L_DnaHash l_dnaHashCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashDestroy/*"/>
 ///  <param name="pdahash">[in,out] - to be nulled, if it exists</param>
+
 public static void l_dnaHashDestroy(
 				ref L_DnaHash pdahash){
 
+
 	IntPtr pdahashPtr = IntPtr.Zero; 	if (pdahash != null) {pdahashPtr = pdahash.Pointer;}
 
-	Natives.l_dnaHashDestroy(ref pdahashPtr);
+	Natives.l_dnaHashDestroy(
+ref pdahashPtr);
 	
 
+
+//  
 	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (185, 1)
 // l_dnaHashGetCount(dahash) as int
 // l_dnaHashGetCount(L_DNAHASH *) as l_int32
@@ -59,17 +75,25 @@ public static void l_dnaHashDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashGetCount/*"/>
 ///  <param name="dahash">[in] - </param>
 ///   <returns>nbuckets allocated, or 0 on error</returns>
+
 public static int l_dnaHashGetCount(
 				 L_DnaHash dahash){
 
-	int _Result = Natives.l_dnaHashGetCount(dahash.Pointer);
+
+
+	int _Result = Natives.l_dnaHashGetCount(
+dahash.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (203, 1)
 // l_dnaHashGetTotalCount(dahash) as int
 // l_dnaHashGetTotalCount(L_DNAHASH *) as l_int32
@@ -78,17 +102,25 @@ public static int l_dnaHashGetCount(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashGetTotalCount/*"/>
 ///  <param name="dahash">[in] - </param>
 ///   <returns>n number of numbers in all dna, or 0 on error</returns>
+
 public static int l_dnaHashGetTotalCount(
 				 L_DnaHash dahash){
 
-	int _Result = Natives.l_dnaHashGetTotalCount(dahash.Pointer);
+
+
+	int _Result = Natives.l_dnaHashGetTotalCount(
+dahash.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (232, 1)
 // l_dnaHashGetDna(dahash, key, copyflag) as L_Dna
 // l_dnaHashGetDna(L_DNAHASH *, l_uint64, l_int32) as L_DNA *
@@ -99,20 +131,28 @@ public static int l_dnaHashGetTotalCount(
 ///  <param name="key">[in] - key to be hashed into a bucket number</param>
 ///  <param name="copyflag">[in] - L_NOCOPY, L_COPY, L_CLONE</param>
 ///   <returns>ptr to dna</returns>
+
 public static L_Dna l_dnaHashGetDna(
 				 L_DnaHash dahash, 
 				 ulong key, 
 				 int copyflag){
 
-	IntPtr _Result = Natives.l_dnaHashGetDna(dahash.Pointer,   key,   copyflag);
+
+
+	IntPtr _Result = Natives.l_dnaHashGetDna(
+dahash.Pointer,   key,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Dna(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (267, 1)
 // l_dnaHashAdd(dahash, key, value) as int
 // l_dnaHashAdd(L_DNAHASH *, l_uint64, l_float64) as l_ok
@@ -123,19 +163,27 @@ public static L_Dna l_dnaHashGetDna(
 ///  <param name="key">[in] - key to be hashed into a bucket number</param>
 ///  <param name="value">[in] - float value to be appended to the specific dna</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int l_dnaHashAdd(
 				 L_DnaHash dahash, 
 				 ulong key, 
 				 double value){
 
-	int _Result = Natives.l_dnaHashAdd(dahash.Pointer,   key,   value);
+
+
+	int _Result = Natives.l_dnaHashAdd(
+dahash.Pointer,   key,   value);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (306, 1)
 // l_dnaHashCreateFromDna(da) as L_DnaHash
 // l_dnaHashCreateFromDna(L_DNA *) as L_DNAHASH *
@@ -148,18 +196,26 @@ public static int l_dnaHashAdd(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashCreateFromDna/*"/>
 ///  <param name="da">[in] - </param>
 ///   <returns>dahash if OK 1 on error</returns>
+
 public static L_DnaHash l_dnaHashCreateFromDna(
 				 L_Dna da){
 
-	IntPtr _Result = Natives.l_dnaHashCreateFromDna(da.Pointer);
+
+
+	IntPtr _Result = Natives.l_dnaHashCreateFromDna(
+da.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_DnaHash(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (350, 1)
 // l_dnaRemoveDupsByHash(das, pdad, pdahash) as int
 // l_dnaRemoveDupsByHash(L_DNA *, L_DNA **, L_DNAHASH **) as l_ok
@@ -177,24 +233,31 @@ public static L_DnaHash l_dnaHashCreateFromDna(
 ///  <param name="pdad">[out] - hash set</param>
 ///  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int l_dnaRemoveDupsByHash(
 				 L_Dna das, 
 				out L_Dna pdad, 
 				out L_DnaHash pdahash){
 
+
 	IntPtr pdadPtr = IntPtr.Zero;
 	IntPtr pdahashPtr = IntPtr.Zero;
 
-	int _Result = Natives.l_dnaRemoveDupsByHash(das.Pointer, out pdadPtr, out pdahashPtr);
+	int _Result = Natives.l_dnaRemoveDupsByHash(
+das.Pointer, out pdadPtr, out pdahashPtr);
 	
 
+
+//  
 	if (pdadPtr == IntPtr.Zero) {pdad = null;} else { pdad = new L_Dna(pdadPtr); };
 	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (421, 1)
 // l_dnaMakeHistoByHash(das, pdahash, pdav, pdac) as int
 // l_dnaMakeHistoByHash(L_DNA *, L_DNAHASH **, L_DNA **, L_DNA **) as l_ok
@@ -223,27 +286,34 @@ public static int l_dnaRemoveDupsByHash(
 ///  <param name="pdav">[out] - array of values: index to val</param>
 ///  <param name="pdac">[out] - histo array of counts: index to count</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int l_dnaMakeHistoByHash(
 				 L_Dna das, 
 				out L_DnaHash pdahash, 
 				out L_Dna pdav, 
 				out L_Dna pdac){
 
+
 	IntPtr pdahashPtr = IntPtr.Zero;
 	IntPtr pdavPtr = IntPtr.Zero;
 	IntPtr pdacPtr = IntPtr.Zero;
 
-	int _Result = Natives.l_dnaMakeHistoByHash(das.Pointer, out pdahashPtr, out pdavPtr, out pdacPtr);
+	int _Result = Natives.l_dnaMakeHistoByHash(
+das.Pointer, out pdahashPtr, out pdavPtr, out pdacPtr);
 	
 
+
+//  
 	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 	if (pdavPtr == IntPtr.Zero) {pdav = null;} else { pdav = new L_Dna(pdavPtr); };
 	if (pdacPtr == IntPtr.Zero) {pdac = null;} else { pdac = new L_Dna(pdacPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (485, 1)
 // l_dnaIntersectionByHash(da1, da2) as L_Dna
 // l_dnaIntersectionByHash(L_DNA *, L_DNA *) as L_DNA *
@@ -257,19 +327,27 @@ public static int l_dnaMakeHistoByHash(
 ///  <param name="da1">[in] - </param>
 ///  <param name="da2">[in] - </param>
 ///   <returns>dad intersection of the number arrays, or NULL on error</returns>
+
 public static L_Dna l_dnaIntersectionByHash(
 				 L_Dna da1, 
 				 L_Dna da2){
 
-	IntPtr _Result = Natives.l_dnaIntersectionByHash(da1.Pointer, da2.Pointer);
+
+
+	IntPtr _Result = Natives.l_dnaIntersectionByHash(
+da1.Pointer, da2.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Dna(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dnahash.c (553, 1)
 // l_dnaFindValByHash(da, dahash, val, pindex) as int
 // l_dnaFindValByHash(L_DNA *, L_DNAHASH *, l_float64, l_int32 *) as l_ok
@@ -286,14 +364,21 @@ public static L_Dna l_dnaIntersectionByHash(
 ///  <param name="val">[in] - searching for this number in %da</param>
 ///  <param name="pindex">[out] - index into da if found -1 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int l_dnaFindValByHash(
 				 L_Dna da, 
 				 L_DnaHash dahash, 
 				 double val, 
 				out int pindex){
 
-	int _Result = Natives.l_dnaFindValByHash(da.Pointer, dahash.Pointer,   val, out  pindex);
+
+
+	int _Result = Natives.l_dnaFindValByHash(
+da.Pointer, dahash.Pointer,   val, out  pindex);
 	
+
+
+//  
 
 
 

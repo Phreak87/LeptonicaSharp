@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogdid.c (215, 1)
 // recogDecode(recog, pixs, nlevels, ppixdb) as Boxa
 // recogDecode(L_RECOG *, PIX *, l_int32, PIX **) as BOXA *
@@ -34,24 +35,31 @@ public partial class _All {
 ///  <param name="nlevels">[in] - of templates 2 for now</param>
 ///  <param name="ppixdb">[out][optional] - debug result can be null</param>
 ///   <returns>boxa  segmentation of pixs into characters, or NULL on error</returns>
+
 public static Boxa recogDecode(
 				 L_Recog recog, 
 				 Pix pixs, 
 				 int nlevels, 
 				out Pix ppixdb){
 
+
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.recogDecode(recog.Pointer, pixs.Pointer,   nlevels, out ppixdbPtr);
+	IntPtr _Result = Natives.recogDecode(
+recog.Pointer, pixs.Pointer,   nlevels, out ppixdbPtr);
 	
 
+
+//  
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogdid.c (747, 1)
 // recogCreateDid(recog, pixs) as int
 // recogCreateDid(L_RECOG *, PIX *) as l_ok
@@ -61,18 +69,26 @@ public static Boxa recogDecode(
 ///  <param name="recog">[in] - </param>
 ///  <param name="pixs">[in] - of 1 bpp image to match</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogCreateDid(
 				 L_Recog recog, 
 				 Pix pixs){
 
-	int _Result = Natives.recogCreateDid(recog.Pointer, pixs.Pointer);
+
+
+	int _Result = Natives.recogCreateDid(
+recog.Pointer, pixs.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogdid.c (818, 1)
 // recogDestroyDid(recog) as int
 // recogDestroyDid(L_RECOG *) as l_ok
@@ -85,17 +101,25 @@ public static int recogCreateDid(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDestroyDid/*"/>
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogDestroyDid(
 				 L_Recog recog){
 
-	int _Result = Natives.recogDestroyDid(recog.Pointer);
+
+
+	int _Result = Natives.recogDestroyDid(
+recog.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogdid.c (874, 1)
 // recogDidExists(recog) as int
 // recogDidExists(L_RECOG *) as l_int32
@@ -104,17 +128,25 @@ public static int recogDestroyDid(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDidExists/*"/>
 ///  <param name="recog">[in] - </param>
 ///   <returns>1 if recogtodid exists 0 if not or on error.</returns>
+
 public static int recogDidExists(
 				 L_Recog recog){
 
-	int _Result = Natives.recogDidExists(recog.Pointer);
+
+
+	int _Result = Natives.recogDidExists(
+recog.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogdid.c (896, 1)
 // recogGetDid(recog) as L_Rdid
 // recogGetDid(L_RECOG *) as L_RDID *
@@ -126,18 +158,26 @@ public static int recogDidExists(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogGetDid/*"/>
 ///  <param name="recog">[in] - </param>
 ///   <returns>did still owned by the recog, or NULL on error</returns>
+
 public static L_Rdid recogGetDid(
 				 L_Recog recog){
 
-	IntPtr _Result = Natives.recogGetDid(recog.Pointer);
+
+
+	IntPtr _Result = Natives.recogGetDid(
+recog.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Rdid(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogdid.c (1005, 1)
 // recogSetChannelParams(recog, nlevels) as int
 // recogSetChannelParams(L_RECOG *, l_int32) as l_ok
@@ -155,12 +195,19 @@ public static L_Rdid recogGetDid(
 ///  <param name="recog">[in] - </param>
 ///  <param name="nlevels">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogSetChannelParams(
 				 L_Recog recog, 
 				 int nlevels){
 
-	int _Result = Natives.recogSetChannelParams(recog.Pointer,   nlevels);
+
+
+	int _Result = Natives.recogSetChannelParams(
+recog.Pointer,   nlevels);
 	
+
+
+//  
 
 
 

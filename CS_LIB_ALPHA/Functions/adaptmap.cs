@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (185, 1)
 // pixCleanBackgroundToWhite(pixs, pixim, pixg, gamma, blackval, whiteval) as Pix
 // pixCleanBackgroundToWhite(PIX *, PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
@@ -29,6 +30,7 @@ public partial class _All {
 ///  <param name="blackval">[in] - dark value to set to black (0)</param>
 ///  <param name="whiteval">[in] - light value to set to white (255)</param>
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
+
 public static Pix pixCleanBackgroundToWhite(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -37,18 +39,24 @@ public static Pix pixCleanBackgroundToWhite(
 				 int blackval, 
 				 int whiteval){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixCleanBackgroundToWhite(pixs.Pointer, piximPtr, pixgPtr,   gamma,   blackval,   whiteval);
+	IntPtr _Result = Natives.pixCleanBackgroundToWhite(
+pixs.Pointer, piximPtr, pixgPtr,   gamma,   blackval,   whiteval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (231, 1)
 // pixBackgroundNormSimple(pixs, pixim, pixg) as Pix
 // pixBackgroundNormSimple(PIX *, PIX *, PIX *) as PIX *
@@ -67,23 +75,30 @@ public static Pix pixCleanBackgroundToWhite(
 ///  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 ///  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
+
 public static Pix pixBackgroundNormSimple(
 				 Pix pixs, 
 				 Pix pixim, 
 				 Pix pixg){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixBackgroundNormSimple(pixs.Pointer, piximPtr, pixgPtr);
+	IntPtr _Result = Natives.pixBackgroundNormSimple(
+pixs.Pointer, piximPtr, pixgPtr);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (302, 1)
 // pixBackgroundNorm(pixs, pixim, pixg, sx, sy, thresh, mincount, bgval, smoothx, smoothy) as Pix
 // pixBackgroundNorm(PIX *, PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -152,6 +167,7 @@ public static Pix pixBackgroundNormSimple(
 ///  <param name="smoothx">[in] - half-width of block convolution kernel width</param>
 ///  <param name="smoothy">[in] - half-width of block convolution kernel height</param>
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
+
 public static Pix pixBackgroundNorm(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -164,18 +180,24 @@ public static Pix pixBackgroundNorm(
 				 int smoothx, 
 				 int smoothy){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixBackgroundNorm(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy);
+	IntPtr _Result = Natives.pixBackgroundNorm(
+pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (443, 1)
 // pixBackgroundNormMorph(pixs, pixim, reduction, size, bgval) as Pix
 // pixBackgroundNormMorph(PIX *, PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -221,6 +243,7 @@ public static Pix pixBackgroundNorm(
 ///  <param name="size">[in] - of square Sel for the closing use an odd number</param>
 ///  <param name="bgval">[in] - target bg val typ.  is greater  128</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
+
 public static Pix pixBackgroundNormMorph(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -228,17 +251,23 @@ public static Pix pixBackgroundNormMorph(
 				 int size, 
 				 int bgval){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 
-	IntPtr _Result = Natives.pixBackgroundNormMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval);
+	IntPtr _Result = Natives.pixBackgroundNormMorph(
+pixs.Pointer, piximPtr,   reduction,   size,   bgval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (554, 1)
 // pixBackgroundNormGrayArray(pixs, pixim, sx, sy, thresh, mincount, bgval, smoothx, smoothy, ppixd) as int
 // pixBackgroundNormGrayArray(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, PIX **) as l_ok
@@ -263,6 +292,7 @@ public static Pix pixBackgroundNormMorph(
 ///  <param name="smoothy">[in] - half-width of block convolution kernel height</param>
 ///  <param name="ppixd">[out] - 16 bpp array of inverted background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixBackgroundNormGrayArray(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -275,18 +305,24 @@ public static int pixBackgroundNormGrayArray(
 				 int smoothy, 
 				out Pix ppixd){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormGrayArray(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixdPtr);
+	int _Result = Natives.pixBackgroundNormGrayArray(
+pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
+//  
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (631, 1)
 // pixBackgroundNormRGBArrays(pixs, pixim, pixg, sx, sy, thresh, mincount, bgval, smoothx, smoothy, ppixr, ppixg, ppixb) as int
 // pixBackgroundNormRGBArrays(PIX *, PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
@@ -314,6 +350,7 @@ public static int pixBackgroundNormGrayArray(
 ///  <param name="ppixg">[out] - 16 bpp array of inverted G background value</param>
 ///  <param name="ppixb">[out] - 16 bpp array of inverted B background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixBackgroundNormRGBArrays(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -329,23 +366,29 @@ public static int pixBackgroundNormRGBArrays(
 				out Pix ppixg, 
 				out Pix ppixb){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 	IntPtr ppixrPtr = IntPtr.Zero;
 	IntPtr ppixgPtr = IntPtr.Zero;
 	IntPtr ppixbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormRGBArrays(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixrPtr, out ppixgPtr, out ppixbPtr);
+	int _Result = Natives.pixBackgroundNormRGBArrays(
+pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+
+//  
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (714, 1)
 // pixBackgroundNormGrayArrayMorph(pixs, pixim, reduction, size, bgval, ppixd) as int
 // pixBackgroundNormGrayArrayMorph(PIX *, PIX *, l_int32, l_int32, l_int32, PIX **) as l_ok
@@ -366,6 +409,7 @@ public static int pixBackgroundNormRGBArrays(
 ///  <param name="bgval">[in] - target bg val typ.  is greater  128</param>
 ///  <param name="ppixd">[out] - 16 bpp array of inverted background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixBackgroundNormGrayArrayMorph(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -374,18 +418,24 @@ public static int pixBackgroundNormGrayArrayMorph(
 				 int bgval, 
 				out Pix ppixd){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormGrayArrayMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixdPtr);
+	int _Result = Natives.pixBackgroundNormGrayArrayMorph(
+pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
+//  
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (779, 1)
 // pixBackgroundNormRGBArraysMorph(pixs, pixim, reduction, size, bgval, ppixr, ppixg, ppixb) as int
 // pixBackgroundNormRGBArraysMorph(PIX *, PIX *, l_int32, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
@@ -408,6 +458,7 @@ public static int pixBackgroundNormGrayArrayMorph(
 ///  <param name="ppixg">[out] - 16 bpp array of inverted G background value</param>
 ///  <param name="ppixb">[out] - 16 bpp array of inverted B background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixBackgroundNormRGBArraysMorph(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -418,22 +469,28 @@ public static int pixBackgroundNormRGBArraysMorph(
 				out Pix ppixg, 
 				out Pix ppixb){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixrPtr = IntPtr.Zero;
 	IntPtr ppixgPtr = IntPtr.Zero;
 	IntPtr ppixbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormRGBArraysMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixrPtr, out ppixgPtr, out ppixbPtr);
+	int _Result = Natives.pixBackgroundNormRGBArraysMorph(
+pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+
+//  
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (856, 1)
 // pixGetBackgroundGrayMap(pixs, pixim, sx, sy, thresh, mincount, ppixd) as int
 // pixGetBackgroundGrayMap(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, PIX **) as l_ok
@@ -453,6 +510,7 @@ public static int pixBackgroundNormRGBArraysMorph(
 ///  <param name="mincount">[in] - min threshold on counts in a tile</param>
 ///  <param name="ppixd">[out] - 8 bpp grayscale map</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixGetBackgroundGrayMap(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -462,18 +520,24 @@ public static int pixGetBackgroundGrayMap(
 				 int mincount, 
 				out Pix ppixd){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundGrayMap(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount, out ppixdPtr);
+	int _Result = Natives.pixGetBackgroundGrayMap(
+pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
+//  
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1034, 1)
 // pixGetBackgroundRGBMap(pixs, pixim, pixg, sx, sy, thresh, mincount, ppixmr, ppixmg, ppixmb) as int
 // pixGetBackgroundRGBMap(PIX *, PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
@@ -497,6 +561,7 @@ public static int pixGetBackgroundGrayMap(
 ///  <param name="ppixmg">[out] - rgb maps</param>
 ///  <param name="ppixmb">[out] - rgb maps</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixGetBackgroundRGBMap(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -509,23 +574,29 @@ public static int pixGetBackgroundRGBMap(
 				out Pix ppixmg, 
 				out Pix ppixmb){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 	IntPtr ppixmrPtr = IntPtr.Zero;
 	IntPtr ppixmgPtr = IntPtr.Zero;
 	IntPtr ppixmbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundRGBMap(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
+	int _Result = Natives.pixGetBackgroundRGBMap(
+pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-	if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
-	if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
-	if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+
+//  
+	if (ppixmrPtr == IntPtr.Zero) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+	if (ppixmgPtr == IntPtr.Zero) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+	if (ppixmbPtr == IntPtr.Zero) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1219, 1)
 // pixGetBackgroundGrayMapMorph(pixs, pixim, reduction, size, ppixm) as int
 // pixGetBackgroundGrayMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **) as l_ok
@@ -538,6 +609,7 @@ public static int pixGetBackgroundRGBMap(
 ///  <param name="size">[in] - of square Sel for the closing use an odd number</param>
 ///  <param name="ppixm">[out] - grayscale map</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixGetBackgroundGrayMapMorph(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -545,18 +617,24 @@ public static int pixGetBackgroundGrayMapMorph(
 				 int size, 
 				out Pix ppixm){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixmPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundGrayMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmPtr);
+	int _Result = Natives.pixGetBackgroundGrayMapMorph(
+pixs.Pointer, piximPtr,   reduction,   size, out ppixmPtr);
 	
 
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+
+//  
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1310, 1)
 // pixGetBackgroundRGBMapMorph(pixs, pixim, reduction, size, ppixmr, ppixmg, ppixmb) as int
 // pixGetBackgroundRGBMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
@@ -571,6 +649,7 @@ public static int pixGetBackgroundGrayMapMorph(
 ///  <param name="ppixmg">[out] - green component map</param>
 ///  <param name="ppixmb">[out] - blue component map</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixGetBackgroundRGBMapMorph(
 				 Pix pixs, 
 				 Pix pixim, 
@@ -580,22 +659,28 @@ public static int pixGetBackgroundRGBMapMorph(
 				out Pix ppixmg, 
 				out Pix ppixmb){
 
+
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixmrPtr = IntPtr.Zero;
 	IntPtr ppixmgPtr = IntPtr.Zero;
 	IntPtr ppixmbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundRGBMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
+	int _Result = Natives.pixGetBackgroundRGBMapMorph(
+pixs.Pointer, piximPtr,   reduction,   size, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-	if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
-	if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
-	if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+
+//  
+	if (ppixmrPtr == IntPtr.Zero) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+	if (ppixmgPtr == IntPtr.Zero) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+	if (ppixmbPtr == IntPtr.Zero) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1464, 1)
 // pixFillMapHoles(pix, nx, ny, filltype) as int
 // pixFillMapHoles(PIX *, l_int32, l_int32, l_int32) as l_ok
@@ -633,20 +718,28 @@ public static int pixGetBackgroundRGBMapMorph(
 ///  <param name="ny">[in] - ditto for the number of vertical pixel tiles</param>
 ///  <param name="filltype">[in] - L_FILL_WHITE or L_FILL_BLACK</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixFillMapHoles(
 				 Pix pix, 
 				 int nx, 
 				 int ny, 
 				 int filltype){
 
-	int _Result = Natives.pixFillMapHoles(pix.Pointer,   nx,   ny,   filltype);
+
+
+	int _Result = Natives.pixFillMapHoles(
+pix.Pointer,   nx,   ny,   filltype);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1576, 1)
 // pixExtendByReplication(pixs, addw, addh) as Pix
 // pixExtendByReplication(PIX *, l_int32, l_int32) as PIX *
@@ -660,20 +753,28 @@ public static int pixFillMapHoles(
 ///  <param name="addw">[in] - number of extra pixels horizontally to add</param>
 ///  <param name="addh">[in] - number of extra pixels vertically to add</param>
 ///   <returns>pixd extended with replicated pixel values, or NULL on error</returns>
+
 public static Pix pixExtendByReplication(
 				 Pix pixs, 
 				 int addw, 
 				 int addh){
 
-	IntPtr _Result = Natives.pixExtendByReplication(pixs.Pointer,   addw,   addh);
+
+
+	IntPtr _Result = Natives.pixExtendByReplication(
+pixs.Pointer,   addw,   addh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1639, 1)
 // pixSmoothConnectedRegions(pixs, pixm, factor) as int
 // pixSmoothConnectedRegions(PIX *, PIX *, l_int32) as l_ok
@@ -696,21 +797,28 @@ public static Pix pixExtendByReplication(
 ///  <param name="pixm">[in][optional] - 1 bpp if null, this is a no-op</param>
 ///  <param name="factor">[in] - subsampling factor for getting average greater or equal 1</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixSmoothConnectedRegions(
 				 Pix pixs, 
 				 Pix pixm, 
 				 int factor){
 
+
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixSmoothConnectedRegions(pixs.Pointer, pixmPtr,   factor);
+	int _Result = Natives.pixSmoothConnectedRegions(
+pixs.Pointer, pixmPtr,   factor);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1840, 1)
 // pixGetInvBackgroundMap(pixs, bgval, smoothx, smoothy) as Pix
 // pixGetInvBackgroundMap(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -728,21 +836,29 @@ public static int pixSmoothConnectedRegions(
 ///  <param name="smoothx">[in] - half-width of block convolution kernel width</param>
 ///  <param name="smoothy">[in] - half-width of block convolution kernel height</param>
 ///   <returns>pixd 16 bpp, or NULL on error</returns>
+
 public static Pix pixGetInvBackgroundMap(
 				 Pix pixs, 
 				 int bgval, 
 				 int smoothx, 
 				 int smoothy){
 
-	IntPtr _Result = Natives.pixGetInvBackgroundMap(pixs.Pointer,   bgval,   smoothx,   smoothy);
+
+
+	IntPtr _Result = Natives.pixGetInvBackgroundMap(
+pixs.Pointer,   bgval,   smoothx,   smoothy);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1903, 1)
 // pixApplyInvBackgroundGrayMap(pixs, pixm, sx, sy) as Pix
 // pixApplyInvBackgroundGrayMap(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -754,21 +870,29 @@ public static Pix pixGetInvBackgroundMap(
 ///  <param name="sx">[in] - tile width in pixels</param>
 ///  <param name="sy">[in] - tile height in pixels</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
+
 public static Pix pixApplyInvBackgroundGrayMap(
 				 Pix pixs, 
 				 Pix pixm, 
 				 int sx, 
 				 int sy){
 
-	IntPtr _Result = Natives.pixApplyInvBackgroundGrayMap(pixs.Pointer, pixm.Pointer,   sx,   sy);
+
+
+	IntPtr _Result = Natives.pixApplyInvBackgroundGrayMap(
+pixs.Pointer, pixm.Pointer,   sx,   sy);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (1969, 1)
 // pixApplyInvBackgroundRGBMap(pixs, pixmr, pixmg, pixmb, sx, sy) as Pix
 // pixApplyInvBackgroundRGBMap(PIX *, PIX *, PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -782,6 +906,7 @@ public static Pix pixApplyInvBackgroundGrayMap(
 ///  <param name="sx">[in] - tile width in pixels</param>
 ///  <param name="sy">[in] - tile height in pixels</param>
 ///   <returns>pixd 32 bpp rbg, or NULL on error</returns>
+
 public static Pix pixApplyInvBackgroundRGBMap(
 				 Pix pixs, 
 				 Pix pixmr, 
@@ -790,15 +915,22 @@ public static Pix pixApplyInvBackgroundRGBMap(
 				 int sx, 
 				 int sy){
 
-	IntPtr _Result = Natives.pixApplyInvBackgroundRGBMap(pixs.Pointer, pixmr.Pointer, pixmg.Pointer, pixmb.Pointer,   sx,   sy);
+
+
+	IntPtr _Result = Natives.pixApplyInvBackgroundRGBMap(
+pixs.Pointer, pixmr.Pointer, pixmg.Pointer, pixmb.Pointer,   sx,   sy);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2067, 1)
 // pixApplyVariableGrayMap(pixs, pixg, target) as Pix
 // pixApplyVariableGrayMap(PIX *, PIX *, l_int32) as PIX *
@@ -826,20 +958,28 @@ public static Pix pixApplyInvBackgroundRGBMap(
 ///  <param name="pixg">[in] - 8 bpp, variable map</param>
 ///  <param name="target">[in] - typ. 128 for threshold</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
+
 public static Pix pixApplyVariableGrayMap(
 				 Pix pixs, 
 				 Pix pixg, 
 				 int target){
 
-	IntPtr _Result = Natives.pixApplyVariableGrayMap(pixs.Pointer, pixg.Pointer,   target);
+
+
+	IntPtr _Result = Natives.pixApplyVariableGrayMap(
+pixs.Pointer, pixg.Pointer,   target);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2185, 1)
 // pixGlobalNormRGB(pixd, pixs, rval, gval, bval, mapval) as Pix
 // pixGlobalNormRGB(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -880,6 +1020,7 @@ public static Pix pixApplyVariableGrayMap(
 ///  <param name="bval">[in] - pixel values in pixs that are linearly mapped to mapval</param>
 ///  <param name="mapval">[in] - use 255 for mapping to white</param>
 ///   <returns>pixd 32 bpp rgb or colormapped, or NULL on error</returns>
+
 public static Pix pixGlobalNormRGB(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -888,17 +1029,23 @@ public static Pix pixGlobalNormRGB(
 				 int bval, 
 				 int mapval){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixGlobalNormRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   mapval);
+	IntPtr _Result = Natives.pixGlobalNormRGB(
+pixdPtr, pixs.Pointer,   rval,   gval,   bval,   mapval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2294, 1)
 // pixGlobalNormNoSatRGB(pixd, pixs, rval, gval, bval, factor, rank) as Pix
 // pixGlobalNormNoSatRGB(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_float32) as PIX *
@@ -937,6 +1084,7 @@ public static Pix pixGlobalNormRGB(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///  <param name="rank">[in] - between 0.0 and 1.0 typ. use a value near 1.0</param>
 ///   <returns>pixd 32 bpp rgb, or NULL on error</returns>
+
 public static Pix pixGlobalNormNoSatRGB(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -946,17 +1094,23 @@ public static Pix pixGlobalNormNoSatRGB(
 				 int factor, 
 				 Single rank){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixGlobalNormNoSatRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   factor,   rank);
+	IntPtr _Result = Natives.pixGlobalNormNoSatRGB(
+pixdPtr, pixs.Pointer,   rval,   gval,   bval,   factor,   rank);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2394, 1)
 // pixThresholdSpreadNorm(pixs, filtertype, edgethresh, smoothx, smoothy, gamma, minval, maxval, targetthresh, ppixth, ppixb, ppixd) as int
 // pixThresholdSpreadNorm(PIX *, l_int32, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
@@ -1003,6 +1157,7 @@ public static Pix pixGlobalNormNoSatRGB(
 ///  <param name="ppixb">[out][optional] - thresholded normalized image</param>
 ///  <param name="ppixd">[out][optional] - normalized image</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixThresholdSpreadNorm(
 				 Pix pixs, 
 				 int filtertype, 
@@ -1017,21 +1172,27 @@ public static int pixThresholdSpreadNorm(
 				out Pix ppixb, 
 				out Pix ppixd){
 
+
 	IntPtr ppixthPtr = IntPtr.Zero;
 	IntPtr ppixbPtr = IntPtr.Zero;
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixThresholdSpreadNorm(pixs.Pointer,   filtertype,   edgethresh,   smoothx,   smoothy,   gamma,   minval,   maxval,   targetthresh, out ppixthPtr, out ppixbPtr, out ppixdPtr);
+	int _Result = Natives.pixThresholdSpreadNorm(
+pixs.Pointer,   filtertype,   edgethresh,   smoothx,   smoothy,   gamma,   minval,   maxval,   targetthresh, out ppixthPtr, out ppixbPtr, out ppixdPtr);
 	
 
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
+//  
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2500, 1)
 // pixBackgroundNormFlex(pixs, sx, sy, smoothx, smoothy, delta) as Pix
 // pixBackgroundNormFlex(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1063,6 +1224,7 @@ public static int pixThresholdSpreadNorm(
 ///  <param name="smoothy">[in] - half-width of convolution kernel applied to threshold array: use values between 1 and 3</param>
 ///  <param name="delta">[in] - difference parameter in basin filling use 0 to skip</param>
 ///   <returns>pixd 8 bpp, background-normalized), or NULL on error</returns>
+
 public static Pix pixBackgroundNormFlex(
 				 Pix pixs, 
 				 int sx, 
@@ -1071,15 +1233,22 @@ public static Pix pixBackgroundNormFlex(
 				 int smoothy, 
 				 int delta){
 
-	IntPtr _Result = Natives.pixBackgroundNormFlex(pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   delta);
+
+
+	IntPtr _Result = Natives.pixBackgroundNormFlex(
+pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   delta);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2595, 1)
 // pixContrastNorm(pixd, pixs, sx, sy, mindiff, smoothx, smoothy) as Pix
 // pixContrastNorm(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1125,6 +1294,7 @@ public static Pix pixBackgroundNormFlex(
 ///  <param name="smoothx">[in] - half-width of convolution kernel applied to min and max arrays: use 0 for no smoothing</param>
 ///  <param name="smoothy">[in] - half-width of convolution kernel applied to min and max arrays: use 0 for no smoothing</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixContrastNorm(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -1134,17 +1304,23 @@ public static Pix pixContrastNorm(
 				 int smoothx, 
 				 int smoothy){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixContrastNorm(pixdPtr, pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy);
+	IntPtr _Result = Natives.pixContrastNorm(
+pixdPtr, pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2655, 1)
 // pixMinMaxTiles(pixs, sx, sy, mindiff, smoothx, smoothy, ppixmin, ppixmax) as int
 // pixMinMaxTiles(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, PIX **, PIX **) as l_ok
@@ -1166,6 +1342,7 @@ public static Pix pixContrastNorm(
 ///  <param name="ppixmin">[out] - tiled minima</param>
 ///  <param name="ppixmax">[out] - tiled maxima</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixMinMaxTiles(
 				 Pix pixs, 
 				 int sx, 
@@ -1176,19 +1353,25 @@ public static int pixMinMaxTiles(
 				out Pix ppixmin, 
 				out Pix ppixmax){
 
+
 	IntPtr ppixminPtr = IntPtr.Zero;
 	IntPtr ppixmaxPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixMinMaxTiles(pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy, out ppixminPtr, out ppixmaxPtr);
+	int _Result = Natives.pixMinMaxTiles(
+pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy, out ppixminPtr, out ppixmaxPtr);
 	
 
-	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
-	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+
+//  
+	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2746, 1)
 // pixSetLowContrast(pixs1, pixs2, mindiff) as int
 // pixSetLowContrast(PIX *, PIX *, l_int32) as l_ok
@@ -1210,19 +1393,27 @@ public static int pixMinMaxTiles(
 ///  <param name="pixs2">[in] - 8 bpp</param>
 ///  <param name="mindiff">[in] - minimum difference to accept as valid</param>
 ///   <returns>0 if OK 1 if no pixel diffs are large enough, or on error</returns>
+
 public static int pixSetLowContrast(
 				 Pix pixs1, 
 				 Pix pixs2, 
 				 int mindiff){
 
-	int _Result = Natives.pixSetLowContrast(pixs1.Pointer, pixs2.Pointer,   mindiff);
+
+
+	int _Result = Natives.pixSetLowContrast(
+pixs1.Pointer, pixs2.Pointer,   mindiff);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (2829, 1)
 // pixLinearTRCTiled(pixd, pixs, sx, sy, pixmin, pixmax) as Pix
 // pixLinearTRCTiled(PIX *, PIX *, l_int32, l_int32, PIX *, PIX *) as PIX *
@@ -1251,6 +1442,7 @@ public static int pixSetLowContrast(
 ///  <param name="pixmin">[in] - pix of min values in tiles</param>
 ///  <param name="pixmax">[in] - pix of max values in tiles</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixLinearTRCTiled(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -1259,16 +1451,22 @@ public static Pix pixLinearTRCTiled(
 				 Pix pixmin, 
 				 Pix pixmax){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixLinearTRCTiled(pixdPtr, pixs.Pointer,   sx,   sy, pixmin.Pointer, pixmax.Pointer);
+	IntPtr _Result = Natives.pixLinearTRCTiled(
+pixdPtr, pixs.Pointer,   sx,   sy, pixmin.Pointer, pixmax.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

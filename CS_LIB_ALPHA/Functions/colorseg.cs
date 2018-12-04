@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorseg.c (129, 1)
 // pixColorSegment(pixs, maxdist, maxcolors, selsize, finalcolors, debugflag) as Pix
 // pixColorSegment(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -66,6 +67,7 @@ public partial class _All {
 ///  <param name="finalcolors">[in] - max number of final colors allowed after 4th pass</param>
 ///  <param name="debugflag">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
+
 public static Pix pixColorSegment(
 				 Pix pixs, 
 				 int maxdist, 
@@ -74,15 +76,22 @@ public static Pix pixColorSegment(
 				 int finalcolors, 
 				 int debugflag){
 
-	IntPtr _Result = Natives.pixColorSegment(pixs.Pointer,   maxdist,   maxcolors,   selsize,   finalcolors,   debugflag);
+
+
+	IntPtr _Result = Natives.pixColorSegment(
+pixs.Pointer,   maxdist,   maxcolors,   selsize,   finalcolors,   debugflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorseg.c (200, 1)
 // pixColorSegmentCluster(pixs, maxdist, maxcolors, debugflag) as Pix
 // pixColorSegmentCluster(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -107,21 +116,29 @@ public static Pix pixColorSegment(
 ///  <param name="maxcolors">[in] - max number of colors allowed in first pass</param>
 ///  <param name="debugflag">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
+
 public static Pix pixColorSegmentCluster(
 				 Pix pixs, 
 				 int maxdist, 
 				 int maxcolors, 
 				 int debugflag){
 
-	IntPtr _Result = Natives.pixColorSegmentCluster(pixs.Pointer,   maxdist,   maxcolors,   debugflag);
+
+
+	IntPtr _Result = Natives.pixColorSegmentCluster(
+pixs.Pointer,   maxdist,   maxcolors,   debugflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorseg.c (412, 1)
 // pixAssignToNearestColor(pixd, pixs, pixm, level, countarray) as int
 // pixAssignToNearestColor(PIX *, PIX *, PIX *, l_int32, l_int32 *) as l_ok
@@ -170,6 +187,7 @@ public static Pix pixColorSegmentCluster(
 ///  <param name="level">[in] - of octcube used for finding nearest color in cmap</param>
 ///  <param name="countarray">[in][optional] - ptr to array, in which we can store the number of pixels found in each color in the colormap in pixd</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixAssignToNearestColor(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -177,16 +195,22 @@ public static int pixAssignToNearestColor(
 				 int level, 
 				 int[] countarray){
 
+
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixAssignToNearestColor(pixd.Pointer, pixs.Pointer, pixmPtr,   level,   countarray);
+	int _Result = Natives.pixAssignToNearestColor(
+pixd.Pointer, pixs.Pointer, pixmPtr,   level,   countarray);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorseg.c (512, 1)
 // pixColorSegmentClean(pixs, selsize, countarray) as int
 // pixColorSegmentClean(PIX *, l_int32, l_int32 *) as l_ok
@@ -205,19 +229,27 @@ public static int pixAssignToNearestColor(
 ///  <param name="selsize">[in] - for closing</param>
 ///  <param name="countarray">[in] - ptr to array containing the number of pixels found in each color in the colormap</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixColorSegmentClean(
 				 Pix pixs, 
 				 int selsize, 
 				 int[] countarray){
 
-	int _Result = Natives.pixColorSegmentClean(pixs.Pointer,   selsize,   countarray);
+
+
+	int _Result = Natives.pixColorSegmentClean(
+pixs.Pointer,   selsize,   countarray);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorseg.c (584, 1)
 // pixColorSegmentRemoveColors(pixd, pixs, finalcolors) as int
 // pixColorSegmentRemoveColors(PIX *, PIX *, l_int32) as l_ok
@@ -238,13 +270,20 @@ public static int pixColorSegmentClean(
 ///  <param name="pixs">[in] - 32 bpp rgb, with initial pixel values</param>
 ///  <param name="finalcolors">[in] - max number of colors to retain</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixColorSegmentRemoveColors(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int finalcolors){
 
-	int _Result = Natives.pixColorSegmentRemoveColors(pixd.Pointer, pixs.Pointer,   finalcolors);
+
+
+	int _Result = Natives.pixColorSegmentRemoveColors(
+pixd.Pointer, pixs.Pointer,   finalcolors);
 	
+
+
+//  
 
 
 

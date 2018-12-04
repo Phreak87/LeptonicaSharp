@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (134, 1)
 // pixProcessBarcodes(pixs, format, method, psaw, debugflag) as Sarray
 // pixProcessBarcodes(PIX *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
@@ -18,6 +19,7 @@ public partial class _All {
 ///  <param name="psaw">[out][optional] - sarray of bar widths</param>
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>sarray text of barcodes, or NULL if none found or on error</returns>
+
 public static Sarray pixProcessBarcodes(
 				 Pix pixs, 
 				 IFF format, 
@@ -25,18 +27,24 @@ public static Sarray pixProcessBarcodes(
 				out Sarray psaw, 
 				 int debugflag){
 
+
 	IntPtr psawPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixProcessBarcodes(pixs.Pointer,  (int) format,   method, out psawPtr,   debugflag);
+	IntPtr _Result = Natives.pixProcessBarcodes(
+pixs.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
+
+//  
 	if (psawPtr == IntPtr.Zero) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (182, 1)
 // pixExtractBarcodes(pixs, debugflag) as Pixa
 // pixExtractBarcodes(PIX *, l_int32) as PIXA *
@@ -46,19 +54,27 @@ public static Sarray pixProcessBarcodes(
 ///  <param name="pixs">[in] - 8 bpp, no colormap</param>
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>pixa deskewed and cropped barcodes, or NULL if none found or on error</returns>
+
 public static Pixa pixExtractBarcodes(
 				 Pix pixs, 
 				 int debugflag){
 
-	IntPtr _Result = Natives.pixExtractBarcodes(pixs.Pointer,   debugflag);
+
+
+	IntPtr _Result = Natives.pixExtractBarcodes(
+pixs.Pointer,   debugflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (254, 1)
 // pixReadBarcodes(pixa, format, method, psaw, debugflag) as Sarray
 // pixReadBarcodes(PIXA *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
@@ -71,6 +87,7 @@ public static Pixa pixExtractBarcodes(
 ///  <param name="psaw">[out][optional] - sarray of bar widths</param>
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>sa sarray of widths, one string for each barcode found, or NULL on error</returns>
+
 public static Sarray pixReadBarcodes(
 				 Pixa pixa, 
 				 IFF format, 
@@ -78,18 +95,24 @@ public static Sarray pixReadBarcodes(
 				out Sarray psaw, 
 				 int debugflag){
 
+
 	IntPtr psawPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixReadBarcodes(pixa.Pointer,  (int) format,   method, out psawPtr,   debugflag);
+	IntPtr _Result = Natives.pixReadBarcodes(
+pixa.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
+
+//  
 	if (psawPtr == IntPtr.Zero) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (335, 1)
 // pixReadBarcodeWidths(pixs, method, debugflag) as Numa
 // pixReadBarcodeWidths(PIX *, l_int32, l_int32) as NUMA *
@@ -100,20 +123,28 @@ public static Sarray pixReadBarcodes(
 ///  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>na numa of widths (each in set {1,2,3,4}, or NULL on error</returns>
+
 public static Numa pixReadBarcodeWidths(
 				 Pix pixs, 
 				 int method, 
 				 int debugflag){
 
-	IntPtr _Result = Natives.pixReadBarcodeWidths(pixs.Pointer,   method,   debugflag);
+
+
+	IntPtr _Result = Natives.pixReadBarcodeWidths(
+pixs.Pointer,   method,   debugflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (384, 1)
 // pixLocateBarcodes(pixs, thresh, ppixb, ppixm) as Boxa
 // pixLocateBarcodes(PIX *, l_int32, PIX **, PIX **) as BOXA *
@@ -125,26 +156,33 @@ public static Numa pixReadBarcodeWidths(
 ///  <param name="ppixb">[out][optional] - binarized edge filtered input image</param>
 ///  <param name="ppixm">[out][optional] - mask over barcodes</param>
 ///   <returns>boxa location of barcodes, or NULL if none found or on error</returns>
+
 public static Boxa pixLocateBarcodes(
 				 Pix pixs, 
 				 int thresh, 
 				out Pix ppixb, 
 				out Pix ppixm){
 
+
 	IntPtr ppixbPtr = IntPtr.Zero;
 	IntPtr ppixmPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixLocateBarcodes(pixs.Pointer,   thresh, out ppixbPtr, out ppixmPtr);
+	IntPtr _Result = Natives.pixLocateBarcodes(
+pixs.Pointer,   thresh, out ppixbPtr, out ppixmPtr);
 	
 
+
+//  
 	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (500, 1)
 // pixDeskewBarcode(pixs, pixb, box, margin, threshold, pangle, pconf) as Pix
 // pixDeskewBarcode(PIX *, PIX *, BOX *, l_int32, l_int32, l_float32 *, l_float32 *) as PIX *
@@ -163,6 +201,7 @@ public static Boxa pixLocateBarcodes(
 ///  <param name="pangle">[out][optional] - in degrees, clockwise is positive</param>
 ///  <param name="pconf">[out][optional] - confidence</param>
 ///   <returns>pixd deskewed barcode, or NULL on error</returns>
+
 public static Pix pixDeskewBarcode(
 				 Pix pixs, 
 				 Pix pixb, 
@@ -172,15 +211,22 @@ public static Pix pixDeskewBarcode(
 				out Single pangle, 
 				out Single pconf){
 
-	IntPtr _Result = Natives.pixDeskewBarcode(pixs.Pointer, pixb.Pointer, box.Pointer,   margin,   threshold, out  pangle, out  pconf);
+
+
+	IntPtr _Result = Natives.pixDeskewBarcode(
+pixs.Pointer, pixb.Pointer, box.Pointer,   margin,   threshold, out  pangle, out  pconf);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (626, 1)
 // pixExtractBarcodeWidths1(pixs, thresh, binfract, pnaehist, pnaohist, debugflag) as Numa
 // pixExtractBarcodeWidths1(PIX *, l_float32, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
@@ -203,6 +249,7 @@ public static Pix pixDeskewBarcode(
 ///  <param name="pnaohist">[out][optional] - histogram of white widths NULL ok</param>
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>nad numa of barcode widths in encoded integer units, or NULL on error</returns>
+
 public static Numa pixExtractBarcodeWidths1(
 				 Pix pixs, 
 				 Single thresh, 
@@ -211,20 +258,26 @@ public static Numa pixExtractBarcodeWidths1(
 				out Numa pnaohist, 
 				 int debugflag){
 
+
 	IntPtr pnaehistPtr = IntPtr.Zero;
 	IntPtr pnaohistPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixExtractBarcodeWidths1(pixs.Pointer,   thresh,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
+	IntPtr _Result = Natives.pixExtractBarcodeWidths1(
+pixs.Pointer,   thresh,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
+
+//  
 	if (pnaehistPtr == IntPtr.Zero) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
 	if (pnaohistPtr == IntPtr.Zero) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (679, 1)
 // pixExtractBarcodeWidths2(pixs, thresh, pwidth, pnac, debugflag) as Numa
 // pixExtractBarcodeWidths2(PIX *, l_float32, l_float32 *, NUMA **, l_int32) as NUMA *
@@ -251,6 +304,7 @@ public static Numa pixExtractBarcodeWidths1(
 ///  <param name="pnac">[out][optional] - number of transitions in each window</param>
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>nad numa of barcode widths in encoded integer units, or NULL on error</returns>
+
 public static Numa pixExtractBarcodeWidths2(
 				 Pix pixs, 
 				 Single thresh, 
@@ -258,18 +312,24 @@ public static Numa pixExtractBarcodeWidths2(
 				out Numa pnac, 
 				 int debugflag){
 
+
 	IntPtr pnacPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixExtractBarcodeWidths2(pixs.Pointer,   thresh, out  pwidth, out pnacPtr,   debugflag);
+	IntPtr _Result = Natives.pixExtractBarcodeWidths2(
+pixs.Pointer,   thresh, out  pwidth, out pnacPtr,   debugflag);
 	
 
+
+//  
 	if (pnacPtr == IntPtr.Zero) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (713, 1)
 // pixExtractBarcodeCrossings(pixs, thresh, debugflag) as Numa
 // pixExtractBarcodeCrossings(PIX *, l_float32, l_int32) as NUMA *
@@ -280,20 +340,28 @@ public static Numa pixExtractBarcodeWidths2(
 ///  <param name="thresh">[in] - estimated pixel threshold for crossing white  is smallerto black typ. ~120</param>
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>numa of crossings, in pixel units, or NULL on error</returns>
+
 public static Numa pixExtractBarcodeCrossings(
 				 Pix pixs, 
 				 Single thresh, 
 				 int debugflag){
 
-	IntPtr _Result = Natives.pixExtractBarcodeCrossings(pixs.Pointer,   thresh,   debugflag);
+
+
+	IntPtr _Result = Natives.pixExtractBarcodeCrossings(
+pixs.Pointer,   thresh,   debugflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (837, 1)
 // numaQuantizeCrossingsByWidth(nas, binfract, pnaehist, pnaohist, debugflag) as Numa
 // numaQuantizeCrossingsByWidth(NUMA *, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
@@ -318,6 +386,7 @@ public static Numa pixExtractBarcodeCrossings(
 ///  <param name="pnaohist">[out][optional] - histo of odd (white) bar widths</param>
 ///  <param name="debugflag">[in] - 1 to generate plots of histograms of bar widths</param>
 ///   <returns>nad sequence of widths, in unit sizes, or NULL on error</returns>
+
 public static Numa numaQuantizeCrossingsByWidth(
 				 Numa nas, 
 				 Single binfract, 
@@ -325,20 +394,26 @@ public static Numa numaQuantizeCrossingsByWidth(
 				out Numa pnaohist, 
 				 int debugflag){
 
+
 	IntPtr pnaehistPtr = IntPtr.Zero;
 	IntPtr pnaohistPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.numaQuantizeCrossingsByWidth(nas.Pointer,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
+	IntPtr _Result = Natives.numaQuantizeCrossingsByWidth(
+nas.Pointer,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
+
+//  
 	if (pnaehistPtr == IntPtr.Zero) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
 	if (pnaohistPtr == IntPtr.Zero) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readbarcode.c (1267, 1)
 // numaQuantizeCrossingsByWindow(nas, ratio, pwidth, pfirstloc, pnac, debugflag) as Numa
 // numaQuantizeCrossingsByWindow(NUMA *, l_float32, l_float32 *, l_float32 *, NUMA **, l_int32) as NUMA *
@@ -361,6 +436,7 @@ public static Numa numaQuantizeCrossingsByWidth(
 ///  <param name="pnac">[out][optional] - array of window crossings (0, 1, 2)</param>
 ///  <param name="debugflag">[in] - 1 to generate various plots of intermediate results</param>
 ///   <returns>nad sequence of widths, in unit sizes, or NULL on error</returns>
+
 public static Numa numaQuantizeCrossingsByWindow(
 				 Numa nas, 
 				 Single ratio, 
@@ -369,14 +445,19 @@ public static Numa numaQuantizeCrossingsByWindow(
 				out Numa pnac, 
 				 int debugflag){
 
+
 	IntPtr pnacPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.numaQuantizeCrossingsByWindow(nas.Pointer,   ratio, out  pwidth, out  pfirstloc, out pnacPtr,   debugflag);
+	IntPtr _Result = Natives.numaQuantizeCrossingsByWindow(
+nas.Pointer,   ratio, out  pwidth, out  pfirstloc, out pnacPtr,   debugflag);
 	
 
+
+//  
 	if (pnacPtr == IntPtr.Zero) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }

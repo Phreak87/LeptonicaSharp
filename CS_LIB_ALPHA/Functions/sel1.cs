@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (239, 1)
 // selaCreate(n) as Sela
 // selaCreate(l_int32) as SELA *
@@ -14,18 +15,26 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaCreate/*"/>
 ///  <param name="n">[in] - initial number of sel ptrs use 0 for default</param>
 ///   <returns>sela, or NULL on error</returns>
+
 public static Sela selaCreate(
 				 int n){
 
-	IntPtr _Result = Natives.selaCreate(  n);
+
+
+	IntPtr _Result = Natives.selaCreate(
+  n);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sela(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (272, 1)
 // selaDestroy(psela) as Object
 // selaDestroy(SELA **) as void
@@ -33,19 +42,26 @@ public static Sela selaCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaDestroy/*"/>
 ///  <param name="psela">[in,out] - to be nulled</param>
+
 public static void selaDestroy(
 				ref Sela psela){
 
+
 	IntPtr pselaPtr = IntPtr.Zero; 	if (psela != null) {pselaPtr = psela.Pointer;}
 
-	Natives.selaDestroy(ref pselaPtr);
+	Natives.selaDestroy(
+ref pselaPtr);
 	
 
+
+//  
 	if (pselaPtr == IntPtr.Zero) {psela = null;} else { psela = new Sela(pselaPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (306, 1)
 // selCreate(height, width, name) as Sel
 // selCreate(l_int32, l_int32, const char *) as SEL *
@@ -63,20 +79,28 @@ public static void selaDestroy(
 ///  <param name="width">[in] - </param>
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel, or NULL on error</returns>
+
 public static Sel selCreate(
 				 int height, 
 				 int width, 
 				 String name){
 
-	IntPtr _Result = Natives.selCreate(  height,   width,   name);
+
+
+	IntPtr _Result = Natives.selCreate(
+  height,   width,   name);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (337, 1)
 // selDestroy(psel) as Object
 // selDestroy(SEL **) as void
@@ -84,19 +108,26 @@ public static Sel selCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selDestroy/*"/>
 ///  <param name="psel">[in,out] - to be nulled</param>
+
 public static void selDestroy(
 				ref Sel psel){
 
+
 	IntPtr pselPtr = IntPtr.Zero; 	if (psel != null) {pselPtr = psel.Pointer;}
 
-	Natives.selDestroy(ref pselPtr);
+	Natives.selDestroy(
+ref pselPtr);
 	
 
+
+//  
 	if (pselPtr == IntPtr.Zero) {psel = null;} else { psel = new Sel(pselPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (370, 1)
 // selCopy(sel) as Sel
 // selCopy(SEL *) as SEL *
@@ -105,18 +136,26 @@ public static void selDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCopy/*"/>
 ///  <param name="sel">[in] - </param>
 ///   <returns>a copy of the sel, or NULL on error</returns>
+
 public static Sel selCopy(
 				 Sel sel){
 
-	IntPtr _Result = Natives.selCopy(sel.Pointer);
+
+
+	IntPtr _Result = Natives.selCopy(
+sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (418, 1)
 // selCreateBrick(h, w, cy, cx, type) as Sel
 // selCreateBrick(l_int32, l_int32, l_int32, l_int32, l_int32) as SEL *
@@ -132,6 +171,7 @@ public static Sel selCopy(
 ///  <param name="cx">[in] - origin, relative to UL corner at 0,0</param>
 ///  <param name="type">[in] - SEL_HIT, SEL_MISS, or SEL_DONT_CARE</param>
 ///   <returns>sel, or NULL on error</returns>
+
 public static Sel selCreateBrick(
 				 int h, 
 				 int w, 
@@ -139,15 +179,22 @@ public static Sel selCreateBrick(
 				 int cx, 
 				 int type){
 
-	IntPtr _Result = Natives.selCreateBrick(  h,   w,   cy,   cx,   type);
+
+
+	IntPtr _Result = Natives.selCreateBrick(
+  h,   w,   cy,   cx,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (462, 1)
 // selCreateComb(factor1, factor2, direction) as Sel
 // selCreateComb(l_int32, l_int32, l_int32) as SEL *
@@ -165,20 +212,28 @@ public static Sel selCreateBrick(
 ///  <param name="factor2">[in] - number of comb tines</param>
 ///  <param name="direction">[in] - L_HORIZ, L_VERT</param>
 ///   <returns>sel, or NULL on error</returns>
+
 public static Sel selCreateComb(
 				 int factor1, 
 				 int factor2, 
 				 int direction){
 
-	IntPtr _Result = Natives.selCreateComb(  factor1,   factor2,   direction);
+
+
+	IntPtr _Result = Natives.selCreateComb(
+  factor1,   factor2,   direction);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (515, 1)
 // create2dIntArray(sy, sx) as List<int[]>
 // create2dIntArray(l_int32, l_int32) as l_int32 **
@@ -192,19 +247,35 @@ public static Sel selCreateComb(
 ///  <param name="sy">[in] - rows == height</param>
 ///  <param name="sx">[in] - columns == width</param>
 ///   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx ints</returns>
+
 public static List<int[]> create2dIntArray(
 				 int sy, 
 				 int sx){
 
-	IntPtr _Result = Natives.create2dIntArray(  sy,   sx);
+
+
+	IntPtr _Result = Natives.create2dIntArray(
+  sy,   sx);
 	
 
 
-	List<int[]> B = null; // Todo
+//  
+
+
+	IntPtr[] PTRArr = new IntPtr[1];
+	Marshal.Copy(_Result, PTRArr, 0, PTRArr.Length);
+	List<int[]> B = new List<int[]>();
+	foreach (IntPtr eintrag in PTRArr)
+	{{
+	  int[] SingleLST = new int[1];
+	  Marshal.Copy(eintrag, SingleLST, 0, SingleLST.Length);
+	  B.Add(SingleLST);
+	}}
 
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (566, 1)
 // selaAddSel(sela, sel, selname, copyflag) as int
 // selaAddSel(SELA *, SEL *, const char *, l_int32) as l_ok
@@ -223,20 +294,28 @@ public static List<int[]> create2dIntArray(
 ///  <param name="selname">[in] - ignored if already defined in sel req'd in sel when added to a sela</param>
 ///  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int selaAddSel(
 				 Sela sela, 
 				 Sel sel, 
 				 String selname, 
 				 int copyflag){
 
-	int _Result = Natives.selaAddSel(sela.Pointer, sel.Pointer,   selname,   copyflag);
+
+
+	int _Result = Natives.selaAddSel(
+sela.Pointer, sel.Pointer,   selname,   copyflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (639, 1)
 // selaGetCount(sela) as int
 // selaGetCount(SELA *) as l_int32
@@ -245,17 +324,25 @@ public static int selaAddSel(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaGetCount/*"/>
 ///  <param name="sela">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
+
 public static int selaGetCount(
 				 Sela sela){
 
-	int _Result = Natives.selaGetCount(sela.Pointer);
+
+
+	int _Result = Natives.selaGetCount(
+sela.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (664, 1)
 // selaGetSel(sela, i) as Sel
 // selaGetSel(SELA *, l_int32) as SEL *
@@ -269,19 +356,27 @@ public static int selaGetCount(
 ///  <param name="sela">[in] - </param>
 ///  <param name="i">[in] - index of sel to be retrieved not copied</param>
 ///   <returns>sel, or NULL on error</returns>
+
 public static Sel selaGetSel(
 				 Sela sela, 
 				 int i){
 
-	IntPtr _Result = Natives.selaGetSel(sela.Pointer,   i);
+
+
+	IntPtr _Result = Natives.selaGetSel(
+sela.Pointer,   i);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (685, 1)
 // selGetName(sel) as String
 // selGetName(SEL *) as char *
@@ -290,17 +385,25 @@ public static Sel selaGetSel(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selGetName/*"/>
 ///  <param name="sel">[in] - </param>
 ///   <returns>sel name not copied, or NULL if no name or on error</returns>
+
 public static String selGetName(
 				 Sel sel){
 
-	String _Result = Natives.selGetName(sel.Pointer);
+
+
+	String _Result = Natives.selGetName(
+sel.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (710, 1)
 // selSetName(sel, name) as int
 // selSetName(SEL *, const char *) as l_ok
@@ -315,18 +418,26 @@ public static String selGetName(
 ///  <param name="sel">[in] - </param>
 ///  <param name="name">[in][optional] - can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selSetName(
 				 Sel sel, 
 				 String name){
 
-	int _Result = Natives.selSetName(sel.Pointer,   name);
+
+
+	int _Result = Natives.selSetName(
+sel.Pointer,   name);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (732, 1)
 // selaFindSelByName(sela, name, pindex, psel) as int
 // selaFindSelByName(SELA *, const char *, l_int32 *, SEL **) as l_ok
@@ -338,22 +449,29 @@ public static int selSetName(
 ///  <param name="pindex">[out][optional] - </param>
 ///  <param name="psel">[in][optional] - sel (not a copy)</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int selaFindSelByName(
 				 Sela sela, 
 				 String name, 
 				out int pindex, 
 				 List<Sel> psel){
 
+
 	IntPtr pselPtr = 	Marshal.AllocHGlobal(Marshal.SizeOf(psel));
 
-	int _Result = Natives.selaFindSelByName(sela.Pointer,   name, out  pindex, pselPtr);
+	int _Result = Natives.selaFindSelByName(
+sela.Pointer,   name, out  pindex, pselPtr);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (781, 1)
 // selGetElement(sel, row, col, ptype) as int
 // selGetElement(SEL *, l_int32, l_int32, l_int32 *) as l_ok
@@ -365,20 +483,28 @@ public static int selaFindSelByName(
 ///  <param name="col">[in] - </param>
 ///  <param name="ptype">[out] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int selGetElement(
 				 Sel sel, 
 				 int row, 
 				 int col, 
 				out int ptype){
 
-	int _Result = Natives.selGetElement(sel.Pointer,   row,   col, out  ptype);
+
+
+	int _Result = Natives.selGetElement(
+sel.Pointer,   row,   col, out  ptype);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (821, 1)
 // selSetElement(sel, row, col, type) as int
 // selSetElement(SEL *, l_int32, l_int32, l_int32) as l_ok
@@ -396,20 +522,28 @@ public static int selGetElement(
 ///  <param name="col">[in] - </param>
 ///  <param name="type">[in] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int selSetElement(
 				 Sel sel, 
 				 int row, 
 				 int col, 
 				 int type){
 
-	int _Result = Natives.selSetElement(sel.Pointer,   row,   col,   type);
+
+
+	int _Result = Natives.selSetElement(
+sel.Pointer,   row,   col,   type);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (850, 1)
 // selGetParameters(sel, psy, psx, pcy, pcx) as int
 // selGetParameters(SEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -422,6 +556,7 @@ public static int selSetElement(
 ///  <param name="pcy">[out][optional] - each can be null</param>
 ///  <param name="pcx">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selGetParameters(
 				 Sel sel, 
 				out int psy, 
@@ -429,14 +564,21 @@ public static int selGetParameters(
 				out int pcy, 
 				out int pcx){
 
-	int _Result = Natives.selGetParameters(sel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
+
+
+	int _Result = Natives.selGetParameters(
+sel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (880, 1)
 // selSetOrigin(sel, cy, cx) as int
 // selSetOrigin(SEL *, l_int32, l_int32) as l_ok
@@ -447,19 +589,27 @@ public static int selGetParameters(
 ///  <param name="cy">[in] - </param>
 ///  <param name="cx">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int selSetOrigin(
 				 Sel sel, 
 				 int cy, 
 				 int cx){
 
-	int _Result = Natives.selSetOrigin(sel.Pointer,   cy,   cx);
+
+
+	int _Result = Natives.selSetOrigin(
+sel.Pointer,   cy,   cx);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (902, 1)
 // selGetTypeAtOrigin(sel, ptype) as int
 // selGetTypeAtOrigin(SEL *, l_int32 *) as l_ok
@@ -469,18 +619,26 @@ public static int selSetOrigin(
 ///  <param name="sel">[in] - </param>
 ///  <param name="ptype">[out] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 ///   <returns>0 if OK 1 on error or if origin is not found</returns>
+
 public static int selGetTypeAtOrigin(
 				 Sel sel, 
 				out int ptype){
 
-	int _Result = Natives.selGetTypeAtOrigin(sel.Pointer, out  ptype);
+
+
+	int _Result = Natives.selGetTypeAtOrigin(
+sel.Pointer, out  ptype);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (937, 1)
 // selaGetBrickName(sela, hsize, vsize) as String
 // selaGetBrickName(SELA *, l_int32, l_int32) as char *
@@ -491,19 +649,27 @@ public static int selGetTypeAtOrigin(
 ///  <param name="hsize">[in] - of brick sel</param>
 ///  <param name="vsize">[in] - of brick sel</param>
 ///   <returns>sel name new string, or NULL if no name or on error</returns>
+
 public static String selaGetBrickName(
 				 Sela sela, 
 				 int hsize, 
 				 int vsize){
 
-	String _Result = Natives.selaGetBrickName(sela.Pointer,   hsize,   vsize);
+
+
+	String _Result = Natives.selaGetBrickName(
+sela.Pointer,   hsize,   vsize);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (976, 1)
 // selaGetCombName(sela, size, direction) as String
 // selaGetCombName(SELA *, l_int32, l_int32) as char *
@@ -519,19 +685,27 @@ public static String selaGetBrickName(
 ///  <param name="size">[in] - the product of sizes of the brick and comb parts</param>
 ///  <param name="direction">[in] - L_HORIZ, L_VERT</param>
 ///   <returns>sel name new string, or NULL if name not found or on error</returns>
+
 public static String selaGetCombName(
 				 Sela sela, 
 				 int size, 
 				 int direction){
 
-	String _Result = Natives.selaGetCombName(sela.Pointer,   size,   direction);
+
+
+	String _Result = Natives.selaGetCombName(
+sela.Pointer,   size,   direction);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1104, 1)
 // getCompositeParameters(size, psize1, psize2, pnameh1, pnameh2, pnamev1, pnamev2) as int
 // getCompositeParameters(l_int32, l_int32 *, l_int32 *, char **, char **, char **, char **) as l_ok
@@ -551,6 +725,7 @@ public static String selaGetCombName(
 ///  <param name="pnamev1">[out][optional] - name of vert brick</param>
 ///  <param name="pnamev2">[out][optional] - name of vert comb</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int getCompositeParameters(
 				 int size, 
 				out int psize1, 
@@ -560,23 +735,29 @@ public static int getCompositeParameters(
 				out String[] pnamev1, 
 				out String[] pnamev2){
 
+
 	IntPtr pnameh1Ptr = IntPtr.Zero;
 	IntPtr pnameh2Ptr = IntPtr.Zero;
 	IntPtr pnamev1Ptr = IntPtr.Zero;
 	IntPtr pnamev2Ptr = IntPtr.Zero;
 
-	int _Result = Natives.getCompositeParameters(  size, out  psize1, out  psize2, out  pnameh1Ptr, out  pnameh2Ptr, out  pnamev1Ptr, out  pnamev2Ptr);
+	int _Result = Natives.getCompositeParameters(
+  size, out  psize1, out  psize2, out  pnameh1Ptr, out  pnameh2Ptr, out  pnamev1Ptr, out  pnamev2Ptr);
 	
 
+
+//  
 	if (pnameh1Ptr == null) {pnameh1 = null;} else { pnameh1 = null; };
 	if (pnameh2Ptr == null) {pnameh2 = null;} else { pnameh2 = null; };
 	if (pnamev1Ptr == null) {pnamev1 = null;} else { pnamev1 = null; };
 	if (pnamev2Ptr == null) {pnamev2 = null;} else { pnamev2 = null; };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1148, 1)
 // selaGetSelnames(sela) as Sarray
 // selaGetSelnames(SELA *) as SARRAY *
@@ -585,18 +766,26 @@ public static int getCompositeParameters(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaGetSelnames/*"/>
 ///  <param name="sela">[in] - </param>
 ///   <returns>sa of all sel names, or NULL on error</returns>
+
 public static Sarray selaGetSelnames(
 				 Sela sela){
 
-	IntPtr _Result = Natives.selaGetSelnames(sela.Pointer);
+
+
+	IntPtr _Result = Natives.selaGetSelnames(
+sela.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1193, 1)
 // selFindMaxTranslations(sel, pxp, pyp, pxn, pyn) as int
 // selFindMaxTranslations(SEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -614,6 +803,7 @@ public static Sarray selaGetSelnames(
 ///  <param name="pxn">[out] - max shifts</param>
 ///  <param name="pyn">[out] - max shifts</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int selFindMaxTranslations(
 				 Sel sel, 
 				out int pxp, 
@@ -621,14 +811,21 @@ public static int selFindMaxTranslations(
 				out int pxn, 
 				out int pyn){
 
-	int _Result = Natives.selFindMaxTranslations(sel.Pointer, out  pxp, out  pyp, out  pxn, out  pyn);
+
+
+	int _Result = Natives.selFindMaxTranslations(
+sel.Pointer, out  pxp, out  pyp, out  pxn, out  pyn);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1243, 1)
 // selRotateOrth(sel, quads) as Sel
 // selRotateOrth(SEL *, l_int32) as SEL *
@@ -638,19 +835,27 @@ public static int selFindMaxTranslations(
 ///  <param name="sel">[in] - </param>
 ///  <param name="quads">[in] - 0 - 4 number of 90 degree cw rotations</param>
 ///   <returns>seld, or NULL on error</returns>
+
 public static Sel selRotateOrth(
 				 Sel sel, 
 				 int quads){
 
-	IntPtr _Result = Natives.selRotateOrth(sel.Pointer,   quads);
+
+
+	IntPtr _Result = Natives.selRotateOrth(
+sel.Pointer,   quads);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1310, 1)
 // selaRead(fname) as Sela
 // selaRead(const char *) as SELA *
@@ -659,18 +864,26 @@ public static Sel selRotateOrth(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaRead/*"/>
 ///  <param name="fname">[in] - filename</param>
 ///   <returns>sela, or NULL on error</returns>
+
 public static Sela selaRead(
 				 String fname){
 
-	IntPtr _Result = Natives.selaRead(  fname);
+
+
+	IntPtr _Result = Natives.selaRead(
+  fname);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sela(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1339, 1)
 // selaReadStream(fp) as Sela
 // selaReadStream(FILE *) as SELA *
@@ -679,18 +892,26 @@ public static Sela selaRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>sela, or NULL on error</returns>
+
 public static Sela selaReadStream(
 				 FILE fp){
 
-	IntPtr _Result = Natives.selaReadStream(fp.Pointer);
+
+
+	IntPtr _Result = Natives.selaReadStream(
+fp.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sela(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1380, 1)
 // selRead(fname) as Sel
 // selRead(const char *) as SEL *
@@ -699,18 +920,26 @@ public static Sela selaReadStream(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selRead/*"/>
 ///  <param name="fname">[in] - filename</param>
 ///   <returns>sel, or NULL on error</returns>
+
 public static Sel selRead(
 				 String fname){
 
-	IntPtr _Result = Natives.selRead(  fname);
+
+
+	IntPtr _Result = Natives.selRead(
+  fname);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1409, 1)
 // selReadStream(fp) as Sel
 // selReadStream(FILE *) as SEL *
@@ -719,18 +948,26 @@ public static Sel selRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>sel, or NULL on error</returns>
+
 public static Sel selReadStream(
 				 FILE fp){
 
-	IntPtr _Result = Natives.selReadStream(fp.Pointer);
+
+
+	IntPtr _Result = Natives.selReadStream(
+fp.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1464, 1)
 // selaWrite(fname, sela) as int
 // selaWrite(const char *, SELA *) as l_ok
@@ -740,18 +977,26 @@ public static Sel selReadStream(
 ///  <param name="fname">[in] - filename</param>
 ///  <param name="sela">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selaWrite(
 				 String fname, 
 				 Sela sela){
 
-	int _Result = Natives.selaWrite(  fname, sela.Pointer);
+
+
+	int _Result = Natives.selaWrite(
+  fname, sela.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1493, 1)
 // selaWriteStream(fp, sela) as int
 // selaWriteStream(FILE *, SELA *) as l_ok
@@ -761,18 +1006,26 @@ public static int selaWrite(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="sela">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selaWriteStream(
 				 FILE fp, 
 				 Sela sela){
 
-	int _Result = Natives.selaWriteStream(fp.Pointer, sela.Pointer);
+
+
+	int _Result = Natives.selaWriteStream(
+fp.Pointer, sela.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1526, 1)
 // selWrite(fname, sel) as int
 // selWrite(const char *, SEL *) as l_ok
@@ -782,18 +1035,26 @@ public static int selaWriteStream(
 ///  <param name="fname">[in] - filename</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selWrite(
 				 String fname, 
 				 Sel sel){
 
-	int _Result = Natives.selWrite(  fname, sel.Pointer);
+
+
+	int _Result = Natives.selWrite(
+  fname, sel.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1555, 1)
 // selWriteStream(fp, sel) as int
 // selWriteStream(FILE *, SEL *) as l_ok
@@ -803,18 +1064,26 @@ public static int selWrite(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selWriteStream(
 				 FILE fp, 
 				 Sel sel){
 
-	int _Result = Natives.selWriteStream(fp.Pointer, sel.Pointer);
+
+
+	int _Result = Natives.selWriteStream(
+fp.Pointer, sel.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1616, 1)
 // selCreateFromString(text, h, w, name) as Sel
 // selCreateFromString(const char *, l_int32, l_int32, const char *) as SEL *
@@ -847,21 +1116,29 @@ public static int selWriteStream(
 ///  <param name="w">[in] - height, width</param>
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel of the given size, or NULL on error</returns>
+
 public static Sel selCreateFromString(
 				 String text, 
 				 int h, 
 				 int w, 
 				 String name){
 
-	IntPtr _Result = Natives.selCreateFromString(  text,   h,   w,   name);
+
+
+	IntPtr _Result = Natives.selCreateFromString(
+  text,   h,   w,   name);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1704, 1)
 // selPrintToString(sel) as String
 // selPrintToString(SEL *) as char *
@@ -882,17 +1159,25 @@ public static Sel selCreateFromString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selPrintToString/*"/>
 ///  <param name="sel">[in] - </param>
 ///   <returns>str string caller must free</returns>
+
 public static String selPrintToString(
 				 Sel sel){
 
-	String _Result = Natives.selPrintToString(sel.Pointer);
+
+
+	String _Result = Natives.selPrintToString(
+sel.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1779, 1)
 // selaCreateFromFile(filename) as Sela
 // selaCreateFromFile(const char *) as SELA *
@@ -926,18 +1211,26 @@ public static String selPrintToString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaCreateFromFile/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>sela, or NULL on error</returns>
+
 public static Sela selaCreateFromFile(
 				 String filename){
 
-	IntPtr _Result = Natives.selaCreateFromFile(  filename);
+
+
+	IntPtr _Result = Natives.selaCreateFromFile(
+  filename);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sela(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (1959, 1)
 // selCreateFromPta(pta, cy, cx, name) as Sel
 // selCreateFromPta(PTA *, l_int32, l_int32, const char *) as SEL *
@@ -952,21 +1245,29 @@ public static Sela selaCreateFromFile(
 ///  <param name="cx">[in] - origin of sel</param>
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel of minimum required size, or NULL on error</returns>
+
 public static Sel selCreateFromPta(
 				 Pta pta, 
 				 int cy, 
 				 int cx, 
 				 String name){
 
-	IntPtr _Result = Natives.selCreateFromPta(pta.Pointer,   cy,   cx,   name);
+
+
+	IntPtr _Result = Natives.selCreateFromPta(
+pta.Pointer,   cy,   cx,   name);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (2009, 1)
 // selCreateFromPix(pix, cy, cx, name) as Sel
 // selCreateFromPix(PIX *, l_int32, l_int32, const char *) as SEL *
@@ -981,21 +1282,29 @@ public static Sel selCreateFromPta(
 ///  <param name="cx">[in] - origin of sel</param>
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel, or NULL on error</returns>
+
 public static Sel selCreateFromPix(
 				 Pix pix, 
 				 int cy, 
 				 int cx, 
 				 String name){
 
-	IntPtr _Result = Natives.selCreateFromPix(pix.Pointer,   cy,   cx,   name);
+
+
+	IntPtr _Result = Natives.selCreateFromPix(
+pix.Pointer,   cy,   cx,   name);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (2060, 1)
 // selReadFromColorImage(pathname) as Sel
 // selReadFromColorImage(const char *) as SEL *
@@ -1010,18 +1319,26 @@ public static Sel selCreateFromPix(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selReadFromColorImage/*"/>
 ///  <param name="pathname">[in] - </param>
 ///   <returns>sel if OK NULL on error</returns>
+
 public static Sel selReadFromColorImage(
 				 String pathname){
 
-	IntPtr _Result = Natives.selReadFromColorImage(  pathname);
+
+
+	IntPtr _Result = Natives.selReadFromColorImage(
+  pathname);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (2109, 1)
 // selCreateFromColorPix(pixs, selname) as Sel
 // selCreateFromColorPix(PIX *, const char *) as SEL *
@@ -1047,19 +1364,27 @@ public static Sel selReadFromColorImage(
 ///  <param name="pixs">[in] - cmapped or rgb</param>
 ///  <param name="selname">[in][optional] - sel name can be null</param>
 ///   <returns>sel if OK, NULL on error</returns>
+
 public static Sel selCreateFromColorPix(
 				 Pix pixs, 
 				 String selname){
 
-	IntPtr _Result = Natives.selCreateFromColorPix(pixs.Pointer,   selname);
+
+
+	IntPtr _Result = Natives.selCreateFromColorPix(
+pixs.Pointer,   selname);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sel(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (2200, 1)
 // selDisplayInPix(sel, size, gthick) as Pix
 // selDisplayInPix(SEL *, l_int32, l_int32) as PIX *
@@ -1080,20 +1405,28 @@ public static Sel selCreateFromColorPix(
 ///  <param name="size">[in] - of grid interiors odd minimum size of 13 is enforced</param>
 ///  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>
 ///   <returns>pix display of sel, or NULL on error</returns>
+
 public static Pix selDisplayInPix(
 				 Sel sel, 
 				 int size, 
 				 int gthick){
 
-	IntPtr _Result = Natives.selDisplayInPix(sel.Pointer,   size,   gthick);
+
+
+	IntPtr _Result = Natives.selDisplayInPix(
+sel.Pointer,   size,   gthick);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel1.c (2318, 1)
 // selaDisplayInPix(sela, size, gthick, spacing, ncols) as Pix
 // selaDisplayInPix(SELA *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1114,6 +1447,7 @@ public static Pix selDisplayInPix(
 ///  <param name="spacing">[in] - between sels, both horizontally and vertically</param>
 ///  <param name="ncols">[in] - number of sels per "line"</param>
 ///   <returns>pix display of all sels in sela, or NULL on error</returns>
+
 public static Pix selaDisplayInPix(
 				 Sela sela, 
 				 int size, 
@@ -1121,11 +1455,17 @@ public static Pix selaDisplayInPix(
 				 int spacing, 
 				 int ncols){
 
-	IntPtr _Result = Natives.selaDisplayInPix(sela.Pointer,   size,   gthick,   spacing,   ncols);
+
+
+	IntPtr _Result = Natives.selaDisplayInPix(
+sela.Pointer,   size,   gthick,   spacing,   ncols);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }

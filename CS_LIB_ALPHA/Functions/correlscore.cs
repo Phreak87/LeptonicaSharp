@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // correlscore.c (125, 1)
 // pixCorrelationScore(pix1, pix2, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore) as int
 // pixCorrelationScore(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_int32 *, l_float32 *) as l_ok
@@ -66,6 +67,7 @@ public partial class _All {
 ///  <param name="tab">[in] - sum tab for byte</param>
 ///  <param name="pscore">[out] - correlation score</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixCorrelationScore(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -78,14 +80,21 @@ public static int pixCorrelationScore(
 				 int[] tab, 
 				out Single pscore){
 
-	int _Result = Natives.pixCorrelationScore(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
+
+
+	int _Result = Natives.pixCorrelationScore(
+pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // correlscore.c (423, 1)
 // pixCorrelationScoreThresholded(pix1, pix2, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, downcount, score_threshold) as int
 // pixCorrelationScoreThresholded(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_int32 *, l_int32 *, l_float32) as l_int32
@@ -134,6 +143,7 @@ public static int pixCorrelationScore(
 ///  <param name="downcount">[in] - count of 1 pixels below each row of pix1</param>
 ///  <param name="score_threshold">[in] - </param>
 ///   <returns>whether the correlation score is greater or equal score_threshold</returns>
+
 public static int pixCorrelationScoreThresholded(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -147,14 +157,21 @@ public static int pixCorrelationScoreThresholded(
 				 int[] downcount, 
 				 Single score_threshold){
 
-	int _Result = Natives.pixCorrelationScoreThresholded(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab,   downcount,   score_threshold);
+
+
+	int _Result = Natives.pixCorrelationScoreThresholded(
+pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab,   downcount,   score_threshold);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // correlscore.c (732, 1)
 // pixCorrelationScoreSimple(pix1, pix2, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore) as int
 // pixCorrelationScoreSimple(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_int32 *, l_float32 *) as l_ok
@@ -179,6 +196,7 @@ public static int pixCorrelationScoreThresholded(
 ///  <param name="tab">[in] - sum tab for byte</param>
 ///  <param name="pscore">[out] - correlation score, in range [0.0 ... 1.0]</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixCorrelationScoreSimple(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -191,14 +209,21 @@ public static int pixCorrelationScoreSimple(
 				 int[] tab, 
 				out Single pscore){
 
-	int _Result = Natives.pixCorrelationScoreSimple(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
+
+
+	int _Result = Natives.pixCorrelationScoreSimple(
+pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // correlscore.c (835, 1)
 // pixCorrelationScoreShifted(pix1, pix2, area1, area2, delx, dely, tab, pscore) as int
 // pixCorrelationScoreShifted(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_float32 *) as l_ok
@@ -236,6 +261,7 @@ public static int pixCorrelationScoreSimple(
 ///  <param name="tab">[in] - sum tab for byte</param>
 ///  <param name="pscore">[out] - correlation score</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixCorrelationScoreShifted(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -246,8 +272,14 @@ public static int pixCorrelationScoreShifted(
 				 int[] tab, 
 				out Single pscore){
 
-	int _Result = Natives.pixCorrelationScoreShifted(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   tab, out  pscore);
+
+
+	int _Result = Natives.pixCorrelationScoreShifted(
+pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   tab, out  pscore);
 	
+
+
+//  
 
 
 

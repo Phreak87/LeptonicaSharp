@@ -21,8 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,12 +29,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,7 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations.cs" />
-    <Compile Include="Extensions\Constrcutors.cs" />
+    <Compile Include="Extensions\BetterPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extensions\Colormaps.cs" />
+    <Compile Include="Extensions\Convert.cs" />
+    <Compile Include="Extensions\ShowPix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extensions\ShowPix.Designer.cs">
+      <DependentUpon>ShowPix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\SystemClass.cs" />
+    <Compile Include="Extensions\Konstruktoren.cs" />
+    <Compile Include="Extensions\Natives.cs" />
     <Compile Include="Functions\adaptmap.cs" />
     <Compile Include="Functions\affine.cs" />
     <Compile Include="Functions\affinecompose.cs" />
@@ -208,7 +219,12 @@
     <Compile Include="Structures.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ExtensionEnumerations.cs" />
+    <Compile Include="Extensions\Enumerations.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Extensions\ShowPix.resx">
+      <DependentUpon>ShowPix.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

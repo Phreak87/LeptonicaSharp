@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (239, 1)
 // convertFilesToPdf(dirname, substr, res, scalefactor, type, quality, title, fileout) as int
 // convertFilesToPdf(const char *, const char *, l_int32, l_float32, l_int32, l_int32, const char *, const char *) as l_ok
@@ -38,6 +39,7 @@ public partial class _All {
 ///  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertFilesToPdf(
 				 String dirname, 
 				 String substr, 
@@ -48,14 +50,21 @@ public static int convertFilesToPdf(
 				 String title, 
 				 String fileout){
 
-	int _Result = Natives.convertFilesToPdf(  dirname,   substr,   res,   scalefactor,   type,   quality,   title,   fileout);
+
+
+	int _Result = Natives.convertFilesToPdf(
+  dirname,   substr,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (287, 1)
 // saConvertFilesToPdf(sa, res, scalefactor, type, quality, title, fileout) as int
 // saConvertFilesToPdf(SARRAY *, l_int32, l_float32, l_int32, l_int32, const char *, const char *) as l_ok
@@ -73,6 +82,7 @@ public static int convertFilesToPdf(
 ///  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int saConvertFilesToPdf(
 				 Sarray sa, 
 				 int res, 
@@ -82,14 +92,21 @@ public static int saConvertFilesToPdf(
 				 String title, 
 				 String fileout){
 
-	int _Result = Natives.saConvertFilesToPdf(sa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
+
+
+	int _Result = Natives.saConvertFilesToPdf(
+sa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (340, 1)
 // saConvertFilesToPdfData(sa, res, scalefactor, type, quality, title, pdata, pnbytes) as int
 // saConvertFilesToPdfData(SARRAY *, l_int32, l_float32, l_int32, l_int32, const char *, l_uint8 **, size_t *) as l_ok
@@ -108,6 +125,7 @@ public static int saConvertFilesToPdf(
 ///  <param name="pdata">[out] - output pdf data (of all images</param>
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int saConvertFilesToPdfData(
 				 Sarray sa, 
 				 int res, 
@@ -118,17 +136,27 @@ public static int saConvertFilesToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.saConvertFilesToPdfData(sa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.saConvertFilesToPdfData(
+sa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (457, 1)
 // selectDefaultPdfEncoding(pix, ptype) as int
 // selectDefaultPdfEncoding(PIX *, l_int32 *) as l_ok
@@ -149,18 +177,26 @@ public static int saConvertFilesToPdfData(
 ///  <param name="pix">[in] - </param>
 ///  <param name="ptype">[out] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selectDefaultPdfEncoding(
 				 Pix pix, 
 				out int ptype){
 
-	int _Result = Natives.selectDefaultPdfEncoding(pix.Pointer, out  ptype);
+
+
+	int _Result = Natives.selectDefaultPdfEncoding(
+pix.Pointer, out  ptype);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (520, 1)
 // convertUnscaledFilesToPdf(dirname, substr, title, fileout) as int
 // convertUnscaledFilesToPdf(const char *, const char *, const char *, const char *) as l_ok
@@ -185,20 +221,28 @@ public static int selectDefaultPdfEncoding(
 ///  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertUnscaledFilesToPdf(
 				 String dirname, 
 				 String substr, 
 				 String title, 
 				 String fileout){
 
-	int _Result = Natives.convertUnscaledFilesToPdf(  dirname,   substr,   title,   fileout);
+
+
+	int _Result = Natives.convertUnscaledFilesToPdf(
+  dirname,   substr,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (558, 1)
 // saConvertUnscaledFilesToPdf(sa, title, fileout) as int
 // saConvertUnscaledFilesToPdf(SARRAY *, const char *, const char *) as l_ok
@@ -212,19 +256,27 @@ public static int convertUnscaledFilesToPdf(
 ///  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int saConvertUnscaledFilesToPdf(
 				 Sarray sa, 
 				 String title, 
 				 String fileout){
 
-	int _Result = Natives.saConvertUnscaledFilesToPdf(sa.Pointer,   title,   fileout);
+
+
+	int _Result = Natives.saConvertUnscaledFilesToPdf(
+sa.Pointer,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (596, 1)
 // saConvertUnscaledFilesToPdfData(sa, title, pdata, pnbytes) as int
 // saConvertUnscaledFilesToPdfData(SARRAY *, const char *, l_uint8 **, size_t *) as l_ok
@@ -236,23 +288,34 @@ public static int saConvertUnscaledFilesToPdf(
 ///  <param name="pdata">[out] - output pdf data (of all images)</param>
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int saConvertUnscaledFilesToPdfData(
 				 Sarray sa, 
 				 String title, 
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.saConvertUnscaledFilesToPdfData(sa.Pointer,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.saConvertUnscaledFilesToPdfData(
+sa.Pointer,   title, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (668, 1)
 // convertUnscaledToPdfData(fname, title, pdata, pnbytes) as int
 // convertUnscaledToPdfData(const char *, const char *, l_uint8 **, size_t *) as l_ok
@@ -264,23 +327,34 @@ public static int saConvertUnscaledFilesToPdfData(
 ///  <param name="pdata">[out] - output pdf data for image</param>
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertUnscaledToPdfData(
 				 String fname, 
 				 String title, 
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.convertUnscaledToPdfData(  fname,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.convertUnscaledToPdfData(
+  fname,   title, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (752, 1)
 // pixaConvertToPdf(pixa, res, scalefactor, type, quality, title, fileout) as int
 // pixaConvertToPdf(PIXA *, l_int32, l_float32, l_int32, l_int32, const char *, const char *) as l_ok
@@ -306,6 +380,7 @@ public static int convertUnscaledToPdfData(
 ///  <param name="title">[in][optional] - pdf title</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaConvertToPdf(
 				 Pixa pixa, 
 				 int res, 
@@ -315,14 +390,21 @@ public static int pixaConvertToPdf(
 				 String title, 
 				 String fileout){
 
-	int _Result = Natives.pixaConvertToPdf(pixa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
+
+
+	int _Result = Natives.pixaConvertToPdf(
+pixa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (804, 1)
 // pixaConvertToPdfData(pixa, res, scalefactor, type, quality, title, pdata, pnbytes) as int
 // pixaConvertToPdfData(PIXA *, l_int32, l_float32, l_int32, l_int32, const char *, l_uint8 **, size_t *) as l_ok
@@ -341,6 +423,7 @@ public static int pixaConvertToPdf(
 ///  <param name="pdata">[out] - output pdf data (of all images</param>
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaConvertToPdfData(
 				 Pixa pixa, 
 				 int res, 
@@ -351,17 +434,27 @@ public static int pixaConvertToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixaConvertToPdfData(pixa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.pixaConvertToPdfData(
+pixa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (950, 1)
 // convertToPdf(filein, type, quality, fileout, x, y, res, title, plpd, position) as int
 // convertToPdf(const char *, l_int32, l_int32, const char *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
@@ -415,6 +508,7 @@ public static int pixaConvertToPdfData(
 ///  <param name="plpd">[in,out] - ptr to lpd, which is created on the first invocation and returned until last image is processed, at which time it is destroyed</param>
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertToPdf(
 				 String filein, 
 				 int type, 
@@ -427,17 +521,23 @@ public static int convertToPdf(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
-	int _Result = Natives.convertToPdf(  filein,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
+	int _Result = Natives.convertToPdf(
+  filein,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
+
+//  
 	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1021, 1)
 // convertImageDataToPdf(imdata, size, type, quality, fileout, x, y, res, title, plpd, position) as int
 // convertImageDataToPdf(l_uint8 *, size_t, l_int32, l_int32, const char *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
@@ -462,6 +562,7 @@ public static int convertToPdf(
 ///  <param name="plpd">[in,out] - ptr to lpd, which is created on the first invocation and returned until last image is processed, at which time it is destroyed</param>
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertImageDataToPdf(
 				 Byte[] imdata, 
 				 uint size, 
@@ -475,17 +576,23 @@ public static int convertImageDataToPdf(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
-	int _Result = Natives.convertImageDataToPdf(  imdata,   size,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
+	int _Result = Natives.convertImageDataToPdf(
+  imdata,   size,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
+
+//  
 	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1086, 1)
 // convertToPdfData(filein, type, quality, pdata, pnbytes, x, y, res, title, plpd, position) as int
 // convertToPdfData(const char *, l_int32, l_int32, l_uint8 **, size_t *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
@@ -510,6 +617,7 @@ public static int convertImageDataToPdf(
 ///  <param name="plpd">[in,out] - ptr to lpd, which is created on the first invocation and returned until last image is processed, at which time it is destroyed</param>
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertToPdfData(
 				 String filein, 
 				 int type, 
@@ -523,19 +631,29 @@ public static int convertToPdfData(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
-	int _Result = Natives.convertToPdfData(  filein,   type,   quality, out  pdataPtr, out  pnbytes,   x,   y,   res,   title, ref plpdPtr,   position);
+	int _Result = Natives.convertToPdfData(
+  filein,   type,   quality, out  pdataPtr, out  pnbytes,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
 	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1154, 1)
 // convertImageDataToPdfData(imdata, size, type, quality, pdata, pnbytes, x, y, res, title, plpd, position) as int
 // convertImageDataToPdfData(l_uint8 *, size_t, l_int32, l_int32, l_uint8 **, size_t *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
@@ -561,6 +679,7 @@ public static int convertToPdfData(
 ///  <param name="plpd">[out] - ptr to lpd, which is created on the first invocation and returned until last image is processed, at which time it is destroyed</param>
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertImageDataToPdfData(
 				 Byte[] imdata, 
 				 uint size, 
@@ -575,19 +694,29 @@ public static int convertImageDataToPdfData(
 				out L_Pdf_Data plpd, 
 				 int position){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero;
 
-	int _Result = Natives.convertImageDataToPdfData(  imdata,   size,   type,   quality, out  pdataPtr, out  pnbytes,   x,   y,   res,   title, out plpdPtr,   position);
+	int _Result = Natives.convertImageDataToPdfData(
+  imdata,   size,   type,   quality, out  pdataPtr, out  pnbytes,   x,   y,   res,   title, out plpdPtr,   position);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
 	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1223, 1)
 // pixConvertToPdf(pix, type, quality, fileout, x, y, res, title, plpd, position) as int
 // pixConvertToPdf(PIX *, l_int32, l_int32, const char *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
@@ -614,6 +743,7 @@ public static int convertImageDataToPdfData(
 ///  <param name="plpd">[in,out] - ptr to lpd, which is created on the first invocation and returned until last image is processed</param>
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixConvertToPdf(
 				 Pix pix, 
 				 int type, 
@@ -626,17 +756,23 @@ public static int pixConvertToPdf(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
-	int _Result = Natives.pixConvertToPdf(pix.Pointer,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
+	int _Result = Natives.pixConvertToPdf(
+pix.Pointer,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
+
+//  
 	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1286, 1)
 // pixWriteStreamPdf(fp, pix, res, title) as int
 // pixWriteStreamPdf(FILE *, PIX *, l_int32, const char *) as l_ok
@@ -654,20 +790,28 @@ public static int pixConvertToPdf(
 ///  <param name="res">[in] - override the resolution of the input image, in ppi use 0 to respect the resolution embedded in the input</param>
 ///  <param name="title">[in][optional] - pdf title taken from the first image placed on a page e.g., an input image filename</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixWriteStreamPdf(
 				 FILE fp, 
 				 Pix pix, 
 				 int res, 
 				 String title){
 
-	int _Result = Natives.pixWriteStreamPdf(fp.Pointer, pix.Pointer,   res,   title);
+
+
+	int _Result = Natives.pixWriteStreamPdf(
+fp.Pointer, pix.Pointer,   res,   title);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1335, 1)
 // pixWriteMemPdf(pdata, pnbytes, pix, res, title) as int
 // pixWriteMemPdf(l_uint8 **, size_t *, PIX *, l_int32, const char *) as l_ok
@@ -686,6 +830,7 @@ public static int pixWriteStreamPdf(
 ///  <param name="res">[in] - override the resolution of the input image, in ppi use 0 to respect the resolution embedded in the input</param>
 ///  <param name="title">[in][optional] - pdf title taken from the first image placed on a page e.g., an input image filename</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixWriteMemPdf(
 				out Byte[] pdata, 
 				out uint pnbytes, 
@@ -693,17 +838,27 @@ public static int pixWriteMemPdf(
 				 int res, 
 				 String title){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMemPdf(out  pdataPtr, out  pnbytes, pix.Pointer,   res,   title);
+	int _Result = Natives.pixWriteMemPdf(
+out  pdataPtr, out  pnbytes, pix.Pointer,   res,   title);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1415, 1)
 // convertSegmentedFilesToPdf(dirname, substr, res, type, thresh, baa, quality, scalefactor, title, fileout) as int
 // convertSegmentedFilesToPdf(const char *, const char *, l_int32, l_int32, l_int32, BOXAA *, l_int32, l_float32, const char *, const char *) as l_ok
@@ -749,6 +904,7 @@ public static int pixWriteMemPdf(
 ///  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertSegmentedFilesToPdf(
 				 String dirname, 
 				 String substr, 
@@ -761,16 +917,22 @@ public static int convertSegmentedFilesToPdf(
 				 String title, 
 				 String fileout){
 
+
 	IntPtr baaPtr = IntPtr.Zero; 	if (baa != null) {baaPtr = baa.Pointer;}
 
-	int _Result = Natives.convertSegmentedFilesToPdf(  dirname,   substr,   res,   type,   thresh, baaPtr,   quality,   scalefactor,   title,   fileout);
+	int _Result = Natives.convertSegmentedFilesToPdf(
+  dirname,   substr,   res,   type,   thresh, baaPtr,   quality,   scalefactor,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1535, 1)
 // convertNumberedMasksToBoxaa(dirname, substr, numpre, numpost) as Boxaa
 // convertNumberedMasksToBoxaa(const char *, const char *, l_int32, l_int32) as BOXAA *
@@ -788,21 +950,29 @@ public static int convertSegmentedFilesToPdf(
 ///  <param name="numpre">[in] - number of characters in name before number</param>
 ///  <param name="numpost">[in] - number of characters in name after number, up to a dot before an extension including an extension and the dot separator</param>
 ///   <returns>boxaa of mask regions, or NULL on error</returns>
+
 public static Boxaa convertNumberedMasksToBoxaa(
 				 String dirname, 
 				 String substr, 
 				 int numpre, 
 				 int numpost){
 
-	IntPtr _Result = Natives.convertNumberedMasksToBoxaa(  dirname,   substr,   numpre,   numpost);
+
+
+	IntPtr _Result = Natives.convertNumberedMasksToBoxaa(
+  dirname,   substr,   numpre,   numpost);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1644, 1)
 // convertToPdfSegmented(filein, res, type, thresh, boxa, quality, scalefactor, title, fileout) as int
 // convertToPdfSegmented(const char *, l_int32, l_int32, l_int32, BOXA *, l_int32, l_float32, const char *, const char *) as l_ok
@@ -865,6 +1035,7 @@ public static Boxaa convertNumberedMasksToBoxaa(
 ///  <param name="title">[in][optional] - pdf title typically taken from the input file for the pix</param>
 ///  <param name="fileout">[in] - output pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertToPdfSegmented(
 				 String filein, 
 				 int res, 
@@ -876,16 +1047,22 @@ public static int convertToPdfSegmented(
 				 String title, 
 				 String fileout){
 
+
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
-	int _Result = Natives.convertToPdfSegmented(  filein,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title,   fileout);
+	int _Result = Natives.convertToPdfSegmented(
+  filein,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1704, 1)
 // pixConvertToPdfSegmented(pixs, res, type, thresh, boxa, quality, scalefactor, title, fileout) as int
 // pixConvertToPdfSegmented(PIX *, l_int32, l_int32, l_int32, BOXA *, l_int32, l_float32, const char *, const char *) as l_ok
@@ -905,6 +1082,7 @@ public static int convertToPdfSegmented(
 ///  <param name="title">[in][optional] - pdf title typically taken from the input file for the pix</param>
 ///  <param name="fileout">[in] - output pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixConvertToPdfSegmented(
 				 Pix pixs, 
 				 int res, 
@@ -916,16 +1094,22 @@ public static int pixConvertToPdfSegmented(
 				 String title, 
 				 String fileout){
 
+
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
-	int _Result = Natives.pixConvertToPdfSegmented(pixs.Pointer,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title,   fileout);
+	int _Result = Natives.pixConvertToPdfSegmented(
+pixs.Pointer,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1767, 1)
 // convertToPdfDataSegmented(filein, res, type, thresh, boxa, quality, scalefactor, title, pdata, pnbytes) as int
 // convertToPdfDataSegmented(const char *, l_int32, l_int32, l_int32, BOXA *, l_int32, l_float32, const char *, l_uint8 **, size_t *) as l_ok
@@ -949,6 +1133,7 @@ public static int pixConvertToPdfSegmented(
 ///  <param name="pdata">[out] - pdf data in memory</param>
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertToPdfDataSegmented(
 				 String filein, 
 				 int res, 
@@ -961,18 +1146,28 @@ public static int convertToPdfDataSegmented(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.convertToPdfDataSegmented(  filein,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.convertToPdfDataSegmented(
+  filein,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1834, 1)
 // pixConvertToPdfDataSegmented(pixs, res, type, thresh, boxa, quality, scalefactor, title, pdata, pnbytes) as int
 // pixConvertToPdfDataSegmented(PIX *, l_int32, l_int32, l_int32, BOXA *, l_int32, l_float32, const char *, l_uint8 **, size_t *) as l_ok
@@ -993,6 +1188,7 @@ public static int convertToPdfDataSegmented(
 ///  <param name="pdata">[out] - pdf data in memory</param>
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixConvertToPdfDataSegmented(
 				 Pix pixs, 
 				 int res, 
@@ -1005,18 +1201,28 @@ public static int pixConvertToPdfDataSegmented(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixConvertToPdfDataSegmented(pixs.Pointer,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.pixConvertToPdfDataSegmented(
+pixs.Pointer,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1998, 1)
 // concatenatePdf(dirname, substr, fileout) as int
 // concatenatePdf(const char *, const char *, const char *) as l_ok
@@ -1038,19 +1244,27 @@ public static int pixConvertToPdfDataSegmented(
 ///  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 ///  <param name="fileout">[in] - concatenated pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int concatenatePdf(
 				 String dirname, 
 				 String substr, 
 				 String fileout){
 
-	int _Result = Natives.concatenatePdf(  dirname,   substr,   fileout);
+
+
+	int _Result = Natives.concatenatePdf(
+  dirname,   substr,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (2033, 1)
 // saConcatenatePdf(sa, fileout) as int
 // saConcatenatePdf(SARRAY *, const char *) as l_ok
@@ -1063,18 +1277,26 @@ public static int concatenatePdf(
 ///  <param name="sa">[in] - string array of pathnames for single-page pdf files</param>
 ///  <param name="fileout">[in] - concatenated pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int saConcatenatePdf(
 				 Sarray sa, 
 				 String fileout){
 
-	int _Result = Natives.saConcatenatePdf(sa.Pointer,   fileout);
+
+
+	int _Result = Natives.saConcatenatePdf(
+sa.Pointer,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (2069, 1)
 // ptraConcatenatePdf(pa, fileout) as int
 // ptraConcatenatePdf(L_PTRA *, const char *) as l_ok
@@ -1087,18 +1309,26 @@ public static int saConcatenatePdf(
 ///  <param name="pa">[in] - array of pdf strings, each for a single-page pdf file</param>
 ///  <param name="fileout">[in] - concatenated pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int ptraConcatenatePdf(
 				 L_Ptra pa, 
 				 String fileout){
 
-	int _Result = Natives.ptraConcatenatePdf(pa.Pointer,   fileout);
+
+
+	int _Result = Natives.ptraConcatenatePdf(
+pa.Pointer,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (2113, 1)
 // concatenatePdfToData(dirname, substr, pdata, pnbytes) as int
 // concatenatePdfToData(const char *, const char *, l_uint8 **, size_t *) as l_ok
@@ -1121,23 +1351,34 @@ public static int ptraConcatenatePdf(
 ///  <param name="pdata">[out] - concatenated pdf data in memory</param>
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int concatenatePdfToData(
 				 String dirname, 
 				 String substr, 
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.concatenatePdfToData(  dirname,   substr, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.concatenatePdfToData(
+  dirname,   substr, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (2154, 1)
 // saConcatenatePdfToData(sa, pdata, pnbytes) as int
 // saConcatenatePdfToData(SARRAY *, l_uint8 **, size_t *) as l_ok
@@ -1151,17 +1392,27 @@ public static int concatenatePdfToData(
 ///  <param name="pdata">[out] - concatenated pdf data in memory</param>
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int saConcatenatePdfToData(
 				 Sarray sa, 
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.saConcatenatePdfToData(sa.Pointer, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.saConcatenatePdfToData(
+sa.Pointer, out  pdataPtr, out  pnbytes);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[pnbytes];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;

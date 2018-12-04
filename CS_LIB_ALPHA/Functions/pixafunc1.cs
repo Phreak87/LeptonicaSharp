@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (212, 1)
 // pixSelectBySize(pixs, width, height, connectivity, type, relation, pchanged) as Pix
 // pixSelectBySize(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *) as PIX *
@@ -35,6 +36,7 @@ public partial class _All {
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 otherwise</param>
 ///   <returns>filtered pixd, or NULL on error</returns>
+
 public static Pix pixSelectBySize(
 				 Pix pixs, 
 				 int width, 
@@ -44,15 +46,22 @@ public static Pix pixSelectBySize(
 				 int relation, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixSelectBySize(pixs.Pointer,   width,   height,   connectivity,   type,   relation, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixSelectBySize(
+pixs.Pointer,   width,   height,   connectivity,   type,   relation, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (299, 1)
 // pixaSelectBySize(pixas, width, height, type, relation, pchanged) as Pixa
 // pixaSelectBySize(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as PIXA *
@@ -80,6 +89,7 @@ public static Pix pixSelectBySize(
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 otherwise</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectBySize(
 				 Pixa pixas, 
 				 int width, 
@@ -88,15 +98,22 @@ public static Pixa pixaSelectBySize(
 				 int relation, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixaSelectBySize(pixas.Pointer,   width,   height,   type,   relation, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixaSelectBySize(
+pixas.Pointer,   width,   height,   type,   relation, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (355, 1)
 // pixaMakeSizeIndicator(pixa, width, height, type, relation) as Numa
 // pixaMakeSizeIndicator(PIXA *, l_int32, l_int32, l_int32, l_int32) as NUMA *
@@ -121,6 +138,7 @@ public static Pixa pixaSelectBySize(
 ///  <param name="type">[in] - L_SELECT_WIDTH, L_SELECT_HEIGHT, L_SELECT_IF_EITHER, L_SELECT_IF_BOTH</param>
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///   <returns>na indicator array, or NULL on error</returns>
+
 public static Numa pixaMakeSizeIndicator(
 				 Pixa pixa, 
 				 int width, 
@@ -128,15 +146,22 @@ public static Numa pixaMakeSizeIndicator(
 				 int type, 
 				 int relation){
 
-	IntPtr _Result = Natives.pixaMakeSizeIndicator(pixa.Pointer,   width,   height,   type,   relation);
+
+
+	IntPtr _Result = Natives.pixaMakeSizeIndicator(
+pixa.Pointer,   width,   height,   type,   relation);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (446, 1)
 // pixSelectByPerimToAreaRatio(pixs, thresh, connectivity, type, pchanged) as Pix
 // pixSelectByPerimToAreaRatio(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
@@ -163,6 +188,7 @@ public static Numa pixaMakeSizeIndicator(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixSelectByPerimToAreaRatio(
 				 Pix pixs, 
 				 Single thresh, 
@@ -170,15 +196,22 @@ public static Pix pixSelectByPerimToAreaRatio(
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixSelectByPerimToAreaRatio(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixSelectByPerimToAreaRatio(
+pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (520, 1)
 // pixaSelectByPerimToAreaRatio(pixas, thresh, type, pchanged) as Pixa
 // pixaSelectByPerimToAreaRatio(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
@@ -197,21 +230,29 @@ public static Pix pixSelectByPerimToAreaRatio(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectByPerimToAreaRatio(
 				 Pixa pixas, 
 				 Single thresh, 
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixaSelectByPerimToAreaRatio(pixas.Pointer,   thresh,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixaSelectByPerimToAreaRatio(
+pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (577, 1)
 // pixSelectByPerimSizeRatio(pixs, thresh, connectivity, type, pchanged) as Pix
 // pixSelectByPerimSizeRatio(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
@@ -239,6 +280,7 @@ public static Pixa pixaSelectByPerimToAreaRatio(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixSelectByPerimSizeRatio(
 				 Pix pixs, 
 				 Single thresh, 
@@ -246,15 +288,22 @@ public static Pix pixSelectByPerimSizeRatio(
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixSelectByPerimSizeRatio(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixSelectByPerimSizeRatio(
+pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (651, 1)
 // pixaSelectByPerimSizeRatio(pixas, thresh, type, pchanged) as Pixa
 // pixaSelectByPerimSizeRatio(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
@@ -273,21 +322,29 @@ public static Pix pixSelectByPerimSizeRatio(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectByPerimSizeRatio(
 				 Pixa pixas, 
 				 Single thresh, 
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixaSelectByPerimSizeRatio(pixas.Pointer,   thresh,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixaSelectByPerimSizeRatio(
+pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (707, 1)
 // pixSelectByAreaFraction(pixs, thresh, connectivity, type, pchanged) as Pix
 // pixSelectByAreaFraction(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
@@ -314,6 +371,7 @@ public static Pixa pixaSelectByPerimSizeRatio(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixSelectByAreaFraction(
 				 Pix pixs, 
 				 Single thresh, 
@@ -321,15 +379,22 @@ public static Pix pixSelectByAreaFraction(
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixSelectByAreaFraction(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixSelectByAreaFraction(
+pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (785, 1)
 // pixaSelectByAreaFraction(pixas, thresh, type, pchanged) as Pixa
 // pixaSelectByAreaFraction(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
@@ -353,21 +418,29 @@ public static Pix pixSelectByAreaFraction(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectByAreaFraction(
 				 Pixa pixas, 
 				 Single thresh, 
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixaSelectByAreaFraction(pixas.Pointer,   thresh,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixaSelectByAreaFraction(
+pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (840, 1)
 // pixSelectByWidthHeightRatio(pixs, thresh, connectivity, type, pchanged) as Pix
 // pixSelectByWidthHeightRatio(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
@@ -393,6 +466,7 @@ public static Pixa pixaSelectByAreaFraction(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixSelectByWidthHeightRatio(
 				 Pix pixs, 
 				 Single thresh, 
@@ -400,15 +474,22 @@ public static Pix pixSelectByWidthHeightRatio(
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixSelectByWidthHeightRatio(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixSelectByWidthHeightRatio(
+pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (918, 1)
 // pixaSelectByWidthHeightRatio(pixas, thresh, type, pchanged) as Pixa
 // pixaSelectByWidthHeightRatio(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
@@ -432,21 +513,29 @@ public static Pix pixSelectByWidthHeightRatio(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectByWidthHeightRatio(
 				 Pixa pixas, 
 				 Single thresh, 
 				 int type, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixaSelectByWidthHeightRatio(pixas.Pointer,   thresh,   type, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixaSelectByWidthHeightRatio(
+pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (968, 1)
 // pixaSelectByNumConnComp(pixas, nmin, nmax, connectivity, pchanged) as Pixa
 // pixaSelectByNumConnComp(PIXA *, l_int32, l_int32, l_int32, l_int32 *) as PIXA *
@@ -467,6 +556,7 @@ public static Pixa pixaSelectByWidthHeightRatio(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectByNumConnComp(
 				 Pixa pixas, 
 				 int nmin, 
@@ -474,15 +564,22 @@ public static Pixa pixaSelectByNumConnComp(
 				 int connectivity, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixaSelectByNumConnComp(pixas.Pointer,   nmin,   nmax,   connectivity, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixaSelectByNumConnComp(
+pixas.Pointer,   nmin,   nmax,   connectivity, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1027, 1)
 // pixaSelectWithIndicator(pixas, na, pchanged) as Pixa
 // pixaSelectWithIndicator(PIXA *, NUMA *, l_int32 *) as PIXA *
@@ -503,20 +600,28 @@ public static Pixa pixaSelectByNumConnComp(
 ///  <param name="na">[in] - indicator numa</param>
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectWithIndicator(
 				 Pixa pixas, 
 				 Numa na, 
 				out int pchanged){
 
-	IntPtr _Result = Natives.pixaSelectWithIndicator(pixas.Pointer, na.Pointer, out  pchanged);
+
+
+	IntPtr _Result = Natives.pixaSelectWithIndicator(
+pixas.Pointer, na.Pointer, out  pchanged);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1087, 1)
 // pixRemoveWithIndicator(pixs, pixa, na) as int
 // pixRemoveWithIndicator(PIX *, PIXA *, NUMA *) as l_ok
@@ -531,19 +636,27 @@ public static Pixa pixaSelectWithIndicator(
 ///  <param name="pixa">[in] - of connected components in pixs</param>
 ///  <param name="na">[in] - numa indicator: remove components corresponding to 1s</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRemoveWithIndicator(
 				 Pix pixs, 
 				 Pixa pixa, 
 				 Numa na){
 
-	int _Result = Natives.pixRemoveWithIndicator(pixs.Pointer, pixa.Pointer, na.Pointer);
+
+
+	int _Result = Natives.pixRemoveWithIndicator(
+pixs.Pointer, pixa.Pointer, na.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1140, 1)
 // pixAddWithIndicator(pixs, pixa, na) as int
 // pixAddWithIndicator(PIX *, PIXA *, NUMA *) as l_ok
@@ -558,19 +671,27 @@ public static int pixRemoveWithIndicator(
 ///  <param name="pixa">[in] - of connected components, some of which will be put into pixs</param>
 ///  <param name="na">[in] - numa indicator: add components corresponding to 1s</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixAddWithIndicator(
 				 Pix pixs, 
 				 Pixa pixa, 
 				 Numa na){
 
-	int _Result = Natives.pixAddWithIndicator(pixs.Pointer, pixa.Pointer, na.Pointer);
+
+
+	int _Result = Natives.pixAddWithIndicator(
+pixs.Pointer, pixa.Pointer, na.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1193, 1)
 // pixaSelectWithString(pixas, str, perror) as Pixa
 // pixaSelectWithString(PIXA *, const char *, l_int32 *) as PIXA *
@@ -586,20 +707,28 @@ public static int pixAddWithIndicator(
 ///  <param name="str">[in] - string of indices into pixa, giving the pix to be selected</param>
 ///  <param name="perror">[out][optional] - 1 if any indices are invalid 0 if all indices are valid</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectWithString(
 				 Pixa pixas, 
 				 String str, 
 				out int perror){
 
-	IntPtr _Result = Natives.pixaSelectWithString(pixas.Pointer,   str, out  perror);
+
+
+	IntPtr _Result = Natives.pixaSelectWithString(
+pixas.Pointer,   str, out  perror);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1264, 1)
 // pixaRenderComponent(pixs, pixa, index) as Pix
 // pixaRenderComponent(PIX *, PIXA *, l_int32) as PIX *
@@ -616,22 +745,29 @@ public static Pixa pixaSelectWithString(
 ///  <param name="pixa">[in] - of 1 bpp connected components, one of which will be rendered in pixs, with its origin determined by the associated box.</param>
 ///  <param name="index">[in] - of component to be rendered</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixaRenderComponent(
 				 Pix pixs, 
 				 Pixa pixa, 
 				 int index){
 
+
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	IntPtr _Result = Natives.pixaRenderComponent(pixsPtr, pixa.Pointer,   index);
+	IntPtr _Result = Natives.pixaRenderComponent(
+pixsPtr, pixa.Pointer,   index);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1334, 1)
 // pixaSort(pixas, sorttype, sortorder, pnaindex, copyflag) as Pixa
 // pixaSort(PIXA *, l_int32, l_int32, NUMA **, l_int32) as PIXA *
@@ -656,6 +792,7 @@ public static Pix pixaRenderComponent(
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad sorted version of pixas, or NULL on error</returns>
+
 public static Pixa pixaSort(
 				 Pixa pixas, 
 				 int sorttype, 
@@ -663,18 +800,24 @@ public static Pixa pixaSort(
 				out Numa pnaindex, 
 				 int copyflag){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixaSort(pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
+	IntPtr _Result = Natives.pixaSort(
+pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1474, 1)
 // pixaBinSort(pixas, sorttype, sortorder, pnaindex, copyflag) as Pixa
 // pixaBinSort(PIXA *, l_int32, l_int32, NUMA **, l_int32) as PIXA *
@@ -702,6 +845,7 @@ public static Pixa pixaSort(
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad sorted version of pixas, or NULL on error</returns>
+
 public static Pixa pixaBinSort(
 				 Pixa pixas, 
 				 int sorttype, 
@@ -709,18 +853,24 @@ public static Pixa pixaBinSort(
 				out Numa pnaindex, 
 				 int copyflag){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixaBinSort(pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
+	IntPtr _Result = Natives.pixaBinSort(
+pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1562, 1)
 // pixaSortByIndex(pixas, naindex, copyflag) as Pixa
 // pixaSortByIndex(PIXA *, NUMA *, l_int32) as PIXA *
@@ -731,20 +881,28 @@ public static Pixa pixaBinSort(
 ///  <param name="naindex">[in] - na that maps from the new pixa to the input pixa</param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad sorted, or NULL on error</returns>
+
 public static Pixa pixaSortByIndex(
 				 Pixa pixas, 
 				 Numa naindex, 
 				 int copyflag){
 
-	IntPtr _Result = Natives.pixaSortByIndex(pixas.Pointer, naindex.Pointer,   copyflag);
+
+
+	IntPtr _Result = Natives.pixaSortByIndex(
+pixas.Pointer, naindex.Pointer,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1603, 1)
 // pixaSort2dByIndex(pixas, naa, copyflag) as Pixaa
 // pixaSort2dByIndex(PIXA *, NUMAA *, l_int32) as PIXAA *
@@ -755,20 +913,28 @@ public static Pixa pixaSortByIndex(
 ///  <param name="naa">[in] - numaa that maps from the new pixaa to the input pixas</param>
 ///  <param name="copyflag">[in] - L_CLONE or L_COPY</param>
 ///   <returns>paa sorted, or NULL on error</returns>
+
 public static Pixaa pixaSort2dByIndex(
 				 Pixa pixas, 
 				 Numaa naa, 
 				 int copyflag){
 
-	IntPtr _Result = Natives.pixaSort2dByIndex(pixas.Pointer, naa.Pointer,   copyflag);
+
+
+	IntPtr _Result = Natives.pixaSort2dByIndex(
+pixas.Pointer, naa.Pointer,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1668, 1)
 // pixaSelectRange(pixas, first, last, copyflag) as Pixa
 // pixaSelectRange(PIXA *, l_int32, l_int32, l_int32) as PIXA *
@@ -785,21 +951,29 @@ public static Pixaa pixaSort2dByIndex(
 ///  <param name="last">[in] - use 0 to select to the end</param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaSelectRange(
 				 Pixa pixas, 
 				 int first, 
 				 int last, 
 				 int copyflag){
 
-	IntPtr _Result = Natives.pixaSelectRange(pixas.Pointer,   first,   last,   copyflag);
+
+
+	IntPtr _Result = Natives.pixaSelectRange(
+pixas.Pointer,   first,   last,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1718, 1)
 // pixaaSelectRange(paas, first, last, copyflag) as Pixaa
 // pixaaSelectRange(PIXAA *, l_int32, l_int32, l_int32) as PIXAA *
@@ -816,21 +990,29 @@ public static Pixa pixaSelectRange(
 ///  <param name="last">[in] - use 0 to select to the end</param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>paad, or NULL on error</returns>
+
 public static Pixaa pixaaSelectRange(
 				 Pixaa paas, 
 				 int first, 
 				 int last, 
 				 int copyflag){
 
-	IntPtr _Result = Natives.pixaaSelectRange(paas.Pointer,   first,   last,   copyflag);
+
+
+	IntPtr _Result = Natives.pixaaSelectRange(
+paas.Pointer,   first,   last,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1774, 1)
 // pixaaScaleToSize(paas, wd, hd) as Pixaa
 // pixaaScaleToSize(PIXAA *, l_int32, l_int32) as PIXAA *
@@ -850,20 +1032,28 @@ public static Pixaa pixaaSelectRange(
 ///  <param name="wd">[in] - target width use 0 if using height as target</param>
 ///  <param name="hd">[in] - target height use 0 if using width as target</param>
 ///   <returns>paad, or NULL on error</returns>
+
 public static Pixaa pixaaScaleToSize(
 				 Pixaa paas, 
 				 int wd, 
 				 int hd){
 
-	IntPtr _Result = Natives.pixaaScaleToSize(paas.Pointer,   wd,   hd);
+
+
+	IntPtr _Result = Natives.pixaaScaleToSize(
+paas.Pointer,   wd,   hd);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1823, 1)
 // pixaaScaleToSizeVar(paas, nawd, nahd) as Pixaa
 // pixaaScaleToSizeVar(PIXAA *, NUMA *, NUMA *) as PIXAA *
@@ -886,23 +1076,30 @@ public static Pixaa pixaaScaleToSize(
 ///  <param name="nawd">[in][optional] - target widths use NULL if using height</param>
 ///  <param name="nahd">[in][optional] - target height use NULL if using width</param>
 ///   <returns>paad, or NULL on error</returns>
+
 public static Pixaa pixaaScaleToSizeVar(
 				 Pixaa paas, 
 				 Numa nawd, 
 				 Numa nahd){
 
+
 	IntPtr nawdPtr = IntPtr.Zero; 	if (nawd != null) {nawdPtr = nawd.Pointer;}
 	IntPtr nahdPtr = IntPtr.Zero; 	if (nahd != null) {nahdPtr = nahd.Pointer;}
 
-	IntPtr _Result = Natives.pixaaScaleToSizeVar(paas.Pointer, nawdPtr, nahdPtr);
+	IntPtr _Result = Natives.pixaaScaleToSizeVar(
+paas.Pointer, nawdPtr, nahdPtr);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1871, 1)
 // pixaScaleToSize(pixas, wd, hd) as Pixa
 // pixaScaleToSize(PIXA *, l_int32, l_int32) as PIXA *
@@ -916,20 +1113,28 @@ public static Pixaa pixaaScaleToSizeVar(
 ///  <param name="wd">[in] - target width use 0 if using height as target</param>
 ///  <param name="hd">[in] - target height use 0 if using width as target</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaScaleToSize(
 				 Pixa pixas, 
 				 int wd, 
 				 int hd){
 
-	IntPtr _Result = Natives.pixaScaleToSize(pixas.Pointer,   wd,   hd);
+
+
+	IntPtr _Result = Natives.pixaScaleToSize(
+pixas.Pointer,   wd,   hd);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1916, 1)
 // pixaScaleToSizeRel(pixas, delw, delh) as Pixa
 // pixaScaleToSizeRel(PIXA *, l_int32, l_int32) as PIXA *
@@ -945,20 +1150,28 @@ public static Pixa pixaScaleToSize(
 ///  <param name="delw">[in] - change in width, in pixels 0 means no change</param>
 ///  <param name="delh">[in] - change in height, in pixels 0 means no change return  pixad, or NULL on error</param>
 ///   <returns></returns>
+
 public static Pixa pixaScaleToSizeRel(
 				 Pixa pixas, 
 				 int delw, 
 				 int delh){
 
-	IntPtr _Result = Natives.pixaScaleToSizeRel(pixas.Pointer,   delw,   delh);
+
+
+	IntPtr _Result = Natives.pixaScaleToSizeRel(
+pixas.Pointer,   delw,   delh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (1960, 1)
 // pixaScale(pixas, scalex, scaley) as Pixa
 // pixaScale(PIXA *, l_float32, l_float32) as PIXA *
@@ -972,20 +1185,28 @@ public static Pixa pixaScaleToSizeRel(
 ///  <param name="scalex">[in] - </param>
 ///  <param name="scaley">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaScale(
 				 Pixa pixas, 
 				 Single scalex, 
 				 Single scaley){
 
-	IntPtr _Result = Natives.pixaScale(pixas.Pointer,   scalex,   scaley);
+
+
+	IntPtr _Result = Natives.pixaScale(
+pixas.Pointer,   scalex,   scaley);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2011, 1)
 // pixaScaleBySampling(pixas, scalex, scaley) as Pixa
 // pixaScaleBySampling(PIXA *, l_float32, l_float32) as PIXA *
@@ -999,20 +1220,28 @@ public static Pixa pixaScale(
 ///  <param name="scalex">[in] - </param>
 ///  <param name="scaley">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaScaleBySampling(
 				 Pixa pixas, 
 				 Single scalex, 
 				 Single scaley){
 
-	IntPtr _Result = Natives.pixaScaleBySampling(pixas.Pointer,   scalex,   scaley);
+
+
+	IntPtr _Result = Natives.pixaScaleBySampling(
+pixas.Pointer,   scalex,   scaley);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2076, 1)
 // pixaRotate(pixas, angle, type, incolor, width, height) as Pixa
 // pixaRotate(PIXA *, l_float32, l_int32, l_int32, l_int32, l_int32) as PIXA *
@@ -1038,6 +1267,7 @@ public static Pixa pixaScaleBySampling(
 ///  <param name="width">[in] - original width use 0 to avoid embedding</param>
 ///  <param name="height">[in] - original height use 0 to avoid embedding</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaRotate(
 				 Pixa pixas, 
 				 Single angle, 
@@ -1046,15 +1276,22 @@ public static Pixa pixaRotate(
 				 int width, 
 				 int height){
 
-	IntPtr _Result = Natives.pixaRotate(pixas.Pointer,   angle,   type,   incolor,   width,   height);
+
+
+	IntPtr _Result = Natives.pixaRotate(
+pixas.Pointer,   angle,   type,   incolor,   width,   height);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2134, 1)
 // pixaRotateOrth(pixas, rotation) as Pixa
 // pixaRotateOrth(PIXA *, l_int32) as PIXA *
@@ -1068,19 +1305,27 @@ public static Pixa pixaRotate(
 ///  <param name="pixas">[in] - </param>
 ///  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaRotateOrth(
 				 Pixa pixas, 
 				 int rotation){
 
-	IntPtr _Result = Natives.pixaRotateOrth(pixas.Pointer,   rotation);
+
+
+	IntPtr _Result = Natives.pixaRotateOrth(
+pixas.Pointer,   rotation);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2186, 1)
 // pixaTranslate(pixas, hshift, vshift, incolor) as Pixa
 // pixaTranslate(PIXA *, l_int32, l_int32, l_int32) as PIXA *
@@ -1092,21 +1337,29 @@ public static Pixa pixaRotateOrth(
 ///  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixad, or NULL on error.</returns>
+
 public static Pixa pixaTranslate(
 				 Pixa pixas, 
 				 int hshift, 
 				 int vshift, 
 				 int incolor){
 
-	IntPtr _Result = Natives.pixaTranslate(pixas.Pointer,   hshift,   vshift,   incolor);
+
+
+	IntPtr _Result = Natives.pixaTranslate(
+pixas.Pointer,   hshift,   vshift,   incolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2260, 1)
 // pixaAddBorderGeneral(pixad, pixas, left, right, top, bot, val) as Pixa
 // pixaAddBorderGeneral(PIXA *, PIXA *, l_int32, l_int32, l_int32, l_int32, l_uint32) as PIXA *
@@ -1141,6 +1394,7 @@ public static Pixa pixaTranslate(
 ///  <param name="bot">[in] - number of pixels added</param>
 ///  <param name="val">[in] - value of added border pixels</param>
 ///   <returns>pixad with border added to each pix, including on error</returns>
+
 public static Pixa pixaAddBorderGeneral(
 				 Pixa pixad, 
 				 Pixa pixas, 
@@ -1150,17 +1404,23 @@ public static Pixa pixaAddBorderGeneral(
 				 int bot, 
 				 uint val){
 
+
 	IntPtr pixadPtr = IntPtr.Zero; 	if (pixad != null) {pixadPtr = pixad.Pointer;}
 
-	IntPtr _Result = Natives.pixaAddBorderGeneral(pixadPtr, pixas.Pointer,   left,   right,   top,   bot,   val);
+	IntPtr _Result = Natives.pixaAddBorderGeneral(
+pixadPtr, pixas.Pointer,   left,   right,   top,   bot,   val);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2331, 1)
 // pixaaFlattenToPixa(paa, pnaindex, copyflag) as Pixa
 // pixaaFlattenToPixa(PIXAA *, NUMA **, l_int32) as PIXA *
@@ -1178,23 +1438,30 @@ public static Pixa pixaAddBorderGeneral(
 ///  <param name="pnaindex">[out][optional] - the pixa index in the pixaa</param>
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>pixa, or NULL on error</returns>
+
 public static Pixa pixaaFlattenToPixa(
 				 Pixaa paa, 
 				out Numa pnaindex, 
 				 int copyflag){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixaaFlattenToPixa(paa.Pointer, out pnaindexPtr,   copyflag);
+	IntPtr _Result = Natives.pixaaFlattenToPixa(
+paa.Pointer, out pnaindexPtr,   copyflag);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2386, 1)
 // pixaaSizeRange(paa, pminw, pminh, pmaxw, pmaxh) as int
 // pixaaSizeRange(PIXAA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -1207,6 +1474,7 @@ public static Pixa pixaaFlattenToPixa(
 ///  <param name="pmaxw">[out][optional] - range of dimensions of all boxes</param>
 ///  <param name="pmaxh">[out][optional] - range of dimensions of all boxes</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaaSizeRange(
 				 Pixaa paa, 
 				out int pminw, 
@@ -1214,14 +1482,21 @@ public static int pixaaSizeRange(
 				out int pmaxw, 
 				out int pmaxh){
 
-	int _Result = Natives.pixaaSizeRange(paa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
+
+
+	int _Result = Natives.pixaaSizeRange(
+paa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2440, 1)
 // pixaSizeRange(pixa, pminw, pminh, pmaxw, pmaxh) as int
 // pixaSizeRange(PIXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -1234,6 +1509,7 @@ public static int pixaaSizeRange(
 ///  <param name="pmaxw">[out][optional] - range of dimensions of pix in the array</param>
 ///  <param name="pmaxh">[out][optional] - range of dimensions of pix in the array</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaSizeRange(
 				 Pixa pixa, 
 				out int pminw, 
@@ -1241,14 +1517,21 @@ public static int pixaSizeRange(
 				out int pmaxw, 
 				out int pmaxh){
 
-	int _Result = Natives.pixaSizeRange(pixa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
+
+
+	int _Result = Natives.pixaSizeRange(
+pixa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2510, 1)
 // pixaClipToPix(pixas, pixs) as Pixa
 // pixaClipToPix(PIXA *, PIX *) as PIXA *
@@ -1273,19 +1556,27 @@ public static int pixaSizeRange(
 ///  <param name="pixas">[in] - </param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaClipToPix(
 				 Pixa pixas, 
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixaClipToPix(pixas.Pointer, pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixaClipToPix(
+pixas.Pointer, pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2559, 1)
 // pixaClipToForeground(pixas, ppixad, pboxa) as int
 // pixaClipToForeground(PIXA *, PIXA **, BOXA **) as l_ok
@@ -1303,24 +1594,31 @@ public static Pixa pixaClipToPix(
 ///  <param name="ppixad">[out][optional] - pixa of clipped pix returned</param>
 ///  <param name="pboxa">[out][optional] - clipping boxes returned</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaClipToForeground(
 				 Pixa pixas, 
 				out Pixa ppixad, 
 				out Boxa pboxa){
 
+
 	IntPtr ppixadPtr = IntPtr.Zero;
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixaClipToForeground(pixas.Pointer, out ppixadPtr, out pboxaPtr);
+	int _Result = Natives.pixaClipToForeground(
+pixas.Pointer, out ppixadPtr, out pboxaPtr);
 	
 
+
+//  
 	if (ppixadPtr == IntPtr.Zero) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2605, 1)
 // pixaGetRenderingDepth(pixa, pdepth) as int
 // pixaGetRenderingDepth(PIXA *, l_int32 *) as l_ok
@@ -1330,18 +1628,26 @@ public static int pixaClipToForeground(
 ///  <param name="pixa">[in] - </param>
 ///  <param name="pdepth">[out] - depth required to render if all colormaps are removed</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixaGetRenderingDepth(
 				 Pixa pixa, 
 				out int pdepth){
 
-	int _Result = Natives.pixaGetRenderingDepth(pixa.Pointer, out  pdepth);
+
+
+	int _Result = Natives.pixaGetRenderingDepth(
+pixa.Pointer, out  pdepth);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2642, 1)
 // pixaHasColor(pixa, phascolor) as int
 // pixaHasColor(PIXA *, l_int32 *) as l_ok
@@ -1351,18 +1657,26 @@ public static int pixaGetRenderingDepth(
 ///  <param name="pixa">[in] - </param>
 ///  <param name="phascolor">[out] - 1 if any pix is rgb or has a colormap with color 0 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixaHasColor(
 				 Pixa pixa, 
 				out int phascolor){
 
-	int _Result = Natives.pixaHasColor(pixa.Pointer, out  phascolor);
+
+
+	int _Result = Natives.pixaHasColor(
+pixa.Pointer, out  phascolor);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2683, 1)
 // pixaAnyColormaps(pixa, phascmap) as int
 // pixaAnyColormaps(PIXA *, l_int32 *) as l_ok
@@ -1372,18 +1686,26 @@ public static int pixaHasColor(
 ///  <param name="pixa">[in] - </param>
 ///  <param name="phascmap">[out] - 1 if any pix has a colormap 0 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixaAnyColormaps(
 				 Pixa pixa, 
 				out int phascmap){
 
-	int _Result = Natives.pixaAnyColormaps(pixa.Pointer, out  phascmap);
+
+
+	int _Result = Natives.pixaAnyColormaps(
+pixa.Pointer, out  phascmap);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2722, 1)
 // pixaGetDepthInfo(pixa, pmaxdepth, psame) as int
 // pixaGetDepthInfo(PIXA *, l_int32 *, l_int32 *) as l_ok
@@ -1394,19 +1716,27 @@ public static int pixaAnyColormaps(
 ///  <param name="pmaxdepth">[out][optional] - max pixel depth of pix in pixa</param>
 ///  <param name="psame">[out][optional] - true if all depths are equal</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixaGetDepthInfo(
 				 Pixa pixa, 
 				out int pmaxdepth, 
 				out int psame){
 
-	int _Result = Natives.pixaGetDepthInfo(pixa.Pointer, out  pmaxdepth, out  psame);
+
+
+	int _Result = Natives.pixaGetDepthInfo(
+pixa.Pointer, out  pmaxdepth, out  psame);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2771, 1)
 // pixaConvertToSameDepth(pixas) as Pixa
 // pixaConvertToSameDepth(PIXA *) as PIXA *
@@ -1422,18 +1752,26 @@ public static int pixaGetDepthInfo(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaConvertToSameDepth/*"/>
 ///  <param name="pixas">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaConvertToSameDepth(
 				 Pixa pixas){
 
-	IntPtr _Result = Natives.pixaConvertToSameDepth(pixas.Pointer);
+
+
+	IntPtr _Result = Natives.pixaConvertToSameDepth(
+pixas.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2851, 1)
 // pixaEqual(pixa1, pixa2, maxdist, pnaindex, psame) as int
 // pixaEqual(PIXA *, PIXA *, l_int32, NUMA **, l_int32 *) as l_ok
@@ -1465,6 +1803,7 @@ public static Pixa pixaConvertToSameDepth(
 ///  <param name="pnaindex">[out][optional] - index array of correspondences</param>
 ///  <param name="psame">[out] - 1 if equal 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaEqual(
 				 Pixa pixa1, 
 				 Pixa pixa2, 
@@ -1472,17 +1811,23 @@ public static int pixaEqual(
 				out Numa pnaindex, 
 				out int psame){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixaEqual(pixa1.Pointer, pixa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
+	int _Result = Natives.pixaEqual(
+pixa1.Pointer, pixa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc1.c (2936, 1)
 // pixaSetFullSizeBoxa(pixa) as int
 // pixaSetFullSizeBoxa(PIXA *) as l_ok
@@ -1496,11 +1841,18 @@ public static int pixaEqual(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaSetFullSizeBoxa/*"/>
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaSetFullSizeBoxa(
 				 Pixa pixa){
 
-	int _Result = Natives.pixaSetFullSizeBoxa(pixa.Pointer);
+
+
+	int _Result = Natives.pixaSetFullSizeBoxa(
+pixa.Pointer);
 	
+
+
+//  
 
 
 

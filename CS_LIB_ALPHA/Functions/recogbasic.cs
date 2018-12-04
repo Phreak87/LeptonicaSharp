@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (232, 1)
 // recogCreateFromRecog(recs, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 // recogCreateFromRecog(L_RECOG *, l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
@@ -27,6 +28,7 @@ public partial class _All {
 ///  <param name="threshold">[in] - for binarization typically ~128</param>
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recd, or NULL on error</returns>
+
 public static L_Recog recogCreateFromRecog(
 				 L_Recog recs, 
 				 int scalew, 
@@ -35,15 +37,22 @@ public static L_Recog recogCreateFromRecog(
 				 int threshold, 
 				 int maxyshift){
 
-	IntPtr _Result = Natives.recogCreateFromRecog(recs.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
+
+
+	IntPtr _Result = Natives.recogCreateFromRecog(
+recs.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (279, 1)
 // recogCreateFromPixa(pixa, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 // recogCreateFromPixa(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
@@ -71,6 +80,7 @@ public static L_Recog recogCreateFromRecog(
 ///  <param name="threshold">[in] - for binarization typically ~150</param>
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recog, or NULL on error</returns>
+
 public static L_Recog recogCreateFromPixa(
 				 Pixa pixa, 
 				 int scalew, 
@@ -79,15 +89,22 @@ public static L_Recog recogCreateFromPixa(
 				 int threshold, 
 				 int maxyshift){
 
-	IntPtr _Result = Natives.recogCreateFromPixa(pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
+
+
+	IntPtr _Result = Natives.recogCreateFromPixa(
+pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (325, 1)
 // recogCreateFromPixaNoFinish(pixa, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 // recogCreateFromPixaNoFinish(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
@@ -108,6 +125,7 @@ public static L_Recog recogCreateFromPixa(
 ///  <param name="threshold">[in] - for binarization typically ~150</param>
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recog, or NULL on error</returns>
+
 public static L_Recog recogCreateFromPixaNoFinish(
 				 Pixa pixa, 
 				 int scalew, 
@@ -116,15 +134,22 @@ public static L_Recog recogCreateFromPixaNoFinish(
 				 int threshold, 
 				 int maxyshift){
 
-	IntPtr _Result = Natives.recogCreateFromPixaNoFinish(pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
+
+
+	IntPtr _Result = Natives.recogCreateFromPixaNoFinish(
+pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (406, 1)
 // recogCreate(scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 // recogCreate(l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
@@ -159,6 +184,7 @@ public static L_Recog recogCreateFromPixaNoFinish(
 ///  <param name="threshold">[in] - for binarization typically ~128 0 for default</param>
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recog, or NULL on error</returns>
+
 public static L_Recog recogCreate(
 				 int scalew, 
 				 int scaleh, 
@@ -166,15 +192,22 @@ public static L_Recog recogCreate(
 				 int threshold, 
 				 int maxyshift){
 
-	IntPtr _Result = Natives.recogCreate(  scalew,   scaleh,   linew,   threshold,   maxyshift);
+
+
+	IntPtr _Result = Natives.recogCreate(
+  scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (476, 1)
 // recogDestroy(precog) as Object
 // recogDestroy(L_RECOG **) as void
@@ -182,19 +215,26 @@ public static L_Recog recogCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDestroy/*"/>
 ///  <param name="precog">[in,out] - will be set to null before returning</param>
+
 public static void recogDestroy(
 				ref L_Recog precog){
 
+
 	IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
 
-	Natives.recogDestroy(ref precogPtr);
+	Natives.recogDestroy(
+ref precogPtr);
 	
 
+
+//  
 	if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (529, 1)
 // recogGetCount(recog) as int
 // recogGetCount(L_RECOG *) as l_int32
@@ -203,17 +243,25 @@ public static void recogDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogGetCount/*"/>
 ///  <param name="recog">[in] - </param>
 ///   <returns>count of classes in recog 0 if no recog or on error</returns>
+
 public static int recogGetCount(
 				 L_Recog recog){
 
-	int _Result = Natives.recogGetCount(recog.Pointer);
+
+
+	int _Result = Natives.recogGetCount(
+recog.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (567, 1)
 // recogSetParams(recog, type, min_nopad, max_wh_ratio, max_ht_ratio) as int
 // recogSetParams(L_RECOG *, l_int32, l_int32, l_float32, l_float32) as l_ok
@@ -240,6 +288,7 @@ public static int recogGetCount(
 ///  <param name="max_wh_ratio">[in] - max width/height ratio allowed for splitting use -1.0 for default</param>
 ///  <param name="max_ht_ratio">[in] - max of max/min averaged template height ratio use -1.0 for default</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogSetParams(
 				 L_Recog recog, 
 				 int type, 
@@ -247,14 +296,21 @@ public static int recogSetParams(
 				 Single max_wh_ratio, 
 				 Single max_ht_ratio){
 
-	int _Result = Natives.recogSetParams(recog.Pointer,   type,   min_nopad,   max_wh_ratio,   max_ht_ratio);
+
+
+	int _Result = Natives.recogSetParams(
+recog.Pointer,   type,   min_nopad,   max_wh_ratio,   max_ht_ratio);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (650, 1)
 // recogGetClassIndex(recog, val, text, pindex) as int
 // recogGetClassIndex(L_RECOG *, l_int32, char *, l_int32 *) as l_int32
@@ -282,20 +338,28 @@ public static int recogSetParams(
 ///  <param name="text">[in] - text from which %val was derived used if not found</param>
 ///  <param name="pindex">[out] - index into dna_tochar</param>
 ///   <returns>0 if found 1 if not found and added 2 on error.</returns>
+
 public static int recogGetClassIndex(
 				 L_Recog recog, 
 				 int val, 
 				 String text, 
 				out int pindex){
 
-	int _Result = Natives.recogGetClassIndex(recog.Pointer,   val,   text, out  pindex);
+
+
+	int _Result = Natives.recogGetClassIndex(
+recog.Pointer,   val,   text, out  pindex);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (695, 1)
 // recogStringToIndex(recog, text, pindex) as int
 // recogStringToIndex(L_RECOG *, char *, l_int32 *) as l_ok
@@ -306,19 +370,27 @@ public static int recogGetClassIndex(
 ///  <param name="text">[in] - text string for some class</param>
 ///  <param name="pindex">[out] - index for that class -1 if not found</param>
 ///   <returns>0 if OK, 1 on error not finding the string is an error</returns>
+
 public static int recogStringToIndex(
 				 L_Recog recog, 
 				 String text, 
 				out int pindex){
 
-	int _Result = Natives.recogStringToIndex(recog.Pointer,   text, out  pindex);
+
+
+	int _Result = Natives.recogStringToIndex(
+recog.Pointer,   text, out  pindex);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (748, 1)
 // recogGetClassString(recog, index, pcharstr) as int
 // recogGetClassString(L_RECOG *, l_int32, char **) as l_int32
@@ -335,22 +407,29 @@ public static int recogStringToIndex(
 ///  <param name="index">[in] - into array of char types</param>
 ///  <param name="pcharstr">[out] - string representation returns an empty string on error</param>
 ///   <returns>0 if found, 1 on error</returns>
+
 public static int recogGetClassString(
 				 L_Recog recog, 
 				 int index, 
 				out String[] pcharstr){
 
+
 	IntPtr pcharstrPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogGetClassString(recog.Pointer,   index, out  pcharstrPtr);
+	int _Result = Natives.recogGetClassString(
+recog.Pointer,   index, out  pcharstrPtr);
 	
 
+
+//  
 	if (pcharstrPtr == null) {pcharstr = null;} else { pcharstr = null; };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (778, 1)
 // l_convertCharstrToInt(str, pval) as int
 // l_convertCharstrToInt(const char *, l_int32 *) as l_ok
@@ -360,18 +439,26 @@ public static int recogGetClassString(
 ///  <param name="str">[in] - input string representing one UTF-8 character not more than 4 bytes</param>
 ///  <param name="pval">[out] - integer value for the input.  Think of it as a 1-to-1 hash code.</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_convertCharstrToInt(
 				 String str, 
 				out int pval){
 
-	int _Result = Natives.l_convertCharstrToInt(  str, out  pval);
+
+
+	int _Result = Natives.l_convertCharstrToInt(
+  str, out  pval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (837, 1)
 // recogRead(filename) as L_Recog
 // recogRead(const char *) as L_RECOG *
@@ -397,18 +484,26 @@ public static int l_convertCharstrToInt(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>recog, or NULL on error</returns>
+
 public static L_Recog recogRead(
 				 String filename){
 
-	IntPtr _Result = Natives.recogRead(  filename);
+
+
+	IntPtr _Result = Natives.recogRead(
+  filename);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (866, 1)
 // recogReadStream(fp) as L_Recog
 // recogReadStream(FILE *) as L_RECOG *
@@ -417,18 +512,26 @@ public static L_Recog recogRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>recog, or NULL on error</returns>
+
 public static L_Recog recogReadStream(
 				 FILE fp){
 
-	IntPtr _Result = Natives.recogReadStream(fp.Pointer);
+
+
+	IntPtr _Result = Natives.recogReadStream(
+fp.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (951, 1)
 // recogReadMem(data, size) as L_Recog
 // recogReadMem(const l_uint8 *, size_t) as L_RECOG *
@@ -438,19 +541,27 @@ public static L_Recog recogReadStream(
 ///  <param name="data">[in] - serialization of recog (not ascii)</param>
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>recog, or NULL on error</returns>
+
 public static L_Recog recogReadMem(
 				 Byte[] data, 
 				 uint size){
 
-	IntPtr _Result = Natives.recogReadMem(  data,   size);
+
+
+	IntPtr _Result = Natives.recogReadMem(
+  data,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (988, 1)
 // recogWrite(filename, recog) as int
 // recogWrite(const char *, L_RECOG *) as l_ok
@@ -467,18 +578,26 @@ public static L_Recog recogReadMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogWrite(
 				 String filename, 
 				 L_Recog recog){
 
-	int _Result = Natives.recogWrite(  filename, recog.Pointer);
+
+
+	int _Result = Natives.recogWrite(
+  filename, recog.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (1019, 1)
 // recogWriteStream(fp, recog) as int
 // recogWriteStream(FILE *, L_RECOG *) as l_ok
@@ -488,18 +607,26 @@ public static int recogWrite(
 ///  <param name="fp">[in] - file stream opened for "wb"</param>
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogWriteStream(
 				 FILE fp, 
 				 L_Recog recog){
 
-	int _Result = Natives.recogWriteStream(fp.Pointer, recog.Pointer);
+
+
+	int _Result = Natives.recogWriteStream(
+fp.Pointer, recog.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (1060, 1)
 // recogWriteMem(pdata, psize, recog) as int
 // recogWriteMem(l_uint8 **, size_t *, L_RECOG *) as l_ok
@@ -513,22 +640,33 @@ public static int recogWriteStream(
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 L_Recog recog){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogWriteMem(out  pdataPtr, out  psize, recog.Pointer);
+	int _Result = Natives.recogWriteMem(
+out  pdataPtr, out  psize, recog.Pointer);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[psize];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogbasic.c (1114, 1)
 // recogExtractPixa(recog) as Pixa
 // recogExtractPixa(L_RECOG *) as PIXA *
@@ -542,14 +680,21 @@ public static int recogWriteMem(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogExtractPixa/*"/>
 ///  <param name="recog">[in] - </param>
 ///   <returns>pixa if OK, NULL on error</returns>
+
 public static Pixa recogExtractPixa(
 				 L_Recog recog){
 
-	IntPtr _Result = Natives.recogExtractPixa(recog.Pointer);
+
+
+	IntPtr _Result = Natives.recogExtractPixa(
+recog.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }

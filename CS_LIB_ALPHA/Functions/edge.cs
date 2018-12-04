@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // edge.c (91, 1)
 // pixSobelEdgeFilter(pixs, orientflag) as Pix
 // pixSobelEdgeFilter(PIX *, l_int32) as PIX *
@@ -32,19 +33,27 @@ public partial class _All {
 ///  <param name="pixs">[in] - 8 bpp no colormap</param>
 ///  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES, L_ALL_EDGES</param>
 ///   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
+
 public static Pix pixSobelEdgeFilter(
 				 Pix pixs, 
 				 int orientflag){
 
-	IntPtr _Result = Natives.pixSobelEdgeFilter(pixs.Pointer,   orientflag);
+
+
+	IntPtr _Result = Natives.pixSobelEdgeFilter(
+pixs.Pointer,   orientflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // edge.c (199, 1)
 // pixTwoSidedEdgeFilter(pixs, orientflag) as Pix
 // pixTwoSidedEdgeFilter(PIX *, l_int32) as PIX *
@@ -75,19 +84,27 @@ public static Pix pixSobelEdgeFilter(
 ///  <param name="pixs">[in] - 8 bpp no colormap</param>
 ///  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES</param>
 ///   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
+
 public static Pix pixTwoSidedEdgeFilter(
 				 Pix pixs, 
 				 int orientflag){
 
-	IntPtr _Result = Natives.pixTwoSidedEdgeFilter(pixs.Pointer,   orientflag);
+
+
+	IntPtr _Result = Natives.pixTwoSidedEdgeFilter(
+pixs.Pointer,   orientflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // edge.c (309, 1)
 // pixMeasureEdgeSmoothness(pixs, side, minjump, minreversal, pjpl, pjspl, prpl, debugfile) as int
 // pixMeasureEdgeSmoothness(PIX *, l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *, const char *) as l_ok
@@ -118,6 +135,7 @@ public static Pix pixTwoSidedEdgeFilter(
 ///  <param name="prpl">[out][optional] - reversals/length: number of peak-to-valley or valley-to-peak reversals, normalized to length of component side</param>
 ///  <param name="debugfile">[in][optional] - displays constructed edge use NULL for no output</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixMeasureEdgeSmoothness(
 				 Pix pixs, 
 				 int side, 
@@ -128,14 +146,21 @@ public static int pixMeasureEdgeSmoothness(
 				out Single prpl, 
 				 String debugfile){
 
-	int _Result = Natives.pixMeasureEdgeSmoothness(pixs.Pointer,   side,   minjump,   minreversal, out  pjpl, out  pjspl, out  prpl,   debugfile);
+
+
+	int _Result = Natives.pixMeasureEdgeSmoothness(
+pixs.Pointer,   side,   minjump,   minreversal, out  pjpl, out  pjspl, out  prpl,   debugfile);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // edge.c (386, 1)
 // pixGetEdgeProfile(pixs, side, debugfile) as Numa
 // pixGetEdgeProfile(PIX *, l_int32, const char *) as NUMA *
@@ -146,20 +171,28 @@ public static int pixMeasureEdgeSmoothness(
 ///  <param name="side">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 ///  <param name="debugfile">[in][optional] - displays constructed edge use NULL for no output</param>
 ///   <returns>na of fg edge pixel locations, or NULL on error</returns>
+
 public static Numa pixGetEdgeProfile(
 				 Pix pixs, 
 				 int side, 
 				 String debugfile){
 
-	IntPtr _Result = Natives.pixGetEdgeProfile(pixs.Pointer,   side,   debugfile);
+
+
+	IntPtr _Result = Natives.pixGetEdgeProfile(
+pixs.Pointer,   side,   debugfile);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // edge.c (515, 1)
 // pixGetLastOffPixelInRun(pixs, x, y, direction, ploc) as int
 // pixGetLastOffPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
@@ -167,6 +200,7 @@ public static Numa pixGetEdgeProfile(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLastOffPixelInRun/*"/>
 ///   <returns></returns>
+
 public static int pixGetLastOffPixelInRun(
 				 Pix pixs, 
 				 int x, 
@@ -174,16 +208,22 @@ public static int pixGetLastOffPixelInRun(
 				 int direction, 
 				 object ploc){
 
+
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixGetLastOffPixelInRun(pixs.Pointer,   x,   y,   direction,   ploc);
+	int _Result = Natives.pixGetLastOffPixelInRun(
+pixs.Pointer,   x,   y,   direction,   ploc);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // edge.c (587, 1)
 // pixGetLastOnPixelInRun(pixs, x, y, direction, ploc) as int
 // pixGetLastOnPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
@@ -191,6 +231,7 @@ public static int pixGetLastOffPixelInRun(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLastOnPixelInRun/*"/>
 ///   <returns></returns>
+
 public static int pixGetLastOnPixelInRun(
 				 Pix pixs, 
 				 int x, 
@@ -198,10 +239,15 @@ public static int pixGetLastOnPixelInRun(
 				 int direction, 
 				 object ploc){
 
+
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixGetLastOnPixelInRun(pixs.Pointer,   x,   y,   direction,   ploc);
+	int _Result = Natives.pixGetLastOnPixelInRun(
+pixs.Pointer,   x,   y,   direction,   ploc);
 	
+
+
+//  
 
 
 

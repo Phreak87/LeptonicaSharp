@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (236, 1)
 // listDestroy(phead) as Object
 // listDestroy(DLLIST **) as void
@@ -21,19 +22,26 @@ public partial class _All {
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listDestroy/*"/>
 ///  <param name="phead">[in,out] - to be nulled head of list</param>
+
 public static void listDestroy(
 				ref DoubleLinkedList phead){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
-	Natives.listDestroy(ref pheadPtr);
+	Natives.listDestroy(
+ref pheadPtr);
 	
 
+
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (277, 1)
 // listAddToHead(phead, data) as int
 // listAddToHead(DLLIST **, void *) as l_ok
@@ -50,24 +58,31 @@ public static void listDestroy(
 ///  <param name="phead">[in,out][optional] - input head</param>
 ///  <param name="data">[in] - void ptr, to be added</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int listAddToHead(
 				ref DoubleLinkedList phead, 
 				 Object data){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	int _Result = Natives.listAddToHead(ref pheadPtr,   dataPtr);
+	int _Result = Natives.listAddToHead(
+ref pheadPtr,   dataPtr);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
 
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (331, 1)
 // listAddToTail(phead, ptail, data) as int
 // listAddToTail(DLLIST **, DLLIST **, void *) as l_ok
@@ -94,27 +109,34 @@ public static int listAddToHead(
 ///  <param name="ptail">[in,out] - [updated], can be NULL</param>
 ///  <param name="data">[in] - void ptr, to be hung on tail cons cell</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int listAddToTail(
 				ref DoubleLinkedList phead, 
 				ref DoubleLinkedList ptail, 
 				 Object data){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 	IntPtr ptailPtr = IntPtr.Zero; 	if (ptail != null) {ptailPtr = ptail.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	int _Result = Natives.listAddToTail(ref pheadPtr, ref ptailPtr,   dataPtr);
+	int _Result = Natives.listAddToTail(
+ref pheadPtr, ref ptailPtr,   dataPtr);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
 
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 	if (ptailPtr == IntPtr.Zero) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (394, 1)
 // listInsertBefore(phead, elem, data) as int
 // listInsertBefore(DLLIST **, DLLIST *, void *) as l_ok
@@ -138,25 +160,32 @@ public static int listAddToTail(
 ///  <param name="elem">[in] - list element to be inserted in front of must be NULL if head is NULL</param>
 ///  <param name="data">[in] - void  address, to be added</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int listInsertBefore(
 				ref DoubleLinkedList phead, 
 				 DoubleLinkedList elem, 
 				 Object data){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	int _Result = Natives.listInsertBefore(ref pheadPtr, elem.Pointer,   dataPtr);
+	int _Result = Natives.listInsertBefore(
+ref pheadPtr, elem.Pointer,   dataPtr);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
 
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (459, 1)
 // listInsertAfter(phead, elem, data) as int
 // listInsertAfter(DLLIST **, DLLIST *, void *) as l_ok
@@ -181,25 +210,32 @@ public static int listInsertBefore(
 ///  <param name="elem">[in] - list element to be inserted after must be NULL if head is NULL</param>
 ///  <param name="data">[in] - void  ptr, to be added</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int listInsertAfter(
 				ref DoubleLinkedList phead, 
 				 DoubleLinkedList elem, 
 				 Object data){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	int _Result = Natives.listInsertAfter(ref pheadPtr, elem.Pointer,   dataPtr);
+	int _Result = Natives.listInsertAfter(
+ref pheadPtr, elem.Pointer,   dataPtr);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
 
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (514, 1)
 // listRemoveElement(phead, elem) as Object
 // listRemoveElement(DLLIST **, DLLIST *) as void *
@@ -215,22 +251,29 @@ public static int listInsertAfter(
 ///  <param name="phead">[in,out] - [can be changed] input head</param>
 ///  <param name="elem">[in] - list element to be removed</param>
 ///   <returns>data  void struct on cell</returns>
+
 public static Object listRemoveElement(
 				ref DoubleLinkedList phead, 
 				 DoubleLinkedList elem){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
-	IntPtr _Result = Natives.listRemoveElement(ref pheadPtr, elem.Pointer);
+	IntPtr _Result = Natives.listRemoveElement(
+ref pheadPtr, elem.Pointer);
 	
 
+
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (566, 1)
 // listRemoveFromHead(phead) as Object
 // listRemoveFromHead(DLLIST **) as void *
@@ -245,21 +288,28 @@ public static Object listRemoveElement(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listRemoveFromHead/*"/>
 ///  <param name="phead">[in,out] - head of list [to be updated]</param>
 ///   <returns>data  void struct on cell, or NULL on error</returns>
+
 public static Object listRemoveFromHead(
 				ref DoubleLinkedList phead){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
-	IntPtr _Result = Natives.listRemoveFromHead(ref pheadPtr);
+	IntPtr _Result = Natives.listRemoveFromHead(
+ref pheadPtr);
 	
 
+
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (614, 1)
 // listRemoveFromTail(phead, ptail) as Object
 // listRemoveFromTail(DLLIST **, DLLIST **) as void *
@@ -284,24 +334,31 @@ public static Object listRemoveFromHead(
 ///  <param name="phead">[in,out] - [may be changed], head must NOT be NULL</param>
 ///  <param name="ptail">[in,out] - [always updated], tail may be NULL</param>
 ///   <returns>data  void struct on cell or NULL on error</returns>
+
 public static Object listRemoveFromTail(
 				ref DoubleLinkedList phead, 
 				ref DoubleLinkedList ptail){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 	IntPtr ptailPtr = IntPtr.Zero; 	if (ptail != null) {ptailPtr = ptail.Pointer;}
 
-	IntPtr _Result = Natives.listRemoveFromTail(ref pheadPtr, ref ptailPtr);
+	IntPtr _Result = Natives.listRemoveFromTail(
+ref pheadPtr, ref ptailPtr);
 	
 
+
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 	if (ptailPtr == IntPtr.Zero) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
+
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (668, 1)
 // listFindElement(head, data) as DoubleLinkedList
 // listFindElement(DLLIST *, void *) as DLLIST *
@@ -321,23 +378,30 @@ public static Object listRemoveFromTail(
 ///  <param name="head">[in] - list head</param>
 ///  <param name="data">[in] - void  address, to be searched for</param>
 ///   <returns>cell  the containing cell, or NULL if not found or on error</returns>
+
 public static DoubleLinkedList listFindElement(
 				 DoubleLinkedList head, 
 				 Object data){
 
-		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	IntPtr _Result = Natives.listFindElement(head.Pointer,   dataPtr);
+		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	IntPtr _Result = Natives.listFindElement(
+head.Pointer,   dataPtr);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
 
+//  
 
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new DoubleLinkedList(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (696, 1)
 // listFindTail(head) as DoubleLinkedList
 // listFindTail(DLLIST *) as DLLIST *
@@ -346,18 +410,26 @@ public static DoubleLinkedList listFindElement(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listFindTail/*"/>
 ///  <param name="head">[in] - </param>
 ///   <returns>tail, or NULL on error</returns>
+
 public static DoubleLinkedList listFindTail(
 				 DoubleLinkedList head){
 
-	IntPtr _Result = Natives.listFindTail(head.Pointer);
+
+
+	IntPtr _Result = Natives.listFindTail(
+head.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new DoubleLinkedList(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (721, 1)
 // listGetCount(head) as int
 // listGetCount(DLLIST *) as l_int32
@@ -366,17 +438,25 @@ public static DoubleLinkedList listFindTail(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listGetCount/*"/>
 ///  <param name="head">[in] - of list</param>
 ///   <returns>number of elements 0 if no list or on error</returns>
+
 public static int listGetCount(
 				 DoubleLinkedList head){
 
-	int _Result = Natives.listGetCount(head.Pointer);
+
+
+	int _Result = Natives.listGetCount(
+head.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (751, 1)
 // listReverse(phead) as int
 // listReverse(DLLIST **) as l_ok
@@ -388,20 +468,27 @@ public static int listGetCount(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listReverse/*"/>
 ///  <param name="phead">[in,out] - [may be changed] list head</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int listReverse(
 				ref DoubleLinkedList phead){
 
+
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
-	int _Result = Natives.listReverse(ref pheadPtr);
+	int _Result = Natives.listReverse(
+ref pheadPtr);
 	
 
+
+//  
 	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // list.c (788, 1)
 // listJoin(phead1, phead2) as int
 // listJoin(DLLIST **, DLLIST **) as l_ok
@@ -416,18 +503,24 @@ public static int listReverse(
 ///  <param name="phead1">[in,out] - [may be changed] head of first list</param>
 ///  <param name="phead2">[in,out] - to be nulled head of second list</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int listJoin(
 				ref DoubleLinkedList phead1, 
 				ref DoubleLinkedList phead2){
 
+
 	IntPtr phead1Ptr = IntPtr.Zero; 	if (phead1 != null) {phead1Ptr = phead1.Pointer;}
 	IntPtr phead2Ptr = IntPtr.Zero; 	if (phead2 != null) {phead2Ptr = phead2.Pointer;}
 
-	int _Result = Natives.listJoin(ref phead1Ptr, ref phead2Ptr);
+	int _Result = Natives.listJoin(
+ref phead1Ptr, ref phead2Ptr);
 	
 
+
+//  
 	if (phead1Ptr == IntPtr.Zero) {phead1 = null;} else { phead1 = new DoubleLinkedList(phead1Ptr); };
 	if (phead2Ptr == IntPtr.Zero) {phead2 = null;} else { phead2 = new DoubleLinkedList(phead2Ptr); };
+
 
 
 	return _Result;

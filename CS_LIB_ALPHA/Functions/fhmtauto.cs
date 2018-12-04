@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fhmtauto.c (207, 1)
 // fhmtautogen(sela, fileindex, filename) as int
 // fhmtautogen(SELA *, l_int32, const char *) as l_ok
@@ -22,19 +23,27 @@ public partial class _All {
 ///  <param name="fileindex">[in] - </param>
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int fhmtautogen(
 				 Sela sela, 
 				 int fileindex, 
 				 String filename){
 
-	int _Result = Natives.fhmtautogen(sela.Pointer,   fileindex,   filename);
+
+
+	int _Result = Natives.fhmtautogen(
+sela.Pointer,   fileindex,   filename);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fhmtauto.c (249, 1)
 // fhmtautogen1(sela, fileindex, filename) as int
 // fhmtautogen1(SELA *, l_int32, const char *) as l_ok
@@ -62,19 +71,27 @@ public static int fhmtautogen(
 ///  <param name="fileindex">[in] - </param>
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int fhmtautogen1(
 				 Sela sela, 
 				 int fileindex, 
 				 String filename){
 
-	int _Result = Natives.fhmtautogen1(sela.Pointer,   fileindex,   filename);
+
+
+	int _Result = Natives.fhmtautogen1(
+sela.Pointer,   fileindex,   filename);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fhmtauto.c (431, 1)
 // fhmtautogen2(sela, fileindex, filename) as int
 // fhmtautogen2(SELA *, l_int32, const char *) as l_ok
@@ -99,13 +116,20 @@ public static int fhmtautogen1(
 ///  <param name="fileindex">[in] - </param>
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int fhmtautogen2(
 				 Sela sela, 
 				 int fileindex, 
 				 String filename){
 
-	int _Result = Natives.fhmtautogen2(sela.Pointer,   fileindex,   filename);
+
+
+	int _Result = Natives.fhmtautogen2(
+sela.Pointer,   fileindex,   filename);
 	
+
+
+//  
 
 
 

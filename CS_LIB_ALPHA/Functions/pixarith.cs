@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (115, 1)
 // pixAddConstantGray(pixs, val) as int
 // pixAddConstantGray(PIX *, l_int32) as l_ok
@@ -25,18 +26,26 @@ public partial class _All {
 ///  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 ///  <param name="val">[in] - amount to add to each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixAddConstantGray(
 				 Pix pixs, 
 				 int val){
 
-	int _Result = Natives.pixAddConstantGray(pixs.Pointer,   val);
+
+
+	int _Result = Natives.pixAddConstantGray(
+pixs.Pointer,   val);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (186, 1)
 // pixMultConstantGray(pixs, val) as int
 // pixMultConstantGray(PIX *, l_float32) as l_ok
@@ -53,18 +62,26 @@ public static int pixAddConstantGray(
 ///  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 ///  <param name="val">[in] - greater or equal 0.0 amount to multiply by each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixMultConstantGray(
 				 Pix pixs, 
 				 Single val){
 
-	int _Result = Natives.pixMultConstantGray(pixs.Pointer,   val);
+
+
+	int _Result = Natives.pixMultConstantGray(
+pixs.Pointer,   val);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (261, 1)
 // pixAddGray(pixd, pixs1, pixs2) as Pix
 // pixAddGray(PIX *, PIX *, PIX *) as PIX *
@@ -91,22 +108,29 @@ public static int pixMultConstantGray(
 ///  <param name="pixs1">[in] - can be == to pixd</param>
 ///  <param name="pixs2">[in] - </param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixAddGray(
 				 Pix pixd, 
 				 Pix pixs1, 
 				 Pix pixs2){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixAddGray(pixdPtr, pixs1.Pointer, pixs2.Pointer);
+	IntPtr _Result = Natives.pixAddGray(
+pixdPtr, pixs1.Pointer, pixs2.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (353, 1)
 // pixSubtractGray(pixd, pixs1, pixs2) as Pix
 // pixSubtractGray(PIX *, PIX *, PIX *) as PIX *
@@ -134,22 +158,29 @@ public static Pix pixAddGray(
 ///  <param name="pixs1">[in] - can be == to pixd</param>
 ///  <param name="pixs2">[in] - </param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixSubtractGray(
 				 Pix pixd, 
 				 Pix pixs1, 
 				 Pix pixs2){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixSubtractGray(pixdPtr, pixs1.Pointer, pixs2.Pointer);
+	IntPtr _Result = Natives.pixSubtractGray(
+pixdPtr, pixs1.Pointer, pixs2.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (442, 1)
 // pixThresholdToValue(pixd, pixs, threshval, setval) as Pix
 // pixThresholdToValue(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -167,23 +198,30 @@ public static Pix pixSubtractGray(
 ///  <param name="threshval">[in] - </param>
 ///  <param name="setval">[in] - </param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixThresholdToValue(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int threshval, 
 				 int setval){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixThresholdToValue(pixdPtr, pixs.Pointer,   threshval,   setval);
+	IntPtr _Result = Natives.pixThresholdToValue(
+pixdPtr, pixs.Pointer,   threshval,   setval);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (551, 1)
 // pixInitAccumulate(w, h, offset) as Pix
 // pixInitAccumulate(l_int32, l_int32, l_uint32) as PIX *
@@ -211,20 +249,28 @@ public static Pix pixThresholdToValue(
 ///  <param name="h">[in] - of accumulate array</param>
 ///  <param name="offset">[in] - initialize the 32 bpp to have this value not more than 0x40000000</param>
 ///   <returns>pixd 32 bpp, or NULL on error</returns>
+
 public static Pix pixInitAccumulate(
 				 int w, 
 				 int h, 
 				 uint offset){
 
-	IntPtr _Result = Natives.pixInitAccumulate(  w,   h,   offset);
+
+
+	IntPtr _Result = Natives.pixInitAccumulate(
+  w,   h,   offset);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (585, 1)
 // pixFinalAccumulate(pixs, offset, depth) as Pix
 // pixFinalAccumulate(PIX *, l_uint32, l_int32) as PIX *
@@ -244,20 +290,28 @@ public static Pix pixInitAccumulate(
 ///  <param name="offset">[in] - same as used for initialization</param>
 ///  <param name="depth">[in] - 8, 16 or 32 bpp, of destination</param>
 ///   <returns>pixd 8, 16 or 32 bpp, or NULL on error</returns>
+
 public static Pix pixFinalAccumulate(
 				 Pix pixs, 
 				 uint offset, 
 				 int depth){
 
-	IntPtr _Result = Natives.pixFinalAccumulate(pixs.Pointer,   offset,   depth);
+
+
+	IntPtr _Result = Natives.pixFinalAccumulate(
+pixs.Pointer,   offset,   depth);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (662, 1)
 // pixFinalAccumulateThreshold(pixs, offset, threshold) as Pix
 // pixFinalAccumulateThreshold(PIX *, l_uint32, l_uint32) as PIX *
@@ -273,20 +327,28 @@ public static Pix pixFinalAccumulate(
 ///  <param name="offset">[in] - same as used for initialization</param>
 ///  <param name="threshold">[in] - values less than this are set in the destination</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
+
 public static Pix pixFinalAccumulateThreshold(
 				 Pix pixs, 
 				 uint offset, 
 				 uint threshold){
 
-	IntPtr _Result = Natives.pixFinalAccumulateThreshold(pixs.Pointer,   offset,   threshold);
+
+
+	IntPtr _Result = Natives.pixFinalAccumulateThreshold(
+pixs.Pointer,   offset,   threshold);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (719, 1)
 // pixAccumulate(pixd, pixs, op) as int
 // pixAccumulate(PIX *, PIX *, l_int32) as l_ok
@@ -305,19 +367,27 @@ public static Pix pixFinalAccumulateThreshold(
 ///  <param name="pixs">[in] - 1, 8, 16 or 32 bpp</param>
 ///  <param name="op">[in] - L_ARITH_ADD or L_ARITH_SUBTRACT</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixAccumulate(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int op){
 
-	int _Result = Natives.pixAccumulate(pixd.Pointer, pixs.Pointer,   op);
+
+
+	int _Result = Natives.pixAccumulate(
+pixd.Pointer, pixs.Pointer,   op);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (818, 1)
 // pixMultConstAccumulate(pixs, factor, offset) as int
 // pixMultConstAccumulate(PIX *, l_float32, l_uint32) as l_ok
@@ -335,19 +405,27 @@ public static int pixAccumulate(
 ///  <param name="factor">[in] - </param>
 ///  <param name="offset">[in] - same as used for initialization</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixMultConstAccumulate(
 				 Pix pixs, 
 				 Single factor, 
 				 uint offset){
 
-	int _Result = Natives.pixMultConstAccumulate(pixs.Pointer,   factor,   offset);
+
+
+	int _Result = Natives.pixMultConstAccumulate(
+pixs.Pointer,   factor,   offset);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (872, 1)
 // pixAbsDifference(pixs1, pixs2) as Pix
 // pixAbsDifference(PIX *, PIX *) as PIX *
@@ -370,19 +448,27 @@ public static int pixMultConstAccumulate(
 ///  <param name="pixs1">[in] - both either 8 or 16 bpp gray, or 32 bpp RGB</param>
 ///  <param name="pixs2">[in] - both either 8 or 16 bpp gray, or 32 bpp RGB</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAbsDifference(
 				 Pix pixs1, 
 				 Pix pixs2){
 
-	IntPtr _Result = Natives.pixAbsDifference(pixs1.Pointer, pixs2.Pointer);
+
+
+	IntPtr _Result = Natives.pixAbsDifference(
+pixs1.Pointer, pixs2.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (969, 1)
 // pixAddRGB(pixs1, pixs2) as Pix
 // pixAddRGB(PIX *, PIX *) as PIX *
@@ -403,19 +489,27 @@ public static Pix pixAbsDifference(
 ///  <param name="pixs1">[in] - 32 bpp RGB, or colormapped</param>
 ///  <param name="pixs2">[in] - 32 bpp RGB, or colormapped</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixAddRGB(
 				 Pix pixs1, 
 				 Pix pixs2){
 
-	IntPtr _Result = Natives.pixAddRGB(pixs1.Pointer, pixs2.Pointer);
+
+
+	IntPtr _Result = Natives.pixAddRGB(
+pixs1.Pointer, pixs2.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (1054, 1)
 // pixMinOrMax(pixd, pixs1, pixs2, type) as Pix
 // pixMinOrMax(PIX *, PIX *, PIX *, l_int32) as PIX *
@@ -439,23 +533,30 @@ public static Pix pixAddRGB(
 ///  <param name="pixs2">[in] - </param>
 ///  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX</param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixMinOrMax(
 				 Pix pixd, 
 				 Pix pixs1, 
 				 Pix pixs2, 
 				 int type){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixMinOrMax(pixdPtr, pixs1.Pointer, pixs2.Pointer,   type);
+	IntPtr _Result = Natives.pixMinOrMax(
+pixdPtr, pixs1.Pointer, pixs2.Pointer,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (1155, 1)
 // pixMaxDynamicRange(pixs, type) as Pix
 // pixMaxDynamicRange(PIX *, l_int32) as PIX *
@@ -474,19 +575,27 @@ public static Pix pixMinOrMax(
 ///  <param name="pixs">[in] - 4, 8, 16 or 32 bpp source</param>
 ///  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
+
 public static Pix pixMaxDynamicRange(
 				 Pix pixs, 
 				 int type){
 
-	IntPtr _Result = Natives.pixMaxDynamicRange(pixs.Pointer,   type);
+
+
+	IntPtr _Result = Natives.pixMaxDynamicRange(
+pixs.Pointer,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (1343, 1)
 // pixMaxDynamicRangeRGB(pixs, type) as Pix
 // pixMaxDynamicRangeRGB(PIX *, l_int32) as PIX *
@@ -506,19 +615,27 @@ public static Pix pixMaxDynamicRange(
 ///  <param name="pixs">[in] - 32 bpp rgb source</param>
 ///  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 ///   <returns>pixd 32 bpp, or NULL on error</returns>
+
 public static Pix pixMaxDynamicRangeRGB(
 				 Pix pixs, 
 				 int type){
 
-	IntPtr _Result = Natives.pixMaxDynamicRangeRGB(pixs.Pointer,   type);
+
+
+	IntPtr _Result = Natives.pixMaxDynamicRangeRGB(
+pixs.Pointer,   type);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (1430, 1)
 // linearScaleRGBVal(sval, factor) as uint
 // linearScaleRGBVal(l_uint32, l_float32) as l_uint32
@@ -536,18 +653,26 @@ public static Pix pixMaxDynamicRangeRGB(
 ///  <param name="sval">[in] - 32-bit rgb pixel value</param>
 ///  <param name="factor">[in] - multiplication factor on each component</param>
 ///   <returns>dval  linearly scaled version of %sval</returns>
+
 public static uint linearScaleRGBVal(
 				 uint sval, 
 				 Single factor){
 
-	uint _Result = Natives.linearScaleRGBVal(  sval,   factor);
+
+
+	uint _Result = Natives.linearScaleRGBVal(
+  sval,   factor);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (1463, 1)
 // logScaleRGBVal(sval, tab, factor) as uint
 // logScaleRGBVal(l_uint32, l_float32 *, l_float32) as l_uint32
@@ -569,19 +694,27 @@ public static uint linearScaleRGBVal(
 ///  <param name="tab">[in] - 256 entry log-base-2 table</param>
 ///  <param name="factor">[in] - multiplication factor on each component</param>
 ///   <returns>dval  log scaled version of %sval</returns>
+
 public static uint logScaleRGBVal(
 				 uint sval, 
 				 Single[] tab, 
 				 Single factor){
 
-	uint _Result = Natives.logScaleRGBVal(  sval,   tab,   factor);
+
+
+	uint _Result = Natives.logScaleRGBVal(
+  sval,   tab,   factor);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (1488, 1)
 // makeLogBase2Tab() as Single[]
 // makeLogBase2Tab() as l_float32 *
@@ -589,16 +722,23 @@ public static uint logScaleRGBVal(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeLogBase2Tab/*"/>
 ///   <returns></returns>
+
 public static Single[] makeLogBase2Tab(){
+
+
 
 	Single[] _Result = Natives.makeLogBase2Tab();
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixarith.c (1515, 1)
 // getLogBase2(val, logtab) as Single
 // getLogBase2(l_int32, l_float32 *) as l_float32
@@ -606,12 +746,19 @@ public static Single[] makeLogBase2Tab(){
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getLogBase2/*"/>
 ///   <returns></returns>
+
 public static Single getLogBase2(
 				 int val, 
 				 Single[] logtab){
 
-	Single _Result = Natives.getLogBase2(  val,   logtab);
+
+
+	Single _Result = Natives.getLogBase2(
+  val,   logtab);
 	
+
+
+//  
 
 
 

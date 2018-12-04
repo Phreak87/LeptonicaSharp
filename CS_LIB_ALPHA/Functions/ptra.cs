@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (139, 1)
 // ptraCreate(n) as L_Ptra
 // ptraCreate(l_int32) as L_PTRA *
@@ -14,18 +15,26 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraCreate/*"/>
 ///  <param name="n">[in] - size of ptr array to be alloc'd 0 for default</param>
 ///   <returns>pa, or NULL on error</returns>
+
 public static L_Ptra ptraCreate(
 				 int n){
 
-	IntPtr _Result = Natives.ptraCreate(  n);
+
+
+	IntPtr _Result = Natives.ptraCreate(
+  n);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Ptra(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (185, 1)
 // ptraDestroy(ppa, freeflag, warnflag) as Object
 // ptraDestroy(L_PTRA **, l_int32, l_int32) as void
@@ -52,21 +61,28 @@ public static L_Ptra ptraCreate(
 ///  <param name="ppa">[in,out] - ptra to be nulled</param>
 ///  <param name="freeflag">[in] - TRUE to free each remaining item in the array</param>
 ///  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
+
 public static void ptraDestroy(
 				ref L_Ptra ppa, 
 				 int freeflag, 
 				 int warnflag){
 
+
 	IntPtr ppaPtr = IntPtr.Zero; 	if (ppa != null) {ppaPtr = ppa.Pointer;}
 
-	Natives.ptraDestroy(ref ppaPtr,   freeflag,   warnflag);
+	Natives.ptraDestroy(
+ref ppaPtr,   freeflag,   warnflag);
 	
 
+
+//  
 	if (ppaPtr == IntPtr.Zero) {ppa = null;} else { ppa = new L_Ptra(ppaPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (242, 1)
 // ptraAdd(pa, item) as int
 // ptraAdd(L_PTRA *, void *) as l_ok
@@ -83,22 +99,29 @@ public static void ptraDestroy(
 ///  <param name="pa">[in] - ptra</param>
 ///  <param name="item">[in] - generic ptr to a struct</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int ptraAdd(
 				 L_Ptra pa, 
 				 Object item){
 
-		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	int _Result = Natives.ptraAdd(pa.Pointer,   itemPtr);
+		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	int _Result = Natives.ptraAdd(
+pa.Pointer,   itemPtr);
 	
+
 	Marshal.FreeHGlobal(itemPtr);
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (336, 1)
 // ptraInsert(pa, index, item, shiftflag) as int
 // ptraInsert(L_PTRA *, l_int32, void *, l_int32) as l_ok
@@ -150,24 +173,31 @@ public static int ptraAdd(
 ///  <param name="item">[in] - generic ptr to a struct can be null</param>
 ///  <param name="shiftflag">[in] - L_AUTO_DOWNSHIFT, L_MIN_DOWNSHIFT, L_FULL_DOWNSHIFT</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int ptraInsert(
 				 L_Ptra pa, 
 				 int index, 
 				 Object item, 
 				 int shiftflag){
 
-		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	int _Result = Natives.ptraInsert(pa.Pointer,   index,   itemPtr,   shiftflag);
+		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	int _Result = Natives.ptraInsert(
+pa.Pointer,   index,   itemPtr,   shiftflag);
 	
+
 	Marshal.FreeHGlobal(itemPtr);
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (434, 1)
 // ptraRemove(pa, index, flag) as Object
 // ptraRemove(L_PTRA *, l_int32, l_int32) as void *
@@ -190,13 +220,20 @@ public static int ptraInsert(
 ///  <param name="index">[in] - element to be removed</param>
 ///  <param name="flag">[in] - L_NO_COMPACTION, L_COMPACTION</param>
 ///   <returns>item, or NULL on error</returns>
+
 public static Object ptraRemove(
 				 L_Ptra pa, 
 				 int index, 
 				 int flag){
 
-	IntPtr _Result = Natives.ptraRemove(pa.Pointer,   index,   flag);
+
+
+	IntPtr _Result = Natives.ptraRemove(
+pa.Pointer,   index,   flag);
 	
+
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -204,6 +241,7 @@ public static Object ptraRemove(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (483, 1)
 // ptraRemoveLast(pa) as Object
 // ptraRemoveLast(L_PTRA *) as void *
@@ -212,11 +250,18 @@ public static Object ptraRemove(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraRemoveLast/*"/>
 ///  <param name="pa">[in] - ptra</param>
 ///   <returns>item, or NULL on error or if the array is empty</returns>
+
 public static Object ptraRemoveLast(
 				 L_Ptra pa){
 
-	IntPtr _Result = Natives.ptraRemoveLast(pa.Pointer);
+
+
+	IntPtr _Result = Natives.ptraRemoveLast(
+pa.Pointer);
 	
+
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -224,6 +269,7 @@ public static Object ptraRemoveLast(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (512, 1)
 // ptraReplace(pa, index, item, freeflag) as Object
 // ptraReplace(L_PTRA *, l_int32, void *, l_int32) as void *
@@ -235,18 +281,24 @@ public static Object ptraRemoveLast(
 ///  <param name="item">[in] - new generic ptr to a struct can be null</param>
 ///  <param name="freeflag">[in] - TRUE to free old item FALSE to return it</param>
 ///   <returns>item  old item, if it exists and is not freed, or NULL on error</returns>
+
 public static Object ptraReplace(
 				 L_Ptra pa, 
 				 int index, 
 				 Object item, 
 				 int freeflag){
 
-		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	IntPtr _Result = Natives.ptraReplace(pa.Pointer,   index,   itemPtr,   freeflag);
+		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	IntPtr _Result = Natives.ptraReplace(
+pa.Pointer,   index,   itemPtr,   freeflag);
 	
+
 	Marshal.FreeHGlobal(itemPtr);
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -254,6 +306,7 @@ public static Object ptraReplace(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (553, 1)
 // ptraSwap(pa, index1, index2) as int
 // ptraSwap(L_PTRA *, l_int32, l_int32) as l_ok
@@ -264,19 +317,27 @@ public static Object ptraReplace(
 ///  <param name="index1">[in] - </param>
 ///  <param name="index2">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int ptraSwap(
 				 L_Ptra pa, 
 				 int index1, 
 				 int index2){
 
-	int _Result = Natives.ptraSwap(pa.Pointer,   index1,   index2);
+
+
+	int _Result = Natives.ptraSwap(
+pa.Pointer,   index1,   index2);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (590, 1)
 // ptraCompactArray(pa) as int
 // ptraCompactArray(L_PTRA *) as l_ok
@@ -290,17 +351,25 @@ public static int ptraSwap(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraCompactArray/*"/>
 ///  <param name="pa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int ptraCompactArray(
 				 L_Ptra pa){
 
-	int _Result = Natives.ptraCompactArray(pa.Pointer);
+
+
+	int _Result = Natives.ptraCompactArray(
+pa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (625, 1)
 // ptraReverse(pa) as int
 // ptraReverse(L_PTRA *) as l_ok
@@ -309,17 +378,25 @@ public static int ptraCompactArray(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraReverse/*"/>
 ///  <param name="pa">[in] - ptra</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int ptraReverse(
 				 L_Ptra pa){
 
-	int _Result = Natives.ptraReverse(pa.Pointer);
+
+
+	int _Result = Natives.ptraReverse(
+pa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (649, 1)
 // ptraJoin(pa1, pa2) as int
 // ptraJoin(L_PTRA *, L_PTRA *) as l_ok
@@ -329,18 +406,26 @@ public static int ptraReverse(
 ///  <param name="pa1">[in] - add to this one</param>
 ///  <param name="pa2">[in] - appended to pa1, and emptied of items can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int ptraJoin(
 				 L_Ptra pa1, 
 				 L_Ptra pa2){
 
-	int _Result = Natives.ptraJoin(pa1.Pointer, pa2.Pointer);
+
+
+	int _Result = Natives.ptraJoin(
+pa1.Pointer, pa2.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (699, 1)
 // ptraGetMaxIndex(pa, pmaxindex) as int
 // ptraGetMaxIndex(L_PTRA *, l_int32 *) as l_ok
@@ -365,18 +450,26 @@ public static int ptraJoin(
 ///  <param name="pa">[in] - ptra</param>
 ///  <param name="pmaxindex">[out] - index of last item in the array</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int ptraGetMaxIndex(
 				 L_Ptra pa, 
 				out int pmaxindex){
 
-	int _Result = Natives.ptraGetMaxIndex(pa.Pointer, out  pmaxindex);
+
+
+	int _Result = Natives.ptraGetMaxIndex(
+pa.Pointer, out  pmaxindex);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (727, 1)
 // ptraGetActualCount(pa, pcount) as int
 // ptraGetActualCount(L_PTRA *, l_int32 *) as l_ok
@@ -390,18 +483,26 @@ public static int ptraGetMaxIndex(
 ///  <param name="pa">[in] - ptra</param>
 ///  <param name="pcount">[out] - actual number of items on the ptr array</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int ptraGetActualCount(
 				 L_Ptra pa, 
 				out int pcount){
 
-	int _Result = Natives.ptraGetActualCount(pa.Pointer, out  pcount);
+
+
+	int _Result = Natives.ptraGetActualCount(
+pa.Pointer, out  pcount);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (759, 1)
 // ptraGetPtrToItem(pa, index) as Object
 // ptraGetPtrToItem(L_PTRA *, l_int32) as void *
@@ -419,12 +520,19 @@ public static int ptraGetActualCount(
 ///  <param name="pa">[in] - ptra</param>
 ///  <param name="index">[in] - of element to be retrieved</param>
 ///   <returns>a ptr to the element, or NULL on error</returns>
+
 public static Object ptraGetPtrToItem(
 				 L_Ptra pa, 
 				 int index){
 
-	IntPtr _Result = Natives.ptraGetPtrToItem(pa.Pointer,   index);
+
+
+	IntPtr _Result = Natives.ptraGetPtrToItem(
+pa.Pointer,   index);
 	
+
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -432,6 +540,7 @@ public static Object ptraGetPtrToItem(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (790, 1)
 // ptraaCreate(n) as L_Ptraa
 // ptraaCreate(l_int32) as L_PTRAA *
@@ -444,18 +553,26 @@ public static Object ptraGetPtrToItem(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaCreate/*"/>
 ///  <param name="n">[in] - size of ptr array to be alloc'd</param>
 ///   <returns>paa, or NULL on error</returns>
+
 public static L_Ptraa ptraaCreate(
 				 int n){
 
-	IntPtr _Result = Natives.ptraaCreate(  n);
+
+
+	IntPtr _Result = Natives.ptraaCreate(
+  n);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Ptraa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (826, 1)
 // ptraaDestroy(ppaa, freeflag, warnflag) as Object
 // ptraaDestroy(L_PTRAA **, l_int32, l_int32) as void
@@ -471,21 +588,28 @@ public static L_Ptraa ptraaCreate(
 ///  <param name="ppaa">[in,out] - to be nulled</param>
 ///  <param name="freeflag">[in] - TRUE to free each remaining item in each ptra</param>
 ///  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
+
 public static void ptraaDestroy(
 				ref L_Ptraa ppaa, 
 				 int freeflag, 
 				 int warnflag){
 
+
 	IntPtr ppaaPtr = IntPtr.Zero; 	if (ppaa != null) {ppaaPtr = ppaa.Pointer;}
 
-	Natives.ptraaDestroy(ref ppaaPtr,   freeflag,   warnflag);
+	Natives.ptraaDestroy(
+ref ppaaPtr,   freeflag,   warnflag);
 	
 
+
+//  
 	if (ppaaPtr == IntPtr.Zero) {ppaa = null;} else { ppaa = new L_Ptraa(ppaaPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (867, 1)
 // ptraaGetSize(paa, psize) as int
 // ptraaGetSize(L_PTRAA *, l_int32 *) as l_ok
@@ -495,18 +619,26 @@ public static void ptraaDestroy(
 ///  <param name="paa">[in] - </param>
 ///  <param name="psize">[out] - size of ptr array</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int ptraaGetSize(
 				 L_Ptraa paa, 
 				out int psize){
 
-	int _Result = Natives.ptraaGetSize(paa.Pointer, out  psize);
+
+
+	int _Result = Natives.ptraaGetSize(
+paa.Pointer, out  psize);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (898, 1)
 // ptraaInsertPtra(paa, index, pa) as int
 // ptraaInsertPtra(L_PTRAA *, l_int32, L_PTRA *) as l_ok
@@ -522,19 +654,27 @@ public static int ptraaGetSize(
 ///  <param name="index">[in] - location in array for insertion</param>
 ///  <param name="pa">[in] - to be inserted</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int ptraaInsertPtra(
 				 L_Ptraa paa, 
 				 int index, 
 				 L_Ptra pa){
 
-	int _Result = Natives.ptraaInsertPtra(paa.Pointer,   index, pa.Pointer);
+
+
+	int _Result = Natives.ptraaInsertPtra(
+paa.Pointer,   index, pa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (941, 1)
 // ptraaGetPtra(paa, index, accessflag) as L_Ptra
 // ptraaGetPtra(L_PTRAA *, l_int32, l_int32) as L_PTRA *
@@ -554,20 +694,28 @@ public static int ptraaInsertPtra(
 ///  <param name="index">[in] - location in array</param>
 ///  <param name="accessflag">[in] - L_HANDLE_ONLY, L_REMOVE</param>
 ///   <returns>ptra at index location, or NULL on error or if there is no ptra there.</returns>
+
 public static L_Ptra ptraaGetPtra(
 				 L_Ptraa paa, 
 				 int index, 
 				 int accessflag){
 
-	IntPtr _Result = Natives.ptraaGetPtra(paa.Pointer,   index,   accessflag);
+
+
+	IntPtr _Result = Natives.ptraaGetPtra(
+paa.Pointer,   index,   accessflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Ptra(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptra.c (983, 1)
 // ptraaFlattenToPtra(paa) as L_Ptra
 // ptraaFlattenToPtra(L_PTRAA *) as L_PTRA *
@@ -583,14 +731,21 @@ public static L_Ptra ptraaGetPtra(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaFlattenToPtra/*"/>
 ///  <param name="paa">[in] - ptraa</param>
 ///   <returns>ptra, or NULL on error</returns>
+
 public static L_Ptra ptraaFlattenToPtra(
 				 L_Ptraa paa){
 
-	IntPtr _Result = Natives.ptraaFlattenToPtra(paa.Pointer);
+
+
+	IntPtr _Result = Natives.ptraaFlattenToPtra(
+paa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Ptra(_Result);
 }

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (115, 1)
 // pixAddSingleTextblock(pixs, bmf, textstr, val, location, poverflow) as Pix
 // pixAddSingleTextblock(PIX *, L_BMF *, const char *, l_uint32, l_int32, l_int32 *) as PIX *
@@ -37,6 +38,7 @@ public partial class _All {
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_AT_TOP, L_ADD_AT_BOT, L_ADD_BELOW</param>
 ///  <param name="poverflow">[out][optional] - 1 if text overflows allocated region and is clipped 0 otherwise</param>
 ///   <returns>pixd new pix with rendered text, or either a copy or NULL on error</returns>
+
 public static Pix pixAddSingleTextblock(
 				 Pix pixs, 
 				 L_Bmf bmf, 
@@ -45,15 +47,22 @@ public static Pix pixAddSingleTextblock(
 				 int location, 
 				out int poverflow){
 
-	IntPtr _Result = Natives.pixAddSingleTextblock(pixs.Pointer, bmf.Pointer,   textstr,   val,   location, out  poverflow);
+
+
+	IntPtr _Result = Natives.pixAddSingleTextblock(
+pixs.Pointer, bmf.Pointer,   textstr,   val,   location, out  poverflow);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (270, 1)
 // pixAddTextlines(pixs, bmf, textstr, val, location) as Pix
 // pixAddTextlines(PIX *, L_BMF *, const char *, l_uint32, l_int32) as PIX *
@@ -88,6 +97,7 @@ public static Pix pixAddSingleTextblock(
 ///  <param name="val">[in] - color to set the text</param>
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>pixd new pix with rendered text, or either a copy or NULL on error</returns>
+
 public static Pix pixAddTextlines(
 				 Pix pixs, 
 				 L_Bmf bmf, 
@@ -95,15 +105,22 @@ public static Pix pixAddTextlines(
 				 uint val, 
 				 int location){
 
-	IntPtr _Result = Natives.pixAddTextlines(pixs.Pointer, bmf.Pointer,   textstr,   val,   location);
+
+
+	IntPtr _Result = Natives.pixAddTextlines(
+pixs.Pointer, bmf.Pointer,   textstr,   val,   location);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (431, 1)
 // pixSetTextblock(pixs, bmf, textstr, val, x0, y0, wtext, firstindent, poverflow) as int
 // pixSetTextblock(PIX *, L_BMF *, const char *, l_uint32, l_int32, l_int32, l_int32, l_int32, l_int32 *) as l_ok
@@ -136,6 +153,7 @@ public static Pix pixAddTextlines(
 ///  <param name="firstindent">[in] - indentation of first line, in x-widths</param>
 ///  <param name="poverflow">[out][optional] - 0 if text is contained in input pix 1 if it is clipped</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixSetTextblock(
 				 Pix pixs, 
 				 L_Bmf bmf, 
@@ -147,14 +165,21 @@ public static int pixSetTextblock(
 				 int firstindent, 
 				out int poverflow){
 
-	int _Result = Natives.pixSetTextblock(pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0,   wtext,   firstindent, out  poverflow);
+
+
+	int _Result = Natives.pixSetTextblock(
+pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0,   wtext,   firstindent, out  poverflow);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (544, 1)
 // pixSetTextline(pixs, bmf, textstr, val, x0, y0, pwidth, poverflow) as int
 // pixSetTextline(PIX *, L_BMF *, const char *, l_uint32, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -186,6 +211,7 @@ public static int pixSetTextblock(
 ///  <param name="pwidth">[out][optional] - width of generated text</param>
 ///  <param name="poverflow">[out][optional] - 0 if text is contained in input pix 1 if it is clipped</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixSetTextline(
 				 Pix pixs, 
 				 L_Bmf bmf, 
@@ -196,14 +222,21 @@ public static int pixSetTextline(
 				out int pwidth, 
 				out int poverflow){
 
-	int _Result = Natives.pixSetTextline(pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0, out  pwidth, out  poverflow);
+
+
+	int _Result = Natives.pixSetTextline(
+pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0, out  pwidth, out  poverflow);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (641, 1)
 // pixaAddTextNumber(pixas, bmf, na, val, location) as Pixa
 // pixaAddTextNumber(PIXA *, L_BMF *, NUMA *, l_uint32, l_int32) as PIXA *
@@ -234,6 +267,7 @@ public static int pixSetTextline(
 ///  <param name="val">[in] - color to set the text</param>
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>pixad new pixa with rendered numbers, or NULL on error</returns>
+
 public static Pixa pixaAddTextNumber(
 				 Pixa pixas, 
 				 L_Bmf bmf, 
@@ -241,17 +275,23 @@ public static Pixa pixaAddTextNumber(
 				 uint val, 
 				 int location){
 
+
 	IntPtr naPtr = IntPtr.Zero; 	if (na != null) {naPtr = na.Pointer;}
 
-	IntPtr _Result = Natives.pixaAddTextNumber(pixas.Pointer, bmf.Pointer, naPtr,   val,   location);
+	IntPtr _Result = Natives.pixaAddTextNumber(
+pixas.Pointer, bmf.Pointer, naPtr,   val,   location);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (710, 1)
 // pixaAddTextlines(pixas, bmf, sa, val, location) as Pixa
 // pixaAddTextlines(PIXA *, L_BMF *, SARRAY *, l_uint32, l_int32) as PIXA *
@@ -285,6 +325,7 @@ public static Pixa pixaAddTextNumber(
 ///  <param name="val">[in] - color to set the text</param>
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>pixad new pixa with rendered text, or NULL on error</returns>
+
 public static Pixa pixaAddTextlines(
 				 Pixa pixas, 
 				 L_Bmf bmf, 
@@ -292,17 +333,23 @@ public static Pixa pixaAddTextlines(
 				 uint val, 
 				 int location){
 
+
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 
-	IntPtr _Result = Natives.pixaAddTextlines(pixas.Pointer, bmf.Pointer, saPtr,   val,   location);
+	IntPtr _Result = Natives.pixaAddTextlines(
+pixas.Pointer, bmf.Pointer, saPtr,   val,   location);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (780, 1)
 // pixaAddPixWithText(pixa, pixs, reduction, bmf, textstr, val, location) as int
 // pixaAddPixWithText(PIXA *, PIX *, l_int32, L_BMF *, const char *, l_uint32, l_int32) as l_ok
@@ -336,6 +383,7 @@ public static Pixa pixaAddTextlines(
 ///  <param name="val">[in] - color to set the text</param>
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>0 if OK, 1 on error.</returns>
+
 public static int pixaAddPixWithText(
 				 Pixa pixa, 
 				 Pix pixs, 
@@ -345,16 +393,22 @@ public static int pixaAddPixWithText(
 				 uint val, 
 				 int location){
 
+
 	IntPtr bmfPtr = IntPtr.Zero; 	if (bmf != null) {bmfPtr = bmf.Pointer;}
 
-	int _Result = Natives.pixaAddPixWithText(pixa.Pointer, pixs.Pointer,   reduction, bmfPtr,   textstr,   val,   location);
+	int _Result = Natives.pixaAddPixWithText(
+pixa.Pointer, pixs.Pointer,   reduction, bmfPtr,   textstr,   val,   location);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (862, 1)
 // bmfGetLineStrings(bmf, textstr, maxw, firstindent, ph) as Sarray
 // bmfGetLineStrings(L_BMF *, const char *, l_int32, l_int32, l_int32 *) as SARRAY *
@@ -371,6 +425,7 @@ public static int pixaAddPixWithText(
 ///  <param name="firstindent">[in] - indentation of first line, in x-widths</param>
 ///  <param name="ph">[out] - height required to hold text bitmap</param>
 ///   <returns>sarray of text strings for each line, or NULL on error</returns>
+
 public static Sarray bmfGetLineStrings(
 				 L_Bmf bmf, 
 				 String textstr, 
@@ -378,15 +433,22 @@ public static Sarray bmfGetLineStrings(
 				 int firstindent, 
 				out int ph){
 
-	IntPtr _Result = Natives.bmfGetLineStrings(bmf.Pointer,   textstr,   maxw,   firstindent, out  ph);
+
+
+	IntPtr _Result = Natives.bmfGetLineStrings(
+bmf.Pointer,   textstr,   maxw,   firstindent, out  ph);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (938, 1)
 // bmfGetWordWidths(bmf, textstr, sa) as Numa
 // bmfGetWordWidths(L_BMF *, const char *, SARRAY *) as NUMA *
@@ -397,20 +459,28 @@ public static Sarray bmfGetLineStrings(
 ///  <param name="textstr">[in] - </param>
 ///  <param name="sa">[in] - of individual words</param>
 ///   <returns>numa of word lengths in pixels for the font represented by the bmf, or NULL on error</returns>
+
 public static Numa bmfGetWordWidths(
 				 L_Bmf bmf, 
 				 String textstr, 
 				 Sarray sa){
 
-	IntPtr _Result = Natives.bmfGetWordWidths(bmf.Pointer,   textstr, sa.Pointer);
+
+
+	IntPtr _Result = Natives.bmfGetWordWidths(
+bmf.Pointer,   textstr, sa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (979, 1)
 // bmfGetStringWidth(bmf, textstr, pw) as int
 // bmfGetStringWidth(L_BMF *, const char *, l_int32 *) as l_ok
@@ -421,19 +491,27 @@ public static Numa bmfGetWordWidths(
 ///  <param name="textstr">[in] - </param>
 ///  <param name="pw">[out] - width of text string, in pixels for the font represented by the bmf</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int bmfGetStringWidth(
 				 L_Bmf bmf, 
 				 String textstr, 
 				out int pw){
 
-	int _Result = Natives.bmfGetStringWidth(bmf.Pointer,   textstr, out  pw);
+
+
+	int _Result = Natives.bmfGetStringWidth(
+bmf.Pointer,   textstr, out  pw);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // textops.c (1023, 1)
 // splitStringToParagraphs(textstr, splitflag) as Sarray
 // splitStringToParagraphs(char *, l_int32) as SARRAY *
@@ -443,15 +521,22 @@ public static int bmfGetStringWidth(
 ///  <param name="textstr">[in] - text string</param>
 ///  <param name="splitflag">[in] - see enum in bmf.h valid values in {1,2,3}</param>
 ///   <returns>sarray where each string is a paragraph of the input, or NULL on error.</returns>
+
 public static Sarray splitStringToParagraphs(
 				 String textstr, 
 				 int splitflag){
 
-	IntPtr _Result = Natives.splitStringToParagraphs(  textstr,   splitflag);
+
+
+	IntPtr _Result = Natives.splitStringToParagraphs(
+  textstr,   splitflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }

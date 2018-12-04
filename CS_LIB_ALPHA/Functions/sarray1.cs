@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (163, 1)
 // sarrayCreate(n) as Sarray
 // sarrayCreate(l_int32) as SARRAY *
@@ -14,18 +15,26 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreate/*"/>
 ///  <param name="n">[in] - size of string ptr array to be alloc'd use 0 for default</param>
 ///   <returns>sarray, or NULL on error</returns>
+
 public static Sarray sarrayCreate(
 				 int n){
 
-	IntPtr _Result = Natives.sarrayCreate(  n);
+
+
+	IntPtr _Result = Natives.sarrayCreate(
+  n);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (193, 1)
 // sarrayCreateInitialized(n, initstr) as Sarray
 // sarrayCreateInitialized(l_int32, const char *) as SARRAY *
@@ -35,19 +44,27 @@ public static Sarray sarrayCreate(
 ///  <param name="n">[in] - size of string ptr array to be alloc'd</param>
 ///  <param name="initstr">[in] - string to be initialized on the full array</param>
 ///   <returns>sarray, or NULL on error</returns>
+
 public static Sarray sarrayCreateInitialized(
 				 int n, 
 				 String initstr){
 
-	IntPtr _Result = Natives.sarrayCreateInitialized(  n,   initstr);
+
+
+	IntPtr _Result = Natives.sarrayCreateInitialized(
+  n,   initstr);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (226, 1)
 // sarrayCreateWordsFromString(string) as Sarray
 // sarrayCreateWordsFromString(const char *) as SARRAY *
@@ -59,18 +76,26 @@ public static Sarray sarrayCreateInitialized(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreateWordsFromString/*"/>
 ///   <returns>sarray, or NULL on error</returns>
+
 public static Sarray sarrayCreateWordsFromString(
 				 String _string_){
 
-	IntPtr _Result = Natives.sarrayCreateWordsFromString(  _string_);
+
+
+	IntPtr _Result = Natives.sarrayCreateWordsFromString(
+  _string_);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (276, 1)
 // sarrayCreateLinesFromString(string, blankflag) as Sarray
 // sarrayCreateLinesFromString(const char *, l_int32) as SARRAY *
@@ -86,19 +111,27 @@ public static Sarray sarrayCreateWordsFromString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreateLinesFromString/*"/>
 ///  <param name="blankflag">[in] - 0 to exclude blank lines 1 to include</param>
 ///   <returns>sarray, or NULL on error</returns>
+
 public static Sarray sarrayCreateLinesFromString(
 				 String _string_, 
 				 int blankflag){
 
-	IntPtr _Result = Natives.sarrayCreateLinesFromString(  _string_,   blankflag);
+
+
+	IntPtr _Result = Natives.sarrayCreateLinesFromString(
+  _string_,   blankflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (355, 1)
 // sarrayDestroy(psa) as Object
 // sarrayDestroy(SARRAY **) as void
@@ -111,19 +144,26 @@ public static Sarray sarrayCreateLinesFromString(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayDestroy/*"/>
 ///  <param name="psa">[in,out] - to be nulled</param>
+
 public static void sarrayDestroy(
 				ref Sarray psa){
 
+
 	IntPtr psaPtr = IntPtr.Zero; 	if (psa != null) {psaPtr = psa.Pointer;}
 
-	Natives.sarrayDestroy(ref psaPtr);
+	Natives.sarrayDestroy(
+ref psaPtr);
 	
 
+
+//  
 	if (psaPtr == IntPtr.Zero) {psa = null;} else { psa = new Sarray(psaPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (393, 1)
 // sarrayCopy(sa) as Sarray
 // sarrayCopy(SARRAY *) as SARRAY *
@@ -132,18 +172,26 @@ public static void sarrayDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCopy/*"/>
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>copy of sarray, or NULL on error</returns>
+
 public static Sarray sarrayCopy(
 				 Sarray sa){
 
-	IntPtr _Result = Natives.sarrayCopy(sa.Pointer);
+
+
+	IntPtr _Result = Natives.sarrayCopy(
+sa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (420, 1)
 // sarrayClone(sa) as Sarray
 // sarrayClone(SARRAY *) as SARRAY *
@@ -152,18 +200,26 @@ public static Sarray sarrayCopy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayClone/*"/>
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>ptr to same sarray, or NULL on error</returns>
+
 public static Sarray sarrayClone(
 				 Sarray sa){
 
-	IntPtr _Result = Natives.sarrayClone(sa.Pointer);
+
+
+	IntPtr _Result = Natives.sarrayClone(
+sa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (446, 1)
 // sarrayAddString(sa, string, copyflag) as int
 // sarrayAddString(SARRAY *, const char *, l_int32) as l_ok
@@ -177,19 +233,27 @@ public static Sarray sarrayClone(
 ///  <param name="sa">[in] - string array</param>
 ///  <param name="copyflag">[in] - L_INSERT, L_NOCOPY or L_COPY</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int sarrayAddString(
 				 Sarray sa, 
 				 String _string_, 
 				 int copyflag){
 
-	int _Result = Natives.sarrayAddString(sa.Pointer,   _string_,   copyflag);
+
+
+	int _Result = Natives.sarrayAddString(
+sa.Pointer,   _string_,   copyflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (506, 1)
 // sarrayRemoveString(sa, index) as String
 // sarrayRemoveString(SARRAY *, l_int32) as char *
@@ -199,18 +263,26 @@ public static int sarrayAddString(
 ///  <param name="sa">[in] - string array</param>
 ///  <param name="index">[in] - of string within sarray</param>
 ///   <returns>removed string, or NULL on error</returns>
+
 public static String sarrayRemoveString(
 				 Sarray sa, 
 				 int index){
 
-	String _Result = Natives.sarrayRemoveString(sa.Pointer,   index);
+
+
+	String _Result = Natives.sarrayRemoveString(
+sa.Pointer,   index);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (557, 1)
 // sarrayReplaceString(sa, index, newstr, copyflag) as int
 // sarrayReplaceString(SARRAY *, l_int32, char *, l_int32) as l_ok
@@ -230,20 +302,28 @@ public static String sarrayRemoveString(
 ///  <param name="newstr">[in] - string to replace existing one</param>
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int sarrayReplaceString(
 				 Sarray sa, 
 				 int index, 
 				 String newstr, 
 				 int copyflag){
 
-	int _Result = Natives.sarrayReplaceString(sa.Pointer,   index,   newstr,   copyflag);
+
+
+	int _Result = Natives.sarrayReplaceString(
+sa.Pointer,   index,   newstr,   copyflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (594, 1)
 // sarrayClear(sa) as int
 // sarrayClear(SARRAY *) as l_ok
@@ -252,17 +332,25 @@ public static int sarrayReplaceString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayClear/*"/>
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int sarrayClear(
 				 Sarray sa){
 
-	int _Result = Natives.sarrayClear(sa.Pointer);
+
+
+	int _Result = Natives.sarrayClear(
+sa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (621, 1)
 // sarrayGetCount(sa) as int
 // sarrayGetCount(SARRAY *) as l_int32
@@ -271,17 +359,25 @@ public static int sarrayClear(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayGetCount/*"/>
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>count, or 0 if no strings or on error</returns>
+
 public static int sarrayGetCount(
 				 Sarray sa){
 
-	int _Result = Natives.sarrayGetCount(sa.Pointer);
+
+
+	int _Result = Natives.sarrayGetCount(
+sa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (646, 1)
 // sarrayGetArray(sa, pnalloc, pn) as String[]
 // sarrayGetArray(SARRAY *, l_int32 *, l_int32 *) as char **
@@ -296,13 +392,20 @@ public static int sarrayGetCount(
 ///  <param name="pnalloc">[out][optional] - number allocated string ptrs</param>
 ///  <param name="pn">[out][optional] - number allocated strings</param>
 ///   <returns>ptr to string array, or NULL on error</returns>
+
 public static String[] sarrayGetArray(
 				 Sarray sa, 
 				out int pnalloc, 
 				out int pn){
 
-	IntPtr _Result = Natives.sarrayGetArray(sa.Pointer, out  pnalloc, out  pn);
+
+
+	IntPtr _Result = Natives.sarrayGetArray(
+sa.Pointer, out  pnalloc, out  pn);
 	
+
+
+//  
 
 
 	String[] B = null; // Todo
@@ -310,6 +413,7 @@ public static String[] sarrayGetArray(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (681, 1)
 // sarrayGetString(sa, index, copyflag) as String
 // sarrayGetString(SARRAY *, l_int32, l_int32) as char *
@@ -326,19 +430,27 @@ public static String[] sarrayGetArray(
 ///  <param name="index">[in] - to the index-th string</param>
 ///  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 ///   <returns>string, or NULL on error</returns>
+
 public static String sarrayGetString(
 				 Sarray sa, 
 				 int index, 
 				 int copyflag){
 
-	String _Result = Natives.sarrayGetString(sa.Pointer,   index,   copyflag);
+
+
+	String _Result = Natives.sarrayGetString(
+sa.Pointer,   index,   copyflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (708, 1)
 // sarrayGetRefcount(sa) as int
 // sarrayGetRefcount(SARRAY *) as l_int32
@@ -347,17 +459,25 @@ public static String sarrayGetString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayGetRefcount/*"/>
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>refcount, or UNDEF on error</returns>
+
 public static int sarrayGetRefcount(
 				 Sarray sa){
 
-	int _Result = Natives.sarrayGetRefcount(sa.Pointer);
+
+
+	int _Result = Natives.sarrayGetRefcount(
+sa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (726, 1)
 // sarrayChangeRefcount(sa, delta) as int
 // sarrayChangeRefcount(SARRAY *, l_int32) as l_ok
@@ -367,18 +487,26 @@ public static int sarrayGetRefcount(
 ///  <param name="sa">[in] - string array</param>
 ///  <param name="delta">[in] - change to be applied</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int sarrayChangeRefcount(
 				 Sarray sa, 
 				 int delta){
 
-	int _Result = Natives.sarrayChangeRefcount(sa.Pointer,   delta);
+
+
+	int _Result = Natives.sarrayChangeRefcount(
+sa.Pointer,   delta);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (763, 1)
 // sarrayToString(sa, addnlflag) as String
 // sarrayToString(SARRAY *, l_int32) as char *
@@ -400,18 +528,26 @@ public static int sarrayChangeRefcount(
 ///  <param name="sa">[in] - string array</param>
 ///  <param name="addnlflag">[in] - flag: 0 adds nothing to each substring 1 adds '\n' to each substring 2 adds ' ' to each substring</param>
 ///   <returns>dest string, or NULL on error</returns>
+
 public static String sarrayToString(
 				 Sarray sa, 
 				 int addnlflag){
 
-	String _Result = Natives.sarrayToString(sa.Pointer,   addnlflag);
+
+
+	String _Result = Natives.sarrayToString(
+sa.Pointer,   addnlflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (798, 1)
 // sarrayToStringRange(sa, first, nstrings, addnlflag) as String
 // sarrayToStringRange(SARRAY *, l_int32, l_int32, l_int32) as char *
@@ -433,20 +569,28 @@ public static String sarrayToString(
 ///  <param name="nstrings">[in] - number of strings to append into the result use 0 to append to the end of the sarray</param>
 ///  <param name="addnlflag">[in] - flag: 0 adds nothing to each substring 1 adds '\n' to each substring 2 adds ' ' to each substring</param>
 ///   <returns>dest string, or NULL on error</returns>
+
 public static String sarrayToStringRange(
 				 Sarray sa, 
 				 int first, 
 				 int nstrings, 
 				 int addnlflag){
 
-	String _Result = Natives.sarrayToStringRange(sa.Pointer,   first,   nstrings,   addnlflag);
+
+
+	String _Result = Natives.sarrayToStringRange(
+sa.Pointer,   first,   nstrings,   addnlflag);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (880, 1)
 // sarrayJoin(sa1, sa2) as int
 // sarrayJoin(SARRAY *, SARRAY *) as l_ok
@@ -459,18 +603,26 @@ public static String sarrayToStringRange(
 ///  <param name="sa1">[in] - to be added to</param>
 ///  <param name="sa2">[in] - append to sa1</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int sarrayJoin(
 				 Sarray sa1, 
 				 Sarray sa2){
 
-	int _Result = Natives.sarrayJoin(sa1.Pointer, sa2.Pointer);
+
+
+	int _Result = Natives.sarrayJoin(
+sa1.Pointer, sa2.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (920, 1)
 // sarrayAppendRange(sa1, sa2, start, end) as int
 // sarrayAppendRange(SARRAY *, SARRAY *, l_int32, l_int32) as l_ok
@@ -488,20 +640,28 @@ public static int sarrayJoin(
 ///  <param name="sa2">[in] - append specified range of strings in sa2 to sa1</param>
 ///  <param name="start">[in] - index of first string of sa2 to append</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int sarrayAppendRange(
 				 Sarray sa1, 
 				 Sarray sa2, 
 				 int start, 
 				 int _end_){
 
-	int _Result = Natives.sarrayAppendRange(sa1.Pointer, sa2.Pointer,   start,   _end_);
+
+
+	int _Result = Natives.sarrayAppendRange(
+sa1.Pointer, sa2.Pointer,   start,   _end_);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (972, 1)
 // sarrayPadToSameSize(sa1, sa2, padstring) as int
 // sarrayPadToSameSize(SARRAY *, SARRAY *, const char *) as l_ok
@@ -519,19 +679,27 @@ public static int sarrayAppendRange(
 ///  <param name="sa2">[in] - </param>
 ///  <param name="padstring">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int sarrayPadToSameSize(
 				 Sarray sa1, 
 				 Sarray sa2, 
 				 String padstring){
 
-	int _Result = Natives.sarrayPadToSameSize(sa1.Pointer, sa2.Pointer,   padstring);
+
+
+	int _Result = Natives.sarrayPadToSameSize(
+sa1.Pointer, sa2.Pointer,   padstring);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1029, 1)
 // sarrayConvertWordsToLines(sa, linesize) as Sarray
 // sarrayConvertWordsToLines(SARRAY *, l_int32) as SARRAY *
@@ -541,19 +709,27 @@ public static int sarrayPadToSameSize(
 ///  <param name="sa">[in] - sa of individual words</param>
 ///  <param name="linesize">[in] - max num of chars in each line</param>
 ///   <returns>saout sa of formatted lines, or NULL on error This is useful for re-typesetting text to a specific maximum line length.  The individual words in the input sarray are concatenated into textlines.  An input word string of zero length is taken to be a paragraph separator.  Each time such a string is found, the current line is ended and a new line is also produced that contains just the string of zero length "".  When the output sarray of lines is eventually converted to a string with newlines typically appended to each line string, the empty strings are just converted to newlines, producing the visible paragraph separation. What happens when a word is larger than linesize? We write it out as a single line anyway!  Words preceding or following this long word are placed on lines preceding or following the line with the long word.  Why this choice? Long "words" found in text documents are typically URLs, and it's often desirable not to put newlines in the middle of a URL. The text display program e.g., text editor will typically wrap the long "word" to fit in the window.</returns>
+
 public static Sarray sarrayConvertWordsToLines(
 				 Sarray sa, 
 				 int linesize){
 
-	IntPtr _Result = Natives.sarrayConvertWordsToLines(sa.Pointer,   linesize);
+
+
+	IntPtr _Result = Natives.sarrayConvertWordsToLines(
+sa.Pointer,   linesize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1098, 1)
 // sarraySplitString(sa, str, separators) as int
 // sarraySplitString(SARRAY *, const char *, const char *) as l_int32
@@ -561,21 +737,28 @@ public static Sarray sarrayConvertWordsToLines(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarraySplitString/*"/>
 ///   <returns></returns>
+
 public static int sarraySplitString(
 				 Sarray sa, 
 				 String str, 
 				 String separators){
 
+
 	IntPtr saPtr = IntPtr.Zero; if (sa != null) {saPtr = sa.Pointer;}
 
-	int _Result = Natives.sarraySplitString(sa.Pointer,   str,   separators);
+	int _Result = Natives.sarraySplitString(
+sa.Pointer,   str,   separators);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1145, 1)
 // sarraySelectBySubstring(sain, substr) as Sarray
 // sarraySelectBySubstring(SARRAY *, const char *) as SARRAY *
@@ -592,19 +775,27 @@ public static int sarraySplitString(
 ///  <param name="sain">[in] - input sarray</param>
 ///  <param name="substr">[in][optional] - substring for matching can be NULL</param>
 ///   <returns>saout output sarray, filtered with substring or NULL on error</returns>
+
 public static Sarray sarraySelectBySubstring(
 				 Sarray sain, 
 				 String substr){
 
-	IntPtr _Result = Natives.sarraySelectBySubstring(sain.Pointer,   substr);
+
+
+	IntPtr _Result = Natives.sarraySelectBySubstring(
+sain.Pointer,   substr);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1191, 1)
 // sarraySelectByRange(sain, first, last) as Sarray
 // sarraySelectByRange(SARRAY *, l_int32, l_int32) as SARRAY *
@@ -620,20 +811,28 @@ public static Sarray sarraySelectBySubstring(
 ///  <param name="first">[in] - index of first string to be selected</param>
 ///  <param name="last">[in] - index of last string to be selected use 0 to go to the end of the sarray</param>
 ///   <returns>saout output sarray, or NULL on error</returns>
+
 public static Sarray sarraySelectByRange(
 				 Sarray sain, 
 				 int first, 
 				 int last){
 
-	IntPtr _Result = Natives.sarraySelectByRange(sain.Pointer,   first,   last);
+
+
+	IntPtr _Result = Natives.sarraySelectByRange(
+sain.Pointer,   first,   last);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1260, 1)
 // sarrayParseRange(sa, start, pactualstart, pend, pnewstart, substr, loc) as int
 // sarrayParseRange(SARRAY *, l_int32, l_int32 *, l_int32 *, l_int32 *, const char *, l_int32) as l_int32
@@ -673,6 +872,7 @@ public static Sarray sarraySelectByRange(
 ///  <param name="substr">[in] - substring for matching at beginning of string</param>
 ///  <param name="loc">[in] - byte offset within the string for the pattern use -1 if the location does not matter</param>
 ///   <returns>0 if valid range found 1 otherwise</returns>
+
 public static int sarrayParseRange(
 				 Sarray sa, 
 				 int start, 
@@ -682,14 +882,21 @@ public static int sarrayParseRange(
 				 String substr, 
 				 int loc){
 
-	int _Result = Natives.sarrayParseRange(sa.Pointer,   start, out  pactualstart, out  pend, out  pnewstart,   substr,   loc);
+
+
+	int _Result = Natives.sarrayParseRange(
+sa.Pointer,   start, out  pactualstart, out  pend, out  pnewstart,   substr,   loc);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1345, 1)
 // sarrayRead(filename) as Sarray
 // sarrayRead(const char *) as SARRAY *
@@ -698,18 +905,26 @@ public static int sarrayParseRange(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>sarray, or NULL on error</returns>
+
 public static Sarray sarrayRead(
 				 String filename){
 
-	IntPtr _Result = Natives.sarrayRead(  filename);
+
+
+	IntPtr _Result = Natives.sarrayRead(
+  filename);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1382, 1)
 // sarrayReadStream(fp) as Sarray
 // sarrayReadStream(FILE *) as SARRAY *
@@ -727,18 +942,26 @@ public static Sarray sarrayRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>sarray, or NULL on error</returns>
+
 public static Sarray sarrayReadStream(
 				 FILE fp){
 
-	IntPtr _Result = Natives.sarrayReadStream(fp.Pointer);
+
+
+	IntPtr _Result = Natives.sarrayReadStream(
+fp.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1449, 1)
 // sarrayReadMem(data, size) as Sarray
 // sarrayReadMem(const l_uint8 *, size_t) as SARRAY *
@@ -748,19 +971,27 @@ public static Sarray sarrayReadStream(
 ///  <param name="data">[in] - serialization in ascii</param>
 ///  <param name="size">[in] - of data can use strlen to get it</param>
 ///   <returns>sarray, or NULL on error</returns>
+
 public static Sarray sarrayReadMem(
 				 Byte[] data, 
 				 uint size){
 
-	IntPtr _Result = Natives.sarrayReadMem(  data,   size);
+
+
+	IntPtr _Result = Natives.sarrayReadMem(
+  data,   size);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1477, 1)
 // sarrayWrite(filename, sa) as int
 // sarrayWrite(const char *, SARRAY *) as l_ok
@@ -770,18 +1001,26 @@ public static Sarray sarrayReadMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int sarrayWrite(
 				 String filename, 
 				 Sarray sa){
 
-	int _Result = Natives.sarrayWrite(  filename, sa.Pointer);
+
+
+	int _Result = Natives.sarrayWrite(
+  filename, sa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1514, 1)
 // sarrayWriteStream(fp, sa) as int
 // sarrayWriteStream(FILE *, SARRAY *) as l_ok
@@ -795,18 +1034,26 @@ public static int sarrayWrite(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int sarrayWriteStream(
 				 FILE fp, 
 				 Sarray sa){
 
-	int _Result = Natives.sarrayWriteStream(fp.Pointer, sa.Pointer);
+
+
+	int _Result = Natives.sarrayWriteStream(
+fp.Pointer, sa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1553, 1)
 // sarrayWriteMem(pdata, psize, sa) as int
 // sarrayWriteMem(l_uint8 **, size_t *, SARRAY *) as l_ok
@@ -820,22 +1067,33 @@ public static int sarrayWriteStream(
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="sa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int sarrayWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Sarray sa){
 
+
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.sarrayWriteMem(out  pdataPtr, out  psize, sa.Pointer);
+	int _Result = Natives.sarrayWriteMem(
+out  pdataPtr, out  psize, sa.Pointer);
 	
 
-	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+
+//  
+	Byte[] pdataGen = new Byte[psize];
+	if (pdataPtr != IntPtr.Zero) {
+	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
+	}
+	pdata = pdataGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1601, 1)
 // sarrayAppend(filename, sa) as int
 // sarrayAppend(const char *, SARRAY *) as l_ok
@@ -845,18 +1103,26 @@ public static int sarrayWriteMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="sa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int sarrayAppend(
 				 String filename, 
 				 Sarray sa){
 
-	int _Result = Natives.sarrayAppend(  filename, sa.Pointer);
+
+
+	int _Result = Natives.sarrayAppend(
+  filename, sa.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1669, 1)
 // getNumberedPathnamesInDirectory(dirname, substr, numpre, numpost, maxnum) as Sarray
 // getNumberedPathnamesInDirectory(const char *, const char *, l_int32, l_int32, l_int32) as SARRAY *
@@ -901,6 +1167,7 @@ public static int sarrayAppend(
 ///  <param name="numpost">[in] - number of characters in name after the number, up to a dot before an extension</param>
 ///  <param name="maxnum">[in] - only consider page numbers up to this value</param>
 ///   <returns>sarray of numbered pathnames, or NULL on error</returns>
+
 public static Sarray getNumberedPathnamesInDirectory(
 				 String dirname, 
 				 String substr, 
@@ -908,15 +1175,22 @@ public static Sarray getNumberedPathnamesInDirectory(
 				 int numpost, 
 				 int maxnum){
 
-	IntPtr _Result = Natives.getNumberedPathnamesInDirectory(  dirname,   substr,   numpre,   numpost,   maxnum);
+
+
+	IntPtr _Result = Natives.getNumberedPathnamesInDirectory(
+  dirname,   substr,   numpre,   numpost,   maxnum);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1717, 1)
 // getSortedPathnamesInDirectory(dirname, substr, first, nfiles) as Sarray
 // getSortedPathnamesInDirectory(const char *, const char *, l_int32, l_int32) as SARRAY *
@@ -939,21 +1213,29 @@ public static Sarray getNumberedPathnamesInDirectory(
 ///  <param name="first">[in] - 0-based</param>
 ///  <param name="nfiles">[in] - use 0 for all to the end</param>
 ///   <returns>sarray of sorted pathnames, or NULL on error</returns>
+
 public static Sarray getSortedPathnamesInDirectory(
 				 String dirname, 
 				 String substr, 
 				 int first, 
 				 int nfiles){
 
-	IntPtr _Result = Natives.getSortedPathnamesInDirectory(  dirname,   substr,   first,   nfiles);
+
+
+	IntPtr _Result = Natives.getSortedPathnamesInDirectory(
+  dirname,   substr,   first,   nfiles);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1777, 1)
 // convertSortedToNumberedPathnames(sa, numpre, numpost, maxnum) as Sarray
 // convertSortedToNumberedPathnames(SARRAY *, l_int32, l_int32, l_int32) as SARRAY *
@@ -969,21 +1251,29 @@ public static Sarray getSortedPathnamesInDirectory(
 ///  <param name="numpost">[in] - number of characters in name after the number, up to a dot before an extension</param>
 ///  <param name="maxnum">[in] - only consider page numbers up to this value</param>
 ///   <returns>sarray of numbered pathnames, or NULL on error</returns>
+
 public static Sarray convertSortedToNumberedPathnames(
 				 Sarray sa, 
 				 int numpre, 
 				 int numpost, 
 				 int maxnum){
 
-	IntPtr _Result = Natives.convertSortedToNumberedPathnames(sa.Pointer,   numpre,   numpost,   maxnum);
+
+
+	IntPtr _Result = Natives.convertSortedToNumberedPathnames(
+sa.Pointer,   numpre,   numpost,   maxnum);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sarray1.c (1917, 1)
 // getFilenamesInDirectory(dirname) as Sarray
 // getFilenamesInDirectory(const char *) as SARRAY *
@@ -991,14 +1281,21 @@ public static Sarray convertSortedToNumberedPathnames(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getFilenamesInDirectory/*"/>
 ///   <returns></returns>
+
 public static Sarray getFilenamesInDirectory(
 				 String dirname){
 
-	IntPtr _Result = Natives.getFilenamesInDirectory(  dirname);
+
+
+	IntPtr _Result = Natives.getFilenamesInDirectory(
+  dirname);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Sarray(_Result);
 }

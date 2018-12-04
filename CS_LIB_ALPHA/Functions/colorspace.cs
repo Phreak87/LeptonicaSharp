@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (134, 1)
 // pixConvertRGBToHSV(pixd, pixs) as Pix
 // pixConvertRGBToHSV(PIX *, PIX *) as PIX *
@@ -44,21 +45,28 @@ public partial class _All {
 ///  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixConvertRGBToHSV(
 				 Pix pixd, 
 				 Pix pixs){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixConvertRGBToHSV(pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixConvertRGBToHSV(
+pixdPtr, pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (198, 1)
 // pixConvertHSVToRGB(pixd, pixs) as Pix
 // pixConvertHSVToRGB(PIX *, PIX *) as PIX *
@@ -79,21 +87,28 @@ public static Pix pixConvertRGBToHSV(
 ///  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixConvertHSVToRGB(
 				 Pix pixd, 
 				 Pix pixs){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixConvertHSVToRGB(pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixConvertHSVToRGB(
+pixdPtr, pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (273, 1)
 // convertRGBToHSV(rval, gval, bval, phval, psval, pvval) as int
 // convertRGBToHSV(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -126,6 +141,7 @@ public static Pix pixConvertHSVToRGB(
 ///  <param name="psval">[out] - HSV values</param>
 ///  <param name="pvval">[out] - HSV values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertRGBToHSV(
 				 int rval, 
 				 int gval, 
@@ -134,14 +150,21 @@ public static int convertRGBToHSV(
 				out int psval, 
 				out int pvval){
 
-	int _Result = Natives.convertRGBToHSV(  rval,   gval,   bval, out  phval, out  psval, out  pvval);
+
+
+	int _Result = Natives.convertRGBToHSV(
+  rval,   gval,   bval, out  phval, out  psval, out  pvval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (335, 1)
 // convertHSVToRGB(hval, sval, vval, prval, pgval, pbval) as int
 // convertHSVToRGB(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -159,6 +182,7 @@ public static int convertRGBToHSV(
 ///  <param name="pgval">[out] - RGB values</param>
 ///  <param name="pbval">[out] - RGB values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertHSVToRGB(
 				 int hval, 
 				 int sval, 
@@ -167,14 +191,21 @@ public static int convertHSVToRGB(
 				out int pgval, 
 				out int pbval){
 
-	int _Result = Natives.convertHSVToRGB(  hval,   sval,   vval, out  prval, out  pgval, out  pbval);
+
+
+	int _Result = Natives.convertHSVToRGB(
+  hval,   sval,   vval, out  prval, out  pgval, out  pbval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (424, 1)
 // pixcmapConvertRGBToHSV(cmap) as int
 // pixcmapConvertRGBToHSV(PIXCMAP *) as l_ok
@@ -188,17 +219,25 @@ public static int convertHSVToRGB(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertRGBToHSV/*"/>
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixcmapConvertRGBToHSV(
 				 PixColormap cmap){
 
-	int _Result = Natives.pixcmapConvertRGBToHSV(cmap.Pointer);
+
+
+	int _Result = Natives.pixcmapConvertRGBToHSV(
+cmap.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (457, 1)
 // pixcmapConvertHSVToRGB(cmap) as int
 // pixcmapConvertHSVToRGB(PIXCMAP *) as l_ok
@@ -212,17 +251,25 @@ public static int pixcmapConvertRGBToHSV(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertHSVToRGB/*"/>
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixcmapConvertHSVToRGB(
 				 PixColormap cmap){
 
-	int _Result = Natives.pixcmapConvertHSVToRGB(cmap.Pointer);
+
+
+	int _Result = Natives.pixcmapConvertHSVToRGB(
+cmap.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (492, 1)
 // pixConvertRGBToHue(pixs) as Pix
 // pixConvertRGBToHue(PIX *) as PIX *
@@ -240,18 +287,26 @@ public static int pixcmapConvertHSVToRGB(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToHue/*"/>
 ///  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 ///   <returns>pixd 8 bpp hue of HSV, or NULL on error</returns>
+
 public static Pix pixConvertRGBToHue(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixConvertRGBToHue(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixConvertRGBToHue(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (568, 1)
 // pixConvertRGBToSaturation(pixs) as Pix
 // pixConvertRGBToSaturation(PIX *) as PIX *
@@ -268,18 +323,26 @@ public static Pix pixConvertRGBToHue(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToSaturation/*"/>
 ///  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 ///   <returns>pixd 8 bpp sat of HSV, or NULL on error</returns>
+
 public static Pix pixConvertRGBToSaturation(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixConvertRGBToSaturation(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixConvertRGBToSaturation(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (633, 1)
 // pixConvertRGBToValue(pixs) as Pix
 // pixConvertRGBToValue(PIX *) as PIX *
@@ -296,18 +359,26 @@ public static Pix pixConvertRGBToSaturation(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToValue/*"/>
 ///  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 ///   <returns>pixd 8 bpp max component intensity of HSV, or NULL on error</returns>
+
 public static Pix pixConvertRGBToValue(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixConvertRGBToValue(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixConvertRGBToValue(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (702, 1)
 // pixMakeRangeMaskHS(pixs, huecenter, huehw, satcenter, sathw, regionflag) as Pix
 // pixMakeRangeMaskHS(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -332,6 +403,7 @@ public static Pix pixConvertRGBToValue(
 ///  <param name="sathw">[in] - half-width of saturation range</param>
 ///  <param name="regionflag">[in] - L_INCLUDE_REGION, L_EXCLUDE_REGION</param>
 ///   <returns>pixd 1 bpp mask over selected pixels, or NULL on error</returns>
+
 public static Pix pixMakeRangeMaskHS(
 				 Pix pixs, 
 				 int huecenter, 
@@ -340,15 +412,22 @@ public static Pix pixMakeRangeMaskHS(
 				 int sathw, 
 				 int regionflag){
 
-	IntPtr _Result = Natives.pixMakeRangeMaskHS(pixs.Pointer,   huecenter,   huehw,   satcenter,   sathw,   regionflag);
+
+
+	IntPtr _Result = Natives.pixMakeRangeMaskHS(
+pixs.Pointer,   huecenter,   huehw,   satcenter,   sathw,   regionflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (801, 1)
 // pixMakeRangeMaskHV(pixs, huecenter, huehw, valcenter, valhw, regionflag) as Pix
 // pixMakeRangeMaskHV(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -373,6 +452,7 @@ public static Pix pixMakeRangeMaskHS(
 ///  <param name="valhw">[in] - half-width of max intensity range</param>
 ///  <param name="regionflag">[in] - L_INCLUDE_REGION, L_EXCLUDE_REGION</param>
 ///   <returns>pixd 1 bpp mask over selected pixels, or NULL on error</returns>
+
 public static Pix pixMakeRangeMaskHV(
 				 Pix pixs, 
 				 int huecenter, 
@@ -381,15 +461,22 @@ public static Pix pixMakeRangeMaskHV(
 				 int valhw, 
 				 int regionflag){
 
-	IntPtr _Result = Natives.pixMakeRangeMaskHV(pixs.Pointer,   huecenter,   huehw,   valcenter,   valhw,   regionflag);
+
+
+	IntPtr _Result = Natives.pixMakeRangeMaskHV(
+pixs.Pointer,   huecenter,   huehw,   valcenter,   valhw,   regionflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (899, 1)
 // pixMakeRangeMaskSV(pixs, satcenter, sathw, valcenter, valhw, regionflag) as Pix
 // pixMakeRangeMaskSV(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -413,6 +500,7 @@ public static Pix pixMakeRangeMaskHV(
 ///  <param name="valhw">[in] - half-width of max intensity range</param>
 ///  <param name="regionflag">[in] - L_INCLUDE_REGION, L_EXCLUDE_REGION</param>
 ///   <returns>pixd 1 bpp mask over selected pixels, or NULL on error</returns>
+
 public static Pix pixMakeRangeMaskSV(
 				 Pix pixs, 
 				 int satcenter, 
@@ -421,15 +509,22 @@ public static Pix pixMakeRangeMaskSV(
 				 int valhw, 
 				 int regionflag){
 
-	IntPtr _Result = Natives.pixMakeRangeMaskSV(pixs.Pointer,   satcenter,   sathw,   valcenter,   valhw,   regionflag);
+
+
+	IntPtr _Result = Natives.pixMakeRangeMaskSV(
+pixs.Pointer,   satcenter,   sathw,   valcenter,   valhw,   regionflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (988, 1)
 // pixMakeHistoHS(pixs, factor, pnahue, pnasat) as Pix
 // pixMakeHistoHS(PIX *, l_int32, NUMA **, NUMA **) as PIX *
@@ -450,26 +545,33 @@ public static Pix pixMakeRangeMaskSV(
 ///  <param name="pnahue">[out][optional] - hue histogram</param>
 ///  <param name="pnasat">[out][optional] - saturation histogram</param>
 ///   <returns>pixd 32 bpp histogram in hue and saturation, or NULL on error</returns>
+
 public static Pix pixMakeHistoHS(
 				 Pix pixs, 
 				 int factor, 
 				out Numa pnahue, 
 				out Numa pnasat){
 
+
 	IntPtr pnahuePtr = IntPtr.Zero;
 	IntPtr pnasatPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixMakeHistoHS(pixs.Pointer,   factor, out pnahuePtr, out pnasatPtr);
+	IntPtr _Result = Natives.pixMakeHistoHS(
+pixs.Pointer,   factor, out pnahuePtr, out pnasatPtr);
 	
 
+
+//  
 	if (pnahuePtr == IntPtr.Zero) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
 	if (pnasatPtr == IntPtr.Zero) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1079, 1)
 // pixMakeHistoHV(pixs, factor, pnahue, pnaval) as Pix
 // pixMakeHistoHV(PIX *, l_int32, NUMA **, NUMA **) as PIX *
@@ -490,26 +592,33 @@ public static Pix pixMakeHistoHS(
 ///  <param name="pnahue">[out][optional] - hue histogram</param>
 ///  <param name="pnaval">[out][optional] - max intensity (value) histogram</param>
 ///   <returns>pixd 32 bpp histogram in hue and value, or NULL on error</returns>
+
 public static Pix pixMakeHistoHV(
 				 Pix pixs, 
 				 int factor, 
 				out Numa pnahue, 
 				out Numa pnaval){
 
+
 	IntPtr pnahuePtr = IntPtr.Zero;
 	IntPtr pnavalPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixMakeHistoHV(pixs.Pointer,   factor, out pnahuePtr, out pnavalPtr);
+	IntPtr _Result = Natives.pixMakeHistoHV(
+pixs.Pointer,   factor, out pnahuePtr, out pnavalPtr);
 	
 
+
+//  
 	if (pnahuePtr == IntPtr.Zero) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
 	if (pnavalPtr == IntPtr.Zero) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1162, 1)
 // pixMakeHistoSV(pixs, factor, pnasat, pnaval) as Pix
 // pixMakeHistoSV(PIX *, l_int32, NUMA **, NUMA **) as PIX *
@@ -530,26 +639,33 @@ public static Pix pixMakeHistoHV(
 ///  <param name="pnasat">[out][optional] - sat histogram</param>
 ///  <param name="pnaval">[out][optional] - max intensity (value) histogram</param>
 ///   <returns>pixd 32 bpp histogram in sat and value, or NULL on error</returns>
+
 public static Pix pixMakeHistoSV(
 				 Pix pixs, 
 				 int factor, 
 				out Numa pnasat, 
 				out Numa pnaval){
 
+
 	IntPtr pnasatPtr = IntPtr.Zero;
 	IntPtr pnavalPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixMakeHistoSV(pixs.Pointer,   factor, out pnasatPtr, out pnavalPtr);
+	IntPtr _Result = Natives.pixMakeHistoSV(
+pixs.Pointer,   factor, out pnasatPtr, out pnavalPtr);
 	
 
+
+//  
 	if (pnasatPtr == IntPtr.Zero) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
 	if (pnavalPtr == IntPtr.Zero) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1253, 1)
 // pixFindHistoPeaksHSV(pixs, type, width, height, npeaks, erasefactor, ppta, pnatot, ppixa) as int
 // pixFindHistoPeaksHSV(PIX *, l_int32, l_int32, l_int32, l_int32, l_float32, PTA **, NUMA **, PIXA **) as l_ok
@@ -580,6 +696,7 @@ public static Pix pixMakeHistoSV(
 ///  <param name="pnatot">[out] - integrated peak areas</param>
 ///  <param name="ppixa">[out][optional] - pixa for debugging NULL to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixFindHistoPeaksHSV(
 				 Pix pixs, 
 				 int type, 
@@ -591,21 +708,27 @@ public static int pixFindHistoPeaksHSV(
 				out Numa pnatot, 
 				out Pixa ppixa){
 
+
 	IntPtr pptaPtr = IntPtr.Zero;
 	IntPtr pnatotPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixFindHistoPeaksHSV(pixs.Pointer,   type,   width,   height,   npeaks,   erasefactor, out pptaPtr, out pnatotPtr, out ppixaPtr);
+	int _Result = Natives.pixFindHistoPeaksHSV(
+pixs.Pointer,   type,   width,   height,   npeaks,   erasefactor, out pptaPtr, out pnatotPtr, out ppixaPtr);
 	
 
+
+//  
 	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 	if (pnatotPtr == IntPtr.Zero) {pnatot = null;} else { pnatot = new Numa(pnatotPtr); };
 	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1378, 1)
 // displayHSVColorRange(hval, sval, vval, huehw, sathw, nsamp, factor) as Pix
 // displayHSVColorRange(l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -624,6 +747,7 @@ public static int pixFindHistoPeaksHSV(
 ///  <param name="nsamp">[in] - number of samplings in each half-width in hue and sat</param>
 ///  <param name="factor">[in] - linear size of each color square, in pixels  is greater  3</param>
 ///   <returns>pixd 32 bpp set of color squares over input range, or NULL on error</returns>
+
 public static Pix displayHSVColorRange(
 				 int hval, 
 				 int sval, 
@@ -633,15 +757,22 @@ public static Pix displayHSVColorRange(
 				 int nsamp, 
 				 int factor){
 
-	IntPtr _Result = Natives.displayHSVColorRange(  hval,   sval,   vval,   huehw,   sathw,   nsamp,   factor);
+
+
+	IntPtr _Result = Natives.displayHSVColorRange(
+  hval,   sval,   vval,   huehw,   sathw,   nsamp,   factor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1454, 1)
 // pixConvertRGBToYUV(pixd, pixs) as Pix
 // pixConvertRGBToYUV(PIX *, PIX *) as PIX *
@@ -673,21 +804,28 @@ public static Pix displayHSVColorRange(
 ///  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixConvertRGBToYUV(
 				 Pix pixd, 
 				 Pix pixs){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixConvertRGBToYUV(pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixConvertRGBToYUV(
+pixdPtr, pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1517, 1)
 // pixConvertYUVToRGB(pixd, pixs) as Pix
 // pixConvertYUVToRGB(PIX *, PIX *) as PIX *
@@ -707,21 +845,28 @@ public static Pix pixConvertRGBToYUV(
 ///  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
+
 public static Pix pixConvertYUVToRGB(
 				 Pix pixd, 
 				 Pix pixs){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixConvertYUVToRGB(pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixConvertYUVToRGB(
+pixdPtr, pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1582, 1)
 // convertRGBToYUV(rval, gval, bval, pyval, puval, pvval) as int
 // convertRGBToYUV(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -741,6 +886,7 @@ public static Pix pixConvertYUVToRGB(
 ///  <param name="puval">[out] - YUV values</param>
 ///  <param name="pvval">[out] - YUV values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertRGBToYUV(
 				 int rval, 
 				 int gval, 
@@ -749,14 +895,21 @@ public static int convertRGBToYUV(
 				out int puval, 
 				out int pvval){
 
-	int _Result = Natives.convertRGBToYUV(  rval,   gval,   bval, out  pyval, out  puval, out  pvval);
+
+
+	int _Result = Natives.convertRGBToYUV(
+  rval,   gval,   bval, out  pyval, out  puval, out  pvval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1630, 1)
 // convertYUVToRGB(yval, uval, vval, prval, pgval, pbval) as int
 // convertYUVToRGB(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -782,6 +935,7 @@ public static int convertRGBToYUV(
 ///  <param name="pgval">[out] - RGB values</param>
 ///  <param name="pbval">[out] - RGB values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertYUVToRGB(
 				 int yval, 
 				 int uval, 
@@ -790,14 +944,21 @@ public static int convertYUVToRGB(
 				out int pgval, 
 				out int pbval){
 
-	int _Result = Natives.convertYUVToRGB(  yval,   uval,   vval, out  prval, out  pgval, out  pbval);
+
+
+	int _Result = Natives.convertYUVToRGB(
+  yval,   uval,   vval, out  prval, out  pgval, out  pbval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1678, 1)
 // pixcmapConvertRGBToYUV(cmap) as int
 // pixcmapConvertRGBToYUV(PIXCMAP *) as l_ok
@@ -811,17 +972,25 @@ public static int convertYUVToRGB(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertRGBToYUV/*"/>
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixcmapConvertRGBToYUV(
 				 PixColormap cmap){
 
-	int _Result = Natives.pixcmapConvertRGBToYUV(cmap.Pointer);
+
+
+	int _Result = Natives.pixcmapConvertRGBToYUV(
+cmap.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1711, 1)
 // pixcmapConvertYUVToRGB(cmap) as int
 // pixcmapConvertYUVToRGB(PIXCMAP *) as l_ok
@@ -835,17 +1004,25 @@ public static int pixcmapConvertRGBToYUV(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertYUVToRGB/*"/>
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int pixcmapConvertYUVToRGB(
 				 PixColormap cmap){
 
-	int _Result = Natives.pixcmapConvertYUVToRGB(cmap.Pointer);
+
+
+	int _Result = Natives.pixcmapConvertYUVToRGB(
+cmap.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1762, 1)
 // pixConvertRGBToXYZ(pixs) as FPixa
 // pixConvertRGBToXYZ(PIX *) as FPIXA *
@@ -876,18 +1053,26 @@ public static int pixcmapConvertYUVToRGB(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToXYZ/*"/>
 ///  <param name="pixs">[in] - rgb</param>
 ///   <returns>fpixa xyz</returns>
+
 public static FPixa pixConvertRGBToXYZ(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixConvertRGBToXYZ(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixConvertRGBToXYZ(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new FPixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1821, 1)
 // fpixaConvertXYZToRGB(fpixa) as Pix
 // fpixaConvertXYZToRGB(FPIXA *) as PIX *
@@ -902,18 +1087,26 @@ public static FPixa pixConvertRGBToXYZ(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertXYZToRGB/*"/>
 ///  <param name="fpixa">[in] - three fpix: x,y,z</param>
 ///   <returns>pixd rgb</returns>
+
 public static Pix fpixaConvertXYZToRGB(
 				 FPixa fpixa){
 
-	IntPtr _Result = Natives.fpixaConvertXYZToRGB(fpixa.Pointer);
+
+
+	IntPtr _Result = Natives.fpixaConvertXYZToRGB(
+fpixa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1879, 1)
 // convertRGBToXYZ(rval, gval, bval, pfxval, pfyval, pfzval) as int
 // convertRGBToXYZ(l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -931,6 +1124,7 @@ public static Pix fpixaConvertXYZToRGB(
 ///  <param name="pfyval">[out] - xyz values</param>
 ///  <param name="pfzval">[out] - xyz values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertRGBToXYZ(
 				 int rval, 
 				 int gval, 
@@ -939,14 +1133,21 @@ public static int convertRGBToXYZ(
 				out Single pfyval, 
 				out Single pfzval){
 
-	int _Result = Natives.convertRGBToXYZ(  rval,   gval,   bval, out  pfxval, out  pfyval, out  pfzval);
+
+
+	int _Result = Natives.convertRGBToXYZ(
+  rval,   gval,   bval, out  pfxval, out  pfyval, out  pfzval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1921, 1)
 // convertXYZToRGB(fxval, fyval, fzval, blackout, prval, pgval, pbval) as int
 // convertXYZToRGB(l_float32, l_float32, l_float32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -969,6 +1170,7 @@ public static int convertRGBToXYZ(
 ///  <param name="pgval">[out] - rgb values</param>
 ///  <param name="pbval">[out] - rgb values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertXYZToRGB(
 				 Single fxval, 
 				 Single fyval, 
@@ -978,14 +1180,21 @@ public static int convertXYZToRGB(
 				out int pgval, 
 				out int pbval){
 
-	int _Result = Natives.convertXYZToRGB(  fxval,   fyval,   fzval,   blackout, out  prval, out  pgval, out  pbval);
+
+
+	int _Result = Natives.convertXYZToRGB(
+  fxval,   fyval,   fzval,   blackout, out  prval, out  pgval, out  pbval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (1982, 1)
 // fpixaConvertXYZToLAB(fpixas) as FPixa
 // fpixaConvertXYZToLAB(FPIXA *) as FPIXA *
@@ -1006,18 +1215,26 @@ public static int convertXYZToRGB(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertXYZToLAB/*"/>
 ///  <param name="fpixas">[in] - xyz</param>
 ///   <returns>fpixa lab</returns>
+
 public static FPixa fpixaConvertXYZToLAB(
 				 FPixa fpixas){
 
-	IntPtr _Result = Natives.fpixaConvertXYZToLAB(fpixas.Pointer);
+
+
+	IntPtr _Result = Natives.fpixaConvertXYZToLAB(
+fpixas.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new FPixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (2048, 1)
 // fpixaConvertLABToXYZ(fpixas) as FPixa
 // fpixaConvertLABToXYZ(FPIXA *) as FPIXA *
@@ -1030,18 +1247,26 @@ public static FPixa fpixaConvertXYZToLAB(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertLABToXYZ/*"/>
 ///  <param name="fpixas">[in] - lab</param>
 ///   <returns>fpixa xyz</returns>
+
 public static FPixa fpixaConvertLABToXYZ(
 				 FPixa fpixas){
 
-	IntPtr _Result = Natives.fpixaConvertLABToXYZ(fpixas.Pointer);
+
+
+	IntPtr _Result = Natives.fpixaConvertLABToXYZ(
+fpixas.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new FPixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (2109, 1)
 // convertXYZToLAB(xval, yval, zval, plval, paval, pbval) as int
 // convertXYZToLAB(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -1055,6 +1280,7 @@ public static FPixa fpixaConvertLABToXYZ(
 ///  <param name="paval">[out] - lab values</param>
 ///  <param name="pbval">[out] - lab values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertXYZToLAB(
 				 Single xval, 
 				 Single yval, 
@@ -1063,14 +1289,21 @@ public static int convertXYZToLAB(
 				out Single paval, 
 				out Single pbval){
 
-	int _Result = Natives.convertXYZToLAB(  xval,   yval,   zval, out  plval, out  paval, out  pbval);
+
+
+	int _Result = Natives.convertXYZToLAB(
+  xval,   yval,   zval, out  plval, out  paval, out  pbval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (2149, 1)
 // convertLABToXYZ(lval, aval, bval, pxval, pyval, pzval) as int
 // convertLABToXYZ(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -1084,6 +1317,7 @@ public static int convertXYZToLAB(
 ///  <param name="pyval">[out] - xyz values</param>
 ///  <param name="pzval">[out] - xyz values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertLABToXYZ(
 				 Single lval, 
 				 Single aval, 
@@ -1092,14 +1326,21 @@ public static int convertLABToXYZ(
 				out Single pyval, 
 				out Single pzval){
 
-	int _Result = Natives.convertLABToXYZ(  lval,   aval,   bval, out  pxval, out  pyval, out  pzval);
+
+
+	int _Result = Natives.convertLABToXYZ(
+  lval,   aval,   bval, out  pxval, out  pyval, out  pzval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (2243, 1)
 // pixConvertRGBToLAB(pixs) as FPixa
 // pixConvertRGBToLAB(PIX *) as FPIXA *
@@ -1112,18 +1353,26 @@ public static int convertLABToXYZ(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToLAB/*"/>
 ///  <param name="pixs">[in] - rgb</param>
 ///   <returns>fpixa lab</returns>
+
 public static FPixa pixConvertRGBToLAB(
 				 Pix pixs){
 
-	IntPtr _Result = Natives.pixConvertRGBToLAB(pixs.Pointer);
+
+
+	IntPtr _Result = Natives.pixConvertRGBToLAB(
+pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new FPixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (2300, 1)
 // fpixaConvertLABToRGB(fpixa) as Pix
 // fpixaConvertLABToRGB(FPIXA *) as PIX *
@@ -1135,18 +1384,26 @@ public static FPixa pixConvertRGBToLAB(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertLABToRGB/*"/>
 ///  <param name="fpixa">[in] - three fpix: l,a,b</param>
 ///   <returns>pixd rgb</returns>
+
 public static Pix fpixaConvertLABToRGB(
 				 FPixa fpixa){
 
-	IntPtr _Result = Natives.fpixaConvertLABToRGB(fpixa.Pointer);
+
+
+	IntPtr _Result = Natives.fpixaConvertLABToRGB(
+fpixa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (2358, 1)
 // convertRGBToLAB(rval, gval, bval, pflval, pfaval, pfbval) as int
 // convertRGBToLAB(l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -1164,6 +1421,7 @@ public static Pix fpixaConvertLABToRGB(
 ///  <param name="pfaval">[out] - lab values</param>
 ///  <param name="pfbval">[out] - lab values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertRGBToLAB(
 				 int rval, 
 				 int gval, 
@@ -1172,14 +1430,21 @@ public static int convertRGBToLAB(
 				out Single pfaval, 
 				out Single pfbval){
 
-	int _Result = Natives.convertRGBToLAB(  rval,   gval,   bval, out  pflval, out  pfaval, out  pfbval);
+
+
+	int _Result = Natives.convertRGBToLAB(
+  rval,   gval,   bval, out  pflval, out  pfaval, out  pfbval);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorspace.c (2395, 1)
 // convertLABToRGB(flval, faval, fbval, prval, pgval, pbval) as int
 // convertLABToRGB(l_float32, l_float32, l_float32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -1197,6 +1462,7 @@ public static int convertRGBToLAB(
 ///  <param name="pgval">[out] - rgb values</param>
 ///  <param name="pbval">[out] - rgb values</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertLABToRGB(
 				 Single flval, 
 				 Single faval, 
@@ -1205,8 +1471,14 @@ public static int convertLABToRGB(
 				out int pgval, 
 				out int pbval){
 
-	int _Result = Natives.convertLABToRGB(  flval,   faval,   fbval, out  prval, out  pgval, out  pbval);
+
+
+	int _Result = Natives.convertLABToRGB(
+  flval,   faval,   fbval, out  prval, out  pgval, out  pbval);
 	
+
+
+//  
 
 
 

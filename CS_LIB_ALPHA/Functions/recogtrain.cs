@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (212, 1)
 // recogTrainLabeled(recog, pixs, box, text, debug) as int
 // recogTrainLabeled(L_RECOG *, PIX *, BOX *, char *, l_int32) as l_ok
@@ -25,6 +26,7 @@ public partial class _All {
 ///  <param name="text">[in][optional] - if null, use text field in pix</param>
 ///  <param name="debug">[in] - 1 to display images of samples not captured</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogTrainLabeled(
 				 L_Recog recog, 
 				 Pix pixs, 
@@ -32,16 +34,22 @@ public static int recogTrainLabeled(
 				 String text, 
 				 DebugOnOff debug){
 
+
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.recogTrainLabeled(recog.Pointer, pixs.Pointer, boxPtr,   text,  (int) debug);
+	int _Result = Natives.recogTrainLabeled(
+recog.Pointer, pixs.Pointer, boxPtr,   text,  (int) debug);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (261, 1)
 // recogProcessLabeled(recog, pixs, box, text, ppix) as int
 // recogProcessLabeled(L_RECOG *, PIX *, BOX *, char *, PIX **) as l_ok
@@ -58,6 +66,7 @@ public static int recogTrainLabeled(
 ///  <param name="text">[in][optional] - if null, use text field in pix</param>
 ///  <param name="ppix">[out] - addr of pix, 1 bpp, labeled</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogProcessLabeled(
 				 L_Recog recog, 
 				 Pix pixs, 
@@ -65,18 +74,24 @@ public static int recogProcessLabeled(
 				 String text, 
 				out Pix ppix){
 
+
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr ppixPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogProcessLabeled(recog.Pointer, pixs.Pointer, boxPtr,   text, out ppixPtr);
+	int _Result = Natives.recogProcessLabeled(
+recog.Pointer, pixs.Pointer, boxPtr,   text, out ppixPtr);
 	
 
+
+//  
 	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (352, 1)
 // recogAddSample(recog, pix, debug) as int
 // recogAddSample(L_RECOG *, PIX *, l_int32) as l_ok
@@ -97,19 +112,27 @@ public static int recogProcessLabeled(
 ///  <param name="pix">[in] - a single character, 1 bpp</param>
 ///  <param name="debug">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogAddSample(
 				 L_Recog recog, 
 				 Pix pix, 
 				 DebugOnOff debug){
 
-	int _Result = Natives.recogAddSample(recog.Pointer, pix.Pointer,  (int) debug);
+
+
+	int _Result = Natives.recogAddSample(
+recog.Pointer, pix.Pointer,  (int) debug);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (417, 1)
 // recogModifyTemplate(recog, pixs) as Pix
 // recogModifyTemplate(L_RECOG *, PIX *) as PIX *
@@ -119,19 +142,27 @@ public static int recogAddSample(
 ///  <param name="recog">[in] - </param>
 ///  <param name="pixs">[in] - 1 bpp, to be optionally scaled and turned into strokes of fixed width</param>
 ///   <returns>pixd   modified pix if OK, NULL on error</returns>
+
 public static Pix recogModifyTemplate(
 				 L_Recog recog, 
 				 Pix pixs){
 
-	IntPtr _Result = Natives.recogModifyTemplate(recog.Pointer, pixs.Pointer);
+
+
+	IntPtr _Result = Natives.recogModifyTemplate(
+recog.Pointer, pixs.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (486, 1)
 // recogAverageSamples(precog, debug) as int
 // recogAverageSamples(L_RECOG **, l_int32) as l_int32
@@ -157,20 +188,27 @@ public static Pix recogModifyTemplate(
 ///  <param name="precog">[in] - addr of existing recog may be destroyed</param>
 ///  <param name="debug">[in] - </param>
 ///   <returns>0 on success, 1 on failure</returns>
+
 public static int recogAverageSamples(
 				 List<L_Recog> precog, 
 				 DebugOnOff debug){
 
+
 	IntPtr precogPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogAverageSamples(precogPtr,  (int) debug);
+	int _Result = Natives.recogAverageSamples(
+precogPtr,  (int) debug);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (664, 1)
 // pixaAccumulateSamples(pixa, pta, ppixd, px, py) as int
 // pixaAccumulateSamples(PIXA *, PTA *, PIX **, l_float32 *, l_float32 *) as l_int32
@@ -192,6 +230,7 @@ public static int recogAverageSamples(
 ///  <param name="px">[out][optional] - average x coordinate of centroids</param>
 ///  <param name="py">[out][optional] - average y coordinate of centroids</param>
 ///   <returns>0 on success, 1 on failure</returns>
+
 public static int pixaAccumulateSamples(
 				 Pixa pixa, 
 				 Pta pta, 
@@ -199,18 +238,24 @@ public static int pixaAccumulateSamples(
 				out Single px, 
 				out Single py){
 
+
 	IntPtr ptaPtr = IntPtr.Zero; 	if (pta != null) {ptaPtr = pta.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixaAccumulateSamples(pixa.Pointer, ptaPtr, out ppixdPtr, out  px, out  py);
+	int _Result = Natives.pixaAccumulateSamples(
+pixa.Pointer, ptaPtr, out ppixdPtr, out  px, out  py);
 	
 
+
+//  
 	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (783, 1)
 // recogTrainingFinished(precog, modifyflag, minsize, minfract) as int
 // recogTrainingFinished(L_RECOG **, l_int32, l_int32, l_float32) as l_ok
@@ -251,22 +296,29 @@ public static int pixaAccumulateSamples(
 ///  <param name="minsize">[in] - set to -1 for default</param>
 ///  <param name="minfract">[in] - set to -1.0 for default</param>
 ///   <returns>0 if OK, 1 on error (input recog will be destroyed)</returns>
+
 public static int recogTrainingFinished(
 				 List<L_Recog> precog, 
 				 int modifyflag, 
 				 int minsize, 
 				 Single minfract){
 
+
 	IntPtr precogPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogTrainingFinished(precogPtr,   modifyflag,   minsize,   minfract);
+	int _Result = Natives.recogTrainingFinished(
+precogPtr,   modifyflag,   minsize,   minfract);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (970, 1)
 // recogFilterPixaBySize(pixas, setsize, maxkeep, max_ht_ratio, pna) as Pixa
 // recogFilterPixaBySize(PIXA *, l_int32, l_int32, l_float32, NUMA **) as PIXA *
@@ -295,6 +347,7 @@ public static int recogTrainingFinished(
 ///  <param name="max_ht_ratio">[in] - max allowed height ratio (see below)</param>
 ///  <param name="pna">[out][optional] - debug output, giving the number in each class after filtering use NULL to skip</param>
 ///   <returns>pixa   filtered templates, or NULL on error</returns>
+
 public static Pixa recogFilterPixaBySize(
 				 Pixa pixas, 
 				 int setsize, 
@@ -302,18 +355,24 @@ public static Pixa recogFilterPixaBySize(
 				 Single max_ht_ratio, 
 				out Numa pna){
 
+
 	IntPtr pnaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.recogFilterPixaBySize(pixas.Pointer,   setsize,   maxkeep,   max_ht_ratio, out pnaPtr);
+	IntPtr _Result = Natives.recogFilterPixaBySize(
+pixas.Pointer,   setsize,   maxkeep,   max_ht_ratio, out pnaPtr);
 	
 
+
+//  
 	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1041, 1)
 // recogSortPixaByClass(pixa, setsize) as Pixaa
 // recogSortPixaByClass(PIXA *, l_int32) as PIXAA *
@@ -323,19 +382,27 @@ public static Pixa recogFilterPixaBySize(
 ///  <param name="pixa">[in] - labeled templates</param>
 ///  <param name="setsize">[in] - size of character set (number of classes)</param>
 ///   <returns>paa   pixaa where each pixa has templates for one class, or null on error</returns>
+
 public static Pixaa recogSortPixaByClass(
 				 Pixa pixa, 
 				 int setsize){
 
-	IntPtr _Result = Natives.recogSortPixaByClass(pixa.Pointer,   setsize);
+
+
+	IntPtr _Result = Natives.recogSortPixaByClass(
+pixa.Pointer,   setsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixaa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1081, 1)
 // recogRemoveOutliers1(precog, minscore, mintarget, minsize, ppixsave, ppixrem) as int
 // recogRemoveOutliers1(L_RECOG **, l_float32, l_int32, l_int32, PIX **, PIX **) as l_ok
@@ -356,6 +423,7 @@ public static Pixaa recogSortPixaByClass(
 ///  <param name="ppixsave">[out][optional debug] - saved templates, with scores</param>
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>0 if OK, 1 on error.</returns>
+
 public static int recogRemoveOutliers1(
 				 List<L_Recog> precog, 
 				 Single minscore, 
@@ -364,20 +432,26 @@ public static int recogRemoveOutliers1(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+
 	IntPtr precogPtr = IntPtr.Zero;
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogRemoveOutliers1(precogPtr,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
+	int _Result = Natives.recogRemoveOutliers1(
+precogPtr,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
+
+//  
 	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
 	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1159, 1)
 // pixaRemoveOutliers1(pixas, minscore, mintarget, minsize, ppixsave, ppixrem) as Pixa
 // pixaRemoveOutliers1(PIXA *, l_float32, l_int32, l_int32, PIX **, PIX **) as PIXA *
@@ -417,6 +491,7 @@ public static int recogRemoveOutliers1(
 ///  <param name="ppixsave">[out][optional debug] - saved templates, with scores</param>
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>pixa   of unscaled templates to be kept, or NULL on error</returns>
+
 public static Pixa pixaRemoveOutliers1(
 				 Pixa pixas, 
 				 Single minscore, 
@@ -425,20 +500,26 @@ public static Pixa pixaRemoveOutliers1(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixaRemoveOutliers1(pixas.Pointer,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
+	IntPtr _Result = Natives.pixaRemoveOutliers1(
+pixas.Pointer,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
+
+//  
 	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
 	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1299, 1)
 // recogRemoveOutliers2(precog, minscore, minsize, ppixsave, ppixrem) as int
 // recogRemoveOutliers2(L_RECOG **, l_float32, l_int32, PIX **, PIX **) as l_ok
@@ -458,6 +539,7 @@ public static Pixa pixaRemoveOutliers1(
 ///  <param name="ppixsave">[out][optional debug] - saved templates, with scores</param>
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>0 if OK, 1 on error.</returns>
+
 public static int recogRemoveOutliers2(
 				 List<L_Recog> precog, 
 				 Single minscore, 
@@ -465,20 +547,26 @@ public static int recogRemoveOutliers2(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+
 	IntPtr precogPtr = IntPtr.Zero;
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogRemoveOutliers2(precogPtr,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
+	int _Result = Natives.recogRemoveOutliers2(
+precogPtr,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
+
+//  
 	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
 	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1363, 1)
 // pixaRemoveOutliers2(pixas, minscore, minsize, ppixsave, ppixrem) as Pixa
 // pixaRemoveOutliers2(PIXA *, l_float32, l_int32, PIX **, PIX **) as PIXA *
@@ -506,6 +594,7 @@ public static int recogRemoveOutliers2(
 ///  <param name="ppixsave">[out][optional debug] - saved templates, with scores</param>
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>pixa   of unscaled templates to be kept, or NULL on error</returns>
+
 public static Pixa pixaRemoveOutliers2(
 				 Pixa pixas, 
 				 Single minscore, 
@@ -513,20 +602,26 @@ public static Pixa pixaRemoveOutliers2(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixaRemoveOutliers2(pixas.Pointer,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
+	IntPtr _Result = Natives.pixaRemoveOutliers2(
+pixas.Pointer,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
+
+//  
 	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
 	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1488, 1)
 // recogTrainFromBoot(recogboot, pixas, minscore, threshold, debug) as Pixa
 // recogTrainFromBoot(L_RECOG *, PIXA *, l_float32, l_int32, l_int32) as PIXA *
@@ -556,6 +651,7 @@ public static Pixa pixaRemoveOutliers2(
 ///  <param name="threshold">[in] - for binarization, if needed</param>
 ///  <param name="debug">[in] - 1 for debug output saved to recogboot 0 otherwise</param>
 ///   <returns>pixad   labeled version of input pixas, trained on a BSR, or NULL on error</returns>
+
 public static Pixa recogTrainFromBoot(
 				 L_Recog recogboot, 
 				 Pixa pixas, 
@@ -563,15 +659,22 @@ public static Pixa recogTrainFromBoot(
 				 int threshold, 
 				 DebugOnOff debug){
 
-	IntPtr _Result = Natives.recogTrainFromBoot(recogboot.Pointer, pixas.Pointer,   minscore,   threshold,  (int) debug);
+
+
+	IntPtr _Result = Natives.recogTrainFromBoot(
+recogboot.Pointer, pixas.Pointer,   minscore,   threshold,  (int) debug);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1592, 1)
 // recogPadDigitTrainingSet(precog, scaleh, linew) as int
 // recogPadDigitTrainingSet(L_RECOG **, l_int32, l_int32) as l_ok
@@ -589,22 +692,29 @@ public static Pixa recogTrainFromBoot(
 ///  <param name="scaleh">[in] - must be  is greater  0 suggest ~40.</param>
 ///  <param name="linew">[in] - use 0 for original scanned images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogPadDigitTrainingSet(
 				ref L_Recog precog, 
 				 int scaleh, 
 				 int linew){
 
+
 	IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
 
-	int _Result = Natives.recogPadDigitTrainingSet(ref precogPtr,   scaleh,   linew);
+	int _Result = Natives.recogPadDigitTrainingSet(
+ref precogPtr,   scaleh,   linew);
 	
 
+
+//  
 	if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1650, 1)
 // recogIsPaddingNeeded(recog, psa) as int
 // recogIsPaddingNeeded(L_RECOG *, SARRAY **) as l_int32
@@ -620,21 +730,28 @@ public static int recogPadDigitTrainingSet(
 ///  <param name="recog">[in] - trained</param>
 ///  <param name="psa">[out] - addr of returned string containing text value</param>
 ///   <returns>1 on error 0 if OK, whether or not additional padding templates are required.</returns>
+
 public static int recogIsPaddingNeeded(
 				 L_Recog recog, 
 				out Sarray psa){
 
+
 	IntPtr psaPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogIsPaddingNeeded(recog.Pointer, out psaPtr);
+	int _Result = Natives.recogIsPaddingNeeded(
+recog.Pointer, out psaPtr);
 	
 
+
+//  
 	if (psaPtr == IntPtr.Zero) {psa = null;} else { psa = new Sarray(psaPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1768, 1)
 // recogAddDigitPadTemplates(recog, sa) as Pixa
 // recogAddDigitPadTemplates(L_RECOG *, SARRAY *) as PIXA *
@@ -649,19 +766,27 @@ public static int recogIsPaddingNeeded(
 ///  <param name="recog">[in] - trained</param>
 ///  <param name="sa">[in] - set of text strings that need to be padded</param>
 ///   <returns>pixa   of all templates from %recog and the additional pad templates from a boot recognizer or NULL on error</returns>
+
 public static Pixa recogAddDigitPadTemplates(
 				 L_Recog recog, 
 				 Sarray sa){
 
-	IntPtr _Result = Natives.recogAddDigitPadTemplates(recog.Pointer, sa.Pointer);
+
+
+	IntPtr _Result = Natives.recogAddDigitPadTemplates(
+recog.Pointer, sa.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1876, 1)
 // recogMakeBootDigitRecog(scaleh, linew, maxyshift, debug) as L_Recog
 // recogMakeBootDigitRecog(l_int32, l_int32, l_int32, l_int32) as L_RECOG *
@@ -688,21 +813,29 @@ public static Pixa recogAddDigitPadTemplates(
 ///  <param name="maxyshift">[in] - from nominal centroid alignment typically 0 or 1</param>
 ///  <param name="debug">[in] - 1 for showing templates 0 otherwise</param>
 ///   <returns>recog, or NULL on error</returns>
+
 public static L_Recog recogMakeBootDigitRecog(
 				 int scaleh, 
 				 int linew, 
 				 int maxyshift, 
 				 DebugOnOff debug){
 
-	IntPtr _Result = Natives.recogMakeBootDigitRecog(  scaleh,   linew,   maxyshift,  (int) debug);
+
+
+	IntPtr _Result = Natives.recogMakeBootDigitRecog(
+  scaleh,   linew,   maxyshift,  (int) debug);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Recog(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1911, 1)
 // recogMakeBootDigitTemplates(debug) as Pixa
 // recogMakeBootDigitTemplates(l_int32) as PIXA *
@@ -714,18 +847,26 @@ public static L_Recog recogMakeBootDigitRecog(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogMakeBootDigitTemplates/*"/>
 ///  <param name="debug">[in] - 1 for display of templates</param>
 ///   <returns>pixa   of templates or NULL on error</returns>
+
 public static Pixa recogMakeBootDigitTemplates(
 				 DebugOnOff debug){
 
-	IntPtr _Result = Natives.recogMakeBootDigitTemplates( (int) debug);
+
+
+	IntPtr _Result = Natives.recogMakeBootDigitTemplates(
+ (int) debug);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (1962, 1)
 // recogShowContent(fp, recog, index, display) as int
 // recogShowContent(FILE *, L_RECOG *, l_int32, l_int32) as l_ok
@@ -737,20 +878,28 @@ public static Pixa recogMakeBootDigitTemplates(
 ///  <param name="index">[in] - for naming of output files of template images</param>
 ///  <param name="display">[in] - 1 for showing template images, 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogShowContent(
 				 FILE fp, 
 				 L_Recog recog, 
 				 int index, 
 				 int display){
 
-	int _Result = Natives.recogShowContent(fp.Pointer, recog.Pointer,   index,   display);
+
+
+	int _Result = Natives.recogShowContent(
+fp.Pointer, recog.Pointer,   index,   display);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (2045, 1)
 // recogDebugAverages(precog, debug) as int
 // recogDebugAverages(L_RECOG **, l_int32) as l_ok
@@ -770,20 +919,27 @@ public static int recogShowContent(
 ///  <param name="precog">[in] - addr of recog</param>
 ///  <param name="debug">[in] - 0 no output 1 for images 2 for text 3 for both</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogDebugAverages(
 				 List<L_Recog> precog, 
 				 DebugOnOff debug){
 
+
 	IntPtr precogPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogDebugAverages(precogPtr,  (int) debug);
+	int _Result = Natives.recogDebugAverages(
+precogPtr,  (int) debug);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (2123, 1)
 // recogShowAverageTemplates(recog) as int
 // recogShowAverageTemplates(L_RECOG *) as l_int32
@@ -796,17 +952,25 @@ public static int recogDebugAverages(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogShowAverageTemplates/*"/>
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 on success, 1 on failure</returns>
+
 public static int recogShowAverageTemplates(
 				 L_Recog recog){
 
-	int _Result = Natives.recogShowAverageTemplates(recog.Pointer);
+
+
+	int _Result = Natives.recogShowAverageTemplates(
+recog.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (2311, 1)
 // recogShowMatchesInRange(recog, pixa, minscore, maxscore, display) as int
 // recogShowMatchesInRange(L_RECOG *, PIXA *, l_float32, l_float32, l_int32) as l_ok
@@ -829,6 +993,7 @@ public static int recogShowAverageTemplates(
 ///  <param name="maxscore">[in] - range to include output</param>
 ///  <param name="display">[in] - to display the result</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogShowMatchesInRange(
 				 L_Recog recog, 
 				 Pixa pixa, 
@@ -836,14 +1001,21 @@ public static int recogShowMatchesInRange(
 				 Single maxscore, 
 				 int display){
 
-	int _Result = Natives.recogShowMatchesInRange(recog.Pointer, pixa.Pointer,   minscore,   maxscore,   display);
+
+
+	int _Result = Natives.recogShowMatchesInRange(
+recog.Pointer, pixa.Pointer,   minscore,   maxscore,   display);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogtrain.c (2405, 1)
 // recogShowMatch(recog, pix1, pix2, box, index, score) as Pix
 // recogShowMatch(L_RECOG *, PIX *, PIX *, BOX *, l_int32, l_float32) as PIX *
@@ -870,6 +1042,7 @@ public static int recogShowMatchesInRange(
 ///  <param name="index">[in] - index of matching template use -1 to disable printing</param>
 ///  <param name="score">[in] - score of match</param>
 ///   <returns>pixd pair of images, showing input pix and best template, optionally with matching information, or NULL on error.</returns>
+
 public static Pix recogShowMatch(
 				 L_Recog recog, 
 				 Pix pix1, 
@@ -878,14 +1051,19 @@ public static Pix recogShowMatch(
 				 int index, 
 				 Single score){
 
+
 	IntPtr pix2Ptr = IntPtr.Zero; 	if (pix2 != null) {pix2Ptr = pix2.Pointer;}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.recogShowMatch(recog.Pointer, pix1.Pointer, pix2Ptr, boxPtr,   index,   score);
+	IntPtr _Result = Natives.recogShowMatch(
+recog.Pointer, pix1.Pointer, pix2Ptr, boxPtr,   index,   score);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }

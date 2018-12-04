@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (158, 1)
 // recogIdentifyMultiple(recog, pixs, minh, skipsplit, pboxa, ppixa, ppixdb, debugsplit) as int
 // recogIdentifyMultiple(L_RECOG *, PIX *, l_int32, l_int32, BOXA **, PIXA **, PIX **, l_int32) as l_ok
@@ -33,6 +34,7 @@ public partial class _All {
 ///  <param name="ppixdb">[out][optional] - debug pix: inputs and best fits</param>
 ///  <param name="debugsplit">[in] - 1 returns pix split debugging images</param>
 ///   <returns>0 if OK 1 if nothing is found 2 for other errors.</returns>
+
 public static int recogIdentifyMultiple(
 				 L_Recog recog, 
 				 Pix pixs, 
@@ -43,21 +45,27 @@ public static int recogIdentifyMultiple(
 				out Pix ppixdb, 
 				 int debugsplit){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogIdentifyMultiple(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr, out ppixdbPtr,   debugsplit);
+	int _Result = Natives.recogIdentifyMultiple(
+recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr, out ppixdbPtr,   debugsplit);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (246, 1)
 // recogSplitIntoCharacters(recog, pixs, minh, skipsplit, pboxa, ppixa, debug) as int
 // recogSplitIntoCharacters(L_RECOG *, PIX *, l_int32, l_int32, BOXA **, PIXA **, l_int32) as l_ok
@@ -88,6 +96,7 @@ public static int recogIdentifyMultiple(
 ///  <param name="ppixa">[out] - character images</param>
 ///  <param name="debug">[in] - 1 for results written to pixadb_split</param>
 ///   <returns>0 if OK, 1 on error or if no components are returned</returns>
+
 public static int recogSplitIntoCharacters(
 				 L_Recog recog, 
 				 Pix pixs, 
@@ -97,19 +106,25 @@ public static int recogSplitIntoCharacters(
 				out Pixa ppixa, 
 				 DebugOnOff debug){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogSplitIntoCharacters(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr,  (int) debug);
+	int _Result = Natives.recogSplitIntoCharacters(
+recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr,  (int) debug);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (401, 1)
 // recogCorrelationBestRow(recog, pixs, pboxa, pnascore, pnaindex, psachar, debug) as int
 // recogCorrelationBestRow(L_RECOG *, PIX *, BOXA **, NUMA **, NUMA **, SARRAY **, l_int32) as l_ok
@@ -131,6 +146,7 @@ public static int recogSplitIntoCharacters(
 ///  <param name="psachar">[out][optional] - array of character strings</param>
 ///  <param name="debug">[in] - 1 for results written to pixadb_split</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogCorrelationBestRow(
 				 L_Recog recog, 
 				 Pix pixs, 
@@ -140,23 +156,29 @@ public static int recogCorrelationBestRow(
 				out Sarray psachar, 
 				 DebugOnOff debug){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr pnascorePtr = IntPtr.Zero;
 	IntPtr pnaindexPtr = IntPtr.Zero;
 	IntPtr psacharPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogCorrelationBestRow(recog.Pointer, pixs.Pointer, out pboxaPtr, out pnascorePtr, out pnaindexPtr, out psacharPtr,  (int) debug);
+	int _Result = Natives.recogCorrelationBestRow(
+recog.Pointer, pixs.Pointer, out pboxaPtr, out pnascorePtr, out pnaindexPtr, out psacharPtr,  (int) debug);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 	if (psacharPtr == IntPtr.Zero) {psachar = null;} else { psachar = new Sarray(psacharPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (583, 1)
 // recogCorrelationBestChar(recog, pixs, pbox, pscore, pindex, pcharstr, ppixdb) as int
 // recogCorrelationBestChar(L_RECOG *, PIX *, BOX **, l_float32 *, l_int32 *, char **, PIX **) as l_ok
@@ -180,6 +202,7 @@ public static int recogCorrelationBestRow(
 ///  <param name="pcharstr">[out][optional] - character string of class</param>
 ///  <param name="ppixdb">[out][optional] - debug pix showing input and best fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogCorrelationBestChar(
 				 L_Recog recog, 
 				 Pix pixs, 
@@ -189,21 +212,27 @@ public static int recogCorrelationBestChar(
 				out String[] pcharstr, 
 				out Pix ppixdb){
 
+
 	IntPtr pboxPtr = IntPtr.Zero;
 	IntPtr pcharstrPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogCorrelationBestChar(recog.Pointer, pixs.Pointer, out pboxPtr, out  pscore, out  pindex, out  pcharstrPtr, out ppixdbPtr);
+	int _Result = Natives.recogCorrelationBestChar(
+recog.Pointer, pixs.Pointer, out pboxPtr, out  pscore, out  pindex, out  pcharstrPtr, out ppixdbPtr);
 	
 
+
+//  
 	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 	if (pcharstrPtr == null) {pcharstr = null;} else { pcharstr = null; };
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (878, 1)
 // recogIdentifyPixa(recog, pixa, ppixdb) as int
 // recogIdentifyPixa(L_RECOG *, PIXA *, PIX **) as l_ok
@@ -223,22 +252,29 @@ public static int recogCorrelationBestChar(
 ///  <param name="pixa">[in] - of 1 bpp images to match</param>
 ///  <param name="ppixdb">[out][optional] - pix showing inputs and best fits</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogIdentifyPixa(
 				 L_Recog recog, 
 				 Pixa pixa, 
 				out Pix ppixdb){
 
+
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogIdentifyPixa(recog.Pointer, pixa.Pointer, out ppixdbPtr);
+	int _Result = Natives.recogIdentifyPixa(
+recog.Pointer, pixa.Pointer, out ppixdbPtr);
 	
 
+
+//  
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (971, 1)
 // recogIdentifyPix(recog, pixs, ppixdb) as int
 // recogIdentifyPix(L_RECOG *, PIX *, PIX **) as l_ok
@@ -268,22 +304,29 @@ public static int recogIdentifyPixa(
 ///  <param name="pixs">[in] - of a single character, 1 bpp</param>
 ///  <param name="ppixdb">[out][optional] - debug pix showing input and best fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogIdentifyPix(
 				 L_Recog recog, 
 				 Pix pixs, 
 				out Pix ppixdb){
 
+
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	int _Result = Natives.recogIdentifyPix(recog.Pointer, pixs.Pointer, out ppixdbPtr);
+	int _Result = Natives.recogIdentifyPix(
+recog.Pointer, pixs.Pointer, out ppixdbPtr);
 	
 
+
+//  
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1120, 1)
 // recogSkipIdentify(recog) as int
 // recogSkipIdentify(L_RECOG *) as l_ok
@@ -296,17 +339,25 @@ public static int recogIdentifyPix(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogSkipIdentify/*"/>
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int recogSkipIdentify(
 				 L_Recog recog){
 
-	int _Result = Natives.recogSkipIdentify(recog.Pointer);
+
+
+	int _Result = Natives.recogSkipIdentify(
+recog.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1168, 1)
 // rchaDestroy(prcha) as Object
 // rchaDestroy(L_RCHA **) as void
@@ -314,19 +365,26 @@ public static int recogSkipIdentify(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchaDestroy/*"/>
 ///  <param name="prcha">[in,out] - to be nulled</param>
+
 public static void rchaDestroy(
 				ref L_Rcha prcha){
 
+
 	IntPtr prchaPtr = IntPtr.Zero; 	if (prcha != null) {prchaPtr = prcha.Pointer;}
 
-	Natives.rchaDestroy(ref prchaPtr);
+	Natives.rchaDestroy(
+ref prchaPtr);
 	
 
+
+//  
 	if (prchaPtr == IntPtr.Zero) {prcha = null;} else { prcha = new L_Rcha(prchaPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1242, 1)
 // rchDestroy(prch) as Object
 // rchDestroy(L_RCH **) as void
@@ -334,19 +392,26 @@ public static void rchaDestroy(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchDestroy/*"/>
 ///  <param name="prch">[in,out] - to be nulled</param>
+
 public static void rchDestroy(
 				ref L_Rch prch){
 
+
 	IntPtr prchPtr = IntPtr.Zero; 	if (prch != null) {prchPtr = prch.Pointer;}
 
-	Natives.rchDestroy(ref prchPtr);
+	Natives.rchDestroy(
+ref prchPtr);
 	
 
+
+//  
 	if (prchPtr == IntPtr.Zero) {prch = null;} else { prch = new L_Rch(prchPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1281, 1)
 // rchaExtract(rcha, pnaindex, pnascore, psatext, pnasample, pnaxloc, pnayloc, pnawidth) as int
 // rchaExtract(L_RCHA *, NUMA **, NUMA **, SARRAY **, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
@@ -366,6 +431,7 @@ public static void rchDestroy(
 ///  <param name="pnayloc">[out][optional] - y-locations of templates</param>
 ///  <param name="pnawidth">[out][optional] - widths of best templates</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int rchaExtract(
 				 L_Rcha rcha, 
 				out Numa pnaindex, 
@@ -376,6 +442,7 @@ public static int rchaExtract(
 				out Numa pnayloc, 
 				out Numa pnawidth){
 
+
 	IntPtr pnaindexPtr = IntPtr.Zero;
 	IntPtr pnascorePtr = IntPtr.Zero;
 	IntPtr psatextPtr = IntPtr.Zero;
@@ -384,9 +451,12 @@ public static int rchaExtract(
 	IntPtr pnaylocPtr = IntPtr.Zero;
 	IntPtr pnawidthPtr = IntPtr.Zero;
 
-	int _Result = Natives.rchaExtract(rcha.Pointer, out pnaindexPtr, out pnascorePtr, out psatextPtr, out pnasamplePtr, out pnaxlocPtr, out pnaylocPtr, out pnawidthPtr);
+	int _Result = Natives.rchaExtract(
+rcha.Pointer, out pnaindexPtr, out pnascorePtr, out psatextPtr, out pnasamplePtr, out pnaxlocPtr, out pnaylocPtr, out pnawidthPtr);
 	
 
+
+//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
 	if (psatextPtr == IntPtr.Zero) {psatext = null;} else { psatext = new Sarray(psatextPtr); };
@@ -396,9 +466,11 @@ public static int rchaExtract(
 	if (pnawidthPtr == IntPtr.Zero) {pnawidth = null;} else { pnawidth = new Numa(pnawidthPtr); };
 
 
+
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1327, 1)
 // rchExtract(rch, pindex, pscore, ptext, psample, pxloc, pyloc, pwidth) as int
 // rchExtract(L_RCH *, l_int32 *, l_float32 *, char **, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -414,6 +486,7 @@ public static int rchaExtract(
 ///  <param name="pyloc">[out][optional] - y-location of template</param>
 ///  <param name="pwidth">[out][optional] - width of best template</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int rchExtract(
 				 L_Rch rch, 
 				out int pindex, 
@@ -424,17 +497,23 @@ public static int rchExtract(
 				out int pyloc, 
 				out int pwidth){
 
+
 	IntPtr ptextPtr = IntPtr.Zero;
 
-	int _Result = Natives.rchExtract(rch.Pointer, out  pindex, out  pscore, out  ptextPtr, out  psample, out  pxloc, out  pyloc, out  pwidth);
+	int _Result = Natives.rchExtract(
+rch.Pointer, out  pindex, out  pscore, out  ptextPtr, out  psample, out  pxloc, out  pyloc, out  pwidth);
 	
 
+
+//  
 	if (ptextPtr == null) {ptext = null;} else { ptext = null; };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1415, 1)
 // recogProcessToIdentify(recog, pixs, pad) as Pix
 // recogProcessToIdentify(L_RECOG *, PIX *, l_int32) as PIX *
@@ -450,20 +529,28 @@ public static int rchExtract(
 ///  <param name="pixs">[in] - typ. single character, possibly d  is greater  1 and uncropped</param>
 ///  <param name="pad">[in] - extra pixels added to left and right sides</param>
 ///   <returns>pixd 1 bpp, clipped to foreground, or NULL if there are no fg pixels or on error.</returns>
+
 public static Pix recogProcessToIdentify(
 				 L_Recog recog, 
 				 Pix pixs, 
 				 int pad){
 
-	IntPtr _Result = Natives.recogProcessToIdentify(recog.Pointer, pixs.Pointer,   pad);
+
+
+	IntPtr _Result = Natives.recogProcessToIdentify(
+recog.Pointer, pixs.Pointer,   pad);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1628, 1)
 // recogExtractNumbers(recog, boxas, scorethresh, spacethresh, pbaa, pnaa) as Sarray
 // recogExtractNumbers(L_RECOG *, BOXA *, l_float32, l_int32, BOXAA **, NUMAA **) as SARRAY *
@@ -502,6 +589,7 @@ public static Pix recogProcessToIdentify(
 ///  <param name="pbaa">[out][optional] - bounding boxes of identified numbers</param>
 ///  <param name="pnaa">[out][optional] - scores of identified digits</param>
 ///   <returns>sa of identified numbers, or NULL on error</returns>
+
 public static Sarray recogExtractNumbers(
 				 L_Recog recog, 
 				 Boxa boxas, 
@@ -510,20 +598,26 @@ public static Sarray recogExtractNumbers(
 				out Boxaa pbaa, 
 				out Numaa pnaa){
 
+
 	IntPtr pbaaPtr = IntPtr.Zero;
 	IntPtr pnaaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.recogExtractNumbers(recog.Pointer, boxas.Pointer,   scorethresh,   spacethresh, out pbaaPtr, out pnaaPtr);
+	IntPtr _Result = Natives.recogExtractNumbers(
+recog.Pointer, boxas.Pointer,   scorethresh,   spacethresh, out pbaaPtr, out pnaaPtr);
 	
 
+
+//  
 	if (pbaaPtr == IntPtr.Zero) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
 	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Sarray(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // recogident.c (1761, 1)
 // showExtractNumbers(pixs, sa, baa, naa, ppixdb) as Pixa
 // showExtractNumbers(PIX *, SARRAY *, BOXAA *, NUMAA *, PIX **) as PIXA *
@@ -542,6 +636,7 @@ public static Sarray recogExtractNumbers(
 ///  <param name="naa">[in] - numa array for scores of characters in each string</param>
 ///  <param name="ppixdb">[out][optional] - input pixs with identified chars outlined</param>
 ///   <returns>pixa   of identified strings with text and scores, or NULL on error</returns>
+
 public static Pixa showExtractNumbers(
 				 Pix pixs, 
 				 Sarray sa, 
@@ -549,14 +644,19 @@ public static Pixa showExtractNumbers(
 				 Numaa naa, 
 				out Pix ppixdb){
 
+
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.showExtractNumbers(pixs.Pointer, sa.Pointer, baa.Pointer, naa.Pointer, out ppixdbPtr);
+	IntPtr _Result = Natives.showExtractNumbers(
+pixs.Pointer, sa.Pointer, baa.Pointer, naa.Pointer, out ppixdbPtr);
 	
 
+
+//  
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (90, 1)
 // createMatrix2dTranslate(transx, transy) as Single[]
 // createMatrix2dTranslate(l_float32, l_float32) as l_float32 *
@@ -30,18 +31,26 @@ public partial class _All {
 ///  <param name="transx">[in] - x component of translation wrt. the origin</param>
 ///  <param name="transy">[in] - y component of translation wrt. the origin</param>
 ///   <returns>3x3 transform matrix, or NULL on error</returns>
+
 public static Single[] createMatrix2dTranslate(
 				 Single transx, 
 				 Single transy){
 
-	Single[] _Result = Natives.createMatrix2dTranslate(  transx,   transy);
+
+
+	Single[] _Result = Natives.createMatrix2dTranslate(
+  transx,   transy);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (130, 1)
 // createMatrix2dScale(scalex, scaley) as Single[]
 // createMatrix2dScale(l_float32, l_float32) as l_float32 *
@@ -65,18 +74,26 @@ public static Single[] createMatrix2dTranslate(
 ///  <param name="scalex">[in] - horizontal scale factor</param>
 ///  <param name="scaley">[in] - vertical scale factor</param>
 ///   <returns>3x3 transform matrix, or NULL on error</returns>
+
 public static Single[] createMatrix2dScale(
 				 Single scalex, 
 				 Single scaley){
 
-	Single[] _Result = Natives.createMatrix2dScale(  scalex,   scaley);
+
+
+	Single[] _Result = Natives.createMatrix2dScale(
+  scalex,   scaley);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (182, 1)
 // createMatrix2dRotate(xc, yc, angle) as Single[]
 // createMatrix2dRotate(l_float32, l_float32, l_float32) as l_float32 *
@@ -110,19 +127,27 @@ public static Single[] createMatrix2dScale(
 ///  <param name="yc">[in] - location of center of rotation</param>
 ///  <param name="angle">[in] - rotation in radians clockwise is positive</param>
 ///   <returns>3x3 transform matrix, or NULL on error</returns>
+
 public static Single[] createMatrix2dRotate(
 				 Single xc, 
 				 Single yc, 
 				 Single angle){
 
-	Single[] _Result = Natives.createMatrix2dRotate(  xc,   yc,   angle);
+
+
+	Single[] _Result = Natives.createMatrix2dRotate(
+  xc,   yc,   angle);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (223, 1)
 // ptaTranslate(ptas, transx, transy) as Pta
 // ptaTranslate(PTA *, l_float32, l_float32) as PTA *
@@ -136,20 +161,28 @@ public static Single[] createMatrix2dRotate(
 ///  <param name="transx">[in] - x component of translation wrt. the origin</param>
 ///  <param name="transy">[in] - y component of translation wrt. the origin</param>
 ///   <returns>ptad  translated points, or NULL on error</returns>
+
 public static Pta ptaTranslate(
 				 Pta ptas, 
 				 Single transx, 
 				 Single transy){
 
-	IntPtr _Result = Natives.ptaTranslate(ptas.Pointer,   transx,   transy);
+
+
+	IntPtr _Result = Natives.ptaTranslate(
+ptas.Pointer,   transx,   transy);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (262, 1)
 // ptaScale(ptas, scalex, scaley) as Pta
 // ptaScale(PTA *, l_float32, l_float32) as PTA *
@@ -163,20 +196,28 @@ public static Pta ptaTranslate(
 ///  <param name="scalex">[in] - horizontal scale factor</param>
 ///  <param name="scaley">[in] - vertical scale factor</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static Pta ptaScale(
 				 Pta ptas, 
 				 Single scalex, 
 				 Single scaley){
 
-	IntPtr _Result = Natives.ptaScale(ptas.Pointer,   scalex,   scaley);
+
+
+	IntPtr _Result = Natives.ptaScale(
+ptas.Pointer,   scalex,   scaley);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (313, 1)
 // ptaRotate(ptas, xc, yc, angle) as Pta
 // ptaRotate(PTA *, l_float32, l_float32, l_float32) as PTA *
@@ -206,21 +247,29 @@ public static Pta ptaScale(
 ///  <param name="yc">[in] - location of center of rotation</param>
 ///  <param name="angle">[in] - rotation in radians clockwise is positive</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static Pta ptaRotate(
 				 Pta ptas, 
 				 Single xc, 
 				 Single yc, 
 				 Single angle){
 
-	IntPtr _Result = Natives.ptaRotate(ptas.Pointer,   xc,   yc,   angle);
+
+
+	IntPtr _Result = Natives.ptaRotate(
+ptas.Pointer,   xc,   yc,   angle);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (358, 1)
 // boxaTranslate(boxas, transx, transy) as Boxa
 // boxaTranslate(BOXA *, l_float32, l_float32) as BOXA *
@@ -231,20 +280,28 @@ public static Pta ptaRotate(
 ///  <param name="transx">[in] - x component of translation wrt. the origin</param>
 ///  <param name="transy">[in] - y component of translation wrt. the origin</param>
 ///   <returns>boxad  translated boxas, or NULL on error Notes: (1) See createMatrix2dTranslate() for details of transform.</returns>
+
 public static Boxa boxaTranslate(
 				 Boxa boxas, 
 				 Single transx, 
 				 Single transy){
 
-	IntPtr _Result = Natives.boxaTranslate(boxas.Pointer,   transx,   transy);
+
+
+	IntPtr _Result = Natives.boxaTranslate(
+boxas.Pointer,   transx,   transy);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (391, 1)
 // boxaScale(boxas, scalex, scaley) as Boxa
 // boxaScale(BOXA *, l_float32, l_float32) as BOXA *
@@ -255,20 +312,28 @@ public static Boxa boxaTranslate(
 ///  <param name="scalex">[in] - horizontal scale factor</param>
 ///  <param name="scaley">[in] - vertical scale factor</param>
 ///   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dScale() for details of transform.</returns>
+
 public static Boxa boxaScale(
 				 Boxa boxas, 
 				 Single scalex, 
 				 Single scaley){
 
-	IntPtr _Result = Natives.boxaScale(boxas.Pointer,   scalex,   scaley);
+
+
+	IntPtr _Result = Natives.boxaScale(
+boxas.Pointer,   scalex,   scaley);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (424, 1)
 // boxaRotate(boxas, xc, yc, angle) as Boxa
 // boxaRotate(BOXA *, l_float32, l_float32, l_float32) as BOXA *
@@ -280,21 +345,29 @@ public static Boxa boxaScale(
 ///  <param name="yc">[in] - location of center of rotation</param>
 ///  <param name="angle">[in] - rotation in radians clockwise is positive</param>
 ///   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dRotate() for details of transform.</returns>
+
 public static Boxa boxaRotate(
 				 Boxa boxas, 
 				 Single xc, 
 				 Single yc, 
 				 Single angle){
 
-	IntPtr _Result = Natives.boxaRotate(boxas.Pointer,   xc,   yc,   angle);
+
+
+	IntPtr _Result = Natives.boxaRotate(
+boxas.Pointer,   xc,   yc,   angle);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (457, 1)
 // ptaAffineTransform(ptas, mat) as Pta
 // ptaAffineTransform(PTA *, l_float32 *) as PTA *
@@ -304,19 +377,27 @@ public static Boxa boxaRotate(
 ///  <param name="ptas">[in] - for initial points</param>
 ///  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 ///   <returns>ptad  transformed points, or NULL on error</returns>
+
 public static Pta ptaAffineTransform(
 				 Pta ptas, 
 				 Single[] mat){
 
-	IntPtr _Result = Natives.ptaAffineTransform(ptas.Pointer,   mat);
+
+
+	IntPtr _Result = Natives.ptaAffineTransform(
+ptas.Pointer,   mat);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pta(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (493, 1)
 // boxaAffineTransform(boxas, mat) as Boxa
 // boxaAffineTransform(BOXA *, l_float32 *) as BOXA *
@@ -326,19 +407,27 @@ public static Pta ptaAffineTransform(
 ///  <param name="boxas">[in] - </param>
 ///  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 ///   <returns>boxad  transformed boxas, or NULL on error</returns>
+
 public static Boxa boxaAffineTransform(
 				 Boxa boxas, 
 				 Single[] mat){
 
-	IntPtr _Result = Natives.boxaAffineTransform(boxas.Pointer,   mat);
+
+
+	IntPtr _Result = Natives.boxaAffineTransform(
+boxas.Pointer,   mat);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Boxa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (528, 1)
 // l_productMatVec(mat, vecs, vecd, size) as int
 // l_productMatVec(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
@@ -350,20 +439,28 @@ public static Boxa boxaAffineTransform(
 ///  <param name="vecd">[in] - result column vector</param>
 ///  <param name="size">[in] - matrix is %size x %size vectors are length %size</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_productMatVec(
 				 Single[] mat, 
 				 Single[] vecs, 
 				 Single[] vecd, 
 				 int size){
 
-	int _Result = Natives.l_productMatVec(  mat,   vecs,   vecd,   size);
+
+
+	int _Result = Natives.l_productMatVec(
+  mat,   vecs,   vecd,   size);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (564, 1)
 // l_productMat2(mat1, mat2, matd, size) as int
 // l_productMat2(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
@@ -375,20 +472,28 @@ public static int l_productMatVec(
 ///  <param name="matd">[in] - square matrix product stored here</param>
 ///  <param name="size">[in] - of matrices</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_productMat2(
 				 Single[] mat1, 
 				 Single[] mat2, 
 				 Single[] matd, 
 				 int size){
 
-	int _Result = Natives.l_productMat2(  mat1,   mat2,   matd,   size);
+
+
+	int _Result = Natives.l_productMat2(
+  mat1,   mat2,   matd,   size);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (603, 1)
 // l_productMat3(mat1, mat2, mat3, matd, size) as int
 // l_productMat3(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
@@ -401,6 +506,7 @@ public static int l_productMat2(
 ///  <param name="matd">[in] - square matrix product stored here</param>
 ///  <param name="size">[in] - of matrices</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_productMat3(
 				 Single[] mat1, 
 				 Single[] mat2, 
@@ -408,14 +514,21 @@ public static int l_productMat3(
 				 Single[] matd, 
 				 int size){
 
-	int _Result = Natives.l_productMat3(  mat1,   mat2,   mat3,   matd,   size);
+
+
+	int _Result = Natives.l_productMat3(
+  mat1,   mat2,   mat3,   matd,   size);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // affinecompose.c (644, 1)
 // l_productMat4(mat1, mat2, mat3, mat4, matd, size) as int
 // l_productMat4(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
@@ -429,6 +542,7 @@ public static int l_productMat3(
 ///  <param name="matd">[in] - square matrix product stored here</param>
 ///  <param name="size">[in] - of matrices</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int l_productMat4(
 				 Single[] mat1, 
 				 Single[] mat2, 
@@ -437,8 +551,14 @@ public static int l_productMat4(
 				 Single[] matd, 
 				 int size){
 
-	int _Result = Natives.l_productMat4(  mat1,   mat2,   mat3,   mat4,   matd,   size);
+
+
+	int _Result = Natives.l_productMat4(
+  mat1,   mat2,   mat3,   mat4,   matd,   size);
 	
+
+
+//  
 
 
 

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (535, 1)
 // pixOctreeColorQuant(pixs, colors, ditherflag) as Pix
 // pixOctreeColorQuant(PIX *, l_int32, l_int32) as PIX *
@@ -239,20 +240,28 @@ public partial class _All {
 ///  <param name="colors">[in] - in colormap some number in range [128 ... 256] the actual number of colors used will be smaller</param>
 ///  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
 ///   <returns>pixd 8 bpp with colormap, or NULL on error</returns>
+
 public static Pix pixOctreeColorQuant(
 				 Pix pixs, 
 				 int colors, 
 				 int ditherflag){
 
-	IntPtr _Result = Natives.pixOctreeColorQuant(pixs.Pointer,   colors,   ditherflag);
+
+
+	IntPtr _Result = Natives.pixOctreeColorQuant(
+pixs.Pointer,   colors,   ditherflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (601, 1)
 // pixOctreeColorQuantGeneral(pixs, colors, ditherflag, validthresh, colorthresh) as Pix
 // pixOctreeColorQuantGeneral(PIX *, l_int32, l_int32, l_float32, l_float32) as PIX *
@@ -295,6 +304,7 @@ public static Pix pixOctreeColorQuant(
 ///  <param name="validthresh">[in] - minimum fraction of pixels neither near white nor black, required for color quantization typically ~0.01, but smaller for images that have color but are nearly all white</param>
 ///  <param name="colorthresh">[in] - minimum fraction of pixels with color that are not near white or black, that are required for color quantization typ. ~0.01, but smaller for images that have color along with a significant fraction of gray</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
+
 public static Pix pixOctreeColorQuantGeneral(
 				 Pix pixs, 
 				 int colors, 
@@ -302,15 +312,22 @@ public static Pix pixOctreeColorQuantGeneral(
 				 Single validthresh, 
 				 Single colorthresh){
 
-	IntPtr _Result = Natives.pixOctreeColorQuantGeneral(pixs.Pointer,   colors,   ditherflag,   validthresh,   colorthresh);
+
+
+	IntPtr _Result = Natives.pixOctreeColorQuantGeneral(
+pixs.Pointer,   colors,   ditherflag,   validthresh,   colorthresh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (1361, 1)
 // makeRGBToIndexTables(prtab, pgtab, pbtab, cqlevels) as int
 // makeRGBToIndexTables(l_uint32 **, l_uint32 **, l_uint32 **, l_int32) as l_ok
@@ -340,27 +357,46 @@ public static Pix pixOctreeColorQuantGeneral(
 ///  <param name="pbtab">[out] - tables</param>
 ///  <param name="cqlevels">[in] - can be 1, 2, 3, 4, 5 or 6</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int makeRGBToIndexTables(
 				out Byte[] prtab, 
 				out Byte[] pgtab, 
 				out Byte[] pbtab, 
 				 int cqlevels){
 
+
 	IntPtr prtabPtr = IntPtr.Zero;
 	IntPtr pgtabPtr = IntPtr.Zero;
 	IntPtr pbtabPtr = IntPtr.Zero;
 
-	int _Result = Natives.makeRGBToIndexTables(out  prtabPtr, out  pgtabPtr, out  pbtabPtr,   cqlevels);
+	int _Result = Natives.makeRGBToIndexTables(
+out  prtabPtr, out  pgtabPtr, out  pbtabPtr,   cqlevels);
 	
 
-	if (prtabPtr == null) {prtab = null;} else { prtab = null; };
-	if (pgtabPtr == null) {pgtab = null;} else { pgtab = null; };
-	if (pbtabPtr == null) {pbtab = null;} else { pbtab = null; };
+
+//  
+	Byte[] prtabGen = new Byte[1];
+	if (prtabPtr != IntPtr.Zero) {
+	  Marshal.Copy(prtabPtr, prtabGen, 0, prtabGen.Length);
+	}
+	prtab = prtabGen;
+	Byte[] pgtabGen = new Byte[1];
+	if (pgtabPtr != IntPtr.Zero) {
+	  Marshal.Copy(pgtabPtr, pgtabGen, 0, pgtabGen.Length);
+	}
+	pgtab = pgtabGen;
+	Byte[] pbtabGen = new Byte[1];
+	if (pbtabPtr != IntPtr.Zero) {
+	  Marshal.Copy(pbtabPtr, pbtabGen, 0, pbtabGen.Length);
+	}
+	pbtab = pbtabGen;
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (1470, 1)
 // getOctcubeIndexFromRGB(rval, gval, bval, rtab, gtab, btab, pindex) as Object
 // getOctcubeIndexFromRGB(l_int32, l_int32, l_int32, l_uint32 *, l_uint32 *, l_uint32 *, l_uint32 *) as void
@@ -377,6 +413,7 @@ public static int makeRGBToIndexTables(
 ///  <param name="gtab">[in] - generated with makeRGBToIndexTables()</param>
 ///  <param name="btab">[in] - generated with makeRGBToIndexTables()</param>
 ///  <param name="pindex">[out] - found index</param>
+
 public static void getOctcubeIndexFromRGB(
 				 int rval, 
 				 int gval, 
@@ -386,6 +423,7 @@ public static void getOctcubeIndexFromRGB(
 				 Byte[] btab, 
 				out uint pindex){
 
+
 		IntPtr rtabPtr = 	Marshal.AllocHGlobal(rtab.Length);
 		Marshal.Copy(rtab, 0, rtabPtr, rtab.Length);
 		IntPtr gtabPtr = 	Marshal.AllocHGlobal(gtab.Length);
@@ -393,16 +431,21 @@ public static void getOctcubeIndexFromRGB(
 		IntPtr btabPtr = 	Marshal.AllocHGlobal(btab.Length);
 		Marshal.Copy(btab, 0, btabPtr, btab.Length);
 
-	Natives.getOctcubeIndexFromRGB(  rval,   gval,   bval,   rtabPtr,   gtabPtr,   btabPtr, out  pindex);
+	Natives.getOctcubeIndexFromRGB(
+  rval,   gval,   bval,   rtabPtr,   gtabPtr,   btabPtr, out  pindex);
 	
+
 	Marshal.FreeHGlobal(rtabPtr);
 	Marshal.FreeHGlobal(gtabPtr);
 	Marshal.FreeHGlobal(btabPtr);
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (1701, 1)
 // pixOctreeQuantByPopulation(pixs, level, ditherflag) as Pix
 // pixOctreeQuantByPopulation(PIX *, l_int32, l_int32) as PIX *
@@ -465,20 +508,28 @@ public static void getOctcubeIndexFromRGB(
 ///  <param name="level">[in] - significant bits for each of RGB valid for {3,4}, Use 0 for default (level 4 recommended</param>
 ///  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
 ///   <returns>pixd quantized to octcubes or NULL on error</returns>
+
 public static Pix pixOctreeQuantByPopulation(
 				 Pix pixs, 
 				 int level, 
 				 int ditherflag){
 
-	IntPtr _Result = Natives.pixOctreeQuantByPopulation(pixs.Pointer,   level,   ditherflag);
+
+
+	IntPtr _Result = Natives.pixOctreeQuantByPopulation(
+pixs.Pointer,   level,   ditherflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (2263, 1)
 // pixOctreeQuantNumColors(pixs, maxcolors, subsample) as Pix
 // pixOctreeQuantNumColors(PIX *, l_int32, l_int32) as PIX *
@@ -559,20 +610,28 @@ public static Pix pixOctreeQuantByPopulation(
 ///  <param name="maxcolors">[in] - 8 to 256 the actual number of colors used may be less than this</param>
 ///  <param name="subsample">[in] - factor for computing color distribution use 0 for default</param>
 ///   <returns>pixd 4 or 8 bpp, colormapped, or NULL on error</returns>
+
 public static Pix pixOctreeQuantNumColors(
 				 Pix pixs, 
 				 int maxcolors, 
 				 int subsample){
 
-	IntPtr _Result = Natives.pixOctreeQuantNumColors(pixs.Pointer,   maxcolors,   subsample);
+
+
+	IntPtr _Result = Natives.pixOctreeQuantNumColors(
+pixs.Pointer,   maxcolors,   subsample);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (2587, 1)
 // pixOctcubeQuantMixedWithGray(pixs, depth, graylevels, delta) as Pix
 // pixOctcubeQuantMixedWithGray(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -606,21 +665,29 @@ public static Pix pixOctreeQuantNumColors(
 ///  <param name="graylevels">[in] - graylevels (must be  is greater  1)</param>
 ///  <param name="delta">[in] - threshold for deciding if a pix is color or gray</param>
 ///   <returns>pixd     quantized to octcube and gray levels or NULL on error</returns>
+
 public static Pix pixOctcubeQuantMixedWithGray(
 				 Pix pixs, 
 				 int depth, 
 				 int graylevels, 
 				 int delta){
 
-	IntPtr _Result = Natives.pixOctcubeQuantMixedWithGray(pixs.Pointer,   depth,   graylevels,   delta);
+
+
+	IntPtr _Result = Natives.pixOctcubeQuantMixedWithGray(
+pixs.Pointer,   depth,   graylevels,   delta);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (2806, 1)
 // pixFixedOctcubeQuant256(pixs, ditherflag) as Pix
 // pixFixedOctcubeQuant256(PIX *, l_int32) as PIX *
@@ -679,19 +746,27 @@ public static Pix pixOctcubeQuantMixedWithGray(
 ///  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 ///  <param name="ditherflag">[in] - 1 for dithering 0 for no dithering</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
+
 public static Pix pixFixedOctcubeQuant256(
 				 Pix pixs, 
 				 int ditherflag){
 
-	IntPtr _Result = Natives.pixFixedOctcubeQuant256(pixs.Pointer,   ditherflag);
+
+
+	IntPtr _Result = Natives.pixFixedOctcubeQuant256(
+pixs.Pointer,   ditherflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (2940, 1)
 // pixFewColorsOctcubeQuant1(pixs, level) as Pix
 // pixFewColorsOctcubeQuant1(PIX *, l_int32) as PIX *
@@ -726,19 +801,27 @@ public static Pix pixFixedOctcubeQuant256(
 ///  <param name="pixs">[in] - 32 bpp rgb</param>
 ///  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 ///   <returns>pixd quantized to octcube or NULL on error</returns>
+
 public static Pix pixFewColorsOctcubeQuant1(
 				 Pix pixs, 
 				 int level){
 
-	IntPtr _Result = Natives.pixFewColorsOctcubeQuant1(pixs.Pointer,   level);
+
+
+	IntPtr _Result = Natives.pixFewColorsOctcubeQuant1(
+pixs.Pointer,   level);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3110, 1)
 // pixFewColorsOctcubeQuant2(pixs, level, na, ncolors, pnerrors) as Pix
 // pixFewColorsOctcubeQuant2(PIX *, l_int32, NUMA *, l_int32, l_int32 *) as PIX *
@@ -785,6 +868,7 @@ public static Pix pixFewColorsOctcubeQuant1(
 ///  <param name="ncolors">[in] - number of occupied octree leaves at given level</param>
 ///  <param name="pnerrors">[out][optional] - num of pixels not exactly represented in the colormap</param>
 ///   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
+
 public static Pix pixFewColorsOctcubeQuant2(
 				 Pix pixs, 
 				 int level, 
@@ -792,15 +876,22 @@ public static Pix pixFewColorsOctcubeQuant2(
 				 int ncolors, 
 				out int pnerrors){
 
-	IntPtr _Result = Natives.pixFewColorsOctcubeQuant2(pixs.Pointer,   level, na.Pointer,   ncolors, out  pnerrors);
+
+
+	IntPtr _Result = Natives.pixFewColorsOctcubeQuant2(
+pixs.Pointer,   level, na.Pointer,   ncolors, out  pnerrors);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3299, 1)
 // pixFewColorsOctcubeQuantMixed(pixs, level, darkthresh, lightthresh, diffthresh, minfract, maxspan) as Pix
 // pixFewColorsOctcubeQuantMixed(PIX *, l_int32, l_int32, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -856,6 +947,7 @@ public static Pix pixFewColorsOctcubeQuant2(
 ///  <param name="minfract">[in] - min fraction of pixels for gray histo bin use 0.0 for default</param>
 ///  <param name="maxspan">[in] - max size of gray histo bin use 0 for default</param>
 ///   <returns>pixd 8 bpp, quantized to octcube for pixels that are not gray gray pixels are quantized separately over the full gray range, or NULL on error</returns>
+
 public static Pix pixFewColorsOctcubeQuantMixed(
 				 Pix pixs, 
 				 int level, 
@@ -865,15 +957,22 @@ public static Pix pixFewColorsOctcubeQuantMixed(
 				 Single minfract, 
 				 int maxspan){
 
-	IntPtr _Result = Natives.pixFewColorsOctcubeQuantMixed(pixs.Pointer,   level,   darkthresh,   lightthresh,   diffthresh,   minfract,   maxspan);
+
+
+	IntPtr _Result = Natives.pixFewColorsOctcubeQuantMixed(
+pixs.Pointer,   level,   darkthresh,   lightthresh,   diffthresh,   minfract,   maxspan);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3417, 1)
 // pixFixedOctcubeQuantGenRGB(pixs, level) as Pix
 // pixFixedOctcubeQuantGenRGB(PIX *, l_int32) as PIX *
@@ -891,19 +990,27 @@ public static Pix pixFewColorsOctcubeQuantMixed(
 ///  <param name="pixs">[in] - 32 bpp rgb</param>
 ///  <param name="level">[in] - significant bits for each of r,g,b</param>
 ///   <returns>pixd rgb quantized to octcube centers, or NULL on error</returns>
+
 public static Pix pixFixedOctcubeQuantGenRGB(
 				 Pix pixs, 
 				 int level){
 
-	IntPtr _Result = Natives.pixFixedOctcubeQuantGenRGB(pixs.Pointer,   level);
+
+
+	IntPtr _Result = Natives.pixFixedOctcubeQuantGenRGB(
+pixs.Pointer,   level);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3490, 1)
 // pixQuantFromCmap(pixs, cmap, mindepth, level, metric) as Pix
 // pixQuantFromCmap(PIX *, PIXCMAP *, l_int32, l_int32, l_int32) as PIX *
@@ -928,6 +1035,7 @@ public static Pix pixFixedOctcubeQuantGenRGB(
 ///  <param name="level">[in] - of octcube used for finding nearest color in cmap</param>
 ///  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
 ///   <returns>pixd  2, 4 or 8 bpp, colormapped, or NULL on error</returns>
+
 public static Pix pixQuantFromCmap(
 				 Pix pixs, 
 				 PixColormap cmap, 
@@ -935,15 +1043,22 @@ public static Pix pixQuantFromCmap(
 				 int level, 
 				 int metric){
 
-	IntPtr _Result = Natives.pixQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
+
+
+	IntPtr _Result = Natives.pixQuantFromCmap(
+pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3579, 1)
 // pixOctcubeQuantFromCmap(pixs, cmap, mindepth, level, metric) as Pix
 // pixOctcubeQuantFromCmap(PIX *, PIXCMAP *, l_int32, l_int32, l_int32) as PIX *
@@ -1012,6 +1127,7 @@ public static Pix pixQuantFromCmap(
 ///  <param name="level">[in] - of octcube used for finding nearest color in cmap</param>
 ///  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
 ///   <returns>pixd  2, 4 or 8 bpp, colormapped, or NULL on error</returns>
+
 public static Pix pixOctcubeQuantFromCmap(
 				 Pix pixs, 
 				 PixColormap cmap, 
@@ -1019,15 +1135,22 @@ public static Pix pixOctcubeQuantFromCmap(
 				 int level, 
 				 int metric){
 
-	IntPtr _Result = Natives.pixOctcubeQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
+
+
+	IntPtr _Result = Natives.pixOctcubeQuantFromCmap(
+pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3729, 1)
 // pixOctcubeHistogram(pixs, level, pncolors) as Numa
 // pixOctcubeHistogram(PIX *, l_int32, l_int32 *) as NUMA *
@@ -1041,20 +1164,28 @@ public static Pix pixOctcubeQuantFromCmap(
 ///  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 ///  <param name="pncolors">[out][optional] - number of occupied cubes</param>
 ///   <returns>numa histogram of color pixels, or NULL on error</returns>
+
 public static Numa pixOctcubeHistogram(
 				 Pix pixs, 
 				 int level, 
 				out int pncolors){
 
-	IntPtr _Result = Natives.pixOctcubeHistogram(pixs.Pointer,   level, out  pncolors);
+
+
+	IntPtr _Result = Natives.pixOctcubeHistogram(
+pixs.Pointer,   level, out  pncolors);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Numa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3852, 1)
 // pixcmapToOctcubeLUT(cmap, level, metric) as int[]
 // pixcmapToOctcubeLUT(PIXCMAP *, l_int32, l_int32) as l_int32 *
@@ -1104,19 +1235,27 @@ public static Numa pixOctcubeHistogram(
 ///  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 ///  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
 ///   <returns>tab[23  level]</returns>
+
 public static int[] pixcmapToOctcubeLUT(
 				 PixColormap cmap, 
 				 int level, 
 				 int metric){
 
-	int[] _Result = Natives.pixcmapToOctcubeLUT(cmap.Pointer,   level,   metric);
+
+
+	int[] _Result = Natives.pixcmapToOctcubeLUT(
+cmap.Pointer,   level,   metric);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (3938, 1)
 // pixRemoveUnusedColors(pixs) as int
 // pixRemoveUnusedColors(PIX *) as l_ok
@@ -1133,17 +1272,25 @@ public static int[] pixcmapToOctcubeLUT(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveUnusedColors/*"/>
 ///  <param name="pixs">[in] - colormapped</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixRemoveUnusedColors(
 				 Pix pixs){
 
-	int _Result = Natives.pixRemoveUnusedColors(pixs.Pointer);
+
+
+	int _Result = Natives.pixRemoveUnusedColors(
+pixs.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (4084, 1)
 // pixNumberOccupiedOctcubes(pix, level, mincount, minfract, pncolors) as int
 // pixNumberOccupiedOctcubes(PIX *, l_int32, l_int32, l_float32, l_int32 *) as l_ok
@@ -1163,6 +1310,7 @@ public static int pixRemoveUnusedColors(
 ///  <param name="minfract">[in] - minimum fract of pixels in an octcube to be counted -1 to not use</param>
 ///  <param name="pncolors">[out] - number of occupied octcubes</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixNumberOccupiedOctcubes(
 				 Pix pix, 
 				 int level, 
@@ -1170,8 +1318,14 @@ public static int pixNumberOccupiedOctcubes(
 				 Single minfract, 
 				out int pncolors){
 
-	int _Result = Natives.pixNumberOccupiedOctcubes(pix.Pointer,   level,   mincount,   minfract, out  pncolors);
+
+
+	int _Result = Natives.pixNumberOccupiedOctcubes(
+pix.Pointer,   level,   mincount,   minfract, out  pncolors);
 	
+
+
+//  
 
 
 

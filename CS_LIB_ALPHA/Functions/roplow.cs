@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // roplow.c (124, 1)
 // rasteropUniLow(datad, dpixw, dpixh, depth, dwpl, dx, dy, dw, dh, op) as Object
 // rasteropUniLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
@@ -22,6 +23,7 @@ public partial class _All {
 ///  <param name="dw">[in] - width of dest rectangle</param>
 ///  <param name="dh">[in] - height of dest rectangle</param>
 ///  <param name="op">[in] - op code</param>
+
 public static void rasteropUniLow(
 				 Byte[] datad, 
 				 int dpixw, 
@@ -34,17 +36,23 @@ public static void rasteropUniLow(
 				 int dh, 
 				 int op){
 
+
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
 
-	Natives.rasteropUniLow(  datadPtr,   dpixw,   dpixh,   depth,   dwpl,   dx,   dy,   dw,   dh,   op);
+	Natives.rasteropUniLow(
+  datadPtr,   dpixw,   dpixh,   depth,   dwpl,   dx,   dy,   dw,   dh,   op);
 	
+
 	Marshal.FreeHGlobal(datadPtr);
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // roplow.c (481, 1)
 // rasteropLow(datad, dpixw, dpixh, depth, dwpl, dx, dy, dw, dh, op, datas, spixw, spixh, swpl, sx, sy) as Object
 // rasteropLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32) as void
@@ -67,6 +75,7 @@ public static void rasteropUniLow(
 ///  <param name="swpl">[in] - wpl of src</param>
 ///  <param name="sx">[in] - x val of UL corner of src rectangle</param>
 ///  <param name="sy">[in] - y val of UL corner of src rectangle</param>
+
 public static void rasteropLow(
 				 Byte[] datad, 
 				 int dpixw, 
@@ -85,20 +94,26 @@ public static void rasteropLow(
 				 int sx, 
 				 int sy){
 
+
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
 
-	Natives.rasteropLow(  datadPtr,   dpixw,   dpixh,   depth,   dwpl,   dx,   dy,   dw,   dh,   op,   datasPtr,   spixw,   spixh,   swpl,   sx,   sy);
+	Natives.rasteropLow(
+  datadPtr,   dpixw,   dpixh,   depth,   dwpl,   dx,   dy,   dw,   dh,   op,   datasPtr,   spixw,   spixh,   swpl,   sx,   sy);
 	
+
 	Marshal.FreeHGlobal(datadPtr);
 	Marshal.FreeHGlobal(datasPtr);
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // roplow.c (2146, 1)
 // rasteropVipLow(data, pixw, pixh, depth, wpl, x, w, shift) as Object
 // rasteropVipLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
@@ -125,6 +140,7 @@ public static void rasteropLow(
 ///  <param name="x">[in] - x val of UL corner of rectangle</param>
 ///  <param name="w">[in] - width of rectangle</param>
 ///  <param name="shift">[in] - + shifts data downward in vertical column</param>
+
 public static void rasteropVipLow(
 				 Byte[] data, 
 				 int pixw, 
@@ -135,17 +151,23 @@ public static void rasteropVipLow(
 				 int w, 
 				 int shift){
 
+
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
-	Natives.rasteropVipLow(  dataPtr,   pixw,   pixh,   depth,   wpl,   x,   w,   shift);
+	Natives.rasteropVipLow(
+  dataPtr,   pixw,   pixh,   depth,   wpl,   x,   w,   shift);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // roplow.c (2359, 1)
 // rasteropHipLow(data, pixh, depth, wpl, y, h, shift) as Object
 // rasteropHipLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
@@ -168,6 +190,7 @@ public static void rasteropVipLow(
 ///  <param name="y">[in] - y val of UL corner of rectangle</param>
 ///  <param name="h">[in] - height of rectangle</param>
 ///  <param name="shift">[in] - + shifts data to the left in a horizontal column</param>
+
 public static void rasteropHipLow(
 				 Byte[] data, 
 				 int pixh, 
@@ -177,12 +200,17 @@ public static void rasteropHipLow(
 				 int h, 
 				 int shift){
 
+
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
-	Natives.rasteropHipLow(  dataPtr,   pixh,   depth,   wpl,   y,   h,   shift);
+	Natives.rasteropHipLow(
+  dataPtr,   pixh,   depth,   wpl,   y,   h,   shift);
 	
+
 	Marshal.FreeHGlobal(dataPtr);
+
+//  
 
 
 

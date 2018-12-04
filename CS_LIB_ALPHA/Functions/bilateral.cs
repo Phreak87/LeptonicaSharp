@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilateral.c (150, 1)
 // pixBilateral(pixs, spatial_stdev, range_stdev, ncomps, reduction) as Pix
 // pixBilateral(PIX *, l_float32, l_float32, l_int32, l_int32) as PIX *
@@ -66,6 +67,7 @@ public partial class _All {
 ///  <param name="ncomps">[in] - number of intermediate sums J(k,x) in [4 ... 30]</param>
 ///  <param name="reduction">[in] - 1, 2 or 4</param>
 ///   <returns>pixd bilateral filtered image, or NULL on error</returns>
+
 public static Pix pixBilateral(
 				 Pix pixs, 
 				 Single spatial_stdev, 
@@ -73,15 +75,22 @@ public static Pix pixBilateral(
 				 int ncomps, 
 				 int reduction){
 
-	IntPtr _Result = Natives.pixBilateral(pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
+
+
+	IntPtr _Result = Natives.pixBilateral(
+pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilateral.c (220, 1)
 // pixBilateralGray(pixs, spatial_stdev, range_stdev, ncomps, reduction) as Pix
 // pixBilateralGray(PIX *, l_float32, l_float32, l_int32, l_int32) as PIX *
@@ -99,6 +108,7 @@ public static Pix pixBilateral(
 ///  <param name="ncomps">[in] - number of intermediate sums J(k,x) in [4 ... 30]</param>
 ///  <param name="reduction">[in] - 1, 2 or 4</param>
 ///   <returns>pixd 8 bpp bilateral filtered image, or NULL on error</returns>
+
 public static Pix pixBilateralGray(
 				 Pix pixs, 
 				 Single spatial_stdev, 
@@ -106,15 +116,22 @@ public static Pix pixBilateralGray(
 				 int ncomps, 
 				 int reduction){
 
-	IntPtr _Result = Natives.pixBilateralGray(pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
+
+
+	IntPtr _Result = Natives.pixBilateralGray(
+pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilateral.c (580, 1)
 // pixBilateralExact(pixs, spatial_kel, range_kel) as Pix
 // pixBilateralExact(PIX *, L_KERNEL *, L_KERNEL *) as PIX *
@@ -140,22 +157,29 @@ public static Pix pixBilateralGray(
 ///  <param name="spatial_kel">[in] - gaussian kernel</param>
 ///  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
 ///   <returns>pixd 8 bpp bilateral filtered image</returns>
+
 public static Pix pixBilateralExact(
 				 Pix pixs, 
 				 L_Kernel spatial_kel, 
 				 L_Kernel range_kel){
 
+
 	IntPtr range_kelPtr = IntPtr.Zero; 	if (range_kel != null) {range_kelPtr = range_kel.Pointer;}
 
-	IntPtr _Result = Natives.pixBilateralExact(pixs.Pointer, spatial_kel.Pointer, range_kelPtr);
+	IntPtr _Result = Natives.pixBilateralExact(
+pixs.Pointer, spatial_kel.Pointer, range_kelPtr);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilateral.c (634, 1)
 // pixBilateralGrayExact(pixs, spatial_kel, range_kel) as Pix
 // pixBilateralGrayExact(PIX *, L_KERNEL *, L_KERNEL *) as PIX *
@@ -169,22 +193,29 @@ public static Pix pixBilateralExact(
 ///  <param name="spatial_kel">[in] - gaussian kernel</param>
 ///  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
 ///   <returns>pixd 8 bpp bilateral filtered image</returns>
+
 public static Pix pixBilateralGrayExact(
 				 Pix pixs, 
 				 L_Kernel spatial_kel, 
 				 L_Kernel range_kel){
 
+
 	IntPtr range_kelPtr = IntPtr.Zero; 	if (range_kel != null) {range_kelPtr = range_kel.Pointer;}
 
-	IntPtr _Result = Natives.pixBilateralGrayExact(pixs.Pointer, spatial_kel.Pointer, range_kelPtr);
+	IntPtr _Result = Natives.pixBilateralGrayExact(
+pixs.Pointer, spatial_kel.Pointer, range_kelPtr);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilateral.c (735, 1)
 // pixBlockBilateralExact(pixs, spatial_stdev, range_stdev) as Pix
 // pixBlockBilateralExact(PIX *, l_float32, l_float32) as PIX *
@@ -225,20 +256,28 @@ public static Pix pixBilateralGrayExact(
 ///  <param name="spatial_stdev">[in] - is greater  0.0</param>
 ///  <param name="range_stdev">[in] - is greater  0.0</param>
 ///   <returns>pixd 8 bpp or 32 bpp bilateral filtered image</returns>
+
 public static Pix pixBlockBilateralExact(
 				 Pix pixs, 
 				 Single spatial_stdev, 
 				 Single range_stdev){
 
-	IntPtr _Result = Natives.pixBlockBilateralExact(pixs.Pointer,   spatial_stdev,   range_stdev);
+
+
+	IntPtr _Result = Natives.pixBlockBilateralExact(
+pixs.Pointer,   spatial_stdev,   range_stdev);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilateral.c (787, 1)
 // makeRangeKernel(range_stdev) as L_Kernel
 // makeRangeKernel(l_float32) as L_KERNEL *
@@ -256,14 +295,21 @@ public static Pix pixBlockBilateralExact(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeRangeKernel/*"/>
 ///  <param name="range_stdev">[in] - is greater  0</param>
 ///   <returns>kel, or NULL on error</returns>
+
 public static L_Kernel makeRangeKernel(
 				 Single range_stdev){
 
-	IntPtr _Result = Natives.makeRangeKernel(  range_stdev);
+
+
+	IntPtr _Result = Natives.makeRangeKernel(
+  range_stdev);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Kernel(_Result);
 }

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // binreduce.c (71, 1)
 // pixReduceBinary2(pixs, intab) as Pix
 // pixReduceBinary2(PIX *, l_uint8 *) as PIX *
@@ -25,19 +26,27 @@ public partial class _All {
 ///  <param name="pixs">[in] - </param>
 ///  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
 ///   <returns>pixd 2x subsampled, or NULL on error</returns>
+
 public static Pix pixReduceBinary2(
 				 Pix pixs, 
 				 Byte[] intab){
 
-	IntPtr _Result = Natives.pixReduceBinary2(pixs.Pointer,   intab);
+
+
+	IntPtr _Result = Natives.pixReduceBinary2(
+pixs.Pointer,   intab);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // binreduce.c (148, 1)
 // pixReduceRankBinaryCascade(pixs, level1, level2, level3, level4) as Pix
 // pixReduceRankBinaryCascade(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -55,6 +64,7 @@ public static Pix pixReduceBinary2(
 ///  <param name="level3">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
 ///  <param name="level4">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixReduceRankBinaryCascade(
 				 Pix pixs, 
 				 int level1, 
@@ -62,15 +72,22 @@ public static Pix pixReduceRankBinaryCascade(
 				 int level3, 
 				 int level4){
 
-	IntPtr _Result = Natives.pixReduceRankBinaryCascade(pixs.Pointer,   level1,   level2,   level3,   level4);
+
+
+	IntPtr _Result = Natives.pixReduceRankBinaryCascade(
+pixs.Pointer,   level1,   level2,   level3,   level4);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // binreduce.c (223, 1)
 // pixReduceRankBinary2(pixs, level, intab) as Pix
 // pixReduceRankBinary2(PIX *, l_int32, l_uint8 *) as PIX *
@@ -93,20 +110,28 @@ public static Pix pixReduceRankBinaryCascade(
 ///  <param name="level">[in] - rank threshold: 1, 2, 3, 4</param>
 ///  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
 ///   <returns>pixd 1 bpp, 2x rank threshold reduced, or NULL on error</returns>
+
 public static Pix pixReduceRankBinary2(
 				 Pix pixs, 
 				 int level, 
 				 Byte[] intab){
 
-	IntPtr _Result = Natives.pixReduceRankBinary2(pixs.Pointer,   level,   intab);
+
+
+	IntPtr _Result = Natives.pixReduceRankBinary2(
+pixs.Pointer,   level,   intab);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // binreduce.c (384, 1)
 // makeSubsampleTab2x() as Byte[]
 // makeSubsampleTab2x() as l_uint8 *
@@ -120,10 +145,16 @@ public static Pix pixReduceRankBinary2(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeSubsampleTab2x/*"/>
 ///   <returns>tab table of 256 permutations, or NULL on error</returns>
+
 public static Byte[] makeSubsampleTab2x(){
+
+
 
 	Byte[] _Result = Natives.makeSubsampleTab2x();
 	
+
+
+//  
 
 
 

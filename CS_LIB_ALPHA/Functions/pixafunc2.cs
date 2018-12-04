@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (179, 1)
 // pixaDisplay(pixa, w, h) as Pix
 // pixaDisplay(PIXA *, l_int32, l_int32) as PIX *
@@ -30,20 +31,28 @@ public partial class _All {
 ///  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///   <returns>pix, or NULL on error</returns>
+
 public static Pix pixaDisplay(
 				 Pixa pixa, 
 				 int w, 
 				 int h){
 
-	IntPtr _Result = Natives.pixaDisplay(pixa.Pointer,   w,   h);
+
+
+	IntPtr _Result = Natives.pixaDisplay(
+pixa.Pointer,   w,   h);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (259, 1)
 // pixaDisplayOnColor(pixa, w, h, bgcolor) as Pix
 // pixaDisplayOnColor(PIXA *, l_int32, l_int32, l_uint32) as PIX *
@@ -67,21 +76,29 @@ public static Pix pixaDisplay(
 ///  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///  <param name="bgcolor">[in] - background color to use</param>
 ///   <returns>pix, or NULL on error</returns>
+
 public static Pix pixaDisplayOnColor(
 				 Pixa pixa, 
 				 int w, 
 				 int h, 
 				 uint bgcolor){
 
-	IntPtr _Result = Natives.pixaDisplayOnColor(pixa.Pointer,   w,   h,   bgcolor);
+
+
+	IntPtr _Result = Natives.pixaDisplayOnColor(
+pixa.Pointer,   w,   h,   bgcolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (354, 1)
 // pixaDisplayRandomCmap(pixa, w, h) as Pix
 // pixaDisplayRandomCmap(PIXA *, l_int32, l_int32) as PIX *
@@ -100,20 +117,28 @@ public static Pix pixaDisplayOnColor(
 ///  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///   <returns>pix   8 bpp, cmapped, with random colors assigned to each region, or NULL on error.</returns>
+
 public static Pix pixaDisplayRandomCmap(
 				 Pixa pixa, 
 				 int w, 
 				 int h){
 
-	IntPtr _Result = Natives.pixaDisplayRandomCmap(pixa.Pointer,   w,   h);
+
+
+	IntPtr _Result = Natives.pixaDisplayRandomCmap(
+pixa.Pointer,   w,   h);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (428, 1)
 // pixaDisplayLinearly(pixas, direction, scalefactor, background, spacing, border, pboxa) as Pix
 // pixaDisplayLinearly(PIXA *, l_int32, l_float32, l_int32, l_int32, l_int32, BOXA **) as PIX *
@@ -136,6 +161,7 @@ public static Pix pixaDisplayRandomCmap(
 ///  <param name="border">[in] - width of black border added to each image use 0 for no border</param>
 ///  <param name="pboxa">[out][optional] - location of images in output pix</param>
 ///   <returns>pix of composite images, or NULL on error</returns>
+
 public static Pix pixaDisplayLinearly(
 				 Pixa pixas, 
 				 int direction, 
@@ -145,18 +171,24 @@ public static Pix pixaDisplayLinearly(
 				 int border, 
 				out Boxa pboxa){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixaDisplayLinearly(pixas.Pointer,   direction,   scalefactor,   background,   spacing,   border, out pboxaPtr);
+	IntPtr _Result = Natives.pixaDisplayLinearly(
+pixas.Pointer,   direction,   scalefactor,   background,   spacing,   border, out pboxaPtr);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (522, 1)
 // pixaDisplayOnLattice(pixa, cellw, cellh, pncols, pboxa) as Pix
 // pixaDisplayOnLattice(PIXA *, l_int32, l_int32, l_int32 *, BOXA **) as PIX *
@@ -183,6 +215,7 @@ public static Pix pixaDisplayLinearly(
 ///  <param name="pncols">[out][optional] - number of columns in output lattice</param>
 ///  <param name="pboxa">[out][optional] - location of images in lattice</param>
 ///   <returns>pix of composite images, or NULL on error</returns>
+
 public static Pix pixaDisplayOnLattice(
 				 Pixa pixa, 
 				 int cellw, 
@@ -190,18 +223,24 @@ public static Pix pixaDisplayOnLattice(
 				out int pncols, 
 				out Boxa pboxa){
 
+
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixaDisplayOnLattice(pixa.Pointer,   cellw,   cellh, out  pncols, out pboxaPtr);
+	IntPtr _Result = Natives.pixaDisplayOnLattice(
+pixa.Pointer,   cellw,   cellh, out  pncols, out pboxaPtr);
 	
 
+
+//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
+
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (633, 1)
 // pixaDisplayUnsplit(pixa, nx, ny, borderwidth, bordercolor) as Pix
 // pixaDisplayUnsplit(PIXA *, l_int32, l_int32, l_int32, l_uint32) as PIX *
@@ -228,6 +267,7 @@ public static Pix pixaDisplayOnLattice(
 ///  <param name="borderwidth">[in] - of added border on all sides</param>
 ///  <param name="bordercolor">[in] - in our RGBA format: 0xrrggbbaa</param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
+
 public static Pix pixaDisplayUnsplit(
 				 Pixa pixa, 
 				 int nx, 
@@ -235,15 +275,22 @@ public static Pix pixaDisplayUnsplit(
 				 int borderwidth, 
 				 uint bordercolor){
 
-	IntPtr _Result = Natives.pixaDisplayUnsplit(pixa.Pointer,   nx,   ny,   borderwidth,   bordercolor);
+
+
+	IntPtr _Result = Natives.pixaDisplayUnsplit(
+pixa.Pointer,   nx,   ny,   borderwidth,   bordercolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (708, 1)
 // pixaDisplayTiled(pixa, maxwidth, background, spacing) as Pix
 // pixaDisplayTiled(PIXA *, l_int32, l_int32, l_int32) as PIX *
@@ -272,21 +319,29 @@ public static Pix pixaDisplayUnsplit(
 ///  <param name="background">[in] - 0 for white, 1 for black</param>
 ///  <param name="spacing">[in] - </param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
+
 public static Pix pixaDisplayTiled(
 				 Pixa pixa, 
 				 int maxwidth, 
 				 int background, 
 				 int spacing){
 
-	IntPtr _Result = Natives.pixaDisplayTiled(pixa.Pointer,   maxwidth,   background,   spacing);
+
+
+	IntPtr _Result = Natives.pixaDisplayTiled(
+pixa.Pointer,   maxwidth,   background,   spacing);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (822, 1)
 // pixaDisplayTiledInRows(pixa, outdepth, maxwidth, scalefactor, background, spacing, border) as Pix
 // pixaDisplayTiledInRows(PIXA *, l_int32, l_int32, l_float32, l_int32, l_int32, l_int32) as PIX *
@@ -325,6 +380,7 @@ public static Pix pixaDisplayTiled(
 ///  <param name="spacing">[in] - between images, and on outside</param>
 ///  <param name="border">[in] - width of black border added to each image use 0 for no border</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
+
 public static Pix pixaDisplayTiledInRows(
 				 Pixa pixa, 
 				 int outdepth, 
@@ -334,15 +390,22 @@ public static Pix pixaDisplayTiledInRows(
 				 int spacing, 
 				 int border){
 
-	IntPtr _Result = Natives.pixaDisplayTiledInRows(pixa.Pointer,   outdepth,   maxwidth,   scalefactor,   background,   spacing,   border);
+
+
+	IntPtr _Result = Natives.pixaDisplayTiledInRows(
+pixa.Pointer,   outdepth,   maxwidth,   scalefactor,   background,   spacing,   border);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1006, 1)
 // pixaDisplayTiledInColumns(pixas, nx, scalefactor, spacing, border) as Pix
 // pixaDisplayTiledInColumns(PIXA *, l_int32, l_float32, l_int32, l_int32) as PIX *
@@ -377,6 +440,7 @@ public static Pix pixaDisplayTiledInRows(
 ///  <param name="spacing">[in] - between images, and on outside</param>
 ///  <param name="border">[in] - width of black border added to each image use 0 for no border</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
+
 public static Pix pixaDisplayTiledInColumns(
 				 Pixa pixas, 
 				 int nx, 
@@ -384,15 +448,22 @@ public static Pix pixaDisplayTiledInColumns(
 				 int spacing, 
 				 int border){
 
-	IntPtr _Result = Natives.pixaDisplayTiledInColumns(pixas.Pointer,   nx,   scalefactor,   spacing,   border);
+
+
+	IntPtr _Result = Natives.pixaDisplayTiledInColumns(
+pixas.Pointer,   nx,   scalefactor,   spacing,   border);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1123, 1)
 // pixaDisplayTiledAndScaled(pixa, outdepth, tilewidth, ncols, background, spacing, border) as Pix
 // pixaDisplayTiledAndScaled(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -416,6 +487,7 @@ public static Pix pixaDisplayTiledInColumns(
 ///  <param name="spacing">[in] - between images, and on outside</param>
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
+
 public static Pix pixaDisplayTiledAndScaled(
 				 Pixa pixa, 
 				 int outdepth, 
@@ -425,15 +497,22 @@ public static Pix pixaDisplayTiledAndScaled(
 				 int spacing, 
 				 int border){
 
-	IntPtr _Result = Natives.pixaDisplayTiledAndScaled(pixa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
+
+
+	IntPtr _Result = Natives.pixaDisplayTiledAndScaled(
+pixa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1278, 1)
 // pixaDisplayTiledWithText(pixa, maxwidth, scalefactor, spacing, border, fontsize, textcolor) as Pix
 // pixaDisplayTiledWithText(PIXA *, l_int32, l_float32, l_int32, l_int32, l_int32, l_uint32) as PIX *
@@ -463,6 +542,7 @@ public static Pix pixaDisplayTiledAndScaled(
 ///  <param name="fontsize">[in] - 4, 6, ... 20</param>
 ///  <param name="textcolor">[in] - 0xrrggbb00</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
+
 public static Pix pixaDisplayTiledWithText(
 				 Pixa pixa, 
 				 int maxwidth, 
@@ -472,15 +552,22 @@ public static Pix pixaDisplayTiledWithText(
 				 int fontsize, 
 				 uint textcolor){
 
-	IntPtr _Result = Natives.pixaDisplayTiledWithText(pixa.Pointer,   maxwidth,   scalefactor,   spacing,   border,   fontsize,   textcolor);
+
+
+	IntPtr _Result = Natives.pixaDisplayTiledWithText(
+pixa.Pointer,   maxwidth,   scalefactor,   spacing,   border,   fontsize,   textcolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1377, 1)
 // pixaDisplayTiledByIndex(pixa, na, width, spacing, border, fontsize, textcolor) as Pix
 // pixaDisplayTiledByIndex(PIXA *, NUMA *, l_int32, l_int32, l_int32, l_int32, l_uint32) as PIX *
@@ -511,6 +598,7 @@ public static Pix pixaDisplayTiledWithText(
 ///  <param name="fontsize">[in] - 4, 6, ... 20</param>
 ///  <param name="textcolor">[in] - 0xrrggbb00</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
+
 public static Pix pixaDisplayTiledByIndex(
 				 Pixa pixa, 
 				 Numa na, 
@@ -520,15 +608,22 @@ public static Pix pixaDisplayTiledByIndex(
 				 int fontsize, 
 				 uint textcolor){
 
-	IntPtr _Result = Natives.pixaDisplayTiledByIndex(pixa.Pointer, na.Pointer,   width,   spacing,   border,   fontsize,   textcolor);
+
+
+	IntPtr _Result = Natives.pixaDisplayTiledByIndex(
+pixa.Pointer, na.Pointer,   width,   spacing,   border,   fontsize,   textcolor);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1480, 1)
 // pixaaDisplay(paa, w, h) as Pix
 // pixaaDisplay(PIXAA *, l_int32, l_int32) as PIX *
@@ -544,20 +639,28 @@ public static Pix pixaDisplayTiledByIndex(
 ///  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///   <returns>pix, or NULL on error</returns>
+
 public static Pix pixaaDisplay(
 				 Pixaa paa, 
 				 int w, 
 				 int h){
 
-	IntPtr _Result = Natives.pixaaDisplay(paa.Pointer,   w,   h);
+
+
+	IntPtr _Result = Natives.pixaaDisplay(
+paa.Pointer,   w,   h);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1574, 1)
 // pixaaDisplayByPixa(paa, xspace, yspace, maxw) as Pix
 // pixaaDisplayByPixa(PIXAA *, l_int32, l_int32, l_int32) as PIX *
@@ -579,21 +682,29 @@ public static Pix pixaaDisplay(
 ///  <param name="yspace">[in] - between pixa</param>
 ///  <param name="maxw">[in] - max width of output pix</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixaaDisplayByPixa(
 				 Pixaa paa, 
 				 int xspace, 
 				 int yspace, 
 				 int maxw){
 
-	IntPtr _Result = Natives.pixaaDisplayByPixa(paa.Pointer,   xspace,   yspace,   maxw);
+
+
+	IntPtr _Result = Natives.pixaaDisplayByPixa(
+paa.Pointer,   xspace,   yspace,   maxw);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1711, 1)
 // pixaaDisplayTiledAndScaled(paa, outdepth, tilewidth, ncols, background, spacing, border) as Pixa
 // pixaaDisplayTiledAndScaled(PIXAA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXA *
@@ -614,6 +725,7 @@ public static Pix pixaaDisplayByPixa(
 ///  <param name="spacing">[in] - between images, and on outside</param>
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pixa of tiled images, one image for each pixa in the paa, or NULL on error</returns>
+
 public static Pixa pixaaDisplayTiledAndScaled(
 				 Pixaa paa, 
 				 int outdepth, 
@@ -623,15 +735,22 @@ public static Pixa pixaaDisplayTiledAndScaled(
 				 int spacing, 
 				 int border){
 
-	IntPtr _Result = Natives.pixaaDisplayTiledAndScaled(paa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
+
+
+	IntPtr _Result = Natives.pixaaDisplayTiledAndScaled(
+paa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1761, 1)
 // pixaConvertTo1(pixas, thresh) as Pixa
 // pixaConvertTo1(PIXA *, l_int32) as PIXA *
@@ -641,19 +760,27 @@ public static Pixa pixaaDisplayTiledAndScaled(
 ///  <param name="pixas">[in] - </param>
 ///  <param name="thresh">[in] - threshold for final binarization from 8 bpp gray</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaConvertTo1(
 				 Pixa pixas, 
 				 int thresh){
 
-	IntPtr _Result = Natives.pixaConvertTo1(pixas.Pointer,   thresh);
+
+
+	IntPtr _Result = Natives.pixaConvertTo1(
+pixas.Pointer,   thresh);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1802, 1)
 // pixaConvertTo8(pixas, cmapflag) as Pixa
 // pixaConvertTo8(PIXA *, l_int32) as PIXA *
@@ -666,19 +793,27 @@ public static Pixa pixaConvertTo1(
 ///  <param name="pixas">[in] - </param>
 ///  <param name="cmapflag">[in] - 1 to give pixd a colormap 0 otherwise</param>
 ///   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
+
 public static Pixa pixaConvertTo8(
 				 Pixa pixas, 
 				 int cmapflag){
 
-	IntPtr _Result = Natives.pixaConvertTo8(pixas.Pointer,   cmapflag);
+
+
+	IntPtr _Result = Natives.pixaConvertTo8(
+pixas.Pointer,   cmapflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1843, 1)
 // pixaConvertTo8Colormap(pixas, dither) as Pixa
 // pixaConvertTo8Colormap(PIXA *, l_int32) as PIXA *
@@ -691,19 +826,27 @@ public static Pixa pixaConvertTo8(
 ///  <param name="pixas">[in] - </param>
 ///  <param name="dither">[in] - 1 to dither if necessary 0 otherwise</param>
 ///   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
+
 public static Pixa pixaConvertTo8Colormap(
 				 Pixa pixas, 
 				 int dither){
 
-	IntPtr _Result = Natives.pixaConvertTo8Colormap(pixas.Pointer,   dither);
+
+
+	IntPtr _Result = Natives.pixaConvertTo8Colormap(
+pixas.Pointer,   dither);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1885, 1)
 // pixaConvertTo32(pixas) as Pixa
 // pixaConvertTo32(PIXA *) as PIXA *
@@ -718,18 +861,26 @@ public static Pixa pixaConvertTo8Colormap(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaConvertTo32/*"/>
 ///  <param name="pixas">[in] - </param>
 ///   <returns>pixad 32 bpp rgb, or NULL on error</returns>
+
 public static Pixa pixaConvertTo32(
 				 Pixa pixas){
 
-	IntPtr _Result = Natives.pixaConvertTo32(pixas.Pointer);
+
+
+	IntPtr _Result = Natives.pixaConvertTo32(
+pixas.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (1938, 1)
 // pixaConstrainedSelect(pixas, first, last, nmax, use_pairs, copyflag) as Pixa
 // pixaConstrainedSelect(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXA *
@@ -752,6 +903,7 @@ public static Pixa pixaConvertTo32(
 ///  <param name="use_pairs">[in] - 1 = select pairs of adjacent pix 0 = select individual pix</param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad if OK, NULL on error</returns>
+
 public static Pixa pixaConstrainedSelect(
 				 Pixa pixas, 
 				 int first, 
@@ -760,15 +912,22 @@ public static Pixa pixaConstrainedSelect(
 				 int use_pairs, 
 				 int copyflag){
 
-	IntPtr _Result = Natives.pixaConstrainedSelect(pixas.Pointer,   first,   last,   nmax,   use_pairs,   copyflag);
+
+
+	IntPtr _Result = Natives.pixaConstrainedSelect(
+pixas.Pointer,   first,   last,   nmax,   use_pairs,   copyflag);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (2006, 1)
 // pixaSelectToPdf(pixas, first, last, res, scalefactor, type, quality, color, fontsize, fileout) as int
 // pixaSelectToPdf(PIXA *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32, l_uint32, l_int32, const char *) as l_ok
@@ -796,6 +955,7 @@ public static Pixa pixaConstrainedSelect(
 ///  <param name="fontsize">[in] - to print number below each image.  The valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaSelectToPdf(
 				 Pixa pixas, 
 				 int first, 
@@ -808,14 +968,21 @@ public static int pixaSelectToPdf(
 				 int fontsize, 
 				 String fileout){
 
-	int _Result = Natives.pixaSelectToPdf(pixas.Pointer,   first,   last,   res,   scalefactor,   type,   quality,   color,   fontsize,   fileout);
+
+
+	int _Result = Natives.pixaSelectToPdf(
+pixas.Pointer,   first,   last,   res,   scalefactor,   type,   quality,   color,   fontsize,   fileout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (2086, 1)
 // pixaDisplayMultiTiled(pixas, nx, ny, maxw, maxh, scalefactor, spacing, border) as Pixa
 // pixaDisplayMultiTiled(PIXA *, l_int32, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as PIXA *
@@ -840,6 +1007,7 @@ public static int pixaSelectToPdf(
 ///  <param name="spacing">[in] - between images, and on outside</param>
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pixad if OK, NULL on error</returns>
+
 public static Pixa pixaDisplayMultiTiled(
 				 Pixa pixas, 
 				 int nx, 
@@ -850,15 +1018,22 @@ public static Pixa pixaDisplayMultiTiled(
 				 int spacing, 
 				 int border){
 
-	IntPtr _Result = Natives.pixaDisplayMultiTiled(pixas.Pointer,   nx,   ny,   maxw,   maxh,   scalefactor,   spacing,   border);
+
+
+	IntPtr _Result = Natives.pixaDisplayMultiTiled(
+pixas.Pointer,   nx,   ny,   maxw,   maxh,   scalefactor,   spacing,   border);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (2165, 1)
 // pixaSplitIntoFiles(pixas, nsplit, scale, outwidth, write_pixa, write_pix, write_pdf) as int
 // pixaSplitIntoFiles(PIXA *, l_int32, l_float32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -881,6 +1056,7 @@ public static Pixa pixaDisplayMultiTiled(
 ///  <param name="write_pix">[in] - 1 to write tiled images of the split pixa</param>
 ///  <param name="write_pdf">[in] - 1 to write pdfs of the split pixa</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaSplitIntoFiles(
 				 Pixa pixas, 
 				 int nsplit, 
@@ -890,14 +1066,21 @@ public static int pixaSplitIntoFiles(
 				 int write_pix, 
 				 int write_pdf){
 
-	int _Result = Natives.pixaSplitIntoFiles(pixas.Pointer,   nsplit,   scale,   outwidth,   write_pixa,   write_pix,   write_pdf);
+
+
+	int _Result = Natives.pixaSplitIntoFiles(
+pixas.Pointer,   nsplit,   scale,   outwidth,   write_pixa,   write_pix,   write_pdf);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (2254, 1)
 // convertToNUpFiles(dir, substr, nx, ny, tw, spacing, border, fontsize, outdir) as int
 // convertToNUpFiles(const char *, const char *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, const char *) as l_ok
@@ -929,6 +1112,7 @@ public static int pixaSplitIntoFiles(
 ///  <param name="fontsize">[in] - to print tail of filename with image.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///  <param name="outdir">[in] - subdirectory of /tmp to put N-up tiled images</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int convertToNUpFiles(
 				 String dir, 
 				 String substr, 
@@ -940,14 +1124,21 @@ public static int convertToNUpFiles(
 				 int fontsize, 
 				 String outdir){
 
-	int _Result = Natives.convertToNUpFiles(  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize,   outdir);
+
+
+	int _Result = Natives.convertToNUpFiles(
+  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize,   outdir);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (2316, 1)
 // convertToNUpPixa(dir, substr, nx, ny, tw, spacing, border, fontsize) as Pixa
 // convertToNUpPixa(const char *, const char *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXA *
@@ -966,6 +1157,7 @@ public static int convertToNUpFiles(
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///  <param name="fontsize">[in] - to print tail of filename with image.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa convertToNUpPixa(
 				 String dir, 
 				 String substr, 
@@ -976,15 +1168,22 @@ public static Pixa convertToNUpPixa(
 				 int border, 
 				 int fontsize){
 
-	IntPtr _Result = Natives.convertToNUpPixa(  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize);
+
+
+	IntPtr _Result = Natives.convertToNUpPixa(
+  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (2382, 1)
 // pixaConvertToNUpPixa(pixas, sa, nx, ny, tw, spacing, border, fontsize) as Pixa
 // pixaConvertToNUpPixa(PIXA *, SARRAY *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXA *
@@ -1007,6 +1206,7 @@ public static Pixa convertToNUpPixa(
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///  <param name="fontsize">[in] - to print string with each image.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///   <returns>pixad, or NULL on error</returns>
+
 public static Pixa pixaConvertToNUpPixa(
 				 Pixa pixas, 
 				 Sarray sa, 
@@ -1017,17 +1217,23 @@ public static Pixa pixaConvertToNUpPixa(
 				 int border, 
 				 int fontsize){
 
+
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 
-	IntPtr _Result = Natives.pixaConvertToNUpPixa(pixas.Pointer, saPtr,   nx,   ny,   tw,   spacing,   border,   fontsize);
+	IntPtr _Result = Natives.pixaConvertToNUpPixa(
+pixas.Pointer, saPtr,   nx,   ny,   tw,   spacing,   border,   fontsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pixa(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixafunc2.c (2495, 1)
 // pixaCompareInPdf(pixa1, pixa2, nx, ny, tw, spacing, border, fontsize, fileout) as int
 // pixaCompareInPdf(PIXA *, PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, const char *) as l_ok
@@ -1071,6 +1277,7 @@ public static Pixa pixaConvertToNUpPixa(
 ///  <param name="fontsize">[in] - to print index of each pair of images.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///  <param name="fileout">[in] - output pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int pixaCompareInPdf(
 				 Pixa pixa1, 
 				 Pixa pixa2, 
@@ -1082,8 +1289,14 @@ public static int pixaCompareInPdf(
 				 int fontsize, 
 				 String fileout){
 
-	int _Result = Natives.pixaCompareInPdf(pixa1.Pointer, pixa2.Pointer,   nx,   ny,   tw,   spacing,   border,   fontsize,   fileout);
+
+
+	int _Result = Natives.pixaCompareInPdf(
+pixa1.Pointer, pixa2.Pointer,   nx,   ny,   tw,   spacing,   border,   fontsize,   fileout);
 	
+
+
+//  
 
 
 

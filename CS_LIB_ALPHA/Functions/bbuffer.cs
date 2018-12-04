@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (124, 1)
 // bbufferCreate(indata, nalloc) as L_ByteBuffer
 // bbufferCreate(const l_uint8 *, l_int32) as L_BBUFFER *
@@ -22,19 +23,27 @@ public partial class _All {
 ///  <param name="indata">[in] - address in memory [optional]</param>
 ///  <param name="nalloc">[in] - size of byte array to be alloc'd 0 for default</param>
 ///   <returns>bbuffer, or NULL on error</returns>
+
 public static L_ByteBuffer bbufferCreate(
 				 Byte[] indata, 
 				 int nalloc){
 
-	IntPtr _Result = Natives.bbufferCreate(  indata,   nalloc);
+
+
+	IntPtr _Result = Natives.bbufferCreate(
+  indata,   nalloc);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_ByteBuffer(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (167, 1)
 // bbufferDestroy(pbb) as Object
 // bbufferDestroy(L_BBUFFER **) as void
@@ -46,19 +55,26 @@ public static L_ByteBuffer bbufferCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferDestroy/*"/>
 ///  <param name="pbb">[in,out] - buffer to be nulled</param>
+
 public static void bbufferDestroy(
 				ref L_ByteBuffer pbb){
 
+
 	IntPtr pbbPtr = IntPtr.Zero; 	if (pbb != null) {pbbPtr = pbb.Pointer;}
 
-	Natives.bbufferDestroy(ref pbbPtr);
+	Natives.bbufferDestroy(
+ref pbbPtr);
 	
 
+
+//  
 	if (pbbPtr == IntPtr.Zero) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (203, 1)
 // bbufferDestroyAndSaveData(pbb, pnbytes) as Byte[]
 // bbufferDestroyAndSaveData(L_BBUFFER **, size_t *) as l_uint8 *
@@ -71,21 +87,28 @@ public static void bbufferDestroy(
 ///  <param name="pbb">[in,out] - buffer to be nulled</param>
 ///  <param name="pnbytes">[out] - number of bytes saved in array</param>
 ///   <returns>barray newly allocated array of data</returns>
+
 public static Byte[] bbufferDestroyAndSaveData(
 				ref L_ByteBuffer pbb, 
 				out uint pnbytes){
 
+
 	IntPtr pbbPtr = IntPtr.Zero; 	if (pbb != null) {pbbPtr = pbb.Pointer;}
 
-	Byte[] _Result = Natives.bbufferDestroyAndSaveData(ref pbbPtr, out  pnbytes);
+	Byte[] _Result = Natives.bbufferDestroyAndSaveData(
+ref pbbPtr, out  pnbytes);
 	
 
+
+//  
 	if (pbbPtr == IntPtr.Zero) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (262, 1)
 // bbufferRead(bb, src, nbytes) as int
 // bbufferRead(L_BBUFFER *, l_uint8 *, l_int32) as l_ok
@@ -105,19 +128,27 @@ public static Byte[] bbufferDestroyAndSaveData(
 ///  <param name="src">[in] - source memory buffer from which bytes are read</param>
 ///  <param name="nbytes">[in] - bytes to be read</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int bbufferRead(
 				 L_ByteBuffer bb, 
 				 Byte[] src, 
 				 int nbytes){
 
-	int _Result = Natives.bbufferRead(bb.Pointer,   src,   nbytes);
+
+
+	int _Result = Natives.bbufferRead(
+bb.Pointer,   src,   nbytes);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (308, 1)
 // bbufferReadStream(bb, fp, nbytes) as int
 // bbufferReadStream(L_BBUFFER *, FILE *, l_int32) as l_ok
@@ -128,19 +159,27 @@ public static int bbufferRead(
 ///  <param name="fp">[in] - source stream from which bytes are read</param>
 ///  <param name="nbytes">[in] - bytes to be read</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int bbufferReadStream(
 				 L_ByteBuffer bb, 
 				 FILE fp, 
 				 int nbytes){
 
-	int _Result = Natives.bbufferReadStream(bb.Pointer, fp.Pointer,   nbytes);
+
+
+	int _Result = Natives.bbufferReadStream(
+bb.Pointer, fp.Pointer,   nbytes);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (359, 1)
 // bbufferExtendArray(bb, nbytes) as int
 // bbufferExtendArray(L_BBUFFER *, l_int32) as l_ok
@@ -154,18 +193,26 @@ public static int bbufferReadStream(
 ///  <param name="bb">[in] - bbuffer</param>
 ///  <param name="nbytes">[in] - number of bytes to extend array size</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int bbufferExtendArray(
 				 L_ByteBuffer bb, 
 				 int nbytes){
 
-	int _Result = Natives.bbufferExtendArray(bb.Pointer,   nbytes);
+
+
+	int _Result = Natives.bbufferExtendArray(
+bb.Pointer,   nbytes);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (390, 1)
 // bbufferWrite(bb, dest, nbytes, pnout) as int
 // bbufferWrite(L_BBUFFER *, l_uint8 *, size_t, size_t *) as l_ok
@@ -177,20 +224,28 @@ public static int bbufferExtendArray(
 ///  <param name="nbytes">[in] - bytes requested to be written</param>
 ///  <param name="pnout">[out] - bytes actually written</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int bbufferWrite(
 				 L_ByteBuffer bb, 
 				 Byte[] dest, 
 				 uint nbytes, 
 				out uint pnout){
 
-	int _Result = Natives.bbufferWrite(bb.Pointer,   dest,   nbytes, out  pnout);
+
+
+	int _Result = Natives.bbufferWrite(
+bb.Pointer,   dest,   nbytes, out  pnout);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bbuffer.c (442, 1)
 // bbufferWriteStream(bb, fp, nbytes, pnout) as int
 // bbufferWriteStream(L_BBUFFER *, FILE *, size_t, size_t *) as l_ok
@@ -202,14 +257,21 @@ public static int bbufferWrite(
 ///  <param name="nbytes">[in] - bytes requested to be written</param>
 ///  <param name="pnout">[out] - bytes actually written</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int bbufferWriteStream(
 				 L_ByteBuffer bb, 
 				 FILE fp, 
 				 uint nbytes, 
 				out uint pnout){
 
-	int _Result = Natives.bbufferWriteStream(bb.Pointer, fp.Pointer,   nbytes, out  pnout);
+
+
+	int _Result = Natives.bbufferWriteStream(
+bb.Pointer, fp.Pointer,   nbytes, out  pnout);
 	
+
+
+//  
 
 
 

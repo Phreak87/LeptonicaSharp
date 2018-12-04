@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // queue.c (90, 1)
 // lqueueCreate(nalloc) as L_Queue
 // lqueueCreate(l_int32) as L_QUEUE *
@@ -17,18 +18,26 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lqueueCreate/*"/>
 ///  <param name="nalloc">[in] - size of ptr array to be alloc'd 0 for default</param>
 ///   <returns>lqueue, or NULL on error</returns>
+
 public static L_Queue lqueueCreate(
 				 int nalloc){
 
-	IntPtr _Result = Natives.lqueueCreate(  nalloc);
+
+
+	IntPtr _Result = Natives.lqueueCreate(
+  nalloc);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new L_Queue(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // queue.c (131, 1)
 // lqueueDestroy(plq, freeflag) as Object
 // lqueueDestroy(L_QUEUE **, l_int32) as void
@@ -50,20 +59,27 @@ public static L_Queue lqueueCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lqueueDestroy/*"/>
 ///  <param name="plq">[in,out] - to be nulled</param>
 ///  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
+
 public static void lqueueDestroy(
 				ref L_Queue plq, 
 				 int freeflag){
 
+
 	IntPtr plqPtr = IntPtr.Zero; 	if (plq != null) {plqPtr = plq.Pointer;}
 
-	Natives.lqueueDestroy(ref plqPtr,   freeflag);
+	Natives.lqueueDestroy(
+ref plqPtr,   freeflag);
 	
 
+
+//  
 	if (plqPtr == IntPtr.Zero) {plq = null;} else { plq = new L_Queue(plqPtr); };
+
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // queue.c (187, 1)
 // lqueueAdd(lq, item) as int
 // lqueueAdd(L_QUEUE *, void *) as l_ok
@@ -81,22 +97,29 @@ public static void lqueueDestroy(
 ///  <param name="lq">[in] - lqueue</param>
 ///  <param name="item">[in] - to be added to the tail of the queue</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int lqueueAdd(
 				 L_Queue lq, 
 				 Object item){
 
-		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
-	// Todo: Define coversation for object type
 
-	int _Result = Natives.lqueueAdd(lq.Pointer,   itemPtr);
+		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
+	// Todo: Functions.cs:SecureIn - Define coversation for object type
+
+	int _Result = Natives.lqueueAdd(
+lq.Pointer,   itemPtr);
 	
+
 	Marshal.FreeHGlobal(itemPtr);
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // queue.c (254, 1)
 // lqueueRemove(lq) as Object
 // lqueueRemove(L_QUEUE *) as void *
@@ -109,11 +132,18 @@ public static int lqueueAdd(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lqueueRemove/*"/>
 ///  <param name="lq">[in] - lqueue</param>
 ///   <returns>ptr to item popped from the head of the queue, or NULL if the queue is empty or on error</returns>
+
 public static Object lqueueRemove(
 				 L_Queue lq){
 
-	IntPtr _Result = Natives.lqueueRemove(lq.Pointer);
+
+
+	IntPtr _Result = Natives.lqueueRemove(
+lq.Pointer);
 	
+
+
+//  
 
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
@@ -121,6 +151,7 @@ public static Object lqueueRemove(
 	return B;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // queue.c (283, 1)
 // lqueueGetCount(lq) as int
 // lqueueGetCount(L_QUEUE *) as l_int32
@@ -129,17 +160,25 @@ public static Object lqueueRemove(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lqueueGetCount/*"/>
 ///  <param name="lq">[in] - lqueue</param>
 ///   <returns>count, or 0 on error</returns>
+
 public static int lqueueGetCount(
 				 L_Queue lq){
 
-	int _Result = Natives.lqueueGetCount(lq.Pointer);
+
+
+	int _Result = Natives.lqueueGetCount(
+lq.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // queue.c (305, 1)
 // lqueuePrint(fp, lq) as int
 // lqueuePrint(FILE *, L_QUEUE *) as l_ok
@@ -149,12 +188,19 @@ public static int lqueueGetCount(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="lq">[in] - lqueue</param>
 ///   <returns>0 if OK 1 on error</returns>
+
 public static int lqueuePrint(
 				 FILE fp, 
 				 L_Queue lq){
 
-	int _Result = Natives.lqueuePrint(fp.Pointer, lq.Pointer);
+
+
+	int _Result = Natives.lqueuePrint(
+fp.Pointer, lq.Pointer);
 	
+
+
+//  
 
 
 

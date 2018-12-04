@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp3.c (114, 1)
 // dewarpaApplyDisparity(dewa, pageno, pixs, grayin, x, y, ppixd, debugfile) as int
 // dewarpaApplyDisparity(L_DEWARPA *, l_int32, PIX *, l_int32, l_int32, l_int32, PIX **, const char *) as l_ok
@@ -56,6 +57,7 @@ public partial class _All {
 ///  <param name="ppixd">[out] - disparity corrected image</param>
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 on error no models or ref models available</returns>
+
 public static int dewarpaApplyDisparity(
 				 L_Dewarpa dewa, 
 				 int pageno, 
@@ -66,17 +68,23 @@ public static int dewarpaApplyDisparity(
 				out Pix ppixd, 
 				 String debugfile){
 
+
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.dewarpaApplyDisparity(dewa.Pointer,   pageno, pixs.Pointer,   grayin,   x,   y, out ppixdPtr,   debugfile);
+	int _Result = Natives.dewarpaApplyDisparity(
+dewa.Pointer,   pageno, pixs.Pointer,   grayin,   x,   y, out ppixdPtr,   debugfile);
 	
 
+
+//  
 	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp3.c (537, 1)
 // dewarpaApplyDisparityBoxa(dewa, pageno, pixs, boxas, mapdir, x, y, pboxad, debugfile) as int
 // dewarpaApplyDisparityBoxa(L_DEWARPA *, l_int32, PIX *, BOXA *, l_int32, l_int32, l_int32, BOXA **, const char *) as l_ok
@@ -107,6 +115,7 @@ public static int dewarpaApplyDisparity(
 ///  <param name="pboxad">[out] - disparity corrected boxa</param>
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 on error no models or ref models available</returns>
+
 public static int dewarpaApplyDisparityBoxa(
 				 L_Dewarpa dewa, 
 				 int pageno, 
@@ -118,17 +127,23 @@ public static int dewarpaApplyDisparityBoxa(
 				out Boxa pboxad, 
 				 String debugfile){
 
+
 	IntPtr pboxadPtr = IntPtr.Zero;
 
-	int _Result = Natives.dewarpaApplyDisparityBoxa(dewa.Pointer,   pageno, pixs.Pointer, boxas.Pointer,   mapdir,   x,   y, out pboxadPtr,   debugfile);
+	int _Result = Natives.dewarpaApplyDisparityBoxa(
+dewa.Pointer,   pageno, pixs.Pointer, boxas.Pointer,   mapdir,   x,   y, out pboxadPtr,   debugfile);
 	
 
+
+//  
 	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp3.c (729, 1)
 // dewarpMinimize(dew) as int
 // dewarpMinimize(L_DEWARP *) as l_ok
@@ -142,17 +157,25 @@ public static int dewarpaApplyDisparityBoxa(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpMinimize/*"/>
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int dewarpMinimize(
 				 L_Dewarp dew){
 
-	int _Result = Natives.dewarpMinimize(dew.Pointer);
+
+
+	int _Result = Natives.dewarpMinimize(
+dew.Pointer);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp3.c (785, 1)
 // dewarpPopulateFullRes(dew, pix, x, y) as int
 // dewarpPopulateFullRes(L_DEWARP *, PIX *, l_int32, l_int32) as l_ok
@@ -185,16 +208,22 @@ public static int dewarpMinimize(
 ///  <param name="x">[in] - origin for generation of disparity arrays</param>
 ///  <param name="y">[in] - origin for generation of disparity arrays</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int dewarpPopulateFullRes(
 				 L_Dewarp dew, 
 				 Pix pix, 
 				 int x, 
 				 int y){
 
+
 	IntPtr pixPtr = IntPtr.Zero; 	if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.dewarpPopulateFullRes(dew.Pointer, pixPtr,   x,   y);
+	int _Result = Natives.dewarpPopulateFullRes(
+dew.Pointer, pixPtr,   x,   y);
 	
+
+
+//  
 
 
 

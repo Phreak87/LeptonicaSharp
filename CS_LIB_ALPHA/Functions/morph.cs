@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (209, 1)
 // pixDilate(pixd, pixs, sel) as Pix
 // pixDilate(PIX *, PIX *, SEL *) as PIX *
@@ -31,22 +32,29 @@ public partial class _All {
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixDilate(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixDilate(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixDilate(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (263, 1)
 // pixErode(pixd, pixs, sel) as Pix
 // pixErode(PIX *, PIX *, SEL *) as PIX *
@@ -72,22 +80,29 @@ public static Pix pixDilate(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixErode(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixErode(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixErode(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (338, 1)
 // pixHMT(pixd, pixs, sel) as Pix
 // pixHMT(PIX *, PIX *, SEL *) as PIX *
@@ -115,22 +130,29 @@ public static Pix pixErode(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixHMT(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixHMT(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixHMT(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (422, 1)
 // pixOpen(pixd, pixs, sel) as Pix
 // pixOpen(PIX *, PIX *, SEL *) as PIX *
@@ -156,22 +178,29 @@ public static Pix pixHMT(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixOpen(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOpen(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixOpen(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (469, 1)
 // pixClose(pixd, pixs, sel) as Pix
 // pixClose(PIX *, PIX *, SEL *) as PIX *
@@ -201,22 +230,29 @@ public static Pix pixOpen(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixClose(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixClose(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixClose(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (520, 1)
 // pixCloseSafe(pixd, pixs, sel) as Pix
 // pixCloseSafe(PIX *, PIX *, SEL *) as PIX *
@@ -251,22 +287,29 @@ public static Pix pixClose(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixCloseSafe(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseSafe(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixCloseSafe(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (587, 1)
 // pixOpenGeneralized(pixd, pixs, sel) as Pix
 // pixOpenGeneralized(PIX *, PIX *, SEL *) as PIX *
@@ -296,22 +339,29 @@ public static Pix pixCloseSafe(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixOpenGeneralized(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOpenGeneralized(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixOpenGeneralized(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (634, 1)
 // pixCloseGeneralized(pixd, pixs, sel) as Pix
 // pixCloseGeneralized(PIX *, PIX *, SEL *) as PIX *
@@ -343,22 +393,29 @@ public static Pix pixOpenGeneralized(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
+
 public static Pix pixCloseGeneralized(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Sel sel){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseGeneralized(pixdPtr, pixs.Pointer, sel.Pointer);
+	IntPtr _Result = Natives.pixCloseGeneralized(
+pixdPtr, pixs.Pointer, sel.Pointer);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (684, 1)
 // pixDilateBrick(pixd, pixs, hsize, vsize) as Pix
 // pixDilateBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -389,23 +446,30 @@ public static Pix pixCloseGeneralized(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
+
 public static Pix pixDilateBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixDilateBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixDilateBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (748, 1)
 // pixErodeBrick(pixd, pixs, hsize, vsize) as Pix
 // pixErodeBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -436,23 +500,30 @@ public static Pix pixDilateBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
+
 public static Pix pixErodeBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixErodeBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixErodeBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (812, 1)
 // pixOpenBrick(pixd, pixs, hsize, vsize) as Pix
 // pixOpenBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -483,23 +554,30 @@ public static Pix pixErodeBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixOpenBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOpenBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixOpenBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (878, 1)
 // pixCloseBrick(pixd, pixs, hsize, vsize) as Pix
 // pixCloseBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -530,23 +608,30 @@ public static Pix pixOpenBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixCloseBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixCloseBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (949, 1)
 // pixCloseSafeBrick(pixd, pixs, hsize, vsize) as Pix
 // pixCloseSafeBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -583,23 +668,30 @@ public static Pix pixCloseBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixCloseSafeBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseSafeBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixCloseSafeBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1037, 1)
 // selectComposableSels(size, direction, psel1, psel2) as int
 // selectComposableSels(l_int32, l_int32, SEL **, SEL **) as l_int32
@@ -607,23 +699,30 @@ public static Pix pixCloseSafeBrick(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selectComposableSels/*"/>
 ///   <returns></returns>
+
 public static int selectComposableSels(
 				 int size, 
 				 int direction, 
 				 Sel psel1, 
 				 Sel psel2){
 
+
 	IntPtr psel1Ptr = IntPtr.Zero; 	if (psel1 != null) {psel1Ptr = psel1.Pointer;}
 	IntPtr psel2Ptr = IntPtr.Zero; 	if (psel2 != null) {psel2Ptr = psel2.Pointer;}
 
-	int _Result = Natives.selectComposableSels(  size,   direction, psel1Ptr, psel2Ptr);
+	int _Result = Natives.selectComposableSels(
+  size,   direction, psel1Ptr, psel2Ptr);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1092, 1)
 // selectComposableSizes(size, pfactor1, pfactor2) as int
 // selectComposableSizes(l_int32, l_int32 *, l_int32 *) as l_ok
@@ -648,19 +747,27 @@ public static int selectComposableSels(
 ///  <param name="pfactor1">[out] - larger factor</param>
 ///  <param name="pfactor2">[out] - smaller factor</param>
 ///   <returns>0 if OK, 1 on error</returns>
+
 public static int selectComposableSizes(
 				 int size, 
 				out int pfactor1, 
 				out int pfactor2){
 
-	int _Result = Natives.selectComposableSizes(  size, out  pfactor1, out  pfactor2);
+
+
+	int _Result = Natives.selectComposableSizes(
+  size, out  pfactor1, out  pfactor2);
 	
+
+
+//  
 
 
 
 	return _Result;
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1204, 1)
 // pixDilateCompBrick(pixd, pixs, hsize, vsize) as Pix
 // pixDilateCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -707,23 +814,30 @@ public static int selectComposableSizes(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixDilateCompBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixDilateCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixDilateCompBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1304, 1)
 // pixErodeCompBrick(pixd, pixs, hsize, vsize) as Pix
 // pixErodeCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -770,23 +884,30 @@ public static Pix pixDilateCompBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixErodeCompBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixErodeCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixErodeCompBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1395, 1)
 // pixOpenCompBrick(pixd, pixs, hsize, vsize) as Pix
 // pixOpenCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -833,23 +954,30 @@ public static Pix pixErodeCompBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixOpenCompBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOpenCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixOpenCompBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1494, 1)
 // pixCloseCompBrick(pixd, pixs, hsize, vsize) as Pix
 // pixCloseCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -896,23 +1024,30 @@ public static Pix pixOpenCompBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixCloseCompBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixCloseCompBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1598, 1)
 // pixCloseSafeCompBrick(pixd, pixs, hsize, vsize) as Pix
 // pixCloseSafeCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -965,23 +1100,30 @@ public static Pix pixCloseCompBrick(
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
+
 public static Pix pixCloseSafeCompBrick(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
+
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseSafeCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixCloseSafeCompBrick(
+pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
 
 
+//  
+
 	if (_Result == IntPtr.Zero) {return null;}
+
 
 	return  new Pix(_Result);
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1687, 1)
 // resetMorphBoundaryCondition(bc) as Object
 // resetMorphBoundaryCondition(l_int32) as void
@@ -989,16 +1131,24 @@ public static Pix pixCloseSafeCompBrick(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/resetMorphBoundaryCondition/*"/>
 ///  <param name="bc">[in] - SYMMETRIC_MORPH_BC, ASYMMETRIC_MORPH_BC</param>
+
 public static void resetMorphBoundaryCondition(
 				 int bc){
 
-	Natives.resetMorphBoundaryCondition(  bc);
+
+
+	Natives.resetMorphBoundaryCondition(
+  bc);
 	
+
+
+//  
 
 
 
 }
 
+// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morph.c (1708, 1)
 // getMorphBorderPixelColor(type, depth) as uint
 // getMorphBorderPixelColor(l_int32, l_int32) as l_uint32
@@ -1008,12 +1158,19 @@ public static void resetMorphBoundaryCondition(
 ///  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE</param>
 ///  <param name="depth">[in] - of pix</param>
 ///   <returns>color of border pixels for this operation</returns>
+
 public static uint getMorphBorderPixelColor(
 				 int type, 
 				 int depth){
 
-	uint _Result = Natives.getMorphBorderPixelColor(  type,   depth);
+
+
+	uint _Result = Natives.getMorphBorderPixelColor(
+  type,   depth);
 	
+
+
+//  
 
 
 

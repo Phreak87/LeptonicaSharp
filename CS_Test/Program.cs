@@ -32,21 +32,33 @@ namespace TestAppCSharp
             //app.TestArrayFunctions();
             //app.TestCCBorder(img1bpp);
             app.TestBitmap();
+            //app.TestMarkusByteA();
+        }
+
+        private void TestMarkusByteA()
+        {
+            var x1 = new L_Bytea(new byte[] { 1, 2, 3 }, 3);
+            var x2 = new L_Bytea(new byte[] { 4, 5, 6 }, 3);
+            var o = l_byteaJoin(x1, ref x2);
         }
 
         private void TestBitmap()
         {
             var im1bpp = new Pix(img1bpp);
-            var im1bbpBmp = Pix.Convert(im1bpp);
+            //var im1bbpBmp = Pix.Convert(im1bpp);
+            var im1bppBmp = im1bpp.BitmapStatic;
 
             var im8bpp = new Pix(img8bpp);
-            var im8bppBmp = Pix.Convert(im8bpp);
+            //var im8bppBmp = Pix.Convert(im8bpp);
+            var im8bppBmp = im8bpp.BitmapStatic;
 
             var im24bpp = new Pix(img24bpp);
-            var im24bppBmp = Pix.Convert(im24bpp);
+            //var im24bppBmp = Pix.Convert(im24bpp);
+            var im24bppBmp = im24bpp.BitmapStatic;
 
             var im32bpp = new Pix(img32bpp);
-            var im32bppBmp = Pix.Convert(im32bpp, true);
+            //var im32bppBmp = Pix.Convert(im32bpp, true);
+            var im32bppBmp = im32bpp.BitmapStatic;
         }
 
         private void TestCCBorder(string pixfn)

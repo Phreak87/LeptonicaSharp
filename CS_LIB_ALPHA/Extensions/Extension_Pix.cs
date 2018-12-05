@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using LeptonicaCSharp.Extensions;
-using LeptonicaSharp;
+using static LeptonicaSharp._All;
 
 public partial class Box
 {
@@ -15,14 +14,15 @@ public partial class Box
     {
         if ((Pix == null))
             Pix = new Pix(this.w + this.x + 5, this.h + this.y + 5);
-        Bitmap n = new Bitmap((int)Pix.w, (int)Pix.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-        Graphics g = Graphics.FromImage(n);
-        Pen p = new Pen(Brushes.Red, 3);
-        g.DrawImage(Pix.BitmapStatic, 0, 0, Pix.w, Pix.h);
-        g.DrawRectangle(p, new Rectangle(this.x, this.y, this.w, this.h));
-        Pix RPix = new Pix(n);
-        n.Dispose();
-        return RPix;
+
+        using (var bmp = new Bitmap((int)Pix.w, (int)Pix.h, PixelFormat.Format24bppRgb))
+        using (var g = Graphics.FromImage(bmp))
+        using (var p = new Pen(Brushes.Red, 3))
+        {
+            g.DrawImage(Pix.BitmapStatic, 0, 0, Pix.w, Pix.h);
+            g.DrawRectangle(p, new Rectangle(this.x, this.y, this.w, this.h));
+            return new Pix(bmp);
+        }
     }
     public void Display(Pix Pix = null)
     {
@@ -151,7 +151,7 @@ public partial class Pix
         {
             return ConvertTo1BPPBMP(this);
         }
-        _All.pixWriteMemBmp(out Bytes, out Size, (this.d == 24 ? this.pixConvertTo32() : this));
+        pixWriteMemBmp(out Bytes, out Size, (this.d == 24 ? this.pixConvertTo32() : this));
         System.IO.MemoryStream MemStrm = new System.IO.MemoryStream(Bytes);
         return new Bitmap(MemStrm, true);
     }

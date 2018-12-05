@@ -31,8 +31,26 @@ namespace TestAppCSharp
             //app.TestProjectionsOnImage(carplate);
             //app.TestArrayFunctions();
             //app.TestCCBorder(img1bpp);
-            app.TestBitmap();
+            //app.TestBitmap();
             //app.TestMarkusByteA();
+            app.FindForeground();
+        }
+
+        private void FindForeground()
+        {
+            var pixs = new Pix(img24bpp);
+            var pixac = pixacompCreate(10);
+            var box = pixFindPageForeground(pixs, 128, 70, 25, 0, pixac);
+            box.Display(pixs);
+            //Pixcomp.pixacompWrite("pixcomp.txt", pixac);
+            pixacompConvertToPdf(pixac, 300, 1.0f, (int)Enumerations.L_ENCODE.L_JPEG_ENCODE, 100, "PixaComp", "pixacomp.pdf");
+            for (int i = 0; i < pixac.n; i++)
+            {
+                var pix = pixacompGetPix(pixac, i);
+                var fn = $"pixacomp-{i.ToString().PadLeft(2, '0')}.png";
+                pixWrite(fn, pix, Enumerations.IFF.IFF_PNG);
+                pixDestroy(ref pix);
+            }
         }
 
         private void TestMarkusByteA()
@@ -45,6 +63,7 @@ namespace TestAppCSharp
         private void TestBitmap()
         {
             var im1bpp = new Pix(img1bpp);
+            im1bpp.Display();
             //var im1bbpBmp = Pix.Convert(im1bpp);
             var im1bppBmp = im1bpp.BitmapStatic;
 

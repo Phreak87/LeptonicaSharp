@@ -174,7 +174,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CS_LIB\CS_LIB.csproj">
+    <ProjectReference Include="..\CS_LIB_ALPHA\CS_LIB.csproj">
       <Project>{EEBCEE15-FBBD-46FA-AAB8-2B7502451B68}</Project>
       <Name>CS_LIB</Name>
     </ProjectReference>

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using LeptonicaCSharp.Extensions;
 using LeptonicaSharp;
@@ -24,6 +22,7 @@ public partial class Box
         n.Dispose();
         return RPix;
     }
+
     public void Display(Pix Pix = null)
     {
         ShowPix n = new ShowPix(GetBitmap(Pix));
@@ -59,6 +58,7 @@ public partial class Boxa
         n.Dispose();
         return RPix;
     }
+
     public void Display(Pix Pix = null)
     {
         ShowPix n = new ShowPix(GetBitmap(Pix));
@@ -68,6 +68,7 @@ public partial class Boxa
 public partial class Pix
 {
     #region "Redirects"
+
     /// <summary>
     /// This Property returns a cached value of the data array
     /// for iterating.
@@ -107,6 +108,7 @@ public partial class Pix
     }
 
     #region "Saving"
+
     public void save_jpg(string filename, int quality = 95, int progressive = 0)
     {
         Natives.pixWriteJpeg(filename, Pointer, quality, progressive);
@@ -131,10 +133,13 @@ public partial class Pix
     {
         return Natives.pixWriteAutoFormat(filename, Pointer);
     }
+
     #endregion
+
     #endregion
 
     #region "Functions"
+
     public void RefreshStatic()
     {
         foreach (KeyValuePair<string, object> Entry in Caching)
@@ -142,6 +147,13 @@ public partial class Pix
             try
             {
                 //Entry.Value = null;
+                //if (Entry.Value is IDisposable)
+                //    ((IDisposable)Entry.Value).Dispose();
+
+                // or a faster way is
+                var disp = Entry.Value as IDisposable;
+                if (disp != null)
+                    disp.Dispose();
             }
             catch
             { }
@@ -191,6 +203,7 @@ public partial class Pix
         { }
         return null;
     }
+
     #endregion
 }
 
@@ -201,6 +214,7 @@ public partial class Pixa
         var pixc = LeptonicaSharp._All.pixaDisplayTiledAndScaled(this, 32, 500, NCols, 0, 1, 3);
         return pixc;
     }
+
     public void Display(int NCols = 4)
     {
         ShowPix n = new ShowPix(GetBitmap());
@@ -340,6 +354,7 @@ public partial class Sel
     {
         ShowPix n = new ShowPix(LeptonicaSharp._All.selDisplayInPix(this, 1, 1));
     }
+
     public void Display(Pix Pix)
     {
         UInt32 CRed = BitConverter.ToUInt32(new byte[]

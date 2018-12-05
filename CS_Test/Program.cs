@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LeptonicaSharp;
+//using LeptonicaSharp;
 using static LeptonicaSharp._All;
 
 namespace TestAppCSharp

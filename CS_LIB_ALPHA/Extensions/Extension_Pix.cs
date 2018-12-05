@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using LeptonicaCSharp.Extensions;
 using static LeptonicaSharp._All;
@@ -24,6 +22,7 @@ public partial class Box
             return new Pix(bmp);
         }
     }
+
     public void Display(Pix Pix = null)
     {
         ShowPix n = new ShowPix(GetBitmap(Pix));
@@ -44,21 +43,24 @@ public partial class Boxa
             if (Entry.y + Entry.h + 5 > MaxH)
                 MaxH = Entry.y + Entry.h + 5;
         }
-        if ((Pix == null))
+
+        if (Pix == null)
             Pix = new Pix(MaxW, MaxH);
-        Bitmap n = new Bitmap((int)Pix.w, (int)Pix.h, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-        Graphics g = Graphics.FromImage(n);
-        Pen p = new Pen(Brushes.Red, 3);
-        g.DrawImage(Pix.BitmapStatic, 0, 0, Pix.w, Pix.h);
-        foreach (Box Boxe_loopVariable in this.box)
+
+        using (var bmp = new Bitmap((int)Pix.w, (int)Pix.h, PixelFormat.Format24bppRgb))
+        using (var g = Graphics.FromImage(bmp))
+        using (var p = new Pen(Brushes.Red, 3))
         {
-            Box Boxe = Boxe_loopVariable;
-            g.DrawRectangle(p, new Rectangle(Boxe.x, Boxe.y, Boxe.w, Boxe.h));
+            g.DrawImage(Pix.BitmapStatic, 0, 0, Pix.w, Pix.h);
+            foreach (Box Boxe_loopVariable in this.box)
+            {
+                Box Boxe = Boxe_loopVariable;
+                g.DrawRectangle(p, new Rectangle(Boxe.x, Boxe.y, Boxe.w, Boxe.h));
+            }
+            return new Pix(bmp);
         }
-        Pix RPix = new Pix(n);
-        n.Dispose();
-        return RPix;
     }
+
     public void Display(Pix Pix = null)
     {
         ShowPix n = new ShowPix(GetBitmap(Pix));
@@ -68,6 +70,7 @@ public partial class Boxa
 public partial class Pix
 {
     #region "Redirects"
+
     /// <summary>
     /// This Property returns a cached value of the data array
     /// for iterating.
@@ -77,9 +80,9 @@ public partial class Pix
         get
         {
             if (Pointer == IntPtr.Zero) { return null; }
-            if (Caching.ContainsKey("Data1")) { return (byte[]) Caching["Data1"]; }
+            if (Caching.ContainsKey("Data1")) { return (byte[])Caching["Data1"]; }
             Caching.Add("Data1", this.data);
-            return (byte[]) Caching["Data1"];
+            return (byte[])Caching["Data1"];
         }
     }
 
@@ -88,13 +91,14 @@ public partial class Pix
         get
         {
             if (Pointer == IntPtr.Zero) { return null; }
-            if (Caching.ContainsKey("Bitmap")) { return (Bitmap) Caching["Bitmap"]; }
+            if (Caching.ContainsKey("Bitmap")) { return (Bitmap)Caching["Bitmap"]; }
             Caching.Add("Bitmap", this.ToBitmap());
-            return (Bitmap ) Caching["Bitmap"];
+            return (Bitmap)Caching["Bitmap"];
         }
     }
 
     #region "Saving"
+
     public void save_jpg(string filename, int quality = 95, int progressive = 0)
     {
         Natives.pixWriteJpeg(filename, Pointer, quality, progressive);
@@ -119,24 +123,26 @@ public partial class Pix
     {
         return Natives.pixWriteAutoFormat(filename, Pointer);
     }
+
     #endregion
     #endregion
 
     #region "Functions"
-        public void RefreshStatic()
+
+    public void RefreshStatic()
+    {
+        foreach (KeyValuePair<string, object> Entry in Caching)
         {
-            foreach (KeyValuePair<string, object> Entry in Caching)
+            try
             {
-                try
-                {
-                    var disp = Entry.Value as IDisposable;
-                    if (disp != null) { disp.Dispose(); }
-                }
-                catch
-                { }
+                var disp = Entry.Value as IDisposable;
+                if (disp != null) { disp.Dispose(); }
             }
-            Caching.Clear();
+            catch
+            { }
         }
+        Caching.Clear();
+    }
 
     public void Display(string Text = "")
     {
@@ -180,6 +186,7 @@ public partial class Pix
         { }
         return null;
     }
+
     #endregion
 }
 
@@ -187,9 +194,9 @@ public partial class Pixa
 {
     public Pix GetBitmap(int NCols = 4)
     {
-        var pixc = LeptonicaSharp._All.pixaDisplayTiledAndScaled(this, 32, 500, NCols, 0, 1, 3);
-        return pixc;
+        return pixaDisplayTiledAndScaled(this, 32, 500, NCols, 0, 1, 3);
     }
+
     public void Display(int NCols = 4)
     {
         ShowPix n = new ShowPix(GetBitmap());
@@ -327,12 +334,13 @@ public partial class Sel
 {
     public void Display()
     {
-        ShowPix n = new ShowPix(LeptonicaSharp._All.selDisplayInPix(this, 1, 1));
+        ShowPix n = new ShowPix(selDisplayInPix(this, 1, 1));
     }
+
     public void Display(Pix Pix)
     {
-			UInt32 CRed = BitConverter.ToUInt32( new byte[]{255,0,0,0}, 0);
-            UInt32 CBlu = BitConverter.ToUInt32(new byte[]{0,255,0,0}, 0);
-        ShowPix n = new ShowPix(LeptonicaSharp._All.pixDisplayHitMissSel(Pix, this, 1, CRed, CBlu));
+        UInt32 CRed = BitConverter.ToUInt32(new byte[] { 255, 0, 0, 0 }, 0);
+        UInt32 CBlu = BitConverter.ToUInt32(new byte[] { 0, 255, 0, 0 }, 0);
+        ShowPix n = new ShowPix(pixDisplayHitMissSel(Pix, this, 1, CRed, CBlu));
     }
 }

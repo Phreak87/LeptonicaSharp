@@ -20,6 +20,7 @@ Public Class Release
         Dim PixT2 As Pix = Pix8.pixCleanBackgroundToWhite(Nothing, Nothing, 1, 180, 70) : If IsNothing(PixT2) Then Throw New Exception
         ' Dim PixT22 As Pix = Pix8.pixCleanBackgroundToWhite() : If IsNothing(PixT2) Then Throw New Exception ' VB-Defaulted
 
+        Dim Test = PixT2.BitmapStatic
         PixT1.Dispose() : If Not IsNothing(PixT1.data) Then Throw New Exception
 
         ' -----------------------------------------
@@ -83,7 +84,6 @@ Public Class Release
         ' Sel Functions
         ' --------------------------
         Dim Sel = New Sel("ooooo" & "oC  o" & "o   o" & "ooooo", 5, 4, "Test")
-        Dim X6 = Sel.data
         If Sel.data.Count <> 4 Then Throw New Exception
         If Sel.data(0).Count <> 5 Then Throw New Exception
 
@@ -105,7 +105,7 @@ Public Class Release
         If pta.nalloc <> 3 Then Throw New Exception
 
         ' --------------------------
-        ' Int-Array
+        ' Int-Array (Todo: VB,C#)
         ' --------------------------
         Dim SY = LeptonicaSharp._All.create2dIntArray(2, 5)
         If IsNothing(SY) Or SY.Count <> 2 Or SY(0).Count <> 5 Then Throw New Exception

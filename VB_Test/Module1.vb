@@ -22,24 +22,8 @@ Module Module1
         'Dim x2 As New L_Bytea(New Byte() {1, 2, 3}, 3)
         'l_byteaJoin(x1, x2) ' Doc.
 
-<<<<<<< .mine
         'Dim Lic As New Pix("Lic.png")
         'Lic.pixDeskew(10)
-||||||| .r83
-        Dim x1 As New L_Bytea(New Byte() {4, 5, 6}, 3)
-        Dim x2 As New L_Bytea(New Byte() {1, 2, 3}, 3)
-        l_byteaJoin(x1, x2)
-=======
-        Dim x1 As New L_Bytea(New Byte() {4, 5, 6}, 3)
-        Dim x2 As New L_Bytea(New Byte() {1, 2, 3}, 3)
-
-        Dim x3 As L_Bytea = l_byteaCreate(3)
-        l_byteaAppendData(x3, New Byte() {4, 5, 6}, 3)
-        Dim x4 As L_Bytea = l_byteaCreate(3)
-        l_byteaAppendData(x4, New Byte() {1, 2, 3}, 3)
-        l_byteaJoin(x3, x4)
-        l_byteaJoin(x1, x2)
->>>>>>> .r92
 
         'Dim sel = LeptonicaSharp._All.l_binaryWrite("Test", "w", New Byte() {1, 2, 2}, 3)
         'Dim sel1 = LeptonicaSharp._All.l_binaryWrite("Test", "w", Lic, Lic.data.Length)
@@ -154,133 +138,7 @@ Module Module1
         'pxByRow.DisplayNumaBarGraph(pxByCol)
         'pxByRow.DisplayNumaBarGraph(pxByCol, LicPIXA.pix(2))
     End Sub
-<<<<<<< .mine
     
-||||||| .r83
-    Sub TestErrorChecks()
-        ' ------------------------------------------------------------------------------
-        ' Teste Raw-Check wenn "I_View32.exe" nicht existiert                   => OK
-        ' ------------------------------------------------------------------------------
-        _All.setLeptDebugOK(1)              ' Muss Dateiprüfung oder RawCode enthalten
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Config-Extension Konstruktur: PixRead()                         => OK
-        ' ------------------------------------------------------------------------------
-        Dim PIX32 As New Pix("Test2.jpg")                                ' Muss laden
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Arraygröße per Config                                           => OK
-        ' ------------------------------------------------------------------------------
-        If LeptonicaSharp._All.pixGetData(PIX32).Count < 3 Then Throw New Exception ' = OK
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Dateiprüfung per Config                                         => OK                                    
-        ' ------------------------------------------------------------------------------
-        Dim PIXER As New Pix("MissingFile.jpg")                 ' Muss fehler ausgeben
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Extension Funktion mit Klasse als PixS-Default                  => OK
-        ' Teste CommentCheck Deklaration (Nur 1 oder 8 Bpp)                     => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixConvertTo16()                                  ' Muss Fehler ausgeben
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Kommentar zu Optional "0.0 for default" => 0                    => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixConvertRGBToGray()                                 ' muss funktionieren
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Enumeration von Config                                          => ##
-        ' Teste isNothing                                                       => OK
-        ' ------------------------------------------------------------------------------
-        LeptonicaSharp._All.pixWrite(Nothing, PIX32, IFF.IFF_JFIF_JPEG)
-        ' Muss Fehler wegen Nothing ausgeben und IFF as Enum enthalten
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Extension SUB                                                   => OK
-        ' Teste Funktion/Sub Defaults per Parameter                             => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixConvertToPdf(L_ENCODE.L_JPEG_ENCODE, "Test.pdf", Nothing, L_T_IMAGE.L_FIRST_IMAGE)
-        ' Muss Funktionieren
-
-        ' ------------------------------------------------------------------------------
-        ' Teste CheckRange (2-16)                                               => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixDeskew(64)                             ' Muss Fehler ausgeben (2 - 8)
-
-        ' ------------------------------------------------------------------------------
-        ' Teste CheckArray
-        ' Teste explizite Defaults für Parameternamen für jede Funktion
-        ' ------------------------------------------------------------------------------
-        '<Parameter Name="redsearch"> 		
-        '	<Default>0</Default>
-        '	<CheckArray>{0,1,2,4,8}</CheckArray>
-        '</Parameter>
-
-    End Sub
-=======
-    Sub TestErrorChecks()
-        ' ------------------------------------------------------------------------------
-        ' Teste Raw-Check wenn "I_View32.exe" nicht existiert                   => OK
-        ' ------------------------------------------------------------------------------
-        _All.setLeptDebugOK(1)              ' Muss Dateiprüfung oder RawCode enthalten
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Config-Extension Konstruktur: PixRead()                         => OK
-        ' ------------------------------------------------------------------------------
-        Dim PIX32 As New Pix("Test2.jpg")                                ' Muss laden
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Arraygröße per Config                                           => OK
-        ' ------------------------------------------------------------------------------
-        If LeptonicaSharp._All.pixGetData(PIX32).Count < 3 Then Throw New Exception ' = OK
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Dateiprüfung per Config                                         => OK
-        ' ------------------------------------------------------------------------------
-        Dim PIXER As New Pix("MissingFile.jpg")                 ' Muss fehler ausgeben
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Extension Funktion mit Klasse als PixS-Default                  => OK
-        ' Teste CommentCheck Deklaration (Nur 1 oder 8 Bpp)                     => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixConvertTo16()                                  ' Muss Fehler ausgeben
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Kommentar zu Optional "0.0 for default" => 0                    => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixConvertRGBToGray()                                 ' muss funktionieren
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Enumeration von Config                                          => ##
-        ' Teste isNothing                                                       => OK
-        ' ------------------------------------------------------------------------------
-        LeptonicaSharp._All.pixWrite(Nothing, PIX32, IFF.IFF_JFIF_JPEG)
-        ' Muss Fehler wegen Nothing ausgeben und IFF as Enum enthalten
-
-        ' ------------------------------------------------------------------------------
-        ' Teste Extension SUB                                                   => OK
-        ' Teste Funktion/Sub Defaults per Parameter                             => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixConvertToPdf(L_ENCODE.L_JPEG_ENCODE, "Test.pdf", Nothing, L_T_IMAGE.L_FIRST_IMAGE)
-        ' Muss Funktionieren
-
-        ' ------------------------------------------------------------------------------
-        ' Teste CheckRange (2-16)                                               => OK
-        ' ------------------------------------------------------------------------------
-        PIX32.pixDeskew(64)                             ' Muss Fehler ausgeben (2 - 8)
-
-        ' ------------------------------------------------------------------------------
-        ' Teste CheckArray
-        ' Teste explizite Defaults für Parameternamen für jede Funktion
-        ' ------------------------------------------------------------------------------
-        '<Parameter Name="redsearch">
-        '	<Default>0</Default>
-        '	<CheckArray>{0,1,2,4,8}</CheckArray>
-        '</Parameter>
-
-    End Sub
->>>>>>> .r92
     Sub TestPix01()
         'Dim PIX32 As New Pix("Test2.jpg")    ' 32 BPP Pix
         'Dim PIX01 As Pix = PIX32.pixConvertTo1(128)

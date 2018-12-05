@@ -21,9 +21,15 @@ public partial class L_WallTimer : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_WallTimer(IntPtr PTR){
@@ -121,9 +127,15 @@ public partial class Numa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.numaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Numa(IntPtr PTR){
@@ -277,9 +289,15 @@ public partial class Numaa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.numaaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Numaa(IntPtr PTR){
@@ -377,9 +395,15 @@ public partial class L_Dna : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.l_dnaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Dna(IntPtr PTR){
@@ -533,9 +557,15 @@ public partial class L_Dnaa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.l_dnaaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Dnaa(IntPtr PTR){
@@ -633,9 +663,15 @@ public partial class L_DnaHash : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.l_dnaHashDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_DnaHash(IntPtr PTR){
@@ -730,9 +766,15 @@ public partial class Sarray : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.sarrayDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Sarray(IntPtr PTR){
@@ -847,9 +889,15 @@ public partial class L_Bytea : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.l_byteaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Bytea(IntPtr PTR){
@@ -963,9 +1011,15 @@ public partial class L_ByteBuffer : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_ByteBuffer(IntPtr PTR){
@@ -1079,9 +1133,15 @@ public partial class L_Heap : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Heap(IntPtr PTR){
@@ -1192,9 +1252,15 @@ public partial class DoubleLinkedList : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public DoubleLinkedList(IntPtr PTR){
@@ -1286,9 +1352,15 @@ public partial class L_Ptra : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Ptra(IntPtr PTR){
@@ -1397,9 +1469,15 @@ public partial class L_Ptraa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Ptraa(IntPtr PTR){
@@ -1478,9 +1556,15 @@ public partial class L_Queue : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Queue(IntPtr PTR){
@@ -1617,9 +1701,15 @@ public partial class Rb_Type : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Rb_Type(IntPtr PTR){
@@ -1717,9 +1807,15 @@ public partial class L_Rbtree : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.l_rbtreeDestroy ( Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Rbtree(IntPtr PTR){
@@ -1784,9 +1880,15 @@ public partial class L_Rbtree_Node : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Rbtree_Node(IntPtr PTR){
@@ -1935,9 +2037,15 @@ public partial class L_Stack : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Stack(IntPtr PTR){
@@ -2053,9 +2161,15 @@ public partial class L_Bmf : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Bmf(IntPtr PTR){
@@ -2373,9 +2487,15 @@ public partial class CCBord : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public CCBord(IntPtr PTR){
@@ -2628,9 +2748,15 @@ public partial class CCBorda : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public CCBorda(IntPtr PTR){
@@ -2798,9 +2924,15 @@ public partial class L_Dewarpa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Dewarpa(IntPtr PTR){
@@ -3255,9 +3387,15 @@ public partial class L_Dewarp : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Dewarp(IntPtr PTR){
@@ -4047,9 +4185,15 @@ public partial class GPlot : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.gplotDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public GPlot(IntPtr PTR){
@@ -4406,9 +4550,15 @@ public partial class L_Compressed_Data : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Compressed_Data(IntPtr PTR){
@@ -4778,9 +4928,15 @@ public partial class L_Pdf_Data : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Pdf_Data(IntPtr PTR){
@@ -5284,9 +5440,15 @@ public partial class JbClasser : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.jbClasserDestroy ( Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public JbClasser(IntPtr PTR){
@@ -5968,9 +6130,15 @@ public partial class JbData : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.jbDataDestroy ( Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public JbData(IntPtr PTR){
@@ -6226,9 +6394,15 @@ public partial class Sel : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.selDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Sel(IntPtr PTR){
@@ -6389,9 +6563,15 @@ public partial class Sela : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.selaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Sela(IntPtr PTR){
@@ -6489,9 +6669,15 @@ public partial class L_Kernel : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Kernel(IntPtr PTR){
@@ -6631,9 +6817,15 @@ public partial class Pix : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.pixDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Pix(IntPtr PTR){
@@ -6815,7 +7007,7 @@ public partial class Pix : IDisposable {
 	               return 0;}
 	           else {
 	               Marshal.PtrToStructure(Pointer, Values);
-	               return (Enumerations.IFF) Values.informat;
+	               	return (Enumerations.IFF) Values.informat;
 	           }
 	       }
 	}
@@ -6941,9 +7133,15 @@ public partial class PixColormap : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public PixColormap(IntPtr PTR){
@@ -7053,9 +7251,15 @@ public partial class RGBA_Quad : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public RGBA_Quad(IntPtr PTR){
@@ -7163,9 +7367,15 @@ public partial class Pixa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.pixaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Pixa(IntPtr PTR){
@@ -7310,9 +7520,15 @@ public partial class Pixaa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.pixaaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Pixaa(IntPtr PTR){
@@ -7436,9 +7652,15 @@ public partial class Box : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.boxDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Box(IntPtr PTR){
@@ -7567,9 +7789,15 @@ public partial class Boxa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.boxaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Boxa(IntPtr PTR){
@@ -7688,9 +7916,15 @@ public partial class Boxaa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.boxaaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Boxaa(IntPtr PTR){
@@ -7788,9 +8022,15 @@ public partial class Pta : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.ptaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Pta(IntPtr PTR){
@@ -7927,9 +8167,15 @@ public partial class Ptaa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.ptaaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Ptaa(IntPtr PTR){
@@ -8027,9 +8273,15 @@ public partial class Pixacc : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.pixaccDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public Pixacc(IntPtr PTR){
@@ -8142,9 +8394,15 @@ public partial class PixTiling : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.pixTilingDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public PixTiling(IntPtr PTR){
@@ -8341,9 +8599,15 @@ public partial class FPix : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.fpixDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public FPix(IntPtr PTR){
@@ -8518,9 +8782,15 @@ public partial class FPixa : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.fpixaDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public FPixa(IntPtr PTR){
@@ -8639,9 +8909,15 @@ public partial class DPix : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.dpixDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public DPix(IntPtr PTR){
@@ -8816,9 +9092,15 @@ public partial class PixComp : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.pixcompDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public PixComp(IntPtr PTR){
@@ -9058,9 +9340,15 @@ public partial class PixaComp : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  	Natives.pixacompDestroy (ref  Pointer);
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public PixaComp(IntPtr PTR){
@@ -9207,9 +9495,15 @@ public partial class L_Recog : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Recog(IntPtr PTR){
@@ -10458,9 +10752,15 @@ public partial class L_Rch : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Rch(IntPtr PTR){
@@ -10633,9 +10933,15 @@ public partial class L_Rcha : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Rcha(IntPtr PTR){
@@ -10841,9 +11147,15 @@ public partial class L_Rdid : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Rdid(IntPtr PTR){
@@ -11507,9 +11819,15 @@ public partial class L_RegParams : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_RegParams(IntPtr PTR){
@@ -11712,9 +12030,15 @@ public partial class L_StrCode : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_StrCode(IntPtr PTR){
@@ -11881,9 +12205,15 @@ public partial class L_Sudoku : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Sudoku(IntPtr PTR){
@@ -12089,9 +12419,15 @@ public partial class L_WShed : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_WShed(IntPtr PTR){
@@ -12627,9 +12963,15 @@ public partial class L_Bilateral : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Bilateral(IntPtr PTR){
@@ -13006,9 +13348,15 @@ public partial class BMP_FileHeader : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public BMP_FileHeader(IntPtr PTR){
@@ -13179,9 +13527,15 @@ public partial class BMP_InfoHeader : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public BMP_InfoHeader(IntPtr PTR){
@@ -13438,9 +13792,15 @@ public partial class ColorQuantCell : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public ColorQuantCell(IntPtr PTR){
@@ -13590,9 +13950,15 @@ public partial class OctcubeQuantCell : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public OctcubeQuantCell(IntPtr PTR){
@@ -13760,9 +14126,15 @@ public partial class L_OctcubePop : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_OctcubePop(IntPtr PTR){
@@ -13878,9 +14250,15 @@ public partial class L_Box3d : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Box3d(IntPtr PTR){
@@ -14068,9 +14446,15 @@ public partial class FillSeg : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public FillSeg(IntPtr PTR){
@@ -14180,9 +14564,15 @@ public partial class JbFindTemplatesState : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public JbFindTemplatesState(IntPtr PTR){
@@ -14326,9 +14716,15 @@ public partial class callback_data : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public callback_data(IntPtr PTR){
@@ -14394,9 +14790,15 @@ public partial class MazeElement : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public MazeElement(IntPtr PTR){
@@ -14512,9 +14914,15 @@ public partial class PartitionElement : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public PartitionElement(IntPtr PTR){
@@ -14604,9 +15012,15 @@ public partial class PixMemoryManager : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public PixMemoryManager(IntPtr PTR){
@@ -14668,9 +15082,15 @@ public partial class PixMemoryStore : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public PixMemoryStore(IntPtr PTR){
@@ -15081,9 +15501,15 @@ public partial class MemIOData : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public MemIOData(IntPtr PTR){
@@ -15226,9 +15652,15 @@ public partial class L_Pixel : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Pixel(IntPtr PTR){
@@ -15290,9 +15722,15 @@ public partial class CompParameterMap : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public CompParameterMap(IntPtr PTR){
@@ -15448,9 +15886,15 @@ public partial class L_GenAssoc : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_GenAssoc(IntPtr PTR){
@@ -15570,9 +16014,15 @@ public partial class tiff_transform : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public tiff_transform(IntPtr PTR){
@@ -15650,9 +16100,15 @@ public partial class L_Memstream : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_Memstream(IntPtr PTR){
@@ -15803,9 +16259,15 @@ public partial class L_NewPixel : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_NewPixel(IntPtr PTR){
@@ -15871,9 +16333,15 @@ public partial class L_WSPixel : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public L_WSPixel(IntPtr PTR){
@@ -15983,9 +16451,15 @@ public partial class ExtensionMap : IDisposable {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
 	public void Dispose() {
-	  Marshal.FreeHGlobal(Pointer);
+	  
 	  Pointer = IntPtr.Zero;
-	  // Todo: Implement Cache-Clear and Dispose
+	  foreach (KeyValuePair<string, object> Entry in Caching) {
+	      var disp = Entry.Value as IDisposable;
+	      if (disp != null) { disp.Dispose(); }
+	  }
+	  Caching.Clear();
+	  Caching = null;
+	  System.GC.SuppressFinalize(this);
 	}
 	
 	public ExtensionMap(IntPtr PTR){

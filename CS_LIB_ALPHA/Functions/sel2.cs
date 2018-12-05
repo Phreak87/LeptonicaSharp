@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (92, 1)
 // selaAddBasic(sela) as Sela
 // selaAddBasic(SELA *) as SELA *
@@ -22,27 +21,17 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddBasic/*"/>
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela selaAddBasic(
 				 Sela sela){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.selaAddBasic(
-selaPtr);
+	IntPtr _Result = Natives.selaAddBasic(selaPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (181, 1)
 // selaAddHitMiss(sela) as Sela
 // selaAddHitMiss(SELA *) as SELA *
@@ -51,27 +40,17 @@ selaPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddHitMiss/*"/>
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela selaAddHitMiss(
 				 Sela sela){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.selaAddHitMiss(
-selaPtr);
+	IntPtr _Result = Natives.selaAddHitMiss(selaPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (319, 1)
 // selaAddDwaLinear(sela) as Sela
 // selaAddDwaLinear(SELA *) as SELA *
@@ -85,27 +64,17 @@ selaPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddDwaLinear/*"/>
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela selaAddDwaLinear(
 				 Sela sela){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.selaAddDwaLinear(
-selaPtr);
+	IntPtr _Result = Natives.selaAddDwaLinear(selaPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (361, 1)
 // selaAddDwaCombs(sela) as Sela
 // selaAddDwaCombs(SELA *) as SELA *
@@ -120,27 +89,17 @@ selaPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddDwaCombs/*"/>
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela selaAddDwaCombs(
 				 Sela sela){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.selaAddDwaCombs(
-selaPtr);
+	IntPtr _Result = Natives.selaAddDwaCombs(selaPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (423, 1)
 // selaAddCrossJunctions(sela, hlsize, mdist, norient, debugflag) as Sela
 // selaAddCrossJunctions(SELA *, l_float32, l_float32, l_int32, l_int32) as SELA *
@@ -170,7 +129,6 @@ selaPtr);
 ///  <param name="norient">[in] - number of orientations max of 8</param>
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela selaAddCrossJunctions(
 				 Sela sela, 
 				 Single hlsize, 
@@ -178,23 +136,14 @@ public static Sela selaAddCrossJunctions(
 				 int norient, 
 				 int debugflag){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.selaAddCrossJunctions(
-selaPtr,   hlsize,   mdist,   norient,   debugflag);
+	IntPtr _Result = Natives.selaAddCrossJunctions(selaPtr,   hlsize,   mdist,   norient,   debugflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (548, 1)
 // selaAddTJunctions(sela, hlsize, mdist, norient, debugflag) as Sela
 // selaAddTJunctions(SELA *, l_float32, l_float32, l_int32, l_int32) as SELA *
@@ -218,7 +167,6 @@ selaPtr,   hlsize,   mdist,   norient,   debugflag);
 ///  <param name="norient">[in] - number of orientations max of 8</param>
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela selaAddTJunctions(
 				 Sela sela, 
 				 Single hlsize, 
@@ -226,23 +174,14 @@ public static Sela selaAddTJunctions(
 				 int norient, 
 				 int debugflag){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.selaAddTJunctions(
-selaPtr,   hlsize,   mdist,   norient,   debugflag);
+	IntPtr _Result = Natives.selaAddTJunctions(selaPtr,   hlsize,   mdist,   norient,   debugflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (749, 1)
 // sela4ccThin(sela) as Sela
 // sela4ccThin(SELA *) as SELA *
@@ -254,27 +193,17 @@ selaPtr,   hlsize,   mdist,   norient,   debugflag);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sela4ccThin/*"/>
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela sela4ccThin(
 				 Sela sela){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.sela4ccThin(
-selaPtr);
+	IntPtr _Result = Natives.sela4ccThin(selaPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (790, 1)
 // sela8ccThin(sela) as Sela
 // sela8ccThin(SELA *) as SELA *
@@ -286,27 +215,17 @@ selaPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sela8ccThin/*"/>
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela sela8ccThin(
 				 Sela sela){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.sela8ccThin(
-selaPtr);
+	IntPtr _Result = Natives.sela8ccThin(selaPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // sel2.c (831, 1)
 // sela4and8ccThin(sela) as Sela
 // sela4and8ccThin(SELA *) as SELA *
@@ -318,23 +237,14 @@ selaPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sela4and8ccThin/*"/>
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
-
 public static Sela sela4and8ccThin(
 				 Sela sela){
 
-
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
-	IntPtr _Result = Natives.sela4and8ccThin(
-selaPtr);
+	IntPtr _Result = Natives.sela4and8ccThin(selaPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sela(_Result);
 }
 

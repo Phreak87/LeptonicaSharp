@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (138, 1)
 // gplotCreate(rootname, outformat, title, xlabel, ylabel) as GPlot
 // gplotCreate(const char *, l_int32, const char *, const char *, const char *) as GPLOT *
@@ -25,7 +24,6 @@ public partial class _All {
 ///  <param name="xlabel">[in][optional] - x axis label</param>
 ///  <param name="ylabel">[in][optional] - y axis label</param>
 ///   <returns>gplot, or NULL on error</returns>
-
 public static GPlot gplotCreate(
 				 String rootname, 
 				 int outformat, 
@@ -33,22 +31,12 @@ public static GPlot gplotCreate(
 				 String xlabel, 
 				 String ylabel){
 
-
-
-	IntPtr _Result = Natives.gplotCreate(
-  rootname,   outformat,   title,   xlabel,   ylabel);
+	IntPtr _Result = Natives.gplotCreate(  rootname,   outformat,   title,   xlabel,   ylabel);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new GPlot(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (197, 1)
 // gplotDestroy(pgplot) as Object
 // gplotDestroy(GPLOT **) as void
@@ -56,26 +44,16 @@ public static GPlot gplotCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotDestroy/*"/>
 ///  <param name="pgplot">[in,out] - to be nulled</param>
-
 public static void gplotDestroy(
 				ref GPlot pgplot){
 
-
 	IntPtr pgplotPtr = IntPtr.Zero; 	if (pgplot != null) {pgplotPtr = pgplot.Pointer;}
 
-	Natives.gplotDestroy(
-ref pgplotPtr);
+	Natives.gplotDestroy(ref pgplotPtr);
 	
-
-
-//  
 	if (pgplotPtr == IntPtr.Zero) {pgplot = null;} else { pgplot = new GPlot(pgplotPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (263, 1)
 // gplotAddPlot(gplot, nax, nay, plotstyle, plottitle) as int
 // gplotAddPlot(GPLOT *, NUMA *, NUMA *, l_int32, const char *) as l_ok
@@ -107,7 +85,6 @@ ref pgplotPtr);
 ///  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
 ///  <param name="plottitle">[in][optional] - title for individual plot</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotAddPlot(
 				 GPlot gplot, 
 				 Numa nax, 
@@ -115,22 +92,13 @@ public static int gplotAddPlot(
 				 int plotstyle, 
 				 String plottitle){
 
-
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
-	int _Result = Natives.gplotAddPlot(
-gplot.Pointer, naxPtr, nay.Pointer,   plotstyle,   plottitle);
+	int _Result = Natives.gplotAddPlot(gplot.Pointer, naxPtr, nay.Pointer,   plotstyle,   plottitle);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (343, 1)
 // gplotSetScaling(gplot, scaling) as int
 // gplotSetScaling(GPLOT *, l_int32) as l_ok
@@ -145,26 +113,15 @@ gplot.Pointer, naxPtr, nay.Pointer,   plotstyle,   plottitle);
 ///  <param name="gplot">[in] - </param>
 ///  <param name="scaling">[in] - GPLOT_LINEAR_SCALE, GPLOT_LOG_SCALE_X, GPLOT_LOG_SCALE_Y, GPLOT_LOG_SCALE_X_Y</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int gplotSetScaling(
 				 GPlot gplot, 
 				 int scaling){
 
-
-
-	int _Result = Natives.gplotSetScaling(
-gplot.Pointer,   scaling);
+	int _Result = Natives.gplotSetScaling(gplot.Pointer,   scaling);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (379, 1)
 // gplotMakeOutput(gplot) as int
 // gplotMakeOutput(GPLOT *) as l_ok
@@ -186,25 +143,14 @@ gplot.Pointer,   scaling);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotMakeOutput/*"/>
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int gplotMakeOutput(
 				 GPlot gplot){
 
-
-
-	int _Result = Natives.gplotMakeOutput(
-gplot.Pointer);
+	int _Result = Natives.gplotMakeOutput(gplot.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (422, 1)
 // gplotGenCommandFile(gplot) as int
 // gplotGenCommandFile(GPLOT *) as l_ok
@@ -213,25 +159,14 @@ gplot.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotGenCommandFile/*"/>
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotGenCommandFile(
 				 GPlot gplot){
 
-
-
-	int _Result = Natives.gplotGenCommandFile(
-gplot.Pointer);
+	int _Result = Natives.gplotGenCommandFile(gplot.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (528, 1)
 // gplotGenDataFiles(gplot) as int
 // gplotGenDataFiles(GPLOT *) as l_ok
@@ -245,25 +180,14 @@ gplot.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotGenDataFiles/*"/>
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotGenDataFiles(
 				 GPlot gplot){
 
-
-
-	int _Result = Natives.gplotGenDataFiles(
-gplot.Pointer);
+	int _Result = Natives.gplotGenDataFiles(gplot.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (575, 1)
 // gplotSimple1(na, outformat, outroot, title) as int
 // gplotSimple1(NUMA *, l_int32, const char *, const char *) as l_ok
@@ -283,28 +207,17 @@ gplot.Pointer);
 ///  <param name="outroot">[in] - root of output files</param>
 ///  <param name="title">[in][optional] - , can be NULL</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotSimple1(
 				 Numa na, 
 				 int outformat, 
 				 String outroot, 
 				 String title){
 
-
-
-	int _Result = Natives.gplotSimple1(
-na.Pointer,   outformat,   outroot,   title);
+	int _Result = Natives.gplotSimple1(na.Pointer,   outformat,   outroot,   title);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (604, 1)
 // gplotSimple2(na1, na2, outformat, outroot, title) as int
 // gplotSimple2(NUMA *, NUMA *, l_int32, const char *, const char *) as l_ok
@@ -325,7 +238,6 @@ na.Pointer,   outformat,   outroot,   title);
 ///  <param name="outroot">[in] - root of output files</param>
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotSimple2(
 				 Numa na1, 
 				 Numa na2, 
@@ -333,21 +245,11 @@ public static int gplotSimple2(
 				 String outroot, 
 				 String title){
 
-
-
-	int _Result = Natives.gplotSimple2(
-na1.Pointer, na2.Pointer,   outformat,   outroot,   title);
+	int _Result = Natives.gplotSimple2(na1.Pointer, na2.Pointer,   outformat,   outroot,   title);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (635, 1)
 // gplotSimpleN(naa, outformat, outroot, title) as int
 // gplotSimpleN(NUMAA *, l_int32, const char *, const char *) as l_ok
@@ -368,28 +270,17 @@ na1.Pointer, na2.Pointer,   outformat,   outroot,   title);
 ///  <param name="outroot">[in] - root of output files</param>
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotSimpleN(
 				 Numaa naa, 
 				 int outformat, 
 				 String outroot, 
 				 String title){
 
-
-
-	int _Result = Natives.gplotSimpleN(
-naa.Pointer,   outformat,   outroot,   title);
+	int _Result = Natives.gplotSimpleN(naa.Pointer,   outformat,   outroot,   title);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (668, 1)
 // gplotSimpleXY1(nax, nay, plotstyle, outformat, outroot, title) as int
 // gplotSimpleXY1(NUMA *, NUMA *, l_int32, l_int32, const char *, const char *) as l_ok
@@ -415,7 +306,6 @@ naa.Pointer,   outformat,   outroot,   title);
 ///  <param name="outroot">[in] - root of output files</param>
 ///  <param name="title">[in][optional] - , can be NULL</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotSimpleXY1(
 				 Numa nax, 
 				 Numa nay, 
@@ -424,22 +314,13 @@ public static int gplotSimpleXY1(
 				 String outroot, 
 				 String title){
 
-
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
-	int _Result = Natives.gplotSimpleXY1(
-naxPtr, nay.Pointer,   plotstyle,   outformat,   outroot,   title);
+	int _Result = Natives.gplotSimpleXY1(naxPtr, nay.Pointer,   plotstyle,   outformat,   outroot,   title);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (723, 1)
 // gplotSimpleXY2(nax, nay1, nay2, plotstyle, outformat, outroot, title) as int
 // gplotSimpleXY2(NUMA *, NUMA *, NUMA *, l_int32, l_int32, const char *, const char *) as l_ok
@@ -466,7 +347,6 @@ naxPtr, nay.Pointer,   plotstyle,   outformat,   outroot,   title);
 ///  <param name="outroot">[in] - root of output files</param>
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotSimpleXY2(
 				 Numa nax, 
 				 Numa nay1, 
@@ -476,21 +356,11 @@ public static int gplotSimpleXY2(
 				 String outroot, 
 				 String title){
 
-
-
-	int _Result = Natives.gplotSimpleXY2(
-nax.Pointer, nay1.Pointer, nay2.Pointer,   plotstyle,   outformat,   outroot,   title);
+	int _Result = Natives.gplotSimpleXY2(nax.Pointer, nay1.Pointer, nay2.Pointer,   plotstyle,   outformat,   outroot,   title);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (779, 1)
 // gplotSimpleXYN(nax, naay, plotstyle, outformat, outroot, title) as int
 // gplotSimpleXYN(NUMA *, NUMAA *, l_int32, l_int32, const char *, const char *) as l_ok
@@ -516,7 +386,6 @@ nax.Pointer, nay1.Pointer, nay2.Pointer,   plotstyle,   outformat,   outroot,   
 ///  <param name="outroot">[in] - root of output files</param>
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int gplotSimpleXYN(
 				 Numa nax, 
 				 Numaa naay, 
@@ -525,22 +394,13 @@ public static int gplotSimpleXYN(
 				 String outroot, 
 				 String title){
 
-
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
-	int _Result = Natives.gplotSimpleXYN(
-naxPtr, naay.Pointer,   plotstyle,   outformat,   outroot,   title);
+	int _Result = Natives.gplotSimpleXYN(naxPtr, naay.Pointer,   plotstyle,   outformat,   outroot,   title);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (827, 1)
 // gplotRead(filename) as GPlot
 // gplotRead(const char *) as GPLOT *
@@ -549,26 +409,15 @@ naxPtr, naay.Pointer,   plotstyle,   outformat,   outroot,   title);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>gplot, or NULL on error</returns>
-
 public static GPlot gplotRead(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.gplotRead(
-  filename);
+	IntPtr _Result = Natives.gplotRead(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new GPlot(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // gplot.c (912, 1)
 // gplotWrite(filename, gplot) as int
 // gplotWrite(const char *, GPLOT *) as l_ok
@@ -578,22 +427,12 @@ public static GPlot gplotRead(
 ///  <param name="filename">[in] - </param>
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int gplotWrite(
 				 String filename, 
 				 GPlot gplot){
 
-
-
-	int _Result = Natives.gplotWrite(
-  filename, gplot.Pointer);
+	int _Result = Natives.gplotWrite(  filename, gplot.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

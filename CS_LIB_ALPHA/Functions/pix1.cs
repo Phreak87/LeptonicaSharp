@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (282, 1)
 // setPixMemoryManager(allocator, deallocator) as Object
 // setPixMemoryManager(alloc_fn, dealloc_fn) as void
@@ -32,25 +31,14 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/setPixMemoryManager/*"/>
 ///  <param name="allocator">[in][optional] - use NULL to skip</param>
 ///  <param name="deallocator">[in][optional] - use NULL to skip</param>
-
 public static void setPixMemoryManager(
 				 IntPtr allocator, 
 				 IntPtr deallocator){
 
-
-
-	Natives.setPixMemoryManager(
-  allocator,   deallocator);
+	Natives.setPixMemoryManager(  allocator,   deallocator);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (302, 1)
 // pixCreate(width, height, depth) as Pix
 // pixCreate(l_int32, l_int32, l_int32) as PIX *
@@ -61,28 +49,17 @@ public static void setPixMemoryManager(
 ///  <param name="height">[in] - </param>
 ///  <param name="depth">[in] - </param>
 ///   <returns>pixd with data allocated and initialized to 0, or NULL on error</returns>
-
 public static Pix pixCreate(
 				 int width, 
 				 int height, 
 				 int depth){
 
-
-
-	IntPtr _Result = Natives.pixCreate(
-  width,   height,   depth);
+	IntPtr _Result = Natives.pixCreate(  width,   height,   depth);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (331, 1)
 // pixCreateNoInit(width, height, depth) as Pix
 // pixCreateNoInit(l_int32, l_int32, l_int32) as PIX *
@@ -97,28 +74,17 @@ public static Pix pixCreate(
 ///  <param name="height">[in] - </param>
 ///  <param name="depth">[in] - </param>
 ///   <returns>pixd with data allocated but not initialized, or NULL on error</returns>
-
 public static Pix pixCreateNoInit(
 				 int width, 
 				 int height, 
 				 int depth){
 
-
-
-	IntPtr _Result = Natives.pixCreateNoInit(
-  width,   height,   depth);
+	IntPtr _Result = Natives.pixCreateNoInit(  width,   height,   depth);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (367, 1)
 // pixCreateTemplate(pixs) as Pix
 // pixCreateTemplate(PIX *) as PIX *
@@ -133,26 +99,15 @@ public static Pix pixCreateNoInit(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCreateTemplate/*"/>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixCreateTemplate(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixCreateTemplate(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixCreateTemplate(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (397, 1)
 // pixCreateTemplateNoInit(pixs) as Pix
 // pixCreateTemplateNoInit(PIX *) as PIX *
@@ -167,26 +122,15 @@ pixs.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCreateTemplateNoInit/*"/>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixCreateTemplateNoInit(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixCreateTemplateNoInit(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixCreateTemplateNoInit(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (439, 1)
 // pixCreateHeader(width, height, depth) as Pix
 // pixCreateHeader(l_int32, l_int32, l_int32) as PIX *
@@ -209,28 +153,17 @@ pixs.Pointer);
 ///  <param name="height">[in] - </param>
 ///  <param name="depth">[in] - </param>
 ///   <returns>pixd with no data allocated, or NULL on error</returns>
-
 public static Pix pixCreateHeader(
 				 int width, 
 				 int height, 
 				 int depth){
 
-
-
-	IntPtr _Result = Natives.pixCreateHeader(
-  width,   height,   depth);
+	IntPtr _Result = Natives.pixCreateHeader(  width,   height,   depth);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (517, 1)
 // pixClone(pixs) as Pix
 // pixClone(PIX *) as PIX *
@@ -256,26 +189,15 @@ public static Pix pixCreateHeader(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixClone/*"/>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>same pix ptr, or NULL on error</returns>
-
 public static Pix pixClone(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixClone(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixClone(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (545, 1)
 // pixDestroy(ppix) as Object
 // pixDestroy(PIX **) as void
@@ -288,26 +210,16 @@ pixs.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDestroy/*"/>
 ///  <param name="ppix">[in,out] - will be nulled</param>
-
 public static void pixDestroy(
 				ref Pix ppix){
 
-
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
-	Natives.pixDestroy(
-ref ppixPtr);
+	Natives.pixDestroy(ref ppixPtr);
 	
-
-
-//  
 	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (630, 1)
 // pixCopy(pixd, pixs) as Pix
 // pixCopy(PIX *, PIX *) as PIX *
@@ -340,28 +252,18 @@ ref ppixPtr);
 ///  <param name="pixd">[in][optional] - can be null, equal to pixs, different from pixs</param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixCopy(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCopy(
-pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixCopy(pixdPtr, pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (698, 1)
 // pixResizeImageData(pixd, pixs) as int
 // pixResizeImageData(PIX *, PIX *) as l_ok
@@ -380,26 +282,15 @@ pixdPtr, pixs.Pointer);
 ///  <param name="pixd">[in] - gets new uninitialized buffer for image data</param>
 ///  <param name="pixs">[in] - determines the size of the buffer not changed</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixResizeImageData(
 				 Pix pixd, 
 				 Pix pixs){
 
-
-
-	int _Result = Natives.pixResizeImageData(
-pixd.Pointer, pixs.Pointer);
+	int _Result = Natives.pixResizeImageData(pixd.Pointer, pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (747, 1)
 // pixCopyColormap(pixd, pixs) as int
 // pixCopyColormap(PIX *, PIX *) as l_ok
@@ -413,26 +304,15 @@ pixd.Pointer, pixs.Pointer);
 ///  <param name="pixd">[in] - </param>
 ///  <param name="pixs">[in] - copies the colormap to %pixd</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCopyColormap(
 				 Pix pixd, 
 				 Pix pixs){
 
-
-
-	int _Result = Natives.pixCopyColormap(
-pixd.Pointer, pixs.Pointer);
+	int _Result = Natives.pixCopyColormap(pixd.Pointer, pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (780, 1)
 // pixSizesEqual(pix1, pix2) as int
 // pixSizesEqual(PIX *, PIX *) as l_int32
@@ -442,26 +322,15 @@ pixd.Pointer, pixs.Pointer);
 ///  <param name="pix1">[in] - </param>
 ///  <param name="pix2">[in] - </param>
 ///   <returns>1 if the two pix have same {h, w, d} 0 otherwise.</returns>
-
 public static int pixSizesEqual(
 				 Pix pix1, 
 				 Pix pix2){
 
-
-
-	int _Result = Natives.pixSizesEqual(
-pix1.Pointer, pix2.Pointer);
+	int _Result = Natives.pixSizesEqual(pix1.Pointer, pix2.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (854, 1)
 // pixTransferAllData(pixd, ppixs, copytext, copyformat) as int
 // pixTransferAllData(PIX *, PIX **, l_int32, l_int32) as l_ok
@@ -518,30 +387,20 @@ pix1.Pointer, pix2.Pointer);
 ///  <param name="copytext">[in] - 1 to copy the text field 0 to skip</param>
 ///  <param name="copyformat">[in] - 1 to copy the informat field 0 to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixTransferAllData(
 				 Pix pixd, 
 				ref Pix ppixs, 
 				 int copytext, 
 				 int copyformat){
 
-
 	IntPtr ppixsPtr = IntPtr.Zero; 	if (ppixs != null) {ppixsPtr = ppixs.Pointer;}
 
-	int _Result = Natives.pixTransferAllData(
-pixd.Pointer, ref ppixsPtr,   copytext,   copyformat);
+	int _Result = Natives.pixTransferAllData(pixd.Pointer, ref ppixsPtr,   copytext,   copyformat);
 	
-
-
-//  
 	if (ppixsPtr == IntPtr.Zero) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (944, 1)
 // pixSwapAndDestroy(ppixd, ppixs) as int
 // pixSwapAndDestroy(PIX **, PIX **) as l_ok
@@ -581,30 +440,20 @@ pixd.Pointer, ref ppixsPtr,   copytext,   copyformat);
 ///  <param name="ppixd">[out][optional] - input pixd can be null, and it must be different from pixs</param>
 ///  <param name="ppixs">[in,out] - will be nulled after the swap</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSwapAndDestroy(
 				out Pix ppixd, 
 				ref Pix ppixs){
 
-
 	IntPtr ppixdPtr = IntPtr.Zero;
 	IntPtr ppixsPtr = IntPtr.Zero; 	if (ppixs != null) {ppixsPtr = ppixs.Pointer;}
 
-	int _Result = Natives.pixSwapAndDestroy(
-out ppixdPtr, ref ppixsPtr);
+	int _Result = Natives.pixSwapAndDestroy(out ppixdPtr, ref ppixsPtr);
 	
-
-
-//  
 	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 	if (ppixsPtr == IntPtr.Zero) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (969, 1)
 // pixGetWidth(pix) as int
 // pixGetWidth(PIX *) as l_int32
@@ -612,26 +461,16 @@ out ppixdPtr, ref ppixsPtr);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWidth/*"/>
 ///   <returns></returns>
-
 public static int pixGetWidth(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetWidth(
-pix.Pointer);
+	int _Result = Natives.pixGetWidth(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (981, 1)
 // pixSetWidth(pix, width) as int
 // pixSetWidth(PIX *, l_int32) as l_int32
@@ -639,27 +478,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetWidth/*"/>
 ///   <returns></returns>
-
 public static int pixSetWidth(
 				 Pix pix, 
 				 int width){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetWidth(
-pix.Pointer,   width);
+	int _Result = Natives.pixSetWidth(pix.Pointer,   width);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (999, 1)
 // pixGetHeight(pix) as int
 // pixGetHeight(PIX *) as l_int32
@@ -667,26 +496,16 @@ pix.Pointer,   width);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetHeight/*"/>
 ///   <returns></returns>
-
 public static int pixGetHeight(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetHeight(
-pix.Pointer);
+	int _Result = Natives.pixGetHeight(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1011, 1)
 // pixSetHeight(pix, height) as int
 // pixSetHeight(PIX *, l_int32) as l_int32
@@ -694,27 +513,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetHeight/*"/>
 ///   <returns></returns>
-
 public static int pixSetHeight(
 				 Pix pix, 
 				 int height){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetHeight(
-pix.Pointer,   height);
+	int _Result = Natives.pixSetHeight(pix.Pointer,   height);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1029, 1)
 // pixGetDepth(pix) as int
 // pixGetDepth(PIX *) as l_int32
@@ -722,26 +531,16 @@ pix.Pointer,   height);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetDepth/*"/>
 ///   <returns></returns>
-
 public static int pixGetDepth(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetDepth(
-pix.Pointer);
+	int _Result = Natives.pixGetDepth(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1041, 1)
 // pixSetDepth(pix, depth) as int
 // pixSetDepth(PIX *, l_int32) as l_int32
@@ -749,27 +548,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetDepth/*"/>
 ///   <returns></returns>
-
 public static int pixSetDepth(
 				 Pix pix, 
 				 int depth){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetDepth(
-pix.Pointer,   depth);
+	int _Result = Natives.pixSetDepth(pix.Pointer,   depth);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1064, 1)
 // pixGetDimensions(pix, pw, ph, pd) as int
 // pixGetDimensions(PIX *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -781,28 +570,17 @@ pix.Pointer,   depth);
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///  <param name="pd">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetDimensions(
 				 Pix pix, 
 				out int pw, 
 				out int ph, 
 				out int pd){
 
-
-
-	int _Result = Natives.pixGetDimensions(
-pix.Pointer, out  pw, out  ph, out  pd);
+	int _Result = Natives.pixGetDimensions(pix.Pointer, out  pw, out  ph, out  pd);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1091, 1)
 // pixSetDimensions(pix, w, h, d) as int
 // pixSetDimensions(PIX *, l_int32, l_int32, l_int32) as l_ok
@@ -814,28 +592,17 @@ pix.Pointer, out  pw, out  ph, out  pd);
 ///  <param name="h">[in] - use 0 to skip the setting for any of these</param>
 ///  <param name="d">[in] - use 0 to skip the setting for any of these</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetDimensions(
 				 Pix pix, 
 				 int w, 
 				 int h, 
 				 int d){
 
-
-
-	int _Result = Natives.pixSetDimensions(
-pix.Pointer,   w,   h,   d);
+	int _Result = Natives.pixSetDimensions(pix.Pointer,   w,   h,   d);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1115, 1)
 // pixCopyDimensions(pixd, pixs) as int
 // pixCopyDimensions(PIX *, PIX *) as l_ok
@@ -845,26 +612,15 @@ pix.Pointer,   w,   h,   d);
 ///  <param name="pixd">[in] - </param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCopyDimensions(
 				 Pix pixd, 
 				 Pix pixs){
 
-
-
-	int _Result = Natives.pixCopyDimensions(
-pixd.Pointer, pixs.Pointer);
+	int _Result = Natives.pixCopyDimensions(pixd.Pointer, pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1136, 1)
 // pixGetSpp(pix) as int
 // pixGetSpp(PIX *) as l_int32
@@ -872,26 +628,16 @@ pixd.Pointer, pixs.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetSpp/*"/>
 ///   <returns></returns>
-
 public static int pixGetSpp(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetSpp(
-pix.Pointer);
+	int _Result = Natives.pixGetSpp(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1164, 1)
 // pixSetSpp(pix, spp) as int
 // pixSetSpp(PIX *, l_int32) as l_int32
@@ -899,27 +645,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetSpp/*"/>
 ///   <returns></returns>
-
 public static int pixSetSpp(
 				 Pix pix, 
 				 int spp){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetSpp(
-pix.Pointer,   spp);
+	int _Result = Natives.pixSetSpp(pix.Pointer,   spp);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1187, 1)
 // pixCopySpp(pixd, pixs) as int
 // pixCopySpp(PIX *, PIX *) as l_ok
@@ -929,26 +665,15 @@ pix.Pointer,   spp);
 ///  <param name="pixd">[in] - </param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCopySpp(
 				 Pix pixd, 
 				 Pix pixs){
 
-
-
-	int _Result = Natives.pixCopySpp(
-pixd.Pointer, pixs.Pointer);
+	int _Result = Natives.pixCopySpp(pixd.Pointer, pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1205, 1)
 // pixGetWpl(pix) as int
 // pixGetWpl(PIX *) as l_int32
@@ -956,26 +681,16 @@ pixd.Pointer, pixs.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWpl/*"/>
 ///   <returns></returns>
-
 public static int pixGetWpl(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetWpl(
-pix.Pointer);
+	int _Result = Natives.pixGetWpl(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1216, 1)
 // pixSetWpl(pix, wpl) as int
 // pixSetWpl(PIX *, l_int32) as l_int32
@@ -983,27 +698,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetWpl/*"/>
 ///   <returns></returns>
-
 public static int pixSetWpl(
 				 Pix pix, 
 				 int wpl){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetWpl(
-pix.Pointer,   wpl);
+	int _Result = Natives.pixSetWpl(pix.Pointer,   wpl);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1230, 1)
 // pixGetRefcount(pix) as int
 // pixGetRefcount(PIX *) as l_int32
@@ -1011,26 +716,16 @@ pix.Pointer,   wpl);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRefcount/*"/>
 ///   <returns></returns>
-
 public static int pixGetRefcount(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetRefcount(
-pix.Pointer);
+	int _Result = Natives.pixGetRefcount(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1241, 1)
 // pixChangeRefcount(pix, delta) as int
 // pixChangeRefcount(PIX *, l_int32) as l_int32
@@ -1038,27 +733,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixChangeRefcount/*"/>
 ///   <returns></returns>
-
 public static int pixChangeRefcount(
 				 Pix pix, 
 				 int delta){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixChangeRefcount(
-pix.Pointer,   delta);
+	int _Result = Natives.pixChangeRefcount(pix.Pointer,   delta);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1255, 1)
 // pixGetXRes(pix) as int
 // pixGetXRes(PIX *) as l_int32
@@ -1066,26 +751,16 @@ pix.Pointer,   delta);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetXRes/*"/>
 ///   <returns></returns>
-
 public static int pixGetXRes(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetXRes(
-pix.Pointer);
+	int _Result = Natives.pixGetXRes(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1266, 1)
 // pixSetXRes(pix, res) as int
 // pixSetXRes(PIX *, l_int32) as l_int32
@@ -1093,27 +768,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetXRes/*"/>
 ///   <returns></returns>
-
 public static int pixSetXRes(
 				 Pix pix, 
 				 int res){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetXRes(
-pix.Pointer,   res);
+	int _Result = Natives.pixSetXRes(pix.Pointer,   res);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1280, 1)
 // pixGetYRes(pix) as int
 // pixGetYRes(PIX *) as l_int32
@@ -1121,26 +786,16 @@ pix.Pointer,   res);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetYRes/*"/>
 ///   <returns></returns>
-
 public static int pixGetYRes(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetYRes(
-pix.Pointer);
+	int _Result = Natives.pixGetYRes(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1291, 1)
 // pixSetYRes(pix, res) as int
 // pixSetYRes(PIX *, l_int32) as l_int32
@@ -1148,27 +803,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetYRes/*"/>
 ///   <returns></returns>
-
 public static int pixSetYRes(
 				 Pix pix, 
 				 int res){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetYRes(
-pix.Pointer,   res);
+	int _Result = Natives.pixSetYRes(pix.Pointer,   res);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1312, 1)
 // pixGetResolution(pix, pxres, pyres) as int
 // pixGetResolution(PIX *, l_int32 *, l_int32 *) as l_ok
@@ -1179,27 +824,16 @@ pix.Pointer,   res);
 ///  <param name="pxres">[out][optional] - each can be null</param>
 ///  <param name="pyres">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetResolution(
 				 Pix pix, 
 				out int pxres, 
 				out int pyres){
 
-
-
-	int _Result = Natives.pixGetResolution(
-pix.Pointer, out  pxres, out  pyres);
+	int _Result = Natives.pixGetResolution(pix.Pointer, out  pxres, out  pyres);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1338, 1)
 // pixSetResolution(pix, xres, yres) as int
 // pixSetResolution(PIX *, l_int32, l_int32) as l_ok
@@ -1210,27 +844,16 @@ pix.Pointer, out  pxres, out  pyres);
 ///  <param name="xres">[in] - use 0 to skip setting a value for either of these</param>
 ///  <param name="yres">[in] - use 0 to skip setting a value for either of these</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetResolution(
 				 Pix pix, 
 				 int xres, 
 				 int yres){
 
-
-
-	int _Result = Natives.pixSetResolution(
-pix.Pointer,   xres,   yres);
+	int _Result = Natives.pixSetResolution(pix.Pointer,   xres,   yres);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1353, 1)
 // pixCopyResolution(pixd, pixs) as int
 // pixCopyResolution(PIX *, PIX *) as l_int32
@@ -1238,28 +861,18 @@ pix.Pointer,   xres,   yres);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCopyResolution/*"/>
 ///   <returns></returns>
-
 public static int pixCopyResolution(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixCopyResolution(
-pixd.Pointer, pixs.Pointer);
+	int _Result = Natives.pixCopyResolution(pixd.Pointer, pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1372, 1)
 // pixScaleResolution(pix, xscale, yscale) as int
 // pixScaleResolution(PIX *, l_float32, l_float32) as l_int32
@@ -1267,28 +880,18 @@ pixd.Pointer, pixs.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleResolution/*"/>
 ///   <returns></returns>
-
 public static int pixScaleResolution(
 				 Pix pix, 
 				 Single xscale, 
 				 Single yscale){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixScaleResolution(
-pix.Pointer,   xscale,   yscale);
+	int _Result = Natives.pixScaleResolution(pix.Pointer,   xscale,   yscale);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1390, 1)
 // pixGetInputFormat(pix) as int
 // pixGetInputFormat(PIX *) as l_int32
@@ -1296,26 +899,16 @@ pix.Pointer,   xscale,   yscale);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetInputFormat/*"/>
 ///   <returns></returns>
-
 public static int pixGetInputFormat(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixGetInputFormat(
-pix.Pointer);
+	int _Result = Natives.pixGetInputFormat(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1401, 1)
 // pixSetInputFormat(pix, informat) as int
 // pixSetInputFormat(PIX *, l_int32) as l_int32
@@ -1323,27 +916,17 @@ pix.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetInputFormat/*"/>
 ///   <returns></returns>
-
 public static int pixSetInputFormat(
 				 Pix pix, 
 				 IFF informat){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetInputFormat(
-pix.Pointer,  (int) informat);
+	int _Result = Natives.pixSetInputFormat(pix.Pointer,  (int) informat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1414, 1)
 // pixCopyInputFormat(pixd, pixs) as int
 // pixCopyInputFormat(PIX *, PIX *) as l_int32
@@ -1351,28 +934,18 @@ pix.Pointer,  (int) informat);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCopyInputFormat/*"/>
 ///   <returns></returns>
-
 public static int pixCopyInputFormat(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixCopyInputFormat(
-pixd.Pointer, pixs.Pointer);
+	int _Result = Natives.pixCopyInputFormat(pixd.Pointer, pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1432, 1)
 // pixSetSpecial(pix, special) as int
 // pixSetSpecial(PIX *, l_int32) as l_int32
@@ -1380,27 +953,17 @@ pixd.Pointer, pixs.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetSpecial/*"/>
 ///   <returns></returns>
-
 public static int pixSetSpecial(
 				 Pix pix, 
 				 int special){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	int _Result = Natives.pixSetSpecial(
-pix.Pointer,   special);
+	int _Result = Natives.pixSetSpecial(pix.Pointer,   special);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1457, 1)
 // pixGetText(pix) as String
 // pixGetText(PIX *) as char *
@@ -1413,25 +976,14 @@ pix.Pointer,   special);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetText/*"/>
 ///  <param name="pix">[in] - </param>
 ///   <returns>ptr to existing text string</returns>
-
 public static String pixGetText(
 				 Pix pix){
 
-
-
-	String _Result = Natives.pixGetText(
-pix.Pointer);
+	String _Result = Natives.pixGetText(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1481, 1)
 // pixSetText(pix, textstring) as int
 // pixSetText(PIX *, const char *) as l_ok
@@ -1445,26 +997,15 @@ pix.Pointer);
 ///  <param name="pix">[in] - </param>
 ///  <param name="textstring">[in]can be null - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetText(
 				 Pix pix, 
 				 String textstring){
 
-
-
-	int _Result = Natives.pixSetText(
-pix.Pointer,   textstring);
+	int _Result = Natives.pixSetText(pix.Pointer,   textstring);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1509, 1)
 // pixAddText(pix, textstring) as int
 // pixAddText(PIX *, const char *) as l_ok
@@ -1480,26 +1021,15 @@ pix.Pointer,   textstring);
 ///  <param name="pix">[in] - </param>
 ///  <param name="textstring">[in]can be null - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixAddText(
 				 Pix pix, 
 				 String textstring){
 
-
-
-	int _Result = Natives.pixAddText(
-pix.Pointer,   textstring);
+	int _Result = Natives.pixAddText(pix.Pointer,   textstring);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1527, 1)
 // pixCopyText(pixd, pixs) as int
 // pixCopyText(PIX *, PIX *) as l_int32
@@ -1507,28 +1037,18 @@ pix.Pointer,   textstring);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCopyText/*"/>
 ///   <returns></returns>
-
 public static int pixCopyText(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixCopyText(
-pixd.Pointer, pixs.Pointer);
+	int _Result = Natives.pixCopyText(pixd.Pointer, pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1545, 1)
 // pixGetColormap(pix) as PixColormap
 // pixGetColormap(PIX *) as PIXCMAP *
@@ -1536,27 +1056,17 @@ pixd.Pointer, pixs.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetColormap/*"/>
 ///   <returns></returns>
-
 public static PixColormap pixGetColormap(
 				 Pix pix){
 
-
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
-	IntPtr _Result = Natives.pixGetColormap(
-pix.Pointer);
+	IntPtr _Result = Natives.pixGetColormap(pix.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixColormap(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1571, 1)
 // pixSetColormap(pix, colormap) as int
 // pixSetColormap(PIX *, PIXCMAP *) as l_ok
@@ -1572,26 +1082,15 @@ pix.Pointer);
 ///  <param name="pix">[in] - </param>
 ///  <param name="colormap">[in] - to be assigned</param>
 ///   <returns>0 if OK, 1 on error.</returns>
-
 public static int pixSetColormap(
 				 Pix pix, 
 				 PixColormap colormap){
 
-
-
-	int _Result = Natives.pixSetColormap(
-pix.Pointer, colormap.Pointer);
+	int _Result = Natives.pixSetColormap(pix.Pointer, colormap.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1592, 1)
 // pixDestroyColormap(pix) as int
 // pixDestroyColormap(PIX *) as l_ok
@@ -1600,25 +1099,14 @@ pix.Pointer, colormap.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDestroyColormap/*"/>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixDestroyColormap(
 				 Pix pix){
 
-
-
-	int _Result = Natives.pixDestroyColormap(
-pix.Pointer);
+	int _Result = Natives.pixDestroyColormap(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1622, 1)
 // pixGetData(pix) as Byte[]
 // pixGetData(PIX *) as l_uint32 *
@@ -1631,26 +1119,16 @@ pix.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetData/*"/>
 ///  <param name="pix">[in] - </param>
 ///   <returns>ptr to image data</returns>
-
 public static Byte[] pixGetData(
 				 Pix pix){
 
-
-
-	IntPtr _Result = Natives.pixGetData(
-pix.Pointer);
+	IntPtr _Result = Natives.pixGetData(pix.Pointer);
 	
-
-
-//  
-
-
-	Byte[] B = new Byte[pix.w * pix.h * (pix.d/8)] ; Marshal.Copy(_Result, B, 0, B.Length);
-
+	Byte[] B = new Byte[pix.w * pix.h * (pix.d/8)];
+	Marshal.Copy(_Result, B, 0, B.Length);
 	return B;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1646, 1)
 // pixSetData(pix, data) as int
 // pixSetData(PIX *, l_uint32 *) as l_int32
@@ -1664,29 +1142,19 @@ pix.Pointer);
 ///  <param name="pix">[in] - </param>
 ///  <param name="data">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetData(
 				 Pix pix, 
 				 Byte[] data){
 
-
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
-	int _Result = Natives.pixSetData(
-pix.Pointer,   dataPtr);
+	int _Result = Natives.pixSetData(pix.Pointer,   dataPtr);
 	
-
 	Marshal.FreeHGlobal(dataPtr);
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1676, 1)
 // pixExtractData(pixs) as Byte[]
 // pixExtractData(PIX *) as l_uint32 *
@@ -1704,27 +1172,18 @@ pix.Pointer,   dataPtr);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractData/*"/>
 ///   <returns>ptr to data, or null on error</returns>
-
 public static Byte[] pixExtractData(
 				 Pix pixs){
 
-
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	IntPtr _Result = Natives.pixExtractData(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixExtractData(pixs.Pointer);
 	
-
-
-//  
-
-
-	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
-
+	Byte[] B = new Byte[1];
+	Marshal.Copy(_Result, B, 0, B.Length);
 	return B;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1717, 1)
 // pixFreeData(pix) as int
 // pixFreeData(PIX *) as l_int32
@@ -1739,25 +1198,14 @@ pixs.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFreeData/*"/>
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFreeData(
 				 Pix pix){
 
-
-
-	int _Result = Natives.pixFreeData(
-pix.Pointer);
+	int _Result = Natives.pixFreeData(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1808, 1)
 // pixGetLinePtrs(pix, psize) as IntPtr[]
 // pixGetLinePtrs(PIX *, l_int32 *) as void **
@@ -1832,27 +1280,17 @@ pix.Pointer);
 ///  <param name="pix">[in] - </param>
 ///  <param name="psize">[out][optional] - array size, which is the pix height</param>
 ///   <returns>array of line ptrs, or NULL on error</returns>
-
 public static IntPtr[] pixGetLinePtrs(
 				 Pix pix, 
 				out int psize){
 
-
-
-	IntPtr _Result = Natives.pixGetLinePtrs(
-pix.Pointer, out  psize);
+	IntPtr _Result = Natives.pixGetLinePtrs(pix.Pointer, out  psize);
 	
-
-
-//  
-
-
-	IntPtr[] B = new IntPtr[psize] ; Marshal.Copy(_Result, B, 0, B.Length);
-
+	IntPtr[] B = new IntPtr[psize];
+	Marshal.Copy(_Result, B, 0, B.Length);
 	return B;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1848, 1)
 // pixPrintStreamInfo(fp, pix, text) as int
 // pixPrintStreamInfo(FILE *, PIX *, const char *) as l_ok
@@ -1863,23 +1301,13 @@ pix.Pointer, out  psize);
 ///  <param name="pix">[in] - </param>
 ///  <param name="text">[in][optional] - identifying string can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixPrintStreamInfo(
 				 FILE fp, 
 				 Pix pix, 
 				 String text){
 
-
-
-	int _Result = Natives.pixPrintStreamInfo(
-fp.Pointer, pix.Pointer,   text);
+	int _Result = Natives.pixPrintStreamInfo(fp.Pointer, pix.Pointer,   text);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

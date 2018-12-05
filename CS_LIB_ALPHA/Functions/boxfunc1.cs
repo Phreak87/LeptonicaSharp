@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (99, 1)
 // boxContains(box1, box2, presult) as int
 // boxContains(BOX *, BOX *, l_int32 *) as l_ok
@@ -17,27 +16,16 @@ public partial class _All {
 ///  <param name="box2">[in] - </param>
 ///  <param name="presult">[out] - 1 if box2 is entirely contained within box1, and 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxContains(
 				 Box box1, 
 				 Box box2, 
 				out int presult){
 
-
-
-	int _Result = Natives.boxContains(
-box1.Pointer, box2.Pointer, out  presult);
+	int _Result = Natives.boxContains(box1.Pointer, box2.Pointer, out  presult);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (130, 1)
 // boxIntersects(box1, box2, presult) as int
 // boxIntersects(BOX *, BOX *, l_int32 *) as l_ok
@@ -48,27 +36,16 @@ box1.Pointer, box2.Pointer, out  presult);
 ///  <param name="box2">[in] - </param>
 ///  <param name="presult">[out] - 1 if any part of box2 is contained in box1, and 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxIntersects(
 				 Box box1, 
 				 Box box2, 
 				out int presult){
 
-
-
-	int _Result = Natives.boxIntersects(
-box1.Pointer, box2.Pointer, out  presult);
+	int _Result = Natives.boxIntersects(box1.Pointer, box2.Pointer, out  presult);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (172, 1)
 // boxaContainedInBox(boxas, box) as Boxa
 // boxaContainedInBox(BOXA *, BOX *) as BOXA *
@@ -81,27 +58,16 @@ box1.Pointer, box2.Pointer, out  presult);
 ///  <param name="boxas">[in] - </param>
 ///  <param name="box">[in] - for containment</param>
 ///   <returns>boxad boxa with all boxes in boxas that are entirely contained in box, or NULL on error</returns>
-
 public static Boxa boxaContainedInBox(
 				 Boxa boxas, 
 				 Box box){
 
-
-
-	IntPtr _Result = Natives.boxaContainedInBox(
-boxas.Pointer, box.Pointer);
+	IntPtr _Result = Natives.boxaContainedInBox(boxas.Pointer, box.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (210, 1)
 // boxaContainedInBoxCount(boxa, box, pcount) as int
 // boxaContainedInBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
@@ -112,27 +78,16 @@ boxas.Pointer, box.Pointer);
 ///  <param name="box">[in] - for selecting contained boxes in %boxa</param>
 ///  <param name="pcount">[out] - number of boxes intersecting the box</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaContainedInBoxCount(
 				 Boxa boxa, 
 				 Box box, 
 				out int pcount){
 
-
-
-	int _Result = Natives.boxaContainedInBoxCount(
-boxa.Pointer, box.Pointer, out  pcount);
+	int _Result = Natives.boxaContainedInBoxCount(boxa.Pointer, box.Pointer, out  pcount);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (249, 1)
 // boxaContainedInBoxa(boxa1, boxa2, pcontained) as int
 // boxaContainedInBoxa(BOXA *, BOXA *, l_int32 *) as l_ok
@@ -143,27 +98,16 @@ boxa.Pointer, box.Pointer, out  pcount);
 ///  <param name="boxa2">[in] - </param>
 ///  <param name="pcontained">[out] - 1 if every box in boxa2 is contained in some box in boxa1 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaContainedInBoxa(
 				 Boxa boxa1, 
 				 Boxa boxa2, 
 				out int pcontained){
 
-
-
-	int _Result = Natives.boxaContainedInBoxa(
-boxa1.Pointer, boxa2.Pointer, out  pcontained);
+	int _Result = Natives.boxaContainedInBoxa(boxa1.Pointer, boxa2.Pointer, out  pcontained);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (302, 1)
 // boxaIntersectsBox(boxas, box) as Boxa
 // boxaIntersectsBox(BOXA *, BOX *) as BOXA *
@@ -177,27 +121,16 @@ boxa1.Pointer, boxa2.Pointer, out  pcontained);
 ///  <param name="boxas">[in] - </param>
 ///  <param name="box">[in] - for intersecting</param>
 ///   <returns>boxad boxa with all boxes in boxas that intersect box, or NULL on error</returns>
-
 public static Boxa boxaIntersectsBox(
 				 Boxa boxas, 
 				 Box box){
 
-
-
-	IntPtr _Result = Natives.boxaIntersectsBox(
-boxas.Pointer, box.Pointer);
+	IntPtr _Result = Natives.boxaIntersectsBox(boxas.Pointer, box.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (340, 1)
 // boxaIntersectsBoxCount(boxa, box, pcount) as int
 // boxaIntersectsBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
@@ -208,27 +141,16 @@ boxas.Pointer, box.Pointer);
 ///  <param name="box">[in] - for selecting intersecting boxes in %boxa</param>
 ///  <param name="pcount">[out] - number of boxes intersecting the box</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaIntersectsBoxCount(
 				 Boxa boxa, 
 				 Box box, 
 				out int pcount){
 
-
-
-	int _Result = Natives.boxaIntersectsBoxCount(
-boxa.Pointer, box.Pointer, out  pcount);
+	int _Result = Natives.boxaIntersectsBoxCount(boxa.Pointer, box.Pointer, out  pcount);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (385, 1)
 // boxaClipToBox(boxas, box) as Boxa
 // boxaClipToBox(BOXA *, BOX *) as BOXA *
@@ -242,27 +164,16 @@ boxa.Pointer, box.Pointer, out  pcount);
 ///  <param name="boxas">[in] - </param>
 ///  <param name="box">[in] - for clipping</param>
 ///   <returns>boxad boxa with boxes in boxas clipped to box, or NULL on error</returns>
-
 public static Boxa boxaClipToBox(
 				 Boxa boxas, 
 				 Box box){
 
-
-
-	IntPtr _Result = Natives.boxaClipToBox(
-boxas.Pointer, box.Pointer);
+	IntPtr _Result = Natives.boxaClipToBox(boxas.Pointer, box.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (442, 1)
 // boxaCombineOverlaps(boxas, pixadb) as Boxa
 // boxaCombineOverlaps(BOXA *, PIXA *) as BOXA *
@@ -292,29 +203,19 @@ boxas.Pointer, box.Pointer);
 ///  <param name="boxas">[in] - </param>
 ///  <param name="pixadb">[in,out] - debug output</param>
 ///   <returns>boxad where each set of boxes in boxas that overlap are combined into a single bounding box in boxad, or NULL on error.</returns>
-
 public static Boxa boxaCombineOverlaps(
 				 Boxa boxas, 
 				ref Pixa pixadb){
 
-
 	IntPtr pixadbPtr = IntPtr.Zero; if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
-	IntPtr _Result = Natives.boxaCombineOverlaps(
-boxas.Pointer, ref pixadbPtr);
+	IntPtr _Result = Natives.boxaCombineOverlaps(boxas.Pointer, ref pixadbPtr);
 	
-
-
-//  
 	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (536, 1)
 // boxaCombineOverlapsInPair(boxas1, boxas2, pboxad1, pboxad2, pixadb) as int
 // boxaCombineOverlapsInPair(BOXA *, BOXA *, BOXA **, BOXA **, PIXA *) as l_ok
@@ -344,7 +245,6 @@ boxas.Pointer, ref pixadbPtr);
 ///  <param name="pboxad2">[out] - output boxa2</param>
 ///  <param name="pixadb">[in,out] - debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaCombineOverlapsInPair(
 				 Boxa boxas1, 
 				 Boxa boxas2, 
@@ -352,27 +252,18 @@ public static int boxaCombineOverlapsInPair(
 				out Boxa pboxad2, 
 				ref Pixa pixadb){
 
-
 	IntPtr pboxad1Ptr = IntPtr.Zero;
 	IntPtr pboxad2Ptr = IntPtr.Zero;
 	IntPtr pixadbPtr = IntPtr.Zero; if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
-	int _Result = Natives.boxaCombineOverlapsInPair(
-boxas1.Pointer, boxas2.Pointer, out pboxad1Ptr, out pboxad2Ptr, ref pixadbPtr);
+	int _Result = Natives.boxaCombineOverlapsInPair(boxas1.Pointer, boxas2.Pointer, out pboxad1Ptr, out pboxad2Ptr, ref pixadbPtr);
 	
-
-
-//  
 	if (pboxad1Ptr == IntPtr.Zero) {pboxad1 = null;} else { pboxad1 = new Boxa(pboxad1Ptr); };
 	if (pboxad2Ptr == IntPtr.Zero) {pboxad2 = null;} else { pboxad2 = new Boxa(pboxad2Ptr); };
 	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (674, 1)
 // boxOverlapRegion(box1, box2) as Box
 // boxOverlapRegion(BOX *, BOX *) as BOX *
@@ -385,27 +276,16 @@ boxas1.Pointer, boxas2.Pointer, out pboxad1Ptr, out pboxad2Ptr, ref pixadbPtr);
 ///  <param name="box1">[in] - two boxes</param>
 ///  <param name="box2">[in] - two boxes</param>
 ///   <returns>box of overlap region between input boxes, or NULL if no overlap or on error</returns>
-
 public static Box boxOverlapRegion(
 				 Box box1, 
 				 Box box2){
 
-
-
-	IntPtr _Result = Natives.boxOverlapRegion(
-box1.Pointer, box2.Pointer);
+	IntPtr _Result = Natives.boxOverlapRegion(box1.Pointer, box2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (716, 1)
 // boxBoundingRegion(box1, box2) as Box
 // boxBoundingRegion(BOX *, BOX *) as BOX *
@@ -418,27 +298,16 @@ box1.Pointer, box2.Pointer);
 ///  <param name="box1">[in] - two boxes</param>
 ///  <param name="box2">[in] - two boxes</param>
 ///   <returns>box of bounding region containing the input boxes, or NULL on error</returns>
-
 public static Box boxBoundingRegion(
 				 Box box1, 
 				 Box box2){
 
-
-
-	IntPtr _Result = Natives.boxBoundingRegion(
-box1.Pointer, box2.Pointer);
+	IntPtr _Result = Natives.boxBoundingRegion(box1.Pointer, box2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (756, 1)
 // boxOverlapFraction(box1, box2, pfract) as int
 // boxOverlapFraction(BOX *, BOX *, l_float32 *) as l_ok
@@ -453,27 +322,16 @@ box1.Pointer, box2.Pointer);
 ///  <param name="box2">[in] - two boxes</param>
 ///  <param name="pfract">[out] - the fraction of box2 overlapped by box1</param>
 ///   <returns>0 if OK, 1 on error.</returns>
-
 public static int boxOverlapFraction(
 				 Box box1, 
 				 Box box2, 
 				out Single pfract){
 
-
-
-	int _Result = Natives.boxOverlapFraction(
-box1.Pointer, box2.Pointer, out  pfract);
+	int _Result = Natives.boxOverlapFraction(box1.Pointer, box2.Pointer, out  pfract);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (792, 1)
 // boxOverlapArea(box1, box2, parea) as int
 // boxOverlapArea(BOX *, BOX *, l_int32 *) as l_ok
@@ -484,27 +342,16 @@ box1.Pointer, box2.Pointer, out  pfract);
 ///  <param name="box2">[in] - two boxes</param>
 ///  <param name="parea">[out] - the number of pixels in the overlap</param>
 ///   <returns>0 if OK, 1 on error.</returns>
-
 public static int boxOverlapArea(
 				 Box box1, 
 				 Box box2, 
 				out int parea){
 
-
-
-	int _Result = Natives.boxOverlapArea(
-box1.Pointer, box2.Pointer, out  parea);
+	int _Result = Natives.boxOverlapArea(box1.Pointer, box2.Pointer, out  parea);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (853, 1)
 // boxaHandleOverlaps(boxas, op, range, min_overlap, max_ratio, pnamap) as Boxa
 // boxaHandleOverlaps(BOXA *, l_int32, l_int32, l_float32, l_float32, NUMA **) as BOXA *
@@ -539,7 +386,6 @@ box1.Pointer, box2.Pointer, out  parea);
 ///  <param name="max_ratio">[in] - maximum fraction of small/large areas for overlap to count 1.0 to ignore</param>
 ///  <param name="pnamap">[out][optional] - combining map</param>
 ///   <returns>boxad, or NULL on error.</returns>
-
 public static Boxa boxaHandleOverlaps(
 				 Boxa boxas, 
 				 int op, 
@@ -548,24 +394,15 @@ public static Boxa boxaHandleOverlaps(
 				 Single max_ratio, 
 				out Numa pnamap){
 
-
 	IntPtr pnamapPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.boxaHandleOverlaps(
-boxas.Pointer,   op,   range,   min_overlap,   max_ratio, out pnamapPtr);
+	IntPtr _Result = Natives.boxaHandleOverlaps(boxas.Pointer,   op,   range,   min_overlap,   max_ratio, out pnamapPtr);
 	
-
-
-//  
 	if (pnamapPtr == IntPtr.Zero) {pnamap = null;} else { pnamap = new Numa(pnamapPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (973, 1)
 // boxSeparationDistance(box1, box2, ph_sep, pv_sep) as int
 // boxSeparationDistance(BOX *, BOX *, l_int32 *, l_int32 *) as l_ok
@@ -583,28 +420,17 @@ boxas.Pointer,   op,   range,   min_overlap,   max_ratio, out pnamapPtr);
 ///  <param name="ph_sep">[out][optional] - horizontal separation</param>
 ///  <param name="pv_sep">[out][optional] - vertical separation</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxSeparationDistance(
 				 Box box1, 
 				 Box box2, 
 				out int ph_sep, 
 				out int pv_sep){
 
-
-
-	int _Result = Natives.boxSeparationDistance(
-box1.Pointer, box2.Pointer, out  ph_sep, out  pv_sep);
+	int _Result = Natives.boxSeparationDistance(box1.Pointer, box2.Pointer, out  ph_sep, out  pv_sep);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1029, 1)
 // boxCompareSize(box1, box2, type, prel) as int
 // boxCompareSize(BOX *, BOX *, l_int32, l_int32 *) as l_ok
@@ -619,28 +445,17 @@ box1.Pointer, box2.Pointer, out  ph_sep, out  pv_sep);
 ///  <param name="type">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA,</param>
 ///  <param name="prel">[out] - 1 if box1  is greater  box2, 0 if the same, -1 if box1  is smaller box2</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxCompareSize(
 				 Box box1, 
 				 Box box2, 
 				 int type, 
 				out int prel){
 
-
-
-	int _Result = Natives.boxCompareSize(
-box1.Pointer, box2.Pointer,   type, out  prel);
+	int _Result = Natives.boxCompareSize(box1.Pointer, box2.Pointer,   type, out  prel);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1080, 1)
 // boxContainsPt(box, x, y, pcontains) as int
 // boxContainsPt(BOX *, l_float32, l_float32, l_int32 *) as l_ok
@@ -652,28 +467,17 @@ box1.Pointer, box2.Pointer,   type, out  prel);
 ///  <param name="y">[in] - a point</param>
 ///  <param name="pcontains">[out] - 1 if box contains point 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error.</returns>
-
 public static int boxContainsPt(
 				 Box box, 
 				 Single x, 
 				 Single y, 
 				out int pcontains){
 
-
-
-	int _Result = Natives.boxContainsPt(
-box.Pointer,   x,   y, out  pcontains);
+	int _Result = Natives.boxContainsPt(box.Pointer,   x,   y, out  pcontains);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1115, 1)
 // boxaGetNearestToPt(boxa, x, y) as Box
 // boxaGetNearestToPt(BOXA *, l_int32, l_int32) as BOX *
@@ -687,28 +491,17 @@ box.Pointer,   x,   y, out  pcontains);
 ///  <param name="x">[in] - point</param>
 ///  <param name="y">[in] - point</param>
 ///   <returns>box with centroid closest to the given point [x,y], or NULL if no boxes in boxa</returns>
-
 public static Box boxaGetNearestToPt(
 				 Boxa boxa, 
 				 int x, 
 				 int y){
 
-
-
-	IntPtr _Result = Natives.boxaGetNearestToPt(
-boxa.Pointer,   x,   y);
+	IntPtr _Result = Natives.boxaGetNearestToPt(boxa.Pointer,   x,   y);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1167, 1)
 // boxaGetNearestToLine(boxa, x, y) as Box
 // boxaGetNearestToLine(BOXA *, l_int32, l_int32) as BOX *
@@ -727,28 +520,17 @@ boxa.Pointer,   x,   y);
 ///  <param name="x">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
 ///  <param name="y">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
 ///   <returns>box with centroid closest to the given line, or NULL if no boxes in boxa</returns>
-
 public static Box boxaGetNearestToLine(
 				 Boxa boxa, 
 				 int x, 
 				 int y){
 
-
-
-	IntPtr _Result = Natives.boxaGetNearestToLine(
-boxa.Pointer,   x,   y);
+	IntPtr _Result = Natives.boxaGetNearestToLine(boxa.Pointer,   x,   y);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1224, 1)
 // boxaFindNearestBoxes(boxa, dist_select, range, pnaaindex, pnaadist) as int
 // boxaFindNearestBoxes(BOXA *, l_int32, l_int32, NUMAA **, NUMAA **) as l_ok
@@ -765,7 +547,6 @@ boxa.Pointer,   x,   y);
 ///  <param name="pnaaindex">[out] - for each box in %boxa, contains a numa of 4 box indices (per direction) of the nearest box</param>
 ///  <param name="pnaadist">[out] - for each box in %boxa, this contains a numa</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaFindNearestBoxes(
 				 Boxa boxa, 
 				 int dist_select, 
@@ -773,25 +554,16 @@ public static int boxaFindNearestBoxes(
 				out Numaa pnaaindex, 
 				out Numaa pnaadist){
 
-
 	IntPtr pnaaindexPtr = IntPtr.Zero;
 	IntPtr pnaadistPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaFindNearestBoxes(
-boxa.Pointer,   dist_select,   range, out pnaaindexPtr, out pnaadistPtr);
+	int _Result = Natives.boxaFindNearestBoxes(boxa.Pointer,   dist_select,   range, out pnaaindexPtr, out pnaadistPtr);
 	
-
-
-//  
 	if (pnaaindexPtr == IntPtr.Zero) {pnaaindex = null;} else { pnaaindex = new Numaa(pnaaindexPtr); };
 	if (pnaadistPtr == IntPtr.Zero) {pnaadist = null;} else { pnaadist = new Numaa(pnaadistPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1305, 1)
 // boxaGetNearestByDirection(boxa, i, dir, dist_select, range, pindex, pdist) as int
 // boxaGetNearestByDirection(BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -816,7 +588,6 @@ boxa.Pointer,   dist_select,   range, out pnaaindexPtr, out pnaadistPtr);
 ///  <param name="pindex">[out] - index in boxa of nearest box with overlapping coordinates in the indicated direction -1 if there is no box</param>
 ///  <param name="pdist">[out] - distance of the nearest box in the indicated direction 100000 if no box</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaGetNearestByDirection(
 				 Boxa boxa, 
 				 int i, 
@@ -826,21 +597,11 @@ public static int boxaGetNearestByDirection(
 				out int pindex, 
 				out int pdist){
 
-
-
-	int _Result = Natives.boxaGetNearestByDirection(
-boxa.Pointer,   i,   dir,   dist_select,   range, out  pindex, out  pdist);
+	int _Result = Natives.boxaGetNearestByDirection(boxa.Pointer,   i,   dir,   dist_select,   range, out  pindex, out  pdist);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1444, 1)
 // boxGetCenter(box, pcx, pcy) as int
 // boxGetCenter(BOX *, l_float32 *, l_float32 *) as l_ok
@@ -851,27 +612,16 @@ boxa.Pointer,   i,   dir,   dist_select,   range, out  pindex, out  pdist);
 ///  <param name="pcx">[out] - location of center of box</param>
 ///  <param name="pcy">[out] - location of center of box</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxGetCenter(
 				 Box box, 
 				out Single pcx, 
 				out Single pcy){
 
-
-
-	int _Result = Natives.boxGetCenter(
-box.Pointer, out  pcx, out  pcy);
+	int _Result = Natives.boxGetCenter(box.Pointer, out  pcx, out  pcy);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1485, 1)
 // boxIntersectByLine(box, x, y, slope, px1, py1, px2, py2, pn) as int
 // boxIntersectByLine(BOX *, l_int32, l_int32, l_float32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -894,7 +644,6 @@ box.Pointer, out  pcx, out  pcy);
 ///  <param name="py2">[out] - 2nd point of intersection with box</param>
 ///  <param name="pn">[out] - number of points of intersection</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxIntersectByLine(
 				 Box box, 
 				 int x, 
@@ -906,21 +655,11 @@ public static int boxIntersectByLine(
 				out int py2, 
 				out int pn){
 
-
-
-	int _Result = Natives.boxIntersectByLine(
-box.Pointer,   x,   y,   slope, out  px1, out  py1, out  px2, out  py2, out  pn);
+	int _Result = Natives.boxIntersectByLine(box.Pointer,   x,   y,   slope, out  px1, out  py1, out  px2, out  py2, out  pn);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1587, 1)
 // boxClipToRectangle(box, wi, hi) as Box
 // boxClipToRectangle(BOX *, l_int32, l_int32) as BOX *
@@ -936,28 +675,17 @@ box.Pointer,   x,   y,   slope, out  px1, out  py1, out  px2, out  py2, out  pn)
 ///  <param name="wi">[in] - rectangle representing image</param>
 ///  <param name="hi">[in] - rectangle representing image</param>
 ///   <returns>part of box within given rectangle, or NULL on error or if box is entirely outside the rectangle</returns>
-
 public static Box boxClipToRectangle(
 				 Box box, 
 				 int wi, 
 				 int hi){
 
-
-
-	IntPtr _Result = Natives.boxClipToRectangle(
-box.Pointer,   wi,   hi);
+	IntPtr _Result = Natives.boxClipToRectangle(box.Pointer,   wi,   hi);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1644, 1)
 // boxClipToRectangleParams(box, w, h, pxstart, pystart, pxend, pyend, pbw, pbh) as int
 // boxClipToRectangleParams(BOX *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -985,7 +713,6 @@ box.Pointer,   wi,   hi);
 ///  <param name="pbw">[out][optional] - clipped width</param>
 ///  <param name="pbh">[out][optional] - clipped height</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int boxClipToRectangleParams(
 				 Box box, 
 				 int w, 
@@ -997,22 +724,13 @@ public static int boxClipToRectangleParams(
 				out int pbw, 
 				out int pbh){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.boxClipToRectangleParams(
-boxPtr,   w,   h, out  pxstart, out  pystart, out  pxend, out  pyend, out  pbw, out  pbh);
+	int _Result = Natives.boxClipToRectangleParams(boxPtr,   w,   h, out  pxstart, out  pystart, out  pxend, out  pyend, out  pbw, out  pbh);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1706, 1)
 // boxRelocateOneSide(boxd, boxs, loc, sideflag) as Box
 // boxRelocateOneSide(BOX *, BOX *, l_int32, l_int32) as BOX *
@@ -1033,30 +751,20 @@ boxPtr,   w,   h, out  pxstart, out  pystart, out  pxend, out  pyend, out  pbw, 
 ///  <param name="loc">[in] - new location of the side that is changing</param>
 ///  <param name="sideflag">[in] - L_FROM_LEFT, etc., indicating the side that moves</param>
 ///   <returns>boxd, or NULL on error or if the computed boxd has width or height smaller or equal 0.</returns>
-
 public static Box boxRelocateOneSide(
 				 Box boxd, 
 				 Box boxs, 
 				 int loc, 
 				 int sideflag){
 
-
 	IntPtr boxdPtr = IntPtr.Zero; 	if (boxd != null) {boxdPtr = boxd.Pointer;}
 
-	IntPtr _Result = Natives.boxRelocateOneSide(
-boxdPtr, boxs.Pointer,   loc,   sideflag);
+	IntPtr _Result = Natives.boxRelocateOneSide(boxdPtr, boxs.Pointer,   loc,   sideflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1750, 1)
 // boxaAdjustSides(boxas, delleft, delright, deltop, delbot) as Boxa
 // boxaAdjustSides(BOXA *, l_int32, l_int32, l_int32, l_int32) as BOXA *
@@ -1077,7 +785,6 @@ boxdPtr, boxs.Pointer,   loc,   sideflag);
 ///  <param name="deltop">[in] - changes in location of each side for each box</param>
 ///  <param name="delbot">[in] - changes in location of each side for each box</param>
 ///   <returns>boxad, or NULL on error</returns>
-
 public static Boxa boxaAdjustSides(
 				 Boxa boxas, 
 				 int delleft, 
@@ -1085,22 +792,12 @@ public static Boxa boxaAdjustSides(
 				 int deltop, 
 				 int delbot){
 
-
-
-	IntPtr _Result = Natives.boxaAdjustSides(
-boxas.Pointer,   delleft,   delright,   deltop,   delbot);
+	IntPtr _Result = Natives.boxaAdjustSides(boxas.Pointer,   delleft,   delright,   deltop,   delbot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1807, 1)
 // boxAdjustSides(boxd, boxs, delleft, delright, deltop, delbot) as Box
 // boxAdjustSides(BOX *, BOX *, l_int32, l_int32, l_int32, l_int32) as BOX *
@@ -1128,7 +825,6 @@ boxas.Pointer,   delleft,   delright,   deltop,   delbot);
 ///  <param name="deltop">[in] - changes in location of each side</param>
 ///  <param name="delbot">[in] - changes in location of each side</param>
 ///   <returns>boxd, or NULL on error or if the computed boxd has width or height smaller or equal 0.</returns>
-
 public static Box boxAdjustSides(
 				 Box boxd, 
 				 Box boxs, 
@@ -1137,23 +833,14 @@ public static Box boxAdjustSides(
 				 int deltop, 
 				 int delbot){
 
-
 	IntPtr boxdPtr = IntPtr.Zero; 	if (boxd != null) {boxdPtr = boxd.Pointer;}
 
-	IntPtr _Result = Natives.boxAdjustSides(
-boxdPtr, boxs.Pointer,   delleft,   delright,   deltop,   delbot);
+	IntPtr _Result = Natives.boxAdjustSides(boxdPtr, boxs.Pointer,   delleft,   delright,   deltop,   delbot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1859, 1)
 // boxaSetSide(boxad, boxas, side, val, thresh) as Boxa
 // boxaSetSide(BOXA *, BOXA *, l_int32, l_int32, l_int32) as BOXA *
@@ -1174,7 +861,6 @@ boxdPtr, boxs.Pointer,   delleft,   delright,   deltop,   delbot);
 ///  <param name="val">[in] - location to set for given side, for each box</param>
 ///  <param name="thresh">[in] - min abs difference to cause resetting to %val</param>
 ///   <returns>boxad, or NULL on error</returns>
-
 public static Boxa boxaSetSide(
 				 Boxa boxad, 
 				 Boxa boxas, 
@@ -1182,22 +868,12 @@ public static Boxa boxaSetSide(
 				 int val, 
 				 int thresh){
 
-
-
-	IntPtr _Result = Natives.boxaSetSide(
-boxad.Pointer, boxas.Pointer,   side,   val,   thresh);
+	IntPtr _Result = Natives.boxaSetSide(boxad.Pointer, boxas.Pointer,   side,   val,   thresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1932, 1)
 // boxaAdjustWidthToTarget(boxad, boxas, sides, target, thresh) as Boxa
 // boxaAdjustWidthToTarget(BOXA *, BOXA *, l_int32, l_int32, l_int32) as BOXA *
@@ -1220,7 +896,6 @@ boxad.Pointer, boxas.Pointer,   side,   val,   thresh);
 ///  <param name="target">[in] - target width if differs by more than thresh</param>
 ///  <param name="thresh">[in] - min abs difference in width to cause adjustment</param>
 ///   <returns>boxad, or NULL on error</returns>
-
 public static Boxa boxaAdjustWidthToTarget(
 				 Boxa boxad, 
 				 Boxa boxas, 
@@ -1228,22 +903,12 @@ public static Boxa boxaAdjustWidthToTarget(
 				 int target, 
 				 int thresh){
 
-
-
-	IntPtr _Result = Natives.boxaAdjustWidthToTarget(
-boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
+	IntPtr _Result = Natives.boxaAdjustWidthToTarget(boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (1999, 1)
 // boxaAdjustHeightToTarget(boxad, boxas, sides, target, thresh) as Boxa
 // boxaAdjustHeightToTarget(BOXA *, BOXA *, l_int32, l_int32, l_int32) as BOXA *
@@ -1266,7 +931,6 @@ boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 ///  <param name="target">[in] - target height if differs by more than thresh</param>
 ///  <param name="thresh">[in] - min abs difference in height to cause adjustment</param>
 ///   <returns>boxad, or NULL on error</returns>
-
 public static Boxa boxaAdjustHeightToTarget(
 				 Boxa boxad, 
 				 Boxa boxas, 
@@ -1274,22 +938,12 @@ public static Boxa boxaAdjustHeightToTarget(
 				 int target, 
 				 int thresh){
 
-
-
-	IntPtr _Result = Natives.boxaAdjustHeightToTarget(
-boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
+	IntPtr _Result = Natives.boxaAdjustHeightToTarget(boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2057, 1)
 // boxEqual(box1, box2, psame) as int
 // boxEqual(BOX *, BOX *, l_int32 *) as l_ok
@@ -1300,27 +954,16 @@ boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 ///  <param name="box2">[in] - </param>
 ///  <param name="psame">[out] - 1 if equal 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxEqual(
 				 Box box1, 
 				 Box box2, 
 				out int psame){
 
-
-
-	int _Result = Natives.boxEqual(
-box1.Pointer, box2.Pointer, out  psame);
+	int _Result = Natives.boxEqual(box1.Pointer, box2.Pointer, out  psame);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2104, 1)
 // boxaEqual(boxa1, boxa2, maxdist, pnaindex, psame) as int
 // boxaEqual(BOXA *, BOXA *, l_int32, NUMA **, l_int32 *) as l_ok
@@ -1352,7 +995,6 @@ box1.Pointer, box2.Pointer, out  psame);
 ///  <param name="pnaindex">[out][optional] - index array of correspondences</param>
 ///  <param name="psame">[out] - (1 if equal 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaEqual(
 				 Boxa boxa1, 
 				 Boxa boxa2, 
@@ -1360,23 +1002,14 @@ public static int boxaEqual(
 				out Numa pnaindex, 
 				out int psame){
 
-
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaEqual(
-boxa1.Pointer, boxa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
+	int _Result = Natives.boxaEqual(boxa1.Pointer, boxa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 	
-
-
-//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2183, 1)
 // boxSimilar(box1, box2, leftdiff, rightdiff, topdiff, botdiff, psimilar) as int
 // boxSimilar(BOX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as l_ok
@@ -1396,7 +1029,6 @@ boxa1.Pointer, boxa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 ///  <param name="botdiff">[in] - </param>
 ///  <param name="psimilar">[out] - 1 if similar 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxSimilar(
 				 Box box1, 
 				 Box box2, 
@@ -1406,21 +1038,11 @@ public static int boxSimilar(
 				 int botdiff, 
 				out int psimilar){
 
-
-
-	int _Result = Natives.boxSimilar(
-box1.Pointer, box2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff, out  psimilar);
+	int _Result = Natives.boxSimilar(box1.Pointer, box2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff, out  psimilar);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2238, 1)
 // boxaSimilar(boxa1, boxa2, leftdiff, rightdiff, topdiff, botdiff, debug, psimilar, pnasim) as int
 // boxaSimilar(BOXA *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, NUMA **) as l_ok
@@ -1447,7 +1069,6 @@ box1.Pointer, box2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff, out  
 ///  <param name="psimilar">[out] - 1 if similar 0 otherwise</param>
 ///  <param name="pnasim">[out][optional] - na containing 1 if similar else 0</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaSimilar(
 				 Boxa boxa1, 
 				 Boxa boxa2, 
@@ -1459,23 +1080,14 @@ public static int boxaSimilar(
 				out int psimilar, 
 				out Numa pnasim){
 
-
 	IntPtr pnasimPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaSimilar(
-boxa1.Pointer, boxa2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff,  (int) debug, out  psimilar, out pnasimPtr);
+	int _Result = Natives.boxaSimilar(boxa1.Pointer, boxa2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff,  (int) debug, out  psimilar, out pnasimPtr);
 	
-
-
-//  
 	if (pnasimPtr == IntPtr.Zero) {pnasim = null;} else { pnasim = new Numa(pnasimPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2312, 1)
 // boxaJoin(boxad, boxas, istart, iend) as int
 // boxaJoin(BOXA *, BOXA *, l_int32, l_int32) as l_ok
@@ -1496,28 +1108,17 @@ boxa1.Pointer, boxa2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff,  (i
 ///  <param name="istart">[in] - starting index in boxas</param>
 ///  <param name="iend">[in] - ending index in boxas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaJoin(
 				 Boxa boxad, 
 				 Boxa boxas, 
 				 int istart, 
 				 int iend){
 
-
-
-	int _Result = Natives.boxaJoin(
-boxad.Pointer, boxas.Pointer,   istart,   iend);
+	int _Result = Natives.boxaJoin(boxad.Pointer, boxas.Pointer,   istart,   iend);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2361, 1)
 // boxaaJoin(baad, baas, istart, iend) as int
 // boxaaJoin(BOXAA *, BOXAA *, l_int32, l_int32) as l_ok
@@ -1538,28 +1139,17 @@ boxad.Pointer, boxas.Pointer,   istart,   iend);
 ///  <param name="istart">[in] - starting index in baas</param>
 ///  <param name="iend">[in] - ending index in baas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaJoin(
 				 Boxaa baad, 
 				 Boxaa baas, 
 				 int istart, 
 				 int iend){
 
-
-
-	int _Result = Natives.boxaaJoin(
-baad.Pointer, baas.Pointer,   istart,   iend);
+	int _Result = Natives.boxaaJoin(baad.Pointer, baas.Pointer,   istart,   iend);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2411, 1)
 // boxaSplitEvenOdd(boxa, fillflag, pboxae, pboxao) as int
 // boxaSplitEvenOdd(BOXA *, l_int32, BOXA **, BOXA **) as l_ok
@@ -1578,32 +1168,22 @@ baad.Pointer, baas.Pointer,   istart,   iend);
 ///  <param name="pboxae">[out] - save even and odd boxes in their separate boxa, setting the other type to invalid boxes.</param>
 ///  <param name="pboxao">[out] - save even and odd boxes in their separate boxa, setting the other type to invalid boxes.</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaSplitEvenOdd(
 				 Boxa boxa, 
 				 int fillflag, 
 				out Boxa pboxae, 
 				out Boxa pboxao){
 
-
 	IntPtr pboxaePtr = IntPtr.Zero;
 	IntPtr pboxaoPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaSplitEvenOdd(
-boxa.Pointer,   fillflag, out pboxaePtr, out pboxaoPtr);
+	int _Result = Natives.boxaSplitEvenOdd(boxa.Pointer,   fillflag, out pboxaePtr, out pboxaoPtr);
 	
-
-
-//  
 	if (pboxaePtr == IntPtr.Zero) {pboxae = null;} else { pboxae = new Boxa(pboxaePtr); };
 	if (pboxaoPtr == IntPtr.Zero) {pboxao = null;} else { pboxao = new Boxa(pboxaoPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxfunc1.c (2475, 1)
 // boxaMergeEvenOdd(boxae, boxao, fillflag) as Boxa
 // boxaMergeEvenOdd(BOXA *, BOXA *, l_int32) as BOXA *
@@ -1622,24 +1202,14 @@ boxa.Pointer,   fillflag, out pboxaePtr, out pboxaoPtr);
 ///  <param name="boxao">[in] - boxes to go in odd positions in merged boxa</param>
 ///  <param name="fillflag">[in] - 1 if there are invalid boxes in placeholders</param>
 ///   <returns>boxad merged, or NULL on error</returns>
-
 public static Boxa boxaMergeEvenOdd(
 				 Boxa boxae, 
 				 Boxa boxao, 
 				 int fillflag){
 
-
-
-	IntPtr _Result = Natives.boxaMergeEvenOdd(
-boxae.Pointer, boxao.Pointer,   fillflag);
+	IntPtr _Result = Natives.boxaMergeEvenOdd(boxae.Pointer, boxao.Pointer,   fillflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 

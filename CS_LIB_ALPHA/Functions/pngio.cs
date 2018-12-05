@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (185, 1)
 // pixReadStreamPng(fp) as Pix
 // pixReadStreamPng(FILE *) as PIX *
@@ -41,26 +40,15 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamPng/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadStreamPng(
 				 FILE fp){
 
-
-
-	IntPtr _Result = Natives.pixReadStreamPng(
-fp.Pointer);
+	IntPtr _Result = Natives.pixReadStreamPng(fp.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (517, 1)
 // readHeaderPng(filename, pw, ph, pbps, pspp, piscmap) as int
 // readHeaderPng(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -81,7 +69,6 @@ fp.Pointer);
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///  <param name="piscmap">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int readHeaderPng(
 				 String filename, 
 				out int pw, 
@@ -90,21 +77,11 @@ public static int readHeaderPng(
 				out int pspp, 
 				out int piscmap){
 
-
-
-	int _Result = Natives.readHeaderPng(
-  filename, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
+	int _Result = Natives.readHeaderPng(  filename, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (561, 1)
 // freadHeaderPng(fp, pw, ph, pbps, pspp, piscmap) as int
 // freadHeaderPng(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -121,7 +98,6 @@ public static int readHeaderPng(
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///  <param name="piscmap">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int freadHeaderPng(
 				 FILE fp, 
 				out int pw, 
@@ -130,21 +106,11 @@ public static int freadHeaderPng(
 				out int pspp, 
 				out int piscmap){
 
-
-
-	int _Result = Natives.freadHeaderPng(
-fp.Pointer, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
+	int _Result = Natives.freadHeaderPng(fp.Pointer, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (618, 1)
 // readHeaderMemPng(data, size, pw, ph, pbps, pspp, piscmap) as int
 // readHeaderMemPng(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -172,7 +138,6 @@ fp.Pointer, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///  <param name="piscmap">[out][optional] - input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int readHeaderMemPng(
 				 Byte[] data, 
 				 uint size, 
@@ -182,21 +147,11 @@ public static int readHeaderMemPng(
 				out int pspp, 
 				out int piscmap){
 
-
-
-	int _Result = Natives.readHeaderMemPng(
-  data,   size, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
+	int _Result = Natives.readHeaderMemPng(  data,   size, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (704, 1)
 // fgetPngResolution(fp, pxres, pyres) as int
 // fgetPngResolution(FILE *, l_int32 *, l_int32 *) as l_int32
@@ -204,28 +159,18 @@ public static int readHeaderMemPng(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetPngResolution/*"/>
 ///   <returns></returns>
-
 public static int fgetPngResolution(
 				 FILE fp, 
 				 object pxres, 
 				 object pyres){
 
-
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
-	int _Result = Natives.fgetPngResolution(
-fp.Pointer,   pxres,   pyres);
+	int _Result = Natives.fgetPngResolution(fp.Pointer,   pxres,   pyres);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (761, 1)
 // isPngInterlaced(filename, pinterlaced) as int
 // isPngInterlaced(const char *, l_int32 *) as l_ok
@@ -235,26 +180,15 @@ fp.Pointer,   pxres,   pyres);
 ///  <param name="filename">[in] - </param>
 ///  <param name="pinterlaced">[out] - 1 if interlaced png 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int isPngInterlaced(
 				 String filename, 
 				out int pinterlaced){
 
-
-
-	int _Result = Natives.isPngInterlaced(
-  filename, out  pinterlaced);
+	int _Result = Natives.isPngInterlaced(  filename, out  pinterlaced);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (805, 1)
 // fgetPngColormapInfo(fp, pcmap, ptransparency) as int
 // fgetPngColormapInfo(FILE *, PIXCMAP **, l_int32 *) as l_ok
@@ -262,29 +196,19 @@ public static int isPngInterlaced(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetPngColormapInfo/*"/>
 ///   <returns></returns>
-
 public static int fgetPngColormapInfo(
 				 FILE fp, 
 				 PixColormap pcmap, 
 				 object ptransparency){
 
-
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pcmapPtr = IntPtr.Zero; 	if (pcmap != null) {pcmapPtr = pcmap.Pointer;}
 
-	int _Result = Natives.fgetPngColormapInfo(
-fp.Pointer, pcmapPtr,   ptransparency);
+	int _Result = Natives.fgetPngColormapInfo(fp.Pointer, pcmapPtr,   ptransparency);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (906, 1)
 // pixWritePng(filename, pix, gamma) as int
 // pixWritePng(const char *, PIX *, l_float32) as l_ok
@@ -299,27 +223,16 @@ fp.Pointer, pcmapPtr,   ptransparency);
 ///  <param name="pix">[in] - </param>
 ///  <param name="gamma">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixWritePng(
 				 String filename, 
 				 Pix pix, 
 				 Single gamma){
 
-
-
-	int _Result = Natives.pixWritePng(
-  filename, pix.Pointer,   gamma);
+	int _Result = Natives.pixWritePng(  filename, pix.Pointer,   gamma);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (1006, 1)
 // pixWriteStreamPng(fp, pix, gamma) as int
 // pixWriteStreamPng(FILE *, PIX *, l_float32) as l_ok
@@ -400,27 +313,16 @@ public static int pixWritePng(
 ///  <param name="pix">[in] - </param>
 ///  <param name="gamma">[in] - use 0.0 if gamma is not defined</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixWriteStreamPng(
 				 FILE fp, 
 				 Pix pix, 
 				 Single gamma){
 
-
-
-	int _Result = Natives.pixWriteStreamPng(
-fp.Pointer, pix.Pointer,   gamma);
+	int _Result = Natives.pixWriteStreamPng(fp.Pointer, pix.Pointer,   gamma);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (1250, 1)
 // pixSetZlibCompression(pix, compval) as int
 // pixSetZlibCompression(PIX *, l_int32) as l_ok
@@ -443,26 +345,15 @@ fp.Pointer, pix.Pointer,   gamma);
 ///  <param name="pix">[in] - </param>
 ///  <param name="compval">[in] - zlib compression value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetZlibCompression(
 				 Pix pix, 
 				 int compval){
 
-
-
-	int _Result = Natives.pixSetZlibCompression(
-pix.Pointer,   compval);
+	int _Result = Natives.pixSetZlibCompression(pix.Pointer,   compval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (1277, 1)
 // l_pngSetReadStrip16To8(flag) as Object
 // l_pngSetReadStrip16To8(l_int32) as void
@@ -470,24 +361,13 @@ pix.Pointer,   compval);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_pngSetReadStrip16To8/*"/>
 ///  <param name="flag">[in] - 1 for stripping 16 bpp to 8 bpp on reading 0 for leaving 16 bpp</param>
-
 public static void l_pngSetReadStrip16To8(
 				 int flag){
 
-
-
-	Natives.l_pngSetReadStrip16To8(
-  flag);
+	Natives.l_pngSetReadStrip16To8(  flag);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (1520, 1)
 // pixReadMemPng(filedata, filesize) as Pix
 // pixReadMemPng(const l_uint8 *, size_t) as PIX *
@@ -500,27 +380,16 @@ public static void l_pngSetReadStrip16To8(
 ///  <param name="filedata">[in] - png compressed data in memory</param>
 ///  <param name="filesize">[in] - number of bytes in data</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadMemPng(
 				 Byte[] filedata, 
 				 uint filesize){
 
-
-
-	IntPtr _Result = Natives.pixReadMemPng(
-  filedata,   filesize);
+	IntPtr _Result = Natives.pixReadMemPng(  filedata,   filesize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pngio.c (1858, 1)
 // pixWriteMemPng(pfiledata, pfilesize, pix, gamma) as int
 // pixWriteMemPng(l_uint8 **, size_t *, PIX *, l_float32) as l_ok
@@ -535,30 +404,21 @@ public static Pix pixReadMemPng(
 ///  <param name="pix">[in] - </param>
 ///  <param name="gamma">[in] - use 0.0 if gamma is not defined</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixWriteMemPng(
 				out Byte[] pfiledata, 
 				out uint pfilesize, 
 				 Pix pix, 
 				 Single gamma){
 
-
 	IntPtr pfiledataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMemPng(
-out  pfiledataPtr, out  pfilesize, pix.Pointer,   gamma);
+	int _Result = Natives.pixWriteMemPng(out  pfiledataPtr, out  pfilesize, pix.Pointer,   gamma);
 	
-
-
-//  
 	Byte[] pfiledataGen = new Byte[pfilesize];
 	if (pfiledataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pfiledataPtr, pfiledataGen, 0, pfiledataGen.Length);
 	}
 	pfiledata = pfiledataGen;
-
-
-
 	return _Result;
 }
 

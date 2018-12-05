@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (113, 1)
 // pixHShear(pixd, pixs, yloc, radang, incolor) as Pix
 // pixHShear(PIX *, PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -52,7 +51,6 @@ public partial class _All {
 ///  <param name="radang">[in] - angle in radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, always</returns>
-
 public static Pix pixHShear(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -60,23 +58,14 @@ public static Pix pixHShear(
 				 Single radang, 
 				 int incolor){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixHShear(
-pixdPtr, pixs.Pointer,   yloc,   radang,   incolor);
+	IntPtr _Result = Natives.pixHShear(pixdPtr, pixs.Pointer,   yloc,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (230, 1)
 // pixVShear(pixd, pixs, xloc, radang, incolor) as Pix
 // pixVShear(PIX *, PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -122,7 +111,6 @@ pixdPtr, pixs.Pointer,   yloc,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians not too close to +-(pi / 2)</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixVShear(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -130,23 +118,14 @@ public static Pix pixVShear(
 				 Single radang, 
 				 int incolor){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixVShear(
-pixdPtr, pixs.Pointer,   xloc,   radang,   incolor);
+	IntPtr _Result = Natives.pixVShear(pixdPtr, pixs.Pointer,   xloc,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (328, 1)
 // pixHShearCorner(pixd, pixs, radang, incolor) as Pix
 // pixHShearCorner(PIX *, PIX *, l_float32, l_int32) as PIX *
@@ -164,30 +143,20 @@ pixdPtr, pixs.Pointer,   xloc,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixHShearCorner(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single radang, 
 				 int incolor){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixHShearCorner(
-pixdPtr, pixs.Pointer,   radang,   incolor);
+	IntPtr _Result = Natives.pixHShearCorner(pixdPtr, pixs.Pointer,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (359, 1)
 // pixVShearCorner(pixd, pixs, radang, incolor) as Pix
 // pixVShearCorner(PIX *, PIX *, l_float32, l_int32) as PIX *
@@ -205,30 +174,20 @@ pixdPtr, pixs.Pointer,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixVShearCorner(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single radang, 
 				 int incolor){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixVShearCorner(
-pixdPtr, pixs.Pointer,   radang,   incolor);
+	IntPtr _Result = Natives.pixVShearCorner(pixdPtr, pixs.Pointer,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (390, 1)
 // pixHShearCenter(pixd, pixs, radang, incolor) as Pix
 // pixHShearCenter(PIX *, PIX *, l_float32, l_int32) as PIX *
@@ -246,30 +205,20 @@ pixdPtr, pixs.Pointer,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixHShearCenter(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single radang, 
 				 int incolor){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixHShearCenter(
-pixdPtr, pixs.Pointer,   radang,   incolor);
+	IntPtr _Result = Natives.pixHShearCenter(pixdPtr, pixs.Pointer,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (421, 1)
 // pixVShearCenter(pixd, pixs, radang, incolor) as Pix
 // pixVShearCenter(PIX *, PIX *, l_float32, l_int32) as PIX *
@@ -287,30 +236,20 @@ pixdPtr, pixs.Pointer,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixVShearCenter(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single radang, 
 				 int incolor){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixVShearCenter(
-pixdPtr, pixs.Pointer,   radang,   incolor);
+	IntPtr _Result = Natives.pixVShearCenter(pixdPtr, pixs.Pointer,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (459, 1)
 // pixHShearIP(pixs, yloc, radang, incolor) as int
 // pixHShearIP(PIX *, l_int32, l_float32, l_int32) as l_ok
@@ -333,28 +272,17 @@ pixdPtr, pixs.Pointer,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixHShearIP(
 				 Pix pixs, 
 				 int yloc, 
 				 Single radang, 
 				 int incolor){
 
-
-
-	int _Result = Natives.pixHShearIP(
-pixs.Pointer,   yloc,   radang,   incolor);
+	int _Result = Natives.pixHShearIP(pixs.Pointer,   yloc,   radang,   incolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (534, 1)
 // pixVShearIP(pixs, xloc, radang, incolor) as int
 // pixVShearIP(PIX *, l_int32, l_float32, l_int32) as l_ok
@@ -377,28 +305,17 @@ pixs.Pointer,   yloc,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixVShearIP(
 				 Pix pixs, 
 				 int xloc, 
 				 Single radang, 
 				 int incolor){
 
-
-
-	int _Result = Natives.pixVShearIP(
-pixs.Pointer,   xloc,   radang,   incolor);
+	int _Result = Natives.pixVShearIP(pixs.Pointer,   xloc,   radang,   incolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (617, 1)
 // pixHShearLI(pixs, yloc, radang, incolor) as Pix
 // pixHShearLI(PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -426,29 +343,18 @@ pixs.Pointer,   xloc,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd sheared, or NULL on error</returns>
-
 public static Pix pixHShearLI(
 				 Pix pixs, 
 				 int yloc, 
 				 Single radang, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixHShearLI(
-pixs.Pointer,   yloc,   radang,   incolor);
+	IntPtr _Result = Natives.pixHShearLI(pixs.Pointer,   yloc,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // shear.c (729, 1)
 // pixVShearLI(pixs, xloc, radang, incolor) as Pix
 // pixVShearLI(PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -476,25 +382,15 @@ pixs.Pointer,   yloc,   radang,   incolor);
 ///  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd sheared, or NULL on error</returns>
-
 public static Pix pixVShearLI(
 				 Pix pixs, 
 				 int xloc, 
 				 Single radang, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixVShearLI(
-pixs.Pointer,   xloc,   radang,   incolor);
+	IntPtr _Result = Natives.pixVShearLI(pixs.Pointer,   xloc,   radang,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // finditalic.c (110, 1)
 // pixItalicWords(pixs, boxaw, pixw, pboxa, debugflag) as int
 // pixItalicWords(PIX *, BOXA *, PIX *, BOXA **, l_int32) as l_ok
@@ -42,7 +41,6 @@ public partial class _All {
 ///  <param name="pboxa">[out] - boxa of italic words</param>
 ///  <param name="debugflag">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixItalicWords(
 				 Pix pixs, 
 				 Boxa boxaw, 
@@ -50,21 +48,13 @@ public static int pixItalicWords(
 				out Boxa pboxa, 
 				 int debugflag){
 
-
 	IntPtr boxawPtr = IntPtr.Zero; 	if (boxaw != null) {boxawPtr = boxaw.Pointer;}
 	IntPtr pixwPtr = IntPtr.Zero; 	if (pixw != null) {pixwPtr = pixw.Pointer;}
 	IntPtr pboxaPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixItalicWords(
-pixs.Pointer, boxawPtr, pixwPtr, out pboxaPtr,   debugflag);
+	int _Result = Natives.pixItalicWords(pixs.Pointer, boxawPtr, pixwPtr, out pboxaPtr,   debugflag);
 	
-
-
-//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-
-
-
 	return _Result;
 }
 

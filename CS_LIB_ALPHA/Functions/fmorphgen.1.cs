@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fmorphgen.1.c (37, 6)
 // pixMorphDwa_1(pixd, pixs, operation, selname) as Pix
 // pixMorphDwa_1(PIX *, PIX *, l_int32, char *) as PIX *
@@ -25,29 +24,18 @@ public partial class _All {
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixMorphDwa_1(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int operation, 
 				 String selname){
 
-
-
-	IntPtr _Result = Natives.pixMorphDwa_1(
-pixd.Pointer, pixs.Pointer,   operation,   selname);
+	IntPtr _Result = Natives.pixMorphDwa_1(pixd.Pointer, pixs.Pointer,   operation,   selname);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fmorphgen.1.c (38, 6)
 // pixFMorphopGen_1(pixd, pixs, operation, selname) as Pix
 // pixFMorphopGen_1(PIX *, PIX *, l_int32, char *) as PIX *
@@ -72,29 +60,18 @@ pixd.Pointer, pixs.Pointer,   operation,   selname);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixFMorphopGen_1(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int operation, 
 				 String selname){
 
-
-
-	IntPtr _Result = Natives.pixFMorphopGen_1(
-pixd.Pointer, pixs.Pointer,   operation,   selname);
+	IntPtr _Result = Natives.pixFMorphopGen_1(pixd.Pointer, pixs.Pointer,   operation,   selname);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fmorphgen.1.c (39, 9)
 // fmorphopgen_low_1(datad, w, h, wpld, datas, wpls, index) as int
 // fmorphopgen_low_1(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
@@ -102,7 +79,6 @@ pixd.Pointer, pixs.Pointer,   operation,   selname);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fmorphopgen_low_1/*"/>
 ///   <returns></returns>
-
 public static int fmorphopgen_low_1(
 				 object datad, 
 				 int w, 
@@ -112,17 +88,8 @@ public static int fmorphopgen_low_1(
 				 int wpls, 
 				 int index){
 
-
-
-	int _Result = Natives.fmorphopgen_low_1(
-  datad,   w,   h,   wpld,   datas,   wpls,   index);
+	int _Result = Natives.fmorphopgen_low_1(  datad,   w,   h,   wpld,   datas,   wpls,   index);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

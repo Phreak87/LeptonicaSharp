@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateorth.c (72, 1)
 // pixRotateOrth(pixs, quads) as Pix
 // pixRotateOrth(PIX *, l_int32) as PIX *
@@ -16,27 +15,16 @@ public partial class _All {
 ///  <param name="pixs">[in] - all depths</param>
 ///  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixRotateOrth(
 				 Pix pixs, 
 				 int quads){
 
-
-
-	IntPtr _Result = Natives.pixRotateOrth(
-pixs.Pointer,   quads);
+	IntPtr _Result = Natives.pixRotateOrth(pixs.Pointer,   quads);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateorth.c (121, 1)
 // pixRotate180(pixd, pixs) as Pix
 // pixRotate180(PIX *, PIX *) as PIX *
@@ -62,28 +50,18 @@ pixs.Pointer,   quads);
 ///  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 ///  <param name="pixs">[in] - all depths</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixRotate180(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixRotate180(
-pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixRotate180(pixdPtr, pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateorth.c (163, 1)
 // pixRotate90(pixs, direction) as Pix
 // pixRotate90(PIX *, l_int32) as PIX *
@@ -99,27 +77,16 @@ pixdPtr, pixs.Pointer);
 ///  <param name="pixs">[in] - all depths</param>
 ///  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixRotate90(
 				 Pix pixs, 
 				 int direction){
 
-
-
-	IntPtr _Result = Natives.pixRotate90(
-pixs.Pointer,   direction);
+	IntPtr _Result = Natives.pixRotate90(pixs.Pointer,   direction);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateorth.c (423, 1)
 // pixFlipLR(pixd, pixs) as Pix
 // pixFlipLR(PIX *, PIX *) as PIX *
@@ -166,28 +133,18 @@ pixs.Pointer,   direction);
 ///  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 ///  <param name="pixs">[in] - all depths</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixFlipLR(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixFlipLR(
-pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixFlipLR(pixdPtr, pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateorth.c (601, 1)
 // pixFlipTB(pixd, pixs) as Pix
 // pixFlipTB(PIX *, PIX *) as PIX *
@@ -219,24 +176,15 @@ pixdPtr, pixs.Pointer);
 ///  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 ///  <param name="pixs">[in] - all depths</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixFlipTB(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixFlipTB(
-pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixFlipTB(pixdPtr, pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

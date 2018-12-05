@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (107, 1)
 // pixSimpleCaptcha(pixs, border, nterms, seed, color, cmapflag) as Pix
 // pixSimpleCaptcha(PIX *, l_int32, l_int32, l_uint32, l_uint32, l_int32) as PIX *
@@ -26,7 +25,6 @@ public partial class _All {
 ///  <param name="color">[in] - for colorizing in 0xrrggbb00 format use 0 for black</param>
 ///  <param name="cmapflag">[in] - 1 for colormap output 0 for rgb</param>
 ///   <returns>pixd 8 bpp cmap or 32 bpp rgb, or NULL on error</returns>
-
 public static Pix pixSimpleCaptcha(
 				 Pix pixs, 
 				 int border, 
@@ -35,22 +33,12 @@ public static Pix pixSimpleCaptcha(
 				 uint color, 
 				 int cmapflag){
 
-
-
-	IntPtr _Result = Natives.pixSimpleCaptcha(
-pixs.Pointer,   border,   nterms,   seed,   color,   cmapflag);
+	IntPtr _Result = Natives.pixSimpleCaptcha(pixs.Pointer,   border,   nterms,   seed,   color,   cmapflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (181, 1)
 // pixRandomHarmonicWarp(pixs, xmag, ymag, xfreq, yfreq, nx, ny, seed, grayval) as Pix
 // pixRandomHarmonicWarp(PIX *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32, l_uint32, l_int32) as PIX *
@@ -89,7 +77,6 @@ pixs.Pointer,   border,   nterms,   seed,   color,   cmapflag);
 ///  <param name="seed">[in] - of random number generator</param>
 ///  <param name="grayval">[in] - color brought in from the outside 0 for black, 255 for white</param>
 ///   <returns>pixd 8 bpp no colormap, or NULL on error</returns>
-
 public static Pix pixRandomHarmonicWarp(
 				 Pix pixs, 
 				 Single xmag, 
@@ -101,22 +88,12 @@ public static Pix pixRandomHarmonicWarp(
 				 uint seed, 
 				 int grayval){
 
-
-
-	IntPtr _Result = Natives.pixRandomHarmonicWarp(
-pixs.Pointer,   xmag,   ymag,   xfreq,   yfreq,   nx,   ny,   seed,   grayval);
+	IntPtr _Result = Natives.pixRandomHarmonicWarp(pixs.Pointer,   xmag,   ymag,   xfreq,   yfreq,   nx,   ny,   seed,   grayval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (586, 1)
 // pixWarpStereoscopic(pixs, zbend, zshiftt, zshiftb, ybendt, ybendb, redleft) as Pix
 // pixWarpStereoscopic(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -201,7 +178,6 @@ pixs.Pointer,   xmag,   ymag,   xfreq,   yfreq,   nx,   ny,   seed,   grayval);
 ///  <param name="ybendb">[in] - same as ybendt, except at the left or right edge at the bottom</param>
 ///  <param name="redleft">[in] - 1 if the red filter is on the left 0 otherwise</param>
 ///   <returns>pixd 32 bpp, or NULL on error</returns>
-
 public static Pix pixWarpStereoscopic(
 				 Pix pixs, 
 				 int zbend, 
@@ -211,22 +187,12 @@ public static Pix pixWarpStereoscopic(
 				 int ybendb, 
 				 int redleft){
 
-
-
-	IntPtr _Result = Natives.pixWarpStereoscopic(
-pixs.Pointer,   zbend,   zshiftt,   zshiftb,   ybendt,   ybendb,   redleft);
+	IntPtr _Result = Natives.pixWarpStereoscopic(pixs.Pointer,   zbend,   zshiftt,   zshiftb,   ybendt,   ybendb,   redleft);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (733, 1)
 // pixStretchHorizontal(pixs, dir, type, hmax, operation, incolor) as Pix
 // pixStretchHorizontal(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -258,7 +224,6 @@ pixs.Pointer,   zbend,   zshiftt,   zshiftb,   ybendt,   ybendb,   redleft);
 ///  <param name="operation">[in] - L_SAMPLED or L_INTERPOLATED</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched/compressed, or NULL on error</returns>
-
 public static Pix pixStretchHorizontal(
 				 Pix pixs, 
 				 int dir, 
@@ -267,22 +232,12 @@ public static Pix pixStretchHorizontal(
 				 int operation, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixStretchHorizontal(
-pixs.Pointer,   dir,   type,   hmax,   operation,   incolor);
+	IntPtr _Result = Natives.pixStretchHorizontal(pixs.Pointer,   dir,   type,   hmax,   operation,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (785, 1)
 // pixStretchHorizontalSampled(pixs, dir, type, hmax, incolor) as Pix
 // pixStretchHorizontalSampled(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -298,7 +253,6 @@ pixs.Pointer,   dir,   type,   hmax,   operation,   incolor);
 ///  <param name="hmax">[in] - horizontal displacement at edge</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched/compressed, or NULL on error</returns>
-
 public static Pix pixStretchHorizontalSampled(
 				 Pix pixs, 
 				 int dir, 
@@ -306,22 +260,12 @@ public static Pix pixStretchHorizontalSampled(
 				 int hmax, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixStretchHorizontalSampled(
-pixs.Pointer,   dir,   type,   hmax,   incolor);
+	IntPtr _Result = Natives.pixStretchHorizontalSampled(pixs.Pointer,   dir,   type,   hmax,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (883, 1)
 // pixStretchHorizontalLI(pixs, dir, type, hmax, incolor) as Pix
 // pixStretchHorizontalLI(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -337,7 +281,6 @@ pixs.Pointer,   dir,   type,   hmax,   incolor);
 ///  <param name="hmax">[in] - horizontal displacement at edge</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched/compressed, or NULL on error</returns>
-
 public static Pix pixStretchHorizontalLI(
 				 Pix pixs, 
 				 int dir, 
@@ -345,22 +288,12 @@ public static Pix pixStretchHorizontalLI(
 				 int hmax, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixStretchHorizontalLI(
-pixs.Pointer,   dir,   type,   hmax,   incolor);
+	IntPtr _Result = Natives.pixStretchHorizontalLI(pixs.Pointer,   dir,   type,   hmax,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (1019, 1)
 // pixQuadraticVShear(pixs, dir, vmaxt, vmaxb, operation, incolor) as Pix
 // pixQuadraticVShear(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -394,7 +327,6 @@ pixs.Pointer,   dir,   type,   hmax,   incolor);
 ///  <param name="operation">[in] - L_SAMPLED or L_INTERPOLATED</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched, or NULL on error</returns>
-
 public static Pix pixQuadraticVShear(
 				 Pix pixs, 
 				 int dir, 
@@ -403,22 +335,12 @@ public static Pix pixQuadraticVShear(
 				 int operation, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixQuadraticVShear(
-pixs.Pointer,   dir,   vmaxt,   vmaxb,   operation,   incolor);
+	IntPtr _Result = Natives.pixQuadraticVShear(pixs.Pointer,   dir,   vmaxt,   vmaxb,   operation,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (1073, 1)
 // pixQuadraticVShearSampled(pixs, dir, vmaxt, vmaxb, incolor) as Pix
 // pixQuadraticVShearSampled(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -434,7 +356,6 @@ pixs.Pointer,   dir,   vmaxt,   vmaxb,   operation,   incolor);
 ///  <param name="vmaxb">[in] - max vertical displacement at edge and at bottom</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched, or NULL on error</returns>
-
 public static Pix pixQuadraticVShearSampled(
 				 Pix pixs, 
 				 int dir, 
@@ -442,22 +363,12 @@ public static Pix pixQuadraticVShearSampled(
 				 int vmaxb, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixQuadraticVShearSampled(
-pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
+	IntPtr _Result = Natives.pixQuadraticVShearSampled(pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (1179, 1)
 // pixQuadraticVShearLI(pixs, dir, vmaxt, vmaxb, incolor) as Pix
 // pixQuadraticVShearLI(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -473,7 +384,6 @@ pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 ///  <param name="vmaxb">[in] - max vertical displacement at edge and at bottom</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched, or NULL on error</returns>
-
 public static Pix pixQuadraticVShearLI(
 				 Pix pixs, 
 				 int dir, 
@@ -481,22 +391,12 @@ public static Pix pixQuadraticVShearLI(
 				 int vmaxb, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixQuadraticVShearLI(
-pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
+	IntPtr _Result = Natives.pixQuadraticVShearLI(pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // warper.c (1332, 1)
 // pixStereoFromPair(pix1, pix2, rwt, gwt, bwt) as Pix
 // pixStereoFromPair(PIX *, PIX *, l_float32, l_float32, l_float32) as PIX *
@@ -532,7 +432,6 @@ pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 ///  <param name="gwt">[in] - weighting factors used for each component in                                pix1 to determine the output red channel</param>
 ///  <param name="bwt">[in] - weighting factors used for each component in                                pix1 to determine the output red channel</param>
 ///   <returns>pixd stereo enhanced, or NULL on error</returns>
-
 public static Pix pixStereoFromPair(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -540,18 +439,9 @@ public static Pix pixStereoFromPair(
 				 Single gwt, 
 				 Single bwt){
 
-
-
-	IntPtr _Result = Natives.pixStereoFromPair(
-pix1.Pointer, pix2.Pointer,   rwt,   gwt,   bwt);
+	IntPtr _Result = Natives.pixStereoFromPair(pix1.Pointer, pix2.Pointer,   rwt,   gwt,   bwt);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

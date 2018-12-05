@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixlabel.c (114, 1)
 // pixConnCompTransform(pixs, connect, depth) as Pix
 // pixConnCompTransform(PIX *, l_int32, l_int32) as PIX *
@@ -31,28 +30,17 @@ public partial class _All {
 ///  <param name="connect">[in] - connectivity: 4 or 8</param>
 ///  <param name="depth">[in] - of pixd: 8 or 16 bpp use 0 for auto determination</param>
 ///   <returns>pixd 8, 16 or 32 bpp, or NULL on error</returns>
-
 public static Pix pixConnCompTransform(
 				 Pix pixs, 
 				 int connect, 
 				 int depth){
 
-
-
-	IntPtr _Result = Natives.pixConnCompTransform(
-pixs.Pointer,   connect,   depth);
+	IntPtr _Result = Natives.pixConnCompTransform(pixs.Pointer,   connect,   depth);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixlabel.c (194, 1)
 // pixConnCompAreaTransform(pixs, connect) as Pix
 // pixConnCompAreaTransform(PIX *, l_int32) as PIX *
@@ -69,27 +57,16 @@ pixs.Pointer,   connect,   depth);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="connect">[in] - connectivity: 4 or 8</param>
 ///   <returns>pixd 32 bpp, 1 spp, or NULL on error</returns>
-
 public static Pix pixConnCompAreaTransform(
 				 Pix pixs, 
 				 int connect){
 
-
-
-	IntPtr _Result = Natives.pixConnCompAreaTransform(
-pixs.Pointer,   connect);
+	IntPtr _Result = Natives.pixConnCompAreaTransform(pixs.Pointer,   connect);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixlabel.c (267, 1)
 // pixConnCompIncrInit(pixs, conn, ppixd, pptaa, pncc) as int
 // pixConnCompIncrInit(PIX *, l_int32, PIX **, PTAA **, l_int32 *) as l_ok
@@ -118,7 +95,6 @@ pixs.Pointer,   connect);
 ///  <param name="pptaa">[out] - with pixel locations indexed by c.c.</param>
 ///  <param name="pncc">[out] - initial number of c.c.</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixConnCompIncrInit(
 				 Pix pixs, 
 				 int conn, 
@@ -126,25 +102,16 @@ public static int pixConnCompIncrInit(
 				out Ptaa pptaa, 
 				out int pncc){
 
-
 	IntPtr ppixdPtr = IntPtr.Zero;
 	IntPtr pptaaPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixConnCompIncrInit(
-pixs.Pointer,   conn, out ppixdPtr, out pptaaPtr, out  pncc);
+	int _Result = Natives.pixConnCompIncrInit(pixs.Pointer,   conn, out ppixdPtr, out pptaaPtr, out  pncc);
 	
-
-
-//  
 	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 	if (pptaaPtr == IntPtr.Zero) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixlabel.c (351, 1)
 // pixConnCompIncrAdd(pixs, ptaa, pncc, x, y, debug) as int
 // pixConnCompIncrAdd(PIX *, PTAA *, l_int32 *, l_float32, l_float32, l_int32) as l_int32
@@ -182,7 +149,6 @@ pixs.Pointer,   conn, out ppixdPtr, out pptaaPtr, out  pncc);
 ///  <param name="x">[in] - ,y location of added pixel</param>
 ///  <param name="debug">[in] - 0 for no output otherwise output whenever debug smaller or equal nvals, up to debug == 3</param>
 ///   <returns>-1 if nothing happens 0 if a pixel is added 1 on error</returns>
-
 public static int pixConnCompIncrAdd(
 				 Pix pixs, 
 				 Ptaa ptaa, 
@@ -191,21 +157,11 @@ public static int pixConnCompIncrAdd(
 				 Single y, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixConnCompIncrAdd(
-pixs.Pointer, ptaa.Pointer, out  pncc,   x,   y,  (int) debug);
+	int _Result = Natives.pixConnCompIncrAdd(pixs.Pointer, ptaa.Pointer, out  pncc,   x,   y,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixlabel.c (481, 1)
 // pixGetSortedNeighborValues(pixs, x, y, conn, pneigh, pnvals) as int
 // pixGetSortedNeighborValues(PIX *, l_int32, l_int32, l_int32, l_int32 **, l_int32 *) as l_ok
@@ -231,7 +187,6 @@ pixs.Pointer, ptaa.Pointer, out  pncc,   x,   y,  (int) debug);
 ///  <param name="pneigh">[out] - array of integers, to be filled with the values of the neighbors, if any</param>
 ///  <param name="pnvals">[out] - the number of unique neighbor values found</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetSortedNeighborValues(
 				 Pix pixs, 
 				 int x, 
@@ -240,23 +195,14 @@ public static int pixGetSortedNeighborValues(
 				out List<int[]> pneigh, 
 				out int pnvals){
 
-
 	IntPtr pneighPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetSortedNeighborValues(
-pixs.Pointer,   x,   y,   conn, out  pneighPtr, out  pnvals);
+	int _Result = Natives.pixGetSortedNeighborValues(pixs.Pointer,   x,   y,   conn, out  pneighPtr, out  pnvals);
 	
-
-
-//  
 	if (pneighPtr == null) {pneigh = null;} else { pneigh = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixlabel.c (567, 1)
 // pixLocToColorTransform(pixs) as Pix
 // pixLocToColorTransform(PIX *) as PIX *
@@ -277,22 +223,12 @@ pixs.Pointer,   x,   y,   conn, out  pneighPtr, out  pnvals);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLocToColorTransform/*"/>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 32 bpp rgb, or NULL on error</returns>
-
 public static Pix pixLocToColorTransform(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixLocToColorTransform(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixLocToColorTransform(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

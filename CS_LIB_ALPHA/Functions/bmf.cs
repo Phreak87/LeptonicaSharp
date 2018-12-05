@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmf.c (114, 1)
 // bmfCreate(dir, fontsize) as L_Bmf
 // bmfCreate(const char *, l_int32) as L_BMF *
@@ -26,27 +25,16 @@ public partial class _All {
 ///  <param name="dir">[in][optional] - directory holding pixa of character set</param>
 ///  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 ///   <returns>bmf holding the bitmap font and associated information</returns>
-
 public static L_Bmf bmfCreate(
 				 String dir, 
 				 int fontsize){
 
-
-
-	IntPtr _Result = Natives.bmfCreate(
-  dir,   fontsize);
+	IntPtr _Result = Natives.bmfCreate(  dir,   fontsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Bmf(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmf.c (166, 1)
 // bmfDestroy(pbmf) as Object
 // bmfDestroy(L_BMF **) as void
@@ -54,26 +42,16 @@ public static L_Bmf bmfCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfDestroy/*"/>
 ///  <param name="pbmf">[in,out] - set to null</param>
-
 public static void bmfDestroy(
 				ref L_Bmf pbmf){
 
-
 	IntPtr pbmfPtr = IntPtr.Zero; 	if (pbmf != null) {pbmfPtr = pbmf.Pointer;}
 
-	Natives.bmfDestroy(
-ref pbmfPtr);
+	Natives.bmfDestroy(ref pbmfPtr);
 	
-
-
-//  
 	if (pbmfPtr == IntPtr.Zero) {pbmf = null;} else { pbmf = new L_Bmf(pbmfPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmf.c (202, 1)
 // bmfGetPix(bmf, chr) as Pix
 // bmfGetPix(L_BMF *, char) as PIX *
@@ -83,27 +61,16 @@ ref pbmfPtr);
 ///  <param name="bmf">[in] - </param>
 ///  <param name="chr">[in] - should be one of the 95 supported printable bitmaps</param>
 ///   <returns>pix clone of pix in bmf, or NULL on error</returns>
-
 public static Pix bmfGetPix(
 				 L_Bmf bmf, 
 				 char chr){
 
-
-
-	IntPtr _Result = Natives.bmfGetPix(
-bmf.Pointer,   chr);
+	IntPtr _Result = Natives.bmfGetPix(bmf.Pointer,   chr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmf.c (237, 1)
 // bmfGetWidth(bmf, chr, pw) as int
 // bmfGetWidth(L_BMF *, char, l_int32 *) as l_ok
@@ -114,27 +81,16 @@ bmf.Pointer,   chr);
 ///  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 ///  <param name="pw">[out] - character width -1 if not printable</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int bmfGetWidth(
 				 L_Bmf bmf, 
 				 char chr, 
 				out int pw){
 
-
-
-	int _Result = Natives.bmfGetWidth(
-bmf.Pointer,   chr, out  pw);
+	int _Result = Natives.bmfGetWidth(bmf.Pointer,   chr, out  pw);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmf.c (276, 1)
 // bmfGetBaseline(bmf, chr, pbaseline) as int
 // bmfGetBaseline(L_BMF *, char, l_int32 *) as l_ok
@@ -145,27 +101,16 @@ bmf.Pointer,   chr, out  pw);
 ///  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 ///  <param name="pbaseline">[out] - distance below UL corner of bitmap char</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int bmfGetBaseline(
 				 L_Bmf bmf, 
 				 char chr, 
 				out int pbaseline){
 
-
-
-	int _Result = Natives.bmfGetBaseline(
-bmf.Pointer,   chr, out  pbaseline);
+	int _Result = Natives.bmfGetBaseline(bmf.Pointer,   chr, out  pbaseline);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmf.c (322, 1)
 // pixaGetFont(dir, fontsize, pbl0, pbl1, pbl2) as Pixa
 // pixaGetFont(const char *, l_int32, l_int32 *, l_int32 *, l_int32 *) as PIXA *
@@ -181,7 +126,6 @@ bmf.Pointer,   chr, out  pbaseline);
 ///  <param name="pbl1">[out] - baseline of row 2</param>
 ///  <param name="pbl2">[out] - baseline of row 3</param>
 ///   <returns>pixa of font bitmaps for 95 characters, or NULL on error</returns>
-
 public static Pixa pixaGetFont(
 				 String dir, 
 				 int fontsize, 
@@ -189,22 +133,12 @@ public static Pixa pixaGetFont(
 				out int pbl1, 
 				out int pbl2){
 
-
-
-	IntPtr _Result = Natives.pixaGetFont(
-  dir,   fontsize, out  pbl0, out  pbl1, out  pbl2);
+	IntPtr _Result = Natives.pixaGetFont(  dir,   fontsize, out  pbl0, out  pbl1, out  pbl2);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmf.c (372, 1)
 // pixaSaveFont(indir, outdir, fontsize) as int
 // pixaSaveFont(const char *, const char *, l_int32) as l_ok
@@ -224,23 +158,13 @@ public static Pixa pixaGetFont(
 ///  <param name="outdir">[in] - directory into which the output pixa file will be written</param>
 ///  <param name="fontsize">[in] - in pts, at 300 ppi</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixaSaveFont(
 				 String indir, 
 				 String outdir, 
 				 int fontsize){
 
-
-
-	int _Result = Natives.pixaSaveFont(
-  indir,   outdir,   fontsize);
+	int _Result = Natives.pixaSaveFont(  indir,   outdir,   fontsize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // strokes.c (75, 1)
 // pixFindStrokeLength(pixs, tab8, plength) as int
 // pixFindStrokeLength(PIX *, l_int32 *, l_int32 *) as l_ok
@@ -20,27 +19,16 @@ public partial class _All {
 ///  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
 ///  <param name="plength">[out] - estimated length of the strokes</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFindStrokeLength(
 				 Pix pixs, 
 				 int[] tab8, 
 				out int plength){
 
-
-
-	int _Result = Natives.pixFindStrokeLength(
-pixs.Pointer,   tab8, out  plength);
+	int _Result = Natives.pixFindStrokeLength(pixs.Pointer,   tab8, out  plength);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // strokes.c (123, 1)
 // pixFindStrokeWidth(pixs, thresh, tab8, pwidth, pnahisto) as int
 // pixFindStrokeWidth(PIX *, l_float32, l_int32 *, l_float32 *, NUMA **) as l_ok
@@ -64,7 +52,6 @@ pixs.Pointer,   tab8, out  plength);
 ///  <param name="pwidth">[out] - estimated width of the strokes</param>
 ///  <param name="pnahisto">[out][optional] - histo of pixel distances from bg</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFindStrokeWidth(
 				 Pix pixs, 
 				 Single thresh, 
@@ -72,23 +59,14 @@ public static int pixFindStrokeWidth(
 				out Single pwidth, 
 				out Numa pnahisto){
 
-
 	IntPtr pnahistoPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixFindStrokeWidth(
-pixs.Pointer,   thresh,   tab8, out  pwidth, out pnahistoPtr);
+	int _Result = Natives.pixFindStrokeWidth(pixs.Pointer,   thresh,   tab8, out  pwidth, out pnahistoPtr);
 	
-
-
-//  
 	if (pnahistoPtr == IntPtr.Zero) {pnahisto = null;} else { pnahisto = new Numa(pnahistoPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // strokes.c (208, 1)
 // pixaFindStrokeWidth(pixa, thresh, tab8, debug) as Numa
 // pixaFindStrokeWidth(PIXA *, l_float32, l_int32 *, l_int32) as NUMA *
@@ -103,29 +81,18 @@ pixs.Pointer,   thresh,   tab8, out  pwidth, out pnahistoPtr);
 ///  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
 ///  <param name="debug">[in] - 1 for debug output 0 to skip</param>
 ///   <returns>na  array of stroke widths for each pix in %pixa NULL on error</returns>
-
 public static Numa pixaFindStrokeWidth(
 				 Pixa pixa, 
 				 Single thresh, 
 				 int[] tab8, 
 				 DebugOnOff debug){
 
-
-
-	IntPtr _Result = Natives.pixaFindStrokeWidth(
-pixa.Pointer,   thresh,   tab8,  (int) debug);
+	IntPtr _Result = Natives.pixaFindStrokeWidth(pixa.Pointer,   thresh,   tab8,  (int) debug);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // strokes.c (254, 1)
 // pixaModifyStrokeWidth(pixas, targetw) as Pixa
 // pixaModifyStrokeWidth(PIXA *, l_float32) as PIXA *
@@ -135,27 +102,16 @@ pixa.Pointer,   thresh,   tab8,  (int) debug);
 ///  <param name="pixas">[in] - of 1 bpp pix</param>
 ///  <param name="targetw">[out] - desired width for strokes in each pix</param>
 ///   <returns>pixa  with modified stroke widths, or NULL on error</returns>
-
 public static Pixa pixaModifyStrokeWidth(
 				 Pixa pixas, 
 				out Single targetw){
 
-
-
-	IntPtr _Result = Natives.pixaModifyStrokeWidth(
-pixas.Pointer, out  targetw);
+	IntPtr _Result = Natives.pixaModifyStrokeWidth(pixas.Pointer, out  targetw);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // strokes.c (298, 1)
 // pixModifyStrokeWidth(pixs, width, targetw) as Pix
 // pixModifyStrokeWidth(PIX *, l_float32, l_float32) as PIX *
@@ -166,28 +122,17 @@ pixas.Pointer, out  targetw);
 ///  <param name="width">[in] - measured average stroke width</param>
 ///  <param name="targetw">[in] - desired stroke width</param>
 ///   <returns>pix  with modified stroke width, or NULL on error</returns>
-
 public static Pix pixModifyStrokeWidth(
 				 Pix pixs, 
 				 Single width, 
 				 Single targetw){
 
-
-
-	IntPtr _Result = Natives.pixModifyStrokeWidth(
-pixs.Pointer,   width,   targetw);
+	IntPtr _Result = Natives.pixModifyStrokeWidth(pixs.Pointer,   width,   targetw);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // strokes.c (345, 1)
 // pixaSetStrokeWidth(pixas, width, thinfirst, connectivity) as Pixa
 // pixaSetStrokeWidth(PIXA *, l_int32, l_int32, l_int32) as PIXA *
@@ -209,29 +154,18 @@ pixs.Pointer,   width,   targetw);
 ///  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>
 ///  <param name="connectivity">[in] - 4 or 8, to be used if %thinfirst == 1</param>
 ///   <returns>pixa  with all stroke widths being %width, or NULL on error</returns>
-
 public static Pixa pixaSetStrokeWidth(
 				 Pixa pixas, 
 				 int width, 
 				 int thinfirst, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixaSetStrokeWidth(
-pixas.Pointer,   width,   thinfirst,   connectivity);
+	IntPtr _Result = Natives.pixaSetStrokeWidth(pixas.Pointer,   width,   thinfirst,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // strokes.c (397, 1)
 // pixSetStrokeWidth(pixs, width, thinfirst, connectivity) as Pix
 // pixSetStrokeWidth(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -251,25 +185,15 @@ pixas.Pointer,   width,   thinfirst,   connectivity);
 ///  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>
 ///  <param name="connectivity">[in] - 4 or 8, to be used if %thinfirst == 1</param>
 ///   <returns>pixd  with stroke width set to %width, or NULL on error</returns>
-
 public static Pix pixSetStrokeWidth(
 				 Pix pixs, 
 				 int width, 
 				 int thinfirst, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixSetStrokeWidth(
-pixs.Pointer,   width,   thinfirst,   connectivity);
+	IntPtr _Result = Natives.pixSetStrokeWidth(pixs.Pointer,   width,   thinfirst,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

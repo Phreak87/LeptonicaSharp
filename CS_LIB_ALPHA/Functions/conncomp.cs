@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (144, 1)
 // pixConnComp(pixs, ppixa, connectivity) as Boxa
 // pixConnComp(PIX *, PIXA **, l_int32) as BOXA *
@@ -22,30 +21,20 @@ public partial class _All {
 ///  <param name="ppixa">[out][optional] - pixa of each c.c.</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa pixConnComp(
 				 Pix pixs, 
 				out Pixa ppixa, 
 				 int connectivity){
 
-
 	IntPtr ppixaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixConnComp(
-pixs.Pointer, out ppixaPtr,   connectivity);
+	IntPtr _Result = Natives.pixConnComp(pixs.Pointer, out ppixaPtr,   connectivity);
 	
-
-
-//  
 	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (190, 1)
 // pixConnCompPixa(pixs, ppixa, connectivity) as Boxa
 // pixConnCompPixa(PIX *, PIXA **, l_int32) as BOXA *
@@ -72,30 +61,20 @@ pixs.Pointer, out ppixaPtr,   connectivity);
 ///  <param name="ppixa">[out] - pixa of each c.c.</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa pixConnCompPixa(
 				 Pix pixs, 
 				out Pixa ppixa, 
 				 int connectivity){
 
-
 	IntPtr ppixaPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixConnCompPixa(
-pixs.Pointer, out ppixaPtr,   connectivity);
+	IntPtr _Result = Natives.pixConnCompPixa(pixs.Pointer, out ppixaPtr,   connectivity);
 	
-
-
-//  
 	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (304, 1)
 // pixConnCompBB(pixs, connectivity) as Boxa
 // pixConnCompBB(PIX *, l_int32) as BOXA *
@@ -113,27 +92,16 @@ pixs.Pointer, out ppixaPtr,   connectivity);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa pixConnCompBB(
 				 Pix pixs, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixConnCompBB(
-pixs.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixConnCompBB(pixs.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (387, 1)
 // pixCountConnComp(pixs, connectivity, pcount) as int
 // pixCountConnComp(PIX *, l_int32, l_int32 *) as l_ok
@@ -144,27 +112,16 @@ pixs.Pointer,   connectivity);
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///  <param name="pcount">[out] - </param>
 ///   <returns>0 if OK, 1 on error Notes: (1 This is the top-level call for getting the number of 4- or 8-connected components in a 1 bpp image. 2 It works on a copy of the input pix.  The c.c. are located in raster order and erased one at a time.</returns>
-
 public static int pixCountConnComp(
 				 Pix pixs, 
 				 int connectivity, 
 				out int pcount){
 
-
-
-	int _Result = Natives.pixCountConnComp(
-pixs.Pointer,   connectivity, out  pcount);
+	int _Result = Natives.pixCountConnComp(pixs.Pointer,   connectivity, out  pcount);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (449, 1)
 // nextOnPixelInRaster(pixs, xstart, ystart, px, py) as int
 // nextOnPixelInRaster(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
@@ -177,7 +134,6 @@ pixs.Pointer,   connectivity, out  pcount);
 ///  <param name="px">[out] - coord value of next ON pixel</param>
 ///  <param name="py">[out] - coord value of next ON pixel</param>
 ///   <returns>1 if a pixel is found 0 otherwise or on error</returns>
-
 public static int nextOnPixelInRaster(
 				 Pix pixs, 
 				 int xstart, 
@@ -185,21 +141,11 @@ public static int nextOnPixelInRaster(
 				out int px, 
 				out int py){
 
-
-
-	int _Result = Natives.nextOnPixelInRaster(
-pixs.Pointer,   xstart,   ystart, out  px, out  py);
+	int _Result = Natives.nextOnPixelInRaster(pixs.Pointer,   xstart,   ystart, out  px, out  py);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (483, 1)
 // nextOnPixelInRasterLow(data, w, h, wpl, xstart, ystart, px, py) as int
 // nextOnPixelInRasterLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
@@ -215,7 +161,6 @@ pixs.Pointer,   xstart,   ystart, out  px, out  py);
 ///  <param name="px">[out] - coord value of next ON pixel</param>
 ///  <param name="py">[out] - coord value of next ON pixel</param>
 ///   <returns>1 if a pixel is found 0 otherwise or on error</returns>
-
 public static int nextOnPixelInRasterLow(
 				 Byte[] data, 
 				 int w, 
@@ -226,24 +171,15 @@ public static int nextOnPixelInRasterLow(
 				out int px, 
 				out int py){
 
-
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
-	int _Result = Natives.nextOnPixelInRasterLow(
-  dataPtr,   w,   h,   wpl,   xstart,   ystart, out  px, out  py);
+	int _Result = Natives.nextOnPixelInRasterLow(  dataPtr,   w,   h,   wpl,   xstart,   ystart, out  px, out  py);
 	
-
 	Marshal.FreeHGlobal(dataPtr);
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (560, 1)
 // pixSeedfillBB(pixs, stack, x, y, connectivity) as Box
 // pixSeedfillBB(PIX *, L_STACK *, l_int32, l_int32, l_int32) as BOX *
@@ -259,7 +195,6 @@ public static int nextOnPixelInRasterLow(
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>box or NULL on error</returns>
-
 public static Box pixSeedfillBB(
 				 Pix pixs, 
 				 L_Stack stack, 
@@ -267,22 +202,12 @@ public static Box pixSeedfillBB(
 				 int y, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixSeedfillBB(
-pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
+	IntPtr _Result = Natives.pixSeedfillBB(pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (623, 1)
 // pixSeedfill4BB(pixs, stack, x, y) as Box
 // pixSeedfill4BB(PIX *, L_STACK *, l_int32, l_int32) as BOX *
@@ -317,29 +242,18 @@ pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 ///  <param name="stack">[in] - for holding fillsegs</param>
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>box or NULL on error.</returns>
-
 public static Box pixSeedfill4BB(
 				 Pix pixs, 
 				 L_Stack stack, 
 				 int x, 
 				 int y){
 
-
-
-	IntPtr _Result = Natives.pixSeedfill4BB(
-pixs.Pointer, stack.Pointer,   x,   y);
+	IntPtr _Result = Natives.pixSeedfill4BB(pixs.Pointer, stack.Pointer,   x,   y);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (738, 1)
 // pixSeedfill8BB(pixs, stack, x, y) as Box
 // pixSeedfill8BB(PIX *, L_STACK *, l_int32, l_int32) as BOX *
@@ -367,29 +281,18 @@ pixs.Pointer, stack.Pointer,   x,   y);
 ///  <param name="stack">[in] - for holding fillsegs</param>
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>box or NULL on error.</returns>
-
 public static Box pixSeedfill8BB(
 				 Pix pixs, 
 				 L_Stack stack, 
 				 int x, 
 				 int y){
 
-
-
-	IntPtr _Result = Natives.pixSeedfill8BB(
-pixs.Pointer, stack.Pointer,   x,   y);
+	IntPtr _Result = Natives.pixSeedfill8BB(pixs.Pointer, stack.Pointer,   x,   y);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (844, 1)
 // pixSeedfill(pixs, stack, x, y, connectivity) as int
 // pixSeedfill(PIX *, L_STACK *, l_int32, l_int32, l_int32) as l_ok
@@ -406,7 +309,6 @@ pixs.Pointer, stack.Pointer,   x,   y);
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSeedfill(
 				 Pix pixs, 
 				 L_Stack stack, 
@@ -414,21 +316,11 @@ public static int pixSeedfill(
 				 int y, 
 				 int connectivity){
 
-
-
-	int _Result = Natives.pixSeedfill(
-pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
+	int _Result = Natives.pixSeedfill(pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (888, 1)
 // pixSeedfill4(pixs, stack, x, y) as int
 // pixSeedfill4(PIX *, L_STACK *, l_int32, l_int32) as l_ok
@@ -448,28 +340,17 @@ pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 ///  <param name="stack">[in] - for holding fillsegs</param>
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSeedfill4(
 				 Pix pixs, 
 				 L_Stack stack, 
 				 int x, 
 				 int y){
 
-
-
-	int _Result = Natives.pixSeedfill4(
-pixs.Pointer, stack.Pointer,   x,   y);
+	int _Result = Natives.pixSeedfill4(pixs.Pointer, stack.Pointer,   x,   y);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // conncomp.c (982, 1)
 // pixSeedfill8(pixs, stack, x, y) as int
 // pixSeedfill8(PIX *, L_STACK *, l_int32, l_int32) as l_ok
@@ -489,24 +370,14 @@ pixs.Pointer, stack.Pointer,   x,   y);
 ///  <param name="stack">[in] - for holding fillsegs</param>
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSeedfill8(
 				 Pix pixs, 
 				 L_Stack stack, 
 				 int x, 
 				 int y){
 
-
-
-	int _Result = Natives.pixSeedfill8(
-pixs.Pointer, stack.Pointer,   x,   y);
+	int _Result = Natives.pixSeedfill8(pixs.Pointer, stack.Pointer,   x,   y);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

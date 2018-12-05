@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (205, 1)
 // stringNew(src) as String
 // stringNew(const char *) as char *
@@ -15,25 +14,14 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringNew/*"/>
 ///  <param name="src">[in] - string</param>
 ///   <returns>dest copy of src string, or NULL on error</returns>
-
 public static String stringNew(
 				 String src){
 
-
-
-	String _Result = Natives.stringNew(
-  src);
+	String _Result = Natives.stringNew(  src);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (245, 1)
 // stringCopy(dest, src, n) as int
 // stringCopy(char *, const char *, l_int32) as l_ok
@@ -54,27 +42,16 @@ public static String stringNew(
 ///  <param name="src">[in] - string [optional] can be null</param>
 ///  <param name="n">[in] - max number of characters to copy</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int stringCopy(
 				 String dest, 
 				 String src, 
 				 int n){
 
-
-
-	int _Result = Natives.stringCopy(
-  dest,   src,   n);
+	int _Result = Natives.stringCopy(  dest,   src,   n);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (282, 1)
 // stringReplace(pdest, src) as int
 // stringReplace(char **, const char *) as l_ok
@@ -91,28 +68,18 @@ public static int stringCopy(
 ///  <param name="pdest">[out] - string copy</param>
 ///  <param name="src">[in] - string [optional] can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int stringReplace(
 				out String[] pdest, 
 				 String src){
 
-
 	IntPtr pdestPtr = IntPtr.Zero;
 
-	int _Result = Natives.stringReplace(
-out  pdestPtr,   src);
+	int _Result = Natives.stringReplace(out  pdestPtr,   src);
 	
-
-
-//  
 	if (pdestPtr == null) {pdest = null;} else { pdest = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (318, 1)
 // stringLength(src, size) as int
 // stringLength(const char *, size_t) as l_int32
@@ -130,26 +97,15 @@ out  pdestPtr,   src);
 ///  <param name="src">[in] - string can be null or NULL-terminated string</param>
 ///  <param name="size">[in] - size of src buffer</param>
 ///   <returns>length of src in bytes.</returns>
-
 public static int stringLength(
 				 String src, 
 				 uint size){
 
-
-
-	int _Result = Natives.stringLength(
-  src,   size);
+	int _Result = Natives.stringLength(  src,   size);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (359, 1)
 // stringCat(dest, size, src) as int
 // stringCat(char *, size_t, const char *) as l_int32
@@ -173,27 +129,16 @@ public static int stringLength(
 ///  <param name="size">[in] - size of dest</param>
 ///  <param name="src">[in] - string can be null or NULL-terminated string</param>
 ///   <returns>number of bytes added to dest -1 on error</returns>
-
 public static int stringCat(
 				 String dest, 
 				 uint size, 
 				 String src){
 
-
-
-	int _Result = Natives.stringCat(
-  dest,   size,   src);
+	int _Result = Natives.stringCat(  dest,   size,   src);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (407, 1)
 // stringConcatNew(first) as String
 // stringConcatNew(const char *, ...) as char *
@@ -207,25 +152,14 @@ public static int stringCat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringConcatNew/*"/>
 ///  <param name="first">[in] - first string in list</param>
 ///   <returns>result new string concatenating the input strings, or NULL if first == NULL</returns>
-
 public static String stringConcatNew(
 				 String first){
 
-
-
-	String _Result = Natives.stringConcatNew(
-  first);
+	String _Result = Natives.stringConcatNew(  first);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (454, 1)
 // stringJoin(src1, src2) as String
 // stringJoin(const char *, const char *) as char *
@@ -241,26 +175,15 @@ public static String stringConcatNew(
 ///  <param name="src1">[in] - string [optional] can be null</param>
 ///  <param name="src2">[in] - string [optional] can be null</param>
 ///   <returns>concatenated string, or NULL on error</returns>
-
 public static String stringJoin(
 				 String src1, 
 				 String src2){
 
-
-
-	String _Result = Natives.stringJoin(
-  src1,   src2);
+	String _Result = Natives.stringJoin(  src1,   src2);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (509, 1)
 // stringJoinIP(psrc1, src2) as int
 // stringJoinIP(char **, const char *) as l_ok
@@ -296,28 +219,18 @@ public static String stringJoin(
 ///  <param name="psrc1">[in,out] - string address of src1 cannot be on the stack</param>
 ///  <param name="src2">[in] - string [optional] can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int stringJoinIP(
 				ref String[] psrc1, 
 				 String src2){
 
-
 	IntPtr psrc1Ptr = 	Marshal.AllocHGlobal(Marshal.SizeOf(psrc1));
 
-	int _Result = Natives.stringJoinIP(
-ref  psrc1Ptr,   src2);
+	int _Result = Natives.stringJoinIP(ref  psrc1Ptr,   src2);
 	
-
-
-//  
 	if (psrc1Ptr == null) {psrc1 = null;} else { psrc1 = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (533, 1)
 // stringReverse(src) as String
 // stringReverse(const char *) as char *
@@ -326,25 +239,14 @@ ref  psrc1Ptr,   src2);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringReverse/*"/>
 ///  <param name="src">[in] - string</param>
 ///   <returns>dest newly-allocated reversed string</returns>
-
 public static String stringReverse(
 				 String src){
 
-
-
-	String _Result = Natives.stringReverse(
-  src);
+	String _Result = Natives.stringReverse(  src);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (585, 1)
 // strtokSafe(cstr, seps, psaveptr) as String
 // strtokSafe(char *, const char *, char **) as char *
@@ -378,29 +280,19 @@ public static String stringReverse(
 ///  <param name="seps">[in] - a string of character separators</param>
 ///  <param name="psaveptr">[out] - ptr to the next char after the last encountered separator</param>
 ///   <returns>substr a new string that is copied from the previous saveptr up to but not including the next separator character, or NULL if end of cstr.</returns>
-
 public static String strtokSafe(
 				 String _cstr_, 
 				 String seps, 
 				out String[] psaveptr){
 
-
 	IntPtr psaveptrPtr = IntPtr.Zero;
 
-	String _Result = Natives.strtokSafe(
-  _cstr_,   seps, out  psaveptrPtr);
+	String _Result = Natives.strtokSafe(  _cstr_,   seps, out  psaveptrPtr);
 	
-
-
-//  
 	if (psaveptrPtr == null) {psaveptr = null;} else { psaveptr = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (679, 1)
 // stringSplitOnToken(cstr, seps, phead, ptail) as int
 // stringSplitOnToken(char *, const char *, char **, char **) as l_ok
@@ -426,32 +318,22 @@ public static String strtokSafe(
 ///  <param name="phead">[out] - ptr to copy of the input string, up to the first separator token encountered</param>
 ///  <param name="ptail">[out] - ptr to copy of the part of the input string starting with the first non-separator character that occurs after the first separator is found</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int stringSplitOnToken(
 				 String _cstr_, 
 				 String seps, 
 				out String[] phead, 
 				out String[] ptail){
 
-
 	IntPtr pheadPtr = IntPtr.Zero;
 	IntPtr ptailPtr = IntPtr.Zero;
 
-	int _Result = Natives.stringSplitOnToken(
-  _cstr_,   seps, out  pheadPtr, out  ptailPtr);
+	int _Result = Natives.stringSplitOnToken(  _cstr_,   seps, out  pheadPtr, out  ptailPtr);
 	
-
-
-//  
 	if (pheadPtr == null) {phead = null;} else { phead = null; };
 	if (ptailPtr == null) {ptail = null;} else { ptail = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (723, 1)
 // stringCheckForChars(src, chars, pfound) as int
 // stringCheckForChars(const char *, const char *, l_int32 *) as l_ok
@@ -466,27 +348,16 @@ public static int stringSplitOnToken(
 ///  <param name="chars">[in] - string of chars to be searched for in %src</param>
 ///  <param name="pfound">[out] - 1 if any characters are found 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int stringCheckForChars(
 				 String src, 
 				 String chars, 
 				out int pfound){
 
-
-
-	int _Result = Natives.stringCheckForChars(
-  src,   chars, out  pfound);
+	int _Result = Natives.stringCheckForChars(  src,   chars, out  pfound);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (758, 1)
 // stringRemoveChars(src, remchars) as String
 // stringRemoveChars(const char *, const char *) as char *
@@ -496,26 +367,15 @@ public static int stringCheckForChars(
 ///  <param name="src">[in] - input string can be of zero length</param>
 ///  <param name="remchars">[in] - string of chars to be removed from src</param>
 ///   <returns>dest string with specified chars removed, or NULL on error</returns>
-
 public static String stringRemoveChars(
 				 String src, 
 				 String remchars){
 
-
-
-	String _Result = Natives.stringRemoveChars(
-  src,   remchars);
+	String _Result = Natives.stringRemoveChars(  src,   remchars);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (803, 1)
 // stringFindSubstr(src, sub, ploc) as int
 // stringFindSubstr(const char *, const char *, l_int32 *) as l_int32
@@ -534,27 +394,16 @@ public static String stringRemoveChars(
 ///  <param name="src">[in] - input string can be of zero length</param>
 ///  <param name="ploc">[out][optional] - location of substring in src</param>
 ///   <returns>1 if found 0 if not found or on error</returns>
-
 public static int stringFindSubstr(
 				 String src, 
 				 String _sub_, 
 				out int ploc){
 
-
-
-	int _Result = Natives.stringFindSubstr(
-  src,   _sub_, out  ploc);
+	int _Result = Natives.stringFindSubstr(  src,   _sub_, out  ploc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (855, 1)
 // stringReplaceSubstr(src, sub1, sub2, pfound, ploc) as String
 // stringReplaceSubstr(const char *, const char *, const char *, l_int32 *, l_int32 *) as char *
@@ -582,7 +431,6 @@ public static int stringFindSubstr(
 ///  <param name="pfound">[out][optional] - 1 if sub1 is found 0 otherwise</param>
 ///  <param name="ploc">[out][optional] - location of ptr after replacement</param>
 ///   <returns>dest string with substring replaced, or NULL if the substring not found or on error.</returns>
-
 public static String stringReplaceSubstr(
 				 String src, 
 				 String sub1, 
@@ -590,21 +438,11 @@ public static String stringReplaceSubstr(
 				out int pfound, 
 				out int ploc){
 
-
-
-	String _Result = Natives.stringReplaceSubstr(
-  src,   sub1,   sub2, out  pfound, out  ploc);
+	String _Result = Natives.stringReplaceSubstr(  src,   sub1,   sub2, out  pfound, out  ploc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (922, 1)
 // stringReplaceEachSubstr(src, sub1, sub2, pcount) as String
 // stringReplaceEachSubstr(const char *, const char *, const char *, l_int32 *) as char *
@@ -623,28 +461,17 @@ public static String stringReplaceSubstr(
 ///  <param name="sub2">[in] - substring to put in can be ""</param>
 ///  <param name="pcount">[out][optional] - the number of times that sub1 is found in src 0 if not found</param>
 ///   <returns>dest string with substring replaced, or NULL if the substring not found or on error.</returns>
-
 public static String stringReplaceEachSubstr(
 				 String src, 
 				 String sub1, 
 				 String sub2, 
 				out int pcount){
 
-
-
-	String _Result = Natives.stringReplaceEachSubstr(
-  src,   sub1,   sub2, out  pcount);
+	String _Result = Natives.stringReplaceEachSubstr(  src,   sub1,   sub2, out  pcount);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (977, 1)
 // arrayFindEachSequence(data, datalen, sequence, seqlen) as L_Dna
 // arrayFindEachSequence(const l_uint8 *, size_t, const l_uint8 *, size_t) as L_DNA *
@@ -663,29 +490,18 @@ public static String stringReplaceEachSubstr(
 ///  <param name="sequence">[in] - subarray of bytes to find in data</param>
 ///  <param name="seqlen">[in] - length of sequence, in bytes</param>
 ///   <returns>dna of offsets where the sequence is found, or NULL if none are found or on error</returns>
-
 public static L_Dna arrayFindEachSequence(
 				 Byte[] data, 
 				 uint datalen, 
 				 Byte[] sequence, 
 				 uint seqlen){
 
-
-
-	IntPtr _Result = Natives.arrayFindEachSequence(
-  data,   datalen,   sequence,   seqlen);
+	IntPtr _Result = Natives.arrayFindEachSequence(  data,   datalen,   sequence,   seqlen);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dna(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1037, 1)
 // arrayFindSequence(data, datalen, sequence, seqlen, poffset, pfound) as int
 // arrayFindSequence(const l_uint8 *, size_t, const l_uint8 *, size_t, l_int32 *, l_int32 *) as l_ok
@@ -711,7 +527,6 @@ public static L_Dna arrayFindEachSequence(
 ///  <param name="poffset">[out] - offset from beginning of data where the sequence begins</param>
 ///  <param name="pfound">[out] - 1 if sequence is found 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int arrayFindSequence(
 				 Byte[] data, 
 				 uint datalen, 
@@ -720,21 +535,11 @@ public static int arrayFindSequence(
 				out int poffset, 
 				out int pfound){
 
-
-
-	int _Result = Natives.arrayFindSequence(
-  data,   datalen,   sequence,   seqlen, out  poffset, out  pfound);
+	int _Result = Natives.arrayFindSequence(  data,   datalen,   sequence,   seqlen, out  poffset, out  pfound);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1106, 1)
 // reallocNew(pindata, oldsize, newsize) as Object
 // reallocNew(void **, l_int32, l_int32) as void *
@@ -756,30 +561,21 @@ public static int arrayFindSequence(
 ///  <param name="oldsize">[in] - size of input data to be copied, in bytes</param>
 ///  <param name="newsize">[in] - size of data to be reallocated in bytes</param>
 ///   <returns>ptr to new data, or NULL on error Action: !N.B. 3) and (4! 1 Allocates memory, initialized to 0 2 Copies as much of the input data as possible to the new block, truncating the copy if necessary 3 Frees the input data 4 Zeroes the input data ptr</returns>
-
 public static Object reallocNew(
 				ref IntPtr[] pindata, 
 				 int oldsize, 
 				 int newsize){
 
-
 		IntPtr pindataPtr = IntPtr.Zero; 	if (pindata != null){ pindataPtr =  	Marshal.AllocHGlobal(Marshal.SizeOf(pindata)); }
 
-	IntPtr _Result = Natives.reallocNew(
-ref  pindataPtr,   oldsize,   newsize);
+	IntPtr _Result = Natives.reallocNew(ref  pindataPtr,   oldsize,   newsize);
 	
-
-
-//  
 	if (pindataPtr == null) {pindata = null;} else { pindata = null; };
-
-
-	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
-
+	Byte[] B = new Byte[1];
+	Marshal.Copy(_Result, B, 0, B.Length);
 	return B;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1158, 1)
 // l_binaryRead(filename, pnbytes) as Byte[]
 // l_binaryRead(const char *, size_t *) as l_uint8 *
@@ -789,26 +585,15 @@ ref  pindataPtr,   oldsize,   newsize);
 ///  <param name="filename">[in] - </param>
 ///  <param name="pnbytes">[out] - number of bytes read</param>
 ///   <returns>data, or NULL on error</returns>
-
 public static Byte[] l_binaryRead(
 				 String filename, 
 				out uint pnbytes){
 
-
-
-	Byte[] _Result = Natives.l_binaryRead(
-  filename, out  pnbytes);
+	Byte[] _Result = Natives.l_binaryRead(  filename, out  pnbytes);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1208, 1)
 // l_binaryReadStream(fp, pnbytes) as Byte[]
 // l_binaryReadStream(FILE *, size_t *) as l_uint8 *
@@ -837,26 +622,15 @@ public static Byte[] l_binaryRead(
 ///  <param name="fp">[in] - file stream opened to read can be stdin</param>
 ///  <param name="pnbytes">[out] - number of bytes read</param>
 ///   <returns>null-terminated array, or NULL on error reading 0 bytes is not an error</returns>
-
 public static Byte[] l_binaryReadStream(
 				 FILE fp, 
 				out uint pnbytes){
 
-
-
-	Byte[] _Result = Natives.l_binaryReadStream(
-fp.Pointer, out  pnbytes);
+	Byte[] _Result = Natives.l_binaryReadStream(fp.Pointer, out  pnbytes);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1275, 1)
 // l_binaryReadSelect(filename, start, nbytes, pnread) as Byte[]
 // l_binaryReadSelect(const char *, size_t, size_t, size_t *) as l_uint8 *
@@ -872,28 +646,17 @@ fp.Pointer, out  pnbytes);
 ///  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
 ///  <param name="pnread">[out] - number of bytes actually read</param>
 ///   <returns>data, or NULL on error</returns>
-
 public static Byte[] l_binaryReadSelect(
 				 String filename, 
 				 uint start, 
 				 uint nbytes, 
 				out uint pnread){
 
-
-
-	Byte[] _Result = Natives.l_binaryReadSelect(
-  filename,   start,   nbytes, out  pnread);
+	Byte[] _Result = Natives.l_binaryReadSelect(  filename,   start,   nbytes, out  pnread);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1320, 1)
 // l_binaryReadSelectStream(fp, start, nbytes, pnread) as Byte[]
 // l_binaryReadSelectStream(FILE *, size_t, size_t, size_t *) as l_uint8 *
@@ -914,28 +677,17 @@ public static Byte[] l_binaryReadSelect(
 ///  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
 ///  <param name="pnread">[out] - number of bytes actually read</param>
 ///   <returns>null-terminated array, or NULL on error reading 0 bytes is not an error</returns>
-
 public static Byte[] l_binaryReadSelectStream(
 				 FILE fp, 
 				 uint start, 
 				 uint nbytes, 
 				out uint pnread){
 
-
-
-	Byte[] _Result = Natives.l_binaryReadSelectStream(
-fp.Pointer,   start,   nbytes, out  pnread);
+	Byte[] _Result = Natives.l_binaryReadSelectStream(fp.Pointer,   start,   nbytes, out  pnread);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1375, 1)
 // l_binaryWrite(filename, operation, data, nbytes) as int
 // l_binaryWrite(const char *, const char *, const void *, size_t) as l_ok
@@ -947,31 +699,21 @@ fp.Pointer,   start,   nbytes, out  pnread);
 ///  <param name="data">[in] - binary data to be written</param>
 ///  <param name="nbytes">[in] - size of data array</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int l_binaryWrite(
 				 String filename, 
 				 String operation, 
 				 Object data, 
 				 uint nbytes){
 
-
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	int _Result = Natives.l_binaryWrite(
-  filename,   operation,   dataPtr,   nbytes);
+	int _Result = Natives.l_binaryWrite(  filename,   operation,   dataPtr,   nbytes);
 	
-
 	Marshal.FreeHGlobal(dataPtr);
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1417, 1)
 // nbytesInFile(filename) as uint
 // nbytesInFile(const char *) as size_t
@@ -980,25 +722,14 @@ public static int l_binaryWrite(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/nbytesInFile/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>nbytes in file 0 on error</returns>
-
 public static uint nbytesInFile(
 				 String filename){
 
-
-
-	uint _Result = Natives.nbytesInFile(
-  filename);
+	uint _Result = Natives.nbytesInFile(  filename);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1441, 1)
 // fnbytesInFile(fp) as uint
 // fnbytesInFile(FILE *) as size_t
@@ -1007,25 +738,14 @@ public static uint nbytesInFile(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fnbytesInFile/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>nbytes in file 0 on error</returns>
-
 public static uint fnbytesInFile(
 				 FILE fp){
 
-
-
-	uint _Result = Natives.fnbytesInFile(
-fp.Pointer);
+	uint _Result = Natives.fnbytesInFile(fp.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1479, 1)
 // l_binaryCopy(datas, size) as Byte[]
 // l_binaryCopy(l_uint8 *, size_t) as l_uint8 *
@@ -1041,26 +761,15 @@ fp.Pointer);
 ///  <param name="datas">[in] - </param>
 ///  <param name="size">[in] - of data array</param>
 ///   <returns>datad on heap, or NULL on error</returns>
-
 public static Byte[] l_binaryCopy(
 				 Byte[] datas, 
 				 uint size){
 
-
-
-	Byte[] _Result = Natives.l_binaryCopy(
-  datas,   size);
+	Byte[] _Result = Natives.l_binaryCopy(  datas,   size);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1507, 1)
 // fileCopy(srcfile, newfile) as int
 // fileCopy(const char *, const char *) as l_ok
@@ -1070,26 +779,15 @@ public static Byte[] l_binaryCopy(
 ///  <param name="srcfile">[in] - copy this file</param>
 ///  <param name="newfile">[in] - to this file</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int fileCopy(
 				 String srcfile, 
 				 String newfile){
 
-
-
-	int _Result = Natives.fileCopy(
-  srcfile,   newfile);
+	int _Result = Natives.fileCopy(  srcfile,   newfile);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1537, 1)
 // fileConcatenate(srcfile, destfile) as int
 // fileConcatenate(const char *, const char *) as l_ok
@@ -1099,26 +797,15 @@ public static int fileCopy(
 ///  <param name="srcfile">[in] - file to append</param>
 ///  <param name="destfile">[in] - file to add to</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int fileConcatenate(
 				 String srcfile, 
 				 String destfile){
 
-
-
-	int _Result = Natives.fileConcatenate(
-  srcfile,   destfile);
+	int _Result = Natives.fileConcatenate(  srcfile,   destfile);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1565, 1)
 // fileAppendString(filename, str) as int
 // fileAppendString(const char *, const char *) as l_ok
@@ -1128,26 +815,15 @@ public static int fileConcatenate(
 ///  <param name="filename">[in] - </param>
 ///  <param name="str">[in] - string to append to file</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int fileAppendString(
 				 String filename, 
 				 String str){
 
-
-
-	int _Result = Natives.fileAppendString(
-  filename,   str);
+	int _Result = Natives.fileAppendString(  filename,   str);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1603, 1)
 // fopenReadStream(filename) as FILE
 // fopenReadStream(const char *) as FILE *
@@ -1163,26 +839,15 @@ public static int fileAppendString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fopenReadStream/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>stream, or NULL on error</returns>
-
 public static FILE fopenReadStream(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.fopenReadStream(
-  filename);
+	IntPtr _Result = Natives.fopenReadStream(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FILE(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1646, 1)
 // fopenWriteStream(filename, modestring) as FILE
 // fopenWriteStream(const char *, const char *) as FILE *
@@ -1199,27 +864,16 @@ public static FILE fopenReadStream(
 ///  <param name="filename">[in] - </param>
 ///  <param name="modestring">[in] - </param>
 ///   <returns>stream, or NULL on error</returns>
-
 public static FILE fopenWriteStream(
 				 String filename, 
 				 String modestring){
 
-
-
-	IntPtr _Result = Natives.fopenWriteStream(
-  filename,   modestring);
+	IntPtr _Result = Natives.fopenWriteStream(  filename,   modestring);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FILE(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1680, 1)
 // fopenReadFromMemory(data, size) as FILE
 // fopenReadFromMemory(const l_uint8 *, size_t) as FILE *
@@ -1235,27 +889,16 @@ public static FILE fopenWriteStream(
 ///  <param name="data">[in] - </param>
 ///  <param name="size">[in] - </param>
 ///   <returns>file stream, or NULL on error</returns>
-
 public static FILE fopenReadFromMemory(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.fopenReadFromMemory(
-  data,   size);
+	IntPtr _Result = Natives.fopenReadFromMemory(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FILE(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1726, 1)
 // fopenWriteWinTempfile() as FILE
 // fopenWriteWinTempfile() as FILE *
@@ -1268,24 +911,14 @@ public static FILE fopenReadFromMemory(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fopenWriteWinTempfile/*"/>
 ///   <returns>file stream, or NULL on error</returns>
-
 public static FILE fopenWriteWinTempfile(){
-
-
 
 	IntPtr _Result = Natives.fopenWriteWinTempfile();
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FILE(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1784, 1)
 // lept_fopen(filename, mode) as FILE
 // lept_fopen(const char *, const char *) as FILE *
@@ -1299,27 +932,16 @@ public static FILE fopenWriteWinTempfile(){
 ///  <param name="filename">[in] - </param>
 ///  <param name="mode">[in] - same as for fopen() e.g., "rb"</param>
 ///   <returns>stream or NULL on error</returns>
-
 public static FILE lept_fopen(
 				 String filename, 
 				 String mode){
 
-
-
-	IntPtr _Result = Natives.lept_fopen(
-  filename,   mode);
+	IntPtr _Result = Natives.lept_fopen(  filename,   mode);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FILE(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1814, 1)
 // lept_fclose(fp) as int
 // lept_fclose(FILE *) as l_ok
@@ -1332,25 +954,14 @@ public static FILE lept_fopen(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_fclose/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int lept_fclose(
 				 FILE fp){
 
-
-
-	int _Result = Natives.lept_fclose(
-fp.Pointer);
+	int _Result = Natives.lept_fclose(fp.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1840, 1)
 // lept_calloc(nmemb, size) as Object
 // lept_calloc(size_t, size_t) as void *
@@ -1365,27 +976,17 @@ fp.Pointer);
 ///  <param name="nmemb">[in] - number of members</param>
 ///  <param name="size">[in] - of each member</param>
 ///   <returns>void ptr, or NULL on error</returns>
-
 public static Object lept_calloc(
 				 uint nmemb, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.lept_calloc(
-  nmemb,   size);
+	IntPtr _Result = Natives.lept_calloc(  nmemb,   size);
 	
-
-
-//  
-
-
-	Byte[] B = new Byte[size] ; Marshal.Copy(_Result, B, 0, B.Length);
-
+	Byte[] B = new Byte[size];
+	Marshal.Copy(_Result, B, 0, B.Length);
 	return B;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1861, 1)
 // lept_free(ptr) as Object
 // lept_free(void *) as void
@@ -1397,27 +998,17 @@ public static Object lept_calloc(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_free/*"/>
 ///  <param name="ptr">[in] - </param>
-
 public static void lept_free(
 				 Object ptr){
-
 
 		IntPtr ptrPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	Natives.lept_free(
-  ptrPtr);
+	Natives.lept_free(  ptrPtr);
 	
-
 	Marshal.FreeHGlobal(ptrPtr);
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1890, 1)
 // lept_mkdir(subdir) as int
 // lept_mkdir(const char *) as l_int32
@@ -1436,25 +1027,14 @@ public static void lept_free(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_mkdir/*"/>
 ///  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 ///   <returns>0 on success, non-zero on failure</returns>
-
 public static int lept_mkdir(
 				 String subdir){
 
-
-
-	int _Result = Natives.lept_mkdir(
-  subdir);
+	int _Result = Natives.lept_mkdir(  subdir);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (1967, 1)
 // lept_rmdir(subdir) as int
 // lept_rmdir(const char *) as l_int32
@@ -1478,25 +1058,14 @@ public static int lept_mkdir(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_rmdir/*"/>
 ///  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 ///   <returns>0 on success, non-zero on failure</returns>
-
 public static int lept_rmdir(
 				 String subdir){
 
-
-
-	int _Result = Natives.lept_rmdir(
-  subdir);
+	int _Result = Natives.lept_rmdir(  subdir);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2041, 1)
 // lept_direxists(dir, pexists) as Object
 // lept_direxists(const char *, l_int32 *) as void
@@ -1513,25 +1082,14 @@ public static int lept_rmdir(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_direxists/*"/>
 ///  <param name="dir">[in] - </param>
 ///  <param name="pexists">[out] - 1 if it exists 0 otherwise</param>
-
 public static void lept_direxists(
 				 String dir, 
 				out int pexists){
 
-
-
-	Natives.lept_direxists(
-  dir, out  pexists);
+	Natives.lept_direxists(  dir, out  pexists);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2099, 1)
 // lept_rm_match(subdir, substr) as int
 // lept_rm_match(const char *, const char *) as l_int32
@@ -1561,26 +1119,15 @@ public static void lept_direxists(
 ///  <param name="subdir">[in][optional] - If NULL, the removed files are in /tmp</param>
 ///  <param name="substr">[in][optional] - pattern to match in filename</param>
 ///   <returns>0 on success, non-zero on failure</returns>
-
 public static int lept_rm_match(
 				 String subdir, 
 				 String substr){
 
-
-
-	int _Result = Natives.lept_rm_match(
-  subdir,   substr);
+	int _Result = Natives.lept_rm_match(  subdir,   substr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2149, 1)
 // lept_rm(subdir, tail) as int
 // lept_rm(const char *, const char *) as l_int32
@@ -1595,26 +1142,15 @@ public static int lept_rm_match(
 ///  <param name="subdir">[in][optional] - of '/tmp' can be NULL</param>
 ///  <param name="tail">[in] - filename without the directory</param>
 ///   <returns>0 on success, non-zero on failure</returns>
-
 public static int lept_rm(
 				 String subdir, 
 				 String tail){
 
-
-
-	int _Result = Natives.lept_rm(
-  subdir,   tail);
+	int _Result = Natives.lept_rm(  subdir,   tail);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2189, 1)
 // lept_rmfile(filepath) as int
 // lept_rmfile(const char *) as l_int32
@@ -1634,25 +1170,14 @@ public static int lept_rm(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_rmfile/*"/>
 ///  <param name="filepath">[in] - full path to file including the directory</param>
 ///   <returns>0 on success, non-zero on failure</returns>
-
 public static int lept_rmfile(
 				 String filepath){
 
-
-
-	int _Result = Natives.lept_rmfile(
-  filepath);
+	int _Result = Natives.lept_rmfile(  filepath);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2244, 1)
 // lept_mv(srcfile, newdir, newtail, pnewpath) as int
 // lept_mv(const char *, const char *, const char *, char **) as l_int32
@@ -1692,30 +1217,20 @@ public static int lept_rmfile(
 ///  <param name="newtail">[in][optional] - can be NULL</param>
 ///  <param name="pnewpath">[out][optional] - of actual path can be NULL</param>
 ///   <returns>0 on success, non-zero on failure</returns>
-
 public static int lept_mv(
 				 String srcfile, 
 				 String newdir, 
 				 String newtail, 
 				out String[] pnewpath){
 
-
 	IntPtr pnewpathPtr = IntPtr.Zero;
 
-	int _Result = Natives.lept_mv(
-  srcfile,   newdir,   newtail, out  pnewpathPtr);
+	int _Result = Natives.lept_mv(  srcfile,   newdir,   newtail, out  pnewpathPtr);
 	
-
-
-//  
 	if (pnewpathPtr == null) {pnewpath = null;} else { pnewpath = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2343, 1)
 // lept_cp(srcfile, newdir, newtail, pnewpath) as int
 // lept_cp(const char *, const char *, const char *, char **) as l_int32
@@ -1755,30 +1270,20 @@ public static int lept_mv(
 ///  <param name="newtail">[in][optional] - can be NULL</param>
 ///  <param name="pnewpath">[out][optional] - of actual path can be NULL</param>
 ///   <returns>0 on success, non-zero on failure</returns>
-
 public static int lept_cp(
 				 String srcfile, 
 				 String newdir, 
 				 String newtail, 
 				out String[] pnewpath){
 
-
 	IntPtr pnewpathPtr = IntPtr.Zero;
 
-	int _Result = Natives.lept_cp(
-  srcfile,   newdir,   newtail, out  pnewpathPtr);
+	int _Result = Natives.lept_cp(  srcfile,   newdir,   newtail, out  pnewpathPtr);
 	
-
-
-//  
 	if (pnewpathPtr == null) {pnewpath = null;} else { pnewpath = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2420, 1)
 // callSystemDebug(cmd) as Object
 // callSystemDebug(const char *) as void
@@ -1793,24 +1298,13 @@ public static int lept_cp(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/callSystemDebug/*"/>
 ///  <param name="cmd">[in] - command to be exec'd</param>
-
 public static void callSystemDebug(
 				 String cmd){
 
-
-
-	Natives.callSystemDebug(
-  cmd);
+	Natives.callSystemDebug(  cmd);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2484, 1)
 // splitPathAtDirectory(pathname, pdir, ptail) as int
 // splitPathAtDirectory(const char *, char **, char **) as l_ok
@@ -1841,31 +1335,21 @@ public static void callSystemDebug(
 ///  <param name="pdir">[out][optional] - root directory name of input path, including trailing '/'</param>
 ///  <param name="ptail">[out][optional] - path tail, which is either the file name within the root directory or the last sub-directory in the path</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int splitPathAtDirectory(
 				 String pathname, 
 				out String[] pdir, 
 				out String[] ptail){
 
-
 	IntPtr pdirPtr = IntPtr.Zero;
 	IntPtr ptailPtr = IntPtr.Zero;
 
-	int _Result = Natives.splitPathAtDirectory(
-  pathname, out  pdirPtr, out  ptailPtr);
+	int _Result = Natives.splitPathAtDirectory(  pathname, out  pdirPtr, out  ptailPtr);
 	
-
-
-//  
 	if (pdirPtr == null) {pdir = null;} else { pdir = null; };
 	if (ptailPtr == null) {ptail = null;} else { ptail = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2551, 1)
 // splitPathAtExtension(pathname, pbasename, pextension) as int
 // splitPathAtExtension(const char *, char **, char **) as l_ok
@@ -1892,31 +1376,21 @@ public static int splitPathAtDirectory(
 ///  <param name="pbasename">[out][optional] - pathname not including the last dot and characters after that</param>
 ///  <param name="pextension">[out][optional] - path extension, which is the last dot and the characters after it.  If there is no extension, it returns the empty string</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int splitPathAtExtension(
 				 String pathname, 
 				out String[] pbasename, 
 				out String[] pextension){
 
-
 	IntPtr pbasenamePtr = IntPtr.Zero;
 	IntPtr pextensionPtr = IntPtr.Zero;
 
-	int _Result = Natives.splitPathAtExtension(
-  pathname, out  pbasenamePtr, out  pextensionPtr);
+	int _Result = Natives.splitPathAtExtension(  pathname, out  pbasenamePtr, out  pextensionPtr);
 	
-
-
-//  
 	if (pbasenamePtr == null) {pbasename = null;} else { pbasename = null; };
 	if (pextensionPtr == null) {pextension = null;} else { pextension = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2630, 1)
 // pathJoin(dir, fname) as String
 // pathJoin(const char *, const char *) as char *
@@ -1961,26 +1435,15 @@ public static int splitPathAtExtension(
 ///  <param name="dir">[in][optional] - can be null</param>
 ///  <param name="fname">[in][optional] - can be null</param>
 ///   <returns>specially concatenated path, or NULL on error</returns>
-
 public static String pathJoin(
 				 String dir, 
 				 String fname){
 
-
-
-	String _Result = Natives.pathJoin(
-  dir,   fname);
+	String _Result = Natives.pathJoin(  dir,   fname);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2709, 1)
 // appendSubdirs(basedir, subdirs) as String
 // appendSubdirs(const char *, const char *) as char *
@@ -1995,26 +1458,15 @@ public static String pathJoin(
 ///  <param name="basedir">[in] - </param>
 ///  <param name="subdirs">[in] - </param>
 ///   <returns>concatenated full directory path without trailing slash, or NULL on error</returns>
-
 public static String appendSubdirs(
 				 String basedir, 
 				 String subdirs){
 
-
-
-	String _Result = Natives.appendSubdirs(
-  basedir,   subdirs);
+	String _Result = Natives.appendSubdirs(  basedir,   subdirs);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2761, 1)
 // convertSepCharsInPath(path, type) as int
 // convertSepCharsInPath(char *, l_int32) as l_ok
@@ -2033,26 +1485,15 @@ public static String appendSubdirs(
 ///  <param name="path">[in] - </param>
 ///  <param name="type">[in] - UNIX_PATH_SEPCHAR, WIN_PATH_SEPCHAR</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int convertSepCharsInPath(
 				 String path, 
 				 int type){
 
-
-
-	int _Result = Natives.convertSepCharsInPath(
-  path,   type);
+	int _Result = Natives.convertSepCharsInPath(  path,   type);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2824, 1)
 // genPathname(dir, fname) as String
 // genPathname(const char *, const char *) as char *
@@ -2091,26 +1532,15 @@ public static int convertSepCharsInPath(
 ///  <param name="dir">[in][optional] - directory or full path name, with or without trailing '/'</param>
 ///  <param name="fname">[in][optional] - file name within a directory</param>
 ///   <returns>pathname either a directory or full path, or NULL on error</returns>
-
 public static String genPathname(
 				 String dir, 
 				 String fname){
 
-
-
-	String _Result = Natives.genPathname(
-  dir,   fname);
+	String _Result = Natives.genPathname(  dir,   fname);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2930, 1)
 // makeTempDirname(result, nbytes, subdir) as int
 // makeTempDirname(char *, size_t, const char *) as l_ok
@@ -2140,27 +1570,16 @@ public static String genPathname(
 ///  <param name="nbytes">[in] - size of %result array, in bytes</param>
 ///  <param name="subdir">[in][optional] - can be NULL or an empty string</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int makeTempDirname(
 				 String result, 
 				 uint nbytes, 
 				 String subdir){
 
-
-
-	int _Result = Natives.makeTempDirname(
-  result,   nbytes,   subdir);
+	int _Result = Natives.makeTempDirname(  result,   nbytes,   subdir);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (2980, 1)
 // modifyTrailingSlash(path, nbytes, flag) as int
 // modifyTrailingSlash(char *, size_t, l_int32) as l_ok
@@ -2174,27 +1593,16 @@ public static int makeTempDirname(
 ///  <param name="nbytes">[in] - size of %path array, in bytes</param>
 ///  <param name="flag">[in] - L_ADD_TRAIL_SLASH or L_REMOVE_TRAIL_SLASH</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int modifyTrailingSlash(
 				 String path, 
 				 uint nbytes, 
 				 int flag){
 
-
-
-	int _Result = Natives.modifyTrailingSlash(
-  path,   nbytes,   flag);
+	int _Result = Natives.modifyTrailingSlash(  path,   nbytes,   flag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (3030, 1)
 // l_makeTempFilename() as String
 // l_makeTempFilename() as char *
@@ -2224,23 +1632,13 @@ public static int modifyTrailingSlash(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_makeTempFilename/*"/>
 ///   <returns>fname : heap allocated filename returns NULL on failure.</returns>
-
 public static String l_makeTempFilename(){
-
-
 
 	String _Result = Natives.l_makeTempFilename();
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // utils2.c (3086, 1)
 // extractNumberFromFilename(fname, numpre, numpost) as int
 // extractNumberFromFilename(const char *, l_int32, l_int32) as l_int32
@@ -2259,23 +1657,13 @@ public static String l_makeTempFilename(){
 ///  <param name="numpre">[in] - number of characters before the digits to be found</param>
 ///  <param name="numpost">[in] - number of characters after the digits to be found</param>
 ///   <returns>num number embedded in the filename -1 on error or if not found</returns>
-
 public static int extractNumberFromFilename(
 				 String fname, 
 				 int numpre, 
 				 int numpost){
 
-
-
-	int _Result = Natives.extractNumberFromFilename(
-  fname,   numpre,   numpost);
+	int _Result = Natives.extractNumberFromFilename(  fname,   numpre,   numpost);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

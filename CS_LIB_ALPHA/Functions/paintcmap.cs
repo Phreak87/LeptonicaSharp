@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // paintcmap.c (98, 1)
 // pixSetSelectCmap(pixs, box, sindex, rval, gval, bval) as int
 // pixSetSelectCmap(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -41,7 +40,6 @@ public partial class _All {
 ///  <param name="gval">[in] - new color to paint</param>
 ///  <param name="bval">[in] - new color to paint</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetSelectCmap(
 				 Pix pixs, 
 				 Box box, 
@@ -50,22 +48,13 @@ public static int pixSetSelectCmap(
 				 int gval, 
 				 int bval){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixSetSelectCmap(
-pixs.Pointer, boxPtr,   sindex,   rval,   gval,   bval);
+	int _Result = Natives.pixSetSelectCmap(pixs.Pointer, boxPtr,   sindex,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // paintcmap.c (219, 1)
 // pixColorGrayRegionsCmap(pixs, boxa, type, rval, gval, bval) as int
 // pixColorGrayRegionsCmap(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -99,7 +88,6 @@ pixs.Pointer, boxPtr,   sindex,   rval,   gval,   bval);
 ///  <param name="gval">[in] - target color</param>
 ///  <param name="bval">[in] - target color</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixColorGrayRegionsCmap(
 				 Pix pixs, 
 				 Boxa boxa, 
@@ -108,21 +96,11 @@ public static int pixColorGrayRegionsCmap(
 				 int gval, 
 				 int bval){
 
-
-
-	int _Result = Natives.pixColorGrayRegionsCmap(
-pixs.Pointer, boxa.Pointer,   type,   rval,   gval,   bval);
+	int _Result = Natives.pixColorGrayRegionsCmap(pixs.Pointer, boxa.Pointer,   type,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // paintcmap.c (327, 1)
 // pixColorGrayCmap(pixs, box, type, rval, gval, bval) as int
 // pixColorGrayCmap(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -169,7 +147,6 @@ pixs.Pointer, boxa.Pointer,   type,   rval,   gval,   bval);
 ///  <param name="gval">[in] - target color</param>
 ///  <param name="bval">[in] - target color</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixColorGrayCmap(
 				 Pix pixs, 
 				 Box box, 
@@ -178,22 +155,13 @@ public static int pixColorGrayCmap(
 				 int gval, 
 				 int bval){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixColorGrayCmap(
-pixs.Pointer, boxPtr,   type,   rval,   gval,   bval);
+	int _Result = Natives.pixColorGrayCmap(pixs.Pointer, boxPtr,   type,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // paintcmap.c (395, 1)
 // pixColorGrayMaskedCmap(pixs, pixm, type, rval, gval, bval) as int
 // pixColorGrayMaskedCmap(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -220,7 +188,6 @@ pixs.Pointer, boxPtr,   type,   rval,   gval,   bval);
 ///  <param name="gval">[in] - target color</param>
 ///  <param name="bval">[in] - target color</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixColorGrayMaskedCmap(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -229,21 +196,11 @@ public static int pixColorGrayMaskedCmap(
 				 int gval, 
 				 int bval){
 
-
-
-	int _Result = Natives.pixColorGrayMaskedCmap(
-pixs.Pointer, pixm.Pointer,   type,   rval,   gval,   bval);
+	int _Result = Natives.pixColorGrayMaskedCmap(pixs.Pointer, pixm.Pointer,   type,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // paintcmap.c (492, 1)
 // addColorizedGrayToCmap(cmap, type, rval, gval, bval, pna) as int
 // addColorizedGrayToCmap(PIXCMAP *, l_int32, l_int32, l_int32, l_int32, NUMA **) as l_ok
@@ -279,7 +236,6 @@ pixs.Pointer, pixm.Pointer,   type,   rval,   gval,   bval);
 ///  <param name="bval">[in] - target color</param>
 ///  <param name="pna">[out][optional] - table for mapping new cmap entries</param>
 ///   <returns>0 if OK 1 on error 2 if new colors will not fit in cmap.</returns>
-
 public static int addColorizedGrayToCmap(
 				 PixColormap cmap, 
 				 int type, 
@@ -288,23 +244,14 @@ public static int addColorizedGrayToCmap(
 				 int bval, 
 				out Numa pna){
 
-
 	IntPtr pnaPtr = IntPtr.Zero;
 
-	int _Result = Natives.addColorizedGrayToCmap(
-cmap.Pointer,   type,   rval,   gval,   bval, out pnaPtr);
+	int _Result = Natives.addColorizedGrayToCmap(cmap.Pointer,   type,   rval,   gval,   bval, out pnaPtr);
 	
-
-
-//  
 	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // paintcmap.c (583, 1)
 // pixSetSelectMaskedCmap(pixs, pixm, x, y, sindex, rval, gval, bval) as int
 // pixSetSelectMaskedCmap(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -335,7 +282,6 @@ cmap.Pointer,   type,   rval,   gval,   bval, out pnaPtr);
 ///  <param name="gval">[in] - new color to substitute</param>
 ///  <param name="bval">[in] - new color to substitute</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetSelectMaskedCmap(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -346,22 +292,13 @@ public static int pixSetSelectMaskedCmap(
 				 int gval, 
 				 int bval){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixSetSelectMaskedCmap(
-pixs.Pointer, pixmPtr,   x,   y,   sindex,   rval,   gval,   bval);
+	int _Result = Natives.pixSetSelectMaskedCmap(pixs.Pointer, pixmPtr,   x,   y,   sindex,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // paintcmap.c (693, 1)
 // pixSetMaskedCmap(pixs, pixm, x, y, rval, gval, bval) as int
 // pixSetMaskedCmap(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -393,7 +330,6 @@ pixs.Pointer, pixmPtr,   x,   y,   sindex,   rval,   gval,   bval);
 ///  <param name="gval">[in] - new color to set at each masked pixel</param>
 ///  <param name="bval">[in] - new color to set at each masked pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetMaskedCmap(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -403,18 +339,10 @@ public static int pixSetMaskedCmap(
 				 int gval, 
 				 int bval){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixSetMaskedCmap(
-pixs.Pointer, pixmPtr,   x,   y,   rval,   gval,   bval);
+	int _Result = Natives.pixSetMaskedCmap(pixs.Pointer, pixmPtr,   x,   y,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

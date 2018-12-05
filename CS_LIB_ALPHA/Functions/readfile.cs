@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (123, 1)
 // pixaReadFiles(dirname, substr) as Pixa
 // pixaReadFiles(const char *, const char *) as PIXA *
@@ -24,27 +23,16 @@ public partial class _All {
 ///  <param name="dirname">[in] - </param>
 ///  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 ///   <returns>pixa, or NULL on error</returns>
-
 public static Pixa pixaReadFiles(
 				 String dirname, 
 				 String substr){
 
-
-
-	IntPtr _Result = Natives.pixaReadFiles(
-  dirname,   substr);
+	IntPtr _Result = Natives.pixaReadFiles(  dirname,   substr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (150, 1)
 // pixaReadFilesSA(sa) as Pixa
 // pixaReadFilesSA(SARRAY *) as PIXA *
@@ -53,26 +41,15 @@ public static Pixa pixaReadFiles(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadFilesSA/*"/>
 ///  <param name="sa">[in] - full pathnames for all files</param>
 ///   <returns>pixa, or NULL on error</returns>
-
 public static Pixa pixaReadFilesSA(
 				 Sarray sa){
 
-
-
-	IntPtr _Result = Natives.pixaReadFilesSA(
-sa.Pointer);
+	IntPtr _Result = Natives.pixaReadFilesSA(sa.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (189, 1)
 // pixRead(filename) as Pix
 // pixRead(const char *) as PIX *
@@ -84,26 +61,15 @@ sa.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRead/*"/>
 ///  <param name="filename">[in] - with full pathname or in local directory</param>
 ///   <returns>pix if OK NULL on error</returns>
-
 public static Pix pixRead(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.pixRead(
-  filename);
+	IntPtr _Result = Natives.pixRead(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (225, 1)
 // pixReadWithHint(filename, hint) as Pix
 // pixReadWithHint(const char *, l_int32) as PIX *
@@ -117,27 +83,16 @@ public static Pix pixRead(
 ///  <param name="filename">[in] - with full pathname or in local directory</param>
 ///  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 ///   <returns>pix if OK NULL on error</returns>
-
 public static Pix pixReadWithHint(
 				 String filename, 
 				 int hint){
 
-
-
-	IntPtr _Result = Natives.pixReadWithHint(
-  filename,   hint);
+	IntPtr _Result = Natives.pixReadWithHint(  filename,   hint);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (276, 1)
 // pixReadIndexed(sa, index) as Pix
 // pixReadIndexed(SARRAY *, l_int32) as PIX *
@@ -169,27 +124,16 @@ public static Pix pixReadWithHint(
 ///  <param name="sa">[in] - string array of full pathnames</param>
 ///  <param name="index">[in] - into pathname array</param>
 ///   <returns>pix if OK null if not found</returns>
-
 public static Pix pixReadIndexed(
 				 Sarray sa, 
 				 int index){
 
-
-
-	IntPtr _Result = Natives.pixReadIndexed(
-sa.Pointer,   index);
+	IntPtr _Result = Natives.pixReadIndexed(sa.Pointer,   index);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (317, 1)
 // pixReadStream(fp, hint) as Pix
 // pixReadStream(FILE *, l_int32) as PIX *
@@ -202,27 +146,16 @@ sa.Pointer,   index);
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 ///   <returns>pix if OK NULL on error</returns>
-
 public static Pix pixReadStream(
 				 FILE fp, 
 				 int hint){
 
-
-
-	IntPtr _Result = Natives.pixReadStream(
-fp.Pointer,   hint);
+	IntPtr _Result = Natives.pixReadStream(fp.Pointer,   hint);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (431, 1)
 // pixReadHeader(filename, pformat, pw, ph, pbps, pspp, piscmap) as int
 // pixReadHeader(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -242,7 +175,6 @@ fp.Pointer,   hint);
 ///  <param name="pspp">[out][optional] - samples/pixel 1, 3 or 4</param>
 ///  <param name="piscmap">[out][optional] - 1 if cmap exists 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixReadHeader(
 				 String filename, 
 				out int pformat, 
@@ -252,21 +184,11 @@ public static int pixReadHeader(
 				out int pspp, 
 				out int piscmap){
 
-
-
-	int _Result = Natives.pixReadHeader(
-  filename, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
+	int _Result = Natives.pixReadHeader(  filename, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (568, 1)
 // findFileFormat(filename, pformat) as int
 // findFileFormat(const char *, l_int32 *) as l_ok
@@ -276,26 +198,15 @@ public static int pixReadHeader(
 ///  <param name="filename">[in] - </param>
 ///  <param name="pformat">[out] - found format</param>
 ///   <returns>0 if OK, 1 on error or if format is not recognized</returns>
-
 public static int findFileFormat(
 				 String filename, 
 				out int pformat){
 
-
-
-	int _Result = Natives.findFileFormat(
-  filename, out  pformat);
+	int _Result = Natives.findFileFormat(  filename, out  pformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (603, 1)
 // findFileFormatStream(fp, pformat) as int
 // findFileFormatStream(FILE *, l_int32 *) as l_ok
@@ -308,26 +219,15 @@ public static int findFileFormat(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="pformat">[out] - found format</param>
 ///   <returns>0 if OK, 1 on error or if format is not recognized</returns>
-
 public static int findFileFormatStream(
 				 FILE fp, 
 				out int pformat){
 
-
-
-	int _Result = Natives.findFileFormatStream(
-fp.Pointer, out  pformat);
+	int _Result = Natives.findFileFormatStream(fp.Pointer, out  pformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (654, 1)
 // findFileFormatBuffer(buf, pformat) as int
 // findFileFormatBuffer(const l_uint8 *, l_int32 *) as l_ok
@@ -344,26 +244,15 @@ fp.Pointer, out  pformat);
 ///  <param name="buf">[in] - byte buffer at least 12 bytes in size we can't check</param>
 ///  <param name="pformat">[out] - found format</param>
 ///   <returns>0 if OK, 1 on error or if format is not recognized</returns>
-
 public static int findFileFormatBuffer(
 				 Byte[] buf, 
 				out int pformat){
 
-
-
-	int _Result = Natives.findFileFormatBuffer(
-  buf, out  pformat);
+	int _Result = Natives.findFileFormatBuffer(  buf, out  pformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (783, 1)
 // fileFormatIsTiff(fp) as int
 // fileFormatIsTiff(FILE *) as l_int32
@@ -372,25 +261,14 @@ public static int findFileFormatBuffer(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fileFormatIsTiff/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>1 if file is tiff 0 otherwise or on error</returns>
-
 public static int fileFormatIsTiff(
 				 FILE fp){
 
-
-
-	int _Result = Natives.fileFormatIsTiff(
-fp.Pointer);
+	int _Result = Natives.fileFormatIsTiff(fp.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (827, 1)
 // pixReadMem(data, size) as Pix
 // pixReadMem(const l_uint8 *, size_t) as PIX *
@@ -413,27 +291,16 @@ fp.Pointer);
 ///  <param name="data">[in] - const encoded</param>
 ///  <param name="size">[in] - size of data</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadMem(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.pixReadMem(
-  data,   size);
+	IntPtr _Result = Natives.pixReadMem(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (948, 1)
 // pixReadHeaderMem(data, size, pformat, pw, ph, pbps, pspp, piscmap) as int
 // pixReadHeaderMem(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -462,7 +329,6 @@ public static Pix pixReadMem(
 ///  <param name="pspp">[out][optional] - samples/pixel 1, 3 or 4</param>
 ///  <param name="piscmap">[out][optional] - 1 if cmap exists 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixReadHeaderMem(
 				 Byte[] data, 
 				 uint size, 
@@ -473,21 +339,11 @@ public static int pixReadHeaderMem(
 				out int pspp, 
 				out int piscmap){
 
-
-
-	int _Result = Natives.pixReadHeaderMem(
-  data,   size, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
+	int _Result = Natives.pixReadHeaderMem(  data,   size, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (1094, 1)
 // writeImageFileInfo(filename, fpout, headeronly) as int
 // writeImageFileInfo(const char *, FILE *, l_int32) as l_ok
@@ -506,27 +362,16 @@ public static int pixReadHeaderMem(
 ///  <param name="fpout">[in] - output file stream</param>
 ///  <param name="headeronly">[in] - 1 to read only the header 0 to read both the header and the input file</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int writeImageFileInfo(
 				 String filename, 
 				 FILE fpout, 
 				 int headeronly){
 
-
-
-	int _Result = Natives.writeImageFileInfo(
-  filename, fpout.Pointer,   headeronly);
+	int _Result = Natives.writeImageFileInfo(  filename, fpout.Pointer,   headeronly);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (1262, 1)
 // ioFormatTest(filename) as int
 // ioFormatTest(const char *) as l_ok
@@ -552,21 +397,11 @@ public static int writeImageFileInfo(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ioFormatTest/*"/>
 ///  <param name="filename">[in] - input file</param>
 ///   <returns>0 if OK 1 on error or if the test fails</returns>
-
 public static int ioFormatTest(
 				 String filename){
 
-
-
-	int _Result = Natives.ioFormatTest(
-  filename);
+	int _Result = Natives.ioFormatTest(  filename);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

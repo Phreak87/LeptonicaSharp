@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (132, 1)
 // l_rbtreeCreate(keytype) as L_Rbtree
 // l_rbtreeCreate(l_int32) as L_RBTREE *
@@ -15,28 +14,17 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeCreate/*"/>
 ///  <param name="keytype">[in] - defined by an enum for an RB_TYPE union</param>
 ///   <returns>rbtree    container with empty ptr to the root</returns>
-
 public static L_Rbtree l_rbtreeCreate(
 				 int keytype){
 
-
-
-	IntPtr _Result = Natives.l_rbtreeCreate(
-  keytype);
+	IntPtr _Result = Natives.l_rbtreeCreate(  keytype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Rbtree(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (154, 1)
-// l_rbtreeLookup(t, key) as RB_TYPE
+// l_rbtreeLookup(t, key) as Rb_Type
 // l_rbtreeLookup(L_RBTREE *, RB_TYPE) as RB_TYPE *
 ///  <remarks>
 ///  </remarks>
@@ -44,27 +32,16 @@ public static L_Rbtree l_rbtreeCreate(
 ///  <param name="t">[in] - rbtree, including root node</param>
 ///  <param name="key">[in] - find a node with this key</param>
 ///   <returns>[and]value     a pointer to a union, if the node exists else NULL</returns>
-
 public static Rb_Type l_rbtreeLookup(
 				 L_Rbtree t, 
 				 Rb_Type key){
 
-
-
-	IntPtr _Result = Natives.l_rbtreeLookup(
-t.Pointer, key.Pointer);
+	IntPtr _Result = Natives.l_rbtreeLookup(t.Pointer, key.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
-    return new Rb_Type(_Result);
+	return  new Rb_Type(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (181, 1)
 // l_rbtreeInsert(t, key, value) as Object
 // l_rbtreeInsert(L_RBTREE *, RB_TYPE, RB_TYPE) as void
@@ -77,26 +54,15 @@ t.Pointer, key.Pointer);
 ///  <param name="t">[in] - rbtree, including root node</param>
 ///  <param name="key">[in] - insert a node with this key, if the key does not already exist in the tree</param>
 ///  <param name="value">[in] - typically an int, used for an index</param>
-
 public static void l_rbtreeInsert(
 				 L_Rbtree t, 
 				 Rb_Type key, 
 				 Rb_Type value){
 
-
-
-	Natives.l_rbtreeInsert(
-t.Pointer, key.Pointer, value.Pointer);
+	Natives.l_rbtreeInsert(t.Pointer, key.Pointer, value.Pointer);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (235, 1)
 // l_rbtreeDelete(t, key) as Object
 // l_rbtreeDelete(L_RBTREE *, RB_TYPE) as void
@@ -105,25 +71,14 @@ t.Pointer, key.Pointer, value.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeDelete/*"/>
 ///  <param name="t">[in] - rbtree, including root node</param>
 ///  <param name="key">[in] - (delete the node with this key</param>
-
 public static void l_rbtreeDelete(
 				 L_Rbtree t, 
 				 Rb_Type key){
 
-
-
-	Natives.l_rbtreeDelete(
-t.Pointer, key.Pointer);
+	Natives.l_rbtreeDelete(t.Pointer, key.Pointer);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (283, 1)
 // l_rbtreeDestroy(pt) as Object
 // l_rbtreeDestroy(L_RBTREE **) as void
@@ -134,25 +89,15 @@ t.Pointer, key.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeDestroy/*"/>
 ///  <param name="pt">[in] - ptr to rbtree</param>
-
 public static void l_rbtreeDestroy(
 				 List<L_Rbtree> pt){
 
-
 	IntPtr ptPtr = IntPtr.Zero;
 
-	Natives.l_rbtreeDestroy(
-ptPtr);
+	Natives.l_rbtreeDestroy(ptPtr);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (318, 1)
 // l_rbtreeGetFirst(t) as L_Rbtree_Node
 // l_rbtreeGetFirst(L_RBTREE *) as L_RBTREE_NODE *
@@ -164,26 +109,15 @@ ptPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetFirst/*"/>
 ///  <param name="t">[in] - rbtree, including root node</param>
 ///   <returns>void</returns>
-
 public static L_Rbtree_Node l_rbtreeGetFirst(
 				 L_Rbtree t){
 
-
-
-	IntPtr _Result = Natives.l_rbtreeGetFirst(
-t.Pointer);
+	IntPtr _Result = Natives.l_rbtreeGetFirst(t.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Rbtree_Node(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (353, 1)
 // l_rbtreeGetNext(n) as L_Rbtree_Node
 // l_rbtreeGetNext(L_RBTREE_NODE *) as L_RBTREE_NODE *
@@ -200,26 +134,15 @@ t.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetNext/*"/>
 ///  <param name="n">[in] - current node</param>
 ///   <returns>next node, or NULL if it's the last node</returns>
-
 public static L_Rbtree_Node l_rbtreeGetNext(
 				 L_Rbtree_Node n){
 
-
-
-	IntPtr _Result = Natives.l_rbtreeGetNext(
-n.Pointer);
+	IntPtr _Result = Natives.l_rbtreeGetNext(n.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Rbtree_Node(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (388, 1)
 // l_rbtreeGetLast(t) as L_Rbtree_Node
 // l_rbtreeGetLast(L_RBTREE *) as L_RBTREE_NODE *
@@ -231,26 +154,15 @@ n.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetLast/*"/>
 ///  <param name="t">[in] - rbtree, including root node</param>
 ///   <returns>void</returns>
-
 public static L_Rbtree_Node l_rbtreeGetLast(
 				 L_Rbtree t){
 
-
-
-	IntPtr _Result = Natives.l_rbtreeGetLast(
-t.Pointer);
+	IntPtr _Result = Natives.l_rbtreeGetLast(t.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Rbtree_Node(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (423, 1)
 // l_rbtreeGetPrev(n) as L_Rbtree_Node
 // l_rbtreeGetPrev(L_RBTREE_NODE *) as L_RBTREE_NODE *
@@ -267,26 +179,15 @@ t.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetPrev/*"/>
 ///  <param name="n">[in] - current node</param>
 ///   <returns>next node, or NULL if it's the first node</returns>
-
 public static L_Rbtree_Node l_rbtreeGetPrev(
 				 L_Rbtree_Node n){
 
-
-
-	IntPtr _Result = Natives.l_rbtreeGetPrev(
-n.Pointer);
+	IntPtr _Result = Natives.l_rbtreeGetPrev(n.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Rbtree_Node(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (453, 1)
 // l_rbtreeGetCount(t) as int
 // l_rbtreeGetCount(L_RBTREE *) as l_int32
@@ -295,25 +196,14 @@ n.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetCount/*"/>
 ///  <param name="t">[in] - rbtree</param>
 ///   <returns>count  the number of nodes in the tree, or 0 on error</returns>
-
 public static int l_rbtreeGetCount(
 				 L_Rbtree t){
 
-
-
-	int _Result = Natives.l_rbtreeGetCount(
-t.Pointer);
+	int _Result = Natives.l_rbtreeGetCount(t.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rbtree.c (486, 1)
 // l_rbtreePrint(fp, t) as Object
 // l_rbtreePrint(FILE *, L_RBTREE *) as void
@@ -322,22 +212,12 @@ t.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreePrint/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="t">[in] - rbtree</param>
-
 public static void l_rbtreePrint(
 				 FILE fp, 
 				 L_Rbtree t){
 
-
-
-	Natives.l_rbtreePrint(
-fp.Pointer, t.Pointer);
+	Natives.l_rbtreePrint(fp.Pointer, t.Pointer);
 	
-
-
-//  
-
-
-
 }
 
 

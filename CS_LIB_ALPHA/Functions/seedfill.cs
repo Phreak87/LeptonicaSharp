@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (243, 1)
 // pixSeedfillBinary(pixd, pixs, pixm, connectivity) as Pix
 // pixSeedfillBinary(PIX *, PIX *, PIX *, l_int32) as PIX *
@@ -41,30 +40,20 @@ public partial class _All {
 ///  <param name="pixm">[in] - 1 bpp filling mask</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd always</returns>
-
 public static Pix pixSeedfillBinary(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Pix pixm, 
 				 int connectivity){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixSeedfillBinary(
-pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixSeedfillBinary(pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (330, 1)
 // pixSeedfillBinaryRestricted(pixd, pixs, pixm, connectivity, xmax, ymax) as Pix
 // pixSeedfillBinaryRestricted(PIX *, PIX *, PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -100,7 +89,6 @@ pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity);
 ///  <param name="xmax">[in] - max distance in x direction of fill into the mask</param>
 ///  <param name="ymax">[in] - max distance in y direction of fill into the mask</param>
 ///   <returns>pixd always</returns>
-
 public static Pix pixSeedfillBinaryRestricted(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -109,23 +97,14 @@ public static Pix pixSeedfillBinaryRestricted(
 				 int xmax, 
 				 int ymax){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixSeedfillBinaryRestricted(
-pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity,   xmax,   ymax);
+	IntPtr _Result = Natives.pixSeedfillBinaryRestricted(pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity,   xmax,   ymax);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (605, 1)
 // pixHolesByFilling(pixs, connectivity) as Pix
 // pixHolesByFilling(PIX *, l_int32) as PIX *
@@ -140,27 +119,16 @@ pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity,   xmax,   ymax);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd  inverted image of all holes, or NULL on error Action: 1 Start with 1-pixel black border on otherwise white pixd 2 Use the inverted pixs as the filling mask to fill in all the pixels from the border to the pixs foreground 3 OR the result with pixs to have an image with all ON pixels except for the holes. 4 Invert the result to get the holes as foreground</returns>
-
 public static Pix pixHolesByFilling(
 				 Pix pixs, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixHolesByFilling(
-pixs.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixHolesByFilling(pixs.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (656, 1)
 // pixFillClosedBorders(pixs, connectivity) as Pix
 // pixFillClosedBorders(PIX *, l_int32) as PIX *
@@ -187,27 +155,16 @@ pixs.Pointer,   connectivity);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd  all topologically outer closed borders are filled as connected comonents, or NULL on error</returns>
-
 public static Pix pixFillClosedBorders(
 				 Pix pixs, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixFillClosedBorders(
-pixs.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixFillClosedBorders(pixs.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (694, 1)
 // pixExtractBorderConnComps(pixs, connectivity) as Pix
 // pixExtractBorderConnComps(PIX *, l_int32) as PIX *
@@ -217,27 +174,16 @@ pixs.Pointer,   connectivity);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd  all pixels in the src that are in connected components touching the border, or NULL on error</returns>
-
 public static Pix pixExtractBorderConnComps(
 				 Pix pixs, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixExtractBorderConnComps(
-pixs.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixExtractBorderConnComps(pixs.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (733, 1)
 // pixRemoveBorderConnComps(pixs, connectivity) as Pix
 // pixRemoveBorderConnComps(PIX *, l_int32) as PIX *
@@ -250,27 +196,16 @@ pixs.Pointer,   connectivity);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd  all pixels in the src that are not touching the border or NULL on error</returns>
-
 public static Pix pixRemoveBorderConnComps(
 				 Pix pixs, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixRemoveBorderConnComps(
-pixs.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixRemoveBorderConnComps(pixs.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (783, 1)
 // pixFillBgFromBorder(pixs, connectivity) as Pix
 // pixFillBgFromBorder(PIX *, l_int32) as PIX *
@@ -298,27 +233,16 @@ pixs.Pointer,   connectivity);
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd with the background c.c. touching the border filled to foreground, or NULL on error</returns>
-
 public static Pix pixFillBgFromBorder(
 				 Pix pixs, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixFillBgFromBorder(
-pixs.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixFillBgFromBorder(pixs.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (842, 1)
 // pixFillHolesToBoundingRect(pixs, minsize, maxhfract, minfgfract) as Pix
 // pixFillHolesToBoundingRect(PIX *, l_int32, l_float32, l_float32) as PIX *
@@ -353,29 +277,18 @@ pixs.Pointer,   connectivity);
 ///  <param name="maxhfract">[in] - max hole area as fraction of fg pixels in the cc</param>
 ///  <param name="minfgfract">[in] - min fg area as fraction of bounding rectangle</param>
 ///   <returns>pixd pixs, with some holes possibly filled and some c.c. possibly expanded to their bounding rects, or NULL on error</returns>
-
 public static Pix pixFillHolesToBoundingRect(
 				 Pix pixs, 
 				 int minsize, 
 				 Single maxhfract, 
 				 Single minfgfract){
 
-
-
-	IntPtr _Result = Natives.pixFillHolesToBoundingRect(
-pixs.Pointer,   minsize,   maxhfract,   minfgfract);
+	IntPtr _Result = Natives.pixFillHolesToBoundingRect(pixs.Pointer,   minsize,   maxhfract,   minfgfract);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (923, 1)
 // pixSeedfillGray(pixs, pixm, connectivity) as int
 // pixSeedfillGray(PIX *, PIX *, l_int32) as l_ok
@@ -403,27 +316,16 @@ pixs.Pointer,   minsize,   maxhfract,   minfgfract);
 ///  <param name="pixm">[in] - 8 bpp filling mask</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSeedfillGray(
 				 Pix pixs, 
 				 Pix pixm, 
 				 int connectivity){
 
-
-
-	int _Result = Natives.pixSeedfillGray(
-pixs.Pointer, pixm.Pointer,   connectivity);
+	int _Result = Natives.pixSeedfillGray(pixs.Pointer, pixm.Pointer,   connectivity);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (982, 1)
 // pixSeedfillGrayInv(pixs, pixm, connectivity) as int
 // pixSeedfillGrayInv(PIX *, PIX *, l_int32) as l_ok
@@ -453,27 +355,16 @@ pixs.Pointer, pixm.Pointer,   connectivity);
 ///  <param name="pixm">[in] - 8 bpp filling mask</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSeedfillGrayInv(
 				 Pix pixs, 
 				 Pix pixm, 
 				 int connectivity){
 
-
-
-	int _Result = Natives.pixSeedfillGrayInv(
-pixs.Pointer, pixm.Pointer,   connectivity);
+	int _Result = Natives.pixSeedfillGrayInv(pixs.Pointer, pixm.Pointer,   connectivity);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (1969, 1)
 // pixSeedfillGraySimple(pixs, pixm, connectivity) as int
 // pixSeedfillGraySimple(PIX *, PIX *, l_int32) as l_ok
@@ -501,27 +392,16 @@ pixs.Pointer, pixm.Pointer,   connectivity);
 ///  <param name="pixm">[in] - 8 bpp filling mask</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSeedfillGraySimple(
 				 Pix pixs, 
 				 Pix pixm, 
 				 int connectivity){
 
-
-
-	int _Result = Natives.pixSeedfillGraySimple(
-pixs.Pointer, pixm.Pointer,   connectivity);
+	int _Result = Natives.pixSeedfillGraySimple(pixs.Pointer, pixm.Pointer,   connectivity);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (2040, 1)
 // pixSeedfillGrayInvSimple(pixs, pixm, connectivity) as int
 // pixSeedfillGrayInvSimple(PIX *, PIX *, l_int32) as l_ok
@@ -546,27 +426,16 @@ pixs.Pointer, pixm.Pointer,   connectivity);
 ///  <param name="pixm">[in] - 8 bpp filling mask</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSeedfillGrayInvSimple(
 				 Pix pixs, 
 				 Pix pixm, 
 				 int connectivity){
 
-
-
-	int _Result = Natives.pixSeedfillGrayInvSimple(
-pixs.Pointer, pixm.Pointer,   connectivity);
+	int _Result = Natives.pixSeedfillGrayInvSimple(pixs.Pointer, pixm.Pointer,   connectivity);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (2442, 1)
 // pixSeedfillGrayBasin(pixb, pixm, delta, connectivity) as Pix
 // pixSeedfillGrayBasin(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -601,29 +470,18 @@ pixs.Pointer, pixm.Pointer,   connectivity);
 ///  <param name="delta">[in] - amount of seed value above mask</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd filled seed if OK, NULL on error</returns>
-
 public static Pix pixSeedfillGrayBasin(
 				 Pix pixb, 
 				 Pix pixm, 
 				 int delta, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixSeedfillGrayBasin(
-pixb.Pointer, pixm.Pointer,   delta,   connectivity);
+	IntPtr _Result = Natives.pixSeedfillGrayBasin(pixb.Pointer, pixm.Pointer,   delta,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (2533, 1)
 // pixDistanceFunction(pixs, connectivity, outdepth, boundcond) as Pix
 // pixDistanceFunction(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -670,29 +528,18 @@ pixb.Pointer, pixm.Pointer,   delta,   connectivity);
 ///  <param name="outdepth">[in] - 8 or 16 bits for pixd</param>
 ///  <param name="boundcond">[in] - L_BOUNDARY_BG, L_BOUNDARY_FG</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixDistanceFunction(
 				 Pix pixs, 
 				 int connectivity, 
 				 int outdepth, 
 				 int boundcond){
 
-
-
-	IntPtr _Result = Natives.pixDistanceFunction(
-pixs.Pointer,   connectivity,   outdepth,   boundcond);
+	IntPtr _Result = Natives.pixDistanceFunction(pixs.Pointer,   connectivity,   outdepth,   boundcond);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (2791, 1)
 // pixSeedspread(pixs, connectivity) as Pix
 // pixSeedspread(PIX *, l_int32) as PIX *
@@ -736,27 +583,16 @@ pixs.Pointer,   connectivity,   outdepth,   boundcond);
 ///  <param name="pixs">[in] - 8 bpp source</param>
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixSeedspread(
 				 Pix pixs, 
 				 int connectivity){
 
-
-
-	IntPtr _Result = Natives.pixSeedspread(
-pixs.Pointer,   connectivity);
+	IntPtr _Result = Natives.pixSeedspread(pixs.Pointer,   connectivity);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (3018, 1)
 // pixLocalExtrema(pixs, maxmin, minmax, ppixmin, ppixmax) as int
 // pixLocalExtrema(PIX *, l_int32, l_int32, PIX **, PIX **) as l_ok
@@ -795,7 +631,6 @@ pixs.Pointer,   connectivity);
 ///  <param name="ppixmin">[out][optional] - mask of local minima</param>
 ///  <param name="ppixmax">[out][optional] - mask of local maxima</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixLocalExtrema(
 				 Pix pixs, 
 				 int maxmin, 
@@ -803,25 +638,16 @@ public static int pixLocalExtrema(
 				out Pix ppixmin, 
 				out Pix ppixmax){
 
-
 	IntPtr ppixminPtr = IntPtr.Zero;
 	IntPtr ppixmaxPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixLocalExtrema(
-pixs.Pointer,   maxmin,   minmax, out ppixminPtr, out ppixmaxPtr);
+	int _Result = Natives.pixLocalExtrema(pixs.Pointer,   maxmin,   minmax, out ppixminPtr, out ppixmaxPtr);
 	
-
-
-//  
 	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
 	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (3190, 1)
 // pixSelectedLocalExtrema(pixs, mindist, ppixmin, ppixmax) as int
 // pixSelectedLocalExtrema(PIX *, l_int32, PIX **, PIX **) as l_ok
@@ -856,32 +682,22 @@ pixs.Pointer,   maxmin,   minmax, out ppixminPtr, out ppixmaxPtr);
 ///  <param name="ppixmin">[out] - mask of local minima</param>
 ///  <param name="ppixmax">[out] - mask of local maxima</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSelectedLocalExtrema(
 				 Pix pixs, 
 				 int mindist, 
 				out Pix ppixmin, 
 				out Pix ppixmax){
 
-
 	IntPtr ppixminPtr = IntPtr.Zero;
 	IntPtr ppixmaxPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixSelectedLocalExtrema(
-pixs.Pointer,   mindist, out ppixminPtr, out ppixmaxPtr);
+	int _Result = Natives.pixSelectedLocalExtrema(pixs.Pointer,   mindist, out ppixminPtr, out ppixmaxPtr);
 	
-
-
-//  
 	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
 	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (3250, 1)
 // pixFindEqualValues(pixs1, pixs2) as Pix
 // pixFindEqualValues(PIX *, PIX *) as PIX *
@@ -896,27 +712,16 @@ pixs.Pointer,   mindist, out ppixminPtr, out ppixmaxPtr);
 ///  <param name="pixs1">[in] - 8 bpp</param>
 ///  <param name="pixs2">[in] - 8 bpp</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
-
 public static Pix pixFindEqualValues(
 				 Pix pixs1, 
 				 Pix pixs2){
 
-
-
-	IntPtr _Result = Natives.pixFindEqualValues(
-pixs1.Pointer, pixs2.Pointer);
+	IntPtr _Result = Natives.pixFindEqualValues(pixs1.Pointer, pixs2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (3317, 1)
 // pixSelectMinInConnComp(pixs, pixm, ppta, pnav) as int
 // pixSelectMinInConnComp(PIX *, PIX *, PTA **, NUMA **) as l_ok
@@ -939,32 +744,22 @@ pixs1.Pointer, pixs2.Pointer);
 ///  <param name="ppta">[out] - pta of min pixel locations</param>
 ///  <param name="pnav">[out][optional] - numa of minima values</param>
 ///   <returns>0 if OK, 1 on error.</returns>
-
 public static int pixSelectMinInConnComp(
 				 Pix pixs, 
 				 Pix pixm, 
 				out Pta ppta, 
 				out Numa pnav){
 
-
 	IntPtr pptaPtr = IntPtr.Zero;
 	IntPtr pnavPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixSelectMinInConnComp(
-pixs.Pointer, pixm.Pointer, out pptaPtr, out pnavPtr);
+	int _Result = Natives.pixSelectMinInConnComp(pixs.Pointer, pixm.Pointer, out pptaPtr, out pnavPtr);
 	
-
-
-//  
 	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // seedfill.c (3430, 1)
 // pixRemoveSeededComponents(pixd, pixs, pixm, connectivity, bordersize) as Pix
 // pixRemoveSeededComponents(PIX *, PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -989,7 +784,6 @@ pixs.Pointer, pixm.Pointer, out pptaPtr, out pnavPtr);
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///  <param name="bordersize">[in] - amount of border clearing</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixRemoveSeededComponents(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -997,19 +791,11 @@ public static Pix pixRemoveSeededComponents(
 				 int connectivity, 
 				 int bordersize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixRemoveSeededComponents(
-pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity,   bordersize);
+	IntPtr _Result = Natives.pixRemoveSeededComponents(pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity,   bordersize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

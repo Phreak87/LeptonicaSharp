@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fmorphauto.c (243, 1)
 // fmorphautogen(sela, fileindex, filename) as int
 // fmorphautogen(SELA *, l_int32, const char *) as l_ok
@@ -23,27 +22,16 @@ public partial class _All {
 ///  <param name="fileindex">[in] - </param>
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int fmorphautogen(
 				 Sela sela, 
 				 int fileindex, 
 				 String filename){
 
-
-
-	int _Result = Natives.fmorphautogen(
-sela.Pointer,   fileindex,   filename);
+	int _Result = Natives.fmorphautogen(sela.Pointer,   fileindex,   filename);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fmorphauto.c (283, 1)
 // fmorphautogen1(sela, fileindex, filename) as int
 // fmorphautogen1(SELA *, l_int32, const char *) as l_ok
@@ -68,27 +56,16 @@ sela.Pointer,   fileindex,   filename);
 ///  <param name="fileindex">[in] - </param>
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int fmorphautogen1(
 				 Sela sela, 
 				 int fileindex, 
 				 String filename){
 
-
-
-	int _Result = Natives.fmorphautogen1(
-sela.Pointer,   fileindex,   filename);
+	int _Result = Natives.fmorphautogen1(sela.Pointer,   fileindex,   filename);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fmorphauto.c (490, 1)
 // fmorphautogen2(sela, fileindex, filename) as int
 // fmorphautogen2(SELA *, l_int32, const char *) as l_int32
@@ -96,24 +73,15 @@ sela.Pointer,   fileindex,   filename);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fmorphautogen2/*"/>
 ///   <returns></returns>
-
 public static int fmorphautogen2(
 				 Sela sela, 
 				 int fileindex, 
 				 String filename){
 
-
 	IntPtr selaPtr = IntPtr.Zero; if (sela != null) {selaPtr = sela.Pointer;}
 
-	int _Result = Natives.fmorphautogen2(
-sela.Pointer,   fileindex,   filename);
+	int _Result = Natives.fmorphautogen2(sela.Pointer,   fileindex,   filename);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

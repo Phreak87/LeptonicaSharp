@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (165, 1)
 // boxCreate(x, y, w, h) as Box
 // boxCreate(l_int32, l_int32, l_int32, l_int32) as BOX *
@@ -34,29 +33,18 @@ public partial class _All {
 ///  <param name="w">[in] - </param>
 ///  <param name="h">[in] - </param>
 ///   <returns>box, or NULL on error</returns>
-
 public static Box boxCreate(
 				 int x, 
 				 int y, 
 				 int w, 
 				 int h){
 
-
-
-	IntPtr _Result = Natives.boxCreate(
-  x,   y,   w,   h);
+	IntPtr _Result = Natives.boxCreate(  x,   y,   w,   h);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (210, 1)
 // boxCreateValid(x, y, w, h) as Box
 // boxCreateValid(l_int32, l_int32, l_int32, l_int32) as BOX *
@@ -71,29 +59,18 @@ public static Box boxCreate(
 ///  <param name="w">[in] - </param>
 ///  <param name="h">[in] - </param>
 ///   <returns>box, or NULL on error</returns>
-
 public static Box boxCreateValid(
 				 int x, 
 				 int y, 
 				 int w, 
 				 int h){
 
-
-
-	IntPtr _Result = Natives.boxCreateValid(
-  x,   y,   w,   h);
+	IntPtr _Result = Natives.boxCreateValid(  x,   y,   w,   h);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (230, 1)
 // boxCopy(box) as Box
 // boxCopy(BOX *) as BOX *
@@ -102,26 +79,15 @@ public static Box boxCreateValid(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxCopy/*"/>
 ///  <param name="box">[in] - </param>
 ///   <returns>copy of box, or NULL on error</returns>
-
 public static Box boxCopy(
 				 Box box){
 
-
-
-	IntPtr _Result = Natives.boxCopy(
-box.Pointer);
+	IntPtr _Result = Natives.boxCopy(box.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (252, 1)
 // boxClone(box) as Box
 // boxClone(BOX *) as BOX *
@@ -130,26 +96,15 @@ box.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxClone/*"/>
 ///  <param name="box">[in] - </param>
 ///   <returns>ptr to same box, or NULL on error</returns>
-
 public static Box boxClone(
 				 Box box){
 
-
-
-	IntPtr _Result = Natives.boxClone(
-box.Pointer);
+	IntPtr _Result = Natives.boxClone(box.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (278, 1)
 // boxDestroy(pbox) as Object
 // boxDestroy(BOX **) as void
@@ -162,26 +117,16 @@ box.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxDestroy/*"/>
 ///  <param name="pbox">[in,out] - will be set to null before returning</param>
-
 public static void boxDestroy(
 				ref Box pbox){
 
-
 	IntPtr pboxPtr = IntPtr.Zero; 	if (pbox != null) {pboxPtr = pbox.Pointer;}
 
-	Natives.boxDestroy(
-ref pboxPtr);
+	Natives.boxDestroy(ref pboxPtr);
 	
-
-
-//  
 	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (310, 1)
 // boxGetGeometry(box, px, py, pw, ph) as int
 // boxGetGeometry(BOX *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -194,7 +139,6 @@ ref pboxPtr);
 ///  <param name="pw">[out][optional] - each can be null</param>
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxGetGeometry(
 				 Box box, 
 				out int px, 
@@ -202,21 +146,11 @@ public static int boxGetGeometry(
 				out int pw, 
 				out int ph){
 
-
-
-	int _Result = Natives.boxGetGeometry(
-box.Pointer, out  px, out  py, out  pw, out  ph);
+	int _Result = Natives.boxGetGeometry(box.Pointer, out  px, out  py, out  pw, out  ph);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (340, 1)
 // boxSetGeometry(box, x, y, w, h) as int
 // boxSetGeometry(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -229,7 +163,6 @@ box.Pointer, out  px, out  py, out  pw, out  ph);
 ///  <param name="w">[in][optional] - use -1 to leave unchanged</param>
 ///  <param name="h">[in][optional] - use -1 to leave unchanged</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxSetGeometry(
 				 Box box, 
 				 int x, 
@@ -237,21 +170,11 @@ public static int boxSetGeometry(
 				 int w, 
 				 int h){
 
-
-
-	int _Result = Natives.boxSetGeometry(
-box.Pointer,   x,   y,   w,   h);
+	int _Result = Natives.boxSetGeometry(box.Pointer,   x,   y,   w,   h);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (371, 1)
 // boxGetSideLocations(box, pl, pr, pt, pb) as int
 // boxGetSideLocations(BOX *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -267,7 +190,6 @@ box.Pointer,   x,   y,   w,   h);
 ///  <param name="pt">[out][optional] - each can be null</param>
 ///  <param name="pb">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxGetSideLocations(
 				 Box box, 
 				out int pl, 
@@ -275,21 +197,11 @@ public static int boxGetSideLocations(
 				out int pt, 
 				out int pb){
 
-
-
-	int _Result = Natives.boxGetSideLocations(
-box.Pointer, out  pl, out  pr, out  pt, out  pb);
+	int _Result = Natives.boxGetSideLocations(box.Pointer, out  pl, out  pr, out  pt, out  pb);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (405, 1)
 // boxSetSideLocations(box, l, r, t, b) as int
 // boxSetSideLocations(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -302,7 +214,6 @@ box.Pointer, out  pl, out  pr, out  pt, out  pb);
 ///  <param name="t">[in][optional] - use -1 to leave unchanged</param>
 ///  <param name="b">[in][optional] - use -1 to leave unchanged</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxSetSideLocations(
 				 Box box, 
 				 int l, 
@@ -310,21 +221,11 @@ public static int boxSetSideLocations(
 				 int t, 
 				 int b){
 
-
-
-	int _Result = Natives.boxSetSideLocations(
-box.Pointer,   l,   r,   t,   b);
+	int _Result = Natives.boxSetSideLocations(box.Pointer,   l,   r,   t,   b);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (432, 1)
 // boxGetRefcount(box) as int
 // boxGetRefcount(BOX *) as l_int32
@@ -333,25 +234,14 @@ box.Pointer,   l,   r,   t,   b);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxGetRefcount/*"/>
 ///  <param name="box">[in] - ptr to Box</param>
 ///   <returns>refcount</returns>
-
 public static int boxGetRefcount(
 				 Box box){
 
-
-
-	int _Result = Natives.boxGetRefcount(
-box.Pointer);
+	int _Result = Natives.boxGetRefcount(box.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (449, 1)
 // boxChangeRefcount(box, delta) as int
 // boxChangeRefcount(BOX *, l_int32) as l_ok
@@ -361,26 +251,15 @@ box.Pointer);
 ///  <param name="box">[in] - ptr to box</param>
 ///  <param name="delta">[in] - adjustment, usually -1 or 1</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxChangeRefcount(
 				 Box box, 
 				 int delta){
 
-
-
-	int _Result = Natives.boxChangeRefcount(
-box.Pointer,   delta);
+	int _Result = Natives.boxChangeRefcount(box.Pointer,   delta);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (470, 1)
 // boxIsValid(box, pvalid) as int
 // boxIsValid(BOX *, l_int32 *) as l_ok
@@ -390,26 +269,15 @@ box.Pointer,   delta);
 ///  <param name="box">[in] - </param>
 ///  <param name="pvalid">[out] - 1 if valid 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxIsValid(
 				 Box box, 
 				out int pvalid){
 
-
-
-	int _Result = Natives.boxIsValid(
-box.Pointer, out  pvalid);
+	int _Result = Natives.boxIsValid(box.Pointer, out  pvalid);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (497, 1)
 // boxaCreate(n) as Boxa
 // boxaCreate(l_int32) as BOXA *
@@ -418,26 +286,15 @@ box.Pointer, out  pvalid);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaCreate/*"/>
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa boxaCreate(
 				 int n){
 
-
-
-	IntPtr _Result = Natives.boxaCreate(
-  n);
+	IntPtr _Result = Natives.boxaCreate(  n);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (532, 1)
 // boxaCopy(boxa, copyflag) as Boxa
 // boxaCopy(BOXA *, l_int32) as BOXA *
@@ -452,27 +309,16 @@ public static Boxa boxaCreate(
 ///  <param name="boxa">[in] - </param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>new boxa, or NULL on error</returns>
-
 public static Boxa boxaCopy(
 				 Boxa boxa, 
 				 int copyflag){
 
-
-
-	IntPtr _Result = Natives.boxaCopy(
-boxa.Pointer,   copyflag);
+	IntPtr _Result = Natives.boxaCopy(boxa.Pointer,   copyflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (578, 1)
 // boxaDestroy(pboxa) as Object
 // boxaDestroy(BOXA **) as void
@@ -485,26 +331,16 @@ boxa.Pointer,   copyflag);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaDestroy/*"/>
 ///  <param name="pboxa">[in,out] - will be set to null before returning</param>
-
 public static void boxaDestroy(
 				ref Boxa pboxa){
 
-
 	IntPtr pboxaPtr = IntPtr.Zero; 	if (pboxa != null) {pboxaPtr = pboxa.Pointer;}
 
-	Natives.boxaDestroy(
-ref pboxaPtr);
+	Natives.boxaDestroy(ref pboxaPtr);
 	
-
-
-//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (616, 1)
 // boxaAddBox(boxa, box, copyflag) as int
 // boxaAddBox(BOXA *, BOX *, l_int32) as l_ok
@@ -515,27 +351,16 @@ ref pboxaPtr);
 ///  <param name="box">[in] - to be added</param>
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaAddBox(
 				 Boxa boxa, 
 				 Box box, 
 				 int copyflag){
 
-
-
-	int _Result = Natives.boxaAddBox(
-boxa.Pointer, box.Pointer,   copyflag);
+	int _Result = Natives.boxaAddBox(boxa.Pointer, box.Pointer,   copyflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (663, 1)
 // boxaExtendArray(boxa) as int
 // boxaExtendArray(BOXA *) as l_ok
@@ -547,25 +372,14 @@ boxa.Pointer, box.Pointer,   copyflag);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaExtendArray/*"/>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int boxaExtendArray(
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaExtendArray(
-boxa.Pointer);
+	int _Result = Natives.boxaExtendArray(boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (687, 1)
 // boxaExtendArrayToSize(boxa, size) as int
 // boxaExtendArrayToSize(BOXA *, l_int32) as l_ok
@@ -578,26 +392,15 @@ boxa.Pointer);
 ///  <param name="boxa">[in] - </param>
 ///  <param name="size">[in] - new size of boxa array</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int boxaExtendArrayToSize(
 				 Boxa boxa, 
 				 int size){
 
-
-
-	int _Result = Natives.boxaExtendArrayToSize(
-boxa.Pointer,   size);
+	int _Result = Natives.boxaExtendArrayToSize(boxa.Pointer,   size);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (716, 1)
 // boxaGetCount(boxa) as int
 // boxaGetCount(BOXA *) as l_int32
@@ -606,25 +409,14 @@ boxa.Pointer,   size);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetCount/*"/>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>count of all boxes 0 if no boxes or on error</returns>
-
 public static int boxaGetCount(
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaGetCount(
-boxa.Pointer);
+	int _Result = Natives.boxaGetCount(boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (733, 1)
 // boxaGetValidCount(boxa) as int
 // boxaGetValidCount(BOXA *) as l_int32
@@ -633,25 +425,14 @@ boxa.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetValidCount/*"/>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>count of valid boxes 0 if no valid boxes or on error</returns>
-
 public static int boxaGetValidCount(
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaGetValidCount(
-boxa.Pointer);
+	int _Result = Natives.boxaGetValidCount(boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (761, 1)
 // boxaGetBox(boxa, index, accessflag) as Box
 // boxaGetBox(BOXA *, l_int32, l_int32) as BOX *
@@ -662,28 +443,17 @@ boxa.Pointer);
 ///  <param name="index">[in] - to the index-th box</param>
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box, or NULL on error</returns>
-
 public static Box boxaGetBox(
 				 Boxa boxa, 
 				 int index, 
 				 int accessflag){
 
-
-
-	IntPtr _Result = Natives.boxaGetBox(
-boxa.Pointer,   index,   accessflag);
+	IntPtr _Result = Natives.boxaGetBox(boxa.Pointer,   index,   accessflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (800, 1)
 // boxaGetValidBox(boxa, index, accessflag) as Box
 // boxaGetValidBox(BOXA *, l_int32, l_int32) as BOX *
@@ -703,28 +473,17 @@ boxa.Pointer,   index,   accessflag);
 ///  <param name="index">[in] - to the index-th box</param>
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box, or NULL if box is not valid or on error</returns>
-
 public static Box boxaGetValidBox(
 				 Boxa boxa, 
 				 int index, 
 				 int accessflag){
 
-
-
-	IntPtr _Result = Natives.boxaGetValidBox(
-boxa.Pointer,   index,   accessflag);
+	IntPtr _Result = Natives.boxaGetValidBox(boxa.Pointer,   index,   accessflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (828, 1)
 // boxaFindInvalidBoxes(boxa) as Numa
 // boxaFindInvalidBoxes(BOXA *) as NUMA *
@@ -733,26 +492,15 @@ boxa.Pointer,   index,   accessflag);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaFindInvalidBoxes/*"/>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>na   numa of invalid boxes NULL if there are none or on error</returns>
-
 public static Numa boxaFindInvalidBoxes(
 				 Boxa boxa){
 
-
-
-	IntPtr _Result = Natives.boxaFindInvalidBoxes(
-boxa.Pointer);
+	IntPtr _Result = Natives.boxaFindInvalidBoxes(boxa.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (861, 1)
 // boxaGetBoxGeometry(boxa, index, px, py, pw, ph) as int
 // boxaGetBoxGeometry(BOXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -766,7 +514,6 @@ boxa.Pointer);
 ///  <param name="pw">[out][optional] - each can be null</param>
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaGetBoxGeometry(
 				 Boxa boxa, 
 				 int index, 
@@ -775,21 +522,11 @@ public static int boxaGetBoxGeometry(
 				out int pw, 
 				out int ph){
 
-
-
-	int _Result = Natives.boxaGetBoxGeometry(
-boxa.Pointer,   index, out  px, out  py, out  pw, out  ph);
+	int _Result = Natives.boxaGetBoxGeometry(boxa.Pointer,   index, out  px, out  py, out  pw, out  ph);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (897, 1)
 // boxaIsFull(boxa, pfull) as int
 // boxaIsFull(BOXA *, l_int32 *) as l_ok
@@ -799,26 +536,15 @@ boxa.Pointer,   index, out  px, out  py, out  pw, out  ph);
 ///  <param name="boxa">[in] - </param>
 ///  <param name="pfull">[out] - 1 if boxa is full</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaIsFull(
 				 Boxa boxa, 
 				out int pfull){
 
-
-
-	int _Result = Natives.boxaIsFull(
-boxa.Pointer, out  pfull);
+	int _Result = Natives.boxaIsFull(boxa.Pointer, out  pfull);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (943, 1)
 // boxaReplaceBox(boxa, index, box) as int
 // boxaReplaceBox(BOXA *, l_int32, BOX *) as l_ok
@@ -834,27 +560,16 @@ boxa.Pointer, out  pfull);
 ///  <param name="index">[in] - to the index-th box</param>
 ///  <param name="box">[in] - insert to replace existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaReplaceBox(
 				 Boxa boxa, 
 				 int index, 
 				 Box box){
 
-
-
-	int _Result = Natives.boxaReplaceBox(
-boxa.Pointer,   index, box.Pointer);
+	int _Result = Natives.boxaReplaceBox(boxa.Pointer,   index, box.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (981, 1)
 // boxaInsertBox(boxa, index, box) as int
 // boxaInsertBox(BOXA *, l_int32, BOX *) as l_ok
@@ -876,27 +591,16 @@ boxa.Pointer,   index, box.Pointer);
 ///  <param name="index">[in] - location in boxa to insert new value</param>
 ///  <param name="box">[in] - new box to be inserted</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaInsertBox(
 				 Boxa boxa, 
 				 int index, 
 				 Box box){
 
-
-
-	int _Result = Natives.boxaInsertBox(
-boxa.Pointer,   index, box.Pointer);
+	int _Result = Natives.boxaInsertBox(boxa.Pointer,   index, box.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1026, 1)
 // boxaRemoveBox(boxa, index) as int
 // boxaRemoveBox(BOXA *, l_int32) as l_ok
@@ -913,26 +617,15 @@ boxa.Pointer,   index, box.Pointer);
 ///  <param name="boxa">[in] - </param>
 ///  <param name="index">[in] - of box to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaRemoveBox(
 				 Boxa boxa, 
 				 int index){
 
-
-
-	int _Result = Natives.boxaRemoveBox(
-boxa.Pointer,   index);
+	int _Result = Natives.boxaRemoveBox(boxa.Pointer,   index);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1068, 1)
 // boxaRemoveBoxAndSave(boxa, index, pbox) as int
 // boxaRemoveBoxAndSave(BOXA *, l_int32, BOX **) as l_ok
@@ -950,29 +643,19 @@ boxa.Pointer,   index);
 ///  <param name="index">[in] - of box to be removed</param>
 ///  <param name="pbox">[out][optional] - removed box</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaRemoveBoxAndSave(
 				 Boxa boxa, 
 				 int index, 
 				out Box pbox){
 
-
 	IntPtr pboxPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaRemoveBoxAndSave(
-boxa.Pointer,   index, out pboxPtr);
+	int _Result = Natives.boxaRemoveBoxAndSave(boxa.Pointer,   index, out pboxPtr);
 	
-
-
-//  
 	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1110, 1)
 // boxaSaveValid(boxas, copyflag) as Boxa
 // boxaSaveValid(BOXA *, l_int32) as BOXA *
@@ -985,27 +668,16 @@ boxa.Pointer,   index, out pboxPtr);
 ///  <param name="boxas">[in] - </param>
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxad if OK, NULL on error</returns>
-
 public static Boxa boxaSaveValid(
 				 Boxa boxas, 
 				 int copyflag){
 
-
-
-	IntPtr _Result = Natives.boxaSaveValid(
-boxas.Pointer,   copyflag);
+	IntPtr _Result = Natives.boxaSaveValid(boxas.Pointer,   copyflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1174, 1)
 // boxaInitFull(boxa, box) as int
 // boxaInitFull(BOXA *, BOX *) as l_ok
@@ -1046,27 +718,17 @@ boxas.Pointer,   copyflag);
 ///  <param name="boxa">[in] - typically empty</param>
 ///  <param name="box">[in][optional] - to be replicated into the entire ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaInitFull(
 				 Boxa boxa, 
 				 Box box){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.boxaInitFull(
-boxa.Pointer, boxPtr);
+	int _Result = Natives.boxaInitFull(boxa.Pointer, boxPtr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1211, 1)
 // boxaClear(boxa) as int
 // boxaClear(BOXA *) as l_ok
@@ -1079,25 +741,14 @@ boxa.Pointer, boxPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaClear/*"/>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaClear(
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaClear(
-boxa.Pointer);
+	int _Result = Natives.boxaClear(boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1238, 1)
 // boxaaCreate(n) as Boxaa
 // boxaaCreate(l_int32) as BOXAA *
@@ -1106,26 +757,15 @@ boxa.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaCreate/*"/>
 ///  <param name="n">[in] - size of boxa ptr array to be alloc'd 0 for default</param>
 ///   <returns>baa, or NULL on error</returns>
-
 public static Boxaa boxaaCreate(
 				 int n){
 
-
-
-	IntPtr _Result = Natives.boxaaCreate(
-  n);
+	IntPtr _Result = Natives.boxaaCreate(  n);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1273, 1)
 // boxaaCopy(baas, copyflag) as Boxaa
 // boxaaCopy(BOXAA *, l_int32) as BOXAA *
@@ -1139,27 +779,16 @@ public static Boxaa boxaaCreate(
 ///  <param name="baas">[in] - input boxaa to be copied</param>
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>baad new boxaa, composed of copies or clones of the boxa in baas, or NULL on error</returns>
-
 public static Boxaa boxaaCopy(
 				 Boxaa baas, 
 				 int copyflag){
 
-
-
-	IntPtr _Result = Natives.boxaaCopy(
-baas.Pointer,   copyflag);
+	IntPtr _Result = Natives.boxaaCopy(baas.Pointer,   copyflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1304, 1)
 // boxaaDestroy(pbaa) as Object
 // boxaaDestroy(BOXAA **) as void
@@ -1167,26 +796,16 @@ baas.Pointer,   copyflag);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaDestroy/*"/>
 ///  <param name="pbaa">[in,out] - will be set to null before returning</param>
-
 public static void boxaaDestroy(
 				ref Boxaa pbaa){
 
-
 	IntPtr pbaaPtr = IntPtr.Zero; 	if (pbaa != null) {pbaaPtr = pbaa.Pointer;}
 
-	Natives.boxaaDestroy(
-ref pbaaPtr);
+	Natives.boxaaDestroy(ref pbaaPtr);
 	
-
-
-//  
 	if (pbaaPtr == IntPtr.Zero) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1342, 1)
 // boxaaAddBoxa(baa, ba, copyflag) as int
 // boxaaAddBoxa(BOXAA *, BOXA *, l_int32) as l_ok
@@ -1197,27 +816,16 @@ ref pbaaPtr);
 ///  <param name="ba">[in] - to be added</param>
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaAddBoxa(
 				 Boxaa baa, 
 				 Boxa ba, 
 				 int copyflag){
 
-
-
-	int _Result = Natives.boxaaAddBoxa(
-baa.Pointer, ba.Pointer,   copyflag);
+	int _Result = Natives.boxaaAddBoxa(baa.Pointer, ba.Pointer,   copyflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1379, 1)
 // boxaaExtendArray(baa) as int
 // boxaaExtendArray(BOXAA *) as l_ok
@@ -1226,25 +834,14 @@ baa.Pointer, ba.Pointer,   copyflag);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaExtendArray/*"/>
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaExtendArray(
 				 Boxaa baa){
 
-
-
-	int _Result = Natives.boxaaExtendArray(
-baa.Pointer);
+	int _Result = Natives.boxaaExtendArray(baa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1410, 1)
 // boxaaExtendArrayToSize(baa, size) as int
 // boxaaExtendArrayToSize(BOXAA *, l_int32) as l_ok
@@ -1257,26 +854,15 @@ baa.Pointer);
 ///  <param name="baa">[in] - </param>
 ///  <param name="size">[in] - new size of boxa array</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int boxaaExtendArrayToSize(
 				 Boxaa baa, 
 				 int size){
 
-
-
-	int _Result = Natives.boxaaExtendArrayToSize(
-baa.Pointer,   size);
+	int _Result = Natives.boxaaExtendArrayToSize(baa.Pointer,   size);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1439, 1)
 // boxaaGetCount(baa) as int
 // boxaaGetCount(BOXAA *) as l_int32
@@ -1285,25 +871,14 @@ baa.Pointer,   size);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaGetCount/*"/>
 ///  <param name="baa">[in] - </param>
 ///   <returns>count number of boxa, or 0 if no boxa or on error</returns>
-
 public static int boxaaGetCount(
 				 Boxaa baa){
 
-
-
-	int _Result = Natives.boxaaGetCount(
-baa.Pointer);
+	int _Result = Natives.boxaaGetCount(baa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1456, 1)
 // boxaaGetBoxCount(baa) as int
 // boxaaGetBoxCount(BOXAA *) as l_int32
@@ -1312,25 +887,14 @@ baa.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaGetBoxCount/*"/>
 ///  <param name="baa">[in] - </param>
 ///   <returns>count number of boxes, or 0 if no boxes or on error</returns>
-
 public static int boxaaGetBoxCount(
 				 Boxaa baa){
 
-
-
-	int _Result = Natives.boxaaGetBoxCount(
-baa.Pointer);
+	int _Result = Natives.boxaaGetBoxCount(baa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1486, 1)
 // boxaaGetBoxa(baa, index, accessflag) as Boxa
 // boxaaGetBoxa(BOXAA *, l_int32, l_int32) as BOXA *
@@ -1341,28 +905,17 @@ baa.Pointer);
 ///  <param name="index">[in] - to the index-th boxa</param>
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa boxaaGetBoxa(
 				 Boxaa baa, 
 				 int index, 
 				 int accessflag){
 
-
-
-	IntPtr _Result = Natives.boxaaGetBoxa(
-baa.Pointer,   index,   accessflag);
+	IntPtr _Result = Natives.boxaaGetBoxa(baa.Pointer,   index,   accessflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1516, 1)
 // boxaaGetBox(baa, iboxa, ibox, accessflag) as Box
 // boxaaGetBox(BOXAA *, l_int32, l_int32, l_int32) as BOX *
@@ -1374,29 +927,18 @@ baa.Pointer,   index,   accessflag);
 ///  <param name="ibox">[in] - index into the box array in the boxa</param>
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box, or NULL on error</returns>
-
 public static Box boxaaGetBox(
 				 Boxaa baa, 
 				 int iboxa, 
 				 int ibox, 
 				 int accessflag){
 
-
-
-	IntPtr _Result = Natives.boxaaGetBox(
-baa.Pointer,   iboxa,   ibox,   accessflag);
+	IntPtr _Result = Natives.boxaaGetBox(baa.Pointer,   iboxa,   ibox,   accessflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1568, 1)
 // boxaaInitFull(baa, boxa) as int
 // boxaaInitFull(BOXAA *, BOXA *) as l_ok
@@ -1428,26 +970,15 @@ baa.Pointer,   iboxa,   ibox,   accessflag);
 ///  <param name="baa">[in] - typically empty</param>
 ///  <param name="boxa">[in] - to be replicated into the entire ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaInitFull(
 				 Boxaa baa, 
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaaInitFull(
-baa.Pointer, boxa.Pointer);
+	int _Result = Natives.boxaaInitFull(baa.Pointer, boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1608, 1)
 // boxaaExtendWithInit(baa, maxindex, boxa) as int
 // boxaaExtendWithInit(BOXAA *, l_int32, BOXA *) as l_ok
@@ -1464,27 +995,16 @@ baa.Pointer, boxa.Pointer);
 ///  <param name="maxindex">[in] - </param>
 ///  <param name="boxa">[in] - to be replicated into the extended ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaExtendWithInit(
 				 Boxaa baa, 
 				 int maxindex, 
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaaExtendWithInit(
-baa.Pointer,   maxindex, boxa.Pointer);
+	int _Result = Natives.boxaaExtendWithInit(baa.Pointer,   maxindex, boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1649, 1)
 // boxaaReplaceBoxa(baa, index, boxa) as int
 // boxaaReplaceBoxa(BOXAA *, l_int32, BOXA *) as l_ok
@@ -1501,27 +1021,16 @@ baa.Pointer,   maxindex, boxa.Pointer);
 ///  <param name="index">[in] - to the index-th boxa</param>
 ///  <param name="boxa">[in] - insert and replace any existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaReplaceBoxa(
 				 Boxaa baa, 
 				 int index, 
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaaReplaceBoxa(
-baa.Pointer,   index, boxa.Pointer);
+	int _Result = Natives.boxaaReplaceBoxa(baa.Pointer,   index, boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1690, 1)
 // boxaaInsertBoxa(baa, index, boxa) as int
 // boxaaInsertBoxa(BOXAA *, l_int32, BOXA *) as l_ok
@@ -1543,27 +1052,16 @@ baa.Pointer,   index, boxa.Pointer);
 ///  <param name="index">[in] - location in boxaa to insert new boxa</param>
 ///  <param name="boxa">[in] - new boxa to be inserted</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaInsertBoxa(
 				 Boxaa baa, 
 				 int index, 
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaaInsertBoxa(
-baa.Pointer,   index, boxa.Pointer);
+	int _Result = Natives.boxaaInsertBoxa(baa.Pointer,   index, boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1736, 1)
 // boxaaRemoveBoxa(baa, index) as int
 // boxaaRemoveBoxa(BOXAA *, l_int32) as l_ok
@@ -1582,26 +1080,15 @@ baa.Pointer,   index, boxa.Pointer);
 ///  <param name="baa">[in] - </param>
 ///  <param name="index">[in] - of the boxa to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaRemoveBoxa(
 				 Boxaa baa, 
 				 int index){
 
-
-
-	int _Result = Natives.boxaaRemoveBoxa(
-baa.Pointer,   index);
+	int _Result = Natives.boxaaRemoveBoxa(baa.Pointer,   index);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1776, 1)
 // boxaaAddBox(baa, index, box, accessflag) as int
 // boxaaAddBox(BOXAA *, l_int32, BOX *, l_int32) as l_ok
@@ -1616,28 +1103,17 @@ baa.Pointer,   index);
 ///  <param name="box">[in] - to be added</param>
 ///  <param name="accessflag">[in] - L_INSERT, L_COPY or L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaAddBox(
 				 Boxaa baa, 
 				 int index, 
 				 Box box, 
 				 int accessflag){
 
-
-
-	int _Result = Natives.boxaaAddBox(
-baa.Pointer,   index, box.Pointer,   accessflag);
+	int _Result = Natives.boxaaAddBox(baa.Pointer,   index, box.Pointer,   accessflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1824, 1)
 // boxaaReadFromFiles(dirname, substr, first, nfiles) as Boxaa
 // boxaaReadFromFiles(const char *, const char *, l_int32, l_int32) as BOXAA *
@@ -1660,29 +1136,18 @@ baa.Pointer,   index, box.Pointer,   accessflag);
 ///  <param name="first">[in] - 0-based</param>
 ///  <param name="nfiles">[in] - use 0 for everything from %first to the end</param>
 ///   <returns>baa, or NULL on error or if no boxa files are found.</returns>
-
 public static Boxaa boxaaReadFromFiles(
 				 String dirname, 
 				 String substr, 
 				 int first, 
 				 int nfiles){
 
-
-
-	IntPtr _Result = Natives.boxaaReadFromFiles(
-  dirname,   substr,   first,   nfiles);
+	IntPtr _Result = Natives.boxaaReadFromFiles(  dirname,   substr,   first,   nfiles);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1868, 1)
 // boxaaRead(filename) as Boxaa
 // boxaaRead(const char *) as BOXAA *
@@ -1691,26 +1156,15 @@ public static Boxaa boxaaReadFromFiles(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>boxaa, or NULL on error</returns>
-
 public static Boxaa boxaaRead(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.boxaaRead(
-  filename);
+	IntPtr _Result = Natives.boxaaRead(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1895, 1)
 // boxaaReadStream(fp) as Boxaa
 // boxaaReadStream(FILE *) as BOXAA *
@@ -1719,26 +1173,15 @@ public static Boxaa boxaaRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>boxaa, or NULL on error</returns>
-
 public static Boxaa boxaaReadStream(
 				 FILE fp){
 
-
-
-	IntPtr _Result = Natives.boxaaReadStream(
-fp.Pointer);
+	IntPtr _Result = Natives.boxaaReadStream(fp.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1940, 1)
 // boxaaReadMem(data, size) as Boxaa
 // boxaaReadMem(const l_uint8 *, size_t) as BOXAA *
@@ -1748,27 +1191,16 @@ fp.Pointer);
 ///  <param name="data">[in] - serialization of boxaa in ascii</param>
 ///  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 ///   <returns>baa, or NULL on error</returns>
-
 public static Boxaa boxaaReadMem(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.boxaaReadMem(
-  data,   size);
+	IntPtr _Result = Natives.boxaaReadMem(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1968, 1)
 // boxaaWrite(filename, baa) as int
 // boxaaWrite(const char *, BOXAA *) as l_ok
@@ -1778,26 +1210,15 @@ public static Boxaa boxaaReadMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaWrite(
 				 String filename, 
 				 Boxaa baa){
 
-
-
-	int _Result = Natives.boxaaWrite(
-  filename, baa.Pointer);
+	int _Result = Natives.boxaaWrite(  filename, baa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (1999, 1)
 // boxaaWriteStream(fp, baa) as int
 // boxaaWriteStream(FILE *, BOXAA *) as l_ok
@@ -1807,26 +1228,15 @@ public static int boxaaWrite(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaWriteStream(
 				 FILE fp, 
 				 Boxaa baa){
 
-
-
-	int _Result = Natives.boxaaWriteStream(
-fp.Pointer, baa.Pointer);
+	int _Result = Natives.boxaaWriteStream(fp.Pointer, baa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2046, 1)
 // boxaaWriteMem(pdata, psize, baa) as int
 // boxaaWriteMem(l_uint8 **, size_t *, BOXAA *) as l_ok
@@ -1840,33 +1250,23 @@ fp.Pointer, baa.Pointer);
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaaWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Boxaa baa){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaaWriteMem(
-out  pdataPtr, out  psize, baa.Pointer);
+	int _Result = Natives.boxaaWriteMem(out  pdataPtr, out  psize, baa.Pointer);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2096, 1)
 // boxaRead(filename) as Boxa
 // boxaRead(const char *) as BOXA *
@@ -1875,26 +1275,15 @@ out  pdataPtr, out  psize, baa.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa boxaRead(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.boxaRead(
-  filename);
+	IntPtr _Result = Natives.boxaRead(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2123, 1)
 // boxaReadStream(fp) as Boxa
 // boxaReadStream(FILE *) as BOXA *
@@ -1903,26 +1292,15 @@ public static Boxa boxaRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa boxaReadStream(
 				 FILE fp){
 
-
-
-	IntPtr _Result = Natives.boxaReadStream(
-fp.Pointer);
+	IntPtr _Result = Natives.boxaReadStream(fp.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2166, 1)
 // boxaReadMem(data, size) as Boxa
 // boxaReadMem(const l_uint8 *, size_t) as BOXA *
@@ -1932,27 +1310,16 @@ fp.Pointer);
 ///  <param name="data">[in] - serialization of boxa in ascii</param>
 ///  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa boxaReadMem(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.boxaReadMem(
-  data,   size);
+	IntPtr _Result = Natives.boxaReadMem(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2203, 1)
 // boxaWriteDebug(filename, boxa) as int
 // boxaWriteDebug(const char *, BOXA *) as l_ok
@@ -1970,26 +1337,15 @@ public static Boxa boxaReadMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int boxaWriteDebug(
 				 String filename, 
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaWriteDebug(
-  filename, boxa.Pointer);
+	int _Result = Natives.boxaWriteDebug(  filename, boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2225, 1)
 // boxaWrite(filename, boxa) as int
 // boxaWrite(const char *, BOXA *) as l_ok
@@ -1999,26 +1355,15 @@ public static int boxaWriteDebug(
 ///  <param name="filename">[in] - </param>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaWrite(
 				 String filename, 
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaWrite(
-  filename, boxa.Pointer);
+	int _Result = Natives.boxaWrite(  filename, boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2257, 1)
 // boxaWriteStream(fp, boxa) as int
 // boxaWriteStream(FILE *, BOXA *) as l_ok
@@ -2028,26 +1373,15 @@ public static int boxaWrite(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaWriteStream(
 				 FILE fp, 
 				 Boxa boxa){
 
-
-
-	int _Result = Natives.boxaWriteStream(
-fp.Pointer, boxa.Pointer);
+	int _Result = Natives.boxaWriteStream(fp.Pointer, boxa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2298, 1)
 // boxaWriteMem(pdata, psize, boxa) as int
 // boxaWriteMem(l_uint8 **, size_t *, BOXA *) as l_ok
@@ -2061,33 +1395,23 @@ fp.Pointer, boxa.Pointer);
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxaWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Boxa boxa){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.boxaWriteMem(
-out  pdataPtr, out  psize, boxa.Pointer);
+	int _Result = Natives.boxaWriteMem(out  pdataPtr, out  psize, boxa.Pointer);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // boxbasic.c (2355, 1)
 // boxPrintStreamInfo(fp, box) as int
 // boxPrintStreamInfo(FILE *, BOX *) as l_ok
@@ -2101,22 +1425,12 @@ out  pdataPtr, out  psize, boxa.Pointer);
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="box">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int boxPrintStreamInfo(
 				 FILE fp, 
 				 Box box){
 
-
-
-	int _Result = Natives.boxPrintStreamInfo(
-fp.Pointer, box.Pointer);
+	int _Result = Natives.boxPrintStreamInfo(fp.Pointer, box.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

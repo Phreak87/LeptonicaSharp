@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (162, 1)
 // pixDeskewBoth(pixs, redsearch) as Pix
 // pixDeskewBoth(PIX *, l_int32) as PIX *
@@ -23,27 +22,16 @@ public partial class _All {
 ///  <param name="pixs">[in] - any depth</param>
 ///  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
-
 public static Pix pixDeskewBoth(
 				 Pix pixs, 
 				 int redsearch){
 
-
-
-	IntPtr _Result = Natives.pixDeskewBoth(
-pixs.Pointer,   redsearch);
+	IntPtr _Result = Natives.pixDeskewBoth(pixs.Pointer,   redsearch);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (205, 1)
 // pixDeskew(pixs, redsearch) as Pix
 // pixDeskew(PIX *, l_int32) as PIX *
@@ -61,27 +49,16 @@ pixs.Pointer,   redsearch);
 ///  <param name="pixs">[in] - any depth</param>
 ///  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
-
 public static Pix pixDeskew(
 				 Pix pixs, 
 				 int redsearch){
 
-
-
-	IntPtr _Result = Natives.pixDeskew(
-pixs.Pointer,   redsearch);
+	IntPtr _Result = Natives.pixDeskew(pixs.Pointer,   redsearch);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (241, 1)
 // pixFindSkewAndDeskew(pixs, redsearch, pangle, pconf) as Pix
 // pixFindSkewAndDeskew(PIX *, l_int32, l_float32 *, l_float32 *) as PIX *
@@ -98,29 +75,18 @@ pixs.Pointer,   redsearch);
 ///  <param name="pangle">[out][optional] - angle required to deskew, in degrees use NULL to skip</param>
 ///  <param name="pconf">[out][optional] - conf value is ratio of max/min scores use NULL to skip</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
-
 public static Pix pixFindSkewAndDeskew(
 				 Pix pixs, 
 				 int redsearch, 
 				out Single pangle, 
 				out Single pconf){
 
-
-
-	IntPtr _Result = Natives.pixFindSkewAndDeskew(
-pixs.Pointer,   redsearch, out  pangle, out  pconf);
+	IntPtr _Result = Natives.pixFindSkewAndDeskew(pixs.Pointer,   redsearch, out  pangle, out  pconf);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (285, 1)
 // pixDeskewGeneral(pixs, redsweep, sweeprange, sweepdelta, redsearch, thresh, pangle, pconf) as Pix
 // pixDeskewGeneral(PIX *, l_int32, l_float32, l_float32, l_int32, l_int32, l_float32 *, l_float32 *) as PIX *
@@ -141,7 +107,6 @@ pixs.Pointer,   redsearch, out  pangle, out  pconf);
 ///  <param name="pangle">[out][optional] - angle required to deskew, in degrees use NULL to skip</param>
 ///  <param name="pconf">[out][optional] - conf value is ratio of max/min scores use NULL to skip</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
-
 public static Pix pixDeskewGeneral(
 				 Pix pixs, 
 				 int redsweep, 
@@ -152,22 +117,12 @@ public static Pix pixDeskewGeneral(
 				out Single pangle, 
 				out Single pconf){
 
-
-
-	IntPtr _Result = Natives.pixDeskewGeneral(
-pixs.Pointer,   redsweep,   sweeprange,   sweepdelta,   redsearch,   thresh, out  pangle, out  pconf);
+	IntPtr _Result = Natives.pixDeskewGeneral(pixs.Pointer,   redsweep,   sweeprange,   sweepdelta,   redsearch,   thresh, out  pangle, out  pconf);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (370, 1)
 // pixFindSkew(pixs, pangle, pconf) as int
 // pixFindSkew(PIX *, l_float32 *, l_float32 *) as l_ok
@@ -186,27 +141,16 @@ pixs.Pointer,   redsweep,   sweeprange,   sweepdelta,   redsearch,   thresh, out
 ///  <param name="pangle">[out] - angle required to deskew, in degrees</param>
 ///  <param name="pconf">[out] - confidence value is ratio max/min scores</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
-
 public static int pixFindSkew(
 				 Pix pixs, 
 				out Single pangle, 
 				out Single pconf){
 
-
-
-	int _Result = Natives.pixFindSkew(
-pixs.Pointer, out  pangle, out  pconf);
+	int _Result = Natives.pixFindSkew(pixs.Pointer, out  pangle, out  pconf);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (414, 1)
 // pixFindSkewSweep(pixs, pangle, reduction, sweeprange, sweepdelta) as int
 // pixFindSkewSweep(PIX *, l_float32 *, l_int32, l_float32, l_float32) as l_ok
@@ -224,7 +168,6 @@ pixs.Pointer, out  pangle, out  pconf);
 ///  <param name="sweeprange">[in] - half the full range assumed about 0 in degrees</param>
 ///  <param name="sweepdelta">[in] - angle increment of sweep in degrees</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
-
 public static int pixFindSkewSweep(
 				 Pix pixs, 
 				out Single pangle, 
@@ -232,21 +175,11 @@ public static int pixFindSkewSweep(
 				 Single sweeprange, 
 				 Single sweepdelta){
 
-
-
-	int _Result = Natives.pixFindSkewSweep(
-pixs.Pointer, out  pangle,   reduction,   sweeprange,   sweepdelta);
+	int _Result = Natives.pixFindSkewSweep(pixs.Pointer, out  pangle,   reduction,   sweeprange,   sweepdelta);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (558, 1)
 // pixFindSkewSweepAndSearch(pixs, pangle, pconf, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta) as int
 // pixFindSkewSweepAndSearch(PIX *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32) as l_ok
@@ -277,7 +210,6 @@ pixs.Pointer, out  pangle,   reduction,   sweeprange,   sweepdelta);
 ///  <param name="sweepdelta">[in] - angle increment of sweep in degrees</param>
 ///  <param name="minbsdelta">[in] - min binary search increment angle in degrees</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
-
 public static int pixFindSkewSweepAndSearch(
 				 Pix pixs, 
 				out Single pangle, 
@@ -288,21 +220,11 @@ public static int pixFindSkewSweepAndSearch(
 				 Single sweepdelta, 
 				 Single minbsdelta){
 
-
-
-	int _Result = Natives.pixFindSkewSweepAndSearch(
-pixs.Pointer, out  pangle, out  pconf,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta);
+	int _Result = Natives.pixFindSkewSweepAndSearch(pixs.Pointer, out  pangle, out  pconf,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (612, 1)
 // pixFindSkewSweepAndSearchScore(pixs, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta) as int
 // pixFindSkewSweepAndSearchScore(PIX *, l_float32 *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32) as l_ok
@@ -342,7 +264,6 @@ pixs.Pointer, out  pangle, out  pconf,   redsweep,   redsearch,   sweeprange,   
 ///  <param name="sweepdelta">[in] - angle increment of sweep in degrees</param>
 ///  <param name="minbsdelta">[in] - min binary search increment angle in degrees</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
-
 public static int pixFindSkewSweepAndSearchScore(
 				 Pix pixs, 
 				out Single pangle, 
@@ -355,21 +276,11 @@ public static int pixFindSkewSweepAndSearchScore(
 				 Single sweepdelta, 
 				 Single minbsdelta){
 
-
-
-	int _Result = Natives.pixFindSkewSweepAndSearchScore(
-pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta);
+	int _Result = Natives.pixFindSkewSweepAndSearchScore(pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (661, 1)
 // pixFindSkewSweepAndSearchScorePivot(pixs, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta, pivot) as int
 // pixFindSkewSweepAndSearchScorePivot(PIX *, l_float32 *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32, l_int32) as l_ok
@@ -398,7 +309,6 @@ pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch, 
 ///  <param name="minbsdelta">[in] - min binary search increment angle in degrees</param>
 ///  <param name="pivot">[in] - L_SHEAR_ABOUT_CORNER, L_SHEAR_ABOUT_CENTER</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
-
 public static int pixFindSkewSweepAndSearchScorePivot(
 				 Pix pixs, 
 				out Single pangle, 
@@ -412,21 +322,11 @@ public static int pixFindSkewSweepAndSearchScorePivot(
 				 Single minbsdelta, 
 				 int pivot){
 
-
-
-	int _Result = Natives.pixFindSkewSweepAndSearchScorePivot(
-pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta,   pivot);
+	int _Result = Natives.pixFindSkewSweepAndSearchScorePivot(pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta,   pivot);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (1032, 1)
 // pixFindSkewOrthogonalRange(pixs, pangle, pconf, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta, confprior) as int
 // pixFindSkewOrthogonalRange(PIX *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32) as l_int32
@@ -434,7 +334,6 @@ pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch, 
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewOrthogonalRange/*"/>
 ///   <returns></returns>
-
 public static int pixFindSkewOrthogonalRange(
 				 Pix pixs, 
 				 Single[] pangle, 
@@ -446,22 +345,13 @@ public static int pixFindSkewOrthogonalRange(
 				 Single minbsdelta, 
 				 Single confprior){
 
-
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
-	int _Result = Natives.pixFindSkewOrthogonalRange(
-pixs.Pointer,   pangle,   pconf,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta,   confprior);
+	int _Result = Natives.pixFindSkewOrthogonalRange(pixs.Pointer,   pangle,   pconf,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta,   confprior);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (1105, 1)
 // pixFindDifferentialSquareSum(pixs, psum) as int
 // pixFindDifferentialSquareSum(PIX *, l_float32 *) as l_ok
@@ -477,26 +367,15 @@ pixs.Pointer,   pangle,   pconf,   redsweep,   redsearch,   sweeprange,   sweepd
 ///  <param name="pixs">[in] - </param>
 ///  <param name="psum">[out] - result</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFindDifferentialSquareSum(
 				 Pix pixs, 
 				out Single psum){
 
-
-
-	int _Result = Natives.pixFindDifferentialSquareSum(
-pixs.Pointer, out  psum);
+	int _Result = Natives.pixFindDifferentialSquareSum(pixs.Pointer, out  psum);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (1178, 1)
 // pixFindNormalizedSquareSum(pixs, phratio, pvratio, pfract) as int
 // pixFindNormalizedSquareSum(PIX *, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -519,24 +398,14 @@ pixs.Pointer, out  psum);
 ///  <param name="pvratio">[out][optional] - ratio of normalized vert square sum to result if the pixel distribution were uniform</param>
 ///  <param name="pfract">[out][optional] - ratio of fg pixels to total pixels</param>
 ///   <returns>0 if OK, 1 on error or if there are no fg pixels</returns>
-
 public static int pixFindNormalizedSquareSum(
 				 Pix pixs, 
 				out Single phratio, 
 				out Single pvratio, 
 				out Single pfract){
 
-
-
-	int _Result = Natives.pixFindNormalizedSquareSum(
-pixs.Pointer, out  phratio, out  pvratio, out  pfract);
+	int _Result = Natives.pixFindNormalizedSquareSum(pixs.Pointer, out  phratio, out  pvratio, out  pfract);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

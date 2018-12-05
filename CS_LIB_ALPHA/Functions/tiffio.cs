@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (371, 1)
 // pixReadTiff(filename, n) as Pix
 // pixReadTiff(const char *, l_int32) as PIX *
@@ -24,27 +23,16 @@ public partial class _All {
 ///  <param name="filename">[in] - </param>
 ///  <param name="n">[in] - page number 0 based</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadTiff(
 				 String filename, 
 				 int n){
 
-
-
-	IntPtr _Result = Natives.pixReadTiff(
-  filename,   n);
+	IntPtr _Result = Natives.pixReadTiff(  filename,   n);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (408, 1)
 // pixReadStreamTiff(fp, n) as Pix
 // pixReadStreamTiff(FILE *, l_int32) as PIX *
@@ -59,27 +47,16 @@ public static Pix pixReadTiff(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="n">[in] - page number: 0 based</param>
 ///   <returns>pix, or NULL on error or if there are no more images in the file</returns>
-
 public static Pix pixReadStreamTiff(
 				 FILE fp, 
 				 int n){
 
-
-
-	IntPtr _Result = Natives.pixReadStreamTiff(
-fp.Pointer,   n);
+	IntPtr _Result = Natives.pixReadStreamTiff(fp.Pointer,   n);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (654, 1)
 // pixWriteTiff(filename, pix, comptype, modestr) as int
 // pixWriteTiff(const char *, PIX *, l_int32, const char *) as l_ok
@@ -100,28 +77,17 @@ fp.Pointer,   n);
 ///  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
 ///  <param name="modestr">[in] - "a" or "w"</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWriteTiff(
 				 String filename, 
 				 Pix pix, 
 				 int comptype, 
 				 String modestr){
 
-
-
-	int _Result = Natives.pixWriteTiff(
-  filename, pix.Pointer,   comptype,   modestr);
+	int _Result = Natives.pixWriteTiff(  filename, pix.Pointer,   comptype,   modestr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (711, 1)
 // pixWriteTiffCustom(filename, pix, comptype, modestr, natags, savals, satypes, nasizes) as int
 // pixWriteTiffCustom(const char *, PIX *, l_int32, const char *, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
@@ -137,7 +103,6 @@ public static int pixWriteTiff(
 ///  <param name="satypes">[in][optional] - SARRAY of types</param>
 ///  <param name="nasizes">[in][optional] - NUMA of sizes</param>
 ///   <returns>0 if OK, 1 on error Usage: 1 This writes a page image to a tiff file, with optional extra tags defined in tiff.h 2 For multipage tiff, write the first pix with mode "w" and all subsequent pix with mode "a". 3 For the custom tiff tags: a The three arrays {natags, savals, satypes} must all be either NULL or defined and of equal size. b If they are defined, the tags are an array of integers, the vals are an array of values in string format, and the types are an array of types in string format. c All valid tags are definined in tiff.h. d The types allowed are the set of strings: "char" "l_uint8" "l_uint16" "l_uint32" "l_int32" "l_float64" "l_uint16-l_uint16" note the dash use it between the two l_uint16 vals in the val string Of these, "char" and "l_uint16" are the most commonly used. e The last array, nasizes, is also optional.  It is for tags that take an array of bytes for a value, a number of elements in the array, and a type that is either "char" or "l_uint8" probably either will work. Use NULL if there are no such tags. f VERY IMPORTANT: if there are any tags that require the extra size value, stored in nasizes, they must be written first!</returns>
-
 public static int pixWriteTiffCustom(
 				 String filename, 
 				 Pix pix, 
@@ -148,25 +113,16 @@ public static int pixWriteTiffCustom(
 				 Sarray satypes, 
 				 Numa nasizes){
 
-
 	IntPtr natagsPtr = IntPtr.Zero; 	if (natags != null) {natagsPtr = natags.Pointer;}
 	IntPtr savalsPtr = IntPtr.Zero; 	if (savals != null) {savalsPtr = savals.Pointer;}
 	IntPtr satypesPtr = IntPtr.Zero; 	if (satypes != null) {satypesPtr = satypes.Pointer;}
 	IntPtr nasizesPtr = IntPtr.Zero; 	if (nasizes != null) {nasizesPtr = nasizes.Pointer;}
 
-	int _Result = Natives.pixWriteTiffCustom(
-  filename, pix.Pointer,   comptype,   modestr, natagsPtr, savalsPtr, satypesPtr, nasizesPtr);
+	int _Result = Natives.pixWriteTiffCustom(  filename, pix.Pointer,   comptype,   modestr, natagsPtr, savalsPtr, satypesPtr, nasizesPtr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (770, 1)
 // pixWriteStreamTiff(fp, pix, comptype) as int
 // pixWriteStreamTiff(FILE *, PIX *, l_int32) as l_ok
@@ -195,27 +151,16 @@ public static int pixWriteTiffCustom(
 ///  <param name="pix">[in] - </param>
 ///  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWriteStreamTiff(
 				 FILE fp, 
 				 Pix pix, 
 				 int comptype){
 
-
-
-	int _Result = Natives.pixWriteStreamTiff(
-fp.Pointer, pix.Pointer,   comptype);
+	int _Result = Natives.pixWriteStreamTiff(fp.Pointer, pix.Pointer,   comptype);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (790, 1)
 // pixWriteStreamTiffWA(fp, pix, comptype, modestr) as int
 // pixWriteStreamTiffWA(FILE *, PIX *, l_int32, const char *) as l_ok
@@ -227,28 +172,17 @@ fp.Pointer, pix.Pointer,   comptype);
 ///  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
 ///  <param name="modestr">[in] - "w" or "a"</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWriteStreamTiffWA(
 				 FILE fp, 
 				 Pix pix, 
 				 int comptype, 
 				 String modestr){
 
-
-
-	int _Result = Natives.pixWriteStreamTiffWA(
-fp.Pointer, pix.Pointer,   comptype,   modestr);
+	int _Result = Natives.pixWriteStreamTiffWA(fp.Pointer, pix.Pointer,   comptype,   modestr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1177, 1)
 // pixReadFromMultipageTiff(fname, poffset) as Pix
 // pixReadFromMultipageTiff(const char *, size_t *) as PIX *
@@ -286,34 +220,24 @@ fp.Pointer, pix.Pointer,   comptype,   modestr);
 ///  <param name="fname">[in] - filename</param>
 ///  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 ///   <returns>pix, or NULL on error or if previous call returned the last image</returns>
-
 public static Pix pixReadFromMultipageTiff(
 				 String fname, 
 				ref Byte[] poffset){
 
-
 		IntPtr poffsetPtr = 	Marshal.AllocHGlobal(poffset.Length);
 		Marshal.Copy(poffset, 0, poffsetPtr, poffset.Length);
 
-	IntPtr _Result = Natives.pixReadFromMultipageTiff(
-  fname, ref  poffsetPtr);
+	IntPtr _Result = Natives.pixReadFromMultipageTiff(  fname, ref  poffsetPtr);
 	
-
-
-//  
 	Byte[] poffsetGen = new Byte[1];
 	if (poffsetPtr != IntPtr.Zero) {
 	  Marshal.Copy(poffsetPtr, poffsetGen, 0, poffsetGen.Length);
 	}
 	poffset = poffsetGen;
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1226, 1)
 // pixaReadMultipageTiff(filename) as Pixa
 // pixaReadMultipageTiff(const char *) as PIXA *
@@ -322,26 +246,15 @@ public static Pix pixReadFromMultipageTiff(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadMultipageTiff/*"/>
 ///  <param name="filename">[in] - input tiff file</param>
 ///   <returns>pixa of page images, or NULL on error</returns>
-
 public static Pixa pixaReadMultipageTiff(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.pixaReadMultipageTiff(
-  filename);
+	IntPtr _Result = Natives.pixaReadMultipageTiff(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1286, 1)
 // pixaWriteMultipageTiff(fname, pixa) as int
 // pixaWriteMultipageTiff(const char *, PIXA *) as l_ok
@@ -356,26 +269,15 @@ public static Pixa pixaReadMultipageTiff(
 ///  <param name="fname">[in] - input tiff file</param>
 ///  <param name="pixa">[in] - any depth colormap will be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixaWriteMultipageTiff(
 				 String fname, 
 				 Pixa pixa){
 
-
-
-	int _Result = Natives.pixaWriteMultipageTiff(
-  fname, pixa.Pointer);
+	int _Result = Natives.pixaWriteMultipageTiff(  fname, pixa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1347, 1)
 // writeMultipageTiff(dirin, substr, fileout) as int
 // writeMultipageTiff(const char *, const char *, const char *) as l_ok
@@ -403,27 +305,16 @@ public static int pixaWriteMultipageTiff(
 ///  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 ///  <param name="fileout">[in] - output multipage tiff file</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int writeMultipageTiff(
 				 String dirin, 
 				 String substr, 
 				 String fileout){
 
-
-
-	int _Result = Natives.writeMultipageTiff(
-  dirin,   substr,   fileout);
+	int _Result = Natives.writeMultipageTiff(  dirin,   substr,   fileout);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1383, 1)
 // writeMultipageTiffSA(sa, fileout) as int
 // writeMultipageTiffSA(SARRAY *, const char *) as l_ok
@@ -436,26 +327,15 @@ public static int writeMultipageTiff(
 ///  <param name="sa">[in] - string array of full path names</param>
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int writeMultipageTiffSA(
 				 Sarray sa, 
 				 String fileout){
 
-
-
-	int _Result = Natives.writeMultipageTiffSA(
-sa.Pointer,   fileout);
+	int _Result = Natives.writeMultipageTiffSA(sa.Pointer,   fileout);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1443, 1)
 // fprintTiffInfo(fpout, tiffile) as int
 // fprintTiffInfo(FILE *, const char *) as l_ok
@@ -465,26 +345,15 @@ sa.Pointer,   fileout);
 ///  <param name="fpout">[in] - stream for output of tag data</param>
 ///  <param name="tiffile">[in] - input</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int fprintTiffInfo(
 				 FILE fpout, 
 				 String tiffile){
 
-
-
-	int _Result = Natives.fprintTiffInfo(
-fpout.Pointer,   tiffile);
+	int _Result = Natives.fprintTiffInfo(fpout.Pointer,   tiffile);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1476, 1)
 // tiffGetCount(fp, pn) as int
 // tiffGetCount(FILE *, l_int32 *) as l_ok
@@ -494,26 +363,15 @@ fpout.Pointer,   tiffile);
 ///  <param name="fp">[in] - file stream opened for read</param>
 ///  <param name="pn">[out] - number of images</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int tiffGetCount(
 				 FILE fp, 
 				out int pn){
 
-
-
-	int _Result = Natives.tiffGetCount(
-fp.Pointer, out  pn);
+	int _Result = Natives.tiffGetCount(fp.Pointer, out  pn);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1524, 1)
 // getTiffResolution(fp, pxres, pyres) as int
 // getTiffResolution(FILE *, l_int32 *, l_int32 *) as l_ok
@@ -528,27 +386,16 @@ fp.Pointer, out  pn);
 ///  <param name="pxres">[out] - resolution in ppi</param>
 ///  <param name="pyres">[out] - resolution in ppi</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int getTiffResolution(
 				 FILE fp, 
 				out int pxres, 
 				out int pyres){
 
-
-
-	int _Result = Natives.getTiffResolution(
-fp.Pointer, out  pxres, out  pyres);
+	int _Result = Natives.getTiffResolution(fp.Pointer, out  pxres, out  pyres);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1621, 1)
 // readHeaderTiff(filename, n, pw, ph, pbps, pspp, pres, pcmap, pformat) as int
 // readHeaderTiff(const char *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -570,7 +417,6 @@ fp.Pointer, out  pxres, out  pyres);
 ///  <param name="pcmap">[out][optional] - colormap exists input NULL to ignore</param>
 ///  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int readHeaderTiff(
 				 String filename, 
 				 int n, 
@@ -582,21 +428,11 @@ public static int readHeaderTiff(
 				out int pcmap, 
 				out int pformat){
 
-
-
-	int _Result = Natives.readHeaderTiff(
-  filename,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
+	int _Result = Natives.readHeaderTiff(  filename,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1677, 1)
 // freadHeaderTiff(fp, n, pw, ph, pbps, pspp, pres, pcmap, pformat) as int
 // freadHeaderTiff(FILE *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -618,7 +454,6 @@ public static int readHeaderTiff(
 ///  <param name="pcmap">[out][optional] - colormap exists input NULL to ignore</param>
 ///  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int freadHeaderTiff(
 				 FILE fp, 
 				 int n, 
@@ -630,21 +465,11 @@ public static int freadHeaderTiff(
 				out int pcmap, 
 				out int pformat){
 
-
-
-	int _Result = Natives.freadHeaderTiff(
-fp.Pointer,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
+	int _Result = Natives.freadHeaderTiff(fp.Pointer,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1748, 1)
 // readHeaderMemTiff(cdata, size, n, pw, ph, pbps, pspp, pres, pcmap, pformat) as int
 // readHeaderMemTiff(const l_uint8 *, size_t, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -665,7 +490,6 @@ fp.Pointer,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, 
 ///  <param name="pcmap">[out][optional] - colormap exists input NULL to ignore</param>
 ///  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int readHeaderMemTiff(
 				 Byte[] cdata, 
 				 uint size, 
@@ -678,21 +502,11 @@ public static int readHeaderMemTiff(
 				out int pcmap, 
 				out int pformat){
 
-
-
-	int _Result = Natives.readHeaderMemTiff(
-  cdata,   size,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
+	int _Result = Natives.readHeaderMemTiff(  cdata,   size,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1883, 1)
 // findTiffCompression(fp, pcomptype) as int
 // findTiffCompression(FILE *, l_int32 *) as l_ok
@@ -714,26 +528,15 @@ public static int readHeaderMemTiff(
 ///  <param name="fp">[in] - file stream must be rewound to BOF</param>
 ///  <param name="pcomptype">[out] - compression type</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int findTiffCompression(
 				 FILE fp, 
 				out int pcomptype){
 
-
-
-	int _Result = Natives.findTiffCompression(
-fp.Pointer, out  pcomptype);
+	int _Result = Natives.findTiffCompression(fp.Pointer, out  pcomptype);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (1968, 1)
 // extractG4DataFromFile(filein, pdata, pnbytes, pw, ph, pminisblack) as int
 // extractG4DataFromFile(const char *, l_uint8 **, size_t *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -747,7 +550,6 @@ fp.Pointer, out  pcomptype);
 ///  <param name="ph">[out][optional] - image height</param>
 ///  <param name="pminisblack">[out][optional] - boolean</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int extractG4DataFromFile(
 				 String filein, 
 				out Byte[] pdata, 
@@ -756,27 +558,18 @@ public static int extractG4DataFromFile(
 				out int ph, 
 				out int pminisblack){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.extractG4DataFromFile(
-  filein, out  pdataPtr, out  pnbytes, out  pw, out  ph, out  pminisblack);
+	int _Result = Natives.extractG4DataFromFile(  filein, out  pdataPtr, out  pnbytes, out  pw, out  ph, out  pminisblack);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[pnbytes];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (2445, 1)
 // pixReadMemTiff(cdata, size, n) as Pix
 // pixReadMemTiff(const l_uint8 *, size_t, l_int32) as PIX *
@@ -800,28 +593,17 @@ public static int extractG4DataFromFile(
 ///  <param name="size">[in] - size of cdata</param>
 ///  <param name="n">[in] - page image number: 0-based</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadMemTiff(
 				 Byte[] cdata, 
 				 uint size, 
 				 int n){
 
-
-
-	IntPtr _Result = Natives.pixReadMemTiff(
-  cdata,   size,   n);
+	IntPtr _Result = Natives.pixReadMemTiff(  cdata,   size,   n);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (2510, 1)
 // pixReadMemFromMultipageTiff(cdata, size, poffset) as Pix
 // pixReadMemFromMultipageTiff(const l_uint8 *, size_t, size_t *) as PIX *
@@ -847,35 +629,25 @@ public static Pix pixReadMemTiff(
 ///  <param name="size">[in] - size of cdata</param>
 ///  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 ///   <returns>pix, or NULL on error or if previous call returned the last image</returns>
-
 public static Pix pixReadMemFromMultipageTiff(
 				 Byte[] cdata, 
 				 uint size, 
 				ref Byte[] poffset){
 
-
 		IntPtr poffsetPtr = 	Marshal.AllocHGlobal(poffset.Length);
 		Marshal.Copy(poffset, 0, poffsetPtr, poffset.Length);
 
-	IntPtr _Result = Natives.pixReadMemFromMultipageTiff(
-  cdata,   size, ref  poffsetPtr);
+	IntPtr _Result = Natives.pixReadMemFromMultipageTiff(  cdata,   size, ref  poffsetPtr);
 	
-
-
-//  
 	Byte[] poffsetGen = new Byte[size];
 	if (poffsetPtr != IntPtr.Zero) {
 	  Marshal.Copy(poffsetPtr, poffsetGen, 0, poffsetGen.Length);
 	}
 	poffset = poffsetGen;
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (2566, 1)
 // pixaReadMemMultipageTiff(data, size) as Pixa
 // pixaReadMemMultipageTiff(const l_uint8 *, size_t) as PIXA *
@@ -888,27 +660,16 @@ public static Pix pixReadMemFromMultipageTiff(
 ///  <param name="data">[in] - const multiple pages tiff-encoded</param>
 ///  <param name="size">[in] - size of cdata</param>
 ///   <returns>pixa, or NULL on error</returns>
-
 public static Pixa pixaReadMemMultipageTiff(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.pixaReadMemMultipageTiff(
-  data,   size);
+	IntPtr _Result = Natives.pixaReadMemMultipageTiff(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (2606, 1)
 // pixaWriteMemMultipageTiff(pdata, psize, pixa) as int
 // pixaWriteMemMultipageTiff(l_uint8 **, size_t *, PIXA *) as l_ok
@@ -927,33 +688,23 @@ public static Pixa pixaReadMemMultipageTiff(
 ///  <param name="psize">[out] - size of data</param>
 ///  <param name="pixa">[in] - any depth colormap will be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixaWriteMemMultipageTiff(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Pixa pixa){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixaWriteMemMultipageTiff(
-out  pdataPtr, out  psize, pixa.Pointer);
+	int _Result = Natives.pixaWriteMemMultipageTiff(out  pdataPtr, out  psize, pixa.Pointer);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (2672, 1)
 // pixWriteMemTiff(pdata, psize, pix, comptype) as int
 // pixWriteMemTiff(l_uint8 **, size_t *, PIX *, l_int32) as l_ok
@@ -965,34 +716,24 @@ out  pdataPtr, out  psize, pixa.Pointer);
 ///  <param name="pix">[in] - </param>
 ///  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
 ///   <returns>0 if OK, 1 on error Usage: 1) See pixWriteTiff(.  This version writes to memory instead of to a file.</returns>
-
 public static int pixWriteMemTiff(
 				out Byte[] pdata, 
 				out uint psize, 
 				 Pix pix, 
 				 int comptype){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMemTiff(
-out  pdataPtr, out  psize, pix.Pointer,   comptype);
+	int _Result = Natives.pixWriteMemTiff(out  pdataPtr, out  psize, pix.Pointer,   comptype);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // tiffio.c (2703, 1)
 // pixWriteMemTiffCustom(pdata, psize, pix, comptype, natags, savals, satypes, nasizes) as int
 // pixWriteMemTiffCustom(l_uint8 **, size_t *, PIX *, l_int32, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
@@ -1008,7 +749,6 @@ out  pdataPtr, out  psize, pix.Pointer,   comptype);
 ///  <param name="satypes">[in][optional] - SARRAY of types</param>
 ///  <param name="nasizes">[in][optional] - NUMA of sizes</param>
 ///   <returns>0 if OK, 1 on error Usage: 1) See pixWriteTiffCustom(.  This version writes to memory instead of to a file. 2) Use TIFFClose() TIFFCleanup( doesn't free internal memstream.</returns>
-
 public static int pixWriteMemTiffCustom(
 				out Byte[] pdata, 
 				out uint psize, 
@@ -1019,27 +759,19 @@ public static int pixWriteMemTiffCustom(
 				 Sarray satypes, 
 				 Numa nasizes){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr natagsPtr = IntPtr.Zero; 	if (natags != null) {natagsPtr = natags.Pointer;}
 	IntPtr savalsPtr = IntPtr.Zero; 	if (savals != null) {savalsPtr = savals.Pointer;}
 	IntPtr satypesPtr = IntPtr.Zero; 	if (satypes != null) {satypesPtr = satypes.Pointer;}
 	IntPtr nasizesPtr = IntPtr.Zero; 	if (nasizes != null) {nasizesPtr = nasizes.Pointer;}
 
-	int _Result = Natives.pixWriteMemTiffCustom(
-out  pdataPtr, out  psize, pix.Pointer,   comptype, natagsPtr, savalsPtr, satypesPtr, nasizesPtr);
+	int _Result = Natives.pixWriteMemTiffCustom(out  pdataPtr, out  psize, pix.Pointer,   comptype, natagsPtr, savalsPtr, satypesPtr, nasizesPtr);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 

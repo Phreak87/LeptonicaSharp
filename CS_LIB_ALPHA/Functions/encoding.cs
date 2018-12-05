@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // encoding.c (100, 1)
 // encodeBase64(inarray, insize, poutsize) as String
 // encodeBase64(l_uint8 *, l_int32, l_int32 *) as char *
@@ -22,27 +21,16 @@ public partial class _All {
 ///  <param name="insize">[in] - number of bytes in input array</param>
 ///  <param name="poutsize">[out] - number of bytes in output char array</param>
 ///   <returns>chara with MAX_BASE64_LINE characters + \n in each line</returns>
-
 public static String encodeBase64(
 				 Byte[] inarray, 
 				 int insize, 
 				out int poutsize){
 
-
-
-	String _Result = Natives.encodeBase64(
-  inarray,   insize, out  poutsize);
+	String _Result = Natives.encodeBase64(  inarray,   insize, out  poutsize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // encoding.c (188, 1)
 // decodeBase64(inarray, insize, poutsize) as Byte[]
 // decodeBase64(const char *, l_int32, l_int32 *) as l_uint8 *
@@ -63,27 +51,16 @@ public static String encodeBase64(
 ///  <param name="insize">[in] - number of bytes in input array</param>
 ///  <param name="poutsize">[out] - number of bytes in output byte array</param>
 ///   <returns>bytea decoded byte data, or NULL on error</returns>
-
 public static Byte[] decodeBase64(
 				 String inarray, 
 				 int insize, 
 				out int poutsize){
 
-
-
-	Byte[] _Result = Natives.decodeBase64(
-  inarray,   insize, out  poutsize);
+	Byte[] _Result = Natives.decodeBase64(  inarray,   insize, out  poutsize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // encoding.c (339, 1)
 // encodeAscii85(inarray, insize, poutsize) as String
 // encodeAscii85(l_uint8 *, l_int32, l_int32 *) as char *
@@ -99,27 +76,16 @@ public static Byte[] decodeBase64(
 ///  <param name="insize">[in] - number of bytes in input array</param>
 ///  <param name="poutsize">[out] - number of bytes in output char array</param>
 ///   <returns>chara with 64 characters + \n in each line</returns>
-
 public static String encodeAscii85(
 				 Byte[] inarray, 
 				 int insize, 
 				out int poutsize){
 
-
-
-	String _Result = Natives.encodeAscii85(
-  inarray,   insize, out  poutsize);
+	String _Result = Natives.encodeAscii85(  inarray,   insize, out  poutsize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // encoding.c (473, 1)
 // decodeAscii85(inarray, insize, poutsize) as Byte[]
 // decodeAscii85(char *, l_int32, l_int32 *) as l_uint8 *
@@ -137,27 +103,16 @@ public static String encodeAscii85(
 ///  <param name="insize">[in] - number of bytes in input array</param>
 ///  <param name="poutsize">[out] - number of bytes in output l_uint8 array</param>
 ///   <returns>outarray binary</returns>
-
 public static Byte[] decodeAscii85(
 				 String inarray, 
 				 int insize, 
 				out int poutsize){
 
-
-
-	Byte[] _Result = Natives.decodeAscii85(
-  inarray,   insize, out  poutsize);
+	Byte[] _Result = Natives.decodeAscii85(  inarray,   insize, out  poutsize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // encoding.c (587, 1)
 // reformatPacked64(inarray, insize, leadspace, linechars, addquotes, poutsize) as String
 // reformatPacked64(char *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as char *
@@ -180,7 +135,6 @@ public static Byte[] decodeAscii85(
 ///  <param name="addquotes">[in] - 1 to add quotes to each line of data 0 to skip</param>
 ///  <param name="poutsize">[out] - number of bytes in output char array</param>
 ///   <returns>outarray ascii</returns>
-
 public static String reformatPacked64(
 				 String inarray, 
 				 int insize, 
@@ -189,17 +143,8 @@ public static String reformatPacked64(
 				 int addquotes, 
 				out int poutsize){
 
-
-
-	String _Result = Natives.reformatPacked64(
-  inarray,   insize,   leadspace,   linechars,   addquotes, out  poutsize);
+	String _Result = Natives.reformatPacked64(  inarray,   insize,   leadspace,   linechars,   addquotes, out  poutsize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

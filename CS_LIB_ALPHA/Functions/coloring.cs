@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (126, 1)
 // pixColorGrayRegions(pixs, boxa, type, thresh, rval, gval, bval) as Pix
 // pixColorGrayRegions(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -39,7 +38,6 @@ public partial class _All {
 ///  <param name="gval">[in] - new color to paint</param>
 ///  <param name="bval">[in] - new color to paint</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixColorGrayRegions(
 				 Pix pixs, 
 				 Boxa boxa, 
@@ -49,22 +47,12 @@ public static Pix pixColorGrayRegions(
 				 int gval, 
 				 int bval){
 
-
-
-	IntPtr _Result = Natives.pixColorGrayRegions(
-pixs.Pointer, boxa.Pointer,   type,   thresh,   rval,   gval,   bval);
+	IntPtr _Result = Natives.pixColorGrayRegions(pixs.Pointer, boxa.Pointer,   type,   thresh,   rval,   gval,   bval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (227, 1)
 // pixColorGray(pixs, box, type, thresh, rval, gval, bval) as int
 // pixColorGray(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -112,7 +100,6 @@ pixs.Pointer, boxa.Pointer,   type,   thresh,   rval,   gval,   bval);
 ///  <param name="gval">[in] - new color to paint</param>
 ///  <param name="bval">[in] - new color to paint</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixColorGray(
 				 Pix pixs, 
 				 Box box, 
@@ -122,22 +109,13 @@ public static int pixColorGray(
 				 int gval, 
 				 int bval){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixColorGray(
-pixs.Pointer, boxPtr,   type,   thresh,   rval,   gval,   bval);
+	int _Result = Natives.pixColorGray(pixs.Pointer, boxPtr,   type,   thresh,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (353, 1)
 // pixColorGrayMasked(pixs, pixm, type, thresh, rval, gval, bval) as Pix
 // pixColorGrayMasked(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -173,7 +151,6 @@ pixs.Pointer, boxPtr,   type,   thresh,   rval,   gval,   bval);
 ///  <param name="gval">[in] - new color to paint</param>
 ///  <param name="bval">[in] - new color to paint</param>
 ///   <returns>pixd colorized, or NULL on error</returns>
-
 public static Pix pixColorGrayMasked(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -183,22 +160,12 @@ public static Pix pixColorGrayMasked(
 				 int gval, 
 				 int bval){
 
-
-
-	IntPtr _Result = Natives.pixColorGrayMasked(
-pixs.Pointer, pixm.Pointer,   type,   thresh,   rval,   gval,   bval);
+	IntPtr _Result = Natives.pixColorGrayMasked(pixs.Pointer, pixm.Pointer,   type,   thresh,   rval,   gval,   bval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (478, 1)
 // pixSnapColor(pixd, pixs, srcval, dstval, diff) as Pix
 // pixSnapColor(PIX *, PIX *, l_uint32, l_uint32, l_int32) as PIX *
@@ -223,7 +190,6 @@ pixs.Pointer, pixm.Pointer,   type,   thresh,   rval,   gval,   bval);
 ///  <param name="dstval">[in] - target color for pixels: 0xrrggbb00</param>
 ///  <param name="diff">[in] - max absolute difference, applied to all components</param>
 ///   <returns>pixd with all pixels within diff of pixval set to pixval, or pixd on error</returns>
-
 public static Pix pixSnapColor(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -231,23 +197,14 @@ public static Pix pixSnapColor(
 				 uint dstval, 
 				 int diff){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixSnapColor(
-pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
+	IntPtr _Result = Natives.pixSnapColor(pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (565, 1)
 // pixSnapColorCmap(pixd, pixs, srcval, dstval, diff) as Pix
 // pixSnapColorCmap(PIX *, PIX *, l_uint32, l_uint32, l_int32) as PIX *
@@ -272,7 +229,6 @@ pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
 ///  <param name="dstval">[in] - target color for pixels: 0xrrggbb00</param>
 ///  <param name="diff">[in] - max absolute difference, applied to all components</param>
 ///   <returns>pixd with all pixels within diff of srcval set to dstval, or pixd on error</returns>
-
 public static Pix pixSnapColorCmap(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -280,23 +236,14 @@ public static Pix pixSnapColorCmap(
 				 uint dstval, 
 				 int diff){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixSnapColorCmap(
-pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
+	IntPtr _Result = Natives.pixSnapColorCmap(pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (681, 1)
 // pixLinearMapToTargetColor(pixd, pixs, srcval, dstval) as Pix
 // pixLinearMapToTargetColor(PIX *, PIX *, l_uint32, l_uint32) as PIX *
@@ -328,30 +275,20 @@ pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
 ///  <param name="srcval">[in] - source color: 0xrrggbb00</param>
 ///  <param name="dstval">[in] - target color: 0xrrggbb00</param>
 ///   <returns>pixd with all pixels mapped based on the srcval/destval mapping, or pixd on error</returns>
-
 public static Pix pixLinearMapToTargetColor(
 				 Pix pixd, 
 				 Pix pixs, 
 				 uint srcval, 
 				 uint dstval){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixLinearMapToTargetColor(
-pixdPtr, pixs.Pointer,   srcval,   dstval);
+	IntPtr _Result = Natives.pixLinearMapToTargetColor(pixdPtr, pixs.Pointer,   srcval,   dstval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (778, 1)
 // pixelLinearMapToTargetColor(scolor, srcmap, dstmap, pdcolor) as int
 // pixelLinearMapToTargetColor(l_uint32, l_uint32, l_uint32, l_uint32 *) as l_ok
@@ -382,28 +319,17 @@ pixdPtr, pixs.Pointer,   srcval,   dstval);
 ///  <param name="dstmap">[in] - target mapping color: 0xrrggbb00</param>
 ///  <param name="pdcolor">[out] - rgb dest color: 0xrrggbb00</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixelLinearMapToTargetColor(
 				 uint scolor, 
 				 uint srcmap, 
 				 uint dstmap, 
 				out uint pdcolor){
 
-
-
-	int _Result = Natives.pixelLinearMapToTargetColor(
-  scolor,   srcmap,   dstmap, out  pdcolor);
+	int _Result = Natives.pixelLinearMapToTargetColor(  scolor,   srcmap,   dstmap, out  pdcolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (863, 1)
 // pixShiftByComponent(pixd, pixs, srcval, dstval) as Pix
 // pixShiftByComponent(PIX *, PIX *, l_uint32, l_uint32) as PIX *
@@ -449,30 +375,20 @@ public static int pixelLinearMapToTargetColor(
 ///  <param name="srcval">[in] - source color: 0xrrggbb00</param>
 ///  <param name="dstval">[in] - target color: 0xrrggbb00</param>
 ///   <returns>pixd with all pixels mapped based on the srcval/destval mapping, or pixd on error</returns>
-
 public static Pix pixShiftByComponent(
 				 Pix pixd, 
 				 Pix pixs, 
 				 uint srcval, 
 				 uint dstval){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixShiftByComponent(
-pixdPtr, pixs.Pointer,   srcval,   dstval);
+	IntPtr _Result = Natives.pixShiftByComponent(pixdPtr, pixs.Pointer,   srcval,   dstval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (964, 1)
 // pixelShiftByComponent(rval, gval, bval, srcval, dstval, ppixel) as int
 // pixelShiftByComponent(l_int32, l_int32, l_int32, l_uint32, l_uint32, l_uint32 *) as l_ok
@@ -494,7 +410,6 @@ pixdPtr, pixs.Pointer,   srcval,   dstval);
 ///  <param name="dstval">[in] - target color: 0xrrggbb00</param>
 ///  <param name="ppixel">[out] - rgb value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixelShiftByComponent(
 				 int rval, 
 				 int gval, 
@@ -503,21 +418,11 @@ public static int pixelShiftByComponent(
 				 uint dstval, 
 				out uint ppixel){
 
-
-
-	int _Result = Natives.pixelShiftByComponent(
-  rval,   gval,   bval,   srcval,   dstval, out  ppixel);
+	int _Result = Natives.pixelShiftByComponent(  rval,   gval,   bval,   srcval,   dstval, out  ppixel);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // coloring.c (1023, 1)
 // pixelFractionalShift(rval, gval, bval, fraction, ppixel) as int
 // pixelFractionalShift(l_int32, l_int32, l_int32, l_float32, l_uint32 *) as l_ok
@@ -540,7 +445,6 @@ public static int pixelShiftByComponent(
 ///  <param name="fraction">[in] - negative toward black positive toward white</param>
 ///  <param name="ppixel">[out] - rgb value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixelFractionalShift(
 				 int rval, 
 				 int gval, 
@@ -548,17 +452,8 @@ public static int pixelFractionalShift(
 				 Single fraction, 
 				out uint ppixel){
 
-
-
-	int _Result = Natives.pixelFractionalShift(
-  rval,   gval,   bval,   fraction, out  ppixel);
+	int _Result = Natives.pixelFractionalShift(  rval,   gval,   bval,   fraction, out  ppixel);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

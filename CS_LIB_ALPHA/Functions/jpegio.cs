@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (214, 1)
 // pixReadJpeg(filename, cmapflag, reduction, pnwarn, hint) as Pix
 // pixReadJpeg(const char *, l_int32, l_int32, l_int32 *, l_int32) as PIX *
@@ -45,7 +44,6 @@ public partial class _All {
 ///  <param name="pnwarn">[out][optional] - number of warnings about corrupted data</param>
 ///  <param name="hint">[in] - a bitwise OR of L_JPEG_ values 0 for default</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadJpeg(
 				 String filename, 
 				 int cmapflag, 
@@ -53,22 +51,12 @@ public static Pix pixReadJpeg(
 				out int pnwarn, 
 				 int hint){
 
-
-
-	IntPtr _Result = Natives.pixReadJpeg(
-  filename,   cmapflag,   reduction, out  pnwarn,   hint);
+	IntPtr _Result = Natives.pixReadJpeg(  filename,   cmapflag,   reduction, out  pnwarn,   hint);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (270, 1)
 // pixReadStreamJpeg(fp, cmapflag, reduction, pnwarn, hint) as Pix
 // pixReadStreamJpeg(FILE *, l_int32, l_int32, l_int32 *, l_int32) as PIX *
@@ -84,7 +72,6 @@ public static Pix pixReadJpeg(
 ///  <param name="pnwarn">[out][optional] - number of warnings</param>
 ///  <param name="hint">[in] - a bitwise OR of L_JPEG_ values 0 for default</param>
 ///   <returns>pix, or NULL on error Usage: see pixReadJpeg</returns>
-
 public static Pix pixReadStreamJpeg(
 				 FILE fp, 
 				 int cmapflag, 
@@ -92,22 +79,12 @@ public static Pix pixReadStreamJpeg(
 				out int pnwarn, 
 				 int hint){
 
-
-
-	IntPtr _Result = Natives.pixReadStreamJpeg(
-fp.Pointer,   cmapflag,   reduction, out  pnwarn,   hint);
+	IntPtr _Result = Natives.pixReadStreamJpeg(fp.Pointer,   cmapflag,   reduction, out  pnwarn,   hint);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (507, 1)
 // readHeaderJpeg(filename, pw, ph, pspp, pycck, pcmyk) as int
 // readHeaderJpeg(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -121,7 +98,6 @@ fp.Pointer,   cmapflag,   reduction, out  pnwarn,   hint);
 ///  <param name="pycck">[out][optional] - 1 if ycck color space 0 otherwise</param>
 ///  <param name="pcmyk">[out][optional] - 1 if cmyk color space 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int readHeaderJpeg(
 				 String filename, 
 				out int pw, 
@@ -130,21 +106,11 @@ public static int readHeaderJpeg(
 				out int pycck, 
 				out int pcmyk){
 
-
-
-	int _Result = Natives.readHeaderJpeg(
-  filename, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
+	int _Result = Natives.readHeaderJpeg(  filename, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (549, 1)
 // freadHeaderJpeg(fp, pw, ph, pspp, pycck, pcmyk) as int
 // freadHeaderJpeg(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -158,7 +124,6 @@ public static int readHeaderJpeg(
 ///  <param name="pycck">[out][optional] - 1 if ycck color space 0 otherwise</param>
 ///  <param name="pcmyk">[out][optional] - 1 if cmyk color space 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int freadHeaderJpeg(
 				 FILE fp, 
 				out int pw, 
@@ -167,21 +132,11 @@ public static int freadHeaderJpeg(
 				out int pycck, 
 				out int pcmyk){
 
-
-
-	int _Result = Natives.freadHeaderJpeg(
-fp.Pointer, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
+	int _Result = Natives.freadHeaderJpeg(fp.Pointer, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (618, 1)
 // fgetJpegResolution(fp, pxres, pyres) as int
 // fgetJpegResolution(FILE *, l_int32 *, l_int32 *) as l_int32
@@ -189,28 +144,18 @@ fp.Pointer, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJpegResolution/*"/>
 ///   <returns></returns>
-
 public static int fgetJpegResolution(
 				 FILE fp, 
 				 object pxres, 
 				 object pyres){
 
-
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
-	int _Result = Natives.fgetJpegResolution(
-fp.Pointer,   pxres,   pyres);
+	int _Result = Natives.fgetJpegResolution(fp.Pointer,   pxres,   pyres);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (678, 1)
 // fgetJpegComment(fp, pcomment) as int
 // fgetJpegComment(FILE *, l_uint8 **) as l_int32
@@ -218,27 +163,17 @@ fp.Pointer,   pxres,   pyres);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJpegComment/*"/>
 ///   <returns></returns>
-
 public static int fgetJpegComment(
 				 FILE fp, 
 				 object pcomment){
 
-
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
-	int _Result = Natives.fgetJpegComment(
-fp.Pointer,   pcomment);
+	int _Result = Natives.fgetJpegComment(fp.Pointer,   pcomment);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (732, 1)
 // pixWriteJpeg(filename, pix, quality, progressive) as int
 // pixWriteJpeg(const char *, PIX *, l_int32, l_int32) as l_ok
@@ -250,28 +185,17 @@ fp.Pointer,   pcomment);
 ///  <param name="quality">[in] - 1 - 100 75 is default</param>
 ///  <param name="progressive">[in] - 0 for baseline sequential 1 for progressive</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixWriteJpeg(
 				 String filename, 
 				 Pix pix, 
 				 int quality, 
 				 int progressive){
 
-
-
-	int _Result = Natives.pixWriteJpeg(
-  filename, pix.Pointer,   quality,   progressive);
+	int _Result = Natives.pixWriteJpeg(  filename, pix.Pointer,   quality,   progressive);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (793, 1)
 // pixWriteStreamJpeg(fp, pixs, quality, progressive) as int
 // pixWriteStreamJpeg(FILE *, PIX *, l_int32, l_int32) as l_ok
@@ -309,28 +233,17 @@ public static int pixWriteJpeg(
 ///  <param name="quality">[in] - 1 - 100 75 is default value 0 is also default</param>
 ///  <param name="progressive">[in] - 0 for baseline sequential 1 for progressive</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWriteStreamJpeg(
 				 FILE fp, 
 				 Pix pixs, 
 				 int quality, 
 				 int progressive){
 
-
-
-	int _Result = Natives.pixWriteStreamJpeg(
-fp.Pointer, pixs.Pointer,   quality,   progressive);
+	int _Result = Natives.pixWriteStreamJpeg(fp.Pointer, pixs.Pointer,   quality,   progressive);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (991, 1)
 // pixReadMemJpeg(data, size, cmflag, reduction, pnwarn, hint) as Pix
 // pixReadMemJpeg(const l_uint8 *, size_t, l_int32, l_int32, l_int32 *, l_int32) as PIX *
@@ -352,7 +265,6 @@ fp.Pointer, pixs.Pointer,   quality,   progressive);
 ///  <param name="pnwarn">[out][optional] - number of warnings</param>
 ///  <param name="hint">[in] - a bitwise OR of L_JPEG_ values 0 for default</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadMemJpeg(
 				 Byte[] data, 
 				 uint size, 
@@ -361,22 +273,12 @@ public static Pix pixReadMemJpeg(
 				out int pnwarn, 
 				 int hint){
 
-
-
-	IntPtr _Result = Natives.pixReadMemJpeg(
-  data,   size,   cmflag,   reduction, out  pnwarn,   hint);
+	IntPtr _Result = Natives.pixReadMemJpeg(  data,   size,   cmflag,   reduction, out  pnwarn,   hint);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (1038, 1)
 // readHeaderMemJpeg(data, size, pw, ph, pspp, pycck, pcmyk) as int
 // readHeaderMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -391,7 +293,6 @@ public static Pix pixReadMemJpeg(
 ///  <param name="pycck">[out][optional] - 1 if ycck color space 0 otherwise</param>
 ///  <param name="pcmyk">[out][optional] - 1 if cmyk color space 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int readHeaderMemJpeg(
 				 Byte[] data, 
 				 uint size, 
@@ -401,21 +302,11 @@ public static int readHeaderMemJpeg(
 				out int pycck, 
 				out int pcmyk){
 
-
-
-	int _Result = Natives.readHeaderMemJpeg(
-  data,   size, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
+	int _Result = Natives.readHeaderMemJpeg(  data,   size, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (1079, 1)
 // readResolutionMemJpeg(data, size, pxres, pyres) as int
 // readResolutionMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *) as l_ok
@@ -427,28 +318,17 @@ public static int readHeaderMemJpeg(
 ///  <param name="pxres">[out][optional] - </param>
 ///  <param name="pyres">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int readResolutionMemJpeg(
 				 Byte[] data, 
 				 uint size, 
 				out int pxres, 
 				out int pyres){
 
-
-
-	int _Result = Natives.readResolutionMemJpeg(
-  data,   size, out  pxres, out  pyres);
+	int _Result = Natives.readResolutionMemJpeg(  data,   size, out  pxres, out  pyres);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (1121, 1)
 // pixWriteMemJpeg(pdata, psize, pix, quality, progressive) as int
 // pixWriteMemJpeg(l_uint8 **, size_t *, PIX *, l_int32, l_int32) as l_ok
@@ -465,7 +345,6 @@ public static int readResolutionMemJpeg(
 ///  <param name="quality">[in] - 1 - 100 75 is default value 0 is also default</param>
 ///  <param name="progressive">[in] - 0 for baseline sequential 1 for progressive</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWriteMemJpeg(
 				out Byte[] pdata, 
 				out uint psize, 
@@ -473,27 +352,18 @@ public static int pixWriteMemJpeg(
 				 int quality, 
 				 int progressive){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMemJpeg(
-out  pdataPtr, out  psize, pix.Pointer,   quality,   progressive);
+	int _Result = Natives.pixWriteMemJpeg(out  pdataPtr, out  psize, pix.Pointer,   quality,   progressive);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // jpegio.c (1182, 1)
 // pixSetChromaSampling(pix, sampling) as int
 // pixSetChromaSampling(PIX *, l_int32) as l_ok
@@ -509,22 +379,12 @@ out  pdataPtr, out  psize, pix.Pointer,   quality,   progressive);
 ///  <param name="pix">[in] - </param>
 ///  <param name="sampling">[in] - 1 for subsampling 0 for no subsampling</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetChromaSampling(
 				 Pix pix, 
 				 int sampling){
 
-
-
-	int _Result = Natives.pixSetChromaSampling(
-pix.Pointer,   sampling);
+	int _Result = Natives.pixSetChromaSampling(pix.Pointer,   sampling);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

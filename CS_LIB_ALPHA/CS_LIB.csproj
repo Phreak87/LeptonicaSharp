@@ -8,8 +8,8 @@
     <ProjectGuid>{EEBCEE15-FBBD-46FA-AAB8-2B7502451B68}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LeptonicaCSharp</RootNamespace>
-    <AssemblyName>LeptonicaCSharp</AssemblyName>
+    <RootNamespace>LeptonicaSharp</RootNamespace>
+    <AssemblyName>LeptonicaSharp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -55,7 +55,7 @@
       <DependentUpon>ShowPix.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\SystemClass.cs" />
-    <Compile Include="Extensions\Konstruktoren.cs" />
+    <Compile Include="Extensions\Constructors.cs" />
     <Compile Include="Extensions\Natives.cs" />
     <Compile Include="Functions\adaptmap.cs" />
     <Compile Include="Functions\affine.cs" />

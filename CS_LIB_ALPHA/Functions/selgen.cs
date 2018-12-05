@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (146, 1)
 // pixGenerateSelWithRuns(pixs, nhlines, nvlines, distance, minlength, toppix, botpix, leftpix, rightpix, ppixe) as Sel
 // pixGenerateSelWithRuns(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, PIX **) as SEL *
@@ -60,7 +59,6 @@ public partial class _All {
 ///  <param name="rightpix">[in] - number of extra pixels of bg added to right</param>
 ///  <param name="ppixe">[out][optional] - input pix expanded by extra pixels</param>
 ///   <returns>sel hit-miss for input pattern, or NULL on error</returns>
-
 public static Sel pixGenerateSelWithRuns(
 				 Pix pixs, 
 				 int nhlines, 
@@ -73,24 +71,15 @@ public static Sel pixGenerateSelWithRuns(
 				 int rightpix, 
 				out Pix ppixe){
 
-
 	IntPtr ppixePtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixGenerateSelWithRuns(
-pixs.Pointer,   nhlines,   nvlines,   distance,   minlength,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
+	IntPtr _Result = Natives.pixGenerateSelWithRuns(pixs.Pointer,   nhlines,   nvlines,   distance,   minlength,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
-
-
-//  
 	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sel(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (336, 1)
 // pixGenerateSelRandom(pixs, hitfract, missfract, distance, toppix, botpix, leftpix, rightpix, ppixe) as Sel
 // pixGenerateSelRandom(PIX *, l_float32, l_float32, l_int32, l_int32, l_int32, l_int32, l_int32, PIX **) as SEL *
@@ -127,7 +116,6 @@ pixs.Pointer,   nhlines,   nvlines,   distance,   minlength,   toppix,   botpix,
 ///  <param name="rightpix">[in] - number of extra pixels of bg added to right</param>
 ///  <param name="ppixe">[out][optional] - input pix expanded by extra pixels</param>
 ///   <returns>sel hit-miss for input pattern, or NULL on error</returns>
-
 public static Sel pixGenerateSelRandom(
 				 Pix pixs, 
 				 Single hitfract, 
@@ -139,24 +127,15 @@ public static Sel pixGenerateSelRandom(
 				 int rightpix, 
 				out Pix ppixe){
 
-
 	IntPtr ppixePtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixGenerateSelRandom(
-pixs.Pointer,   hitfract,   missfract,   distance,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
+	IntPtr _Result = Natives.pixGenerateSelRandom(pixs.Pointer,   hitfract,   missfract,   distance,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
-
-
-//  
 	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sel(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (489, 1)
 // pixGenerateSelBoundary(pixs, hitdist, missdist, hitskip, missskip, topflag, botflag, leftflag, rightflag, ppixe) as Sel
 // pixGenerateSelBoundary(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, PIX **) as SEL *
@@ -202,7 +181,6 @@ pixs.Pointer,   hitfract,   missfract,   distance,   toppix,   botpix,   leftpix
 ///  <param name="rightflag">[in] - flag for extra pixels of bg added to right</param>
 ///  <param name="ppixe">[out][optional] - input pix expanded by extra pixels</param>
 ///   <returns>sel hit-miss for input pattern, or NULL on error</returns>
-
 public static Sel pixGenerateSelBoundary(
 				 Pix pixs, 
 				 int hitdist, 
@@ -215,24 +193,15 @@ public static Sel pixGenerateSelBoundary(
 				 int rightflag, 
 				out Pix ppixe){
 
-
 	IntPtr ppixePtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixGenerateSelBoundary(
-pixs.Pointer,   hitdist,   missdist,   hitskip,   missskip,   topflag,   botflag,   leftflag,   rightflag, out ppixePtr);
+	IntPtr _Result = Natives.pixGenerateSelBoundary(pixs.Pointer,   hitdist,   missdist,   hitskip,   missskip,   topflag,   botflag,   leftflag,   rightflag, out ppixePtr);
 	
-
-
-//  
 	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Sel(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (636, 1)
 // pixGetRunCentersOnLine(pixs, x, y, minlength) as Numa
 // pixGetRunCentersOnLine(PIX *, l_int32, l_int32, l_int32) as NUMA *
@@ -267,29 +236,18 @@ pixs.Pointer,   hitdist,   missdist,   hitskip,   missskip,   topflag,   botflag
 ///  <param name="y">[in] - set one of these to -1 see notes</param>
 ///  <param name="minlength">[in] - minimum length of acceptable run</param>
 ///   <returns>numa of fg runs, or NULL on error</returns>
-
 public static Numa pixGetRunCentersOnLine(
 				 Pix pixs, 
 				 int x, 
 				 int y, 
 				 int minlength){
 
-
-
-	IntPtr _Result = Natives.pixGetRunCentersOnLine(
-pixs.Pointer,   x,   y,   minlength);
+	IntPtr _Result = Natives.pixGetRunCentersOnLine(pixs.Pointer,   x,   y,   minlength);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (708, 1)
 // pixGetRunsOnLine(pixs, x1, y1, x2, y2) as Numa
 // pixGetRunsOnLine(PIX *, l_int32, l_int32, l_int32, l_int32) as NUMA *
@@ -311,7 +269,6 @@ pixs.Pointer,   x,   y,   minlength);
 ///  <param name="x2">[in] - </param>
 ///  <param name="y2">[in] - </param>
 ///   <returns>numa, or NULL on error</returns>
-
 public static Numa pixGetRunsOnLine(
 				 Pix pixs, 
 				 int x1, 
@@ -319,22 +276,12 @@ public static Numa pixGetRunsOnLine(
 				 int x2, 
 				 int y2){
 
-
-
-	IntPtr _Result = Natives.pixGetRunsOnLine(
-pixs.Pointer,   x1,   y1,   x2,   y2);
+	IntPtr _Result = Natives.pixGetRunsOnLine(pixs.Pointer,   x1,   y1,   x2,   y2);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (803, 1)
 // pixSubsampleBoundaryPixels(pixs, skip) as Pta
 // pixSubsampleBoundaryPixels(PIX *, l_int32) as PTA *
@@ -360,27 +307,16 @@ pixs.Pointer,   x1,   y1,   x2,   y2);
 ///  <param name="pixs">[in] - 1 bpp, with only boundary pixels in fg</param>
 ///  <param name="skip">[in] - number to skip between samples as you traverse boundary</param>
 ///   <returns>pta, or NULL on error</returns>
-
 public static Pta pixSubsampleBoundaryPixels(
 				 Pix pixs, 
 				 int skip){
 
-
-
-	IntPtr _Result = Natives.pixSubsampleBoundaryPixels(
-pixs.Pointer,   skip);
+	IntPtr _Result = Natives.pixSubsampleBoundaryPixels(pixs.Pointer,   skip);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (870, 1)
 // adjacentOnPixelInRaster(pixs, x, y, pxa, pya) as int
 // adjacentOnPixelInRaster(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
@@ -397,7 +333,6 @@ pixs.Pointer,   skip);
 ///  <param name="pxa">[out] - adjacent ON pixel, found by simple CCW search</param>
 ///  <param name="pya">[out] - adjacent ON pixel, found by simple CCW search</param>
 ///   <returns>1 if a pixel is found 0 otherwise or on error</returns>
-
 public static int adjacentOnPixelInRaster(
 				 Pix pixs, 
 				 int x, 
@@ -405,21 +340,11 @@ public static int adjacentOnPixelInRaster(
 				out int pxa, 
 				out int pya){
 
-
-
-	int _Result = Natives.adjacentOnPixelInRaster(
-pixs.Pointer,   x,   y, out  pxa, out  pya);
+	int _Result = Natives.adjacentOnPixelInRaster(pixs.Pointer,   x,   y, out  pxa, out  pya);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // selgen.c (928, 1)
 // pixDisplayHitMissSel(pixs, sel, scalefactor, hitcolor, misscolor) as Pix
 // pixDisplayHitMissSel(PIX *, SEL *, l_int32, l_uint32, l_uint32) as PIX *
@@ -438,7 +363,6 @@ pixs.Pointer,   x,   y, out  pxa, out  pya);
 ///  <param name="hitcolor">[in] - RGB0 color for center of hit pixels</param>
 ///  <param name="misscolor">[in] - RGB0 color for center of miss pixels</param>
 ///   <returns>pixd RGB showing both pixs and sel, or NULL on error</returns>
-
 public static Pix pixDisplayHitMissSel(
 				 Pix pixs, 
 				 Sel sel, 
@@ -446,18 +370,9 @@ public static Pix pixDisplayHitMissSel(
 				 uint hitcolor, 
 				 uint misscolor){
 
-
-
-	IntPtr _Result = Natives.pixDisplayHitMissSel(
-pixs.Pointer, sel.Pointer,   scalefactor,   hitcolor,   misscolor);
+	IntPtr _Result = Natives.pixDisplayHitMissSel(pixs.Pointer, sel.Pointer,   scalefactor,   hitcolor,   misscolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

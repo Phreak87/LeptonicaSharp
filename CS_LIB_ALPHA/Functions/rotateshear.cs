@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateshear.c (196, 1)
 // pixRotateShear(pixs, xcen, ycen, angle, incolor) as Pix
 // pixRotateShear(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -31,7 +30,6 @@ public partial class _All {
 ///  <param name="angle">[in] - radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixRotateShear(
 				 Pix pixs, 
 				 int xcen, 
@@ -39,22 +37,12 @@ public static Pix pixRotateShear(
 				 Single angle, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixRotateShear(
-pixs.Pointer,   xcen,   ycen,   angle,   incolor);
+	IntPtr _Result = Natives.pixRotateShear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateshear.c (248, 1)
 // pixRotate2Shear(pixs, xcen, ycen, angle, incolor) as Pix
 // pixRotate2Shear(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -86,7 +74,6 @@ pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 ///  <param name="angle">[in] - radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixRotate2Shear(
 				 Pix pixs, 
 				 int xcen, 
@@ -94,22 +81,12 @@ public static Pix pixRotate2Shear(
 				 Single angle, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixRotate2Shear(
-pixs.Pointer,   xcen,   ycen,   angle,   incolor);
+	IntPtr _Result = Natives.pixRotate2Shear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateshear.c (319, 1)
 // pixRotate3Shear(pixs, xcen, ycen, angle, incolor) as Pix
 // pixRotate3Shear(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -148,7 +125,6 @@ pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 ///  <param name="angle">[in] - radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixRotate3Shear(
 				 Pix pixs, 
 				 int xcen, 
@@ -156,22 +132,12 @@ public static Pix pixRotate3Shear(
 				 Single angle, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixRotate3Shear(
-pixs.Pointer,   xcen,   ycen,   angle,   incolor);
+	IntPtr _Result = Natives.pixRotate3Shear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateshear.c (395, 1)
 // pixRotateShearIP(pixs, xcen, ycen, angle, incolor) as int
 // pixRotateShearIP(PIX *, l_int32, l_int32, l_float32, l_int32) as l_ok
@@ -205,7 +171,6 @@ pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 ///  <param name="angle">[in] - radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixRotateShearIP(
 				 Pix pixs, 
 				 int xcen, 
@@ -213,21 +178,11 @@ public static int pixRotateShearIP(
 				 Single angle, 
 				 int incolor){
 
-
-
-	int _Result = Natives.pixRotateShearIP(
-pixs.Pointer,   xcen,   ycen,   angle,   incolor);
+	int _Result = Natives.pixRotateShearIP(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateshear.c (439, 1)
 // pixRotateShearCenter(pixs, angle, incolor) as Pix
 // pixRotateShearCenter(PIX *, l_float32, l_int32) as PIX *
@@ -238,28 +193,17 @@ pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 ///  <param name="angle">[in] - radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixRotateShearCenter(
 				 Pix pixs, 
 				 Single angle, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixRotateShearCenter(
-pixs.Pointer,   angle,   incolor);
+	IntPtr _Result = Natives.pixRotateShearCenter(pixs.Pointer,   angle,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rotateshear.c (462, 1)
 // pixRotateShearCenterIP(pixs, angle, incolor) as int
 // pixRotateShearCenterIP(PIX *, l_float32, l_int32) as l_ok
@@ -270,23 +214,13 @@ pixs.Pointer,   angle,   incolor);
 ///  <param name="angle">[in] - radians</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixRotateShearCenterIP(
 				 Pix pixs, 
 				 Single angle, 
 				 int incolor){
 
-
-
-	int _Result = Natives.pixRotateShearCenterIP(
-pixs.Pointer,   angle,   incolor);
+	int _Result = Natives.pixRotateShearCenterIP(pixs.Pointer,   angle,   incolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

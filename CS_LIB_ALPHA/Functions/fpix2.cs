@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (124, 1)
 // pixConvertToFPix(pixs, ncomps) as FPix
 // pixConvertToFPix(PIX *, l_int32) as FPIX *
@@ -23,27 +22,16 @@ public partial class _All {
 ///  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 ///  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 ///   <returns>fpix, or NULL on error</returns>
-
 public static FPix pixConvertToFPix(
 				 Pix pixs, 
 				 int ncomps){
 
-
-
-	IntPtr _Result = Natives.pixConvertToFPix(
-pixs.Pointer,   ncomps);
+	IntPtr _Result = Natives.pixConvertToFPix(pixs.Pointer,   ncomps);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (217, 1)
 // pixConvertToDPix(pixs, ncomps) as DPix
 // pixConvertToDPix(PIX *, l_int32) as DPIX *
@@ -60,27 +48,16 @@ pixs.Pointer,   ncomps);
 ///  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 ///  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 ///   <returns>dpix, or NULL on error</returns>
-
 public static DPix pixConvertToDPix(
 				 Pix pixs, 
 				 int ncomps){
 
-
-
-	IntPtr _Result = Natives.pixConvertToDPix(
-pixs.Pointer,   ncomps);
+	IntPtr _Result = Natives.pixConvertToDPix(pixs.Pointer,   ncomps);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new DPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (318, 1)
 // fpixConvertToPix(fpixs, outdepth, negvals, errorflag) as Pix
 // fpixConvertToPix(FPIX *, l_int32, l_int32, l_int32) as PIX *
@@ -106,29 +83,18 @@ pixs.Pointer,   ncomps);
 ///  <param name="negvals">[in] - L_CLIP_TO_ZERO, L_TAKE_ABSVAL</param>
 ///  <param name="errorflag">[in] - 1 to output error stats 0 otherwise</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix fpixConvertToPix(
 				 FPix fpixs, 
 				 int outdepth, 
 				 int negvals, 
 				 int errorflag){
 
-
-
-	IntPtr _Result = Natives.fpixConvertToPix(
-fpixs.Pointer,   outdepth,   negvals,   errorflag);
+	IntPtr _Result = Natives.fpixConvertToPix(fpixs.Pointer,   outdepth,   negvals,   errorflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (422, 1)
 // fpixDisplayMaxDynamicRange(fpixs) as Pix
 // fpixDisplayMaxDynamicRange(FPIX *) as PIX *
@@ -137,26 +103,15 @@ fpixs.Pointer,   outdepth,   negvals,   errorflag);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixDisplayMaxDynamicRange/*"/>
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
-
 public static Pix fpixDisplayMaxDynamicRange(
 				 FPix fpixs){
 
-
-
-	IntPtr _Result = Natives.fpixDisplayMaxDynamicRange(
-fpixs.Pointer);
+	IntPtr _Result = Natives.fpixDisplayMaxDynamicRange(fpixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (479, 1)
 // fpixConvertToDPix(fpix) as DPix
 // fpixConvertToDPix(FPIX *) as DPIX *
@@ -165,26 +120,15 @@ fpixs.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixConvertToDPix/*"/>
 ///  <param name="fpix">[in] - </param>
 ///   <returns>dpix, or NULL on error</returns>
-
 public static DPix fpixConvertToDPix(
 				 FPix fpix){
 
-
-
-	IntPtr _Result = Natives.fpixConvertToDPix(
-fpix.Pointer);
+	IntPtr _Result = Natives.fpixConvertToDPix(fpix.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new DPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (537, 1)
 // dpixConvertToPix(dpixs, outdepth, negvals, errorflag) as Pix
 // dpixConvertToPix(DPIX *, l_int32, l_int32, l_int32) as PIX *
@@ -210,29 +154,18 @@ fpix.Pointer);
 ///  <param name="negvals">[in] - L_CLIP_TO_ZERO, L_TAKE_ABSVAL</param>
 ///  <param name="errorflag">[in] - 1 to output error stats 0 otherwise</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix dpixConvertToPix(
 				 DPix dpixs, 
 				 int outdepth, 
 				 int negvals, 
 				 int errorflag){
 
-
-
-	IntPtr _Result = Natives.dpixConvertToPix(
-dpixs.Pointer,   outdepth,   negvals,   errorflag);
+	IntPtr _Result = Natives.dpixConvertToPix(dpixs.Pointer,   outdepth,   negvals,   errorflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (641, 1)
 // dpixConvertToFPix(dpix) as FPix
 // dpixConvertToFPix(DPIX *) as FPIX *
@@ -241,26 +174,15 @@ dpixs.Pointer,   outdepth,   negvals,   errorflag);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixConvertToFPix/*"/>
 ///  <param name="dpix">[in] - </param>
 ///   <returns>fpix, or NULL on error</returns>
-
 public static FPix dpixConvertToFPix(
 				 DPix dpix){
 
-
-
-	IntPtr _Result = Natives.dpixConvertToFPix(
-dpix.Pointer);
+	IntPtr _Result = Natives.dpixConvertToFPix(dpix.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (689, 1)
 // fpixGetMin(fpix, pminval, pxminloc, pyminloc) as int
 // fpixGetMin(FPIX *, l_float32 *, l_int32 *, l_int32 *) as l_ok
@@ -272,28 +194,17 @@ dpix.Pointer);
 ///  <param name="pxminloc">[out][optional] - x location of min</param>
 ///  <param name="pyminloc">[out][optional] - y location of min</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int fpixGetMin(
 				 FPix fpix, 
 				out Single pminval, 
 				out int pxminloc, 
 				out int pyminloc){
 
-
-
-	int _Result = Natives.fpixGetMin(
-fpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
+	int _Result = Natives.fpixGetMin(fpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (742, 1)
 // fpixGetMax(fpix, pmaxval, pxmaxloc, pymaxloc) as int
 // fpixGetMax(FPIX *, l_float32 *, l_int32 *, l_int32 *) as l_ok
@@ -305,28 +216,17 @@ fpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 ///  <param name="pxmaxloc">[out][optional] - x location of max</param>
 ///  <param name="pymaxloc">[out][optional] - y location of max</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int fpixGetMax(
 				 FPix fpix, 
 				out Single pmaxval, 
 				out int pxmaxloc, 
 				out int pymaxloc){
 
-
-
-	int _Result = Natives.fpixGetMax(
-fpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
+	int _Result = Natives.fpixGetMax(fpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (795, 1)
 // dpixGetMin(dpix, pminval, pxminloc, pyminloc) as int
 // dpixGetMin(DPIX *, l_float64 *, l_int32 *, l_int32 *) as l_ok
@@ -338,28 +238,17 @@ fpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 ///  <param name="pxminloc">[out][optional] - x location of min</param>
 ///  <param name="pyminloc">[out][optional] - y location of min</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int dpixGetMin(
 				 DPix dpix, 
 				out Double[] pminval, 
 				out int pxminloc, 
 				out int pyminloc){
 
-
-
-	int _Result = Natives.dpixGetMin(
-dpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
+	int _Result = Natives.dpixGetMin(dpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (848, 1)
 // dpixGetMax(dpix, pmaxval, pxmaxloc, pymaxloc) as int
 // dpixGetMax(DPIX *, l_float64 *, l_int32 *, l_int32 *) as l_ok
@@ -371,28 +260,17 @@ dpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 ///  <param name="pxmaxloc">[out][optional] - x location of max</param>
 ///  <param name="pymaxloc">[out][optional] - y location of max</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int dpixGetMax(
 				 DPix dpix, 
 				out Double[] pmaxval, 
 				out int pxmaxloc, 
 				out int pymaxloc){
 
-
-
-	int _Result = Natives.dpixGetMax(
-dpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
+	int _Result = Natives.dpixGetMax(dpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (915, 1)
 // fpixScaleByInteger(fpixs, factor) as FPix
 // fpixScaleByInteger(FPIX *, l_int32) as FPIX *
@@ -413,27 +291,16 @@ dpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 ///  <param name="fpixs">[in] - low resolution, subsampled</param>
 ///  <param name="factor">[in] - scaling factor</param>
 ///   <returns>fpixd interpolated result, or NULL on error</returns>
-
 public static FPix fpixScaleByInteger(
 				 FPix fpixs, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.fpixScaleByInteger(
-fpixs.Pointer,   factor);
+	IntPtr _Result = Natives.fpixScaleByInteger(fpixs.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1007, 1)
 // dpixScaleByInteger(dpixs, factor) as DPix
 // dpixScaleByInteger(DPIX *, l_int32) as DPIX *
@@ -454,27 +321,16 @@ fpixs.Pointer,   factor);
 ///  <param name="dpixs">[in] - low resolution, subsampled</param>
 ///  <param name="factor">[in] - scaling factor</param>
 ///   <returns>dpixd interpolated result, or NULL on error</returns>
-
 public static DPix dpixScaleByInteger(
 				 DPix dpixs, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.dpixScaleByInteger(
-dpixs.Pointer,   factor);
+	IntPtr _Result = Natives.dpixScaleByInteger(dpixs.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new DPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1104, 1)
 // fpixLinearCombination(fpixd, fpixs1, fpixs2, a, b) as FPix
 // fpixLinearCombination(FPIX *, FPIX *, FPIX *, l_float32, l_float32) as FPIX *
@@ -500,7 +356,6 @@ dpixs.Pointer,   factor);
 ///  <param name="a">[in] - multiplication factors on fpixs1 and fpixs2, rsp.</param>
 ///  <param name="b">[in] - multiplication factors on fpixs1 and fpixs2, rsp.</param>
 ///   <returns>fpixd always</returns>
-
 public static FPix fpixLinearCombination(
 				 FPix fpixd, 
 				 FPix fpixs1, 
@@ -508,23 +363,14 @@ public static FPix fpixLinearCombination(
 				 Single a, 
 				 Single b){
 
-
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
-	IntPtr _Result = Natives.fpixLinearCombination(
-fpixdPtr, fpixs1.Pointer, fpixs2.Pointer,   a,   b);
+	IntPtr _Result = Natives.fpixLinearCombination(fpixdPtr, fpixs1.Pointer, fpixs2.Pointer,   a,   b);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1163, 1)
 // fpixAddMultConstant(fpix, addc, multc) as int
 // fpixAddMultConstant(FPIX *, l_float32, l_float32) as l_ok
@@ -542,27 +388,16 @@ fpixdPtr, fpixs1.Pointer, fpixs2.Pointer,   a,   b);
 ///  <param name="addc">[in] - use 0.0 to skip the operation</param>
 ///  <param name="multc">[in] - use 1.0 to skip the operation</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int fpixAddMultConstant(
 				 FPix fpix, 
 				 Single addc, 
 				 Single multc){
 
-
-
-	int _Result = Natives.fpixAddMultConstant(
-fpix.Pointer,   addc,   multc);
+	int _Result = Natives.fpixAddMultConstant(fpix.Pointer,   addc,   multc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1223, 1)
 // dpixLinearCombination(dpixd, dpixs1, dpixs2, a, b) as DPix
 // dpixLinearCombination(DPIX *, DPIX *, DPIX *, l_float32, l_float32) as DPIX *
@@ -588,7 +423,6 @@ fpix.Pointer,   addc,   multc);
 ///  <param name="a">[in] - multiplication factors on dpixs1 and dpixs2, rsp.</param>
 ///  <param name="b">[in] - multiplication factors on dpixs1 and dpixs2, rsp.</param>
 ///   <returns>dpixd always</returns>
-
 public static DPix dpixLinearCombination(
 				 DPix dpixd, 
 				 DPix dpixs1, 
@@ -596,23 +430,14 @@ public static DPix dpixLinearCombination(
 				 Single a, 
 				 Single b){
 
-
 	IntPtr dpixdPtr = IntPtr.Zero; 	if (dpixd != null) {dpixdPtr = dpixd.Pointer;}
 
-	IntPtr _Result = Natives.dpixLinearCombination(
-dpixdPtr, dpixs1.Pointer, dpixs2.Pointer,   a,   b);
+	IntPtr _Result = Natives.dpixLinearCombination(dpixdPtr, dpixs1.Pointer, dpixs2.Pointer,   a,   b);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new DPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1282, 1)
 // dpixAddMultConstant(dpix, addc, multc) as int
 // dpixAddMultConstant(DPIX *, l_float64, l_float64) as l_ok
@@ -630,27 +455,16 @@ dpixdPtr, dpixs1.Pointer, dpixs2.Pointer,   a,   b);
 ///  <param name="addc">[in] - use 0.0 to skip the operation</param>
 ///  <param name="multc">[in] - use 1.0 to skip the operation</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dpixAddMultConstant(
 				 DPix dpix, 
 				 double addc, 
 				 double multc){
 
-
-
-	int _Result = Natives.dpixAddMultConstant(
-dpix.Pointer,   addc,   multc);
+	int _Result = Natives.dpixAddMultConstant(dpix.Pointer,   addc,   multc);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1329, 1)
 // fpixSetAllArbitrary(fpix, inval) as int
 // fpixSetAllArbitrary(FPIX *, l_float32) as l_ok
@@ -660,26 +474,15 @@ dpix.Pointer,   addc,   multc);
 ///  <param name="fpix">[in] - </param>
 ///  <param name="inval">[in] - to set at each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int fpixSetAllArbitrary(
 				 FPix fpix, 
 				 Single inval){
 
-
-
-	int _Result = Natives.fpixSetAllArbitrary(
-fpix.Pointer,   inval);
+	int _Result = Natives.fpixSetAllArbitrary(fpix.Pointer,   inval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1360, 1)
 // dpixSetAllArbitrary(dpix, inval) as int
 // dpixSetAllArbitrary(DPIX *, l_float64) as l_ok
@@ -689,26 +492,15 @@ fpix.Pointer,   inval);
 ///  <param name="dpix">[in] - </param>
 ///  <param name="inval">[in] - to set at each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dpixSetAllArbitrary(
 				 DPix dpix, 
 				 double inval){
 
-
-
-	int _Result = Natives.dpixSetAllArbitrary(
-dpix.Pointer,   inval);
+	int _Result = Natives.dpixSetAllArbitrary(dpix.Pointer,   inval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1399, 1)
 // fpixAddBorder(fpixs, left, right, top, bot) as FPix
 // fpixAddBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
@@ -724,7 +516,6 @@ dpix.Pointer,   inval);
 ///  <param name="top">[in] - pixels on each side to be added</param>
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixAddBorder(
 				 FPix fpixs, 
 				 int left, 
@@ -732,22 +523,12 @@ public static FPix fpixAddBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.fpixAddBorder(
-fpixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.fpixAddBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1435, 1)
 // fpixRemoveBorder(fpixs, left, right, top, bot) as FPix
 // fpixRemoveBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
@@ -760,7 +541,6 @@ fpixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - pixels on each side to be removed</param>
 ///  <param name="bot">[in] - pixels on each side to be removed</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixRemoveBorder(
 				 FPix fpixs, 
 				 int left, 
@@ -768,22 +548,12 @@ public static FPix fpixRemoveBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.fpixRemoveBorder(
-fpixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.fpixRemoveBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1479, 1)
 // fpixAddMirroredBorder(fpixs, left, right, top, bot) as FPix
 // fpixAddMirroredBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
@@ -799,7 +569,6 @@ fpixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - pixels on each side to be added</param>
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixAddMirroredBorder(
 				 FPix fpixs, 
 				 int left, 
@@ -807,22 +576,12 @@ public static FPix fpixAddMirroredBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.fpixAddMirroredBorder(
-fpixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.fpixAddMirroredBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1526, 1)
 // fpixAddContinuedBorder(fpixs, left, right, top, bot) as FPix
 // fpixAddContinuedBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
@@ -839,7 +598,6 @@ fpixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - pixels on each side to be added</param>
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixAddContinuedBorder(
 				 FPix fpixs, 
 				 int left, 
@@ -847,22 +605,12 @@ public static FPix fpixAddContinuedBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.fpixAddContinuedBorder(
-fpixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.fpixAddContinuedBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1571, 1)
 // fpixAddSlopeBorder(fpixs, left, right, top, bot) as FPix
 // fpixAddSlopeBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
@@ -880,7 +628,6 @@ fpixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - pixels on each side to be added</param>
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixAddSlopeBorder(
 				 FPix fpixs, 
 				 int left, 
@@ -888,22 +635,12 @@ public static FPix fpixAddSlopeBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.fpixAddSlopeBorder(
-fpixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.fpixAddSlopeBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1660, 1)
 // fpixRasterop(fpixd, dx, dy, dw, dh, fpixs, sx, sy) as int
 // fpixRasterop(FPIX *, l_int32, l_int32, l_int32, l_int32, FPIX *, l_int32, l_int32) as l_ok
@@ -931,7 +668,6 @@ fpixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="sx">[in] - x val of UL corner of src rectangle</param>
 ///  <param name="sy">[in] - y val of UL corner of src rectangle</param>
 ///   <returns>0 if OK 1 on error.</returns>
-
 public static int fpixRasterop(
 				 FPix fpixd, 
 				 int dx, 
@@ -942,21 +678,11 @@ public static int fpixRasterop(
 				 int sx, 
 				 int sy){
 
-
-
-	int _Result = Natives.fpixRasterop(
-fpixd.Pointer,   dx,   dy,   dw,   dh, fpixs.Pointer,   sx,   sy);
+	int _Result = Natives.fpixRasterop(fpixd.Pointer,   dx,   dy,   dw,   dh, fpixs.Pointer,   sx,   sy);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1760, 1)
 // fpixRotateOrth(fpixs, quads) as FPix
 // fpixRotateOrth(FPIX *, l_int32) as FPIX *
@@ -966,27 +692,16 @@ fpixd.Pointer,   dx,   dy,   dw,   dh, fpixs.Pointer,   sx,   sy);
 ///  <param name="fpixs">[in] - </param>
 ///  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixRotateOrth(
 				 FPix fpixs, 
 				 int quads){
 
-
-
-	IntPtr _Result = Natives.fpixRotateOrth(
-fpixs.Pointer,   quads);
+	IntPtr _Result = Natives.fpixRotateOrth(fpixs.Pointer,   quads);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1806, 1)
 // fpixRotate180(fpixd, fpixs) as FPix
 // fpixRotate180(FPIX *, FPIX *) as FPIX *
@@ -1012,28 +727,18 @@ fpixs.Pointer,   quads);
 ///  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixRotate180(
 				 FPix fpixd, 
 				 FPix fpixs){
 
-
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
-	IntPtr _Result = Natives.fpixRotate180(
-fpixdPtr, fpixs.Pointer);
+	IntPtr _Result = Natives.fpixRotate180(fpixdPtr, fpixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1839, 1)
 // fpixRotate90(fpixs, direction) as FPix
 // fpixRotate90(FPIX *, l_int32) as FPIX *
@@ -1049,27 +754,16 @@ fpixdPtr, fpixs.Pointer);
 ///  <param name="fpixs">[in] - </param>
 ///  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixRotate90(
 				 FPix fpixs, 
 				 int direction){
 
-
-
-	IntPtr _Result = Natives.fpixRotate90(
-fpixs.Pointer,   direction);
+	IntPtr _Result = Natives.fpixRotate90(fpixs.Pointer,   direction);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1912, 1)
 // fpixFlipLR(fpixd, fpixs) as FPix
 // fpixFlipLR(FPIX *, FPIX *) as FPIX *
@@ -1097,28 +791,18 @@ fpixs.Pointer,   direction);
 ///  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixFlipLR(
 				 FPix fpixd, 
 				 FPix fpixs){
 
-
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
-	IntPtr _Result = Natives.fpixFlipLR(
-fpixdPtr, fpixs.Pointer);
+	IntPtr _Result = Natives.fpixFlipLR(fpixdPtr, fpixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (1973, 1)
 // fpixFlipTB(fpixd, fpixs) as FPix
 // fpixFlipTB(FPIX *, FPIX *) as FPIX *
@@ -1146,28 +830,18 @@ fpixdPtr, fpixs.Pointer);
 ///  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixFlipTB(
 				 FPix fpixd, 
 				 FPix fpixs){
 
-
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
-	IntPtr _Result = Natives.fpixFlipTB(
-fpixdPtr, fpixs.Pointer);
+	IntPtr _Result = Natives.fpixFlipTB(fpixdPtr, fpixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (2035, 1)
 // fpixAffinePta(fpixs, ptad, ptas, border, inval) as FPix
 // fpixAffinePta(FPIX *, PTA *, PTA *, l_int32, l_float32) as FPIX *
@@ -1191,7 +865,6 @@ fpixdPtr, fpixs.Pointer);
 ///  <param name="border">[in] - size of extension with constant normal derivative</param>
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixAffinePta(
 				 FPix fpixs, 
 				 Pta ptad, 
@@ -1199,22 +872,12 @@ public static FPix fpixAffinePta(
 				 int border, 
 				 Single inval){
 
-
-
-	IntPtr _Result = Natives.fpixAffinePta(
-fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
+	IntPtr _Result = Natives.fpixAffinePta(fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (2092, 1)
 // fpixAffine(fpixs, vc, inval) as FPix
 // fpixAffine(FPIX *, l_float32 *, l_float32) as FPIX *
@@ -1225,28 +888,17 @@ fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 ///  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixAffine(
 				 FPix fpixs, 
 				 Single[] vc, 
 				 Single inval){
 
-
-
-	IntPtr _Result = Natives.fpixAffine(
-fpixs.Pointer,   vc,   inval);
+	IntPtr _Result = Natives.fpixAffine(fpixs.Pointer,   vc,   inval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (2154, 1)
 // fpixProjectivePta(fpixs, ptad, ptas, border, inval) as FPix
 // fpixProjectivePta(FPIX *, PTA *, PTA *, l_int32, l_float32) as FPIX *
@@ -1270,7 +922,6 @@ fpixs.Pointer,   vc,   inval);
 ///  <param name="border">[in] - size of extension with constant normal derivative</param>
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixProjectivePta(
 				 FPix fpixs, 
 				 Pta ptad, 
@@ -1278,22 +929,12 @@ public static FPix fpixProjectivePta(
 				 int border, 
 				 Single inval){
 
-
-
-	IntPtr _Result = Natives.fpixProjectivePta(
-fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
+	IntPtr _Result = Natives.fpixProjectivePta(fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (2211, 1)
 // fpixProjective(fpixs, vc, inval) as FPix
 // fpixProjective(FPIX *, l_float32 *, l_float32) as FPIX *
@@ -1304,28 +945,17 @@ fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 ///  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix fpixProjective(
 				 FPix fpixs, 
 				 Single[] vc, 
 				 Single inval){
 
-
-
-	IntPtr _Result = Natives.fpixProjective(
-fpixs.Pointer,   vc,   inval);
+	IntPtr _Result = Natives.fpixProjective(fpixs.Pointer,   vc,   inval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (2269, 1)
 // linearInterpolatePixelFloat(datas, w, h, x, y, inval, pval) as int
 // linearInterpolatePixelFloat(l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
@@ -1345,7 +975,6 @@ fpixs.Pointer,   vc,   inval);
 ///  <param name="inval">[in] - float value brought in from the outside when the input x,y location is outside the image</param>
 ///  <param name="pval">[out] - interpolated float value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int linearInterpolatePixelFloat(
 				 Single[] datas, 
 				 int w, 
@@ -1355,21 +984,11 @@ public static int linearInterpolatePixelFloat(
 				 Single inval, 
 				out Single pval){
 
-
-
-	int _Result = Natives.linearInterpolatePixelFloat(
-  datas,   w,   h,   x,   y,   inval, out  pval);
+	int _Result = Natives.linearInterpolatePixelFloat(  datas,   w,   h,   x,   y,   inval, out  pval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (2333, 1)
 // fpixThresholdToPix(fpix, thresh) as Pix
 // fpixThresholdToPix(FPIX *, l_float32) as PIX *
@@ -1383,27 +1002,16 @@ public static int linearInterpolatePixelFloat(
 ///  <param name="fpix">[in] - </param>
 ///  <param name="thresh">[in] - </param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
-
 public static Pix fpixThresholdToPix(
 				 FPix fpix, 
 				 Single thresh){
 
-
-
-	IntPtr _Result = Natives.fpixThresholdToPix(
-fpix.Pointer,   thresh);
+	IntPtr _Result = Natives.fpixThresholdToPix(fpix.Pointer,   thresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fpix2.c (2391, 1)
 // pixComponentFunction(pix, rnum, gnum, bnum, rdenom, gdenom, bdenom) as FPix
 // pixComponentFunction(PIX *, l_float32, l_float32, l_float32, l_float32, l_float32, l_float32) as FPIX *
@@ -1431,7 +1039,6 @@ fpix.Pointer,   thresh);
 ///  <param name="gdenom">[in] - coefficients for denominator</param>
 ///  <param name="bdenom">[in] - coefficients for denominator</param>
 ///   <returns>fpixd, or NULL on error</returns>
-
 public static FPix pixComponentFunction(
 				 Pix pix, 
 				 Single rnum, 
@@ -1441,18 +1048,9 @@ public static FPix pixComponentFunction(
 				 Single gdenom, 
 				 Single bdenom){
 
-
-
-	IntPtr _Result = Natives.pixComponentFunction(
-pix.Pointer,   rnum,   gnum,   bnum,   rdenom,   gdenom,   bdenom);
+	IntPtr _Result = Natives.pixComponentFunction(pix.Pointer,   rnum,   gnum,   bnum,   rdenom,   gdenom,   bdenom);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 

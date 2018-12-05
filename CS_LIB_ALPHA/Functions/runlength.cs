@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (99, 1)
 // pixStrokeWidthTransform(pixs, color, depth, nangles) as Pix
 // pixStrokeWidthTransform(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -40,29 +39,18 @@ public partial class _All {
 ///  <param name="depth">[in] - of pixd: 8 or 16 bpp</param>
 ///  <param name="nangles">[in] - 2, 4, 6 or 8</param>
 ///   <returns>pixd 8 or 16 bpp, or NULL on error</returns>
-
 public static Pix pixStrokeWidthTransform(
 				 Pix pixs, 
 				 int color, 
 				 int depth, 
 				 int nangles){
 
-
-
-	IntPtr _Result = Natives.pixStrokeWidthTransform(
-pixs.Pointer,   color,   depth,   nangles);
+	IntPtr _Result = Natives.pixStrokeWidthTransform(pixs.Pointer,   color,   depth,   nangles);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (262, 1)
 // pixRunlengthTransform(pixs, color, direction, depth) as Pix
 // pixRunlengthTransform(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -88,29 +76,18 @@ pixs.Pointer,   color,   depth,   nangles);
 ///  <param name="direction">[in] - L_HORIZONTAL_RUNS, L_VERTICAL_RUNS</param>
 ///  <param name="depth">[in] - 8 or 16 bpp</param>
 ///   <returns>pixd 8 or 16 bpp, or NULL on error</returns>
-
 public static Pix pixRunlengthTransform(
 				 Pix pixs, 
 				 int color, 
 				 int direction, 
 				 int depth){
 
-
-
-	IntPtr _Result = Natives.pixRunlengthTransform(
-pixs.Pointer,   color,   direction,   depth);
+	IntPtr _Result = Natives.pixRunlengthTransform(pixs.Pointer,   color,   direction,   depth);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (372, 1)
 // pixFindHorizontalRuns(pix, y, xstart, xend, pn) as int
 // pixFindHorizontalRuns(PIX *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -133,7 +110,6 @@ pixs.Pointer,   color,   direction,   depth);
 ///  <param name="xend">[in] - returns array of end positions for fg runs</param>
 ///  <param name="pn">[out] - the number of runs found</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixFindHorizontalRuns(
 				 Pix pix, 
 				 int y, 
@@ -141,21 +117,11 @@ public static int pixFindHorizontalRuns(
 				 int[] xend, 
 				out int pn){
 
-
-
-	int _Result = Natives.pixFindHorizontalRuns(
-pix.Pointer,   y,   xstart,   xend, out  pn);
+	int _Result = Natives.pixFindHorizontalRuns(pix.Pointer,   y,   xstart,   xend, out  pn);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (449, 1)
 // pixFindVerticalRuns(pix, x, ystart, yend, pn) as int
 // pixFindVerticalRuns(PIX *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -178,7 +144,6 @@ pix.Pointer,   y,   xstart,   xend, out  pn);
 ///  <param name="yend">[in] - returns array of end positions for fg runs</param>
 ///  <param name="pn">[out] - the number of runs found</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixFindVerticalRuns(
 				 Pix pix, 
 				 int x, 
@@ -186,21 +151,11 @@ public static int pixFindVerticalRuns(
 				 int[] yend, 
 				out int pn){
 
-
-
-	int _Result = Natives.pixFindVerticalRuns(
-pix.Pointer,   x,   ystart,   yend, out  pn);
+	int _Result = Natives.pixFindVerticalRuns(pix.Pointer,   x,   ystart,   yend, out  pn);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (525, 1)
 // pixFindMaxRuns(pix, direction, pnastart) as Numa
 // pixFindMaxRuns(PIX *, l_int32, NUMA **) as NUMA *
@@ -217,30 +172,20 @@ pix.Pointer,   x,   ystart,   yend, out  pn);
 ///  <param name="direction">[in] - L_HORIZONTAL_RUNS or L_VERTICAL_RUNS</param>
 ///  <param name="pnastart">[out][optional] - start locations of longest runs</param>
 ///   <returns>na of lengths of runs, or NULL on error</returns>
-
 public static Numa pixFindMaxRuns(
 				 Pix pix, 
 				 int direction, 
 				out Numa pnastart){
 
-
 	IntPtr pnastartPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixFindMaxRuns(
-pix.Pointer,   direction, out pnastartPtr);
+	IntPtr _Result = Natives.pixFindMaxRuns(pix.Pointer,   direction, out pnastartPtr);
 	
-
-
-//  
 	if (pnastartPtr == IntPtr.Zero) {pnastart = null;} else { pnastart = new Numa(pnastartPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (578, 1)
 // pixFindMaxHorizontalRunOnLine(pix, y, pxstart, psize) as int
 // pixFindMaxHorizontalRunOnLine(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -258,28 +203,17 @@ pix.Pointer,   direction, out pnastartPtr);
 ///  <param name="pxstart">[out][optional] - start position</param>
 ///  <param name="psize">[out] - the size of the run</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixFindMaxHorizontalRunOnLine(
 				 Pix pix, 
 				 int y, 
 				out int pxstart, 
 				out int psize){
 
-
-
-	int _Result = Natives.pixFindMaxHorizontalRunOnLine(
-pix.Pointer,   y, out  pxstart, out  psize);
+	int _Result = Natives.pixFindMaxHorizontalRunOnLine(pix.Pointer,   y, out  pxstart, out  psize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (652, 1)
 // pixFindMaxVerticalRunOnLine(pix, x, pystart, psize) as int
 // pixFindMaxVerticalRunOnLine(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -297,28 +231,17 @@ pix.Pointer,   y, out  pxstart, out  psize);
 ///  <param name="pystart">[out][optional] - start position</param>
 ///  <param name="psize">[out] - the size of the run</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixFindMaxVerticalRunOnLine(
 				 Pix pix, 
 				 int x, 
 				out int pystart, 
 				out int psize){
 
-
-
-	int _Result = Natives.pixFindMaxVerticalRunOnLine(
-pix.Pointer,   x, out  pystart, out  psize);
+	int _Result = Natives.pixFindMaxVerticalRunOnLine(pix.Pointer,   x, out  pystart, out  psize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (733, 1)
 // runlengthMembershipOnLine(buffer, size, depth, start, end, n) as int
 // runlengthMembershipOnLine(l_int32 *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32) as l_ok
@@ -338,7 +261,6 @@ pix.Pointer,   x, out  pystart, out  psize);
 ///  <param name="start">[in] - array of start positions for fg runs</param>
 ///  <param name="n">[in] - the number of runs</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int runlengthMembershipOnLine(
 				 int[] buffer, 
 				 int size, 
@@ -347,21 +269,11 @@ public static int runlengthMembershipOnLine(
 				 object _end_, 
 				 int n){
 
-
-
-	int _Result = Natives.runlengthMembershipOnLine(
-  buffer,   size,   depth,   start,   _end_,   n);
+	int _Result = Natives.runlengthMembershipOnLine(  buffer,   size,   depth,   start,   _end_,   n);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // runlength.c (791, 1)
 // makeMSBitLocTab(bitval) as int[]
 // makeMSBitLocTab(l_int32) as l_int32 *
@@ -377,21 +289,11 @@ public static int runlengthMembershipOnLine(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeMSBitLocTab/*"/>
 ///  <param name="bitval">[in] - either 0 or 1</param>
 ///   <returns>table giving, for an input byte, the MS bit location, starting at 0 with the MSBit in the byte, or NULL on error.</returns>
-
 public static int[] makeMSBitLocTab(
 				 int bitval){
 
-
-
-	int[] _Result = Natives.makeMSBitLocTab(
-  bitval);
+	int[] _Result = Natives.makeMSBitLocTab(  bitval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

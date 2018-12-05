@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fhmtgen.1.c (37, 6)
 // pixHMTDwa_1(pixd, pixs, selname) as Pix
 // pixHMTDwa_1(PIX *, PIX *, const char *) as PIX *
@@ -21,28 +20,17 @@ public partial class _All {
 ///  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixHMTDwa_1(
 				 Pix pixd, 
 				 Pix pixs, 
 				 String selname){
 
-
-
-	IntPtr _Result = Natives.pixHMTDwa_1(
-pixd.Pointer, pixs.Pointer,   selname);
+	IntPtr _Result = Natives.pixHMTDwa_1(pixd.Pointer, pixs.Pointer,   selname);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fhmtgen.1.c (38, 6)
 // pixFHMTGen_1(pixd, pixs, selname) as Pix
 // pixFHMTGen_1(PIX *, PIX *, const char *) as PIX *
@@ -63,28 +51,17 @@ pixd.Pointer, pixs.Pointer,   selname);
 ///  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixFHMTGen_1(
 				 Pix pixd, 
 				 Pix pixs, 
 				 String selname){
 
-
-
-	IntPtr _Result = Natives.pixFHMTGen_1(
-pixd.Pointer, pixs.Pointer,   selname);
+	IntPtr _Result = Natives.pixFHMTGen_1(pixd.Pointer, pixs.Pointer,   selname);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // fhmtgen.1.c (39, 9)
 // fhmtgen_low_1(datad, w, h, wpld, datas, wpls, index) as int
 // fhmtgen_low_1(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
@@ -92,7 +69,6 @@ pixd.Pointer, pixs.Pointer,   selname);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fhmtgen_low_1/*"/>
 ///   <returns></returns>
-
 public static int fhmtgen_low_1(
 				 object datad, 
 				 int w, 
@@ -102,17 +78,8 @@ public static int fhmtgen_low_1(
 				 int wpls, 
 				 int index){
 
-
-
-	int _Result = Natives.fhmtgen_low_1(
-  datad,   w,   h,   wpld,   datas,   wpls,   index);
+	int _Result = Natives.fhmtgen_low_1(  datad,   w,   h,   wpld,   datas,   wpls,   index);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

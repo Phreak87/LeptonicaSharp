@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (127, 1)
 // pixBlockconv(pix, wc, hc) as Pix
 // pixBlockconv(PIX *, l_int32, l_int32) as PIX *
@@ -26,28 +25,17 @@ public partial class _All {
 ///  <param name="wc">[in] - half width/height of convolution kernel</param>
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBlockconv(
 				 Pix pix, 
 				 int wc, 
 				 int hc){
 
-
-
-	IntPtr _Result = Natives.pixBlockconv(
-pix.Pointer,   wc,   hc);
+	IntPtr _Result = Natives.pixBlockconv(pix.Pointer,   wc,   hc);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (210, 1)
 // pixBlockconvGray(pixs, pixacc, wc, hc) as Pix
 // pixBlockconvGray(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -71,29 +59,18 @@ pix.Pointer,   wc,   hc);
 ///  <param name="wc">[in] - half width/height of convolution kernel</param>
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pix 8 bpp, or NULL on error</returns>
-
 public static Pix pixBlockconvGray(
 				 Pix pixs, 
 				 Pix pixacc, 
 				 int wc, 
 				 int hc){
 
-
-
-	IntPtr _Result = Natives.pixBlockconvGray(
-pixs.Pointer, pixacc.Pointer,   wc,   hc);
+	IntPtr _Result = Natives.pixBlockconvGray(pixs.Pointer, pixacc.Pointer,   wc,   hc);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (455, 1)
 // pixBlockconvAccum(pixs) as Pix
 // pixBlockconvAccum(PIX *) as PIX *
@@ -110,26 +87,15 @@ pixs.Pointer, pixacc.Pointer,   wc,   hc);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockconvAccum/*"/>
 ///  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 ///   <returns>accum pix 32 bpp, or NULL on error.</returns>
-
 public static Pix pixBlockconvAccum(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixBlockconvAccum(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixBlockconvAccum(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (636, 1)
 // pixBlockconvGrayUnnormalized(pixs, wc, hc) as Pix
 // pixBlockconvGrayUnnormalized(PIX *, l_int32, l_int32) as PIX *
@@ -172,28 +138,17 @@ pixs.Pointer);
 ///  <param name="wc">[in] - half width/height of convolution kernel</param>
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pix 32 bpp containing the convolution without normalizing for the window size, or NULL on error</returns>
-
 public static Pix pixBlockconvGrayUnnormalized(
 				 Pix pixs, 
 				 int wc, 
 				 int hc){
 
-
-
-	IntPtr _Result = Natives.pixBlockconvGrayUnnormalized(
-pixs.Pointer,   wc,   hc);
+	IntPtr _Result = Natives.pixBlockconvGrayUnnormalized(pixs.Pointer,   wc,   hc);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (727, 1)
 // pixBlockconvTiled(pix, wc, hc, nx, ny) as Pix
 // pixBlockconvTiled(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -231,7 +186,6 @@ pixs.Pointer,   wc,   hc);
 ///  <param name="nx">[in] - subdivision into tiles</param>
 ///  <param name="ny">[in] - subdivision into tiles</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBlockconvTiled(
 				 Pix pix, 
 				 int wc, 
@@ -239,22 +193,12 @@ public static Pix pixBlockconvTiled(
 				 int nx, 
 				 int ny){
 
-
-
-	IntPtr _Result = Natives.pixBlockconvTiled(
-pix.Pointer,   wc,   hc,   nx,   ny);
+	IntPtr _Result = Natives.pixBlockconvTiled(pix.Pointer,   wc,   hc,   nx,   ny);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (853, 1)
 // pixBlockconvGrayTile(pixs, pixacc, wc, hc) as Pix
 // pixBlockconvGrayTile(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -280,29 +224,18 @@ pix.Pointer,   wc,   hc,   nx,   ny);
 ///  <param name="wc">[in] - half width/height of convolution kernel</param>
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBlockconvGrayTile(
 				 Pix pixs, 
 				 Pix pixacc, 
 				 int wc, 
 				 int hc){
 
-
-
-	IntPtr _Result = Natives.pixBlockconvGrayTile(
-pixs.Pointer, pixacc.Pointer,   wc,   hc);
+	IntPtr _Result = Natives.pixBlockconvGrayTile(pixs.Pointer, pixacc.Pointer,   wc,   hc);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (980, 1)
 // pixWindowedStats(pixs, wc, hc, hasborder, ppixm, ppixms, pfpixv, pfpixrv) as int
 // pixWindowedStats(PIX *, l_int32, l_int32, l_int32, PIX **, PIX **, FPIX **, FPIX **) as l_ok
@@ -345,7 +278,6 @@ pixs.Pointer, pixacc.Pointer,   wc,   hc);
 ///  <param name="pfpixv">[out][optional] - float variance in window</param>
 ///  <param name="pfpixrv">[out][optional] - float rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWindowedStats(
 				 Pix pixs, 
 				 int wc, 
@@ -356,29 +288,20 @@ public static int pixWindowedStats(
 				out FPix pfpixv, 
 				out FPix pfpixrv){
 
-
 	IntPtr ppixmPtr = IntPtr.Zero;
 	IntPtr ppixmsPtr = IntPtr.Zero;
 	IntPtr pfpixvPtr = IntPtr.Zero;
 	IntPtr pfpixrvPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWindowedStats(
-pixs.Pointer,   wc,   hc,   hasborder, out ppixmPtr, out ppixmsPtr, out pfpixvPtr, out pfpixrvPtr);
+	int _Result = Natives.pixWindowedStats(pixs.Pointer,   wc,   hc,   hasborder, out ppixmPtr, out ppixmsPtr, out pfpixvPtr, out pfpixrvPtr);
 	
-
-
-//  
 	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 	if (ppixmsPtr == IntPtr.Zero) {ppixms = null;} else { ppixms = new Pix(ppixmsPtr); };
 	if (pfpixvPtr == IntPtr.Zero) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
 	if (pfpixrvPtr == IntPtr.Zero) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1065, 1)
 // pixWindowedMean(pixs, wc, hc, hasborder, normflag) as Pix
 // pixWindowedMean(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -412,7 +335,6 @@ pixs.Pointer,   wc,   hc,   hasborder, out ppixmPtr, out ppixmsPtr, out pfpixvPt
 ///  <param name="hasborder">[in] - use 1 if it already has (wc + 1 border pixels on left and right, and hc + 1 on top and bottom use 0 to add kernel-dependent border)</param>
 ///  <param name="normflag">[in] - 1 for normalization to get average in window 0 for the sum in the window (un-normalized)</param>
 ///   <returns>pixd 8 or 32 bpp, average over kernel window</returns>
-
 public static Pix pixWindowedMean(
 				 Pix pixs, 
 				 int wc, 
@@ -420,22 +342,12 @@ public static Pix pixWindowedMean(
 				 int hasborder, 
 				 int normflag){
 
-
-
-	IntPtr _Result = Natives.pixWindowedMean(
-pixs.Pointer,   wc,   hc,   hasborder,   normflag);
+	IntPtr _Result = Natives.pixWindowedMean(pixs.Pointer,   wc,   hc,   hasborder,   normflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1182, 1)
 // pixWindowedMeanSquare(pixs, wc, hc, hasborder) as Pix
 // pixWindowedMeanSquare(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -471,29 +383,18 @@ pixs.Pointer,   wc,   hc,   hasborder,   normflag);
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///  <param name="hasborder">[in] - use 1 if it already has (wc + 1 border pixels on left and right, and hc + 1 on top and bottom use 0 to add kernel-dependent border)</param>
 ///   <returns>pixd 32 bpp, average over rectangular window of width = 2  wc + 1 and height = 2  hc + 1</returns>
-
 public static Pix pixWindowedMeanSquare(
 				 Pix pixs, 
 				 int wc, 
 				 int hc, 
 				 int hasborder){
 
-
-
-	IntPtr _Result = Natives.pixWindowedMeanSquare(
-pixs.Pointer,   wc,   hc,   hasborder);
+	IntPtr _Result = Natives.pixWindowedMeanSquare(pixs.Pointer,   wc,   hc,   hasborder);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1280, 1)
 // pixWindowedVariance(pixm, pixms, pfpixv, pfpixrv) as int
 // pixWindowedVariance(PIX *, PIX *, FPIX **, FPIX **) as l_ok
@@ -519,32 +420,22 @@ pixs.Pointer,   wc,   hc,   hasborder);
 ///  <param name="pfpixv">[out][optional] - float variance -- the ms deviation from the mean</param>
 ///  <param name="pfpixrv">[out][optional] - float rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWindowedVariance(
 				 Pix pixm, 
 				 Pix pixms, 
 				out FPix pfpixv, 
 				out FPix pfpixrv){
 
-
 	IntPtr pfpixvPtr = IntPtr.Zero;
 	IntPtr pfpixrvPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWindowedVariance(
-pixm.Pointer, pixms.Pointer, out pfpixvPtr, out pfpixrvPtr);
+	int _Result = Natives.pixWindowedVariance(pixm.Pointer, pixms.Pointer, out pfpixvPtr, out pfpixrvPtr);
 	
-
-
-//  
 	if (pfpixvPtr == IntPtr.Zero) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
 	if (pfpixrvPtr == IntPtr.Zero) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1369, 1)
 // pixMeanSquareAccum(pixs) as DPix
 // pixMeanSquareAccum(PIX *) as DPIX *
@@ -566,26 +457,15 @@ pixm.Pointer, pixms.Pointer, out pfpixvPtr, out pfpixrvPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMeanSquareAccum/*"/>
 ///  <param name="pixs">[in] - 8 bpp grayscale</param>
 ///   <returns>dpix 64 bit array, or NULL on error</returns>
-
 public static DPix pixMeanSquareAccum(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixMeanSquareAccum(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixMeanSquareAccum(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new DPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1450, 1)
 // pixBlockrank(pixs, pixacc, wc, hc, rank) as Pix
 // pixBlockrank(PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -618,7 +498,6 @@ pixs.Pointer);
 ///  <param name="hc">[in] - half width/height of block sum/rank kernel</param>
 ///  <param name="rank">[in] - between 0.0 and 1.0 0.5 is median filter</param>
 ///   <returns>pixd 1 bpp</returns>
-
 public static Pix pixBlockrank(
 				 Pix pixs, 
 				 Pix pixacc, 
@@ -626,23 +505,14 @@ public static Pix pixBlockrank(
 				 int hc, 
 				 Single rank){
 
-
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
-	IntPtr _Result = Natives.pixBlockrank(
-pixs.Pointer, pixaccPtr,   wc,   hc,   rank);
+	IntPtr _Result = Natives.pixBlockrank(pixs.Pointer, pixaccPtr,   wc,   hc,   rank);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1532, 1)
 // pixBlocksum(pixs, pixacc, wc, hc) as Pix
 // pixBlocksum(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -679,30 +549,20 @@ pixs.Pointer, pixaccPtr,   wc,   hc,   rank);
 ///  <param name="wc">[in] - half width/height of block sum/rank kernel</param>
 ///  <param name="hc">[in] - half width/height of block sum/rank kernel</param>
 ///   <returns>pixd 8 bpp</returns>
-
 public static Pix pixBlocksum(
 				 Pix pixs, 
 				 Pix pixacc, 
 				 int wc, 
 				 int hc){
 
-
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
-	IntPtr _Result = Natives.pixBlocksum(
-pixs.Pointer, pixaccPtr,   wc,   hc);
+	IntPtr _Result = Natives.pixBlocksum(pixs.Pointer, pixaccPtr,   wc,   hc);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1772, 1)
 // pixCensusTransform(pixs, halfsize, pixacc) as Pix
 // pixCensusTransform(PIX *, l_int32, PIX *) as PIX *
@@ -734,29 +594,19 @@ pixs.Pointer, pixaccPtr,   wc,   hc);
 ///  <param name="halfsize">[in] - of square over which neighbors are averaged</param>
 ///  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 ///   <returns>pixd 1 bpp</returns>
-
 public static Pix pixCensusTransform(
 				 Pix pixs, 
 				 int halfsize, 
 				 Pix pixacc){
 
-
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
-	IntPtr _Result = Natives.pixCensusTransform(
-pixs.Pointer,   halfsize, pixaccPtr);
+	IntPtr _Result = Natives.pixCensusTransform(pixs.Pointer,   halfsize, pixaccPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (1872, 1)
 // pixConvolve(pixs, kel, outdepth, normflag) as Pix
 // pixConvolve(PIX *, L_KERNEL *, l_int32, l_int32) as PIX *
@@ -807,29 +657,18 @@ pixs.Pointer,   halfsize, pixaccPtr);
 ///  <param name="outdepth">[in] - of pixd: 8, 16 or 32</param>
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>pixd 8, 16 or 32 bpp</returns>
-
 public static Pix pixConvolve(
 				 Pix pixs, 
 				 L_Kernel kel, 
 				 int outdepth, 
 				 int normflag){
 
-
-
-	IntPtr _Result = Natives.pixConvolve(
-pixs.Pointer, kel.Pointer,   outdepth,   normflag);
+	IntPtr _Result = Natives.pixConvolve(pixs.Pointer, kel.Pointer,   outdepth,   normflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2002, 1)
 // pixConvolveSep(pixs, kelx, kely, outdepth, normflag) as Pix
 // pixConvolveSep(PIX *, L_KERNEL *, L_KERNEL *, l_int32, l_int32) as PIX *
@@ -879,7 +718,6 @@ pixs.Pointer, kel.Pointer,   outdepth,   normflag);
 ///  <param name="outdepth">[in] - of pixd: 8, 16 or 32</param>
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>pixd 8, 16 or 32 bpp</returns>
-
 public static Pix pixConvolveSep(
 				 Pix pixs, 
 				 L_Kernel kelx, 
@@ -887,22 +725,12 @@ public static Pix pixConvolveSep(
 				 int outdepth, 
 				 int normflag){
 
-
-
-	IntPtr _Result = Natives.pixConvolveSep(
-pixs.Pointer, kelx.Pointer, kely.Pointer,   outdepth,   normflag);
+	IntPtr _Result = Natives.pixConvolveSep(pixs.Pointer, kelx.Pointer, kely.Pointer,   outdepth,   normflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2074, 1)
 // pixConvolveRGB(pixs, kel) as Pix
 // pixConvolveRGB(PIX *, L_KERNEL *) as PIX *
@@ -931,27 +759,16 @@ pixs.Pointer, kelx.Pointer, kely.Pointer,   outdepth,   normflag);
 ///  <param name="pixs">[in] - 32 bpp rgb</param>
 ///  <param name="kel">[in] - kernel</param>
 ///   <returns>pixd 32 bpp rgb</returns>
-
 public static Pix pixConvolveRGB(
 				 Pix pixs, 
 				 L_Kernel kel){
 
-
-
-	IntPtr _Result = Natives.pixConvolveRGB(
-pixs.Pointer, kel.Pointer);
+	IntPtr _Result = Natives.pixConvolveRGB(pixs.Pointer, kel.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2133, 1)
 // pixConvolveRGBSep(pixs, kelx, kely) as Pix
 // pixConvolveRGBSep(PIX *, L_KERNEL *, L_KERNEL *) as PIX *
@@ -981,28 +798,17 @@ pixs.Pointer, kel.Pointer);
 ///  <param name="kelx">[in] - x-dependent kernel</param>
 ///  <param name="kely">[in] - y-dependent kernel</param>
 ///   <returns>pixd 32 bpp rgb</returns>
-
 public static Pix pixConvolveRGBSep(
 				 Pix pixs, 
 				 L_Kernel kelx, 
 				 L_Kernel kely){
 
-
-
-	IntPtr _Result = Natives.pixConvolveRGBSep(
-pixs.Pointer, kelx.Pointer, kely.Pointer);
+	IntPtr _Result = Natives.pixConvolveRGBSep(pixs.Pointer, kelx.Pointer, kely.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2195, 1)
 // fpixConvolve(fpixs, kel, normflag) as FPix
 // fpixConvolve(FPIX *, L_KERNEL *, l_int32) as FPIX *
@@ -1032,28 +838,17 @@ pixs.Pointer, kelx.Pointer, kely.Pointer);
 ///  <param name="kel">[in] - kernel</param>
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>fpixd 32 bit float array</returns>
-
 public static FPix fpixConvolve(
 				 FPix fpixs, 
 				 L_Kernel kel, 
 				 int normflag){
 
-
-
-	IntPtr _Result = Natives.fpixConvolve(
-fpixs.Pointer, kel.Pointer,   normflag);
+	IntPtr _Result = Natives.fpixConvolve(fpixs.Pointer, kel.Pointer,   normflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2289, 1)
 // fpixConvolveSep(fpixs, kelx, kely, normflag) as FPix
 // fpixConvolveSep(FPIX *, L_KERNEL *, L_KERNEL *, l_int32) as FPIX *
@@ -1086,29 +881,18 @@ fpixs.Pointer, kel.Pointer,   normflag);
 ///  <param name="kely">[in] - y-dependent kernel</param>
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>fpixd 32 bit float array</returns>
-
 public static FPix fpixConvolveSep(
 				 FPix fpixs, 
 				 L_Kernel kelx, 
 				 L_Kernel kely, 
 				 int normflag){
 
-
-
-	IntPtr _Result = Natives.fpixConvolveSep(
-fpixs.Pointer, kelx.Pointer, kely.Pointer,   normflag);
+	IntPtr _Result = Natives.fpixConvolveSep(fpixs.Pointer, kelx.Pointer, kely.Pointer,   normflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new FPix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2367, 1)
 // pixConvolveWithBias(pixs, kel1, kel2, force8, pbias) as Pix
 // pixConvolveWithBias(PIX *, L_KERNEL *, L_KERNEL *, l_int32, l_int32 *) as PIX *
@@ -1142,7 +926,6 @@ fpixs.Pointer, kelx.Pointer, kely.Pointer,   normflag);
 ///  <param name="force8">[in] - if 1, force output to 8 bpp otherwise, determine output depth by the dynamic range of pixel values</param>
 ///  <param name="pbias">[out] - applied bias</param>
 ///   <returns>pixd 8 or 16 bpp</returns>
-
 public static Pix pixConvolveWithBias(
 				 Pix pixs, 
 				 L_Kernel kel1, 
@@ -1150,23 +933,14 @@ public static Pix pixConvolveWithBias(
 				 int force8, 
 				out int pbias){
 
-
 	IntPtr kel2Ptr = IntPtr.Zero; 	if (kel2 != null) {kel2Ptr = kel2.Pointer;}
 
-	IntPtr _Result = Natives.pixConvolveWithBias(
-pixs.Pointer, kel1.Pointer, kel2Ptr,   force8, out  pbias);
+	IntPtr _Result = Natives.pixConvolveWithBias(pixs.Pointer, kel1.Pointer, kel2Ptr,   force8, out  pbias);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2457, 1)
 // l_setConvolveSampling(xfact, yfact) as Object
 // l_setConvolveSampling(l_int32, l_int32) as void
@@ -1179,25 +953,14 @@ pixs.Pointer, kel1.Pointer, kel2Ptr,   force8, out  pbias);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_setConvolveSampling/*"/>
 ///  <param name="xfact">[in] - integer greater or equal 1</param>
 ///  <param name="yfact">[in] - integer greater or equal 1</param>
-
 public static void l_setConvolveSampling(
 				 int xfact, 
 				 int yfact){
 
-
-
-	Natives.l_setConvolveSampling(
-  xfact,   yfact);
+	Natives.l_setConvolveSampling(  xfact,   yfact);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2484, 1)
 // pixAddGaussianNoise(pixs, stdev) as Pix
 // pixAddGaussianNoise(PIX *, l_float32) as PIX *
@@ -1211,27 +974,16 @@ public static void l_setConvolveSampling(
 ///  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb no colormap</param>
 ///  <param name="stdev">[in] - of noise</param>
 ///   <returns>pixd 8 or 32 bpp, or NULL on error</returns>
-
 public static Pix pixAddGaussianNoise(
 				 Pix pixs, 
 				 Single stdev){
 
-
-
-	IntPtr _Result = Natives.pixAddGaussianNoise(
-pixs.Pointer,   stdev);
+	IntPtr _Result = Natives.pixAddGaussianNoise(pixs.Pointer,   stdev);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convolve.c (2547, 1)
 // gaussDistribSampling() as Single
 // gaussDistribSampling() as l_float32
@@ -1239,19 +991,10 @@ pixs.Pointer,   stdev);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gaussDistribSampling/*"/>
 ///   <returns></returns>
-
 public static Single gaussDistribSampling(){
-
-
 
 	Single _Result = Natives.gaussDistribSampling();
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

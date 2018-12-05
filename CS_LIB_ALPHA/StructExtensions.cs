@@ -8,7 +8,6 @@ using LeptonicaSharp ;
 using System;
 
 public partial class L_Bytea{
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (93, 1)
 // l_byteaCreate(nbytes) as L_Bytea
 // l_byteaCreate(size_t) as L_BYTEA *
@@ -26,7 +25,6 @@ public partial class L_Bytea{
 	  Pointer = RetObj.Pointer;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (122, 1)
 // l_byteaInitFromMem(data, size) as L_Bytea
 // l_byteaInitFromMem(const l_uint8 *, size_t) as L_BYTEA *
@@ -42,7 +40,6 @@ public partial class L_Bytea{
 	  Pointer = RetObj.Pointer;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (149, 1)
 // l_byteaInitFromFile(fname) as L_Bytea
 // l_byteaInitFromFile(const char *) as L_BYTEA *
@@ -56,7 +53,6 @@ public partial class L_Bytea{
 	  Pointer = RetObj.Pointer;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (396, 1)
 // l_byteaAppendString(ba, str) as int
 // l_byteaAppendString(L_BYTEA *, const char *) as l_ok
@@ -71,7 +67,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (363, 1)
 // l_byteaAppendData(ba, newdata, newbytes) as int
 // l_byteaAppendData(L_BYTEA *, const l_uint8 *, size_t) as l_ok
@@ -88,7 +83,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (213, 1)
 // l_byteaCopy(bas, copyflag) as L_Bytea
 // l_byteaCopy(L_BYTEA *, l_int32) as L_BYTEA *
@@ -108,7 +102,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (333, 1)
 // l_byteaCopyData(ba, psize) as Byte[]
 // l_byteaCopyData(L_BYTEA *, size_t *) as l_uint8 *
@@ -127,7 +120,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (304, 1)
 // l_byteaGetData(ba, psize) as Byte[]
 // l_byteaGetData(L_BYTEA *, size_t *) as l_uint8 *
@@ -145,7 +137,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (465, 1)
 // l_byteaJoin(ba1, pba2) as int
 // l_byteaJoin(L_BYTEA *, L_BYTEA **) as l_ok
@@ -165,7 +156,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (497, 1)
 // l_byteaSplit(ba1, splitloc, pba2) as int
 // l_byteaSplit(L_BYTEA *, size_t, L_BYTEA **) as l_ok
@@ -184,7 +174,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (578, 1)
 // l_byteaWrite(fname, ba, startloc, endloc) as int
 // l_byteaWrite(const char *, L_BYTEA *, size_t, size_t) as l_ok
@@ -203,7 +192,6 @@ public partial class L_Bytea{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bytearray.c (612, 1)
 // l_byteaWriteStream(fp, ba, startloc, endloc) as int
 // l_byteaWriteStream(FILE *, L_BYTEA *, size_t, size_t) as l_ok
@@ -225,7 +213,6 @@ public partial class L_Bytea{
 
 }
 public partial class Pix{
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // readfile.c (189, 1)
 // pixRead(filename) as Pix
 // pixRead(const char *) as PIX *
@@ -242,7 +229,6 @@ public partial class Pix{
 	  Pointer = RetObj.Pointer;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixconv.c (3233, 1)
 // pixConvertTo32(pixs) as Pix
 // pixConvertTo32(PIX *) as PIX *
@@ -259,7 +245,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixconv.c (3184, 1)
 // pixConvertTo16(pixs) as Pix
 // pixConvertTo16(PIX *) as PIX *
@@ -273,7 +258,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixconv.c (3041, 1)
 // pixConvertTo8(pixs, cmapflag) as Pix
 // pixConvertTo8(PIX *, l_int32) as PIX *
@@ -307,7 +291,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixconv.c (2826, 1)
 // pixConvertTo4(pixs) as Pix
 // pixConvertTo4(PIX *) as PIX *
@@ -330,7 +313,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixconv.c (2718, 1)
 // pixConvertTo2(pixs) as Pix
 // pixConvertTo2(PIX *) as PIX *
@@ -353,7 +335,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixconv.c (2933, 1)
 // pixConvertTo1(pixs, threshold) as Pix
 // pixConvertTo1(PIX *, l_int32) as PIX *
@@ -377,7 +358,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (630, 1)
 // pixCopy(pixd, pixs) as Pix
 // pixCopy(PIX *, PIX *) as PIX *
@@ -415,7 +395,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // skew.c (205, 1)
 // pixDeskew(pixs, redsearch) as Pix
 // pixDeskew(PIX *, l_int32) as PIX *
@@ -438,7 +417,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1395, 1)
 // pixInvert(pixd, pixs) as Pix
 // pixInvert(PIX *, PIX *) as PIX *
@@ -466,7 +444,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (242, 1)
 // pixOrientCorrect(pixs, minupconf, minratio, pupconf, pleftconf, protation, debug) as Pix
 // pixOrientCorrect(PIX *, l_float32, l_float32, l_float32 *, l_float32 *, l_int32 *, l_int32) as PIX *
@@ -503,7 +480,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (231, 1)
 // pixBackgroundNormSimple(pixs, pixim, pixg) as Pix
 // pixBackgroundNormSimple(PIX *, PIX *, PIX *) as PIX *
@@ -528,7 +504,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // adaptmap.c (185, 1)
 // pixCleanBackgroundToWhite(pixs, pixim, pixg, gamma, blackval, whiteval) as Pix
 // pixCleanBackgroundToWhite(PIX *, PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
@@ -561,7 +536,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (102, 1)
 // pixGetRegionsBinary(pixs, ppixhm, ppixtm, ppixtb, pixadb) as int
 // pixGetRegionsBinary(PIX *, PIX **, PIX **, PIX **, PIXA *) as l_ok
@@ -587,7 +561,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixconv.c (753, 1)
 // pixConvertRGBToGray(pixs, rwt, gwt, bwt) as Pix
 // pixConvertRGBToGray(PIX *, l_float32, l_float32, l_float32) as PIX *
@@ -609,7 +582,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant1.c (2587, 1)
 // pixOctcubeQuantMixedWithGray(pixs, depth, graylevels, delta) as Pix
 // pixOctcubeQuantMixedWithGray(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -650,7 +622,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1545, 1)
 // pixGetColormap(pix) as PixColormap
 // pixGetColormap(PIX *) as PIXCMAP *
@@ -664,7 +635,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix1.c (1571, 1)
 // pixSetColormap(pix, colormap) as int
 // pixSetColormap(PIX *, PIXCMAP *) as l_ok
@@ -685,7 +655,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (97, 1)
 // dewarpSinglePage(pixs, thresh, adaptive, useboth, check_columns, ppixd, pdewa, debug) as int
 // dewarpSinglePage(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **, l_int32) as l_ok
@@ -720,7 +689,6 @@ public partial class Pix{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pdfio1.c (1223, 1)
 // pixConvertToPdf(pix, type, quality, fileout, x, y, res, title, plpd, position) as int
 // pixConvertToPdf(PIX *, l_int32, l_int32, const char *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
@@ -756,13 +724,12 @@ public partial class Pix{
 				 int res, 
 				 String title) {
 	  int RetObj = _All.pixConvertToPdf(this, type, quality, fileout, x, y, res, title, ref plpd, position);
-      return RetObj;
+	   return RetObj;
 	}
 
 
 }
 public partial class PixColormap{
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colormap.c (110, 1)
 // pixcmapCreate(depth) as PixColormap
 // pixcmapCreate(l_int32) as PIXCMAP *
@@ -776,7 +743,6 @@ public partial class PixColormap{
 	  Pointer = RetObj.Pointer;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colormap.c (593, 1)
 // pixcmapGetCount(cmap) as int
 // pixcmapGetCount(PIXCMAP *) as l_int32
@@ -790,7 +756,6 @@ public partial class PixColormap{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colormap.c (709, 1)
 // pixcmapGetColor(cmap, index, prval, pgval, pbval) as int
 // pixcmapGetColor(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -811,7 +776,6 @@ public partial class PixColormap{
 	  return RetObj;
 	}
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colormap.c (299, 1)
 // pixcmapAddColor(cmap, rval, gval, bval) as int
 // pixcmapAddColor(PIXCMAP *, l_int32, l_int32, l_int32) as l_ok

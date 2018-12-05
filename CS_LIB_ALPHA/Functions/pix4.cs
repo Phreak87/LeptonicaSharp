@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (109, 1)
 // pixGetGrayHistogram(pixs, factor) as Numa
 // pixGetGrayHistogram(PIX *, l_int32) as NUMA *
@@ -26,27 +25,16 @@ public partial class _All {
 ///  <param name="pixs">[in] - 1, 2, 4, 8, 16 bpp can be colormapped</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
-
 public static Numa pixGetGrayHistogram(
 				 Pix pixs, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.pixGetGrayHistogram(
-pixs.Pointer,   factor);
+	IntPtr _Result = Natives.pixGetGrayHistogram(pixs.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (205, 1)
 // pixGetGrayHistogramMasked(pixs, pixm, x, y, factor) as Numa
 // pixGetGrayHistogramMasked(PIX *, PIX *, l_int32, l_int32, l_int32) as NUMA *
@@ -72,7 +60,6 @@ pixs.Pointer,   factor);
 ///  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
-
 public static Numa pixGetGrayHistogramMasked(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -80,23 +67,14 @@ public static Numa pixGetGrayHistogramMasked(
 				 int y, 
 				 int factor){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	IntPtr _Result = Natives.pixGetGrayHistogramMasked(
-pixs.Pointer, pixmPtr,   x,   y,   factor);
+	IntPtr _Result = Natives.pixGetGrayHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (285, 1)
 // pixGetGrayHistogramInRect(pixs, box, factor) as Numa
 // pixGetGrayHistogramInRect(PIX *, BOX *, l_int32) as NUMA *
@@ -116,29 +94,19 @@ pixs.Pointer, pixmPtr,   x,   y,   factor);
 ///  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
-
 public static Numa pixGetGrayHistogramInRect(
 				 Pix pixs, 
 				 Box box, 
 				 int factor){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixGetGrayHistogramInRect(
-pixs.Pointer, boxPtr,   factor);
+	IntPtr _Result = Natives.pixGetGrayHistogramInRect(pixs.Pointer, boxPtr,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (353, 1)
 // pixGetGrayHistogramTiled(pixs, factor, nx, ny) as Numaa
 // pixGetGrayHistogramTiled(PIX *, l_int32, l_int32, l_int32) as NUMAA *
@@ -157,29 +125,18 @@ pixs.Pointer, boxPtr,   factor);
 ///  <param name="nx">[in] - tiling greater or equal 1 typically small</param>
 ///  <param name="ny">[in] - tiling greater or equal 1 typically small</param>
 ///   <returns>naa set of histograms, or NULL on error</returns>
-
 public static Numaa pixGetGrayHistogramTiled(
 				 Pix pixs, 
 				 int factor, 
 				 int nx, 
 				 int ny){
 
-
-
-	IntPtr _Result = Natives.pixGetGrayHistogramTiled(
-pixs.Pointer,   factor,   nx,   ny);
+	IntPtr _Result = Natives.pixGetGrayHistogramTiled(pixs.Pointer,   factor,   nx,   ny);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (410, 1)
 // pixGetColorHistogram(pixs, factor, pnar, pnag, pnab) as int
 // pixGetColorHistogram(PIX *, l_int32, NUMA **, NUMA **, NUMA **) as l_ok
@@ -198,7 +155,6 @@ pixs.Pointer,   factor,   nx,   ny);
 ///  <param name="pnag">[out] - green histogram</param>
 ///  <param name="pnab">[out] - blue histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetColorHistogram(
 				 Pix pixs, 
 				 int factor, 
@@ -206,27 +162,18 @@ public static int pixGetColorHistogram(
 				out Numa pnag, 
 				out Numa pnab){
 
-
 	IntPtr pnarPtr = IntPtr.Zero;
 	IntPtr pnagPtr = IntPtr.Zero;
 	IntPtr pnabPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetColorHistogram(
-pixs.Pointer,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
+	int _Result = Natives.pixGetColorHistogram(pixs.Pointer,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
-
-
-//  
 	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
 	if (pnagPtr == IntPtr.Zero) {pnag = null;} else { pnag = new Numa(pnagPtr); };
 	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (512, 1)
 // pixGetColorHistogramMasked(pixs, pixm, x, y, factor, pnar, pnag, pnab) as int
 // pixGetColorHistogramMasked(PIX *, PIX *, l_int32, l_int32, l_int32, NUMA **, NUMA **, NUMA **) as l_ok
@@ -251,7 +198,6 @@ pixs.Pointer,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 ///  <param name="pnag">[out] - green histogram</param>
 ///  <param name="pnab">[out] - blue histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetColorHistogramMasked(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -262,28 +208,19 @@ public static int pixGetColorHistogramMasked(
 				out Numa pnag, 
 				out Numa pnab){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr pnarPtr = IntPtr.Zero;
 	IntPtr pnagPtr = IntPtr.Zero;
 	IntPtr pnabPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetColorHistogramMasked(
-pixs.Pointer, pixmPtr,   x,   y,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
+	int _Result = Natives.pixGetColorHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
-
-
-//  
 	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
 	if (pnagPtr == IntPtr.Zero) {pnag = null;} else { pnag = new Numa(pnagPtr); };
 	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (627, 1)
 // pixGetCmapHistogram(pixs, factor) as Numa
 // pixGetCmapHistogram(PIX *, l_int32) as NUMA *
@@ -299,27 +236,16 @@ pixs.Pointer, pixmPtr,   x,   y,   factor, out pnarPtr, out pnagPtr, out pnabPtr
 ///  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram of cmap indices, or NULL on error</returns>
-
 public static Numa pixGetCmapHistogram(
 				 Pix pixs, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.pixGetCmapHistogram(
-pixs.Pointer,   factor);
+	IntPtr _Result = Natives.pixGetCmapHistogram(pixs.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (692, 1)
 // pixGetCmapHistogramMasked(pixs, pixm, x, y, factor) as Numa
 // pixGetCmapHistogramMasked(PIX *, PIX *, l_int32, l_int32, l_int32) as NUMA *
@@ -340,7 +266,6 @@ pixs.Pointer,   factor);
 ///  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
-
 public static Numa pixGetCmapHistogramMasked(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -348,23 +273,14 @@ public static Numa pixGetCmapHistogramMasked(
 				 int y, 
 				 int factor){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	IntPtr _Result = Natives.pixGetCmapHistogramMasked(
-pixs.Pointer, pixmPtr,   x,   y,   factor);
+	IntPtr _Result = Natives.pixGetCmapHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (772, 1)
 // pixGetCmapHistogramInRect(pixs, box, factor) as Numa
 // pixGetCmapHistogramInRect(PIX *, BOX *, l_int32) as NUMA *
@@ -383,29 +299,19 @@ pixs.Pointer, pixmPtr,   x,   y,   factor);
 ///  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
-
 public static Numa pixGetCmapHistogramInRect(
 				 Pix pixs, 
 				 Box box, 
 				 int factor){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixGetCmapHistogramInRect(
-pixs.Pointer, boxPtr,   factor);
+	IntPtr _Result = Natives.pixGetCmapHistogramInRect(pixs.Pointer, boxPtr,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (831, 1)
 // pixCountRGBColors(pixs) as int
 // pixCountRGBColors(PIX *) as l_int32
@@ -414,25 +320,14 @@ pixs.Pointer, boxPtr,   factor);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCountRGBColors/*"/>
 ///  <param name="pixs">[in] - rgb or rgba</param>
 ///   <returns>ncolors, or -1 on error</returns>
-
 public static int pixCountRGBColors(
 				 Pix pixs){
 
-
-
-	int _Result = Natives.pixCountRGBColors(
-pixs.Pointer);
+	int _Result = Natives.pixCountRGBColors(pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (861, 1)
 // pixGetColorAmapHistogram(pixs, factor) as L_Rbtree
 // pixGetColorAmapHistogram(PIX *, l_int32) as L_AMAP *
@@ -447,27 +342,16 @@ pixs.Pointer);
 ///  <param name="pixs">[in] - rgb or rgba</param>
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>amap, or NULL on error</returns>
-
 public static L_Rbtree pixGetColorAmapHistogram(
 				 Pix pixs, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.pixGetColorAmapHistogram(
-pixs.Pointer,   factor);
+	IntPtr _Result = Natives.pixGetColorAmapHistogram(pixs.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Rbtree(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (910, 1)
 // amapGetCountForColor(amap, val) as int
 // amapGetCountForColor(L_AMAP *, l_uint32) as l_int32
@@ -480,26 +364,15 @@ pixs.Pointer,   factor);
 ///  <param name="amap">[in] - map from pixel value to count</param>
 ///  <param name="val">[in] - rgb or rgba pixel value</param>
 ///   <returns>count, or -1 on error</returns>
-
 public static int amapGetCountForColor(
 				 L_Rbtree amap, 
 				 uint val){
 
-
-
-	int _Result = Natives.amapGetCountForColor(
-amap.Pointer,   val);
+	int _Result = Natives.amapGetCountForColor(amap.Pointer,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (945, 1)
 // pixGetRankValue(pixs, factor, rank, pvalue) as int
 // pixGetRankValue(PIX *, l_int32, l_float32, l_uint32 *) as l_ok
@@ -517,28 +390,17 @@ amap.Pointer,   val);
 ///  <param name="rank">[in] - between 0.0 and 1.0 1.0 is brightest, 0.0 is darkest</param>
 ///  <param name="pvalue">[out] - pixel value corresponding to input rank</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRankValue(
 				 Pix pixs, 
 				 int factor, 
 				 Single rank, 
 				out uint pvalue){
 
-
-
-	int _Result = Natives.pixGetRankValue(
-pixs.Pointer,   factor,   rank, out  pvalue);
+	int _Result = Natives.pixGetRankValue(pixs.Pointer,   factor,   rank, out  pvalue);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1015, 1)
 // pixGetRankValueMaskedRGB(pixs, pixm, x, y, factor, rank, prval, pgval, pbval) as int
 // pixGetRankValueMaskedRGB(PIX *, PIX *, l_int32, l_int32, l_int32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -568,7 +430,6 @@ pixs.Pointer,   factor,   rank, out  pvalue);
 ///  <param name="pgval">[out][optional] - green component val for input rank</param>
 ///  <param name="pbval">[out][optional] - blue component val for input rank</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRankValueMaskedRGB(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -580,22 +441,13 @@ public static int pixGetRankValueMaskedRGB(
 				out Single pgval, 
 				out Single pbval){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixGetRankValueMaskedRGB(
-pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  prval, out  pgval, out  pbval);
+	int _Result = Natives.pixGetRankValueMaskedRGB(pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  prval, out  pgval, out  pbval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1107, 1)
 // pixGetRankValueMasked(pixs, pixm, x, y, factor, rank, pval, pna) as int
 // pixGetRankValueMasked(PIX *, PIX *, l_int32, l_int32, l_int32, l_float32, l_float32 *, NUMA **) as l_ok
@@ -632,7 +484,6 @@ pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  prval, out  pgval, out  
 ///  <param name="pval">[out] - pixel value corresponding to input rank</param>
 ///  <param name="pna">[out][optional] - of histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRankValueMasked(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -643,24 +494,15 @@ public static int pixGetRankValueMasked(
 				out Single pval, 
 				out Numa pna){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr pnaPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetRankValueMasked(
-pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  pval, out pnaPtr);
+	int _Result = Natives.pixGetRankValueMasked(pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  pval, out pnaPtr);
 	
-
-
-//  
 	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1176, 1)
 // pixGetPixelAverage(pixs, pixm, x, y, factor, pval) as int
 // pixGetPixelAverage(PIX *, PIX *, l_int32, l_int32, l_int32, l_uint32 *) as l_ok
@@ -692,7 +534,6 @@ pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  pval, out pnaPtr);
 ///  <param name="factor">[in] - subsampling factor greater or equal 1</param>
 ///  <param name="pval">[out] - average pixel value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetPixelAverage(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -701,22 +542,13 @@ public static int pixGetPixelAverage(
 				 int factor, 
 				out uint pval){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixGetPixelAverage(
-pixs.Pointer, pixmPtr,   x,   y,   factor, out  pval);
+	int _Result = Natives.pixGetPixelAverage(pixs.Pointer, pixmPtr,   x,   y,   factor, out  pval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1294, 1)
 // pixGetPixelStats(pixs, factor, type, pvalue) as int
 // pixGetPixelStats(PIX *, l_int32, l_int32, l_uint32 *) as l_ok
@@ -736,28 +568,17 @@ pixs.Pointer, pixmPtr,   x,   y,   factor, out  pval);
 ///  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
 ///  <param name="pvalue">[out] - pixel value corresponding to input type</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetPixelStats(
 				 Pix pixs, 
 				 int factor, 
 				 int type, 
 				out uint pvalue){
 
-
-
-	int _Result = Natives.pixGetPixelStats(
-pixs.Pointer,   factor,   type, out  pvalue);
+	int _Result = Natives.pixGetPixelStats(pixs.Pointer,   factor,   type, out  pvalue);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1361, 1)
 // pixGetAverageMaskedRGB(pixs, pixm, x, y, factor, type, prval, pgval, pbval) as int
 // pixGetAverageMaskedRGB(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
@@ -782,7 +603,6 @@ pixs.Pointer,   factor,   type, out  pvalue);
 ///  <param name="pgval">[out][optional] - measured green value of given 'type'</param>
 ///  <param name="pbval">[out][optional] - measured blue value of given 'type'</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetAverageMaskedRGB(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -794,22 +614,13 @@ public static int pixGetAverageMaskedRGB(
 				out Single pgval, 
 				out Single pbval){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixGetAverageMaskedRGB(
-pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  prval, out  pgval, out  pbval);
+	int _Result = Natives.pixGetAverageMaskedRGB(pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  prval, out  pgval, out  pbval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1457, 1)
 // pixGetAverageMasked(pixs, pixm, x, y, factor, type, pval) as int
 // pixGetAverageMasked(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_float32 *) as l_ok
@@ -846,7 +657,6 @@ pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  prval, out  pgval, out  
 ///  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
 ///  <param name="pval">[out] - measured value of given 'type'</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetAverageMasked(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -856,22 +666,13 @@ public static int pixGetAverageMasked(
 				 int type, 
 				out Single pval){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixGetAverageMasked(
-pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  pval);
+	int _Result = Natives.pixGetAverageMasked(pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  pval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1576, 1)
 // pixGetAverageTiledRGB(pixs, sx, sy, type, ppixr, ppixg, ppixb) as int
 // pixGetAverageTiledRGB(PIX *, l_int32, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
@@ -892,7 +693,6 @@ pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  pval);
 ///  <param name="ppixg">[out][optional] - tiled 'average' of green component</param>
 ///  <param name="ppixb">[out][optional] - tiled 'average' of blue component</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetAverageTiledRGB(
 				 Pix pixs, 
 				 int sx, 
@@ -902,27 +702,18 @@ public static int pixGetAverageTiledRGB(
 				out Pix ppixg, 
 				out Pix ppixb){
 
-
 	IntPtr ppixrPtr = IntPtr.Zero;
 	IntPtr ppixgPtr = IntPtr.Zero;
 	IntPtr ppixbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetAverageTiledRGB(
-pixs.Pointer,   sx,   sy,   type, out ppixrPtr, out ppixgPtr, out ppixbPtr);
+	int _Result = Natives.pixGetAverageTiledRGB(pixs.Pointer,   sx,   sy,   type, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
-
-
-//  
 	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
 	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
 	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1653, 1)
 // pixGetAverageTiled(pixs, sx, sy, type) as Pix
 // pixGetAverageTiled(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -944,29 +735,18 @@ pixs.Pointer,   sx,   sy,   type, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 ///  <param name="sy">[in] - tile size must be at least 2 x 2</param>
 ///  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION</param>
 ///   <returns>pixd average values in each tile, or NULL on error</returns>
-
 public static Pix pixGetAverageTiled(
 				 Pix pixs, 
 				 int sx, 
 				 int sy, 
 				 int type){
 
-
-
-	IntPtr _Result = Natives.pixGetAverageTiled(
-pixs.Pointer,   sx,   sy,   type);
+	IntPtr _Result = Natives.pixGetAverageTiled(pixs.Pointer,   sx,   sy,   type);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1756, 1)
 // pixRowStats(pixs, box, pnamean, pnamedian, pnamode, pnamodecount, pnavar, pnarootvar) as int
 // pixRowStats(PIX *, BOX *, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **) as l_int32
@@ -994,7 +774,6 @@ pixs.Pointer,   sx,   sy,   type);
 ///  <param name="pnavar">[out][optional] - numa of variance</param>
 ///  <param name="pnarootvar">[out][optional] - numa of square root of variance</param>
 ///   <returns>na numa of requested statistic for each row, or NULL on error</returns>
-
 public static int pixRowStats(
 				 Pix pixs, 
 				 Box box, 
@@ -1005,7 +784,6 @@ public static int pixRowStats(
 				out Numa pnavar, 
 				out Numa pnarootvar){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pnameanPtr = IntPtr.Zero;
 	IntPtr pnamedianPtr = IntPtr.Zero;
@@ -1014,25 +792,17 @@ public static int pixRowStats(
 	IntPtr pnavarPtr = IntPtr.Zero;
 	IntPtr pnarootvarPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixRowStats(
-pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
+	int _Result = Natives.pixRowStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
-
-
-//  
 	if (pnameanPtr == IntPtr.Zero) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
 	if (pnamedianPtr == IntPtr.Zero) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
 	if (pnamodePtr == IntPtr.Zero) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
 	if (pnamodecountPtr == IntPtr.Zero) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
 	if (pnavarPtr == IntPtr.Zero) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
 	if (pnarootvarPtr == IntPtr.Zero) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (1916, 1)
 // pixColumnStats(pixs, box, pnamean, pnamedian, pnamode, pnamodecount, pnavar, pnarootvar) as int
 // pixColumnStats(PIX *, BOX *, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **) as l_int32
@@ -1060,7 +830,6 @@ pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnam
 ///  <param name="pnavar">[out][optional] - numa of variance</param>
 ///  <param name="pnarootvar">[out][optional] - numa of square root of variance</param>
 ///   <returns>na numa of requested statistic for each column, or NULL on error</returns>
-
 public static int pixColumnStats(
 				 Pix pixs, 
 				 Box box, 
@@ -1071,7 +840,6 @@ public static int pixColumnStats(
 				out Numa pnavar, 
 				out Numa pnarootvar){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pnameanPtr = IntPtr.Zero;
 	IntPtr pnamedianPtr = IntPtr.Zero;
@@ -1080,25 +848,17 @@ public static int pixColumnStats(
 	IntPtr pnavarPtr = IntPtr.Zero;
 	IntPtr pnarootvarPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixColumnStats(
-pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
+	int _Result = Natives.pixColumnStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
-
-
-//  
 	if (pnameanPtr == IntPtr.Zero) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
 	if (pnamedianPtr == IntPtr.Zero) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
 	if (pnamodePtr == IntPtr.Zero) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
 	if (pnamodecountPtr == IntPtr.Zero) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
 	if (pnavarPtr == IntPtr.Zero) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
 	if (pnarootvarPtr == IntPtr.Zero) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2063, 1)
 // pixGetRangeValues(pixs, factor, color, pminval, pmaxval) as int
 // pixGetRangeValues(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -1114,7 +874,6 @@ pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnam
 ///  <param name="pminval">[out][optional] - minimum value of component</param>
 ///  <param name="pmaxval">[out][optional] - maximum value of component</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRangeValues(
 				 Pix pixs, 
 				 int factor, 
@@ -1122,21 +881,11 @@ public static int pixGetRangeValues(
 				out int pminval, 
 				out int pmaxval){
 
-
-
-	int _Result = Natives.pixGetRangeValues(
-pixs.Pointer,   factor,   color, out  pminval, out  pmaxval);
+	int _Result = Natives.pixGetRangeValues(pixs.Pointer,   factor,   color, out  pminval, out  pmaxval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2141, 1)
 // pixGetExtremeValue(pixs, factor, type, prval, pgval, pbval, pgrayval) as int
 // pixGetExtremeValue(PIX *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -1157,7 +906,6 @@ pixs.Pointer,   factor,   color, out  pminval, out  pmaxval);
 ///  <param name="pbval">[out][optional] - blue component</param>
 ///  <param name="pgrayval">[out][optional] - min or max gray value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetExtremeValue(
 				 Pix pixs, 
 				 int factor, 
@@ -1167,21 +915,11 @@ public static int pixGetExtremeValue(
 				out int pbval, 
 				out int pgrayval){
 
-
-
-	int _Result = Natives.pixGetExtremeValue(
-pixs.Pointer,   factor,   type, out  prval, out  pgval, out  pbval, out  pgrayval);
+	int _Result = Natives.pixGetExtremeValue(pixs.Pointer,   factor,   type, out  prval, out  pgval, out  pbval, out  pgrayval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2278, 1)
 // pixGetMaxValueInRect(pixs, box, pmaxval, pxmax, pymax) as int
 // pixGetMaxValueInRect(PIX *, BOX *, l_uint32 *, l_int32 *, l_int32 *) as l_ok
@@ -1202,7 +940,6 @@ pixs.Pointer,   factor,   type, out  prval, out  pgval, out  pbval, out  pgrayva
 ///  <param name="pxmax">[out][optional] - x location of max value</param>
 ///  <param name="pymax">[out][optional] - y location of max value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetMaxValueInRect(
 				 Pix pixs, 
 				 Box box, 
@@ -1210,22 +947,13 @@ public static int pixGetMaxValueInRect(
 				out int pxmax, 
 				out int pymax){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixGetMaxValueInRect(
-pixs.Pointer, boxPtr, out  pmaxval, out  pxmax, out  pymax);
+	int _Result = Natives.pixGetMaxValueInRect(pixs.Pointer, boxPtr, out  pmaxval, out  pxmax, out  pymax);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2367, 1)
 // pixGetBinnedComponentRange(pixs, nbins, factor, color, pminval, pmaxval, pcarray, fontsize) as int
 // pixGetBinnedComponentRange(PIX *, l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_uint32 **, l_int32) as l_ok
@@ -1246,7 +974,6 @@ pixs.Pointer, boxPtr, out  pmaxval, out  pxmax, out  pymax);
 ///  <param name="pcarray">[out][optional] - color array of bins</param>
 ///  <param name="fontsize">[in][optional] - 0 for no debug for debug, valid set is {4,6,8,10,12,14,16,18,20}.</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetBinnedComponentRange(
 				 Pix pixs, 
 				 int nbins, 
@@ -1257,27 +984,18 @@ public static int pixGetBinnedComponentRange(
 				out Byte[] pcarray, 
 				 int fontsize){
 
-
 	IntPtr pcarrayPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBinnedComponentRange(
-pixs.Pointer,   nbins,   factor,   color, out  pminval, out  pmaxval, out  pcarrayPtr,   fontsize);
+	int _Result = Natives.pixGetBinnedComponentRange(pixs.Pointer,   nbins,   factor,   color, out  pminval, out  pmaxval, out  pcarrayPtr,   fontsize);
 	
-
-
-//  
 	Byte[] pcarrayGen = new Byte[1];
 	if (pcarrayPtr != IntPtr.Zero) {
 	  Marshal.Copy(pcarrayPtr, pcarrayGen, 0, pcarrayGen.Length);
 	}
 	pcarray = pcarrayGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2467, 1)
 // pixGetRankColorArray(pixs, nbins, type, factor, pcarray, debugflag, fontsize) as int
 // pixGetRankColorArray(PIX *, l_int32, l_int32, l_int32, l_uint32 **, l_int32, l_int32) as l_ok
@@ -1316,7 +1034,6 @@ pixs.Pointer,   nbins,   factor,   color, out  pminval, out  pmaxval, out  pcarr
 ///  <param name="debugflag">[in] - 1 to display color squares and plots of color components 2 to write them as png to file</param>
 ///  <param name="fontsize">[in][optional] - 0 for no debug for debug, valid set is {4,6,8,10,12,14,16,18,20}.  Ignored if debugflag == 0.  fontsize == 6 is typical.</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRankColorArray(
 				 Pix pixs, 
 				 int nbins, 
@@ -1326,27 +1043,18 @@ public static int pixGetRankColorArray(
 				 int debugflag, 
 				 int fontsize){
 
-
 	IntPtr pcarrayPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetRankColorArray(
-pixs.Pointer,   nbins,   type,   factor, out  pcarrayPtr,   debugflag,   fontsize);
+	int _Result = Natives.pixGetRankColorArray(pixs.Pointer,   nbins,   type,   factor, out  pcarrayPtr,   debugflag,   fontsize);
 	
-
-
-//  
 	Byte[] pcarrayGen = new Byte[1];
 	if (pcarrayPtr != IntPtr.Zero) {
 	  Marshal.Copy(pcarrayPtr, pcarrayGen, 0, pcarrayGen.Length);
 	}
 	pcarray = pcarrayGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2629, 1)
 // pixGetBinnedColor(pixs, pixg, factor, nbins, nalut, pcarray, debugflag) as int
 // pixGetBinnedColor(PIX *, PIX *, l_int32, l_int32, NUMA *, l_uint32 **, l_int32) as l_ok
@@ -1375,7 +1083,6 @@ pixs.Pointer,   nbins,   type,   factor, out  pcarrayPtr,   debugflag,   fontsiz
 ///  <param name="pcarray">[out] - array of average color values in each bin</param>
 ///  <param name="debugflag">[in] - 1 to display output debug plots of color components 2 to write them as png to file</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixGetBinnedColor(
 				 Pix pixs, 
 				 Pix pixg, 
@@ -1385,27 +1092,18 @@ public static int pixGetBinnedColor(
 				out Byte[] pcarray, 
 				 int debugflag){
 
-
 	IntPtr pcarrayPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBinnedColor(
-pixs.Pointer, pixg.Pointer,   factor,   nbins, nalut.Pointer, out  pcarrayPtr,   debugflag);
+	int _Result = Natives.pixGetBinnedColor(pixs.Pointer, pixg.Pointer,   factor,   nbins, nalut.Pointer, out  pcarrayPtr,   debugflag);
 	
-
-
-//  
 	Byte[] pcarrayGen = new Byte[1];
 	if (pcarrayPtr != IntPtr.Zero) {
 	  Marshal.Copy(pcarrayPtr, pcarrayGen, 0, pcarrayGen.Length);
 	}
 	pcarray = pcarrayGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2759, 1)
 // pixDisplayColorArray(carray, ncolors, side, ncols, fontsize) as Pix
 // pixDisplayColorArray(l_uint32 *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1418,7 +1116,6 @@ pixs.Pointer, pixg.Pointer,   factor,   nbins, nalut.Pointer, out  pcarrayPtr,  
 ///  <param name="ncols">[in] - number of columns in output color matrix</param>
 ///  <param name="fontsize">[in] - to label each square with text.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///   <returns>pixd color array, or NULL on error</returns>
-
 public static Pix pixDisplayColorArray(
 				 Byte[] carray, 
 				 int ncolors, 
@@ -1426,25 +1123,16 @@ public static Pix pixDisplayColorArray(
 				 int ncols, 
 				 int fontsize){
 
-
 		IntPtr carrayPtr = 	Marshal.AllocHGlobal(carray.Length);
 		Marshal.Copy(carray, 0, carrayPtr, carray.Length);
 
-	IntPtr _Result = Natives.pixDisplayColorArray(
-  carrayPtr,   ncolors,   side,   ncols,   fontsize);
+	IntPtr _Result = Natives.pixDisplayColorArray(  carrayPtr,   ncolors,   side,   ncols,   fontsize);
 	
-
 	Marshal.FreeHGlobal(carrayPtr);
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2831, 1)
 // pixRankBinByStrip(pixs, direction, size, nbins, type) as Pix
 // pixRankBinByStrip(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1476,7 +1164,6 @@ public static Pix pixDisplayColorArray(
 ///  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 ///  <param name="type">[in] - color selection flag</param>
 ///   <returns>pixd result, or NULL on error</returns>
-
 public static Pix pixRankBinByStrip(
 				 Pix pixs, 
 				 int direction, 
@@ -1484,22 +1171,12 @@ public static Pix pixRankBinByStrip(
 				 int nbins, 
 				 int type){
 
-
-
-	IntPtr _Result = Natives.pixRankBinByStrip(
-pixs.Pointer,   direction,   size,   nbins,   type);
+	IntPtr _Result = Natives.pixRankBinByStrip(pixs.Pointer,   direction,   size,   nbins,   type);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2928, 1)
 // pixaGetAlignedStats(pixa, type, nbins, thresh) as Pix
 // pixaGetAlignedStats(PIXA *, l_int32, l_int32, l_int32) as PIX *
@@ -1522,29 +1199,18 @@ pixs.Pointer,   direction,   size,   nbins,   type);
 ///  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
 ///  <param name="thresh">[in] - on histogram for mode val ignored for all other types</param>
 ///   <returns>pix with pixelwise aligned stats, or NULL on error.</returns>
-
 public static Pix pixaGetAlignedStats(
 				 Pixa pixa, 
 				 int type, 
 				 int nbins, 
 				 int thresh){
 
-
-
-	IntPtr _Result = Natives.pixaGetAlignedStats(
-pixa.Pointer,   type,   nbins,   thresh);
+	IntPtr _Result = Natives.pixaGetAlignedStats(pixa.Pointer,   type,   nbins,   thresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (2975, 1)
 // pixaExtractColumnFromEachPix(pixa, col, pixd) as int
 // pixaExtractColumnFromEachPix(PIXA *, l_int32, PIX *) as l_ok
@@ -1555,27 +1221,16 @@ pixa.Pointer,   type,   nbins,   thresh);
 ///  <param name="col">[in] - column index</param>
 ///  <param name="pixd">[in] - pix into which each column is inserted</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixaExtractColumnFromEachPix(
 				 Pixa pixa, 
 				 int col, 
 				 Pix pixd){
 
-
-
-	int _Result = Natives.pixaExtractColumnFromEachPix(
-pixa.Pointer,   col, pixd.Pointer);
+	int _Result = Natives.pixaExtractColumnFromEachPix(pixa.Pointer,   col, pixd.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (3050, 1)
 // pixGetRowStats(pixs, type, nbins, thresh, colvect) as int
 // pixGetRowStats(PIX *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
@@ -1611,7 +1266,6 @@ pixa.Pointer,   col, pixd.Pointer);
 ///  <param name="thresh">[in] - on histogram for mode ignored for mean and median</param>
 ///  <param name="colvect">[in] - vector of results gathered across the rows of pixs</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRowStats(
 				 Pix pixs, 
 				 int type, 
@@ -1619,21 +1273,11 @@ public static int pixGetRowStats(
 				 int thresh, 
 				 Single[] colvect){
 
-
-
-	int _Result = Natives.pixGetRowStats(
-pixs.Pointer,   type,   nbins,   thresh,   colvect);
+	int _Result = Natives.pixGetRowStats(pixs.Pointer,   type,   nbins,   thresh,   colvect);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (3172, 1)
 // pixGetColumnStats(pixs, type, nbins, thresh, rowvect) as int
 // pixGetColumnStats(PIX *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
@@ -1663,7 +1307,6 @@ pixs.Pointer,   type,   nbins,   thresh,   colvect);
 ///  <param name="thresh">[in] - on histogram for mode val ignored for all other types</param>
 ///  <param name="rowvect">[in] - vector of results gathered down the columns of pixs</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetColumnStats(
 				 Pix pixs, 
 				 int type, 
@@ -1671,21 +1314,11 @@ public static int pixGetColumnStats(
 				 int thresh, 
 				 Single[] rowvect){
 
-
-
-	int _Result = Natives.pixGetColumnStats(
-pixs.Pointer,   type,   nbins,   thresh,   rowvect);
+	int _Result = Natives.pixGetColumnStats(pixs.Pointer,   type,   nbins,   thresh,   rowvect);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (3273, 1)
 // pixSetPixelColumn(pix, col, colvect) as int
 // pixSetPixelColumn(PIX *, l_int32, l_float32 *) as l_ok
@@ -1696,27 +1329,16 @@ pixs.Pointer,   type,   nbins,   thresh,   rowvect);
 ///  <param name="col">[in] - column index</param>
 ///  <param name="colvect">[in] - vector of floats</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetPixelColumn(
 				 Pix pix, 
 				 int col, 
 				 Single[] colvect){
 
-
-
-	int _Result = Natives.pixSetPixelColumn(
-pix.Pointer,   col,   colvect);
+	int _Result = Natives.pixSetPixelColumn(pix.Pointer,   col,   colvect);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (3313, 1)
 // pixThresholdForFgBg(pixs, factor, thresh, pfgval, pbgval) as int
 // pixThresholdForFgBg(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -1729,7 +1351,6 @@ pix.Pointer,   col,   colvect);
 ///  <param name="pfgval">[out][optional] - average foreground value</param>
 ///  <param name="pbgval">[out][optional] - average background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixThresholdForFgBg(
 				 Pix pixs, 
 				 int factor, 
@@ -1737,21 +1358,11 @@ public static int pixThresholdForFgBg(
 				out int pfgval, 
 				out int pbgval){
 
-
-
-	int _Result = Natives.pixThresholdForFgBg(
-pixs.Pointer,   factor,   thresh, out  pfgval, out  pbgval);
+	int _Result = Natives.pixThresholdForFgBg(pixs.Pointer,   factor,   thresh, out  pfgval, out  pbgval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix4.c (3372, 1)
 // pixSplitDistributionFgBg(pixs, scorefract, factor, pthresh, pfgval, pbgval, ppixdb) as int
 // pixSplitDistributionFgBg(PIX *, l_float32, l_int32, l_int32 *, l_int32 *, l_int32 *, PIX **) as l_ok
@@ -1770,7 +1381,6 @@ pixs.Pointer,   factor,   thresh, out  pfgval, out  pbgval);
 ///  <param name="pbgval">[out][optional] - average background value</param>
 ///  <param name="ppixdb">[out][optional] - plot of distribution and split point</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSplitDistributionFgBg(
 				 Pix pixs, 
 				 Single scorefract, 
@@ -1780,19 +1390,11 @@ public static int pixSplitDistributionFgBg(
 				out int pbgval, 
 				out Pix ppixdb){
 
-
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixSplitDistributionFgBg(
-pixs.Pointer,   scorefract,   factor, out  pthresh, out  pfgval, out  pbgval, out ppixdbPtr);
+	int _Result = Natives.pixSplitDistributionFgBg(pixs.Pointer,   scorefract,   factor, out  pthresh, out  pfgval, out  pbgval, out ppixdbPtr);
 	
-
-
-//  
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
-
-
-
 	return _Result;
 }
 

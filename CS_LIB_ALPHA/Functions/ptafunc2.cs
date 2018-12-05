@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (89, 1)
 // ptaSort(ptas, sorttype, sortorder, pnaindex) as Pta
 // ptaSort(PTA *, l_int32, l_int32, NUMA **) as PTA *
@@ -18,31 +17,21 @@ public partial class _All {
 ///  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///   <returns>ptad sorted version of ptas, or NULL on error</returns>
-
 public static Pta ptaSort(
 				 Pta ptas, 
 				 int sorttype, 
 				 int sortorder, 
 				out Numa pnaindex){
 
-
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.ptaSort(
-ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
+	IntPtr _Result = Natives.ptaSort(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
-
-
-//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (132, 1)
 // ptaGetSortIndex(ptas, sorttype, sortorder, pnaindex) as int
 // ptaGetSortIndex(PTA *, l_int32, l_int32, NUMA **) as l_ok
@@ -54,30 +43,20 @@ ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 ///  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
 ///  <param name="pnaindex">[out] - index of sorted order into original array</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int ptaGetSortIndex(
 				 Pta ptas, 
 				 int sorttype, 
 				 int sortorder, 
 				out Numa pnaindex){
 
-
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
-	int _Result = Natives.ptaGetSortIndex(
-ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
+	int _Result = Natives.ptaGetSortIndex(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
-
-
-//  
 	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (182, 1)
 // ptaSortByIndex(ptas, naindex) as Pta
 // ptaSortByIndex(PTA *, NUMA *) as PTA *
@@ -87,27 +66,16 @@ ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 ///  <param name="ptas">[in] - </param>
 ///  <param name="naindex">[in] - na that maps from the new pta to the input pta</param>
 ///   <returns>ptad sorted, or NULL on  error</returns>
-
 public static Pta ptaSortByIndex(
 				 Pta ptas, 
 				 Numa naindex){
 
-
-
-	IntPtr _Result = Natives.ptaSortByIndex(
-ptas.Pointer, naindex.Pointer);
+	IntPtr _Result = Natives.ptaSortByIndex(ptas.Pointer, naindex.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (218, 1)
 // ptaaSortByIndex(ptaas, naindex) as Ptaa
 // ptaaSortByIndex(PTAA *, NUMA *) as PTAA *
@@ -117,27 +85,16 @@ ptas.Pointer, naindex.Pointer);
 ///  <param name="ptaas">[in] - </param>
 ///  <param name="naindex">[in] - na that maps from the new ptaa to the input ptaa</param>
 ///   <returns>ptaad sorted, or NULL on error</returns>
-
 public static Ptaa ptaaSortByIndex(
 				 Ptaa ptaas, 
 				 Numa naindex){
 
-
-
-	IntPtr _Result = Natives.ptaaSortByIndex(
-ptaas.Pointer, naindex.Pointer);
+	IntPtr _Result = Natives.ptaaSortByIndex(ptaas.Pointer, naindex.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Ptaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (257, 1)
 // ptaGetRankValue(pta, fract, ptasort, sorttype, pval) as int
 // ptaGetRankValue(PTA *, l_float32, PTA *, l_int32, l_float32 *) as l_ok
@@ -150,7 +107,6 @@ ptaas.Pointer, naindex.Pointer);
 ///  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
 ///  <param name="pval">[out] - [and]rankval: the x or y value at %fract</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int ptaGetRankValue(
 				 Pta pta, 
 				 Single fract, 
@@ -158,22 +114,13 @@ public static int ptaGetRankValue(
 				 int sorttype, 
 				out Single pval){
 
-
 	IntPtr ptasortPtr = IntPtr.Zero; 	if (ptasort != null) {ptasortPtr = ptasort.Pointer;}
 
-	int _Result = Natives.ptaGetRankValue(
-pta.Pointer,   fract, ptasortPtr,   sorttype, out  pval);
+	int _Result = Natives.ptaGetRankValue(pta.Pointer,   fract, ptasortPtr,   sorttype, out  pval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (317, 1)
 // ptaUnionByAset(pta1, pta2) as Pta
 // ptaUnionByAset(PTA *, PTA *) as PTA *
@@ -195,27 +142,16 @@ pta.Pointer,   fract, ptasortPtr,   sorttype, out  pval);
 ///  <param name="pta1">[in] - </param>
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad with the union of the set of points, or NULL on error</returns>
-
 public static Pta ptaUnionByAset(
 				 Pta pta1, 
 				 Pta pta2){
 
-
-
-	IntPtr _Result = Natives.ptaUnionByAset(
-pta1.Pointer, pta2.Pointer);
+	IntPtr _Result = Natives.ptaUnionByAset(pta1.Pointer, pta2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (354, 1)
 // ptaRemoveDupsByAset(ptas) as Pta
 // ptaRemoveDupsByAset(PTA *) as PTA *
@@ -229,26 +165,15 @@ pta1.Pointer, pta2.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaRemoveDupsByAset/*"/>
 ///  <param name="ptas">[in] - assumed to be integer values</param>
 ///   <returns>ptad with duplicates removed, or NULL on error</returns>
-
 public static Pta ptaRemoveDupsByAset(
 				 Pta ptas){
 
-
-
-	IntPtr _Result = Natives.ptaRemoveDupsByAset(
-ptas.Pointer);
+	IntPtr _Result = Natives.ptaRemoveDupsByAset(ptas.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (401, 1)
 // ptaIntersectionByAset(pta1, pta2) as Pta
 // ptaIntersectionByAset(PTA *, PTA *) as PTA *
@@ -267,27 +192,16 @@ ptas.Pointer);
 ///  <param name="pta1">[in] - </param>
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad intersection of the point sets, or NULL on error</returns>
-
 public static Pta ptaIntersectionByAset(
 				 Pta pta1, 
 				 Pta pta2){
 
-
-
-	IntPtr _Result = Natives.ptaIntersectionByAset(
-pta1.Pointer, pta2.Pointer);
+	IntPtr _Result = Natives.ptaIntersectionByAset(pta1.Pointer, pta2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (451, 1)
 // l_asetCreateFromPta(pta) as L_Rbtree
 // l_asetCreateFromPta(PTA *) as L_ASET *
@@ -296,26 +210,15 @@ pta1.Pointer, pta2.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetCreateFromPta/*"/>
 ///  <param name="pta">[in] - </param>
 ///   <returns>set using a 64-bit hash of (x,y) as the key</returns>
-
 public static L_Rbtree l_asetCreateFromPta(
 				 Pta pta){
 
-
-
-	IntPtr _Result = Natives.l_asetCreateFromPta(
-pta.Pointer);
+	IntPtr _Result = Natives.l_asetCreateFromPta(pta.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Rbtree(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (493, 1)
 // ptaUnionByHash(pta1, pta2) as Pta
 // ptaUnionByHash(PTA *, PTA *) as PTA *
@@ -330,27 +233,16 @@ pta.Pointer);
 ///  <param name="pta1">[in] - </param>
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad with the union of the set of points, or NULL on error</returns>
-
 public static Pta ptaUnionByHash(
 				 Pta pta1, 
 				 Pta pta2){
 
-
-
-	IntPtr _Result = Natives.ptaUnionByHash(
-pta1.Pointer, pta2.Pointer);
+	IntPtr _Result = Natives.ptaUnionByHash(pta1.Pointer, pta2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (543, 1)
 // ptaRemoveDupsByHash(ptas, pptad, pdahash) as int
 // ptaRemoveDupsByHash(PTA *, PTA **, L_DNAHASH **) as l_ok
@@ -381,31 +273,21 @@ pta1.Pointer, pta2.Pointer);
 ///  <param name="pptad">[out] - unique set of pts duplicates removed</param>
 ///  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int ptaRemoveDupsByHash(
 				 Pta ptas, 
 				out Pta pptad, 
 				out L_DnaHash pdahash){
 
-
 	IntPtr pptadPtr = IntPtr.Zero;
 	IntPtr pdahashPtr = IntPtr.Zero;
 
-	int _Result = Natives.ptaRemoveDupsByHash(
-ptas.Pointer, out pptadPtr, out pdahashPtr);
+	int _Result = Natives.ptaRemoveDupsByHash(ptas.Pointer, out pptadPtr, out pdahashPtr);
 	
-
-
-//  
 	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
 	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (600, 1)
 // ptaIntersectionByHash(pta1, pta2) as Pta
 // ptaIntersectionByHash(PTA *, PTA *) as PTA *
@@ -420,27 +302,16 @@ ptas.Pointer, out pptadPtr, out pdahashPtr);
 ///  <param name="pta1">[in] - </param>
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad intersection of the point sets, or NULL on error</returns>
-
 public static Pta ptaIntersectionByHash(
 				 Pta pta1, 
 				 Pta pta2){
 
-
-
-	IntPtr _Result = Natives.ptaIntersectionByHash(
-pta1.Pointer, pta2.Pointer);
+	IntPtr _Result = Natives.ptaIntersectionByHash(pta1.Pointer, pta2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pta(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (674, 1)
 // ptaFindPtByHash(pta, dahash, x, y, pindex) as int
 // ptaFindPtByHash(PTA *, L_DNAHASH *, l_int32, l_int32, l_int32 *) as l_ok
@@ -467,7 +338,6 @@ pta1.Pointer, pta2.Pointer);
 ///  <param name="y">[in] - arbitrary points</param>
 ///  <param name="pindex">[out] - index into pta if (x,y) is in pta -1 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int ptaFindPtByHash(
 				 Pta pta, 
 				 L_DnaHash dahash, 
@@ -475,21 +345,11 @@ public static int ptaFindPtByHash(
 				 int y, 
 				out int pindex){
 
-
-
-	int _Result = Natives.ptaFindPtByHash(
-pta.Pointer, dahash.Pointer,   x,   y, out  pindex);
+	int _Result = Natives.ptaFindPtByHash(pta.Pointer, dahash.Pointer,   x,   y, out  pindex);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // ptafunc2.c (720, 1)
 // l_dnaHashCreateFromPta(pta) as L_DnaHash
 // l_dnaHashCreateFromPta(PTA *) as L_DNAHASH *
@@ -498,22 +358,12 @@ pta.Pointer, dahash.Pointer,   x,   y, out  pindex);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashCreateFromPta/*"/>
 ///  <param name="pta">[in] - </param>
 ///   <returns>dahash, or NULL on error</returns>
-
 public static L_DnaHash l_dnaHashCreateFromPta(
 				 Pta pta){
 
-
-
-	IntPtr _Result = Natives.l_dnaHashCreateFromPta(
-pta.Pointer);
+	IntPtr _Result = Natives.l_dnaHashCreateFromPta(pta.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_DnaHash(_Result);
 }
 

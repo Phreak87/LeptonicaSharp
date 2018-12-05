@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (102, 1)
 // pixGetRegionsBinary(pixs, ppixhm, ppixtm, ppixtb, pixadb) as int
 // pixGetRegionsBinary(PIX *, PIX **, PIX **, PIX **, PIXA *) as l_ok
@@ -24,7 +23,6 @@ public partial class _All {
 ///  <param name="ppixtb">[out][optional] - textblock mask</param>
 ///  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRegionsBinary(
 				 Pix pixs, 
 				out Pix ppixhm, 
@@ -32,27 +30,18 @@ public static int pixGetRegionsBinary(
 				out Pix ppixtb, 
 				 Pixa pixadb){
 
-
 	IntPtr ppixhmPtr = IntPtr.Zero;
 	IntPtr ppixtmPtr = IntPtr.Zero;
 	IntPtr ppixtbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetRegionsBinary(
-pixs.Pointer, out ppixhmPtr, out ppixtmPtr, out ppixtbPtr, pixadb.Pointer);
+	int _Result = Natives.pixGetRegionsBinary(pixs.Pointer, out ppixhmPtr, out ppixtmPtr, out ppixtbPtr, pixadb.Pointer);
 	
-
-
-//  
 	if (ppixhmPtr == IntPtr.Zero) {ppixhm = null;} else { ppixhm = new Pix(ppixhmPtr); };
 	if (ppixtmPtr == IntPtr.Zero) {ppixtm = null;} else { ppixtm = new Pix(ppixtmPtr); };
 	if (ppixtbPtr == IntPtr.Zero) {ppixtb = null;} else { ppixtb = new Pix(ppixtbPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (264, 1)
 // pixGenHalftoneMask(pixs, ppixtext, phtfound, debug) as Pix
 // pixGenHalftoneMask(PIX *, PIX **, l_int32 *, l_int32) as PIX *
@@ -66,31 +55,21 @@ pixs.Pointer, out ppixhmPtr, out ppixtmPtr, out ppixtbPtr, pixadb.Pointer);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenHalftoneMask/*"/>
 ///   <returns></returns>
-
 public static Pix pixGenHalftoneMask(
 				 Pix pixs, 
 				 Pix ppixtext, 
 				 object phtfound, 
 				 DebugOnOff debug){
 
-
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 	IntPtr ppixtextPtr = IntPtr.Zero; 	if (ppixtext != null) {ppixtextPtr = ppixtext.Pointer;}
 
-	IntPtr _Result = Natives.pixGenHalftoneMask(
-pixs.Pointer, ppixtextPtr,   phtfound,  (int) debug);
+	IntPtr _Result = Natives.pixGenHalftoneMask(pixs.Pointer, ppixtextPtr,   phtfound,  (int) debug);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (289, 1)
 // pixGenerateHalftoneMask(pixs, ppixtext, phtfound, pixadb) as Pix
 // pixGenerateHalftoneMask(PIX *, PIX **, l_int32 *, PIXA *) as PIX *
@@ -106,31 +85,21 @@ pixs.Pointer, ppixtextPtr,   phtfound,  (int) debug);
 ///  <param name="phtfound">[out][optional] - 1 if the mask is not empty</param>
 ///  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
 ///   <returns>pixd halftone mask, or NULL on error</returns>
-
 public static Pix pixGenerateHalftoneMask(
 				 Pix pixs, 
 				out Pix ppixtext, 
 				out int phtfound, 
 				 Pixa pixadb){
 
-
 	IntPtr ppixtextPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixGenerateHalftoneMask(
-pixs.Pointer, out ppixtextPtr, out  phtfound, pixadb.Pointer);
+	IntPtr _Result = Natives.pixGenerateHalftoneMask(pixs.Pointer, out ppixtextPtr, out  phtfound, pixadb.Pointer);
 	
-
-
-//  
 	if (ppixtextPtr == IntPtr.Zero) {ppixtext = null;} else { ppixtext = new Pix(ppixtextPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (372, 1)
 // pixGenTextlineMask(pixs, ppixvws, ptlfound, pixadb) as Pix
 // pixGenTextlineMask(PIX *, PIX **, l_int32 *, PIXA *) as PIX *
@@ -153,31 +122,21 @@ pixs.Pointer, out ppixtextPtr, out  phtfound, pixadb.Pointer);
 ///  <param name="ptlfound">[out][optional] - 1 if the mask is not empty</param>
 ///  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
 ///   <returns>pixd textline mask, or NULL on error</returns>
-
 public static Pix pixGenTextlineMask(
 				 Pix pixs, 
 				out Pix ppixvws, 
 				out int ptlfound, 
 				 Pixa pixadb){
 
-
 	IntPtr ppixvwsPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixGenTextlineMask(
-pixs.Pointer, out ppixvwsPtr, out  ptlfound, pixadb.Pointer);
+	IntPtr _Result = Natives.pixGenTextlineMask(pixs.Pointer, out ppixvwsPtr, out  ptlfound, pixadb.Pointer);
 	
-
-
-//  
 	if (ppixvwsPtr == IntPtr.Zero) {ppixvws = null;} else { ppixvws = new Pix(ppixvwsPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (464, 1)
 // pixGenTextblockMask(pixs, pixvws, pixadb) as Pix
 // pixGenTextblockMask(PIX *, PIX *, PIXA *) as PIX *
@@ -201,28 +160,17 @@ pixs.Pointer, out ppixvwsPtr, out  ptlfound, pixadb.Pointer);
 ///  <param name="pixvws">[in] - vertical white space mask</param>
 ///  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
 ///   <returns>pixd textblock mask, or NULL on error</returns>
-
 public static Pix pixGenTextblockMask(
 				 Pix pixs, 
 				 Pix pixvws, 
 				 Pixa pixadb){
 
-
-
-	IntPtr _Result = Natives.pixGenTextblockMask(
-pixs.Pointer, pixvws.Pointer, pixadb.Pointer);
+	IntPtr _Result = Natives.pixGenTextblockMask(pixs.Pointer, pixvws.Pointer, pixadb.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (548, 1)
 // pixFindPageForeground(pixs, threshold, mindist, erasedist, showmorph, pixac) as Box
 // pixFindPageForeground(PIX *, l_int32, l_int32, l_int32, l_int32, PIXAC *) as BOX *
@@ -252,7 +200,6 @@ pixs.Pointer, pixvws.Pointer, pixadb.Pointer);
 ///  <param name="showmorph">[in] - debug: set to a negative integer to show steps in generating masks this is typically used for debugging region extraction</param>
 ///  <param name="pixac">[in] - debug: allocate outside and pass this in to accumulate results of each call to this function, which can be displayed in a mosaic or a pdf.</param>
 ///   <returns>box region including foreground, with some pixel noise removed, or NULL if not found</returns>
-
 public static Box pixFindPageForeground(
 				 Pix pixs, 
 				 int threshold, 
@@ -261,22 +208,12 @@ public static Box pixFindPageForeground(
 				 int showmorph, 
 				 PixaComp pixac){
 
-
-
-	IntPtr _Result = Natives.pixFindPageForeground(
-pixs.Pointer,   threshold,   mindist,   erasedist,   showmorph, pixac.Pointer);
+	IntPtr _Result = Natives.pixFindPageForeground(pixs.Pointer,   threshold,   mindist,   erasedist,   showmorph, pixac.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (679, 1)
 // pixSplitIntoCharacters(pixs, minw, minh, pboxa, ppixa, ppixdebug) as int
 // pixSplitIntoCharacters(PIX *, l_int32, l_int32, BOXA **, PIXA **, PIX **) as l_ok
@@ -300,7 +237,6 @@ pixs.Pointer,   threshold,   mindist,   erasedist,   showmorph, pixac.Pointer);
 ///  <param name="ppixa">[out][optional] - character images</param>
 ///  <param name="ppixdebug">[out][optional] - showing splittings</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSplitIntoCharacters(
 				 Pix pixs, 
 				 int minw, 
@@ -309,27 +245,18 @@ public static int pixSplitIntoCharacters(
 				out Pixa ppixa, 
 				out Pix ppixdebug){
 
-
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 	IntPtr ppixdebugPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixSplitIntoCharacters(
-pixs.Pointer,   minw,   minh, out pboxaPtr, out ppixaPtr, out ppixdebugPtr);
+	int _Result = Natives.pixSplitIntoCharacters(pixs.Pointer,   minw,   minh, out pboxaPtr, out ppixaPtr, out ppixdebugPtr);
 	
-
-
-//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 	if (ppixdebugPtr == IntPtr.Zero) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (780, 1)
 // pixSplitComponentWithProfile(pixs, delta, mindel, ppixdebug) as Boxa
 // pixSplitComponentWithProfile(PIX *, l_int32, l_int32, PIX **) as BOXA *
@@ -347,31 +274,21 @@ pixs.Pointer,   minw,   minh, out pboxaPtr, out ppixaPtr, out ppixdebugPtr);
 ///  <param name="mindel">[in] - minimum required difference between profile minimum and profile values +2 and -2 away typ. 7</param>
 ///  <param name="ppixdebug">[out][optional] - debug image of splitting</param>
 ///   <returns>boxa of c.c. after splitting, or NULL on error</returns>
-
 public static Boxa pixSplitComponentWithProfile(
 				 Pix pixs, 
 				 int delta, 
 				 int mindel, 
 				out Pix ppixdebug){
 
-
 	IntPtr ppixdebugPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixSplitComponentWithProfile(
-pixs.Pointer,   delta,   mindel, out ppixdebugPtr);
+	IntPtr _Result = Natives.pixSplitComponentWithProfile(pixs.Pointer,   delta,   mindel, out ppixdebugPtr);
 	
-
-
-//  
 	if (ppixdebugPtr == IntPtr.Zero) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (936, 1)
 // pixExtractTextlines(pixs, maxw, maxh, minw, minh, adjw, adjh, pixadb) as Pixa
 // pixExtractTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, PIXA *) as PIXA *
@@ -422,7 +339,6 @@ pixs.Pointer,   delta,   mindel, out ppixdebugPtr);
 ///  <param name="adjh">[in] - final adjustment of boxes representing each text line.  If  is greater  0, these increase the box size at each edge by this amount.</param>
 ///  <param name="pixadb">[in] - pixa for saving intermediate steps NULL to omit</param>
 ///   <returns>pixa of textline images, including bounding boxes, or NULL on error</returns>
-
 public static Pixa pixExtractTextlines(
 				 Pix pixs, 
 				 int maxw, 
@@ -433,22 +349,12 @@ public static Pixa pixExtractTextlines(
 				 int adjh, 
 				 Pixa pixadb){
 
-
-
-	IntPtr _Result = Natives.pixExtractTextlines(
-pixs.Pointer,   maxw,   maxh,   minw,   minh,   adjw,   adjh, pixadb.Pointer);
+	IntPtr _Result = Natives.pixExtractTextlines(pixs.Pointer,   maxw,   maxh,   minw,   minh,   adjw,   adjh, pixadb.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1076, 1)
 // pixExtractRawTextlines(pixs, maxw, maxh, adjw, adjh, pixadb) as Pixa
 // pixExtractRawTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, PIXA *) as PIXA *
@@ -489,7 +395,6 @@ pixs.Pointer,   maxw,   maxh,   minw,   minh,   adjw,   adjh, pixadb.Pointer);
 ///  <param name="adjh">[in] - final adjustment of boxes representing each text line.  If  is greater  0, these increase the box size at each edge by this amount.</param>
 ///  <param name="pixadb">[in] - pixa for saving intermediate steps NULL to omit</param>
 ///   <returns>pixa of textline images, including bounding boxes, or NULL on error</returns>
-
 public static Pixa pixExtractRawTextlines(
 				 Pix pixs, 
 				 int maxw, 
@@ -498,22 +403,12 @@ public static Pixa pixExtractRawTextlines(
 				 int adjh, 
 				 Pixa pixadb){
 
-
-
-	IntPtr _Result = Natives.pixExtractRawTextlines(
-pixs.Pointer,   maxw,   maxh,   adjw,   adjh, pixadb.Pointer);
+	IntPtr _Result = Natives.pixExtractRawTextlines(pixs.Pointer,   maxw,   maxh,   adjw,   adjh, pixadb.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1204, 1)
 // pixCountTextColumns(pixs, deltafract, peakfract, clipfract, pncols, pixadb) as int
 // pixCountTextColumns(PIX *, l_float32, l_float32, l_float32, l_int32 *, PIXA *) as l_ok
@@ -539,7 +434,6 @@ pixs.Pointer,   maxw,   maxh,   adjw,   adjh, pixadb.Pointer);
 ///  <param name="pncols">[out] - number of columns -1 if not determined</param>
 ///  <param name="pixadb">[in][optional] - pre-allocated, for showing intermediate computation use null to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCountTextColumns(
 				 Pix pixs, 
 				 Single deltafract, 
@@ -548,22 +442,13 @@ public static int pixCountTextColumns(
 				out int pncols, 
 				 Pixa pixadb){
 
-
 	IntPtr pixadbPtr = IntPtr.Zero; 	if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
-	int _Result = Natives.pixCountTextColumns(
-pixs.Pointer,   deltafract,   peakfract,   clipfract, out  pncols, pixadbPtr);
+	int _Result = Natives.pixCountTextColumns(pixs.Pointer,   deltafract,   peakfract,   clipfract, out  pncols, pixadbPtr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1352, 1)
 // pixDecideIfText(pixs, box, pistext, pixadb) as int
 // pixDecideIfText(PIX *, BOX *, l_int32 *, PIXA *) as l_ok
@@ -595,30 +480,20 @@ pixs.Pointer,   deltafract,   peakfract,   clipfract, out  pncols, pixadbPtr);
 ///  <param name="pistext">[out] - 1 if text 0 if photo -1 if not determined or empty</param>
 ///  <param name="pixadb">[in][optional] - pre-allocated, for showing intermediate computation use NULL to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixDecideIfText(
 				 Pix pixs, 
 				 Box box, 
 				out int pistext, 
 				 Pixa pixadb){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pixadbPtr = IntPtr.Zero; 	if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
-	int _Result = Natives.pixDecideIfText(
-pixs.Pointer, boxPtr, out  pistext, pixadbPtr);
+	int _Result = Natives.pixDecideIfText(pixs.Pointer, boxPtr, out  pistext, pixadbPtr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1518, 1)
 // pixFindThreshFgExtent(pixs, thresh, ptop, pbot) as int
 // pixFindThreshFgExtent(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -630,28 +505,17 @@ pixs.Pointer, boxPtr, out  pistext, pixadbPtr);
 ///  <param name="ptop">[out][optional] - location of top of region</param>
 ///  <param name="pbot">[out][optional] - location of bottom of region</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFindThreshFgExtent(
 				 Pix pixs, 
 				 int thresh, 
 				out int ptop, 
 				out int pbot){
 
-
-
-	int _Result = Natives.pixFindThreshFgExtent(
-pixs.Pointer,   thresh, out  ptop, out  pbot);
+	int _Result = Natives.pixFindThreshFgExtent(pixs.Pointer,   thresh, out  ptop, out  pbot);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1608, 1)
 // pixDecideIfTable(pixs, box, orient, pscore, pixadb) as int
 // pixDecideIfTable(PIX *, BOX *, l_int32, l_int32 *, PIXA *) as l_ok
@@ -702,7 +566,6 @@ pixs.Pointer,   thresh, out  ptop, out  pbot);
 ///  <param name="pscore">[out] - 0 - 4 -1 if not determined</param>
 ///  <param name="pixadb">[in][optional] - pre-allocated, for showing intermediate computation use NULL to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixDecideIfTable(
 				 Pix pixs, 
 				 Box box, 
@@ -710,23 +573,14 @@ public static int pixDecideIfTable(
 				out int pscore, 
 				 Pixa pixadb){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pixadbPtr = IntPtr.Zero; 	if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
-	int _Result = Natives.pixDecideIfTable(
-pixs.Pointer, boxPtr,   orient, out  pscore, pixadbPtr);
+	int _Result = Natives.pixDecideIfTable(pixs.Pointer, boxPtr,   orient, out  pscore, pixadbPtr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1758, 1)
 // pixPrepare1bpp(pixs, box, cropfract, outres) as Pix
 // pixPrepare1bpp(PIX *, BOX *, l_float32, l_int32) as PIX *
@@ -742,30 +596,20 @@ pixs.Pointer, boxPtr,   orient, out  pscore, pixadbPtr);
 ///  <param name="cropfract">[in] - fraction to be removed from the boundary use 0.0 to retain the entire image</param>
 ///  <param name="outres">[in] - desired resolution of output image if the input image resolution is not set, assume 300 ppi use 0 to skip scaling.</param>
 ///   <returns>pixd if OK, NULL on error</returns>
-
 public static Pix pixPrepare1bpp(
 				 Pix pixs, 
 				 Box box, 
 				 Single cropfract, 
 				 int outres){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixPrepare1bpp(
-pixs.Pointer, boxPtr,   cropfract,   outres);
+	IntPtr _Result = Natives.pixPrepare1bpp(pixs.Pointer, boxPtr,   cropfract,   outres);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1843, 1)
 // pixEstimateBackground(pixs, darkthresh, edgecrop, pbg) as int
 // pixEstimateBackground(PIX *, l_int32, l_float32, l_int32 *) as l_ok
@@ -780,28 +624,17 @@ pixs.Pointer, boxPtr,   cropfract,   outres);
 ///  <param name="edgecrop">[in] - fraction of half-width on each side, and of half-height at top and bottom, that are cropped</param>
 ///  <param name="pbg">[out] - estimated background, or 0 on error</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixEstimateBackground(
 				 Pix pixs, 
 				 int darkthresh, 
 				 Single edgecrop, 
 				out int pbg){
 
-
-
-	int _Result = Natives.pixEstimateBackground(
-pixs.Pointer,   darkthresh,   edgecrop, out  pbg);
+	int _Result = Natives.pixEstimateBackground(pixs.Pointer,   darkthresh,   edgecrop, out  pbg);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (1927, 1)
 // pixFindLargeRectangles(pixs, polarity, nrect, pboxa, ppixdb) as int
 // pixFindLargeRectangles(PIX *, l_int32, l_int32, BOXA **, PIX **) as l_ok
@@ -830,7 +663,6 @@ pixs.Pointer,   darkthresh,   edgecrop, out  pbg);
 ///  <param name="pboxa">[out] - largest rectangles, sorted by decreasing area</param>
 ///  <param name="ppixdb">[in,out] - optional return output with rectangles drawn on it</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFindLargeRectangles(
 				 Pix pixs, 
 				 int polarity, 
@@ -838,25 +670,16 @@ public static int pixFindLargeRectangles(
 				out Boxa pboxa, 
 				ref Pix ppixdb){
 
-
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero; 	if (ppixdb != null) {ppixdbPtr = ppixdb.Pointer;}
 
-	int _Result = Natives.pixFindLargeRectangles(
-pixs.Pointer,   polarity,   nrect, out pboxaPtr, ref ppixdbPtr);
+	int _Result = Natives.pixFindLargeRectangles(pixs.Pointer,   polarity,   nrect, out pboxaPtr, ref ppixdbPtr);
 	
-
-
-//  
 	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pageseg.c (2030, 1)
 // pixFindLargestRectangle(pixs, polarity, pbox, ppixdb) as int
 // pixFindLargestRectangle(PIX *, l_int32, BOX **, PIX **) as l_ok
@@ -909,28 +732,19 @@ pixs.Pointer,   polarity,   nrect, out pboxaPtr, ref ppixdbPtr);
 ///  <param name="pbox">[out] - largest area rectangle</param>
 ///  <param name="ppixdb">[in,out] - optional return output with rectangle drawn on it</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFindLargestRectangle(
 				 Pix pixs, 
 				 int polarity, 
 				out Box pbox, 
 				ref Pix ppixdb){
 
-
 	IntPtr pboxPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero; 	if (ppixdb != null) {ppixdbPtr = ppixdb.Pointer;}
 
-	int _Result = Natives.pixFindLargestRectangle(
-pixs.Pointer,   polarity, out pboxPtr, ref ppixdbPtr);
+	int _Result = Natives.pixFindLargestRectangle(pixs.Pointer,   polarity, out pboxPtr, ref ppixdbPtr);
 	
-
-
-//  
 	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
-
-
-
 	return _Result;
 }
 

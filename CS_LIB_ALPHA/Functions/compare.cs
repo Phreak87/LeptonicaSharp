@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (150, 1)
 // pixEqual(pix1, pix2, psame) as int
 // pixEqual(PIX *, PIX *, l_int32 *) as l_ok
@@ -42,27 +41,16 @@ public partial class _All {
 ///  <param name="pix2">[in] - </param>
 ///  <param name="psame">[out] - 1 if same 0 if different</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixEqual(
 				 Pix pix1, 
 				 Pix pix2, 
 				out int psame){
 
-
-
-	int _Result = Natives.pixEqual(
-pix1.Pointer, pix2.Pointer, out  psame);
+	int _Result = Natives.pixEqual(pix1.Pointer, pix2.Pointer, out  psame);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (176, 1)
 // pixEqualWithAlpha(pix1, pix2, use_alpha, psame) as int
 // pixEqualWithAlpha(PIX *, PIX *, l_int32, l_int32 *) as l_ok
@@ -81,28 +69,17 @@ pix1.Pointer, pix2.Pointer, out  psame);
 ///  <param name="use_alpha">[in] - 1 to compare alpha in RGBA 0 to ignore</param>
 ///  <param name="psame">[out] - 1 if same 0 if different</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixEqualWithAlpha(
 				 Pix pix1, 
 				 Pix pix2, 
 				 int use_alpha, 
 				out int psame){
 
-
-
-	int _Result = Natives.pixEqualWithAlpha(
-pix1.Pointer, pix2.Pointer,   use_alpha, out  psame);
+	int _Result = Natives.pixEqualWithAlpha(pix1.Pointer, pix2.Pointer,   use_alpha, out  psame);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (378, 1)
 // pixEqualWithCmap(pix1, pix2, psame) as int
 // pixEqualWithCmap(PIX *, PIX *, l_int32 *) as l_ok
@@ -126,27 +103,16 @@ pix1.Pointer, pix2.Pointer,   use_alpha, out  psame);
 ///  <param name="pix2">[in] - </param>
 ///  <param name="psame">[out] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixEqualWithCmap(
 				 Pix pix1, 
 				 Pix pix2, 
 				out int psame){
 
-
-
-	int _Result = Natives.pixEqualWithCmap(
-pix1.Pointer, pix2.Pointer, out  psame);
+	int _Result = Natives.pixEqualWithCmap(pix1.Pointer, pix2.Pointer, out  psame);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (474, 1)
 // cmapEqual(cmap1, cmap2, ncomps, psame) as int
 // cmapEqual(PIXCMAP *, PIXCMAP *, l_int32, l_int32 *) as l_ok
@@ -164,28 +130,17 @@ pix1.Pointer, pix2.Pointer, out  psame);
 ///  <param name="ncomps">[in] - 3 for RGB, 4 for RGBA</param>
 ///  <param name="psame">[out] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int cmapEqual(
 				 PixColormap cmap1, 
 				 PixColormap cmap2, 
 				 int ncomps, 
 				out int psame){
 
-
-
-	int _Result = Natives.cmapEqual(
-cmap1.Pointer, cmap2.Pointer,   ncomps, out  psame);
+	int _Result = Natives.cmapEqual(cmap1.Pointer, cmap2.Pointer,   ncomps, out  psame);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (532, 1)
 // pixUsesCmapColor(pixs, pcolor) as int
 // pixUsesCmapColor(PIX *, l_int32 *) as l_ok
@@ -205,26 +160,15 @@ cmap1.Pointer, cmap2.Pointer,   ncomps, out  psame);
 ///  <param name="pixs">[in] - any depth, colormap</param>
 ///  <param name="pcolor">[out] - TRUE if color found</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixUsesCmapColor(
 				 Pix pixs, 
 				out int pcolor){
 
-
-
-	int _Result = Natives.pixUsesCmapColor(
-pixs.Pointer, out  pcolor);
+	int _Result = Natives.pixUsesCmapColor(pixs.Pointer, out  pcolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (598, 1)
 // pixCorrelationBinary(pix1, pix2, pval) as int
 // pixCorrelationBinary(PIX *, PIX *, l_float32 *) as l_ok
@@ -249,27 +193,16 @@ pixs.Pointer, out  pcolor);
 ///  <param name="pix2">[in] - 1 bpp</param>
 ///  <param name="pval">[out] - correlation</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCorrelationBinary(
 				 Pix pix1, 
 				 Pix pix2, 
 				out Single pval){
 
-
-
-	int _Result = Natives.pixCorrelationBinary(
-pix1.Pointer, pix2.Pointer, out  pval);
+	int _Result = Natives.pixCorrelationBinary(pix1.Pointer, pix2.Pointer, out  pval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (656, 1)
 // pixDisplayDiffBinary(pix1, pix2) as Pix
 // pixDisplayDiffBinary(PIX *, PIX *) as PIX *
@@ -290,27 +223,16 @@ pix1.Pointer, pix2.Pointer, out  pval);
 ///  <param name="pix1">[in] - 1 bpp</param>
 ///  <param name="pix2">[in] - 1 bpp</param>
 ///   <returns>pixd 4 bpp cmapped, or NULL on error</returns>
-
 public static Pix pixDisplayDiffBinary(
 				 Pix pix1, 
 				 Pix pix2){
 
-
-
-	IntPtr _Result = Natives.pixDisplayDiffBinary(
-pix1.Pointer, pix2.Pointer);
+	IntPtr _Result = Natives.pixDisplayDiffBinary(pix1.Pointer, pix2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (712, 1)
 // pixCompareBinary(pix1, pix2, comptype, pfract, ppixdiff) as int
 // pixCompareBinary(PIX *, PIX *, l_int32, l_float32 *, PIX **) as l_ok
@@ -331,7 +253,6 @@ pix1.Pointer, pix2.Pointer);
 ///  <param name="pfract">[out] - fraction of pixels that are different</param>
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCompareBinary(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -339,23 +260,14 @@ public static int pixCompareBinary(
 				out Single pfract, 
 				out Pix ppixdiff){
 
-
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixCompareBinary(
-pix1.Pointer, pix2.Pointer,   comptype, out  pfract, out ppixdiffPtr);
+	int _Result = Natives.pixCompareBinary(pix1.Pointer, pix2.Pointer,   comptype, out  pfract, out ppixdiffPtr);
 	
-
-
-//  
 	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (788, 1)
 // pixCompareGrayOrRGB(pix1, pix2, comptype, plottype, psame, pdiff, prmsdiff, ppixdiff) as int
 // pixCompareGrayOrRGB(PIX *, PIX *, l_int32, l_int32, l_int32 *, l_float32 *, l_float32 *, PIX **) as l_ok
@@ -401,7 +313,6 @@ pix1.Pointer, pix2.Pointer,   comptype, out  pfract, out ppixdiffPtr);
 ///  <param name="prmsdiff">[out][optional] - rms of difference</param>
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCompareGrayOrRGB(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -412,23 +323,14 @@ public static int pixCompareGrayOrRGB(
 				out Single prmsdiff, 
 				out Pix ppixdiff){
 
-
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixCompareGrayOrRGB(
-pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
+	int _Result = Natives.pixCompareGrayOrRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
-
-
-//  
 	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (859, 1)
 // pixCompareGray(pix1, pix2, comptype, plottype, psame, pdiff, prmsdiff, ppixdiff) as int
 // pixCompareGray(PIX *, PIX *, l_int32, l_int32, l_int32 *, l_float32 *, l_float32 *, PIX **) as l_ok
@@ -452,7 +354,6 @@ pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out 
 ///  <param name="prmsdiff">[out][optional] - rms of difference</param>
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCompareGray(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -463,23 +364,14 @@ public static int pixCompareGray(
 				out Single prmsdiff, 
 				out Pix ppixdiff){
 
-
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixCompareGray(
-pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
+	int _Result = Natives.pixCompareGray(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
-
-
-//  
 	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (968, 1)
 // pixCompareRGB(pix1, pix2, comptype, plottype, psame, pdiff, prmsdiff, ppixdiff) as int
 // pixCompareRGB(PIX *, PIX *, l_int32, l_int32, l_int32 *, l_float32 *, l_float32 *, PIX **) as l_ok
@@ -501,7 +393,6 @@ pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out 
 ///  <param name="prmsdiff">[out][optional] - rms of difference</param>
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCompareRGB(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -512,23 +403,14 @@ public static int pixCompareRGB(
 				out Single prmsdiff, 
 				out Pix ppixdiff){
 
-
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixCompareRGB(
-pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
+	int _Result = Natives.pixCompareRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
-
-
-//  
 	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1124, 1)
 // pixCompareTiled(pix1, pix2, sx, sy, type, ppixdiff) as int
 // pixCompareTiled(PIX *, PIX *, l_int32, l_int32, l_int32, PIX **) as l_ok
@@ -557,7 +439,6 @@ pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out 
 ///  <param name="type">[in] - L_MEAN_ABSVAL or L_ROOT_MEAN_SQUARE</param>
 ///  <param name="ppixdiff">[out] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCompareTiled(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -566,23 +447,14 @@ public static int pixCompareTiled(
 				 int type, 
 				out Pix ppixdiff){
 
-
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixCompareTiled(
-pix1.Pointer, pix2.Pointer,   sx,   sy,   type, out ppixdiffPtr);
+	int _Result = Natives.pixCompareTiled(pix1.Pointer, pix2.Pointer,   sx,   sy,   type, out ppixdiffPtr);
 	
-
-
-//  
 	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1218, 1)
 // pixCompareRankDifference(pix1, pix2, factor) as Numa
 // pixCompareRankDifference(PIX *, PIX *, l_int32) as NUMA *
@@ -612,28 +484,17 @@ pix1.Pointer, pix2.Pointer,   sx,   sy,   type, out ppixdiffPtr);
 ///  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 ///  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
 ///   <returns>narank      numa of rank difference, or NULL on error</returns>
-
 public static Numa pixCompareRankDifference(
 				 Pix pix1, 
 				 Pix pix2, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.pixCompareRankDifference(
-pix1.Pointer, pix2.Pointer,   factor);
+	IntPtr _Result = Natives.pixCompareRankDifference(pix1.Pointer, pix2.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1303, 1)
 // pixTestForSimilarity(pix1, pix2, factor, mindiff, maxfract, maxave, psimilar, details) as int
 // pixTestForSimilarity(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32 *, l_int32) as l_ok
@@ -684,7 +545,6 @@ pix1.Pointer, pix2.Pointer,   factor);
 ///  <param name="psimilar">[out] - 1 if similar, 0 otherwise</param>
 ///  <param name="details">[in] - use 1 to give normalized histogram and other data</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixTestForSimilarity(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -695,21 +555,11 @@ public static int pixTestForSimilarity(
 				out int psimilar, 
 				 int details){
 
-
-
-	int _Result = Natives.pixTestForSimilarity(
-pix1.Pointer, pix2.Pointer,   factor,   mindiff,   maxfract,   maxave, out  psimilar,   details);
+	int _Result = Natives.pixTestForSimilarity(pix1.Pointer, pix2.Pointer,   factor,   mindiff,   maxfract,   maxave, out  psimilar,   details);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1382, 1)
 // pixGetDifferenceStats(pix1, pix2, factor, mindiff, pfractdiff, pavediff, details) as int
 // pixGetDifferenceStats(PIX *, PIX *, l_int32, l_int32, l_float32 *, l_float32 *, l_int32) as l_ok
@@ -754,7 +604,6 @@ pix1.Pointer, pix2.Pointer,   factor,   mindiff,   maxfract,   maxave, out  psim
 ///  <param name="pavediff">[out] - average difference of pixels with diff greater than or equal to mindiff, less mindiff</param>
 ///  <param name="details">[in] - use 1 to give normalized histogram and other data</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetDifferenceStats(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -764,21 +613,11 @@ public static int pixGetDifferenceStats(
 				out Single pavediff, 
 				 int details){
 
-
-
-	int _Result = Natives.pixGetDifferenceStats(
-pix1.Pointer, pix2.Pointer,   factor,   mindiff, out  pfractdiff, out  pavediff,   details);
+	int _Result = Natives.pixGetDifferenceStats(pix1.Pointer, pix2.Pointer,   factor,   mindiff, out  pfractdiff, out  pavediff,   details);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1484, 1)
 // pixGetDifferenceHistogram(pix1, pix2, factor) as Numa
 // pixGetDifferenceHistogram(PIX *, PIX *, l_int32) as NUMA *
@@ -800,28 +639,17 @@ pix1.Pointer, pix2.Pointer,   factor,   mindiff, out  pfractdiff, out  pavediff,
 ///  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 ///  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
 ///   <returns>na     Numa of histogram of differences, or NULL on error</returns>
-
 public static Numa pixGetDifferenceHistogram(
 				 Pix pix1, 
 				 Pix pix2, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.pixGetDifferenceHistogram(
-pix1.Pointer, pix2.Pointer,   factor);
+	IntPtr _Result = Natives.pixGetDifferenceHistogram(pix1.Pointer, pix2.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1615, 1)
 // pixGetPerceptualDiff(pixs1, pixs2, sampling, dilation, mindiff, pfract, ppixdiff1, ppixdiff2) as int
 // pixGetPerceptualDiff(PIX *, PIX *, l_int32, l_int32, l_int32, l_float32 *, PIX **, PIX **) as l_ok
@@ -874,7 +702,6 @@ pix1.Pointer, pix2.Pointer,   factor);
 ///  <param name="ppixdiff1">[out][optional] - showing difference (gray or color)</param>
 ///  <param name="ppixdiff2">[out][optional] - showing pixels of sufficient diff</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetPerceptualDiff(
 				 Pix pixs1, 
 				 Pix pixs2, 
@@ -885,25 +712,16 @@ public static int pixGetPerceptualDiff(
 				out Pix ppixdiff1, 
 				out Pix ppixdiff2){
 
-
 	IntPtr ppixdiff1Ptr = IntPtr.Zero;
 	IntPtr ppixdiff2Ptr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetPerceptualDiff(
-pixs1.Pointer, pixs2.Pointer,   sampling,   dilation,   mindiff, out  pfract, out ppixdiff1Ptr, out ppixdiff2Ptr);
+	int _Result = Natives.pixGetPerceptualDiff(pixs1.Pointer, pixs2.Pointer,   sampling,   dilation,   mindiff, out  pfract, out ppixdiff1Ptr, out ppixdiff2Ptr);
 	
-
-
-//  
 	if (ppixdiff1Ptr == IntPtr.Zero) {ppixdiff1 = null;} else { ppixdiff1 = new Pix(ppixdiff1Ptr); };
 	if (ppixdiff2Ptr == IntPtr.Zero) {ppixdiff2 = null;} else { ppixdiff2 = new Pix(ppixdiff2Ptr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1778, 1)
 // pixGetPSNR(pix1, pix2, factor, ppsnr) as int
 // pixGetPSNR(PIX *, PIX *, l_int32, l_float32 *) as l_ok
@@ -937,28 +755,17 @@ pixs1.Pointer, pixs2.Pointer,   sampling,   dilation,   mindiff, out  pfract, ou
 ///  <param name="factor">[in] - sampling factor greater or equal 1</param>
 ///  <param name="ppsnr">[out] - power signal/noise ratio difference</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetPSNR(
 				 Pix pix1, 
 				 Pix pix2, 
 				 int factor, 
 				out Single ppsnr){
 
-
-
-	int _Result = Natives.pixGetPSNR(
-pix1.Pointer, pix2.Pointer,   factor, out  ppsnr);
+	int _Result = Natives.pixGetPSNR(pix1.Pointer, pix2.Pointer,   factor, out  ppsnr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (1893, 1)
 // pixaComparePhotoRegionsByHisto(pixa, minratio, textthresh, factor, nx, ny, simthresh, pnai, pscores, ppixd, debug) as int
 // pixaComparePhotoRegionsByHisto(PIXA *, l_float32, l_float32, l_int32, l_int32, l_int32, l_float32, NUMA **, l_float32 **, PIX **, l_int32) as l_ok
@@ -1007,7 +814,6 @@ pix1.Pointer, pix2.Pointer,   factor, out  ppsnr);
 ///  <param name="ppixd">[out][optional] - pix of similarity classes</param>
 ///  <param name="debug">[in] - 1 to output histograms 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixaComparePhotoRegionsByHisto(
 				 Pixa pixa, 
 				 Single minratio, 
@@ -1021,27 +827,18 @@ public static int pixaComparePhotoRegionsByHisto(
 				out Pix ppixd, 
 				 DebugOnOff debug){
 
-
 	IntPtr pnaiPtr = IntPtr.Zero;
 	IntPtr pscoresPtr = IntPtr.Zero;
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixaComparePhotoRegionsByHisto(
-pixa.Pointer,   minratio,   textthresh,   factor,   nx,   ny,   simthresh, out pnaiPtr, out  pscoresPtr, out ppixdPtr,  (int) debug);
+	int _Result = Natives.pixaComparePhotoRegionsByHisto(pixa.Pointer,   minratio,   textthresh,   factor,   nx,   ny,   simthresh, out pnaiPtr, out  pscoresPtr, out ppixdPtr,  (int) debug);
 	
-
-
-//  
 	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 	if (pscoresPtr == null) {pscores = null;} else { pscores = null; };
 	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (2104, 1)
 // pixComparePhotoRegionsByHisto(pix1, pix2, box1, box2, minratio, factor, nx, ny, pscore, debugflag) as int
 // pixComparePhotoRegionsByHisto(PIX *, PIX *, BOX *, BOX *, l_float32, l_int32, l_int32, l_int32, l_float32 *, l_int32) as l_ok
@@ -1103,7 +900,6 @@ pixa.Pointer,   minratio,   textthresh,   factor,   nx,   ny,   simthresh, out p
 ///  <param name="pscore">[out] - similarity score of histograms</param>
 ///  <param name="debugflag">[in] - 1 for debug output 0 for no debugging</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixComparePhotoRegionsByHisto(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -1116,23 +912,14 @@ public static int pixComparePhotoRegionsByHisto(
 				out Single pscore, 
 				 int debugflag){
 
-
 	IntPtr box1Ptr = IntPtr.Zero; 	if (box1 != null) {box1Ptr = box1.Pointer;}
 	IntPtr box2Ptr = IntPtr.Zero; 	if (box2 != null) {box2Ptr = box2.Pointer;}
 
-	int _Result = Natives.pixComparePhotoRegionsByHisto(
-pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   factor,   nx,   ny, out  pscore,   debugflag);
+	int _Result = Natives.pixComparePhotoRegionsByHisto(pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   factor,   nx,   ny, out  pscore,   debugflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (2214, 1)
 // pixGenPhotoHistos(pixs, box, factor, thresh, nx, ny, pnaa, pw, ph, debugindex) as int
 // pixGenPhotoHistos(PIX *, BOX *, l_int32, l_float32, l_int32, l_int32, NUMAA **, l_int32 *, l_int32 *, l_int32) as l_ok
@@ -1168,7 +955,6 @@ pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   factor,   nx,   ny, 
 ///  <param name="ph">[out] - height of image used to make histograms</param>
 ///  <param name="debugindex">[in] - 0 for no debugging positive integer otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGenPhotoHistos(
 				 Pix pixs, 
 				 Box box, 
@@ -1181,24 +967,15 @@ public static int pixGenPhotoHistos(
 				out int ph, 
 				 int debugindex){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pnaaPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGenPhotoHistos(
-pixs.Pointer, boxPtr,   factor,   thresh,   nx,   ny, out pnaaPtr, out  pw, out  ph,   debugindex);
+	int _Result = Natives.pixGenPhotoHistos(pixs.Pointer, boxPtr,   factor,   thresh,   nx,   ny, out pnaaPtr, out  pw, out  ph,   debugindex);
 	
-
-
-//  
 	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (2326, 1)
 // pixPadToCenterCentroid(pixs, factor) as Pix
 // pixPadToCenterCentroid(PIX *, l_int32) as PIX *
@@ -1214,27 +991,16 @@ pixs.Pointer, boxPtr,   factor,   thresh,   nx,   ny, out pnaaPtr, out  pw, out 
 ///  <param name="pixs">[in] - any depth, colormap OK</param>
 ///  <param name="factor">[in] - subsampling for centroid greater or equal 1</param>
 ///   <returns>pixd padded with white pixels, or NULL on error.</returns>
-
 public static Pix pixPadToCenterCentroid(
 				 Pix pixs, 
 				 int factor){
 
-
-
-	IntPtr _Result = Natives.pixPadToCenterCentroid(
-pixs.Pointer,   factor);
+	IntPtr _Result = Natives.pixPadToCenterCentroid(pixs.Pointer,   factor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (2380, 1)
 // pixCentroid8(pixs, factor, pcx, pcy) as int
 // pixCentroid8(PIX *, l_int32, l_float32 *, l_float32 *) as l_ok
@@ -1253,28 +1019,17 @@ pixs.Pointer,   factor);
 ///  <param name="pcx">[out] - x value of centroid</param>
 ///  <param name="pcy">[out] - y value of centroid</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCentroid8(
 				 Pix pixs, 
 				 int factor, 
 				out Single pcx, 
 				out Single pcy){
 
-
-
-	int _Result = Natives.pixCentroid8(
-pixs.Pointer,   factor, out  pcx, out  pcy);
+	int _Result = Natives.pixCentroid8(pixs.Pointer,   factor, out  pcx, out  pcy);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (2458, 1)
 // pixDecideIfPhotoImage(pix, factor, nx, ny, thresh, pnaa, pixadebug) as int
 // pixDecideIfPhotoImage(PIX *, l_int32, l_int32, l_int32, l_float32, NUMAA **, PIXA *) as l_ok
@@ -1307,7 +1062,6 @@ pixs.Pointer,   factor, out  pcx, out  pcy);
 ///  <param name="pnaa">[out] - array of normalized histograms</param>
 ///  <param name="pixadebug">[in][optional] - use only for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixDecideIfPhotoImage(
 				 Pix pix, 
 				 int factor, 
@@ -1317,24 +1071,15 @@ public static int pixDecideIfPhotoImage(
 				out Numaa pnaa, 
 				 Pixa pixadebug){
 
-
 	IntPtr pnaaPtr = IntPtr.Zero;
 	IntPtr pixadebugPtr = IntPtr.Zero; 	if (pixadebug != null) {pixadebugPtr = pixadebug.Pointer;}
 
-	int _Result = Natives.pixDecideIfPhotoImage(
-pix.Pointer,   factor,   nx,   ny,   thresh, out pnaaPtr, pixadebugPtr);
+	int _Result = Natives.pixDecideIfPhotoImage(pix.Pointer,   factor,   nx,   ny,   thresh, out pnaaPtr, pixadebugPtr);
 	
-
-
-//  
 	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (2590, 1)
 // compareTilesByHisto(naa1, naa2, minratio, w1, h1, w2, h2, pscore, pixadebug) as int
 // compareTilesByHisto(NUMAA *, NUMAA *, l_float32, l_int32, l_int32, l_int32, l_int32, l_float32 *, PIXA *) as l_ok
@@ -1363,7 +1108,6 @@ pix.Pointer,   factor,   nx,   ny,   thresh, out pnaaPtr, pixadebugPtr);
 ///  <param name="pscore">[out] - similarity score of histograms</param>
 ///  <param name="pixadebug">[in][optional] - use only for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int compareTilesByHisto(
 				 Numaa naa1, 
 				 Numaa naa2, 
@@ -1375,22 +1119,13 @@ public static int compareTilesByHisto(
 				out Single pscore, 
 				 Pixa pixadebug){
 
-
 	IntPtr pixadebugPtr = IntPtr.Zero; 	if (pixadebug != null) {pixadebugPtr = pixadebug.Pointer;}
 
-	int _Result = Natives.compareTilesByHisto(
-naa1.Pointer, naa2.Pointer,   minratio,   w1,   h1,   w2,   h2, out  pscore, pixadebugPtr);
+	int _Result = Natives.compareTilesByHisto(naa1.Pointer, naa2.Pointer,   minratio,   w1,   h1,   w2,   h2, out  pscore, pixadebugPtr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (2758, 1)
 // pixCompareGrayByHisto(pix1, pix2, box1, box2, minratio, maxgray, factor, nx, ny, pscore, debugflag) as int
 // pixCompareGrayByHisto(PIX *, PIX *, BOX *, BOX *, l_float32, l_int32, l_int32, l_int32, l_int32, l_float32 *, l_int32) as l_ok
@@ -1464,7 +1199,6 @@ naa1.Pointer, naa2.Pointer,   minratio,   w1,   h1,   w2,   h2, out  pscore, pix
 ///  <param name="pscore">[out] - similarity score of histograms</param>
 ///  <param name="debugflag">[in] - 1 for debug output 0 for no debugging</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCompareGrayByHisto(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -1478,23 +1212,14 @@ public static int pixCompareGrayByHisto(
 				out Single pscore, 
 				 int debugflag){
 
-
 	IntPtr box1Ptr = IntPtr.Zero; 	if (box1 != null) {box1Ptr = box1.Pointer;}
 	IntPtr box2Ptr = IntPtr.Zero; 	if (box2 != null) {box2Ptr = box2.Pointer;}
 
-	int _Result = Natives.pixCompareGrayByHisto(
-pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   maxgray,   factor,   nx,   ny, out  pscore,   debugflag);
+	int _Result = Natives.pixCompareGrayByHisto(pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   maxgray,   factor,   nx,   ny, out  pscore,   debugflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (3011, 1)
 // pixCropAlignedToCentroid(pix1, pix2, factor, pbox1, pbox2) as int
 // pixCropAlignedToCentroid(PIX *, PIX *, l_int32, BOX **, BOX **) as l_ok
@@ -1512,7 +1237,6 @@ pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   maxgray,   factor,  
 ///  <param name="pbox1">[out] - crop box for pix1</param>
 ///  <param name="pbox2">[out] - crop box for pix2</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCropAlignedToCentroid(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -1520,25 +1244,16 @@ public static int pixCropAlignedToCentroid(
 				out Box pbox1, 
 				out Box pbox2){
 
-
 	IntPtr pbox1Ptr = IntPtr.Zero;
 	IntPtr pbox2Ptr = IntPtr.Zero;
 
-	int _Result = Natives.pixCropAlignedToCentroid(
-pix1.Pointer, pix2.Pointer,   factor, out pbox1Ptr, out pbox2Ptr);
+	int _Result = Natives.pixCropAlignedToCentroid(pix1.Pointer, pix2.Pointer,   factor, out pbox1Ptr, out pbox2Ptr);
 	
-
-
-//  
 	if (pbox1Ptr == IntPtr.Zero) {pbox1 = null;} else { pbox1 = new Box(pbox1Ptr); };
 	if (pbox2Ptr == IntPtr.Zero) {pbox2 = null;} else { pbox2 = new Box(pbox2Ptr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (3086, 1)
 // l_compressGrayHistograms(naa, w, h, psize) as Byte[]
 // l_compressGrayHistograms(NUMAA *, l_int32, l_int32, size_t *) as l_uint8 *
@@ -1563,28 +1278,17 @@ pix1.Pointer, pix2.Pointer,   factor, out pbox1Ptr, out pbox2Ptr);
 ///  <param name="h">[in] - size of image</param>
 ///  <param name="psize">[out] - size of byte array</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static Byte[] l_compressGrayHistograms(
 				 Numaa naa, 
 				 int w, 
 				 int h, 
 				out uint psize){
 
-
-
-	Byte[] _Result = Natives.l_compressGrayHistograms(
-naa.Pointer,   w,   h, out  psize);
+	Byte[] _Result = Natives.l_compressGrayHistograms(naa.Pointer,   w,   h, out  psize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (3154, 1)
 // l_uncompressGrayHistograms(bytea, size, pw, ph) as Numaa
 // l_uncompressGrayHistograms(l_uint8 *, size_t, l_int32 *, l_int32 *) as NUMAA *
@@ -1605,29 +1309,18 @@ naa.Pointer,   w,   h, out  psize);
 ///  <param name="pw">[out] - width of the image that generated the histograms</param>
 ///  <param name="ph">[out] - height of the image</param>
 ///   <returns>numaa     representing N histograms, each with 256 bins, or NULL on error.</returns>
-
 public static Numaa l_uncompressGrayHistograms(
 				 Byte[] bytea, 
 				 uint size, 
 				out int pw, 
 				out int ph){
 
-
-
-	IntPtr _Result = Natives.l_uncompressGrayHistograms(
-  bytea,   size, out  pw, out  ph);
+	IntPtr _Result = Natives.l_uncompressGrayHistograms(  bytea,   size, out  pw, out  ph);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numaa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (3223, 1)
 // pixCompareWithTranslation(pix1, pix2, thresh, pdelx, pdely, pscore, debugflag) as int
 // pixCompareWithTranslation(PIX *, PIX *, l_int32, l_int32 *, l_int32 *, l_float32 *, l_int32) as l_ok
@@ -1662,7 +1355,6 @@ public static Numaa l_uncompressGrayHistograms(
 ///  <param name="pscore">[out] - correlation score at best alignment</param>
 ///  <param name="debugflag">[in] - 1 for debug output 0 for no debugging</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCompareWithTranslation(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -1672,21 +1364,11 @@ public static int pixCompareWithTranslation(
 				out Single pscore, 
 				 int debugflag){
 
-
-
-	int _Result = Natives.pixCompareWithTranslation(
-pix1.Pointer, pix2.Pointer,   thresh, out  pdelx, out  pdely, out  pscore,   debugflag);
+	int _Result = Natives.pixCompareWithTranslation(pix1.Pointer, pix2.Pointer,   thresh, out  pdelx, out  pdely, out  pscore,   debugflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // compare.c (3377, 1)
 // pixBestCorrelation(pix1, pix2, area1, area2, etransx, etransy, maxshift, tab8, pdelx, pdely, pscore, debugflag) as int
 // pixBestCorrelation(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *, l_float32 *, l_int32) as l_ok
@@ -1727,7 +1409,6 @@ pix1.Pointer, pix2.Pointer,   thresh, out  pdelx, out  pdely, out  pscore,   deb
 ///  <param name="pscore">[out][optional] - maximum score found can be NULL</param>
 ///  <param name="debugflag">[in] - smaller or equal 0 to skip positive to generate output. The integer is used to label the debug image.</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixBestCorrelation(
 				 Pix pix1, 
 				 Pix pix2, 
@@ -1742,17 +1423,8 @@ public static int pixBestCorrelation(
 				out Single pscore, 
 				 int debugflag){
 
-
-
-	int _Result = Natives.pixBestCorrelation(
-pix1.Pointer, pix2.Pointer,   area1,   area2,   etransx,   etransy,   maxshift,   tab8, out  pdelx, out  pdely, out  pscore,   debugflag);
+	int _Result = Natives.pixBestCorrelation(pix1.Pointer, pix2.Pointer,   area1,   area2,   etransx,   etransy,   maxshift,   tab8, out  pdelx, out  pdely, out  pscore,   debugflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

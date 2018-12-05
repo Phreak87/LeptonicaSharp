@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (155, 1)
 // pixSetMasked(pixd, pixm, val) as int
 // pixSetMasked(PIX *, PIX *, l_uint32) as l_ok
@@ -45,28 +44,18 @@ public partial class _All {
 ///  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
 ///  <param name="val">[in] - value to set at each masked pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetMasked(
 				 Pix pixd, 
 				 Pix pixm, 
 				 uint val){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixSetMasked(
-pixd.Pointer, pixmPtr,   val);
+	int _Result = Natives.pixSetMasked(pixd.Pointer, pixmPtr,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (294, 1)
 // pixSetMaskedGeneral(pixd, pixm, val, x, y) as int
 // pixSetMaskedGeneral(PIX *, PIX *, l_uint32, l_int32, l_int32) as l_ok
@@ -102,7 +91,6 @@ pixd.Pointer, pixmPtr,   val);
 ///  <param name="x">[in] - location of UL corner of pixm relative to pixd can be negative</param>
 ///  <param name="y">[in] - location of UL corner of pixm relative to pixd can be negative</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetMaskedGeneral(
 				 Pix pixd, 
 				 Pix pixm, 
@@ -110,22 +98,13 @@ public static int pixSetMaskedGeneral(
 				 int x, 
 				 int y){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixSetMaskedGeneral(
-pixd.Pointer, pixmPtr,   val,   x,   y);
+	int _Result = Natives.pixSetMaskedGeneral(pixd.Pointer, pixmPtr,   val,   x,   y);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (374, 1)
 // pixCombineMasked(pixd, pixs, pixm) as int
 // pixCombineMasked(PIX *, PIX *, PIX *) as l_ok
@@ -160,28 +139,18 @@ pixd.Pointer, pixmPtr,   val,   x,   y);
 ///  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb no cmap</param>
 ///  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCombineMasked(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Pix pixm){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixCombineMasked(
-pixd.Pointer, pixs.Pointer, pixmPtr);
+	int _Result = Natives.pixCombineMasked(pixd.Pointer, pixs.Pointer, pixmPtr);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (493, 1)
 // pixCombineMaskedGeneral(pixd, pixs, pixm, x, y) as int
 // pixCombineMaskedGeneral(PIX *, PIX *, PIX *, l_int32, l_int32) as l_ok
@@ -227,7 +196,6 @@ pixd.Pointer, pixs.Pointer, pixmPtr);
 ///  <param name="x">[in] - origin of pixs and pixm relative to pixd can be negative</param>
 ///  <param name="y">[in] - origin of pixs and pixm relative to pixd can be negative</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCombineMaskedGeneral(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -235,22 +203,13 @@ public static int pixCombineMaskedGeneral(
 				 int x, 
 				 int y){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixCombineMaskedGeneral(
-pixd.Pointer, pixs.Pointer, pixmPtr,   x,   y);
+	int _Result = Natives.pixCombineMaskedGeneral(pixd.Pointer, pixs.Pointer, pixmPtr,   x,   y);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (618, 1)
 // pixPaintThroughMask(pixd, pixm, x, y, val) as int
 // pixPaintThroughMask(PIX *, PIX *, l_int32, l_int32, l_uint32) as l_ok
@@ -302,7 +261,6 @@ pixd.Pointer, pixs.Pointer, pixmPtr,   x,   y);
 ///  <param name="y">[in] - origin of pixm relative to pixd can be negative</param>
 ///  <param name="val">[in] - pixel value to set at each masked pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixPaintThroughMask(
 				 Pix pixd, 
 				 Pix pixm, 
@@ -310,22 +268,13 @@ public static int pixPaintThroughMask(
 				 int y, 
 				 uint val){
 
-
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixPaintThroughMask(
-pixd.Pointer, pixmPtr,   x,   y,   val);
+	int _Result = Natives.pixPaintThroughMask(pixd.Pointer, pixmPtr,   x,   y,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (786, 1)
 // pixPaintSelfThroughMask(pixd, pixm, x, y, searchdir, mindist, tilesize, ntiles, distblend) as int
 // pixPaintSelfThroughMask(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -396,7 +345,6 @@ pixd.Pointer, pixmPtr,   x,   y,   val);
 ///  <param name="ntiles">[in] - number of tiles tested in each row/column</param>
 ///  <param name="distblend">[in] - distance outside the fg used for blending with pixs</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixPaintSelfThroughMask(
 				 Pix pixd, 
 				 Pix pixm, 
@@ -408,21 +356,11 @@ public static int pixPaintSelfThroughMask(
 				 int ntiles, 
 				 int distblend){
 
-
-
-	int _Result = Natives.pixPaintSelfThroughMask(
-pixd.Pointer, pixm.Pointer,   x,   y,   searchdir,   mindist,   tilesize,   ntiles,   distblend);
+	int _Result = Natives.pixPaintSelfThroughMask(pixd.Pointer, pixm.Pointer,   x,   y,   searchdir,   mindist,   tilesize,   ntiles,   distblend);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (943, 1)
 // pixMakeMaskFromVal(pixs, val) as Pix
 // pixMakeMaskFromVal(PIX *, l_int32) as PIX *
@@ -438,27 +376,16 @@ pixd.Pointer, pixm.Pointer,   x,   y,   searchdir,   mindist,   tilesize,   ntil
 ///  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
 ///  <param name="val">[in] - pixel value</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
-
 public static Pix pixMakeMaskFromVal(
 				 Pix pixs, 
 				 int val){
 
-
-
-	IntPtr _Result = Natives.pixMakeMaskFromVal(
-pixs.Pointer,   val);
+	IntPtr _Result = Natives.pixMakeMaskFromVal(pixs.Pointer,   val);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1000, 1)
 // pixMakeMaskFromLUT(pixs, tab) as Pix
 // pixMakeMaskFromLUT(PIX *, l_int32 *) as PIX *
@@ -475,27 +402,16 @@ pixs.Pointer,   val);
 ///  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
 ///  <param name="tab">[in] - 256-entry LUT 1 means to write to mask</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
-
 public static Pix pixMakeMaskFromLUT(
 				 Pix pixs, 
 				 int[] tab){
 
-
-
-	IntPtr _Result = Natives.pixMakeMaskFromLUT(
-pixs.Pointer,   tab);
+	IntPtr _Result = Natives.pixMakeMaskFromLUT(pixs.Pointer,   tab);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1069, 1)
 // pixMakeArbMaskFromRGB(pixs, rc, gc, bc, thresh) as Pix
 // pixMakeArbMaskFromRGB(PIX *, l_float32, l_float32, l_float32, l_float32) as PIX *
@@ -525,7 +441,6 @@ pixs.Pointer,   tab);
 ///  <param name="bc">[in] - arithmetic factors can be negative</param>
 ///  <param name="thresh">[in] - lower threshold on weighted sum of components</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
-
 public static Pix pixMakeArbMaskFromRGB(
 				 Pix pixs, 
 				 Single rc, 
@@ -533,22 +448,12 @@ public static Pix pixMakeArbMaskFromRGB(
 				 Single bc, 
 				 Single thresh){
 
-
-
-	IntPtr _Result = Natives.pixMakeArbMaskFromRGB(
-pixs.Pointer,   rc,   gc,   bc,   thresh);
+	IntPtr _Result = Natives.pixMakeArbMaskFromRGB(pixs.Pointer,   rc,   gc,   bc,   thresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1146, 1)
 // pixSetUnderTransparency(pixs, val, debug) as Pix
 // pixSetUnderTransparency(PIX *, l_uint32, l_int32) as PIX *
@@ -608,28 +513,17 @@ pixs.Pointer,   rc,   gc,   bc,   thresh);
 ///  <param name="val">[in] - 32 bit unsigned color to use where alpha == 0</param>
 ///  <param name="debug">[in] - displays layers of pixs</param>
 ///   <returns>pixd 32 bpp rgba, or NULL on error</returns>
-
 public static Pix pixSetUnderTransparency(
 				 Pix pixs, 
 				 uint val, 
 				 DebugOnOff debug){
 
-
-
-	IntPtr _Result = Natives.pixSetUnderTransparency(
-pixs.Pointer,   val,  (int) debug);
+	IntPtr _Result = Natives.pixSetUnderTransparency(pixs.Pointer,   val,  (int) debug);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1222, 1)
 // pixMakeAlphaFromMask(pixs, dist, pbox) as Pix
 // pixMakeAlphaFromMask(PIX *, l_int32, BOX **) as PIX *
@@ -663,30 +557,20 @@ pixs.Pointer,   val,  (int) debug);
 ///  <param name="dist">[in] - blending distance typically 10 - 30</param>
 ///  <param name="pbox">[out][optional] - use NULL to get the full size</param>
 ///   <returns>pixd (8 bpp gray, or NULL on error</returns>
-
 public static Pix pixMakeAlphaFromMask(
 				 Pix pixs, 
 				 int dist, 
 				out Box pbox){
 
-
 	IntPtr pboxPtr = IntPtr.Zero;
 
-	IntPtr _Result = Natives.pixMakeAlphaFromMask(
-pixs.Pointer,   dist, out pboxPtr);
+	IntPtr _Result = Natives.pixMakeAlphaFromMask(pixs.Pointer,   dist, out pboxPtr);
 	
-
-
-//  
 	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1291, 1)
 // pixGetColorNearMaskBoundary(pixs, pixm, box, dist, pval, debug) as int
 // pixGetColorNearMaskBoundary(PIX *, PIX *, BOX *, l_int32, l_uint32 *, l_int32) as l_ok
@@ -705,7 +589,6 @@ pixs.Pointer,   dist, out pboxPtr);
 ///  <param name="pval">[out] - average pixel value</param>
 ///  <param name="debug">[in] - 1 to output mask images</param>
 ///   <returns>0 if OK, 1 on error.</returns>
-
 public static int pixGetColorNearMaskBoundary(
 				 Pix pixs, 
 				 Pix pixm, 
@@ -714,21 +597,11 @@ public static int pixGetColorNearMaskBoundary(
 				out uint pval, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixGetColorNearMaskBoundary(
-pixs.Pointer, pixm.Pointer, box.Pointer,   dist, out  pval,  (int) debug);
+	int _Result = Natives.pixGetColorNearMaskBoundary(pixs.Pointer, pixm.Pointer, box.Pointer,   dist, out  pval,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1395, 1)
 // pixInvert(pixd, pixs) as Pix
 // pixInvert(PIX *, PIX *) as PIX *
@@ -751,28 +624,18 @@ pixs.Pointer, pixm.Pointer, box.Pointer,   dist, out  pval,  (int) debug);
 ///  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixInvert(
 				 Pix pixd, 
 				 Pix pixs){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixInvert(
-pixdPtr, pixs.Pointer);
+	IntPtr _Result = Natives.pixInvert(pixdPtr, pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1446, 1)
 // pixOr(pixd, pixs1, pixs2) as Pix
 // pixOr(PIX *, PIX *, PIX *) as PIX *
@@ -808,29 +671,19 @@ pixdPtr, pixs.Pointer);
 ///  <param name="pixs1">[in] - can be == pixd</param>
 ///  <param name="pixs2">[in] - must be != pixd</param>
 ///   <returns>pixd always</returns>
-
 public static Pix pixOr(
 				 Pix pixd, 
 				 Pix pixs1, 
 				 Pix pixs2){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOr(
-pixdPtr, pixs1.Pointer, pixs2.Pointer);
+	IntPtr _Result = Natives.pixOr(pixdPtr, pixs1.Pointer, pixs2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1510, 1)
 // pixAnd(pixd, pixs1, pixs2) as Pix
 // pixAnd(PIX *, PIX *, PIX *) as PIX *
@@ -866,29 +719,19 @@ pixdPtr, pixs1.Pointer, pixs2.Pointer);
 ///  <param name="pixs1">[in] - can be == pixd</param>
 ///  <param name="pixs2">[in] - must be != pixd</param>
 ///   <returns>pixd always</returns>
-
 public static Pix pixAnd(
 				 Pix pixd, 
 				 Pix pixs1, 
 				 Pix pixs2){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixAnd(
-pixdPtr, pixs1.Pointer, pixs2.Pointer);
+	IntPtr _Result = Natives.pixAnd(pixdPtr, pixs1.Pointer, pixs2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1574, 1)
 // pixXor(pixd, pixs1, pixs2) as Pix
 // pixXor(PIX *, PIX *, PIX *) as PIX *
@@ -924,29 +767,19 @@ pixdPtr, pixs1.Pointer, pixs2.Pointer);
 ///  <param name="pixs1">[in] - can be == pixd</param>
 ///  <param name="pixs2">[in] - must be != pixd</param>
 ///   <returns>pixd always</returns>
-
 public static Pix pixXor(
 				 Pix pixd, 
 				 Pix pixs1, 
 				 Pix pixs2){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixXor(
-pixdPtr, pixs1.Pointer, pixs2.Pointer);
+	IntPtr _Result = Natives.pixXor(pixdPtr, pixs1.Pointer, pixs2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1639, 1)
 // pixSubtract(pixd, pixs1, pixs2) as Pix
 // pixSubtract(PIX *, PIX *, PIX *) as PIX *
@@ -983,29 +816,19 @@ pixdPtr, pixs1.Pointer, pixs2.Pointer);
 ///  <param name="pixs1">[in] - can be == pixd</param>
 ///  <param name="pixs2">[in] - can be == pixd</param>
 ///   <returns>pixd always</returns>
-
 public static Pix pixSubtract(
 				 Pix pixd, 
 				 Pix pixs1, 
 				 Pix pixs2){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixSubtract(
-pixdPtr, pixs1.Pointer, pixs2.Pointer);
+	IntPtr _Result = Natives.pixSubtract(pixdPtr, pixs1.Pointer, pixs2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1701, 1)
 // pixZero(pix, pempty) as int
 // pixZero(PIX *, l_int32 *) as l_ok
@@ -1026,26 +849,15 @@ pixdPtr, pixs1.Pointer, pixs2.Pointer);
 ///  <param name="pix">[in] - all depths colormap OK</param>
 ///  <param name="pempty">[out] - 1 if all bits in image data field are 0 0 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixZero(
 				 Pix pix, 
 				out int pempty){
 
-
-
-	int _Result = Natives.pixZero(
-pix.Pointer, out  pempty);
+	int _Result = Natives.pixZero(pix.Pointer, out  pempty);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1751, 1)
 // pixForegroundFraction(pix, pfract) as int
 // pixForegroundFraction(PIX *, l_float32 *) as l_ok
@@ -1055,26 +867,15 @@ pix.Pointer, out  pempty);
 ///  <param name="pix">[in] - 1 bpp</param>
 ///  <param name="pfract">[out] - fraction of ON pixels</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixForegroundFraction(
 				 Pix pix, 
 				out Single pfract){
 
-
-
-	int _Result = Natives.pixForegroundFraction(
-pix.Pointer, out  pfract);
+	int _Result = Natives.pixForegroundFraction(pix.Pointer, out  pfract);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1778, 1)
 // pixaCountPixels(pixa) as Numa
 // pixaCountPixels(PIXA *) as NUMA *
@@ -1083,26 +884,15 @@ pix.Pointer, out  pfract);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCountPixels/*"/>
 ///  <param name="pixa">[in] - array of 1 bpp pix</param>
 ///   <returns>na of ON pixels in each pix, or NULL on error</returns>
-
 public static Numa pixaCountPixels(
 				 Pixa pixa){
 
-
-
-	IntPtr _Result = Natives.pixaCountPixels(
-pixa.Pointer);
+	IntPtr _Result = Natives.pixaCountPixels(pixa.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1823, 1)
 // pixCountPixels(pixs, pcount, tab8) as int
 // pixCountPixels(PIX *, l_int32 *, l_int32 *) as l_ok
@@ -1113,27 +903,16 @@ pixa.Pointer);
 ///  <param name="pcount">[out] - count of ON pixels</param>
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCountPixels(
 				 Pix pixs, 
 				out int pcount, 
 				 int[] tab8){
 
-
-
-	int _Result = Natives.pixCountPixels(
-pixs.Pointer, out  pcount,   tab8);
+	int _Result = Natives.pixCountPixels(pixs.Pointer, out  pcount,   tab8);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1887, 1)
 // pixCountPixelsInRect(pixs, box, pcount, tab8) as int
 // pixCountPixelsInRect(PIX *, BOX *, l_int32 *, l_int32 *) as l_ok
@@ -1145,28 +924,17 @@ pixs.Pointer, out  pcount,   tab8);
 ///  <param name="pcount">[out] - count of ON pixels</param>
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCountPixelsInRect(
 				 Pix pixs, 
 				 Box box, 
 				out int pcount, 
 				 int[] tab8){
 
-
-
-	int _Result = Natives.pixCountPixelsInRect(
-pixs.Pointer, box.Pointer, out  pcount,   tab8);
+	int _Result = Natives.pixCountPixelsInRect(pixs.Pointer, box.Pointer, out  pcount,   tab8);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1931, 1)
 // pixCountByRow(pix, box) as Numa
 // pixCountByRow(PIX *, BOX *) as NUMA *
@@ -1180,28 +948,18 @@ pixs.Pointer, box.Pointer, out  pcount,   tab8);
 ///  <param name="pix">[in] - 1 bpp</param>
 ///  <param name="box">[in][optional] - clipping box for count can be null</param>
 ///   <returns>na of number of ON pixels by row, or NULL on error</returns>
-
 public static Numa pixCountByRow(
 				 Pix pix, 
 				 Box box){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixCountByRow(
-pix.Pointer, boxPtr);
+	IntPtr _Result = Natives.pixCountByRow(pix.Pointer, boxPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (1983, 1)
 // pixCountByColumn(pix, box) as Numa
 // pixCountByColumn(PIX *, BOX *) as NUMA *
@@ -1215,28 +973,18 @@ pix.Pointer, boxPtr);
 ///  <param name="pix">[in] - 1 bpp</param>
 ///  <param name="box">[in][optional] - clipping box for count can be null</param>
 ///   <returns>na of number of ON pixels by column, or NULL on error</returns>
-
 public static Numa pixCountByColumn(
 				 Pix pix, 
 				 Box box){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixCountByColumn(
-pix.Pointer, boxPtr);
+	IntPtr _Result = Natives.pixCountByColumn(pix.Pointer, boxPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2029, 1)
 // pixCountPixelsByRow(pix, tab8) as Numa
 // pixCountPixelsByRow(PIX *, l_int32 *) as NUMA *
@@ -1246,27 +994,16 @@ pix.Pointer, boxPtr);
 ///  <param name="pix">[in] - 1 bpp</param>
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>na of counts, or NULL on error</returns>
-
 public static Numa pixCountPixelsByRow(
 				 Pix pix, 
 				 int[] tab8){
 
-
-
-	IntPtr _Result = Natives.pixCountPixelsByRow(
-pix.Pointer,   tab8);
+	IntPtr _Result = Natives.pixCountPixelsByRow(pix.Pointer,   tab8);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2063, 1)
 // pixCountPixelsByColumn(pix) as Numa
 // pixCountPixelsByColumn(PIX *) as NUMA *
@@ -1275,26 +1012,15 @@ pix.Pointer,   tab8);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCountPixelsByColumn/*"/>
 ///  <param name="pix">[in] - 1 bpp</param>
 ///   <returns>na of counts in each column, or NULL on error</returns>
-
 public static Numa pixCountPixelsByColumn(
 				 Pix pix){
 
-
-
-	IntPtr _Result = Natives.pixCountPixelsByColumn(
-pix.Pointer);
+	IntPtr _Result = Natives.pixCountPixelsByColumn(pix.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2104, 1)
 // pixCountPixelsInRow(pix, row, pcount, tab8) as int
 // pixCountPixelsInRow(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -1306,28 +1032,17 @@ pix.Pointer);
 ///  <param name="pcount">[out] - sum of ON pixels in raster line</param>
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCountPixelsInRow(
 				 Pix pix, 
 				 int row, 
 				out int pcount, 
 				 int[] tab8){
 
-
-
-	int _Result = Natives.pixCountPixelsInRow(
-pix.Pointer,   row, out  pcount,   tab8);
+	int _Result = Natives.pixCountPixelsInRow(pix.Pointer,   row, out  pcount,   tab8);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2167, 1)
 // pixGetMomentByColumn(pix, order) as Numa
 // pixGetMomentByColumn(PIX *, l_int32) as NUMA *
@@ -1337,27 +1052,16 @@ pix.Pointer,   row, out  pcount,   tab8);
 ///  <param name="pix">[in] - 1 bpp</param>
 ///  <param name="order">[in] - of moment, either 1 or 2</param>
 ///   <returns>na of first moment of fg pixels, by column, or NULL on error</returns>
-
 public static Numa pixGetMomentByColumn(
 				 Pix pix, 
 				 int order){
 
-
-
-	IntPtr _Result = Natives.pixGetMomentByColumn(
-pix.Pointer,   order);
+	IntPtr _Result = Natives.pixGetMomentByColumn(pix.Pointer,   order);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2225, 1)
 // pixThresholdPixelSum(pix, thresh, pabove, tab8) as int
 // pixThresholdPixelSum(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -1376,28 +1080,17 @@ pix.Pointer,   order);
 ///  <param name="pabove">[out] - 1 if above threshold 0 if equal to or less than threshold</param>
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixThresholdPixelSum(
 				 Pix pix, 
 				 int thresh, 
 				out int pabove, 
 				 int[] tab8){
 
-
-
-	int _Result = Natives.pixThresholdPixelSum(
-pix.Pointer,   thresh, out  pabove,   tab8);
+	int _Result = Natives.pixThresholdPixelSum(pix.Pointer,   thresh, out  pabove,   tab8);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2297, 1)
 // makePixelSumTab8() as int[]
 // makePixelSumTab8() as l_int32 *
@@ -1409,23 +1102,13 @@ pix.Pointer,   thresh, out  pabove,   tab8);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makePixelSumTab8/*"/>
 ///   <returns>table of 256 l_int32, or NULL on error</returns>
-
 public static int[] makePixelSumTab8(){
-
-
 
 	int[] _Result = Natives.makePixelSumTab8();
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2342, 1)
 // makePixelCentroidTab8() as int[]
 // makePixelCentroidTab8() as l_int32 *
@@ -1443,23 +1126,13 @@ public static int[] makePixelSumTab8(){
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makePixelCentroidTab8/*"/>
 ///   <returns>table of 256 l_int32, or NULL on error</returns>
-
 public static int[] makePixelCentroidTab8(){
-
-
 
 	int[] _Result = Natives.makePixelCentroidTab8();
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2400, 1)
 // pixAverageByRow(pix, box, type) as Numa
 // pixAverageByRow(PIX *, BOX *, l_int32) as NUMA *
@@ -1477,29 +1150,19 @@ public static int[] makePixelCentroidTab8(){
 ///  <param name="box">[in][optional] - clipping box for sum can be null</param>
 ///  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
 ///   <returns>na of pixel averages by row, or NULL on error</returns>
-
 public static Numa pixAverageByRow(
 				 Pix pix, 
 				 Box box, 
 				 int type){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixAverageByRow(
-pix.Pointer, boxPtr,   type);
+	IntPtr _Result = Natives.pixAverageByRow(pix.Pointer, boxPtr,   type);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2469, 1)
 // pixAverageByColumn(pix, box, type) as Numa
 // pixAverageByColumn(PIX *, BOX *, l_int32) as NUMA *
@@ -1517,29 +1180,19 @@ pix.Pointer, boxPtr,   type);
 ///  <param name="box">[in][optional] - clipping box for sum can be null</param>
 ///  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
 ///   <returns>na of pixel averages by column, or NULL on error</returns>
-
 public static Numa pixAverageByColumn(
 				 Pix pix, 
 				 Box box, 
 				 int type){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixAverageByColumn(
-pix.Pointer, boxPtr,   type);
+	IntPtr _Result = Natives.pixAverageByColumn(pix.Pointer, boxPtr,   type);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2534, 1)
 // pixAverageInRect(pix, box, pave) as int
 // pixAverageInRect(PIX *, BOX *, l_float32 *) as l_ok
@@ -1550,28 +1203,18 @@ pix.Pointer, boxPtr,   type);
 ///  <param name="box">[in][optional] - if null, use entire image</param>
 ///  <param name="pave">[out] - average of pixel values in region</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixAverageInRect(
 				 Pix pix, 
 				 Box box, 
 				out Single pave){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixAverageInRect(
-pix.Pointer, boxPtr, out  pave);
+	int _Result = Natives.pixAverageInRect(pix.Pointer, boxPtr, out  pave);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2600, 1)
 // pixVarianceByRow(pix, box) as Numa
 // pixVarianceByRow(PIX *, BOX *) as NUMA *
@@ -1588,28 +1231,18 @@ pix.Pointer, boxPtr, out  pave);
 ///  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 ///  <param name="box">[in][optional] - clipping box for variance can be null</param>
 ///   <returns>na of rmsdev by row, or NULL on error</returns>
-
 public static Numa pixVarianceByRow(
 				 Pix pix, 
 				 Box box){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixVarianceByRow(
-pix.Pointer, boxPtr);
+	IntPtr _Result = Natives.pixVarianceByRow(pix.Pointer, boxPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2665, 1)
 // pixVarianceByColumn(pix, box) as Numa
 // pixVarianceByColumn(PIX *, BOX *) as NUMA *
@@ -1626,28 +1259,18 @@ pix.Pointer, boxPtr);
 ///  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 ///  <param name="box">[in][optional] - clipping box for variance can be null</param>
 ///   <returns>na of rmsdev by column, or NULL on error</returns>
-
 public static Numa pixVarianceByColumn(
 				 Pix pix, 
 				 Box box){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixVarianceByColumn(
-pix.Pointer, boxPtr);
+	IntPtr _Result = Natives.pixVarianceByColumn(pix.Pointer, boxPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2723, 1)
 // pixVarianceInRect(pix, box, prootvar) as int
 // pixVarianceInRect(PIX *, BOX *, l_float32 *) as l_ok
@@ -1658,28 +1281,18 @@ pix.Pointer, boxPtr);
 ///  <param name="box">[in][optional] - if null, use entire image</param>
 ///  <param name="prootvar">[out] - sqrt variance of pixel values in region</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixVarianceInRect(
 				 Pix pix, 
 				 Box box, 
 				out Single prootvar){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixVarianceInRect(
-pix.Pointer, boxPtr, out  prootvar);
+	int _Result = Natives.pixVarianceInRect(pix.Pointer, boxPtr, out  prootvar);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2800, 1)
 // pixAbsDiffByRow(pix, box) as Numa
 // pixAbsDiffByRow(PIX *, BOX *) as NUMA *
@@ -1696,28 +1309,18 @@ pix.Pointer, boxPtr, out  prootvar);
 ///  <param name="pix">[in] - 8 bpp no colormap</param>
 ///  <param name="box">[in][optional] - clipping box for region can be null</param>
 ///   <returns>na of abs val pixel difference averages by row, or NULL on error</returns>
-
 public static Numa pixAbsDiffByRow(
 				 Pix pix, 
 				 Box box){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixAbsDiffByRow(
-pix.Pointer, boxPtr);
+	IntPtr _Result = Natives.pixAbsDiffByRow(pix.Pointer, boxPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2861, 1)
 // pixAbsDiffByColumn(pix, box) as Numa
 // pixAbsDiffByColumn(PIX *, BOX *) as NUMA *
@@ -1734,28 +1337,18 @@ pix.Pointer, boxPtr);
 ///  <param name="pix">[in] - 8 bpp no colormap</param>
 ///  <param name="box">[in][optional] - clipping box for region can be null</param>
 ///   <returns>na of abs val pixel difference averages by column, or NULL on error</returns>
-
 public static Numa pixAbsDiffByColumn(
 				 Pix pix, 
 				 Box box){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	IntPtr _Result = Natives.pixAbsDiffByColumn(
-pix.Pointer, boxPtr);
+	IntPtr _Result = Natives.pixAbsDiffByColumn(pix.Pointer, boxPtr);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Numa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (2924, 1)
 // pixAbsDiffInRect(pix, box, dir, pabsdiff) as int
 // pixAbsDiffInRect(PIX *, BOX *, l_int32, l_float32 *) as l_ok
@@ -1773,29 +1366,19 @@ pix.Pointer, boxPtr);
 ///  <param name="dir">[in] - differences along L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
 ///  <param name="pabsdiff">[out] - average of abs diff pixel values in region</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixAbsDiffInRect(
 				 Pix pix, 
 				 Box box, 
 				 int dir, 
 				out Single pabsdiff){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixAbsDiffInRect(
-pix.Pointer, boxPtr,   dir, out  pabsdiff);
+	int _Result = Natives.pixAbsDiffInRect(pix.Pointer, boxPtr,   dir, out  pabsdiff);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (3001, 1)
 // pixAbsDiffOnLine(pix, x1, y1, x2, y2, pabsdiff) as int
 // pixAbsDiffOnLine(PIX *, l_int32, l_int32, l_int32, l_int32, l_float32 *) as l_ok
@@ -1816,7 +1399,6 @@ pix.Pointer, boxPtr,   dir, out  pabsdiff);
 ///  <param name="y2">[in] - first point</param>
 ///  <param name="pabsdiff">[out] - average of abs diff pixel values on line</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixAbsDiffOnLine(
 				 Pix pix, 
 				 int x1, 
@@ -1825,21 +1407,11 @@ public static int pixAbsDiffOnLine(
 				 int y2, 
 				out Single pabsdiff){
 
-
-
-	int _Result = Natives.pixAbsDiffOnLine(
-pix.Pointer,   x1,   y1,   x2,   y2, out  pabsdiff);
+	int _Result = Natives.pixAbsDiffOnLine(pix.Pointer,   x1,   y1,   x2,   y2, out  pabsdiff);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (3083, 1)
 // pixCountArbInRect(pixs, box, val, factor, pcount) as int
 // pixCountArbInRect(PIX *, BOX *, l_int32, l_int32, l_int32 *) as l_int32
@@ -1859,7 +1431,6 @@ pix.Pointer,   x1,   y1,   x2,   y2, out  pabsdiff);
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///  <param name="pcount">[out] - count estimate it if factor  is greater  1</param>
 ///   <returns>na histogram, or NULL on error</returns>
-
 public static int pixCountArbInRect(
 				 Pix pixs, 
 				 Box box, 
@@ -1867,22 +1438,13 @@ public static int pixCountArbInRect(
 				 int factor, 
 				out int pcount){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixCountArbInRect(
-pixs.Pointer, boxPtr,   val,   factor, out  pcount);
+	int _Result = Natives.pixCountArbInRect(pixs.Pointer, boxPtr,   val,   factor, out  pcount);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (3161, 1)
 // pixMirroredTiling(pixs, w, h) as Pix
 // pixMirroredTiling(PIX *, l_int32, l_int32) as PIX *
@@ -1904,28 +1466,17 @@ pixs.Pointer, boxPtr,   val,   factor, out  pcount);
 ///  <param name="w">[in] - dimensions of output pix</param>
 ///  <param name="h">[in] - dimensions of output pix</param>
 ///   <returns>pixd usually larger pix, mirror-tiled with pixs, or NULL on error</returns>
-
 public static Pix pixMirroredTiling(
 				 Pix pixs, 
 				 int w, 
 				 int h){
 
-
-
-	IntPtr _Result = Natives.pixMirroredTiling(
-pixs.Pointer,   w,   h);
+	IntPtr _Result = Natives.pixMirroredTiling(pixs.Pointer,   w,   h);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix3.c (3236, 1)
 // pixFindRepCloseTile(pixs, box, searchdir, mindist, tsize, ntiles, pboxtile, debug) as int
 // pixFindRepCloseTile(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, BOX **, l_int32) as l_ok
@@ -1956,7 +1507,6 @@ pixs.Pointer,   w,   h);
 ///  <param name="pboxtile">[out] - region of best tile</param>
 ///  <param name="debug">[in] - 1    for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixFindRepCloseTile(
 				 Pix pixs, 
 				 Box box, 
@@ -1967,19 +1517,11 @@ public static int pixFindRepCloseTile(
 				out Box pboxtile, 
 				 DebugOnOff debug){
 
-
 	IntPtr pboxtilePtr = IntPtr.Zero;
 
-	int _Result = Natives.pixFindRepCloseTile(
-pixs.Pointer, box.Pointer,   searchdir,   mindist,   tsize,   ntiles, out pboxtilePtr,  (int) debug);
+	int _Result = Natives.pixFindRepCloseTile(pixs.Pointer, box.Pointer,   searchdir,   mindist,   tsize,   ntiles, out pboxtilePtr,  (int) debug);
 	
-
-
-//  
 	if (pboxtilePtr == IntPtr.Zero) {pboxtile = null;} else { pboxtile = new Box(pboxtilePtr); };
-
-
-
 	return _Result;
 }
 

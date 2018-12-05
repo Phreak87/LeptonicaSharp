@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colormorph.c (66, 1)
 // pixColorMorph(pixs, type, hsize, vsize) as Pix
 // pixColorMorph(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -26,25 +25,15 @@ public partial class _All {
 ///  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 ///  <param name="vsize">[in] - ditto</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixColorMorph(
 				 Pix pixs, 
 				 int type, 
 				 int hsize, 
 				 int vsize){
 
-
-
-	IntPtr _Result = Natives.pixColorMorph(
-pixs.Pointer,   type,   hsize,   vsize);
+	IntPtr _Result = Natives.pixColorMorph(pixs.Pointer,   type,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

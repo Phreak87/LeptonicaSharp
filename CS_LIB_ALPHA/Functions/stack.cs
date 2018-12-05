@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stack.c (78, 1)
 // lstackCreate(nalloc) as L_Stack
 // lstackCreate(l_int32) as L_STACK *
@@ -15,26 +14,15 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackCreate/*"/>
 ///  <param name="nalloc">[in] - initial ptr array size use 0 for default</param>
 ///   <returns>lstack, or NULL on error</returns>
-
 public static L_Stack lstackCreate(
 				 int nalloc){
 
-
-
-	IntPtr _Result = Natives.lstackCreate(
-  nalloc);
+	IntPtr _Result = Natives.lstackCreate(  nalloc);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Stack(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stack.c (121, 1)
 // lstackDestroy(plstack, freeflag) as Object
 // lstackDestroy(L_STACK **, l_int32) as void
@@ -55,27 +43,17 @@ public static L_Stack lstackCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackDestroy/*"/>
 ///  <param name="plstack">[in,out] - to be nulled</param>
 ///  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
-
 public static void lstackDestroy(
 				ref L_Stack plstack, 
 				 int freeflag){
 
-
 	IntPtr plstackPtr = IntPtr.Zero; 	if (plstack != null) {plstackPtr = plstack.Pointer;}
 
-	Natives.lstackDestroy(
-ref plstackPtr,   freeflag);
+	Natives.lstackDestroy(ref plstackPtr,   freeflag);
 	
-
-
-//  
 	if (plstackPtr == IntPtr.Zero) {plstack = null;} else { plstack = new L_Stack(plstackPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stack.c (167, 1)
 // lstackAdd(lstack, item) as int
 // lstackAdd(L_STACK *, void *) as l_ok
@@ -85,29 +63,19 @@ ref plstackPtr,   freeflag);
 ///  <param name="lstack">[in] - </param>
 ///  <param name="item">[in] - to be added to the lstack</param>
 ///   <returns>0 if OK 1 on error.</returns>
-
 public static int lstackAdd(
 				 L_Stack lstack, 
 				 Object item){
 
-
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	int _Result = Natives.lstackAdd(
-lstack.Pointer,   itemPtr);
+	int _Result = Natives.lstackAdd(lstack.Pointer,   itemPtr);
 	
-
 	Marshal.FreeHGlobal(itemPtr);
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stack.c (197, 1)
 // lstackRemove(lstack) as Object
 // lstackRemove(L_STACK *) as void *
@@ -116,26 +84,16 @@ lstack.Pointer,   itemPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackRemove/*"/>
 ///  <param name="lstack">[in] - </param>
 ///   <returns>ptr to item popped from the top of the lstack, or NULL if the lstack is empty or on error</returns>
-
 public static Object lstackRemove(
 				 L_Stack lstack){
 
-
-
-	IntPtr _Result = Natives.lstackRemove(
-lstack.Pointer);
+	IntPtr _Result = Natives.lstackRemove(lstack.Pointer);
 	
-
-
-//  
-
-
-	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
-
+	Byte[] B = new Byte[1];
+	Marshal.Copy(_Result, B, 0, B.Length);
 	return B;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stack.c (247, 1)
 // lstackGetCount(lstack) as int
 // lstackGetCount(L_STACK *) as l_int32
@@ -144,25 +102,14 @@ lstack.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackGetCount/*"/>
 ///  <param name="lstack">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
-
 public static int lstackGetCount(
 				 L_Stack lstack){
 
-
-
-	int _Result = Natives.lstackGetCount(
-lstack.Pointer);
+	int _Result = Natives.lstackGetCount(lstack.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // stack.c (270, 1)
 // lstackPrint(fp, lstack) as int
 // lstackPrint(FILE *, L_STACK *) as l_ok
@@ -172,22 +119,12 @@ lstack.Pointer);
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="lstack">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int lstackPrint(
 				 FILE fp, 
 				 L_Stack lstack){
 
-
-
-	int _Result = Natives.lstackPrint(
-fp.Pointer, lstack.Pointer);
+	int _Result = Natives.lstackPrint(fp.Pointer, lstack.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

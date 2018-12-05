@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (180, 1)
 // pixGetPixel(pix, x, y, pval) as int
 // pixGetPixel(PIX *, l_int32, l_int32, l_uint32 *) as l_ok
@@ -32,28 +31,17 @@ public partial class _All {
 ///  <param name="x">[in] - ,y    pixel coords</param>
 ///  <param name="pval">[out] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixGetPixel(
 				 Pix pix, 
 				 int x, 
 				 int y, 
 				out uint pval){
 
-
-
-	int _Result = Natives.pixGetPixel(
-pix.Pointer,   x,   y, out  pval);
+	int _Result = Natives.pixGetPixel(pix.Pointer,   x,   y, out  pval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (251, 1)
 // pixSetPixel(pix, x, y, val) as int
 // pixSetPixel(PIX *, l_int32, l_int32, l_uint32) as l_ok
@@ -73,28 +61,17 @@ pix.Pointer,   x,   y, out  pval);
 ///  <param name="x">[in] - ,y   pixel coords</param>
 ///  <param name="val">[in] - value to be inserted</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetPixel(
 				 Pix pix, 
 				 int x, 
 				 int y, 
 				 uint val){
 
-
-
-	int _Result = Natives.pixSetPixel(
-pix.Pointer,   x,   y,   val);
+	int _Result = Natives.pixSetPixel(pix.Pointer,   x,   y,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (314, 1)
 // pixGetRGBPixel(pix, x, y, prval, pgval, pbval) as int
 // pixGetRGBPixel(PIX *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -107,7 +84,6 @@ pix.Pointer,   x,   y,   val);
 ///  <param name="pgval">[out][optional] - green component</param>
 ///  <param name="pbval">[out][optional] - blue component</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixGetRGBPixel(
 				 Pix pix, 
 				 int x, 
@@ -116,21 +92,11 @@ public static int pixGetRGBPixel(
 				out int pgval, 
 				out int pbval){
 
-
-
-	int _Result = Natives.pixGetRGBPixel(
-pix.Pointer,   x,   y, out  prval, out  pgval, out  pbval);
+	int _Result = Natives.pixGetRGBPixel(pix.Pointer,   x,   y, out  prval, out  pgval, out  pbval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (362, 1)
 // pixSetRGBPixel(pix, x, y, rval, gval, bval) as int
 // pixSetRGBPixel(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -143,7 +109,6 @@ pix.Pointer,   x,   y, out  prval, out  pgval, out  pbval);
 ///  <param name="gval">[in] - green component</param>
 ///  <param name="bval">[in] - blue component</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetRGBPixel(
 				 Pix pix, 
 				 int x, 
@@ -152,21 +117,11 @@ public static int pixSetRGBPixel(
 				 int gval, 
 				 int bval){
 
-
-
-	int _Result = Natives.pixSetRGBPixel(
-pix.Pointer,   x,   y,   rval,   gval,   bval);
+	int _Result = Natives.pixSetRGBPixel(pix.Pointer,   x,   y,   rval,   gval,   bval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (409, 1)
 // pixGetRandomPixel(pix, pval, px, py) as int
 // pixGetRandomPixel(PIX *, l_uint32 *, l_int32 *, l_int32 *) as l_ok
@@ -181,28 +136,17 @@ pix.Pointer,   x,   y,   rval,   gval,   bval);
 ///  <param name="px">[out][optional] - x coordinate chosen can be null</param>
 ///  <param name="py">[out][optional] - y coordinate chosen can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixGetRandomPixel(
 				 Pix pix, 
 				out uint pval, 
 				out int px, 
 				out int py){
 
-
-
-	int _Result = Natives.pixGetRandomPixel(
-pix.Pointer, out  pval, out  px, out  py);
+	int _Result = Natives.pixGetRandomPixel(pix.Pointer, out  pval, out  px, out  py);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (455, 1)
 // pixClearPixel(pix, x, y) as int
 // pixClearPixel(PIX *, l_int32, l_int32) as l_ok
@@ -212,27 +156,16 @@ pix.Pointer, out  pval, out  px, out  py);
 ///  <param name="pix">[in] - any depth warning if colormapped</param>
 ///  <param name="x">[in] - ,y   pixel coords</param>
 ///   <returns>0 if OK 1 on error.</returns>
-
 public static int pixClearPixel(
 				 Pix pix, 
 				 int x, 
 				 int y){
 
-
-
-	int _Result = Natives.pixClearPixel(
-pix.Pointer,   x,   y);
+	int _Result = Natives.pixClearPixel(pix.Pointer,   x,   y);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (513, 1)
 // pixFlipPixel(pix, x, y) as int
 // pixFlipPixel(PIX *, l_int32, l_int32) as l_ok
@@ -242,27 +175,16 @@ pix.Pointer,   x,   y);
 ///  <param name="pix">[in] - any depth, warning if colormapped</param>
 ///  <param name="x">[in] - ,y   pixel coords</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixFlipPixel(
 				 Pix pix, 
 				 int x, 
 				 int y){
 
-
-
-	int _Result = Natives.pixFlipPixel(
-pix.Pointer,   x,   y);
+	int _Result = Natives.pixFlipPixel(pix.Pointer,   x,   y);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (592, 1)
 // setPixelLow(line, x, depth, val) as Object
 // setPixelLow(l_uint32 *, l_int32, l_int32, l_uint32) as void
@@ -276,30 +198,20 @@ pix.Pointer,   x,   y);
 ///  <param name="x">[in] - pixel location in line</param>
 ///  <param name="depth">[in] - bpp</param>
 ///  <param name="val">[in] - to be inserted</param>
-
 public static void setPixelLow(
 				 Byte[] line, 
 				 int x, 
 				 int depth, 
 				 uint val){
 
-
 		IntPtr linePtr = 	Marshal.AllocHGlobal(line.Length);
 		Marshal.Copy(line, 0, linePtr, line.Length);
 
-	Natives.setPixelLow(
-  linePtr,   x,   depth,   val);
+	Natives.setPixelLow(  linePtr,   x,   depth,   val);
 	
-
 	Marshal.FreeHGlobal(linePtr);
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (648, 1)
 // pixGetBlackOrWhiteVal(pixs, op, pval) as int
 // pixGetBlackOrWhiteVal(PIX *, l_int32, l_uint32 *) as l_ok
@@ -316,27 +228,16 @@ public static void setPixelLow(
 ///  <param name="op">[in] - L_GET_BLACK_VAL, L_GET_WHITE_VAL</param>
 ///  <param name="pval">[out] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixGetBlackOrWhiteVal(
 				 Pix pixs, 
 				 int op, 
 				out uint pval){
 
-
-
-	int _Result = Natives.pixGetBlackOrWhiteVal(
-pixs.Pointer,   op, out  pval);
+	int _Result = Natives.pixGetBlackOrWhiteVal(pixs.Pointer,   op, out  pval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (704, 1)
 // pixClearAll(pix) as int
 // pixClearAll(PIX *) as l_ok
@@ -352,25 +253,14 @@ pixs.Pointer,   op, out  pval);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixClearAll/*"/>
 ///  <param name="pix">[in] - all depths use cmapped with caution</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixClearAll(
 				 Pix pix){
 
-
-
-	int _Result = Natives.pixClearAll(
-pix.Pointer);
+	int _Result = Natives.pixClearAll(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (733, 1)
 // pixSetAll(pix) as int
 // pixSetAll(PIX *) as l_ok
@@ -387,25 +277,14 @@ pix.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetAll/*"/>
 ///  <param name="pix">[in] - all depths use cmapped with caution</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetAll(
 				 Pix pix){
 
-
-
-	int _Result = Natives.pixSetAll(
-pix.Pointer);
+	int _Result = Natives.pixSetAll(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (776, 1)
 // pixSetAllGray(pix, grayval) as int
 // pixSetAllGray(PIX *, l_int32) as l_ok
@@ -429,26 +308,15 @@ pix.Pointer);
 ///  <param name="pix">[in] - all depths, cmap ok</param>
 ///  <param name="grayval">[in] - in range 0 ... 255</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetAllGray(
 				 Pix pix, 
 				 int grayval){
 
-
-
-	int _Result = Natives.pixSetAllGray(
-pix.Pointer,   grayval);
+	int _Result = Natives.pixSetAllGray(pix.Pointer,   grayval);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (868, 1)
 // pixSetAllArbitrary(pix, val) as int
 // pixSetAllArbitrary(PIX *, l_uint32) as l_ok
@@ -480,26 +348,15 @@ pix.Pointer,   grayval);
 ///  <param name="pix">[in] - all depths use cmapped with caution</param>
 ///  <param name="val">[in] - value to set all pixels</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetAllArbitrary(
 				 Pix pix, 
 				 uint val){
 
-
-
-	int _Result = Natives.pixSetAllArbitrary(
-pix.Pointer,   val);
+	int _Result = Natives.pixSetAllArbitrary(pix.Pointer,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (938, 1)
 // pixSetBlackOrWhite(pixs, op) as int
 // pixSetBlackOrWhite(PIX *, l_int32) as l_ok
@@ -518,26 +375,15 @@ pix.Pointer,   val);
 ///  <param name="pixs">[in] - all depths cmap ok</param>
 ///  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetBlackOrWhite(
 				 Pix pixs, 
 				 int op){
 
-
-
-	int _Result = Natives.pixSetBlackOrWhite(
-pixs.Pointer,   op);
+	int _Result = Natives.pixSetBlackOrWhite(pixs.Pointer,   op);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (985, 1)
 // pixSetComponentArbitrary(pix, comp, val) as int
 // pixSetComponentArbitrary(PIX *, l_int32, l_int32) as l_ok
@@ -552,27 +398,16 @@ pixs.Pointer,   op);
 ///  <param name="comp">[in] - COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL</param>
 ///  <param name="val">[in] - value to set this component</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetComponentArbitrary(
 				 Pix pix, 
 				 int comp, 
 				 int val){
 
-
-
-	int _Result = Natives.pixSetComponentArbitrary(
-pix.Pointer,   comp,   val);
+	int _Result = Natives.pixSetComponentArbitrary(pix.Pointer,   comp,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1035, 1)
 // pixClearInRect(pix, box) as int
 // pixClearInRect(PIX *, BOX *) as l_ok
@@ -589,26 +424,15 @@ pix.Pointer,   comp,   val);
 ///  <param name="pix">[in] - all depths can be cmapped</param>
 ///  <param name="box">[in] - in which all pixels will be cleared</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixClearInRect(
 				 Pix pix, 
 				 Box box){
 
-
-
-	int _Result = Natives.pixClearInRect(
-pix.Pointer, box.Pointer);
+	int _Result = Natives.pixClearInRect(pix.Pointer, box.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1070, 1)
 // pixSetInRect(pix, box) as int
 // pixSetInRect(PIX *, BOX *) as l_ok
@@ -626,26 +450,15 @@ pix.Pointer, box.Pointer);
 ///  <param name="pix">[in] - all depths, can be cmapped</param>
 ///  <param name="box">[in] - in which all pixels will be set</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetInRect(
 				 Pix pix, 
 				 Box box){
 
-
-
-	int _Result = Natives.pixSetInRect(
-pix.Pointer, box.Pointer);
+	int _Result = Natives.pixSetInRect(pix.Pointer, box.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1112, 1)
 // pixSetInRectArbitrary(pix, box, val) as int
 // pixSetInRectArbitrary(PIX *, BOX *, l_uint32) as l_ok
@@ -664,27 +477,16 @@ pix.Pointer, box.Pointer);
 ///  <param name="box">[in] - in which all pixels will be set to val</param>
 ///  <param name="val">[in] - value to set all pixels</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetInRectArbitrary(
 				 Pix pix, 
 				 Box box, 
 				 uint val){
 
-
-
-	int _Result = Natives.pixSetInRectArbitrary(
-pix.Pointer, box.Pointer,   val);
+	int _Result = Natives.pixSetInRectArbitrary(pix.Pointer, box.Pointer,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1213, 1)
 // pixBlendInRect(pixs, box, val, fract) as int
 // pixBlendInRect(PIX *, BOX *, l_uint32, l_float32) as l_ok
@@ -701,29 +503,19 @@ pix.Pointer, box.Pointer,   val);
 ///  <param name="val">[in] - blend value 0xrrggbb00</param>
 ///  <param name="fract">[in] - fraction of color to be blended with each pixel in pixs</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixBlendInRect(
 				 Pix pixs, 
 				 Box box, 
 				 uint val, 
 				 Single fract){
 
-
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
-	int _Result = Natives.pixBlendInRect(
-pixs.Pointer, boxPtr,   val,   fract);
+	int _Result = Natives.pixBlendInRect(pixs.Pointer, boxPtr,   val,   fract);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1299, 1)
 // pixSetPadBits(pix, val) as int
 // pixSetPadBits(PIX *, l_int32) as l_ok
@@ -755,26 +547,15 @@ pixs.Pointer, boxPtr,   val,   fract);
 ///  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 ///  <param name="val">[in] - 0 or 1</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetPadBits(
 				 Pix pix, 
 				 int val){
 
-
-
-	int _Result = Natives.pixSetPadBits(
-pix.Pointer,   val);
+	int _Result = Natives.pixSetPadBits(pix.Pointer,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1359, 1)
 // pixSetPadBitsBand(pix, by, bh, val) as int
 // pixSetPadBitsBand(PIX *, l_int32, l_int32, l_int32) as l_ok
@@ -798,28 +579,17 @@ pix.Pointer,   val);
 ///  <param name="bh">[in] - height of band</param>
 ///  <param name="val">[in] - 0 or 1</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetPadBitsBand(
 				 Pix pix, 
 				 int by, 
 				 int bh, 
 				 int val){
 
-
-
-	int _Result = Natives.pixSetPadBitsBand(
-pix.Pointer,   by,   bh,   val);
+	int _Result = Natives.pixSetPadBitsBand(pix.Pointer,   by,   bh,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1431, 1)
 // pixSetOrClearBorder(pixs, left, right, top, bot, op) as int
 // pixSetOrClearBorder(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -842,7 +612,6 @@ pix.Pointer,   by,   bh,   val);
 ///  <param name="left">[in] - right, top, bot amount to set or clear</param>
 ///  <param name="op">[in] - operation PIX_SET or PIX_CLR</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetOrClearBorder(
 				 Pix pixs, 
 				 int left, 
@@ -851,21 +620,11 @@ public static int pixSetOrClearBorder(
 				 int bot, 
 				 int op){
 
-
-
-	int _Result = Natives.pixSetOrClearBorder(
-pixs.Pointer,   left,   right,   top,   bot,   op);
+	int _Result = Natives.pixSetOrClearBorder(pixs.Pointer,   left,   right,   top,   bot,   op);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1480, 1)
 // pixSetBorderVal(pixs, left, right, top, bot, val) as int
 // pixSetBorderVal(PIX *, l_int32, l_int32, l_int32, l_int32, l_uint32) as l_ok
@@ -894,7 +653,6 @@ pixs.Pointer,   left,   right,   top,   bot,   op);
 ///  <param name="bot">[in] - amount to set</param>
 ///  <param name="val">[in] - value to set at each border pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetBorderVal(
 				 Pix pixs, 
 				 int left, 
@@ -903,21 +661,11 @@ public static int pixSetBorderVal(
 				 int bot, 
 				 uint val){
 
-
-
-	int _Result = Natives.pixSetBorderVal(
-pixs.Pointer,   left,   right,   top,   bot,   val);
+	int _Result = Natives.pixSetBorderVal(pixs.Pointer,   left,   right,   top,   bot,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1584, 1)
 // pixSetBorderRingVal(pixs, dist, val) as int
 // pixSetBorderRingVal(PIX *, l_int32, l_uint32) as l_ok
@@ -933,27 +681,16 @@ pixs.Pointer,   left,   right,   top,   bot,   val);
 ///  <param name="dist">[in] - distance from outside must be  is greater  0 first ring is 1</param>
 ///  <param name="val">[in] - value to set at each border pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetBorderRingVal(
 				 Pix pixs, 
 				 int dist, 
 				 uint val){
 
-
-
-	int _Result = Natives.pixSetBorderRingVal(
-pixs.Pointer,   dist,   val);
+	int _Result = Natives.pixSetBorderRingVal(pixs.Pointer,   dist,   val);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1635, 1)
 // pixSetMirroredBorder(pixs, left, right, top, bot) as int
 // pixSetMirroredBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -976,7 +713,6 @@ pixs.Pointer,   dist,   val);
 ///  <param name="top">[in] - number of pixels to set</param>
 ///  <param name="bot">[in] - number of pixels to set</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixSetMirroredBorder(
 				 Pix pixs, 
 				 int left, 
@@ -984,21 +720,11 @@ public static int pixSetMirroredBorder(
 				 int top, 
 				 int bot){
 
-
-
-	int _Result = Natives.pixSetMirroredBorder(
-pixs.Pointer,   left,   right,   top,   bot);
+	int _Result = Natives.pixSetMirroredBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1686, 1)
 // pixCopyBorder(pixd, pixs, left, right, top, bot) as Pix
 // pixCopyBorder(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1022,7 +748,6 @@ pixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - number of pixels to copy</param>
 ///  <param name="bot">[in] - number of pixels to copy</param>
 ///   <returns>pixd, or NULL on error if pixd is not defined</returns>
-
 public static Pix pixCopyBorder(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -1031,22 +756,12 @@ public static Pix pixCopyBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.pixCopyBorder(
-pixd.Pointer, pixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.pixCopyBorder(pixd.Pointer, pixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1740, 1)
 // pixAddBorder(pixs, npix, val) as Pix
 // pixAddBorder(PIX *, l_int32, l_uint32) as PIX *
@@ -1060,28 +775,17 @@ pixd.Pointer, pixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="npix">[in] - number of pixels to be added to each side</param>
 ///  <param name="val">[in] - value of added border pixels</param>
 ///   <returns>pixd with the added exterior pixels, or NULL on error</returns>
-
 public static Pix pixAddBorder(
 				 Pix pixs, 
 				 int npix, 
 				 uint val){
 
-
-
-	IntPtr _Result = Natives.pixAddBorder(
-pixs.Pointer,   npix,   val);
+	IntPtr _Result = Natives.pixAddBorder(pixs.Pointer,   npix,   val);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1780, 1)
 // pixAddBlackOrWhiteBorder(pixs, left, right, top, bot, op) as Pix
 // pixAddBlackOrWhiteBorder(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1111,7 +815,6 @@ pixs.Pointer,   npix,   val);
 ///  <param name="bot">[in] - number of pixels added</param>
 ///  <param name="op">[in] - L_GET_BLACK_VAL, L_GET_WHITE_VAL</param>
 ///   <returns>pixd with the added exterior pixels, or NULL on error</returns>
-
 public static Pix pixAddBlackOrWhiteBorder(
 				 Pix pixs, 
 				 int left, 
@@ -1120,22 +823,12 @@ public static Pix pixAddBlackOrWhiteBorder(
 				 int bot, 
 				 int op){
 
-
-
-	IntPtr _Result = Natives.pixAddBlackOrWhiteBorder(
-pixs.Pointer,   left,   right,   top,   bot,   op);
+	IntPtr _Result = Natives.pixAddBlackOrWhiteBorder(pixs.Pointer,   left,   right,   top,   bot,   op);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1834, 1)
 // pixAddBorderGeneral(pixs, left, right, top, bot, val) as Pix
 // pixAddBorderGeneral(PIX *, l_int32, l_int32, l_int32, l_int32, l_uint32) as PIX *
@@ -1172,7 +865,6 @@ pixs.Pointer,   left,   right,   top,   bot,   op);
 ///  <param name="bot">[in] - number of pixels added</param>
 ///  <param name="val">[in] - value of added border pixels</param>
 ///   <returns>pixd with the added exterior pixels, or NULL on error</returns>
-
 public static Pix pixAddBorderGeneral(
 				 Pix pixs, 
 				 int left, 
@@ -1181,22 +873,12 @@ public static Pix pixAddBorderGeneral(
 				 int bot, 
 				 uint val){
 
-
-
-	IntPtr _Result = Natives.pixAddBorderGeneral(
-pixs.Pointer,   left,   right,   top,   bot,   val);
+	IntPtr _Result = Natives.pixAddBorderGeneral(pixs.Pointer,   left,   right,   top,   bot,   val);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1889, 1)
 // pixRemoveBorder(pixs, npix) as Pix
 // pixRemoveBorder(PIX *, l_int32) as PIX *
@@ -1206,27 +888,16 @@ pixs.Pointer,   left,   right,   top,   bot,   val);
 ///  <param name="pixs">[in] - all depths colormap ok</param>
 ///  <param name="npix">[in] - number to be removed from each of the 4 sides</param>
 ///   <returns>pixd with pixels removed around border, or NULL on error</returns>
-
 public static Pix pixRemoveBorder(
 				 Pix pixs, 
 				 int npix){
 
-
-
-	IntPtr _Result = Natives.pixRemoveBorder(
-pixs.Pointer,   npix);
+	IntPtr _Result = Natives.pixRemoveBorder(pixs.Pointer,   npix);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1910, 1)
 // pixRemoveBorderGeneral(pixs, left, right, top, bot) as Pix
 // pixRemoveBorderGeneral(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1239,7 +910,6 @@ pixs.Pointer,   npix);
 ///  <param name="top">[in] - number of pixels removed</param>
 ///  <param name="bot">[in] - number of pixels removed</param>
 ///   <returns>pixd with pixels removed around border, or NULL on error</returns>
-
 public static Pix pixRemoveBorderGeneral(
 				 Pix pixs, 
 				 int left, 
@@ -1247,22 +917,12 @@ public static Pix pixRemoveBorderGeneral(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.pixRemoveBorderGeneral(
-pixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.pixRemoveBorderGeneral(pixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (1963, 1)
 // pixRemoveBorderToSize(pixs, wd, hd) as Pix
 // pixRemoveBorderToSize(PIX *, l_int32, l_int32) as PIX *
@@ -1280,28 +940,17 @@ pixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="wd">[in] - target width use 0 if only removing from height</param>
 ///  <param name="hd">[in] - target height use 0 if only removing from width</param>
 ///   <returns>pixd with pixels removed around border, or NULL on error</returns>
-
 public static Pix pixRemoveBorderToSize(
 				 Pix pixs, 
 				 int wd, 
 				 int hd){
 
-
-
-	IntPtr _Result = Natives.pixRemoveBorderToSize(
-pixs.Pointer,   wd,   hd);
+	IntPtr _Result = Natives.pixRemoveBorderToSize(pixs.Pointer,   wd,   hd);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2018, 1)
 // pixAddMirroredBorder(pixs, left, right, top, bot) as Pix
 // pixAddMirroredBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1331,7 +980,6 @@ pixs.Pointer,   wd,   hd);
 ///  <param name="top">[in] - number of pixels added</param>
 ///  <param name="bot">[in] - number of pixels added</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixAddMirroredBorder(
 				 Pix pixs, 
 				 int left, 
@@ -1339,22 +987,12 @@ public static Pix pixAddMirroredBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.pixAddMirroredBorder(
-pixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.pixAddMirroredBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2071, 1)
 // pixAddRepeatedBorder(pixs, left, right, top, bot) as Pix
 // pixAddRepeatedBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1375,7 +1013,6 @@ pixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - number of pixels added</param>
 ///  <param name="bot">[in] - number of pixels added</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixAddRepeatedBorder(
 				 Pix pixs, 
 				 int left, 
@@ -1383,22 +1020,12 @@ public static Pix pixAddRepeatedBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.pixAddRepeatedBorder(
-pixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.pixAddRepeatedBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2127, 1)
 // pixAddMixedBorder(pixs, left, right, top, bot) as Pix
 // pixAddMixedBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1430,7 +1057,6 @@ pixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - number of pixels added</param>
 ///  <param name="bot">[in] - number of pixels added</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixAddMixedBorder(
 				 Pix pixs, 
 				 int left, 
@@ -1438,22 +1064,12 @@ public static Pix pixAddMixedBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.pixAddMixedBorder(
-pixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.pixAddMixedBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2174, 1)
 // pixAddContinuedBorder(pixs, left, right, top, bot) as Pix
 // pixAddContinuedBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1470,7 +1086,6 @@ pixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="top">[in] - pixels on each side to be added</param>
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixAddContinuedBorder(
 				 Pix pixs, 
 				 int left, 
@@ -1478,22 +1093,12 @@ public static Pix pixAddContinuedBorder(
 				 int top, 
 				 int bot){
 
-
-
-	IntPtr _Result = Natives.pixAddContinuedBorder(
-pixs.Pointer,   left,   right,   top,   bot);
+	IntPtr _Result = Natives.pixAddContinuedBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2217, 1)
 // pixShiftAndTransferAlpha(pixd, pixs, shiftx, shifty) as int
 // pixShiftAndTransferAlpha(PIX *, PIX *, l_float32, l_float32) as l_ok
@@ -1505,28 +1110,17 @@ pixs.Pointer,   left,   right,   top,   bot);
 ///  <param name="shiftx">[in] - </param>
 ///  <param name="shifty">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixShiftAndTransferAlpha(
 				 Pix pixd, 
 				 Pix pixs, 
 				 Single shiftx, 
 				 Single shifty){
 
-
-
-	int _Result = Natives.pixShiftAndTransferAlpha(
-pixd.Pointer, pixs.Pointer,   shiftx,   shifty);
+	int _Result = Natives.pixShiftAndTransferAlpha(pixd.Pointer, pixs.Pointer,   shiftx,   shifty);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2268, 1)
 // pixDisplayLayersRGBA(pixs, val, maxw) as Pix
 // pixDisplayLayersRGBA(PIX *, l_uint32, l_int32) as PIX *
@@ -1545,28 +1139,17 @@ pixd.Pointer, pixs.Pointer,   shiftx,   shifty);
 ///  <param name="val">[in] - 32 bit unsigned color to use as background</param>
 ///  <param name="maxw">[in] - max output image width 0 for no scaling</param>
 ///   <returns>pixd showing various image views, or NULL on error</returns>
-
 public static Pix pixDisplayLayersRGBA(
 				 Pix pixs, 
 				 uint val, 
 				 int maxw){
 
-
-
-	IntPtr _Result = Natives.pixDisplayLayersRGBA(
-pixs.Pointer,   val,   maxw);
+	IntPtr _Result = Natives.pixDisplayLayersRGBA(pixs.Pointer,   val,   maxw);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2340, 1)
 // pixCreateRGBImage(pixr, pixg, pixb) as Pix
 // pixCreateRGBImage(PIX *, PIX *, PIX *) as PIX *
@@ -1591,28 +1174,17 @@ pixs.Pointer,   val,   maxw);
 ///  <param name="pixg">[in] - 8 bpp green pix</param>
 ///  <param name="pixb">[in] - 8 bpp blue pix</param>
 ///   <returns>32 bpp pix, interleaved with 4 samples/pixel, or NULL on error</returns>
-
 public static Pix pixCreateRGBImage(
 				 Pix pixr, 
 				 Pix pixg, 
 				 Pix pixb){
 
-
-
-	IntPtr _Result = Natives.pixCreateRGBImage(
-pixr.Pointer, pixg.Pointer, pixb.Pointer);
+	IntPtr _Result = Natives.pixCreateRGBImage(pixr.Pointer, pixg.Pointer, pixb.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2396, 1)
 // pixGetRGBComponent(pixs, comp) as Pix
 // pixGetRGBComponent(PIX *, l_int32) as PIX *
@@ -1630,27 +1202,16 @@ pixr.Pointer, pixg.Pointer, pixb.Pointer);
 ///  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 ///  <param name="comp">[in] - one of {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 ///   <returns>pixd the selected 8 bpp component image of the input 32 bpp image or NULL on error</returns>
-
 public static Pix pixGetRGBComponent(
 				 Pix pixs, 
 				 int comp){
 
-
-
-	IntPtr _Result = Natives.pixGetRGBComponent(
-pixs.Pointer,   comp);
+	IntPtr _Result = Natives.pixGetRGBComponent(pixs.Pointer,   comp);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2455, 1)
 // pixSetRGBComponent(pixd, pixs, comp) as int
 // pixSetRGBComponent(PIX *, PIX *, l_int32) as l_ok
@@ -1668,27 +1229,16 @@ pixs.Pointer,   comp);
 ///  <param name="pixs">[in] - 8 bpp</param>
 ///  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixSetRGBComponent(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int comp){
 
-
-
-	int _Result = Natives.pixSetRGBComponent(
-pixd.Pointer, pixs.Pointer,   comp);
+	int _Result = Natives.pixSetRGBComponent(pixd.Pointer, pixs.Pointer,   comp);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2517, 1)
 // pixGetRGBComponentCmap(pixs, comp) as Pix
 // pixGetRGBComponentCmap(PIX *, l_int32) as PIX *
@@ -1701,27 +1251,16 @@ pixd.Pointer, pixs.Pointer,   comp);
 ///  <param name="pixs">[in] - colormapped</param>
 ///  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE}</param>
 ///   <returns>pixd  the selected 8 bpp component image of the input cmapped image, or NULL on error</returns>
-
 public static Pix pixGetRGBComponentCmap(
 				 Pix pixs, 
 				 int comp){
 
-
-
-	IntPtr _Result = Natives.pixGetRGBComponentCmap(
-pixs.Pointer,   comp);
+	IntPtr _Result = Natives.pixGetRGBComponentCmap(pixs.Pointer,   comp);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2602, 1)
 // pixCopyRGBComponent(pixd, pixs, comp) as int
 // pixCopyRGBComponent(PIX *, PIX *, l_int32) as l_ok
@@ -1736,27 +1275,16 @@ pixs.Pointer,   comp);
 ///  <param name="pixs">[in] - 32 bpp</param>
 ///  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixCopyRGBComponent(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int comp){
 
-
-
-	int _Result = Natives.pixCopyRGBComponent(
-pixd.Pointer, pixs.Pointer,   comp);
+	int _Result = Natives.pixCopyRGBComponent(pixd.Pointer, pixs.Pointer,   comp);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2663, 1)
 // composeRGBPixel(rval, gval, bval, ppixel) as int
 // composeRGBPixel(l_int32, l_int32, l_int32, l_uint32 *) as l_ok
@@ -1778,28 +1306,17 @@ pixd.Pointer, pixs.Pointer,   comp);
 ///  <param name="bval">[in] - </param>
 ///  <param name="ppixel">[out] - 32-bit pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int composeRGBPixel(
 				 int rval, 
 				 int gval, 
 				 int bval, 
 				out uint ppixel){
 
-
-
-	int _Result = Natives.composeRGBPixel(
-  rval,   gval,   bval, out  ppixel);
+	int _Result = Natives.composeRGBPixel(  rval,   gval,   bval, out  ppixel);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2694, 1)
 // composeRGBAPixel(rval, gval, bval, aval, ppixel) as int
 // composeRGBAPixel(l_int32, l_int32, l_int32, l_int32, l_uint32 *) as l_ok
@@ -1817,7 +1334,6 @@ public static int composeRGBPixel(
 ///  <param name="aval">[in] - </param>
 ///  <param name="ppixel">[out] - 32-bit pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int composeRGBAPixel(
 				 int rval, 
 				 int gval, 
@@ -1825,21 +1341,11 @@ public static int composeRGBAPixel(
 				 int aval, 
 				out uint ppixel){
 
-
-
-	int _Result = Natives.composeRGBAPixel(
-  rval,   gval,   bval,   aval, out  ppixel);
+	int _Result = Natives.composeRGBAPixel(  rval,   gval,   bval,   aval, out  ppixel);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2729, 1)
 // extractRGBValues(pixel, prval, pgval, pbval) as Object
 // extractRGBValues(l_uint32, l_int32 *, l_int32 *, l_int32 *) as void
@@ -1856,27 +1362,16 @@ public static int composeRGBAPixel(
 ///  <param name="prval">[out][optional] - red component</param>
 ///  <param name="pgval">[out][optional] - green component</param>
 ///  <param name="pbval">[out][optional] - blue component</param>
-
 public static void extractRGBValues(
 				 uint pixel, 
 				out int prval, 
 				out int pgval, 
 				out int pbval){
 
-
-
-	Natives.extractRGBValues(
-  pixel, out  prval, out  pgval, out  pbval);
+	Natives.extractRGBValues(  pixel, out  prval, out  pgval, out  pbval);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2752, 1)
 // extractRGBAValues(pixel, prval, pgval, pbval, paval) as Object
 // extractRGBAValues(l_uint32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as void
@@ -1888,7 +1383,6 @@ public static void extractRGBValues(
 ///  <param name="pgval">[out][optional] - green component</param>
 ///  <param name="pbval">[out][optional] - blue component</param>
 ///  <param name="paval">[out][optional] - alpha component</param>
-
 public static void extractRGBAValues(
 				 uint pixel, 
 				out int prval, 
@@ -1896,20 +1390,10 @@ public static void extractRGBAValues(
 				out int pbval, 
 				out int paval){
 
-
-
-	Natives.extractRGBAValues(
-  pixel, out  prval, out  pgval, out  pbval, out  paval);
+	Natives.extractRGBAValues(  pixel, out  prval, out  pgval, out  pbval, out  paval);
 	
-
-
-//  
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2774, 1)
 // extractMinMaxComponent(pixel, type) as int
 // extractMinMaxComponent(l_uint32, l_int32) as l_int32
@@ -1919,26 +1403,15 @@ public static void extractRGBAValues(
 ///  <param name="pixel">[in] - 32 bpp RGB</param>
 ///  <param name="type">[in] - L_CHOOSE_MIN or L_CHOOSE_MAX</param>
 ///   <returns>component in range [0 ... 255], or NULL on error</returns>
-
 public static int extractMinMaxComponent(
 				 uint pixel, 
 				 int type){
 
-
-
-	int _Result = Natives.extractMinMaxComponent(
-  pixel,   type);
+	int _Result = Natives.extractMinMaxComponent(  pixel,   type);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2808, 1)
 // pixGetRGBLine(pixs, row, bufr, bufg, bufb) as int
 // pixGetRGBLine(PIX *, l_int32, l_uint8 *, l_uint8 *, l_uint8 *) as l_ok
@@ -1955,7 +1428,6 @@ public static int extractMinMaxComponent(
 ///  <param name="bufg">[in] - array of green samples size w bytes</param>
 ///  <param name="bufb">[in] - array of blue samples size w bytes</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixGetRGBLine(
 				 Pix pixs, 
 				 int row, 
@@ -1963,21 +1435,11 @@ public static int pixGetRGBLine(
 				 Byte[] bufg, 
 				 Byte[] bufb){
 
-
-
-	int _Result = Natives.pixGetRGBLine(
-pixs.Pointer,   row,   bufr,   bufg,   bufb);
+	int _Result = Natives.pixGetRGBLine(pixs.Pointer,   row,   bufr,   bufg,   bufb);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2871, 1)
 // pixEndianByteSwapNew(pixs) as Pix
 // pixEndianByteSwapNew(PIX *) as PIX *
@@ -2003,26 +1465,15 @@ pixs.Pointer,   row,   bufr,   bufg,   bufb);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEndianByteSwapNew/*"/>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixEndianByteSwapNew(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixEndianByteSwapNew(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixEndianByteSwapNew(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2934, 1)
 // pixEndianByteSwap(pixs) as int
 // pixEndianByteSwap(PIX *) as l_ok
@@ -2046,25 +1497,14 @@ pixs.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEndianByteSwap/*"/>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixEndianByteSwap(
 				 Pix pixs){
 
-
-
-	int _Result = Natives.pixEndianByteSwap(
-pixs.Pointer);
+	int _Result = Natives.pixEndianByteSwap(pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (2992, 1)
 // lineEndianByteSwap(datad, datas, wpl) as int
 // lineEndianByteSwap(l_uint32 *, l_uint32 *, l_int32) as l_int32
@@ -2086,33 +1526,23 @@ pixs.Pointer);
 ///  <param name="datas">[in] - a src line of pix data)</param>
 ///  <param name="wpl">[in] - number of 32 bit words in the line</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int lineEndianByteSwap(
 				 Byte[] datad, 
 				 Byte[] datas, 
 				 int wpl){
-
 
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
 
-	int _Result = Natives.lineEndianByteSwap(
-  datadPtr,   datasPtr,   wpl);
+	int _Result = Natives.lineEndianByteSwap(  datadPtr,   datasPtr,   wpl);
 	
-
 	Marshal.FreeHGlobal(datadPtr);
 	Marshal.FreeHGlobal(datasPtr);
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (3045, 1)
 // pixEndianTwoByteSwapNew(pixs) as Pix
 // pixEndianTwoByteSwapNew(PIX *) as PIX *
@@ -2134,26 +1564,15 @@ public static int lineEndianByteSwap(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEndianTwoByteSwapNew/*"/>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static Pix pixEndianTwoByteSwapNew(
 				 Pix pixs){
 
-
-
-	IntPtr _Result = Natives.pixEndianTwoByteSwapNew(
-pixs.Pointer);
+	IntPtr _Result = Natives.pixEndianTwoByteSwapNew(pixs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (3098, 1)
 // pixEndianTwoByteSwap(pixs) as int
 // pixEndianTwoByteSwap(PIX *) as l_ok
@@ -2170,25 +1589,14 @@ pixs.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEndianTwoByteSwap/*"/>
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixEndianTwoByteSwap(
 				 Pix pixs){
 
-
-
-	int _Result = Natives.pixEndianTwoByteSwap(
-pixs.Pointer);
+	int _Result = Natives.pixEndianTwoByteSwap(pixs.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (3152, 1)
 // pixGetRasterData(pixs, pdata, pnbytes) as int
 // pixGetRasterData(PIX *, l_uint8 **, size_t *) as l_ok
@@ -2205,33 +1613,23 @@ pixs.Pointer);
 ///  <param name="pdata">[out] - raster data in memory</param>
 ///  <param name="pnbytes">[out] - number of bytes in data string</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixGetRasterData(
 				 Pix pixs, 
 				out Byte[] pdata, 
 				out uint pnbytes){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetRasterData(
-pixs.Pointer, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.pixGetRasterData(pixs.Pointer, out  pdataPtr, out  pnbytes);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[pnbytes];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (3226, 1)
 // pixAlphaIsOpaque(pix, popaque) as int
 // pixAlphaIsOpaque(PIX *, l_int32 *) as l_ok
@@ -2241,26 +1639,15 @@ pixs.Pointer, out  pdataPtr, out  pnbytes);
 ///  <param name="pix">[in] - 32 bpp, spp == 4</param>
 ///  <param name="popaque">[out] - 1 if spp == 4 and all alpha component values are 255 (opaque) 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error Notes: 1) On error, opaque is returned as 0 (FALSE).</returns>
-
 public static int pixAlphaIsOpaque(
 				 Pix pix, 
 				out int popaque){
 
-
-
-	int _Result = Natives.pixAlphaIsOpaque(
-pix.Pointer, out  popaque);
+	int _Result = Natives.pixAlphaIsOpaque(pix.Pointer, out  popaque);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (3291, 1)
 // pixSetupByteProcessing(pix, pw, ph) as List<byte[]>
 // pixSetupByteProcessing(PIX *, l_int32 *, l_int32 *) as l_uint8 **
@@ -2289,29 +1676,18 @@ pix.Pointer, out  popaque);
 ///  <param name="pw">[out][optional] - width</param>
 ///  <param name="ph">[out][optional] - height</param>
 ///   <returns>line ptr array, or NULL on error</returns>
-
 public static List<byte[]> pixSetupByteProcessing(
 				 Pix pix, 
 				out int pw, 
 				out int ph){
 
-
-
-	IntPtr _Result = Natives.pixSetupByteProcessing(
-pix.Pointer, out  pw, out  ph);
+	IntPtr _Result = Natives.pixSetupByteProcessing(pix.Pointer, out  pw, out  ph);
 	
-
-
-//  
-
-
 	// Todo: Functions.cs:GenerateSecureOut:List_Integer
 	List<Byte[]> B = null;
-
 	return B;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (3329, 1)
 // pixCleanupByteProcessing(pix, lineptrs) as int
 // pixCleanupByteProcessing(PIX *, l_uint8 **) as l_ok
@@ -2325,28 +1701,18 @@ pix.Pointer, out  pw, out  ph);
 ///  <param name="pix">[in] - 8 bpp, no colormap</param>
 ///  <param name="lineptrs">[in] - ptrs to the beginning of each raster line of data</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixCleanupByteProcessing(
 				 Pix pix, 
 				 List<byte[]> lineptrs){
 
-
 	IntPtr lineptrsPtr = 	Marshal.AllocHGlobal(0);
 
-	int _Result = Natives.pixCleanupByteProcessing(
-pix.Pointer,   lineptrsPtr);
+	int _Result = Natives.pixCleanupByteProcessing(pix.Pointer,   lineptrsPtr);
 	
-
 	Marshal.FreeHGlobal(lineptrsPtr);
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pix2.c (3371, 1)
 // l_setAlphaMaskBorder(val1, val2) as Object
 // l_setAlphaMaskBorder(l_float32, l_float32) as void
@@ -2371,22 +1737,12 @@ pix.Pointer,   lineptrsPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_setAlphaMaskBorder/*"/>
 ///  <param name="val1">[in] - in [0.0 ... 1.0]</param>
 ///  <param name="val2">[in] - in [0.0 ... 1.0]</param>
-
 public static void l_setAlphaMaskBorder(
 				 Single val1, 
 				 Single val2){
 
-
-
-	Natives.l_setAlphaMaskBorder(
-  val1,   val2);
+	Natives.l_setAlphaMaskBorder(  val1,   val2);
 	
-
-
-//  
-
-
-
 }
 
 

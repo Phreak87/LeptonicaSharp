@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (446, 1)
 // dewarpCreate(pixs, pageno) as L_Dewarp
 // dewarpCreate(PIX *, l_int32) as L_DEWARP *
@@ -23,27 +22,16 @@ public partial class _All {
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///  <param name="pageno">[in] - page number</param>
 ///   <returns>dew or NULL on error</returns>
-
 public static L_Dewarp dewarpCreate(
 				 Pix pixs, 
 				 int pageno){
 
-
-
-	IntPtr _Result = Natives.dewarpCreate(
-pixs.Pointer,   pageno);
+	IntPtr _Result = Natives.dewarpCreate(pixs.Pointer,   pageno);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (486, 1)
 // dewarpCreateRef(pageno, refpage) as L_Dewarp
 // dewarpCreateRef(l_int32, l_int32) as L_DEWARP *
@@ -62,27 +50,16 @@ pixs.Pointer,   pageno);
 ///  <param name="pageno">[in] - this page number</param>
 ///  <param name="refpage">[in] - page number of dewarp disparity arrays to be used</param>
 ///   <returns>dew or NULL on error</returns>
-
 public static L_Dewarp dewarpCreateRef(
 				 int pageno, 
 				 int refpage){
 
-
-
-	IntPtr _Result = Natives.dewarpCreateRef(
-  pageno,   refpage);
+	IntPtr _Result = Natives.dewarpCreateRef(  pageno,   refpage);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (509, 1)
 // dewarpDestroy(pdew) as Object
 // dewarpDestroy(L_DEWARP **) as void
@@ -90,26 +67,16 @@ public static L_Dewarp dewarpCreateRef(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpDestroy/*"/>
 ///  <param name="pdew">[in,out] - will be set to null before returning</param>
-
 public static void dewarpDestroy(
 				ref L_Dewarp pdew){
 
-
 	IntPtr pdewPtr = IntPtr.Zero; 	if (pdew != null) {pdewPtr = pdew.Pointer;}
 
-	Natives.dewarpDestroy(
-ref pdewPtr);
+	Natives.dewarpDestroy(ref pdewPtr);
 	
-
-
-//  
 	if (pdewPtr == IntPtr.Zero) {pdew = null;} else { pdew = new L_Dewarp(pdewPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (572, 1)
 // dewarpaCreate(nptrs, sampling, redfactor, minlines, maxdist) as L_Dewarpa
 // dewarpaCreate(l_int32, l_int32, l_int32, l_int32, l_int32) as L_DEWARPA *
@@ -146,7 +113,6 @@ ref pdewPtr);
 ///  <param name="minlines">[in] - minimum number of lines to accept use 0 for default</param>
 ///  <param name="maxdist">[in] - for locating reference disparity use -1 for default</param>
 ///   <returns>dewa or NULL on error</returns>
-
 public static L_Dewarpa dewarpaCreate(
 				 int nptrs, 
 				 int sampling, 
@@ -154,22 +120,12 @@ public static L_Dewarpa dewarpaCreate(
 				 int minlines, 
 				 int maxdist){
 
-
-
-	IntPtr _Result = Natives.dewarpaCreate(
-  nptrs,   sampling,   redfactor,   minlines,   maxdist);
+	IntPtr _Result = Natives.dewarpaCreate(  nptrs,   sampling,   redfactor,   minlines,   maxdist);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarpa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (661, 1)
 // dewarpaCreateFromPixacomp(pixac, useboth, sampling, minlines, maxdist) as L_Dewarpa
 // dewarpaCreateFromPixacomp(PIXAC *, l_int32, l_int32, l_int32, l_int32) as L_DEWARPA *
@@ -205,7 +161,6 @@ public static L_Dewarpa dewarpaCreate(
 ///  <param name="minlines">[in] - minimum number of lines to accept e.g., 10</param>
 ///  <param name="maxdist">[in] - for locating reference disparity use -1 for default</param>
 ///   <returns>dewa or NULL on error</returns>
-
 public static L_Dewarpa dewarpaCreateFromPixacomp(
 				 PixaComp pixac, 
 				 int useboth, 
@@ -213,22 +168,12 @@ public static L_Dewarpa dewarpaCreateFromPixacomp(
 				 int minlines, 
 				 int maxdist){
 
-
-
-	IntPtr _Result = Natives.dewarpaCreateFromPixacomp(
-pixac.Pointer,   useboth,   sampling,   minlines,   maxdist);
+	IntPtr _Result = Natives.dewarpaCreateFromPixacomp(pixac.Pointer,   useboth,   sampling,   minlines,   maxdist);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarpa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (722, 1)
 // dewarpaDestroy(pdewa) as Object
 // dewarpaDestroy(L_DEWARPA **) as void
@@ -236,26 +181,16 @@ pixac.Pointer,   useboth,   sampling,   minlines,   maxdist);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaDestroy/*"/>
 ///  <param name="pdewa">[in,out] - will be set to null before returning</param>
-
 public static void dewarpaDestroy(
 				ref L_Dewarpa pdewa){
 
-
 	IntPtr pdewaPtr = IntPtr.Zero; 	if (pdewa != null) {pdewaPtr = pdewa.Pointer;}
 
-	Natives.dewarpaDestroy(
-ref pdewaPtr);
+	Natives.dewarpaDestroy(ref pdewaPtr);
 	
-
-
-//  
 	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (762, 1)
 // dewarpaDestroyDewarp(dewa, pageno) as int
 // dewarpaDestroyDewarp(L_DEWARPA *, l_int32) as l_ok
@@ -265,26 +200,15 @@ ref pdewaPtr);
 ///  <param name="dewa">[in] - </param>
 ///  <param name="pageno">[in] - of dew to be destroyed</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaDestroyDewarp(
 				 L_Dewarpa dewa, 
 				 int pageno){
 
-
-
-	int _Result = Natives.dewarpaDestroyDewarp(
-dewa.Pointer,   pageno);
+	int _Result = Natives.dewarpaDestroyDewarp(dewa.Pointer,   pageno);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (805, 1)
 // dewarpaInsertDewarp(dewa, dew) as int
 // dewarpaInsertDewarp(L_DEWARPA *, L_DEWARP *) as l_ok
@@ -305,26 +229,15 @@ dewa.Pointer,   pageno);
 ///  <param name="dewa">[in] - </param>
 ///  <param name="dew">[in] - to be added</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaInsertDewarp(
 				 L_Dewarpa dewa, 
 				 L_Dewarp dew){
 
-
-
-	int _Result = Natives.dewarpaInsertDewarp(
-dewa.Pointer, dew.Pointer);
+	int _Result = Natives.dewarpaInsertDewarp(dewa.Pointer, dew.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (902, 1)
 // dewarpaGetDewarp(dewa, index) as L_Dewarp
 // dewarpaGetDewarp(L_DEWARPA *, l_int32) as L_DEWARP *
@@ -334,27 +247,16 @@ dewa.Pointer, dew.Pointer);
 ///  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 ///  <param name="index">[in] - into dewa: this is the pageno</param>
 ///   <returns>dew handle still owned by dewa, or NULL on error</returns>
-
 public static L_Dewarp dewarpaGetDewarp(
 				 L_Dewarpa dewa, 
 				 int index){
 
-
-
-	IntPtr _Result = Natives.dewarpaGetDewarp(
-dewa.Pointer,   index);
+	IntPtr _Result = Natives.dewarpaGetDewarp(dewa.Pointer,   index);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (966, 1)
 // dewarpaSetCurvatures(dewa, max_linecurv, min_diff_linecurv, max_diff_linecurv, max_edgecurv, max_diff_edgecurv, max_edgeslope) as int
 // dewarpaSetCurvatures(L_DEWARPA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -402,7 +304,6 @@ dewa.Pointer,   index);
 ///  <param name="max_diff_edgecurv">[in] - -1 for default</param>
 ///  <param name="max_edgeslope">[in] - -1 for default</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaSetCurvatures(
 				 L_Dewarpa dewa, 
 				 int max_linecurv, 
@@ -412,21 +313,11 @@ public static int dewarpaSetCurvatures(
 				 int max_diff_edgecurv, 
 				 int max_edgeslope){
 
-
-
-	int _Result = Natives.dewarpaSetCurvatures(
-dewa.Pointer,   max_linecurv,   min_diff_linecurv,   max_diff_linecurv,   max_edgecurv,   max_diff_edgecurv,   max_edgeslope);
+	int _Result = Natives.dewarpaSetCurvatures(dewa.Pointer,   max_linecurv,   min_diff_linecurv,   max_diff_linecurv,   max_edgecurv,   max_diff_edgecurv,   max_edgeslope);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1030, 1)
 // dewarpaUseBothArrays(dewa, useboth) as int
 // dewarpaUseBothArrays(L_DEWARPA *, l_int32) as l_ok
@@ -442,26 +333,15 @@ dewa.Pointer,   max_linecurv,   min_diff_linecurv,   max_diff_linecurv,   max_ed
 ///  <param name="dewa">[in] - </param>
 ///  <param name="useboth">[in] - 0 for false, 1 for true</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaUseBothArrays(
 				 L_Dewarpa dewa, 
 				 int useboth){
 
-
-
-	int _Result = Natives.dewarpaUseBothArrays(
-dewa.Pointer,   useboth);
+	int _Result = Natives.dewarpaUseBothArrays(dewa.Pointer,   useboth);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1069, 1)
 // dewarpaSetCheckColumns(dewa, check_columns) as int
 // dewarpaSetCheckColumns(L_DEWARPA *, l_int32) as l_ok
@@ -486,26 +366,15 @@ dewa.Pointer,   useboth);
 ///  <param name="dewa">[in] - </param>
 ///  <param name="check_columns">[in] - 0 for false, 1 for true</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaSetCheckColumns(
 				 L_Dewarpa dewa, 
 				 int check_columns){
 
-
-
-	int _Result = Natives.dewarpaSetCheckColumns(
-dewa.Pointer,   check_columns);
+	int _Result = Natives.dewarpaSetCheckColumns(dewa.Pointer,   check_columns);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1095, 1)
 // dewarpaSetMaxDistance(dewa, maxdist) as int
 // dewarpaSetMaxDistance(L_DEWARPA *, l_int32) as l_ok
@@ -518,26 +387,15 @@ dewa.Pointer,   check_columns);
 ///  <param name="dewa">[in] - </param>
 ///  <param name="maxdist">[in] - for using ref models</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaSetMaxDistance(
 				 L_Dewarpa dewa, 
 				 int maxdist){
 
-
-
-	int _Result = Natives.dewarpaSetMaxDistance(
-dewa.Pointer,   maxdist);
+	int _Result = Natives.dewarpaSetMaxDistance(dewa.Pointer,   maxdist);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1119, 1)
 // dewarpRead(filename) as L_Dewarp
 // dewarpRead(const char *) as L_DEWARP *
@@ -546,26 +404,15 @@ dewa.Pointer,   maxdist);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>dew, or NULL on error</returns>
-
 public static L_Dewarp dewarpRead(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.dewarpRead(
-  filename);
+	IntPtr _Result = Natives.dewarpRead(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1159, 1)
 // dewarpReadStream(fp) as L_Dewarp
 // dewarpReadStream(FILE *) as L_DEWARP *
@@ -584,26 +431,15 @@ public static L_Dewarp dewarpRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>dew, or NULL on error</returns>
-
 public static L_Dewarp dewarpReadStream(
 				 FILE fp){
 
-
-
-	IntPtr _Result = Natives.dewarpReadStream(
-fp.Pointer);
+	IntPtr _Result = Natives.dewarpReadStream(fp.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1264, 1)
 // dewarpReadMem(data, size) as L_Dewarp
 // dewarpReadMem(const l_uint8 *, size_t) as L_DEWARP *
@@ -613,27 +449,16 @@ fp.Pointer);
 ///  <param name="data">[in] - serialization of dewarp</param>
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>dew  dewarp, or NULL on error</returns>
-
 public static L_Dewarp dewarpReadMem(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.dewarpReadMem(
-  data,   size);
+	IntPtr _Result = Natives.dewarpReadMem(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1292, 1)
 // dewarpWrite(filename, dew) as int
 // dewarpWrite(const char *, L_DEWARP *) as l_ok
@@ -643,26 +468,15 @@ public static L_Dewarp dewarpReadMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpWrite(
 				 String filename, 
 				 L_Dewarp dew){
 
-
-
-	int _Result = Natives.dewarpWrite(
-  filename, dew.Pointer);
+	int _Result = Natives.dewarpWrite(  filename, dew.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1330, 1)
 // dewarpWriteStream(fp, dew) as int
 // dewarpWriteStream(FILE *, L_DEWARP *) as l_ok
@@ -677,26 +491,15 @@ public static int dewarpWrite(
 ///  <param name="fp">[in] - file stream opened for "wb"</param>
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpWriteStream(
 				 FILE fp, 
 				 L_Dewarp dew){
 
-
-
-	int _Result = Natives.dewarpWriteStream(
-fp.Pointer, dew.Pointer);
+	int _Result = Natives.dewarpWriteStream(fp.Pointer, dew.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1386, 1)
 // dewarpWriteMem(pdata, psize, dew) as int
 // dewarpWriteMem(l_uint8 **, size_t *, L_DEWARP *) as l_ok
@@ -710,33 +513,23 @@ fp.Pointer, dew.Pointer);
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 L_Dewarp dew){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.dewarpWriteMem(
-out  pdataPtr, out  psize, dew.Pointer);
+	int _Result = Natives.dewarpWriteMem(out  pdataPtr, out  psize, dew.Pointer);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1436, 1)
 // dewarpaRead(filename) as L_Dewarpa
 // dewarpaRead(const char *) as L_DEWARPA *
@@ -745,26 +538,15 @@ out  pdataPtr, out  psize, dew.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>dewa, or NULL on error</returns>
-
 public static L_Dewarpa dewarpaRead(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.dewarpaRead(
-  filename);
+	IntPtr _Result = Natives.dewarpaRead(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarpa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1473, 1)
 // dewarpaReadStream(fp) as L_Dewarpa
 // dewarpaReadStream(FILE *) as L_DEWARPA *
@@ -780,26 +562,15 @@ public static L_Dewarpa dewarpaRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>dewa, or NULL on error</returns>
-
 public static L_Dewarpa dewarpaReadStream(
 				 FILE fp){
 
-
-
-	IntPtr _Result = Natives.dewarpaReadStream(
-fp.Pointer);
+	IntPtr _Result = Natives.dewarpaReadStream(fp.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarpa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1545, 1)
 // dewarpaReadMem(data, size) as L_Dewarpa
 // dewarpaReadMem(const l_uint8 *, size_t) as L_DEWARPA *
@@ -809,27 +580,16 @@ fp.Pointer);
 ///  <param name="data">[in] - serialization of dewarpa</param>
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>dewa  dewarpa, or NULL on error</returns>
-
 public static L_Dewarpa dewarpaReadMem(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.dewarpaReadMem(
-  data,   size);
+	IntPtr _Result = Natives.dewarpaReadMem(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new L_Dewarpa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1573, 1)
 // dewarpaWrite(filename, dewa) as int
 // dewarpaWrite(const char *, L_DEWARPA *) as l_ok
@@ -839,26 +599,15 @@ public static L_Dewarpa dewarpaReadMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaWrite(
 				 String filename, 
 				 L_Dewarpa dewa){
 
-
-
-	int _Result = Natives.dewarpaWrite(
-  filename, dewa.Pointer);
+	int _Result = Natives.dewarpaWrite(  filename, dewa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1604, 1)
 // dewarpaWriteStream(fp, dewa) as int
 // dewarpaWriteStream(FILE *, L_DEWARPA *) as l_ok
@@ -868,26 +617,15 @@ public static int dewarpaWrite(
 ///  <param name="fp">[in] - file stream opened for "wb"</param>
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaWriteStream(
 				 FILE fp, 
 				 L_Dewarpa dewa){
 
-
-
-	int _Result = Natives.dewarpaWriteStream(
-fp.Pointer, dewa.Pointer);
+	int _Result = Natives.dewarpaWriteStream(fp.Pointer, dewa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp1.c (1660, 1)
 // dewarpaWriteMem(pdata, psize, dewa) as int
 // dewarpaWriteMem(l_uint8 **, size_t *, L_DEWARPA *) as l_ok
@@ -901,29 +639,20 @@ fp.Pointer, dewa.Pointer);
 ///  <param name="psize">[out] - size of returned data</param>
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 L_Dewarpa dewa){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.dewarpaWriteMem(
-out  pdataPtr, out  psize, dewa.Pointer);
+	int _Result = Natives.dewarpaWriteMem(out  pdataPtr, out  psize, dewa.Pointer);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 

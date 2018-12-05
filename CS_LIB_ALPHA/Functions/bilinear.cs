@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (143, 1)
 // pixBilinearSampledPta(pixs, ptad, ptas, incolor) as Pix
 // pixBilinearSampledPta(PIX *, PTA *, PTA *, l_int32) as PIX *
@@ -29,29 +28,18 @@ public partial class _All {
 ///  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearSampledPta(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixBilinearSampledPta(
-pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
+	IntPtr _Result = Natives.pixBilinearSampledPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (193, 1)
 // pixBilinearSampled(pixs, vc, incolor) as Pix
 // pixBilinearSampled(PIX *, l_float32 *, l_int32) as PIX *
@@ -71,28 +59,17 @@ pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 ///  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearSampled(
 				 Pix pixs, 
 				 Single[] vc, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixBilinearSampled(
-pixs.Pointer,   vc,   incolor);
+	IntPtr _Result = Natives.pixBilinearSampled(pixs.Pointer,   vc,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (286, 1)
 // pixBilinearPta(pixs, ptad, ptas, incolor) as Pix
 // pixBilinearPta(PIX *, PTA *, PTA *, l_int32) as PIX *
@@ -109,29 +86,18 @@ pixs.Pointer,   vc,   incolor);
 ///  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearPta(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixBilinearPta(
-pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
+	IntPtr _Result = Natives.pixBilinearPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (356, 1)
 // pixBilinear(pixs, vc, incolor) as Pix
 // pixBilinear(PIX *, l_float32 *, l_int32) as PIX *
@@ -147,28 +113,17 @@ pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 ///  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinear(
 				 Pix pixs, 
 				 Single[] vc, 
 				 int incolor){
 
-
-
-	IntPtr _Result = Natives.pixBilinear(
-pixs.Pointer,   vc,   incolor);
+	IntPtr _Result = Natives.pixBilinear(pixs.Pointer,   vc,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (412, 1)
 // pixBilinearPtaColor(pixs, ptad, ptas, colorval) as Pix
 // pixBilinearPtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
@@ -180,29 +135,18 @@ pixs.Pointer,   vc,   incolor);
 ///  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearPtaColor(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 uint colorval){
 
-
-
-	IntPtr _Result = Natives.pixBilinearPtaColor(
-pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
+	IntPtr _Result = Natives.pixBilinearPtaColor(pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (453, 1)
 // pixBilinearColor(pixs, vc, colorval) as Pix
 // pixBilinearColor(PIX *, l_float32 *, l_uint32) as PIX *
@@ -213,28 +157,17 @@ pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 ///  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearColor(
 				 Pix pixs, 
 				 Single[] vc, 
 				 uint colorval){
 
-
-
-	IntPtr _Result = Natives.pixBilinearColor(
-pixs.Pointer,   vc,   colorval);
+	IntPtr _Result = Natives.pixBilinearColor(pixs.Pointer,   vc,   colorval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (515, 1)
 // pixBilinearPtaGray(pixs, ptad, ptas, grayval) as Pix
 // pixBilinearPtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
@@ -246,29 +179,18 @@ pixs.Pointer,   vc,   colorval);
 ///  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearPtaGray(
 				 Pix pixs, 
 				 Pta ptad, 
 				 Pta ptas, 
 				 byte grayval){
 
-
-
-	IntPtr _Result = Natives.pixBilinearPtaGray(
-pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
+	IntPtr _Result = Natives.pixBilinearPtaGray(pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (556, 1)
 // pixBilinearGray(pixs, vc, grayval) as Pix
 // pixBilinearGray(PIX *, l_float32 *, l_uint8) as PIX *
@@ -279,28 +201,17 @@ pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 ///  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearGray(
 				 Pix pixs, 
 				 Single[] vc, 
 				 byte grayval){
 
-
-
-	IntPtr _Result = Natives.pixBilinearGray(
-pixs.Pointer,   vc,   grayval);
+	IntPtr _Result = Natives.pixBilinearGray(pixs.Pointer,   vc,   grayval);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (644, 1)
 // pixBilinearPtaWithAlpha(pixs, ptad, ptas, pixg, fract, border) as Pix
 // pixBilinearPtaWithAlpha(PIX *, PTA *, PTA *, PIX *, l_float32, l_int32) as PIX *
@@ -349,7 +260,6 @@ pixs.Pointer,   vc,   grayval);
 ///  <param name="fract">[in] - between 0.0 and 1.0, with 0.0 fully transparent and 1.0 fully opaque</param>
 ///  <param name="border">[in] - of pixels added to capture transformed source pixels</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixBilinearPtaWithAlpha(
 				 Pix pixs, 
 				 Pta ptad, 
@@ -358,23 +268,14 @@ public static Pix pixBilinearPtaWithAlpha(
 				 Single fract, 
 				 int border){
 
-
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixBilinearPtaWithAlpha(
-pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
+	IntPtr _Result = Natives.pixBilinearPtaWithAlpha(pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (776, 1)
 // getBilinearXformCoeffs(ptas, ptad, pvc) as int
 // getBilinearXformCoeffs(PTA *, PTA *, l_float32 **) as l_ok
@@ -419,29 +320,19 @@ pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
 ///  <param name="ptad">[in] - transformed 4 points primed</param>
 ///  <param name="pvc">[out] - vector of coefficients of transform</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int getBilinearXformCoeffs(
 				 Pta ptas, 
 				 Pta ptad, 
 				out List<Single[]> pvc){
 
-
 	IntPtr pvcPtr = IntPtr.Zero;
 
-	int _Result = Natives.getBilinearXformCoeffs(
-ptas.Pointer, ptad.Pointer, out  pvcPtr);
+	int _Result = Natives.getBilinearXformCoeffs(ptas.Pointer, ptad.Pointer, out  pvcPtr);
 	
-
-
-//  
 	if (pvcPtr == null) {pvc = null;} else { pvc = null; };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (869, 1)
 // bilinearXformSampledPt(vc, x, y, pxp, pyp) as int
 // bilinearXformSampledPt(l_float32 *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
@@ -459,7 +350,6 @@ ptas.Pointer, ptad.Pointer, out  pvcPtr);
 ///  <param name="pxp">[out] - transformed point</param>
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int bilinearXformSampledPt(
 				 Single[] vc, 
 				 int x, 
@@ -467,21 +357,11 @@ public static int bilinearXformSampledPt(
 				out int pxp, 
 				out int pyp){
 
-
-
-	int _Result = Natives.bilinearXformSampledPt(
-  vc,   x,   y, out  pxp, out  pyp);
+	int _Result = Natives.bilinearXformSampledPt(  vc,   x,   y, out  pxp, out  pyp);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bilinear.c (902, 1)
 // bilinearXformPt(vc, x, y, pxp, pyp) as int
 // bilinearXformPt(l_float32 *, l_int32, l_int32, l_float32 *, l_float32 *) as l_ok
@@ -499,7 +379,6 @@ public static int bilinearXformSampledPt(
 ///  <param name="pxp">[out] - transformed point</param>
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int bilinearXformPt(
 				 Single[] vc, 
 				 int x, 
@@ -507,17 +386,8 @@ public static int bilinearXformPt(
 				out Single pxp, 
 				out Single pyp){
 
-
-
-	int _Result = Natives.bilinearXformPt(
-  vc,   x,   y, out  pxp, out  pyp);
+	int _Result = Natives.bilinearXformPt(  vc,   x,   y, out  pxp, out  pyp);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

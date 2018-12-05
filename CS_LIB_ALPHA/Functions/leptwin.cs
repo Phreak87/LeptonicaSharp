@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // leptwin.c (303, 1)
 // pixGetWindowsHBITMAP(pix) as IntPtr
 // pixGetWindowsHBITMAP(PIX *) as HBITMAP
@@ -20,21 +19,11 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
 ///  <param name="pix">[in] - </param>
 ///   <returns>Windows hBitmap, or NULL on error</returns>
-
 public static IntPtr pixGetWindowsHBITMAP(
 				 Pix pix){
 
-
-
-	IntPtr _Result = Natives.pixGetWindowsHBITMAP(
-pix.Pointer);
+	IntPtr _Result = Natives.pixGetWindowsHBITMAP(pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

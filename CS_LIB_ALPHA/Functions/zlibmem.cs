@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // zlibmem.c (92, 1)
 // zlibCompress(datain, nin, pnout) as Byte[]
 // zlibCompress(l_uint8 *, size_t, size_t *) as l_uint8 *
@@ -28,27 +27,16 @@ public partial class _All {
 ///  <param name="nin">[in] - number of bytes of input data</param>
 ///  <param name="pnout">[out] - number of bytes of output data</param>
 ///   <returns>dataout compressed data, or NULL on error</returns>
-
 public static Byte[] zlibCompress(
 				 Byte[] datain, 
 				 uint nin, 
 				out uint pnout){
 
-
-
-	Byte[] _Result = Natives.zlibCompress(
-  datain,   nin, out  pnout);
+	Byte[] _Result = Natives.zlibCompress(  datain,   nin, out  pnout);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // zlibmem.c (198, 1)
 // zlibUncompress(datain, nin, pnout) as Byte[]
 // zlibUncompress(l_uint8 *, size_t, size_t *) as l_uint8 *
@@ -62,23 +50,13 @@ public static Byte[] zlibCompress(
 ///  <param name="nin">[in] - number of bytes of input data</param>
 ///  <param name="pnout">[out] - number of bytes of output data</param>
 ///   <returns>dataout uncompressed data, or NULL on error</returns>
-
 public static Byte[] zlibUncompress(
 				 Byte[] datain, 
 				 uint nin, 
 				out uint pnout){
 
-
-
-	Byte[] _Result = Natives.zlibUncompress(
-  datain,   nin, out  pnout);
+	Byte[] _Result = Natives.zlibUncompress(  datain,   nin, out  pnout);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

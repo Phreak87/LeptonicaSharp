@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (242, 1)
 // pixOrientCorrect(pixs, minupconf, minratio, pupconf, pleftconf, protation, debug) as Pix
 // pixOrientCorrect(PIX *, l_float32, l_float32, l_float32 *, l_float32 *, l_int32 *, l_int32) as PIX *
@@ -33,7 +32,6 @@ public partial class _All {
 ///  <param name="protation">[out][optional] - use NULL to skip</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>pixd  may be rotated by 90, 180 or 270 null on error</returns>
-
 public static Pix pixOrientCorrect(
 				 Pix pixs, 
 				 Single minupconf, 
@@ -43,22 +41,12 @@ public static Pix pixOrientCorrect(
 				out int protation, 
 				 DebugOnOff debug){
 
-
-
-	IntPtr _Result = Natives.pixOrientCorrect(
-pixs.Pointer,   minupconf,   minratio, out  pupconf, out  pleftconf, out  protation,  (int) debug);
+	IntPtr _Result = Natives.pixOrientCorrect(pixs.Pointer,   minupconf,   minratio, out  pupconf, out  pleftconf, out  protation,  (int) debug);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (370, 1)
 // pixOrientDetect(pixs, pupconf, pleftconf, mincount, debug) as int
 // pixOrientDetect(PIX *, l_float32 *, l_float32 *, l_int32, l_int32) as l_ok
@@ -123,7 +111,6 @@ pixs.Pointer,   minupconf,   minratio, out  pupconf, out  pleftconf, out  protat
 ///  <param name="mincount">[in] - min number of up + down use 0 for default</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixOrientDetect(
 				 Pix pixs, 
 				out Single pupconf, 
@@ -131,21 +118,11 @@ public static int pixOrientDetect(
 				 int mincount, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixOrientDetect(
-pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
+	int _Result = Natives.pixOrientDetect(pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (431, 1)
 // makeOrientDecision(upconf, leftconf, minupconf, minratio, porient, debug) as int
 // makeOrientDecision(l_float32, l_float32, l_float32, l_float32, l_int32 *, l_int32) as l_ok
@@ -180,7 +157,6 @@ pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 ///  <param name="porient">[out] - text orientation enum {0,1,2,3,4}</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int makeOrientDecision(
 				 Single upconf, 
 				 Single leftconf, 
@@ -189,21 +165,11 @@ public static int makeOrientDecision(
 				out int porient, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.makeOrientDecision(
-  upconf,   leftconf,   minupconf,   minratio, out  porient,  (int) debug);
+	int _Result = Natives.makeOrientDecision(  upconf,   leftconf,   minupconf,   minratio, out  porient,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (510, 1)
 // pixUpDownDetect(pixs, pconf, mincount, debug) as int
 // pixUpDownDetect(PIX *, l_float32 *, l_int32, l_int32) as l_ok
@@ -226,28 +192,17 @@ public static int makeOrientDecision(
 ///  <param name="mincount">[in] - min number of up + down use 0 for default</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixUpDownDetect(
 				 Pix pixs, 
 				out Single pconf, 
 				 int mincount, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixUpDownDetect(
-pixs.Pointer, out  pconf,   mincount,  (int) debug);
+	int _Result = Natives.pixUpDownDetect(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (558, 1)
 // pixUpDownDetectGeneral(pixs, pconf, mincount, npixels, debug) as int
 // pixUpDownDetectGeneral(PIX *, l_float32 *, l_int32, l_int32, l_int32) as l_ok
@@ -289,7 +244,6 @@ pixs.Pointer, out  pconf,   mincount,  (int) debug);
 ///  <param name="npixels">[in] - number of pixels removed from each side of word box</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixUpDownDetectGeneral(
 				 Pix pixs, 
 				out Single pconf, 
@@ -297,21 +251,11 @@ public static int pixUpDownDetectGeneral(
 				 int npixels, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixUpDownDetectGeneral(
-pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
+	int _Result = Natives.pixUpDownDetectGeneral(pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (699, 1)
 // pixOrientDetectDwa(pixs, pupconf, pleftconf, mincount, debug) as int
 // pixOrientDetectDwa(PIX *, l_float32 *, l_float32 *, l_int32, l_int32) as l_ok
@@ -335,7 +279,6 @@ pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 ///  <param name="mincount">[in] - min number of up + down use 0 for default</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixOrientDetectDwa(
 				 Pix pixs, 
 				out Single pupconf, 
@@ -343,21 +286,11 @@ public static int pixOrientDetectDwa(
 				 int mincount, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixOrientDetectDwa(
-pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
+	int _Result = Natives.pixOrientDetectDwa(pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (752, 1)
 // pixUpDownDetectDwa(pixs, pconf, mincount, debug) as int
 // pixUpDownDetectDwa(PIX *, l_float32 *, l_int32, l_int32) as l_ok
@@ -383,28 +316,17 @@ pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 ///  <param name="mincount">[in] - min number of up + down use 0 for default</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixUpDownDetectDwa(
 				 Pix pixs, 
 				out Single pconf, 
 				 int mincount, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixUpDownDetectDwa(
-pixs.Pointer, out  pconf,   mincount,  (int) debug);
+	int _Result = Natives.pixUpDownDetectDwa(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (777, 1)
 // pixUpDownDetectGeneralDwa(pixs, pconf, mincount, npixels, debug) as int
 // pixUpDownDetectGeneralDwa(PIX *, l_float32 *, l_int32, l_int32, l_int32) as l_ok
@@ -420,7 +342,6 @@ pixs.Pointer, out  pconf,   mincount,  (int) debug);
 ///  <param name="npixels">[in] - number of pixels removed from each side of word box</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixUpDownDetectGeneralDwa(
 				 Pix pixs, 
 				out Single pconf, 
@@ -428,21 +349,11 @@ public static int pixUpDownDetectGeneralDwa(
 				 int npixels, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixUpDownDetectGeneralDwa(
-pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
+	int _Result = Natives.pixUpDownDetectGeneralDwa(pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (934, 1)
 // pixMirrorDetect(pixs, pconf, mincount, debug) as int
 // pixMirrorDetect(PIX *, l_float32 *, l_int32, l_int32) as l_ok
@@ -485,28 +396,17 @@ pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 ///  <param name="mincount">[in] - min number of left + right use 0 for default</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixMirrorDetect(
 				 Pix pixs, 
 				out Single pconf, 
 				 int mincount, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixMirrorDetect(
-pixs.Pointer, out  pconf,   mincount,  (int) debug);
+	int _Result = Natives.pixMirrorDetect(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // flipdetect.c (1025, 1)
 // pixMirrorDetectDwa(pixs, pconf, mincount, debug) as int
 // pixMirrorDetectDwa(PIX *, l_float32 *, l_int32, l_int32) as l_ok
@@ -524,24 +424,14 @@ pixs.Pointer, out  pconf,   mincount,  (int) debug);
 ///  <param name="mincount">[in] - min number of left + right use 0 for default</param>
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixMirrorDetectDwa(
 				 Pix pixs, 
 				out Single pconf, 
 				 int mincount, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.pixMirrorDetectDwa(
-pixs.Pointer, out  pconf,   mincount,  (int) debug);
+	int _Result = Natives.pixMirrorDetectDwa(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

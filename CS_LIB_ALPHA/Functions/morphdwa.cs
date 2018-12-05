@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (175, 1)
 // pixDilateBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixDilateBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -46,30 +45,20 @@ public partial class _All {
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixDilateBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixDilateBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixDilateBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (277, 1)
 // pixErodeBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixErodeBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -113,30 +102,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixErodeBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixErodeBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixErodeBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (379, 1)
 // pixOpenBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixOpenBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -180,30 +159,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixOpenBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOpenBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixOpenBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (486, 1)
 // pixCloseBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixCloseBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -250,30 +219,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixCloseBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixCloseBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (613, 1)
 // pixDilateCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixDilateCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -326,30 +285,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixDilateCompBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixDilateCompBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixDilateCompBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (746, 1)
 // pixErodeCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixErodeCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -402,30 +351,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixErodeCompBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixErodeCompBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixErodeCompBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (875, 1)
 // pixOpenCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixOpenCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -478,30 +417,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixOpenCompBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOpenCompBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixOpenCompBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (1042, 1)
 // pixCloseCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 // pixCloseCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -555,30 +484,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixCloseCompBrickDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseCompBrickDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixCloseCompBrickDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (1192, 1)
 // pixDilateCompBrickExtendDwa(pixd, pixs, hsize, vsize) as Pix
 // pixDilateCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -611,30 +530,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixDilateCompBrickExtendDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixDilateCompBrickExtendDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixDilateCompBrickExtendDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (1312, 1)
 // pixErodeCompBrickExtendDwa(pixd, pixs, hsize, vsize) as Pix
 // pixErodeCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -652,30 +561,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
-
 public static Pix pixErodeCompBrickExtendDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixErodeCompBrickExtendDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixErodeCompBrickExtendDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (1432, 1)
 // pixOpenCompBrickExtendDwa(pixd, pixs, hsize, vsize) as Pix
 // pixOpenCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -687,30 +586,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd 1 There are three cases: a) pixd == null   (result into new pixd b) pixd == pixs   (in-place writes result back to pixs c) pixd != pixs   (puts result into existing pixd 2) There is no need to call this directly:  pixOpenCompBrickDwa( calls this function if either brick dimension exceeds 63.</returns>
-
 public static Pix pixOpenCompBrickExtendDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixOpenCompBrickExtendDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixOpenCompBrickExtendDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (1473, 1)
 // pixCloseCompBrickExtendDwa(pixd, pixs, hsize, vsize) as Pix
 // pixCloseCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -722,30 +611,20 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="hsize">[in] - width of brick Sel</param>
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd 1 There are three cases: a) pixd == null   (result into new pixd b) pixd == pixs   (in-place writes result back to pixs c) pixd != pixs   (puts result into existing pixd 2) There is no need to call this directly:  pixCloseCompBrickDwa( calls this function if either brick dimension exceeds 63.</returns>
-
 public static Pix pixCloseCompBrickExtendDwa(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int hsize, 
 				 int vsize){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixCloseCompBrickExtendDwa(
-pixdPtr, pixs.Pointer,   hsize,   vsize);
+	IntPtr _Result = Natives.pixCloseCompBrickExtendDwa(pixdPtr, pixs.Pointer,   hsize,   vsize);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphdwa.c (1562, 1)
 // getExtendedCompositeParameters(size, pn, pextra, pactualsize) as int
 // getExtendedCompositeParameters(l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -787,24 +666,14 @@ pixdPtr, pixs.Pointer,   hsize,   vsize);
 ///  <param name="pextra">[out] - size of extra Sel</param>
 ///  <param name="pactualsize">[out][optional] - actual size used in operation</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int getExtendedCompositeParameters(
 				 int size, 
 				out int pn, 
 				out int pextra, 
 				out int pactualsize){
 
-
-
-	int _Result = Natives.getExtendedCompositeParameters(
-  size, out  pn, out  pextra, out  pactualsize);
+	int _Result = Natives.getExtendedCompositeParameters(  size, out  pn, out  pextra, out  pactualsize);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

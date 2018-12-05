@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rank.c (147, 1)
 // pixRankFilter(pixs, wf, hf, rank) as Pix
 // pixRankFilter(PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -29,29 +28,18 @@ public partial class _All {
 ///  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
 ///  <param name="rank">[in] - in [0.0 ... 1.0]</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
-
 public static Pix pixRankFilter(
 				 Pix pixs, 
 				 int wf, 
 				 int hf, 
 				 Single rank){
 
-
-
-	IntPtr _Result = Natives.pixRankFilter(
-pixs.Pointer,   wf,   hf,   rank);
+	IntPtr _Result = Natives.pixRankFilter(pixs.Pointer,   wf,   hf,   rank);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rank.c (199, 1)
 // pixRankFilterRGB(pixs, wf, hf, rank) as Pix
 // pixRankFilterRGB(PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -76,29 +64,18 @@ pixs.Pointer,   wf,   hf,   rank);
 ///  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
 ///  <param name="rank">[in] - in [0.0 ... 1.0]</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
-
 public static Pix pixRankFilterRGB(
 				 Pix pixs, 
 				 int wf, 
 				 int hf, 
 				 Single rank){
 
-
-
-	IntPtr _Result = Natives.pixRankFilterRGB(
-pixs.Pointer,   wf,   hf,   rank);
+	IntPtr _Result = Natives.pixRankFilterRGB(pixs.Pointer,   wf,   hf,   rank);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rank.c (267, 1)
 // pixRankFilterGray(pixs, wf, hf, rank) as Pix
 // pixRankFilterGray(PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -133,29 +110,18 @@ pixs.Pointer,   wf,   hf,   rank);
 ///  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
 ///  <param name="rank">[in] - in [0.0 ... 1.0]</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
-
 public static Pix pixRankFilterGray(
 				 Pix pixs, 
 				 int wf, 
 				 int hf, 
 				 Single rank){
 
-
-
-	IntPtr _Result = Natives.pixRankFilterGray(
-pixs.Pointer,   wf,   hf,   rank);
+	IntPtr _Result = Natives.pixRankFilterGray(pixs.Pointer,   wf,   hf,   rank);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rank.c (467, 1)
 // pixMedianFilter(pixs, wf, hf) as Pix
 // pixMedianFilter(PIX *, l_int32, l_int32) as PIX *
@@ -166,28 +132,17 @@ pixs.Pointer,   wf,   hf,   rank);
 ///  <param name="wf">[in] - width and height of filter each is greater or equal 1</param>
 ///  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
 ///   <returns>pixd of median values, or NULL on error</returns>
-
 public static Pix pixMedianFilter(
 				 Pix pixs, 
 				 int wf, 
 				 int hf){
 
-
-
-	IntPtr _Result = Natives.pixMedianFilter(
-pixs.Pointer,   wf,   hf);
+	IntPtr _Result = Natives.pixMedianFilter(pixs.Pointer,   wf,   hf);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rank.c (502, 1)
 // pixRankFilterWithScaling(pixs, wf, hf, rank, scalefactor) as Pix
 // pixRankFilterWithScaling(PIX *, l_int32, l_int32, l_float32, l_float32) as PIX *
@@ -208,7 +163,6 @@ pixs.Pointer,   wf,   hf);
 ///  <param name="rank">[in] - in [0.0 ... 1.0]</param>
 ///  <param name="scalefactor">[in] - scale factor must be greater or equal 0.2 and smaller or equal 0.7</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
-
 public static Pix pixRankFilterWithScaling(
 				 Pix pixs, 
 				 int wf, 
@@ -216,18 +170,9 @@ public static Pix pixRankFilterWithScaling(
 				 Single rank, 
 				 Single scalefactor){
 
-
-
-	IntPtr _Result = Natives.pixRankFilterWithScaling(
-pixs.Pointer,   wf,   hf,   rank,   scalefactor);
+	IntPtr _Result = Natives.pixRankFilterWithScaling(pixs.Pointer,   wf,   hf,   rank,   scalefactor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

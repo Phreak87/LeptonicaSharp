@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rop.c (193, 1)
 // pixRasterop(pixd, dx, dy, dw, dh, op, pixs, sx, sy) as int
 // pixRasterop(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, PIX *, l_int32, l_int32) as l_ok
@@ -131,7 +130,6 @@ public partial class _All {
 ///  <param name="sx">[in] - x val of UL corner of src rectangle</param>
 ///  <param name="sy">[in] - y val of UL corner of src rectangle</param>
 ///   <returns>0 if OK 1 on error.</returns>
-
 public static int pixRasterop(
 				 Pix pixd, 
 				 int dx, 
@@ -143,21 +141,11 @@ public static int pixRasterop(
 				 int sx, 
 				 int sy){
 
-
-
-	int _Result = Natives.pixRasterop(
-pixd.Pointer,   dx,   dy,   dw,   dh,   op, pixs.Pointer,   sx,   sy);
+	int _Result = Natives.pixRasterop(pixd.Pointer,   dx,   dy,   dw,   dh,   op, pixs.Pointer,   sx,   sy);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rop.c (269, 1)
 // pixRasteropVip(pixd, bx, bw, vshift, incolor) as int
 // pixRasteropVip(PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -180,7 +168,6 @@ pixd.Pointer,   dx,   dy,   dw,   dh,   op, pixs.Pointer,   sx,   sy);
 ///  <param name="vshift">[in] - vertical shift of band vshift  is greater  0 is down</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixRasteropVip(
 				 Pix pixd, 
 				 int bx, 
@@ -188,21 +175,11 @@ public static int pixRasteropVip(
 				 int vshift, 
 				 int incolor){
 
-
-
-	int _Result = Natives.pixRasteropVip(
-pixd.Pointer,   bx,   bw,   vshift,   incolor);
+	int _Result = Natives.pixRasteropVip(pixd.Pointer,   bx,   bw,   vshift,   incolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rop.c (347, 1)
 // pixRasteropHip(pixd, by, bh, hshift, incolor) as int
 // pixRasteropHip(PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -225,7 +202,6 @@ pixd.Pointer,   bx,   bw,   vshift,   incolor);
 ///  <param name="hshift">[in] - horizontal shift of band hshift  is greater  0 is to right</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixRasteropHip(
 				 Pix pixd, 
 				 int by, 
@@ -233,21 +209,11 @@ public static int pixRasteropHip(
 				 int hshift, 
 				 int incolor){
 
-
-
-	int _Result = Natives.pixRasteropHip(
-pixd.Pointer,   by,   bh,   hshift,   incolor);
+	int _Result = Natives.pixRasteropHip(pixd.Pointer,   by,   bh,   hshift,   incolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rop.c (431, 1)
 // pixTranslate(pixd, pixs, hshift, vshift, incolor) as Pix
 // pixTranslate(PIX *, PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -271,7 +237,6 @@ pixd.Pointer,   by,   bh,   hshift,   incolor);
 ///  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
-
 public static Pix pixTranslate(
 				 Pix pixd, 
 				 Pix pixs, 
@@ -279,23 +244,14 @@ public static Pix pixTranslate(
 				 int vshift, 
 				 int incolor){
 
-
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixTranslate(
-pixdPtr, pixs.Pointer,   hshift,   vshift,   incolor);
+	IntPtr _Result = Natives.pixTranslate(pixdPtr, pixs.Pointer,   hshift,   vshift,   incolor);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rop.c (461, 1)
 // pixRasteropIP(pixd, hshift, vshift, incolor) as int
 // pixRasteropIP(PIX *, l_int32, l_int32, l_int32) as l_ok
@@ -307,28 +263,17 @@ pixdPtr, pixs.Pointer,   hshift,   vshift,   incolor);
 ///  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixRasteropIP(
 				 Pix pixd, 
 				 int hshift, 
 				 int vshift, 
 				 int incolor){
 
-
-
-	int _Result = Natives.pixRasteropIP(
-pixd.Pointer,   hshift,   vshift,   incolor);
+	int _Result = Natives.pixRasteropIP(pixd.Pointer,   hshift,   vshift,   incolor);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // rop.c (502, 1)
 // pixRasteropFullImage(pixd, pixs, op) as int
 // pixRasteropFullImage(PIX *, PIX *, l_int32) as l_ok
@@ -346,23 +291,13 @@ pixd.Pointer,   hshift,   vshift,   incolor);
 ///  <param name="pixs">[in] - </param>
 ///  <param name="op">[in] - any of the op-codes</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixRasteropFullImage(
 				 Pix pixd, 
 				 Pix pixs, 
 				 int op){
 
-
-
-	int _Result = Natives.pixRasteropFullImage(
-pixd.Pointer, pixs.Pointer,   op);
+	int _Result = Natives.pixRasteropFullImage(pixd.Pointer, pixs.Pointer,   op);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

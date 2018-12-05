@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (185, 1)
 // pixcompCreateFromPix(pix, comptype) as PixComp
 // pixcompCreateFromPix(PIX *, l_int32) as PIXC *
@@ -23,27 +22,16 @@ public partial class _All {
 ///  <param name="pix">[in] - </param>
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixc, or NULL on error</returns>
-
 public static PixComp pixcompCreateFromPix(
 				 Pix pix, 
 				 int comptype){
 
-
-
-	IntPtr _Result = Natives.pixcompCreateFromPix(
-pix.Pointer,   comptype);
+	IntPtr _Result = Natives.pixcompCreateFromPix(pix.Pointer,   comptype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (242, 1)
 // pixcompCreateFromString(data, size, copyflag) as PixComp
 // pixcompCreateFromString(l_uint8 *, size_t, l_int32) as PIXC *
@@ -60,28 +48,17 @@ pix.Pointer,   comptype);
 ///  <param name="size">[in] - number of bytes</param>
 ///  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
 ///   <returns>pixc, or NULL on error</returns>
-
 public static PixComp pixcompCreateFromString(
 				 Byte[] data, 
 				 uint size, 
 				 int copyflag){
 
-
-
-	IntPtr _Result = Natives.pixcompCreateFromString(
-  data,   size,   copyflag);
+	IntPtr _Result = Natives.pixcompCreateFromString(  data,   size,   copyflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (291, 1)
 // pixcompCreateFromFile(filename, comptype) as PixComp
 // pixcompCreateFromFile(const char *, l_int32) as PIXC *
@@ -98,27 +75,16 @@ public static PixComp pixcompCreateFromString(
 ///  <param name="filename">[in] - </param>
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixc, or NULL on error</returns>
-
 public static PixComp pixcompCreateFromFile(
 				 String filename, 
 				 int comptype){
 
-
-
-	IntPtr _Result = Natives.pixcompCreateFromFile(
-  filename,   comptype);
+	IntPtr _Result = Natives.pixcompCreateFromFile(  filename,   comptype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (354, 1)
 // pixcompDestroy(ppixc) as Object
 // pixcompDestroy(PIXC **) as void
@@ -129,26 +95,16 @@ public static PixComp pixcompCreateFromFile(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcompDestroy/*"/>
 ///  <param name="ppixc">[in,out] - will be nulled</param>
-
 public static void pixcompDestroy(
 				ref PixComp ppixc){
 
-
 	IntPtr ppixcPtr = IntPtr.Zero; 	if (ppixc != null) {ppixcPtr = ppixc.Pointer;}
 
-	Natives.pixcompDestroy(
-ref ppixcPtr);
+	Natives.pixcompDestroy(ref ppixcPtr);
 	
-
-
-//  
 	if (ppixcPtr == IntPtr.Zero) {ppixc = null;} else { ppixc = new PixComp(ppixcPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (384, 1)
 // pixcompCopy(pixcs) as PixComp
 // pixcompCopy(PIXC *) as PIXC *
@@ -157,26 +113,15 @@ ref ppixcPtr);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcompCopy/*"/>
 ///  <param name="pixcs">[in] - </param>
 ///   <returns>pixcd, or NULL on error</returns>
-
 public static PixComp pixcompCopy(
 				 PixComp pixcs){
 
-
-
-	IntPtr _Result = Natives.pixcompCopy(
-pixcs.Pointer);
+	IntPtr _Result = Natives.pixcompCopy(pixcs.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (429, 1)
 // pixcompGetDimensions(pixc, pw, ph, pd) as int
 // pixcompGetDimensions(PIXC *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -188,28 +133,17 @@ pixcs.Pointer);
 ///  <param name="ph">[out][optional] - </param>
 ///  <param name="pd">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixcompGetDimensions(
 				 PixComp pixc, 
 				out int pw, 
 				out int ph, 
 				out int pd){
 
-
-
-	int _Result = Natives.pixcompGetDimensions(
-pixc.Pointer, out  pw, out  ph, out  pd);
+	int _Result = Natives.pixcompGetDimensions(pixc.Pointer, out  pw, out  ph, out  pd);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (453, 1)
 // pixcompGetParameters(pixc, pxres, pyres, pcomptype, pcmapflag) as int
 // pixcompGetParameters(PIXC *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -222,7 +156,6 @@ pixc.Pointer, out  pw, out  ph, out  pd);
 ///  <param name="pcomptype">[out][all optional] - </param>
 ///  <param name="pcmapflag">[out][all optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixcompGetParameters(
 				 PixComp pixc, 
 				out int pxres, 
@@ -230,21 +163,11 @@ public static int pixcompGetParameters(
 				out int pcomptype, 
 				out int pcmapflag){
 
-
-
-	int _Result = Natives.pixcompGetParameters(
-pixc.Pointer, out  pxres, out  pyres, out  pcomptype, out  pcmapflag);
+	int _Result = Natives.pixcompGetParameters(pixc.Pointer, out  pxres, out  pyres, out  pcomptype, out  pcmapflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (495, 1)
 // pixcompDetermineFormat(comptype, d, cmapflag, pformat) as int
 // pixcompDetermineFormat(l_int32, l_int32, l_int32, l_int32 *) as l_ok
@@ -267,28 +190,17 @@ pixc.Pointer, out  pxres, out  pyres, out  pcomptype, out  pcmapflag);
 ///  <param name="cmapflag">[in] - 1 if pix to be compressed as a colormap 0 otherwise</param>
 ///  <param name="pformat">[out] - return IFF_TIFF, IFF_PNG or IFF_JFIF_JPEG</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixcompDetermineFormat(
 				 int comptype, 
 				 int d, 
 				 int cmapflag, 
 				out int pformat){
 
-
-
-	int _Result = Natives.pixcompDetermineFormat(
-  comptype,   d,   cmapflag, out  pformat);
+	int _Result = Natives.pixcompDetermineFormat(  comptype,   d,   cmapflag, out  pformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (537, 1)
 // pixCreateFromPixcomp(pixc) as Pix
 // pixCreateFromPixcomp(PIXC *) as PIX *
@@ -297,26 +209,15 @@ public static int pixcompDetermineFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCreateFromPixcomp/*"/>
 ///  <param name="pixc">[in] - </param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixCreateFromPixcomp(
 				 PixComp pixc){
 
-
-
-	IntPtr _Result = Natives.pixCreateFromPixcomp(
-pixc.Pointer);
+	IntPtr _Result = Natives.pixCreateFromPixcomp(pixc.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (590, 1)
 // pixacompCreate(n) as PixaComp
 // pixacompCreate(l_int32) as PIXAC *
@@ -325,26 +226,15 @@ pixc.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompCreate/*"/>
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>pixac, or NULL on error</returns>
-
 public static PixaComp pixacompCreate(
 				 int n){
 
-
-
-	IntPtr _Result = Natives.pixacompCreate(
-  n);
+	IntPtr _Result = Natives.pixacompCreate(  n);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (657, 1)
 // pixacompCreateWithInit(n, offset, pix, comptype) as PixaComp
 // pixacompCreateWithInit(l_int32, l_int32, PIX *, l_int32) as PIXAC *
@@ -384,30 +274,20 @@ public static PixaComp pixacompCreate(
 ///  <param name="pix">[in][optional] - initialize each ptr in pixacomp to this pix can be NULL</param>
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixac, or NULL on error</returns>
-
 public static PixaComp pixacompCreateWithInit(
 				 int n, 
 				 int offset, 
 				 Pix pix, 
 				 int comptype){
 
-
 	IntPtr pixPtr = IntPtr.Zero; 	if (pix != null) {pixPtr = pix.Pointer;}
 
-	IntPtr _Result = Natives.pixacompCreateWithInit(
-  n,   offset, pixPtr,   comptype);
+	IntPtr _Result = Natives.pixacompCreateWithInit(  n,   offset, pixPtr,   comptype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (721, 1)
 // pixacompCreateFromPixa(pixa, comptype, accesstype) as PixaComp
 // pixacompCreateFromPixa(PIXA *, l_int32, l_int32) as PIXAC *
@@ -430,28 +310,17 @@ public static PixaComp pixacompCreateWithInit(
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static PixaComp pixacompCreateFromPixa(
 				 Pixa pixa, 
 				 int comptype, 
 				 int accesstype){
 
-
-
-	IntPtr _Result = Natives.pixacompCreateFromPixa(
-pixa.Pointer,   comptype,   accesstype);
+	IntPtr _Result = Natives.pixacompCreateFromPixa(pixa.Pointer,   comptype,   accesstype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (780, 1)
 // pixacompCreateFromFiles(dirname, substr, comptype) as PixaComp
 // pixacompCreateFromFiles(const char *, const char *, l_int32) as PIXAC *
@@ -476,28 +345,17 @@ pixa.Pointer,   comptype,   accesstype);
 ///  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixac, or NULL on error</returns>
-
 public static PixaComp pixacompCreateFromFiles(
 				 String dirname, 
 				 String substr, 
 				 int comptype){
 
-
-
-	IntPtr _Result = Natives.pixacompCreateFromFiles(
-  dirname,   substr,   comptype);
+	IntPtr _Result = Natives.pixacompCreateFromFiles(  dirname,   substr,   comptype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (819, 1)
 // pixacompCreateFromSA(sa, comptype) as PixaComp
 // pixacompCreateFromSA(SARRAY *, l_int32) as PIXAC *
@@ -514,27 +372,16 @@ public static PixaComp pixacompCreateFromFiles(
 ///  <param name="sa">[in] - full pathnames for all files</param>
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixac, or NULL on error</returns>
-
 public static PixaComp pixacompCreateFromSA(
 				 Sarray sa, 
 				 int comptype){
 
-
-
-	IntPtr _Result = Natives.pixacompCreateFromSA(
-sa.Pointer,   comptype);
+	IntPtr _Result = Natives.pixacompCreateFromSA(sa.Pointer,   comptype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (861, 1)
 // pixacompDestroy(ppixac) as Object
 // pixacompDestroy(PIXAC **) as void
@@ -545,26 +392,16 @@ sa.Pointer,   comptype);
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompDestroy/*"/>
 ///  <param name="ppixac">[in,out] - to be nulled</param>
-
 public static void pixacompDestroy(
 				ref PixaComp ppixac){
 
-
 	IntPtr ppixacPtr = IntPtr.Zero; 	if (ppixac != null) {ppixacPtr = ppixac.Pointer;}
 
-	Natives.pixacompDestroy(
-ref ppixacPtr);
+	Natives.pixacompDestroy(ref ppixacPtr);
 	
-
-
-//  
 	if (ppixacPtr == IntPtr.Zero) {ppixac = null;} else { ppixac = new PixaComp(ppixacPtr); };
-
-
-
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (908, 1)
 // pixacompAddPix(pixac, pix, comptype) as int
 // pixacompAddPix(PIXAC *, PIX *, l_int32) as l_ok
@@ -583,27 +420,16 @@ ref ppixacPtr);
 ///  <param name="pix">[in] - to be added</param>
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixacompAddPix(
 				 PixaComp pixac, 
 				 Pix pix, 
 				 int comptype){
 
-
-
-	int _Result = Natives.pixacompAddPix(
-pixac.Pointer, pix.Pointer,   comptype);
+	int _Result = Natives.pixacompAddPix(pixac.Pointer, pix.Pointer,   comptype);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (950, 1)
 // pixacompAddPixcomp(pixac, pixc, copyflag) as int
 // pixacompAddPixcomp(PIXAC *, PIXC *, l_int32) as l_ok
@@ -619,27 +445,16 @@ pixac.Pointer, pix.Pointer,   comptype);
 ///  <param name="pixc">[in] - to be added by insertion</param>
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixacompAddPixcomp(
 				 PixaComp pixac, 
 				 PixComp pixc, 
 				 int copyflag){
 
-
-
-	int _Result = Natives.pixacompAddPixcomp(
-pixac.Pointer, pixc.Pointer,   copyflag);
+	int _Result = Natives.pixacompAddPixcomp(pixac.Pointer, pixc.Pointer,   copyflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1028, 1)
 // pixacompReplacePix(pixac, index, pix, comptype) as int
 // pixacompReplacePix(PIXAC *, l_int32, PIX *, l_int32) as l_ok
@@ -658,28 +473,17 @@ pixac.Pointer, pixc.Pointer,   copyflag);
 ///  <param name="pix">[in] - owned by the caller</param>
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixacompReplacePix(
 				 PixaComp pixac, 
 				 int index, 
 				 Pix pix, 
 				 int comptype){
 
-
-
-	int _Result = Natives.pixacompReplacePix(
-pixac.Pointer,   index, pix.Pointer,   comptype);
+	int _Result = Natives.pixacompReplacePix(pixac.Pointer,   index, pix.Pointer,   comptype);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1073, 1)
 // pixacompReplacePixcomp(pixac, index, pixc) as int
 // pixacompReplacePixcomp(PIXAC *, l_int32, PIXC *) as l_ok
@@ -697,27 +501,16 @@ pixac.Pointer,   index, pix.Pointer,   comptype);
 ///  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 ///  <param name="pixc">[in] - to replace existing one, which is destroyed</param>
 ///   <returns>0 if OK 1 on error</returns>
-
 public static int pixacompReplacePixcomp(
 				 PixaComp pixac, 
 				 int index, 
 				 PixComp pixc){
 
-
-
-	int _Result = Natives.pixacompReplacePixcomp(
-pixac.Pointer,   index, pixc.Pointer);
+	int _Result = Natives.pixacompReplacePixcomp(pixac.Pointer,   index, pixc.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1108, 1)
 // pixacompAddBox(pixac, box, copyflag) as int
 // pixacompAddBox(PIXAC *, BOX *, l_int32) as l_ok
@@ -728,27 +521,16 @@ pixac.Pointer,   index, pixc.Pointer);
 ///  <param name="box">[in] - </param>
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompAddBox(
 				 PixaComp pixac, 
 				 Box box, 
 				 int copyflag){
 
-
-
-	int _Result = Natives.pixacompAddBox(
-pixac.Pointer, box.Pointer,   copyflag);
+	int _Result = Natives.pixacompAddBox(pixac.Pointer, box.Pointer,   copyflag);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1136, 1)
 // pixacompGetCount(pixac) as int
 // pixacompGetCount(PIXAC *) as l_int32
@@ -757,25 +539,14 @@ pixac.Pointer, box.Pointer,   copyflag);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompGetCount/*"/>
 ///  <param name="pixac">[in] - </param>
 ///   <returns>count, or 0 if no pixa</returns>
-
 public static int pixacompGetCount(
 				 PixaComp pixac){
 
-
-
-	int _Result = Natives.pixacompGetCount(
-pixac.Pointer);
+	int _Result = Natives.pixacompGetCount(pixac.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1164, 1)
 // pixacompGetPixcomp(pixac, index, copyflag) as PixComp
 // pixacompGetPixcomp(PIXAC *, l_int32, l_int32) as PIXC *
@@ -793,28 +564,17 @@ pixac.Pointer);
 ///  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 ///  <param name="copyflag">[in] - L_NOCOPY, L_COPY</param>
 ///   <returns>pixc, or NULL on error</returns>
-
 public static PixComp pixacompGetPixcomp(
 				 PixaComp pixac, 
 				 int index, 
 				 int copyflag){
 
-
-
-	IntPtr _Result = Natives.pixacompGetPixcomp(
-pixac.Pointer,   index,   copyflag);
+	IntPtr _Result = Natives.pixacompGetPixcomp(pixac.Pointer,   index,   copyflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1201, 1)
 // pixacompGetPix(pixac, index) as Pix
 // pixacompGetPix(PIXAC *, l_int32) as PIX *
@@ -828,27 +588,16 @@ pixac.Pointer,   index,   copyflag);
 ///  <param name="pixac">[in] - </param>
 ///  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixacompGetPix(
 				 PixaComp pixac, 
 				 int index){
 
-
-
-	IntPtr _Result = Natives.pixacompGetPix(
-pixac.Pointer,   index);
+	IntPtr _Result = Natives.pixacompGetPix(pixac.Pointer,   index);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1235, 1)
 // pixacompGetPixDimensions(pixac, index, pw, ph, pd) as int
 // pixacompGetPixDimensions(PIXAC *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -865,7 +614,6 @@ pixac.Pointer,   index);
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///  <param name="pd">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompGetPixDimensions(
 				 PixaComp pixac, 
 				 int index, 
@@ -873,21 +621,11 @@ public static int pixacompGetPixDimensions(
 				out int ph, 
 				out int pd){
 
-
-
-	int _Result = Natives.pixacompGetPixDimensions(
-pixac.Pointer,   index, out  pw, out  ph, out  pd);
+	int _Result = Natives.pixacompGetPixDimensions(pixac.Pointer,   index, out  pw, out  ph, out  pd);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1267, 1)
 // pixacompGetBoxa(pixac, accesstype) as Boxa
 // pixacompGetBoxa(PIXAC *, l_int32) as BOXA *
@@ -897,27 +635,16 @@ pixac.Pointer,   index, out  pw, out  ph, out  pd);
 ///  <param name="pixac">[in] - </param>
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
-
 public static Boxa pixacompGetBoxa(
 				 PixaComp pixac, 
 				 int accesstype){
 
-
-
-	IntPtr _Result = Natives.pixacompGetBoxa(
-pixac.Pointer,   accesstype);
+	IntPtr _Result = Natives.pixacompGetBoxa(pixac.Pointer,   accesstype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1291, 1)
 // pixacompGetBoxaCount(pixac) as int
 // pixacompGetBoxaCount(PIXAC *) as l_int32
@@ -926,25 +653,14 @@ pixac.Pointer,   accesstype);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompGetBoxaCount/*"/>
 ///  <param name="pixac">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
-
 public static int pixacompGetBoxaCount(
 				 PixaComp pixac){
 
-
-
-	int _Result = Natives.pixacompGetBoxaCount(
-pixac.Pointer);
+	int _Result = Natives.pixacompGetBoxaCount(pixac.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1325, 1)
 // pixacompGetBox(pixac, index, accesstype) as Box
 // pixacompGetBox(PIXAC *, l_int32, l_int32) as BOX *
@@ -970,28 +686,17 @@ pixac.Pointer);
 ///  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 ///  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box if null, not automatically an error, or NULL on error</returns>
-
 public static Box pixacompGetBox(
 				 PixaComp pixac, 
 				 int index, 
 				 int accesstype){
 
-
-
-	IntPtr _Result = Natives.pixacompGetBox(
-pixac.Pointer,   index,   accesstype);
+	IntPtr _Result = Natives.pixacompGetBox(pixac.Pointer,   index,   accesstype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Box(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1371, 1)
 // pixacompGetBoxGeometry(pixac, index, px, py, pw, ph) as int
 // pixacompGetBoxGeometry(PIXAC *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -1009,7 +714,6 @@ pixac.Pointer,   index,   accesstype);
 ///  <param name="pw">[out][optional] - each can be null</param>
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompGetBoxGeometry(
 				 PixaComp pixac, 
 				 int index, 
@@ -1018,21 +722,11 @@ public static int pixacompGetBoxGeometry(
 				out int pw, 
 				out int ph){
 
-
-
-	int _Result = Natives.pixacompGetBoxGeometry(
-pixac.Pointer,   index, out  px, out  py, out  pw, out  ph);
+	int _Result = Natives.pixacompGetBoxGeometry(pixac.Pointer,   index, out  px, out  py, out  pw, out  ph);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1411, 1)
 // pixacompGetOffset(pixac) as int
 // pixacompGetOffset(PIXAC *) as l_int32
@@ -1046,25 +740,14 @@ pixac.Pointer,   index, out  px, out  py, out  pw, out  ph);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompGetOffset/*"/>
 ///  <param name="pixac">[in] - </param>
 ///   <returns>offset, or 0 on error</returns>
-
 public static int pixacompGetOffset(
 				 PixaComp pixac){
 
-
-
-	int _Result = Natives.pixacompGetOffset(
-pixac.Pointer);
+	int _Result = Natives.pixacompGetOffset(pixac.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1436, 1)
 // pixacompSetOffset(pixac, offset) as int
 // pixacompSetOffset(PIXAC *, l_int32) as l_ok
@@ -1079,26 +762,15 @@ pixac.Pointer);
 ///  <param name="pixac">[in] - </param>
 ///  <param name="offset">[in] - non-negative</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompSetOffset(
 				 PixaComp pixac, 
 				 int offset){
 
-
-
-	int _Result = Natives.pixacompSetOffset(
-pixac.Pointer,   offset);
+	int _Result = Natives.pixacompSetOffset(pixac.Pointer,   offset);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1466, 1)
 // pixaCreateFromPixacomp(pixac, accesstype) as Pixa
 // pixaCreateFromPixacomp(PIXAC *, l_int32) as PIXA *
@@ -1113,27 +785,16 @@ pixac.Pointer,   offset);
 ///  <param name="pixac">[in] - </param>
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE for boxa</param>
 ///   <returns>pixa if OK, or NULL on error</returns>
-
 public static Pixa pixaCreateFromPixacomp(
 				 PixaComp pixac, 
 				 int accesstype){
 
-
-
-	IntPtr _Result = Natives.pixaCreateFromPixacomp(
-pixac.Pointer,   accesstype);
+	IntPtr _Result = Natives.pixaCreateFromPixacomp(pixac.Pointer,   accesstype);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pixa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1524, 1)
 // pixacompJoin(pixacd, pixacs, istart, iend) as int
 // pixacompJoin(PIXAC *, PIXAC *, l_int32, l_int32) as l_ok
@@ -1154,29 +815,19 @@ pixac.Pointer,   accesstype);
 ///  <param name="istart">[in] - starting index in pixacs</param>
 ///  <param name="iend">[in] - ending index in pixacs use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompJoin(
 				 PixaComp pixacd, 
 				 PixaComp pixacs, 
 				 int istart, 
 				 int iend){
 
-
 	IntPtr pixacsPtr = IntPtr.Zero; 	if (pixacs != null) {pixacsPtr = pixacs.Pointer;}
 
-	int _Result = Natives.pixacompJoin(
-pixacd.Pointer, pixacsPtr,   istart,   iend);
+	int _Result = Natives.pixacompJoin(pixacd.Pointer, pixacsPtr,   istart,   iend);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1577, 1)
 // pixacompInterleave(pixac1, pixac2) as PixaComp
 // pixacompInterleave(PIXAC *, PIXAC *) as PIXAC *
@@ -1190,27 +841,16 @@ pixacd.Pointer, pixacsPtr,   istart,   iend);
 ///  <param name="pixac1">[in] - first src pixac</param>
 ///  <param name="pixac2">[in] - second src pixac</param>
 ///   <returns>pixacd  interleaved from sources, or NULL on error.</returns>
-
 public static PixaComp pixacompInterleave(
 				 PixaComp pixac1, 
 				 PixaComp pixac2){
 
-
-
-	IntPtr _Result = Natives.pixacompInterleave(
-pixac1.Pointer, pixac2.Pointer);
+	IntPtr _Result = Natives.pixacompInterleave(pixac1.Pointer, pixac2.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1639, 1)
 // pixacompRead(filename) as PixaComp
 // pixacompRead(const char *) as PIXAC *
@@ -1224,26 +864,15 @@ pixac1.Pointer, pixac2.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompRead/*"/>
 ///  <param name="filename">[in] - </param>
 ///   <returns>pixac, or NULL on error</returns>
-
 public static PixaComp pixacompRead(
 				 String filename){
 
-
-
-	IntPtr _Result = Natives.pixacompRead(
-  filename);
+	IntPtr _Result = Natives.pixacompRead(  filename);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1666, 1)
 // pixacompReadStream(fp) as PixaComp
 // pixacompReadStream(FILE *) as PIXAC *
@@ -1252,26 +881,15 @@ public static PixaComp pixacompRead(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompReadStream/*"/>
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>pixac, or NULL on error</returns>
-
 public static PixaComp pixacompReadStream(
 				 FILE fp){
 
-
-
-	IntPtr _Result = Natives.pixacompReadStream(
-fp.Pointer);
+	IntPtr _Result = Natives.pixacompReadStream(fp.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1764, 1)
 // pixacompReadMem(data, size) as PixaComp
 // pixacompReadMem(const l_uint8 *, size_t) as PIXAC *
@@ -1284,27 +902,16 @@ fp.Pointer);
 ///  <param name="data">[in] - const pixacomp format</param>
 ///  <param name="size">[in] - of data</param>
 ///   <returns>pixac, or NULL on error</returns>
-
 public static PixaComp pixacompReadMem(
 				 Byte[] data, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.pixacompReadMem(
-  data,   size);
+	IntPtr _Result = Natives.pixacompReadMem(  data,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new PixaComp(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1799, 1)
 // pixacompWrite(filename, pixac) as int
 // pixacompWrite(const char *, PIXAC *) as l_ok
@@ -1319,26 +926,15 @@ public static PixaComp pixacompReadMem(
 ///  <param name="filename">[in] - </param>
 ///  <param name="pixac">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompWrite(
 				 String filename, 
 				 PixaComp pixac){
 
-
-
-	int _Result = Natives.pixacompWrite(
-  filename, pixac.Pointer);
+	int _Result = Natives.pixacompWrite(  filename, pixac.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1830, 1)
 // pixacompWriteStream(fp, pixac) as int
 // pixacompWriteStream(FILE *, PIXAC *) as l_ok
@@ -1348,26 +944,15 @@ public static int pixacompWrite(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="pixac">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompWriteStream(
 				 FILE fp, 
 				 PixaComp pixac){
 
-
-
-	int _Result = Natives.pixacompWriteStream(
-fp.Pointer, pixac.Pointer);
+	int _Result = Natives.pixacompWriteStream(fp.Pointer, pixac.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1878, 1)
 // pixacompWriteMem(pdata, psize, pixac) as int
 // pixacompWriteMem(l_uint8 **, size_t *, PIXAC *) as l_ok
@@ -1381,33 +966,23 @@ fp.Pointer, pixac.Pointer);
 ///  <param name="psize">[out] - size of serialized data</param>
 ///  <param name="pixac">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompWriteMem(
 				out Byte[] pdata, 
 				out uint psize, 
 				 PixaComp pixac){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixacompWriteMem(
-out  pdataPtr, out  psize, pixac.Pointer);
+	int _Result = Natives.pixacompWriteMem(out  pdataPtr, out  psize, pixac.Pointer);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[psize];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (1952, 1)
 // pixacompConvertToPdf(pixac, res, scalefactor, type, quality, title, fileout) as int
 // pixacompConvertToPdf(PIXAC *, l_int32, l_float32, l_int32, l_int32, const char *, const char *) as l_ok
@@ -1440,7 +1015,6 @@ out  pdataPtr, out  psize, pixac.Pointer);
 ///  <param name="title">[in][optional] - pdf title</param>
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompConvertToPdf(
 				 PixaComp pixac, 
 				 int res, 
@@ -1450,21 +1024,11 @@ public static int pixacompConvertToPdf(
 				 String title, 
 				 String fileout){
 
-
-
-	int _Result = Natives.pixacompConvertToPdf(
-pixac.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
+	int _Result = Natives.pixacompConvertToPdf(pixac.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (2004, 1)
 // pixacompConvertToPdfData(pixac, res, scalefactor, type, quality, title, pdata, pnbytes) as int
 // pixacompConvertToPdfData(PIXAC *, l_int32, l_float32, l_int32, l_int32, const char *, l_uint8 **, size_t *) as l_ok
@@ -1483,7 +1047,6 @@ pixac.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 ///  <param name="pdata">[out] - output pdf data (of all images</param>
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompConvertToPdfData(
 				 PixaComp pixac, 
 				 int res, 
@@ -1494,27 +1057,18 @@ public static int pixacompConvertToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixacompConvertToPdfData(
-pixac.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.pixacompConvertToPdfData(pixac.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[pnbytes];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (2115, 1)
 // pixacompFastConvertToPdfData(pixac, title, pdata, pnbytes) as int
 // pixacompFastConvertToPdfData(PIXAC *, const char *, l_uint8 **, size_t *) as l_ok
@@ -1534,34 +1088,24 @@ pixac.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, 
 ///  <param name="pdata">[out] - output pdf data (of all images</param>
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompFastConvertToPdfData(
 				 PixaComp pixac, 
 				 String title, 
 				out Byte[] pdata, 
 				out uint pnbytes){
 
-
 	IntPtr pdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixacompFastConvertToPdfData(
-pixac.Pointer,   title, out  pdataPtr, out  pnbytes);
+	int _Result = Natives.pixacompFastConvertToPdfData(pixac.Pointer,   title, out  pdataPtr, out  pnbytes);
 	
-
-
-//  
 	Byte[] pdataGen = new Byte[pnbytes];
 	if (pdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pdataPtr, pdataGen, 0, pdataGen.Length);
 	}
 	pdata = pdataGen;
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (2240, 1)
 // pixacompWriteStreamInfo(fp, pixac, text) as int
 // pixacompWriteStreamInfo(FILE *, PIXAC *, const char *) as l_ok
@@ -1572,27 +1116,16 @@ pixac.Pointer,   title, out  pdataPtr, out  pnbytes);
 ///  <param name="pixac">[in] - </param>
 ///  <param name="text">[in][optional] - identifying string can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompWriteStreamInfo(
 				 FILE fp, 
 				 PixaComp pixac, 
 				 String text){
 
-
-
-	int _Result = Natives.pixacompWriteStreamInfo(
-fp.Pointer, pixac.Pointer,   text);
+	int _Result = Natives.pixacompWriteStreamInfo(fp.Pointer, pixac.Pointer,   text);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (2284, 1)
 // pixcompWriteStreamInfo(fp, pixc, text) as int
 // pixcompWriteStreamInfo(FILE *, PIXC *, const char *) as l_ok
@@ -1603,27 +1136,16 @@ fp.Pointer, pixac.Pointer,   text);
 ///  <param name="pixc">[in] - </param>
 ///  <param name="text">[in][optional] - identifying string can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixcompWriteStreamInfo(
 				 FILE fp, 
 				 PixComp pixc, 
 				 String text){
 
-
-
-	int _Result = Natives.pixcompWriteStreamInfo(
-fp.Pointer, pixc.Pointer,   text);
+	int _Result = Natives.pixcompWriteStreamInfo(fp.Pointer, pixc.Pointer,   text);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (2340, 1)
 // pixacompDisplayTiledAndScaled(pixac, outdepth, tilewidth, ncols, background, spacing, border) as Pix
 // pixacompDisplayTiledAndScaled(PIXAC *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -1645,7 +1167,6 @@ fp.Pointer, pixc.Pointer,   text);
 ///  <param name="spacing">[in] - between images, and on outside</param>
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
-
 public static Pix pixacompDisplayTiledAndScaled(
 				 PixaComp pixac, 
 				 int outdepth, 
@@ -1655,22 +1176,12 @@ public static Pix pixacompDisplayTiledAndScaled(
 				 int spacing, 
 				 int border){
 
-
-
-	IntPtr _Result = Natives.pixacompDisplayTiledAndScaled(
-pixac.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
+	IntPtr _Result = Natives.pixacompDisplayTiledAndScaled(pixac.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (2374, 1)
 // pixacompWriteFiles(pixac, subdir) as int
 // pixacompWriteFiles(PIXAC *, const char *) as l_ok
@@ -1680,26 +1191,15 @@ pixac.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   bord
 ///  <param name="pixac">[in] - </param>
 ///  <param name="subdir">[in] - (subdirectory of /tmp)</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixacompWriteFiles(
 				 PixaComp pixac, 
 				 String subdir){
 
-
-
-	int _Result = Natives.pixacompWriteFiles(
-pixac.Pointer,   subdir);
+	int _Result = Natives.pixacompWriteFiles(pixac.Pointer,   subdir);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // pixcomp.c (2414, 1)
 // pixcompWriteFile(rootname, pixc) as int
 // pixcompWriteFile(const char *, PIXC *) as l_ok
@@ -1713,22 +1213,12 @@ pixac.Pointer,   subdir);
 ///  <param name="rootname">[in] - </param>
 ///  <param name="pixc">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixcompWriteFile(
 				 String rootname, 
 				 PixComp pixc){
 
-
-
-	int _Result = Natives.pixcompWriteFile(
-  rootname, pixc.Pointer);
+	int _Result = Natives.pixcompWriteFile(  rootname, pixc.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

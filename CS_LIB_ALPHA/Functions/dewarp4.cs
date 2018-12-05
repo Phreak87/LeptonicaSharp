@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (97, 1)
 // dewarpSinglePage(pixs, thresh, adaptive, useboth, check_columns, ppixd, pdewa, debug) as int
 // dewarpSinglePage(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **, l_int32) as l_ok
@@ -31,7 +30,6 @@ public partial class _All {
 ///  <param name="pdewa">[out][optional] - dewa with single page NULL to skip</param>
 ///  <param name="debug">[in] - 1 for debugging output, 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
-
 public static int dewarpSinglePage(
 				 Pix pixs, 
 				 int thresh, 
@@ -42,25 +40,16 @@ public static int dewarpSinglePage(
 				out L_Dewarpa pdewa, 
 				 DebugOnOff debug){
 
-
 	IntPtr ppixdPtr = IntPtr.Zero;
 	IntPtr pdewaPtr = IntPtr.Zero;
 
-	int _Result = Natives.dewarpSinglePage(
-pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixdPtr, out pdewaPtr,  (int) debug);
+	int _Result = Natives.dewarpSinglePage(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixdPtr, out pdewaPtr,  (int) debug);
 	
-
-
-//  
 	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (165, 1)
 // dewarpSinglePageInit(pixs, thresh, adaptive, useboth, check_columns, ppixb, pdewa) as int
 // dewarpSinglePageInit(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **) as l_ok
@@ -90,7 +79,6 @@ pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixdPtr, ou
 ///  <param name="ppixb">[out] - 1 bpp image</param>
 ///  <param name="pdewa">[out] - initialized dewa</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
-
 public static int dewarpSinglePageInit(
 				 Pix pixs, 
 				 int thresh, 
@@ -100,25 +88,16 @@ public static int dewarpSinglePageInit(
 				out Pix ppixb, 
 				out L_Dewarpa pdewa){
 
-
 	IntPtr ppixbPtr = IntPtr.Zero;
 	IntPtr pdewaPtr = IntPtr.Zero;
 
-	int _Result = Natives.dewarpSinglePageInit(
-pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixbPtr, out pdewaPtr);
+	int _Result = Natives.dewarpSinglePageInit(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixbPtr, out pdewaPtr);
 	
-
-
-//  
 	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (223, 1)
 // dewarpSinglePageRun(pixs, pixb, dewa, ppixd, debug) as int
 // dewarpSinglePageRun(PIX *, PIX *, L_DEWARPA *, PIX **, l_int32) as l_ok
@@ -141,7 +120,6 @@ pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixbPtr, ou
 ///  <param name="ppixd">[out] - dewarped result</param>
 ///  <param name="debug">[in] - 1 for debugging output, 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
-
 public static int dewarpSinglePageRun(
 				 Pix pixs, 
 				 Pix pixb, 
@@ -149,23 +127,14 @@ public static int dewarpSinglePageRun(
 				out Pix ppixd, 
 				 DebugOnOff debug){
 
-
 	IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.dewarpSinglePageRun(
-pixs.Pointer, pixb.Pointer, dewa.Pointer, out ppixdPtr,  (int) debug);
+	int _Result = Natives.dewarpSinglePageRun(pixs.Pointer, pixb.Pointer, dewa.Pointer, out ppixdPtr,  (int) debug);
 	
-
-
-//  
 	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (289, 1)
 // dewarpaListPages(dewa) as int
 // dewarpaListPages(L_DEWARPA *) as l_ok
@@ -183,25 +152,14 @@ pixs.Pointer, pixb.Pointer, dewa.Pointer, out ppixdPtr,  (int) debug);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaListPages/*"/>
 ///  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
-
 public static int dewarpaListPages(
 				 L_Dewarpa dewa){
 
-
-
-	int _Result = Natives.dewarpaListPages(
-dewa.Pointer);
+	int _Result = Natives.dewarpaListPages(dewa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (341, 1)
 // dewarpaSetValidModels(dewa, notests, debug) as int
 // dewarpaSetValidModels(L_DEWARPA *, l_int32, l_int32) as l_ok
@@ -227,27 +185,16 @@ dewa.Pointer);
 ///  <param name="notests">[in] - </param>
 ///  <param name="debug">[in] - 1 to output information on invalid page models</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaSetValidModels(
 				 L_Dewarpa dewa, 
 				 int notests, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.dewarpaSetValidModels(
-dewa.Pointer,   notests,  (int) debug);
+	int _Result = Natives.dewarpaSetValidModels(dewa.Pointer,   notests,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (447, 1)
 // dewarpaInsertRefModels(dewa, notests, debug) as int
 // dewarpaInsertRefModels(L_DEWARPA *, l_int32, l_int32) as l_ok
@@ -295,27 +242,16 @@ dewa.Pointer,   notests,  (int) debug);
 ///  <param name="notests">[in] - if 1, ignore curvature constraints on model</param>
 ///  <param name="debug">[in] - 1 to output information on invalid page models</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaInsertRefModels(
 				 L_Dewarpa dewa, 
 				 int notests, 
 				 DebugOnOff debug){
 
-
-
-	int _Result = Natives.dewarpaInsertRefModels(
-dewa.Pointer,   notests,  (int) debug);
+	int _Result = Natives.dewarpaInsertRefModels(dewa.Pointer,   notests,  (int) debug);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (578, 1)
 // dewarpaStripRefModels(dewa) as int
 // dewarpaStripRefModels(L_DEWARPA *) as l_ok
@@ -330,25 +266,14 @@ dewa.Pointer,   notests,  (int) debug);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaStripRefModels/*"/>
 ///  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaStripRefModels(
 				 L_Dewarpa dewa){
 
-
-
-	int _Result = Natives.dewarpaStripRefModels(
-dewa.Pointer);
+	int _Result = Natives.dewarpaStripRefModels(dewa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (619, 1)
 // dewarpaRestoreModels(dewa) as int
 // dewarpaRestoreModels(L_DEWARPA *) as l_ok
@@ -366,25 +291,14 @@ dewa.Pointer);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaRestoreModels/*"/>
 ///  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaRestoreModels(
 				 L_Dewarpa dewa){
 
-
-
-	int _Result = Natives.dewarpaRestoreModels(
-dewa.Pointer);
+	int _Result = Natives.dewarpaRestoreModels(dewa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (664, 1)
 // dewarpaInfo(fp, dewa) as int
 // dewarpaInfo(FILE *, L_DEWARPA *) as l_ok
@@ -394,26 +308,15 @@ dewa.Pointer);
 ///  <param name="fp">[in] - </param>
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaInfo(
 				 FILE fp, 
 				 L_Dewarpa dewa){
 
-
-
-	int _Result = Natives.dewarpaInfo(
-fp.Pointer, dewa.Pointer);
+	int _Result = Natives.dewarpaInfo(fp.Pointer, dewa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (756, 1)
 // dewarpaModelStats(dewa, pnnone, pnvsuccess, pnvvalid, pnhsuccess, pnhvalid, pnref) as int
 // dewarpaModelStats(L_DEWARPA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
@@ -455,7 +358,6 @@ fp.Pointer, dewa.Pointer);
 ///  <param name="pnhvalid">[out][optional] - number with both models valid</param>
 ///  <param name="pnref">[out][optional] - number with a reference model</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaModelStats(
 				 L_Dewarpa dewa, 
 				out int pnnone, 
@@ -465,21 +367,11 @@ public static int dewarpaModelStats(
 				out int pnhvalid, 
 				out int pnref){
 
-
-
-	int _Result = Natives.dewarpaModelStats(
-dewa.Pointer, out  pnnone, out  pnvsuccess, out  pnvvalid, out  pnhsuccess, out  pnhvalid, out  pnref);
+	int _Result = Natives.dewarpaModelStats(dewa.Pointer, out  pnnone, out  pnvsuccess, out  pnvvalid, out  pnhsuccess, out  pnhvalid, out  pnref);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (912, 1)
 // dewarpaShowArrays(dewa, scalefact, first, last) as int
 // dewarpaShowArrays(L_DEWARPA *, l_float32, l_int32, l_int32) as l_ok
@@ -496,28 +388,17 @@ dewa.Pointer, out  pnnone, out  pnvsuccess, out  pnvvalid, out  pnhsuccess, out 
 ///  <param name="first">[in] - first page model to render</param>
 ///  <param name="last">[in] - last page model to render use 0 to go to end</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpaShowArrays(
 				 L_Dewarpa dewa, 
 				 Single scalefact, 
 				 int first, 
 				 int last){
 
-
-
-	int _Result = Natives.dewarpaShowArrays(
-dewa.Pointer,   scalefact,   first,   last);
+	int _Result = Natives.dewarpaShowArrays(dewa.Pointer,   scalefact,   first,   last);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (1008, 1)
 // dewarpDebug(dew, subdirs, index) as int
 // dewarpDebug(L_DEWARP *, const char *, l_int32) as l_ok
@@ -533,27 +414,16 @@ dewa.Pointer,   scalefact,   first,   last);
 ///  <param name="subdirs">[in] - one or more subdirectories of /tmp e.g., "dew1"</param>
 ///  <param name="index">[in] - to help label output images e.g., the page number</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpDebug(
 				 L_Dewarp dew, 
 				 String subdirs, 
 				 int index){
 
-
-
-	int _Result = Natives.dewarpDebug(
-dew.Pointer,   subdirs,   index);
+	int _Result = Natives.dewarpDebug(dew.Pointer,   subdirs,   index);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // dewarp4.c (1094, 1)
 // dewarpShowResults(dewa, sa, boxa, firstpage, lastpage, pdfout) as int
 // dewarpShowResults(L_DEWARPA *, SARRAY *, BOXA *, l_int32, l_int32, const char *) as l_ok
@@ -576,7 +446,6 @@ dew.Pointer,   subdirs,   index);
 ///  <param name="lastpage">[in] - </param>
 ///  <param name="pdfout">[in] - filename</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int dewarpShowResults(
 				 L_Dewarpa dewa, 
 				 Sarray sa, 
@@ -585,17 +454,8 @@ public static int dewarpShowResults(
 				 int lastpage, 
 				 String pdfout){
 
-
-
-	int _Result = Natives.dewarpShowResults(
-dewa.Pointer, sa.Pointer, boxa.Pointer,   firstpage,   lastpage,   pdfout);
+	int _Result = Natives.dewarpShowResults(dewa.Pointer, sa.Pointer, boxa.Pointer,   firstpage,   lastpage,   pdfout);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

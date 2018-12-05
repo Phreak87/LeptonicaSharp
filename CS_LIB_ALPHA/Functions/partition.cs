@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // partition.c (189, 1)
 // boxaGetWhiteblocks(boxas, box, sortflag, maxboxes, maxoverlap, maxperim, fract, maxpops) as Boxa
 // boxaGetWhiteblocks(BOXA *, BOX *, l_int32, l_int32, l_float32, l_int32, l_float32, l_int32) as BOXA *
@@ -115,7 +114,6 @@ public partial class _All {
 ///  <param name="fract">[in] - fraction of box diagonal that is an acceptable distance from the box centroid to select the pivot e.g., 0.2</param>
 ///  <param name="maxpops">[in] - maximum number of pops from the heap use 0 as default</param>
 ///   <returns>boxa of sorted whitespace boxes, or NULL on error</returns>
-
 public static Boxa boxaGetWhiteblocks(
 				 Boxa boxas, 
 				 Box box, 
@@ -126,22 +124,12 @@ public static Boxa boxaGetWhiteblocks(
 				 Single fract, 
 				 int maxpops){
 
-
-
-	IntPtr _Result = Natives.boxaGetWhiteblocks(
-boxas.Pointer, box.Pointer,   sortflag,   maxboxes,   maxoverlap,   maxperim,   fract,   maxpops);
+	IntPtr _Result = Natives.boxaGetWhiteblocks(boxas.Pointer, box.Pointer,   sortflag,   maxboxes,   maxoverlap,   maxperim,   fract,   maxpops);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // partition.c (621, 1)
 // boxaPruneSortedOnOverlap(boxas, maxoverlap) as Boxa
 // boxaPruneSortedOnOverlap(BOXA *, l_float32) as BOXA *
@@ -161,23 +149,13 @@ boxas.Pointer, box.Pointer,   sortflag,   maxboxes,   maxoverlap,   maxperim,   
 ///  <param name="boxas">[in] - sorted by size in decreasing order</param>
 ///  <param name="maxoverlap">[in] - maximum fractional overlap of a box by any of the larger boxes</param>
 ///   <returns>boxad pruned, or NULL on error</returns>
-
 public static Boxa boxaPruneSortedOnOverlap(
 				 Boxa boxas, 
 				 Single maxoverlap){
 
-
-
-	IntPtr _Result = Natives.boxaPruneSortedOnOverlap(
-boxas.Pointer,   maxoverlap);
+	IntPtr _Result = Natives.boxaPruneSortedOnOverlap(boxas.Pointer,   maxoverlap);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Boxa(_Result);
 }
 

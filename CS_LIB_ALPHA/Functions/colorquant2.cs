@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant2.c (257, 1)
 // pixMedianCutQuant(pixs, ditherflag) as Pix
 // pixMedianCutQuant(PIX *, l_int32) as PIX *
@@ -20,27 +19,16 @@ public partial class _All {
 ///  <param name="pixs">[in] - 32 bpp rgb color</param>
 ///  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
-
 public static Pix pixMedianCutQuant(
 				 Pix pixs, 
 				 int ditherflag){
 
-
-
-	IntPtr _Result = Natives.pixMedianCutQuant(
-pixs.Pointer,   ditherflag);
+	IntPtr _Result = Natives.pixMedianCutQuant(pixs.Pointer,   ditherflag);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant2.c (308, 1)
 // pixMedianCutQuantGeneral(pixs, ditherflag, outdepth, maxcolors, sigbits, maxsub, checkbw) as Pix
 // pixMedianCutQuantGeneral(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -86,7 +74,6 @@ pixs.Pointer,   ditherflag);
 ///  <param name="maxsub">[in] - max subsampling, integer use 0 for default 1 for no subsampling</param>
 ///  <param name="checkbw">[in] - 1 to check if color content is very small, 0 to assume there is sufficient color</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
-
 public static Pix pixMedianCutQuantGeneral(
 				 Pix pixs, 
 				 int ditherflag, 
@@ -96,22 +83,12 @@ public static Pix pixMedianCutQuantGeneral(
 				 int maxsub, 
 				 int checkbw){
 
-
-
-	IntPtr _Result = Natives.pixMedianCutQuantGeneral(
-pixs.Pointer,   ditherflag,   outdepth,   maxcolors,   sigbits,   maxsub,   checkbw);
+	IntPtr _Result = Natives.pixMedianCutQuantGeneral(pixs.Pointer,   ditherflag,   outdepth,   maxcolors,   sigbits,   maxsub,   checkbw);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant2.c (579, 1)
 // pixMedianCutQuantMixed(pixs, ncolor, ngray, darkthresh, lightthresh, diffthresh) as Pix
 // pixMedianCutQuantMixed(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -151,7 +128,6 @@ pixs.Pointer,   ditherflag,   outdepth,   maxcolors,   sigbits,   maxsub,   chec
 ///  <param name="lightthresh">[in] - threshold near white if the darkest component is above this, the pixel is not considered to be gray or color use 0 for default</param>
 ///  <param name="diffthresh">[in] - thresh for the max difference between component values for differences below this, the pixel is considered to be gray use 0 for default</param>
 ///   <returns>pixd 8 bpp cmapped, or NULL on error</returns>
-
 public static Pix pixMedianCutQuantMixed(
 				 Pix pixs, 
 				 int ncolor, 
@@ -160,22 +136,12 @@ public static Pix pixMedianCutQuantMixed(
 				 int lightthresh, 
 				 int diffthresh){
 
-
-
-	IntPtr _Result = Natives.pixMedianCutQuantMixed(
-pixs.Pointer,   ncolor,   ngray,   darkthresh,   lightthresh,   diffthresh);
+	IntPtr _Result = Natives.pixMedianCutQuantMixed(pixs.Pointer,   ncolor,   ngray,   darkthresh,   lightthresh,   diffthresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant2.c (754, 1)
 // pixFewColorsMedianCutQuantMixed(pixs, ncolor, ngray, maxncolors, darkthresh, lightthresh, diffthresh) as Pix
 // pixFewColorsMedianCutQuantMixed(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -221,7 +187,6 @@ pixs.Pointer,   ncolor,   ngray,   darkthresh,   lightthresh,   diffthresh);
 ///  <param name="lightthresh">[in] - threshold near white if the darkest component is above this, the pixel is not considered to be gray or color use 0 for default</param>
 ///  <param name="diffthresh">[in] - thresh for the max difference between component values for differences below this, the pixel is considered to be gray use 0 for default</param>
 ///   <returns>pixd 8 bpp, median cut quantized for pixels that are not gray gray pixels are quantized separately over the full gray range null if too many colors or on error</returns>
-
 public static Pix pixFewColorsMedianCutQuantMixed(
 				 Pix pixs, 
 				 int ncolor, 
@@ -231,22 +196,12 @@ public static Pix pixFewColorsMedianCutQuantMixed(
 				 int lightthresh, 
 				 int diffthresh){
 
-
-
-	IntPtr _Result = Natives.pixFewColorsMedianCutQuantMixed(
-pixs.Pointer,   ncolor,   ngray,   maxncolors,   darkthresh,   lightthresh,   diffthresh);
+	IntPtr _Result = Natives.pixFewColorsMedianCutQuantMixed(pixs.Pointer,   ncolor,   ngray,   maxncolors,   darkthresh,   lightthresh,   diffthresh);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // colorquant2.c (826, 1)
 // pixMedianCutHisto(pixs, sigbits, subsample) as int[]
 // pixMedianCutHisto(PIX *, l_int32, l_int32) as l_int32 *
@@ -264,23 +219,13 @@ pixs.Pointer,   ncolor,   ngray,   maxncolors,   darkthresh,   lightthresh,   di
 ///  <param name="sigbits">[in] - valid: 5 or 6</param>
 ///  <param name="subsample">[in] - integer  is greater  0</param>
 ///   <returns>histo 1-d array, giving the number of pixels in each quantized region of color space, or NULL on error</returns>
-
 public static int[] pixMedianCutHisto(
 				 Pix pixs, 
 				 int sigbits, 
 				 int subsample){
 
-
-
-	int[] _Result = Natives.pixMedianCutHisto(
-pixs.Pointer,   sigbits,   subsample);
+	int[] _Result = Natives.pixMedianCutHisto(pixs.Pointer,   sigbits,   subsample);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // convertfiles.c (67, 1)
 // convertFilesTo1bpp(dirin, substr, upscaling, thresh, firstpage, npages, dirout, outformat) as int
 // convertFilesTo1bpp(const char *, const char *, l_int32, l_int32, l_int32, l_int32, const char *, l_int32) as l_ok
@@ -26,7 +25,6 @@ public partial class _All {
 ///  <param name="dirout">[in] - </param>
 ///  <param name="outformat">[in] - IFF_PNG, IFF_TIFF_G4</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int convertFilesTo1bpp(
 				 String dirin, 
 				 String substr, 
@@ -37,17 +35,8 @@ public static int convertFilesTo1bpp(
 				 String dirout, 
 				 int outformat){
 
-
-
-	int _Result = Natives.convertFilesTo1bpp(
-  dirin,   substr,   upscaling,   thresh,   firstpage,   npages,   dirout,   outformat);
+	int _Result = Natives.convertFilesTo1bpp(  dirin,   substr,   upscaling,   thresh,   firstpage,   npages,   dirout,   outformat);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

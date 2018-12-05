@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphseq.c (133, 1)
 // pixMorphSequence(pixs, sequence, dispsep) as Pix
 // pixMorphSequence(PIX *, const char *, l_int32) as PIX *
@@ -86,28 +85,17 @@ public partial class _All {
 ///  <param name="sequence">[in] - string specifying sequence</param>
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixMorphSequence(
 				 Pix pixs, 
 				 String sequence, 
 				 int dispsep){
 
-
-
-	IntPtr _Result = Natives.pixMorphSequence(
-pixs.Pointer,   sequence,   dispsep);
+	IntPtr _Result = Natives.pixMorphSequence(pixs.Pointer,   sequence,   dispsep);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphseq.c (300, 1)
 // pixMorphCompSequence(pixs, sequence, dispsep) as Pix
 // pixMorphCompSequence(PIX *, const char *, l_int32) as PIX *
@@ -150,28 +138,17 @@ pixs.Pointer,   sequence,   dispsep);
 ///  <param name="sequence">[in] - string specifying sequence</param>
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixMorphCompSequence(
 				 Pix pixs, 
 				 String sequence, 
 				 int dispsep){
 
-
-
-	IntPtr _Result = Natives.pixMorphCompSequence(
-pixs.Pointer,   sequence,   dispsep);
+	IntPtr _Result = Natives.pixMorphCompSequence(pixs.Pointer,   sequence,   dispsep);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphseq.c (449, 1)
 // pixMorphSequenceDwa(pixs, sequence, dispsep) as Pix
 // pixMorphSequenceDwa(PIX *, const char *, l_int32) as PIX *
@@ -197,28 +174,17 @@ pixs.Pointer,   sequence,   dispsep);
 ///  <param name="sequence">[in] - string specifying sequence</param>
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixMorphSequenceDwa(
 				 Pix pixs, 
 				 String sequence, 
 				 int dispsep){
 
-
-
-	IntPtr _Result = Natives.pixMorphSequenceDwa(
-pixs.Pointer,   sequence,   dispsep);
+	IntPtr _Result = Natives.pixMorphSequenceDwa(pixs.Pointer,   sequence,   dispsep);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphseq.c (598, 1)
 // pixMorphCompSequenceDwa(pixs, sequence, dispsep) as Pix
 // pixMorphCompSequenceDwa(PIX *, const char *, l_int32) as PIX *
@@ -244,28 +210,17 @@ pixs.Pointer,   sequence,   dispsep);
 ///  <param name="sequence">[in] - string specifying sequence</param>
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixMorphCompSequenceDwa(
 				 Pix pixs, 
 				 String sequence, 
 				 int dispsep){
 
-
-
-	IntPtr _Result = Natives.pixMorphCompSequenceDwa(
-pixs.Pointer,   sequence,   dispsep);
+	IntPtr _Result = Natives.pixMorphCompSequenceDwa(pixs.Pointer,   sequence,   dispsep);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphseq.c (737, 1)
 // morphSequenceVerify(sa) as int
 // morphSequenceVerify(SARRAY *) as l_int32
@@ -281,25 +236,14 @@ pixs.Pointer,   sequence,   dispsep);
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/morphSequenceVerify/*"/>
 ///  <param name="sa">[in] - string array of operation sequence</param>
 ///   <returns>TRUE if valid FALSE otherwise or on error</returns>
-
 public static int morphSequenceVerify(
 				 Sarray sa){
 
-
-
-	int _Result = Natives.morphSequenceVerify(
-sa.Pointer);
+	int _Result = Natives.morphSequenceVerify(sa.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphseq.c (912, 1)
 // pixGrayMorphSequence(pixs, sequence, dispsep, dispy) as Pix
 // pixGrayMorphSequence(PIX *, const char *, l_int32, l_int32) as PIX *
@@ -352,29 +296,18 @@ sa.Pointer);
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///  <param name="dispy">[in] - if dispsep  is greater  0, this gives the y-value of the UL corner for display otherwise it is ignored</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixGrayMorphSequence(
 				 Pix pixs, 
 				 String sequence, 
 				 int dispsep, 
 				 int dispy){
 
-
-
-	IntPtr _Result = Natives.pixGrayMorphSequence(
-pixs.Pointer,   sequence,   dispsep,   dispy);
+	IntPtr _Result = Natives.pixGrayMorphSequence(pixs.Pointer,   sequence,   dispsep,   dispy);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // morphseq.c (1117, 1)
 // pixColorMorphSequence(pixs, sequence, dispsep, dispy) as Pix
 // pixColorMorphSequence(PIX *, const char *, l_int32, l_int32) as PIX *
@@ -422,25 +355,15 @@ pixs.Pointer,   sequence,   dispsep,   dispy);
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///  <param name="dispy">[in] - if dispsep  is greater  0, this gives the y-value of the UL corner for display otherwise it is ignored</param>
 ///   <returns>pixd, or NULL on error</returns>
-
 public static Pix pixColorMorphSequence(
 				 Pix pixs, 
 				 String sequence, 
 				 int dispsep, 
 				 int dispy){
 
-
-
-	IntPtr _Result = Natives.pixColorMorphSequence(
-pixs.Pointer,   sequence,   dispsep,   dispy);
+	IntPtr _Result = Natives.pixColorMorphSequence(pixs.Pointer,   sequence,   dispsep,   dispy);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 

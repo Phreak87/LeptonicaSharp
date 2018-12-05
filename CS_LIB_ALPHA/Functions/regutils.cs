@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (119, 1)
 // regTestSetup(argc, argv, prp) as int
 // regTestSetup(l_int32, char **, L_REGPARAMS **) as l_ok
@@ -45,30 +44,20 @@ public partial class _All {
 ///  <param name="argv">[in] - to regtest: %argv[1] is one of these: "generate", "compare", "display"</param>
 ///  <param name="prp">[out] - all regression params</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int regTestSetup(
 				 int argc, 
 				 String[] argv, 
 				out L_RegParams prp){
 
-
 	IntPtr argvPtr = 	Marshal.AllocHGlobal(Marshal.SizeOf(argv));
 	IntPtr prpPtr = IntPtr.Zero;
 
-	int _Result = Natives.regTestSetup(
-  argc,   argvPtr, out prpPtr);
+	int _Result = Natives.regTestSetup(  argc,   argvPtr, out prpPtr);
 	
-
-
-//  
 	if (prpPtr == IntPtr.Zero) {prp = null;} else { prp = new L_RegParams(prpPtr); };
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (208, 1)
 // regTestCleanup(rp) as int
 // regTestCleanup(L_REGPARAMS *) as l_ok
@@ -81,25 +70,14 @@ public static int regTestSetup(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestCleanup/*"/>
 ///  <param name="rp">[in] - regression test parameters</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int regTestCleanup(
 				 L_RegParams rp){
 
-
-
-	int _Result = Natives.regTestCleanup(
-rp.Pointer);
+	int _Result = Natives.regTestCleanup(rp.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (271, 1)
 // regTestCompareValues(rp, val1, val2, delta) as int
 // regTestCompareValues(L_REGPARAMS *, l_float32, l_float32, l_float32) as l_ok
@@ -111,28 +89,17 @@ rp.Pointer);
 ///  <param name="val2">[in] - typ. the value computed</param>
 ///  <param name="delta">[in] - allowed max absolute difference</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
-
 public static int regTestCompareValues(
 				 L_RegParams rp, 
 				 Single val1, 
 				 Single val2, 
 				 Single delta){
 
-
-
-	int _Result = Natives.regTestCompareValues(
-rp.Pointer,   val1,   val2,   delta);
+	int _Result = Natives.regTestCompareValues(rp.Pointer,   val1,   val2,   delta);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (315, 1)
 // regTestCompareStrings(rp, string1, bytes1, string2, bytes2) as int
 // regTestCompareStrings(L_REGPARAMS *, l_uint8 *, size_t, l_uint8 *, size_t) as l_ok
@@ -145,7 +112,6 @@ rp.Pointer,   val1,   val2,   delta);
 ///  <param name="string2">[in] - typ. the computed string</param>
 ///  <param name="bytes2">[in] - size of string2</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
-
 public static int regTestCompareStrings(
 				 L_RegParams rp, 
 				 Byte[] string1, 
@@ -153,21 +119,11 @@ public static int regTestCompareStrings(
 				 Byte[] string2, 
 				 uint bytes2){
 
-
-
-	int _Result = Natives.regTestCompareStrings(
-rp.Pointer,   string1,   bytes1,   string2,   bytes2);
+	int _Result = Natives.regTestCompareStrings(rp.Pointer,   string1,   bytes1,   string2,   bytes2);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (381, 1)
 // regTestComparePix(rp, pix1, pix2) as int
 // regTestComparePix(L_REGPARAMS *, PIX *, PIX *) as l_ok
@@ -182,27 +138,16 @@ rp.Pointer,   string1,   bytes1,   string2,   bytes2);
 ///  <param name="pix1">[in] - to be tested for equality</param>
 ///  <param name="pix2">[in] - to be tested for equality</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
-
 public static int regTestComparePix(
 				 L_RegParams rp, 
 				 Pix pix1, 
 				 Pix pix2){
 
-
-
-	int _Result = Natives.regTestComparePix(
-rp.Pointer, pix1.Pointer, pix2.Pointer);
+	int _Result = Natives.regTestComparePix(rp.Pointer, pix1.Pointer, pix2.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (441, 1)
 // regTestCompareSimilarPix(rp, pix1, pix2, mindiff, maxfract, printstats) as int
 // regTestCompareSimilarPix(L_REGPARAMS *, PIX *, PIX *, l_int32, l_float32, l_int32) as l_ok
@@ -232,7 +177,6 @@ rp.Pointer, pix1.Pointer, pix2.Pointer);
 ///  <param name="maxfract">[in] - maximum fraction of pixels allowed to have diff greater than or equal to mindiff</param>
 ///  <param name="printstats">[in] - use 1 to print normalized histogram to stderr</param>
 ///   <returns>0 if OK, 1 on error a failure in similarity comparison is not an error</returns>
-
 public static int regTestCompareSimilarPix(
 				 L_RegParams rp, 
 				 Pix pix1, 
@@ -241,21 +185,11 @@ public static int regTestCompareSimilarPix(
 				 Single maxfract, 
 				 int printstats){
 
-
-
-	int _Result = Natives.regTestCompareSimilarPix(
-rp.Pointer, pix1.Pointer, pix2.Pointer,   mindiff,   maxfract,   printstats);
+	int _Result = Natives.regTestCompareSimilarPix(rp.Pointer, pix1.Pointer, pix2.Pointer,   mindiff,   maxfract,   printstats);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (504, 1)
 // regTestCheckFile(rp, localname) as int
 // regTestCheckFile(L_REGPARAMS *, const char *) as l_ok
@@ -279,26 +213,15 @@ rp.Pointer, pix1.Pointer, pix2.Pointer,   mindiff,   maxfract,   printstats);
 ///  <param name="rp">[in] - regtest parameters</param>
 ///  <param name="localname">[in] - name of output file from reg test</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
-
 public static int regTestCheckFile(
 				 L_RegParams rp, 
 				 String localname){
 
-
-
-	int _Result = Natives.regTestCheckFile(
-rp.Pointer,   localname);
+	int _Result = Natives.regTestCheckFile(rp.Pointer,   localname);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (611, 1)
 // regTestCompareFiles(rp, index1, index2) as int
 // regTestCompareFiles(L_REGPARAMS *, l_int32, l_int32) as l_ok
@@ -318,27 +241,16 @@ rp.Pointer,   localname);
 ///  <param name="index1">[in] - of one output file from reg test</param>
 ///  <param name="index2">[in] - of another output file from reg test</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
-
 public static int regTestCompareFiles(
 				 L_RegParams rp, 
 				 int index1, 
 				 int index2){
 
-
-
-	int _Result = Natives.regTestCompareFiles(
-rp.Pointer,   index1,   index2);
+	int _Result = Natives.regTestCompareFiles(rp.Pointer,   index1,   index2);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (704, 1)
 // regTestWritePixAndCheck(rp, pix, format) as int
 // regTestWritePixAndCheck(L_REGPARAMS *, PIX *, l_int32) as l_ok
@@ -366,27 +278,16 @@ rp.Pointer,   index1,   index2);
 ///  <param name="pix">[in] - to be written</param>
 ///  <param name="format">[in] - of output pix</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
-
 public static int regTestWritePixAndCheck(
 				 L_RegParams rp, 
 				 Pix pix, 
 				 IFF format){
 
-
-
-	int _Result = Natives.regTestWritePixAndCheck(
-rp.Pointer, pix.Pointer,  (int) format);
+	int _Result = Natives.regTestWritePixAndCheck(rp.Pointer, pix.Pointer,  (int) format);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (770, 1)
 // regTestWriteDataAndCheck(rp, data, nbytes, ext) as int
 // regTestWriteDataAndCheck(L_REGPARAMS *, void *, size_t, const char *) as l_ok
@@ -420,31 +321,21 @@ rp.Pointer, pix.Pointer,  (int) format);
 ///  <param name="nbytes">[in] - of data to be written</param>
 ///  <param name="ext">[in] - filename extension (e.g.: "ba", "pta")</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
-
 public static int regTestWriteDataAndCheck(
 				 L_RegParams rp, 
 				 Object data, 
 				 uint nbytes, 
 				 String ext){
 
-
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
-	int _Result = Natives.regTestWriteDataAndCheck(
-rp.Pointer,   dataPtr,   nbytes,   ext);
+	int _Result = Natives.regTestWriteDataAndCheck(rp.Pointer,   dataPtr,   nbytes,   ext);
 	
-
 	Marshal.FreeHGlobal(dataPtr);
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // regutils.c (821, 1)
 // regTestGenLocalFilename(rp, index, format) as String
 // regTestGenLocalFilename(L_REGPARAMS *, l_int32, l_int32) as char *
@@ -464,23 +355,13 @@ rp.Pointer,   dataPtr,   nbytes,   ext);
 ///  <param name="index">[in] - use -1 for current index</param>
 ///  <param name="format">[in] - of image e.g., IFF_PNG</param>
 ///   <returns>filename if OK, or NULL on error</returns>
-
 public static String regTestGenLocalFilename(
 				 L_RegParams rp, 
 				 int index, 
 				 IFF format){
 
-
-
-	String _Result = Natives.regTestGenLocalFilename(
-rp.Pointer,   index,  (int) format);
+	String _Result = Natives.regTestGenLocalFilename(rp.Pointer,   index,  (int) format);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 

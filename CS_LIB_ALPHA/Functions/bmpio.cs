@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 namespace LeptonicaSharp{
 public partial class _All {
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmpio.c (89, 1)
 // pixReadStreamBmp(fp) as Pix
 // pixReadStreamBmp(FILE *) as PIX *
@@ -20,26 +19,15 @@ public partial class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamBmp/*"/>
 ///  <param name="fp">[in] - file stream opened for read</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadStreamBmp(
 				 FILE fp){
 
-
-
-	IntPtr _Result = Natives.pixReadStreamBmp(
-fp.Pointer);
+	IntPtr _Result = Natives.pixReadStreamBmp(fp.Pointer);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmpio.c (119, 1)
 // pixReadMemBmp(cdata, size) as Pix
 // pixReadMemBmp(const l_uint8 *, size_t) as PIX *
@@ -49,27 +37,16 @@ fp.Pointer);
 ///  <param name="cdata">[in] - bmp data</param>
 ///  <param name="size">[in] - number of bytes of bmp-formatted data</param>
 ///   <returns>pix, or NULL on error</returns>
-
 public static Pix pixReadMemBmp(
 				 Byte[] cdata, 
 				 uint size){
 
-
-
-	IntPtr _Result = Natives.pixReadMemBmp(
-  cdata,   size);
+	IntPtr _Result = Natives.pixReadMemBmp(  cdata,   size);
 	
-
-
-//  
-
 	if (_Result == IntPtr.Zero) {return null;}
-
-
 	return  new Pix(_Result);
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmpio.c (351, 1)
 // pixWriteStreamBmp(fp, pix) as int
 // pixWriteStreamBmp(FILE *, PIX *) as l_ok
@@ -79,26 +56,15 @@ public static Pix pixReadMemBmp(
 ///  <param name="fp">[in] - file stream</param>
 ///  <param name="pix">[in] - all depths</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWriteStreamBmp(
 				 FILE fp, 
 				 Pix pix){
 
-
-
-	int _Result = Natives.pixWriteStreamBmp(
-fp.Pointer, pix.Pointer);
+	int _Result = Natives.pixWriteStreamBmp(fp.Pointer, pix.Pointer);
 	
-
-
-//  
-
-
-
 	return _Result;
 }
 
-// Comments.vb - System.String GenerateFunctionComment(NClang_Test.IntFunction, NClang_Test.TargetLang, System.String[]) :96
 // bmpio.c (396, 1)
 // pixWriteMemBmp(pfdata, pfsize, pixs) as int
 // pixWriteMemBmp(l_uint8 **, size_t *, PIX *) as l_ok
@@ -123,29 +89,20 @@ fp.Pointer, pix.Pointer);
 ///  <param name="pfsize">[out] - size of returned data</param>
 ///  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 ///   <returns>0 if OK, 1 on error</returns>
-
 public static int pixWriteMemBmp(
 				out Byte[] pfdata, 
 				out uint pfsize, 
 				 Pix pixs){
 
-
 	IntPtr pfdataPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixWriteMemBmp(
-out  pfdataPtr, out  pfsize, pixs.Pointer);
+	int _Result = Natives.pixWriteMemBmp(out  pfdataPtr, out  pfsize, pixs.Pointer);
 	
-
-
-//  
 	Byte[] pfdataGen = new Byte[pfsize];
 	if (pfdataPtr != IntPtr.Zero) {
 	  Marshal.Copy(pfdataPtr, pfdataGen, 0, pfdataGen.Length);
 	}
 	pfdata = pfdataGen;
-
-
-
 	return _Result;
 }
 

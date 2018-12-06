@@ -93,7 +93,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CS_LIB_ALPHA\CS_LIB.csproj">
+    <ProjectReference Include="..\CS_LIB\CS_LIB.csproj">
       <Project>{eebcee15-fbbd-46fa-aab8-2b7502451b68}</Project>
       <Name>CS_LIB</Name>
     </ProjectReference>

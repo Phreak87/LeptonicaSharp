@@ -1,24 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using LeptonicaSharp;
 using static LeptonicaSharp._All;
 
 namespace TestAppCSharp
 {
-    class Program
+    internal class Program
     {
-        private const string img1bpp =  @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\feyn.tif";
-        private const string img8bpp =  @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\w91frag.jpg";
+        //const string DllPath = "leptonica-1.77.0d.dll";
+        //const CallingConvention CConv = CallingConvention.Cdecl;
+
+        //[DllImport(DllPath, CallingConvention = CConv, EntryPoint = "create2dIntArray")]
+        //public static extern IntPtr create2dIntArray2(int sy, int sx);
+
+        private const string img1bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\feyn.tif";
+        private const string img8bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\w91frag.jpg";
         private const string img24bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\zanotti-78.jpg";
         private const string img32bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\books_logo.png";
-        private const string cat007 =   @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\cat.007.jpg";
+        private const string cat007 = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\cat.007.jpg";
         private const string carplate = @"..\..\..\..\CHM_Help\ExampleImages\input\ca03pers.png";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //Natives.Initialize();
             setLeptDebugOK(1);
@@ -31,10 +33,59 @@ namespace TestAppCSharp
             //app.TestProjectionsOnImage(carplate);
             //app.TestArrayFunctions();
             //app.TestCCBorder(img1bpp);
-            app.TestBitmap();
+            //app.TestBitmap();
             //app.TestMarkusByteA();
             //app.FindForeground();
+            app.Sel();
         }
+
+        private void Sel()
+        {
+            const string sel_4_1 = "  x" +
+                                   "oCx" +
+                                   "  x";
+            var sel41 = selCreateFromString(sel_4_1, 3, 3, "sel_4_1");
+            var sel = selCreate(3, 3, "height");
+            //var seldata = marshal2d(3, 3);
+        }
+
+        //private int[][] create2dIntArray(int sy, int sx)
+        //{
+        //    // Native Call
+        //    IntPtr _Result = Natives.create2dIntArray(sy, sx);
+        //    // Create the 2d array
+        //    var arr = new int[sy][];
+        //    // Create arry of IntPtr rows
+        //    IntPtr[] outPtrArray = new IntPtr[sy];
+        //    // Copy rows from Native result to row ptr array
+        //    Marshal.Copy(_Result, outPtrArray, 0, sy);
+
+        //    for (int i = 0; i < outPtrArray.Length; i++)
+        //    {
+        //        // Create a new row
+        //        arr[i] = new int[sx];
+        //        // Marshal the row array to the managed row array
+        //        Marshal.Copy(outPtrArray[i], arr[i], 0, sx);
+        //    }
+
+        //    return arr;
+        //}
+
+        //private int[][] marshal2d(int sy, int sx)
+        //{
+        //    var _Result = create2dIntArray2(sy, sx);
+        //    var arr = new int[sy][];
+
+        //    IntPtr[] outputArrayJaggedPtrArray = new IntPtr[sy];
+        //    Marshal.Copy(_Result, outputArrayJaggedPtrArray, 0, sy);
+        //    for (int i = 0; i < outputArrayJaggedPtrArray.Length; i++)
+        //    {
+        //        arr[i] = new int[sx];
+        //        Marshal.Copy(outputArrayJaggedPtrArray[i], arr[i], 0, sx);
+        //    }
+
+        //    return arr;
+        //}
 
         private void FindForeground()
         {
@@ -62,21 +113,17 @@ namespace TestAppCSharp
 
         private void TestBitmap()
         {
-            //var im1bpp = new Pix(img1bpp);
-            ////im1bpp.Display();
-            ////var im1bbpBmp = Pix.Convert(im1bpp);
-            //var im1bppBmp = im1bpp.BitmapStatic;
+            var im1bpp = new Pix(img1bpp);
+            //im1bpp.Display();
+            var im1bppBmp = im1bpp.BitmapStatic;
 
-            //var im8bpp = new Pix(img8bpp);
-            ////var im8bppBmp = Pix.Convert(im8bpp);
-            //var im8bppBmp = im8bpp.BitmapStatic;
+            var im8bpp = new Pix(img8bpp);
+            var im8bppBmp = im8bpp.BitmapStatic;
 
-            //var im24bpp = new Pix(img24bpp);
-            ////var im24bppBmp = Pix.Convert(im24bpp);
-            //var im24bppBmp = im24bpp.BitmapStatic;
+            var im24bpp = new Pix(img24bpp);
+            var im24bppBmp = im24bpp.BitmapStatic;
 
             var im32bpp = new Pix(img32bpp);
-            //var im32bppBmp = Pix.Convert(im32bpp, true);
             var im32bppBmp = im32bpp.BitmapStatic;
         }
 
@@ -305,6 +352,7 @@ namespace TestAppCSharp
         }
 
         #region [ Helper Methods ]
+
         private void WriteAllPixaImages(ref Pixa pixa, string prefix)
         {
             var n = pixaGetCount(pixa);
@@ -316,6 +364,7 @@ namespace TestAppCSharp
                 pixDestroy(ref pix1);
             }
         }
+
         #endregion
     }
 
@@ -325,6 +374,5 @@ namespace TestAppCSharp
         {
             return pixWrite(filename, pixs, format);
         }
-
     }
 }

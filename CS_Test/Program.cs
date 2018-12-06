@@ -31,9 +31,9 @@ namespace TestAppCSharp
             //app.TestProjectionsOnImage(carplate);
             //app.TestArrayFunctions();
             //app.TestCCBorder(img1bpp);
-            //app.TestBitmap();
+            app.TestBitmap();
             //app.TestMarkusByteA();
-            app.FindForeground();
+            //app.FindForeground();
         }
 
         private void FindForeground()
@@ -62,18 +62,18 @@ namespace TestAppCSharp
 
         private void TestBitmap()
         {
-            var im1bpp = new Pix(img1bpp);
-            im1bpp.Display();
-            //var im1bbpBmp = Pix.Convert(im1bpp);
-            var im1bppBmp = im1bpp.BitmapStatic;
+            //var im1bpp = new Pix(img1bpp);
+            ////im1bpp.Display();
+            ////var im1bbpBmp = Pix.Convert(im1bpp);
+            //var im1bppBmp = im1bpp.BitmapStatic;
 
-            var im8bpp = new Pix(img8bpp);
-            //var im8bppBmp = Pix.Convert(im8bpp);
-            var im8bppBmp = im8bpp.BitmapStatic;
+            //var im8bpp = new Pix(img8bpp);
+            ////var im8bppBmp = Pix.Convert(im8bpp);
+            //var im8bppBmp = im8bpp.BitmapStatic;
 
-            var im24bpp = new Pix(img24bpp);
-            //var im24bppBmp = Pix.Convert(im24bpp);
-            var im24bppBmp = im24bpp.BitmapStatic;
+            //var im24bpp = new Pix(img24bpp);
+            ////var im24bppBmp = Pix.Convert(im24bpp);
+            //var im24bppBmp = im24bpp.BitmapStatic;
 
             var im32bpp = new Pix(img32bpp);
             //var im32bppBmp = Pix.Convert(im32bpp, true);

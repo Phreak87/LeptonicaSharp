@@ -154,29 +154,18 @@ public partial class Pix
         uint Size = 0;
         byte[] Bytes = null;
         if (this.d == 1)
-            return ConvertTo1BPPBMP(this);
-        else if (this.d == 24)
-            pixWriteMemBmp(out Bytes, out Size, this.pixConvertTo32());
-        else if (this.d == 32)
         {
-            pixWriteMemPng(out byte[] pdatafile, out uint pfilesize, this, 0.0f);
-            Bitmap img;
-            using (var ms = new System.IO.MemoryStream(pdatafile))
-            {
-                img = new Bitmap(ms);
-            }
-            return img;
+            return ConvertTo1BPPBMP(this);
         }
-        else
-            pixWriteMemBmp(out Bytes, out Size, this);
-
+        pixWriteMemBmp(out Bytes, out Size, (this.d == 24 ? this.pixConvertTo32() : this));
         System.IO.MemoryStream MemStrm = new System.IO.MemoryStream(Bytes);
         return new Bitmap(MemStrm, true);
     }
 
     public Bitmap ConvertTo1BPPBMP(Pix Pix)
     {
-        Pix PixSwap = pixEndianByteSwapNew(Pix);
+        Marshal_Pix MSH = new Marshal_Pix();
+        Pix PixSwap = LeptonicaSharp._All.pixEndianByteSwapNew(Pix);
         try
         {
             Bitmap img = new Bitmap((int)Pix.w, (int)Pix.h, PixelFormat.Format1bppIndexed);
@@ -195,9 +184,9 @@ public partial class Pix
         }
         catch
         { }
-        finally { pixDestroy(ref PixSwap); }
         return null;
     }
+
     #endregion
 }
 

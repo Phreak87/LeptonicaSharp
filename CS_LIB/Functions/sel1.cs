@@ -177,14 +177,14 @@ public static List<int[]> create2dIntArray(
 
 	IntPtr _Result = Natives.create2dIntArray(  sy,   sx);
 	
-	IntPtr[] PTRArr = new IntPtr[1];
+	IntPtr[] PTRArr = new IntPtr[sy];
 	Marshal.Copy(_Result, PTRArr, 0, PTRArr.Length);
 	List<int[]> B = new List<int[]>();
-	foreach (IntPtr eintrag in PTRArr){{
-	  int[] SingleLST = new int[1];
+	foreach (IntPtr eintrag in PTRArr){
+	  int[] SingleLST = new int[sx];
 	  Marshal.Copy(eintrag, SingleLST, 0, SingleLST.Length);
 	  B.Add(SingleLST);
-	}}
+	}
 	return B;
 }
 

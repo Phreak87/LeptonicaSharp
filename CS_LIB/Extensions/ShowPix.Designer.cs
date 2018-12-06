@@ -1,6 +1,6 @@
-﻿namespace LeptonicaCSharp.Extensions
+﻿namespace LeptonicaSharp.Extensions
 {
-    partial class ShowPix
+    partial class ShowPix 
     {
         /// <summary>
         /// Required designer variable.

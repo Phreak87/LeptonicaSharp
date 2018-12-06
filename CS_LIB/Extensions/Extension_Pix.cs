@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using LeptonicaCSharp.Extensions;
-using static LeptonicaSharp._All;
+using LeptonicaSharp.Extensions;
+using LeptonicaSharp;
 
 public partial class Box
 {
@@ -156,10 +156,11 @@ public partial class Pix
         if (this.d == 1)
             return ConvertTo1BPPBMP(this);
         else if (this.d == 24)
-            pixWriteMemBmp(out Bytes, out Size, this.pixConvertTo32());
+            _All.pixWriteMemBmp(out Bytes, out Size, this.pixConvertTo32());
         else if (this.d == 32)
         {
-            pixWriteMemPng(out byte[] pdatafile, out uint pfilesize, this, 0.0f);
+            byte[] pdatafile; uint pfilesize;
+            _All.pixWriteMemPng(out pdatafile, out pfilesize, this, 0.0f);
             Bitmap img;
             using (var ms = new System.IO.MemoryStream(pdatafile))
             {
@@ -168,7 +169,7 @@ public partial class Pix
             return img;
         }
         else
-            pixWriteMemBmp(out Bytes, out Size, this);
+            _All.pixWriteMemBmp(out Bytes, out Size, this);
 
         System.IO.MemoryStream MemStrm = new System.IO.MemoryStream(Bytes);
         return new Bitmap(MemStrm, true);
@@ -176,7 +177,7 @@ public partial class Pix
 
     public Bitmap ConvertTo1BPPBMP(Pix Pix)
     {
-        Pix PixSwap = pixEndianByteSwapNew(Pix);
+        Pix PixSwap = _All.pixEndianByteSwapNew(Pix);
         try
         {
             Bitmap img = new Bitmap((int)Pix.w, (int)Pix.h, PixelFormat.Format1bppIndexed);
@@ -195,7 +196,7 @@ public partial class Pix
         }
         catch
         { }
-        finally { pixDestroy(ref PixSwap); }
+        finally {_All.pixDestroy(ref PixSwap); }
         return null;
     }
     #endregion
@@ -205,7 +206,7 @@ public partial class Pixa
 {
     public Pix GetBitmap(int NCols = 4)
     {
-        return pixaDisplayTiledAndScaled(this, 32, 500, NCols, 0, 1, 3);
+        return _All.pixaDisplayTiledAndScaled(this, 32, 500, NCols, 0, 1, 3);
     }
 
     public void Display(int NCols = 4)
@@ -345,13 +346,13 @@ public partial class Sel
 {
     public void Display()
     {
-        ShowPix n = new ShowPix(selDisplayInPix(this, 1, 1));
+        ShowPix n = new ShowPix(_All.selDisplayInPix(this, 1, 1));
     }
 
     public void Display(Pix Pix)
     {
         UInt32 CRed = BitConverter.ToUInt32(new byte[] { 255, 0, 0, 0 }, 0);
         UInt32 CBlu = BitConverter.ToUInt32(new byte[] { 0, 255, 0, 0 }, 0);
-        ShowPix n = new ShowPix(pixDisplayHitMissSel(Pix, this, 1, CRed, CBlu));
+        ShowPix n = new ShowPix(_All.pixDisplayHitMissSel(Pix, this, 1, CRed, CBlu));
     }
 }

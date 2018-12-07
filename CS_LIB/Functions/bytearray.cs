@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -40,6 +41,7 @@ public static L_Bytea l_byteaInitFromMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.l_byteaInitFromMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -57,6 +59,10 @@ public static L_Bytea l_byteaInitFromMem(
 public static L_Bytea l_byteaInitFromFile(
 				 String fname){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+if (File.Exists (fname) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.l_byteaInitFromFile(  fname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -74,6 +80,7 @@ public static L_Bytea l_byteaInitFromFile(
 public static L_Bytea l_byteaInitFromStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.l_byteaInitFromStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -96,6 +103,7 @@ public static L_Bytea l_byteaCopy(
 				 L_Bytea bas, 
 				 int copyflag){
 
+if (bas == null) {throw new ArgumentNullException  ("bas cannot be Nothing");}
 	IntPtr _Result = Natives.l_byteaCopy(bas.Pointer,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -138,6 +146,7 @@ public static void l_byteaDestroy(
 public static uint l_byteaGetSize(
 				 L_Bytea ba){
 
+if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
 	uint _Result = Natives.l_byteaGetSize(ba.Pointer);
 	
 	return _Result;
@@ -159,6 +168,7 @@ public static Byte[] l_byteaGetData(
 				 L_Bytea ba, 
 				out uint psize){
 
+if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
 	Byte[] _Result = Natives.l_byteaGetData(ba.Pointer, out  psize);
 	
 	return _Result;
@@ -181,6 +191,7 @@ public static Byte[] l_byteaCopyData(
 				 L_Bytea ba, 
 				out uint psize){
 
+if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
 	Byte[] _Result = Natives.l_byteaCopyData(ba.Pointer, out  psize);
 	
 	return _Result;
@@ -201,6 +212,8 @@ public static int l_byteaAppendData(
 				 Byte[] newdata, 
 				 uint newbytes){
 
+if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
+		if (newdata == null) {throw new ArgumentNullException  ("newdata cannot be Nothing");}
 	int _Result = Natives.l_byteaAppendData(ba.Pointer,   newdata,   newbytes);
 	
 	return _Result;
@@ -219,6 +232,8 @@ public static int l_byteaAppendString(
 				 L_Bytea ba, 
 				 String str){
 
+if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
+		if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
 	int _Result = Natives.l_byteaAppendString(ba.Pointer,   str);
 	
 	return _Result;
@@ -240,6 +255,7 @@ public static int l_byteaJoin(
 				 L_Bytea ba1, 
 				ref L_Bytea pba2){
 
+if (ba1 == null) {throw new ArgumentNullException  ("ba1 cannot be Nothing");}
 	IntPtr pba2Ptr = IntPtr.Zero; 	if (pba2 != null) {pba2Ptr = pba2.Pointer;}
 
 	int _Result = Natives.l_byteaJoin(ba1.Pointer, ref pba2Ptr);
@@ -263,6 +279,7 @@ public static int l_byteaSplit(
 				 uint splitloc, 
 				out L_Bytea pba2){
 
+if (ba1 == null) {throw new ArgumentNullException  ("ba1 cannot be Nothing");}
 	IntPtr pba2Ptr = IntPtr.Zero;
 
 	int _Result = Natives.l_byteaSplit(ba1.Pointer,   splitloc, out pba2Ptr);
@@ -288,6 +305,8 @@ public static int l_byteaFindEachSequence(
 				 uint seqlen, 
 				out L_Dna pda){
 
+if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr pdaPtr = IntPtr.Zero;
 
 	int _Result = Natives.l_byteaFindEachSequence(ba.Pointer,   sequence,   seqlen, out pdaPtr);
@@ -313,6 +332,8 @@ public static int l_byteaWrite(
 				 uint startloc, 
 				 uint endloc){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+		if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
 	int _Result = Natives.l_byteaWrite(  fname, ba.Pointer,   startloc,   endloc);
 	
 	return _Result;
@@ -335,6 +356,8 @@ public static int l_byteaWriteStream(
 				 uint startloc, 
 				 uint endloc){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
 	int _Result = Natives.l_byteaWriteStream(fp.Pointer, ba.Pointer,   startloc,   endloc);
 	
 	return _Result;

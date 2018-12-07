@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,8 @@ public static Pix pixMaskConnComp(
 				 int connectivity, 
 				out Boxa pboxa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixMaskConnComp(pixs.Pointer,   connectivity, out pboxaPtr);
@@ -70,6 +73,8 @@ public static Pix pixMaskBoxa(
 				 Boxa boxa, 
 				 int op){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixMaskBoxa(pixdPtr, pixs.Pointer, boxa.Pointer,   op);
@@ -109,6 +114,8 @@ public static Pix pixPaintBoxa(
 				 Boxa boxa, 
 				 uint val){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.pixPaintBoxa(pixs.Pointer, boxa.Pointer,   val);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -130,6 +137,7 @@ public static Pix pixSetBlackOrWhiteBoxa(
 				 Boxa boxa, 
 				 int op){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
 	IntPtr _Result = Natives.pixSetBlackOrWhiteBoxa(pixs.Pointer, boxaPtr,   op);
@@ -159,6 +167,8 @@ public static Pix pixPaintBoxaRandom(
 				 Pix pixs, 
 				 Boxa boxa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.pixPaintBoxaRandom(pixs.Pointer, boxa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -191,6 +201,8 @@ public static Pix pixBlendBoxaRandom(
 				 Boxa boxa, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.pixBlendBoxaRandom(pixs.Pointer, boxa.Pointer,   fract);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -219,6 +231,8 @@ public static Pix pixDrawBoxa(
 				 int width, 
 				 uint val){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.pixDrawBoxa(pixs.Pointer, boxa.Pointer,   width,   val);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -248,6 +262,8 @@ public static Pix pixDrawBoxaRandom(
 				 Boxa boxa, 
 				 int width){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.pixDrawBoxaRandom(pixs.Pointer, boxa.Pointer,   width);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -290,6 +306,8 @@ public static Pix boxaaDisplay(
 				 int w, 
 				 int h){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	IntPtr _Result = Natives.boxaaDisplay(pixsPtr, baa.Pointer,   linewba,   linewb,   colorba,   colorb,   w,   h);
@@ -327,6 +345,8 @@ public static Pixa pixaDisplayBoxaa(
 				 int colorflag, 
 				 int width){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
+		if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayBoxaa(pixas.Pointer, baa.Pointer,   colorflag,   width);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -380,6 +400,8 @@ public static Boxa pixSplitIntoBoxa(
 				 int maxcomps, 
 				 int remainder){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixSplitIntoBoxa(pixs.Pointer,   minsum,   skipdist,   delta,   maxbg,   maxcomps,   remainder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -473,6 +495,8 @@ public static Boxa pixSplitComponentIntoBoxa(
 				 int maxcomps, 
 				 int remainder){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixSplitComponentIntoBoxa(pix.Pointer, boxPtr,   minsum,   skipdist,   delta,   maxbg,   maxcomps,   remainder);
@@ -558,6 +582,8 @@ public static int boxaCompareRegions(
 				out Single pdiffxor, 
 				out Pix ppixdb){
 
+if (boxa1 == null) {throw new ArgumentNullException  ("boxa1 cannot be Nothing");}
+		if (boxa2 == null) {throw new ArgumentNullException  ("boxa2 cannot be Nothing");}
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaCompareRegions(boxa1.Pointer, boxa2.Pointer,   areathresh, out  pnsame, out  pdiffarea, out  pdiffxor, out ppixdbPtr);
@@ -600,6 +626,8 @@ public static Box pixSelectLargeULComp(
 				 int yslop, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixSelectLargeULComp(pixs.Pointer,   areaslop,   yslop,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -624,6 +652,7 @@ public static Box boxaSelectLargeULBox(
 				 Single areaslop, 
 				 int yslop){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSelectLargeULBox(boxas.Pointer,   areaslop,   yslop);
 	
 	if (_Result == IntPtr.Zero) {return null;}

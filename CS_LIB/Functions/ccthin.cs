@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,7 @@ public static Pixa pixaThinConnected(
 				 int connectivity, 
 				 int maxiters){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaThinConnected(pixas.Pointer,   type,   connectivity,   maxiters);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -87,6 +89,8 @@ public static Pix pixThinConnected(
 				 int connectivity, 
 				 int maxiters){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixThinConnected(pixs.Pointer,   type,   connectivity,   maxiters);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -129,6 +133,9 @@ public static Pix pixThinConnectedBySet(
 				 Sela sela, 
 				 int maxiters){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixThinConnectedBySet(pixs.Pointer,   type, sela.Pointer,   maxiters);
 	
 	if (_Result == IntPtr.Zero) {return null;}

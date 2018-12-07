@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -42,6 +43,7 @@ public static L_Dna l_dnaCreateFromIArray(
 				 int[] iarray, 
 				 int size){
 
+if (iarray == null) {throw new ArgumentNullException  ("iarray cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaCreateFromIArray(  iarray,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -68,6 +70,7 @@ public static L_Dna l_dnaCreateFromDArray(
 				 int size, 
 				 int copyflag){
 
+if (darray == null) {throw new ArgumentNullException  ("darray cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaCreateFromDArray(  darray,   size,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -131,6 +134,7 @@ public static void l_dnaDestroy(
 public static L_Dna l_dnaCopy(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaCopy(da.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -148,6 +152,7 @@ public static L_Dna l_dnaCopy(
 public static L_Dna l_dnaClone(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaClone(da.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -170,6 +175,7 @@ public static L_Dna l_dnaClone(
 public static int l_dnaEmpty(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaEmpty(da.Pointer);
 	
 	return _Result;
@@ -188,6 +194,7 @@ public static int l_dnaAddNumber(
 				 L_Dna da, 
 				 double val){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaAddNumber(da.Pointer,   val);
 	
 	return _Result;
@@ -215,6 +222,7 @@ public static int l_dnaInsertNumber(
 				 int index, 
 				 double val){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaInsertNumber(da.Pointer,   index,   val);
 	
 	return _Result;
@@ -239,6 +247,7 @@ public static int l_dnaRemoveNumber(
 				 L_Dna da, 
 				 int index){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaRemoveNumber(da.Pointer,   index);
 	
 	return _Result;
@@ -259,6 +268,7 @@ public static int l_dnaReplaceNumber(
 				 int index, 
 				 double val){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaReplaceNumber(da.Pointer,   index,   val);
 	
 	return _Result;
@@ -275,6 +285,7 @@ public static int l_dnaReplaceNumber(
 public static int l_dnaGetCount(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaGetCount(da.Pointer);
 	
 	return _Result;
@@ -302,6 +313,7 @@ public static int l_dnaSetCount(
 				 L_Dna da, 
 				 int newcount){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaSetCount(da.Pointer,   newcount);
 	
 	return _Result;
@@ -326,6 +338,7 @@ public static int l_dnaGetDValue(
 				 int index, 
 				out Double[] pval){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaGetDValue(da.Pointer,   index, out  pval);
 	
 	return _Result;
@@ -350,6 +363,7 @@ public static int l_dnaGetIValue(
 				 int index, 
 				out int pival){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaGetIValue(da.Pointer,   index, out  pival);
 	
 	return _Result;
@@ -370,6 +384,7 @@ public static int l_dnaSetValue(
 				 int index, 
 				 double val){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaSetValue(da.Pointer,   index,   val);
 	
 	return _Result;
@@ -390,6 +405,7 @@ public static int l_dnaShiftValue(
 				 int index, 
 				 double diff){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaShiftValue(da.Pointer,   index,   diff);
 	
 	return _Result;
@@ -419,6 +435,7 @@ public static int l_dnaShiftValue(
 public static int[] l_dnaGetIArray(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int[] _Result = Natives.l_dnaGetIArray(da.Pointer);
 	
 	return _Result;
@@ -450,6 +467,7 @@ public static Double[] l_dnaGetDArray(
 				 L_Dna da, 
 				 int copyflag){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	Double[] _Result = Natives.l_dnaGetDArray(da.Pointer,   copyflag);
 	
 	return _Result;
@@ -466,6 +484,7 @@ public static Double[] l_dnaGetDArray(
 public static int l_dnaGetRefcount(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaGetRefcount(da.Pointer);
 	
 	return _Result;
@@ -484,6 +503,7 @@ public static int l_dnaChangeRefcount(
 				 L_Dna da, 
 				 int delta){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaChangeRefcount(da.Pointer,   delta);
 	
 	return _Result;
@@ -504,6 +524,7 @@ public static int l_dnaGetParameters(
 				out Double[] pstartx, 
 				out Double[] pdelx){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaGetParameters(da.Pointer, out  pstartx, out  pdelx);
 	
 	return _Result;
@@ -524,6 +545,7 @@ public static int l_dnaSetParameters(
 				 double startx, 
 				 double delx){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaSetParameters(da.Pointer,   startx,   delx);
 	
 	return _Result;
@@ -542,6 +564,8 @@ public static int l_dnaCopyParameters(
 				 L_Dna dad, 
 				 L_Dna das){
 
+if (dad == null) {throw new ArgumentNullException  ("dad cannot be Nothing");}
+		if (das == null) {throw new ArgumentNullException  ("das cannot be Nothing");}
 	int _Result = Natives.l_dnaCopyParameters(dad.Pointer, das.Pointer);
 	
 	return _Result;
@@ -558,6 +582,10 @@ public static int l_dnaCopyParameters(
 public static L_Dna l_dnaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.l_dnaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -578,6 +606,7 @@ public static L_Dna l_dnaRead(
 public static L_Dna l_dnaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -597,6 +626,8 @@ public static int l_dnaWrite(
 				 String filename, 
 				 L_Dna da){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaWrite(  filename, da.Pointer);
 	
 	return _Result;
@@ -615,6 +646,8 @@ public static int l_dnaWriteStream(
 				 FILE fp, 
 				 L_Dna da){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaWriteStream(fp.Pointer, da.Pointer);
 	
 	return _Result;
@@ -678,6 +711,7 @@ public static L_Dnaa l_dnaaCreateFull(
 public static int l_dnaaTruncate(
 				 L_Dnaa daa){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaTruncate(daa.Pointer);
 	
 	return _Result;
@@ -715,6 +749,8 @@ public static int l_dnaaAddDna(
 				 L_Dna da, 
 				 int copyflag){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
+		if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaaAddDna(daa.Pointer, da.Pointer,   copyflag);
 	
 	return _Result;
@@ -731,6 +767,7 @@ public static int l_dnaaAddDna(
 public static int l_dnaaGetCount(
 				 L_Dnaa daa){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaGetCount(daa.Pointer);
 	
 	return _Result;
@@ -749,6 +786,7 @@ public static int l_dnaaGetDnaCount(
 				 L_Dnaa daa, 
 				 int index){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaGetDnaCount(daa.Pointer,   index);
 	
 	return _Result;
@@ -765,6 +803,7 @@ public static int l_dnaaGetDnaCount(
 public static int l_dnaaGetNumberCount(
 				 L_Dnaa daa){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaGetNumberCount(daa.Pointer);
 	
 	return _Result;
@@ -785,6 +824,7 @@ public static L_Dna l_dnaaGetDna(
 				 int index, 
 				 int accessflag){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaaGetDna(daa.Pointer,   index,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -812,6 +852,8 @@ public static int l_dnaaReplaceDna(
 				 int index, 
 				 L_Dna da){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
+		if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	int _Result = Natives.l_dnaaReplaceDna(daa.Pointer,   index, da.Pointer);
 	
 	return _Result;
@@ -834,6 +876,7 @@ public static int l_dnaaGetValue(
 				 int j, 
 				out Double[] pval){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaGetValue(daa.Pointer,   i,   j, out  pval);
 	
 	return _Result;
@@ -857,6 +900,7 @@ public static int l_dnaaAddNumber(
 				 int index, 
 				 double val){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaAddNumber(daa.Pointer,   index,   val);
 	
 	return _Result;
@@ -873,6 +917,10 @@ public static int l_dnaaAddNumber(
 public static L_Dnaa l_dnaaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.l_dnaaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -890,6 +938,7 @@ public static L_Dnaa l_dnaaRead(
 public static L_Dnaa l_dnaaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -909,6 +958,8 @@ public static int l_dnaaWrite(
 				 String filename, 
 				 L_Dnaa daa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaWrite(  filename, daa.Pointer);
 	
 	return _Result;
@@ -927,6 +978,8 @@ public static int l_dnaaWriteStream(
 				 FILE fp, 
 				 L_Dnaa daa){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	int _Result = Natives.l_dnaaWriteStream(fp.Pointer, daa.Pointer);
 	
 	return _Result;

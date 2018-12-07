@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -96,6 +97,7 @@ public static void selDestroy(
 public static Sel selCopy(
 				 Sel sel){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	IntPtr _Result = Natives.selCopy(sel.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -212,6 +214,9 @@ public static int selaAddSel(
 				 String selname, 
 				 int copyflag){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+		if (selname == null) {throw new ArgumentNullException  ("selname cannot be Nothing");}
 	int _Result = Natives.selaAddSel(sela.Pointer, sel.Pointer,   selname,   copyflag);
 	
 	return _Result;
@@ -228,6 +233,7 @@ public static int selaAddSel(
 public static int selaGetCount(
 				 Sela sela){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.selaGetCount(sela.Pointer);
 	
 	return _Result;
@@ -250,6 +256,7 @@ public static Sel selaGetSel(
 				 Sela sela, 
 				 int i){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	IntPtr _Result = Natives.selaGetSel(sela.Pointer,   i);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -267,6 +274,7 @@ public static Sel selaGetSel(
 public static String selGetName(
 				 Sel sel){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	String _Result = Natives.selGetName(sel.Pointer);
 	
 	return _Result;
@@ -290,6 +298,7 @@ public static int selSetName(
 				 Sel sel, 
 				 String name){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selSetName(sel.Pointer,   name);
 	
 	return _Result;
@@ -312,6 +321,8 @@ public static int selaFindSelByName(
 				out int pindex, 
 				 List<Sel> psel){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
+		if (name == null) {throw new ArgumentNullException  ("name cannot be Nothing");}
 	IntPtr pselPtr = 	Marshal.AllocHGlobal(Marshal.SizeOf(psel));
 
 	int _Result = Natives.selaFindSelByName(sela.Pointer,   name, out  pindex, pselPtr);
@@ -336,6 +347,7 @@ public static int selGetElement(
 				 int col, 
 				out int ptype){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selGetElement(sel.Pointer,   row,   col, out  ptype);
 	
 	return _Result;
@@ -364,6 +376,7 @@ public static int selSetElement(
 				 int col, 
 				 int type){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selSetElement(sel.Pointer,   row,   col,   type);
 	
 	return _Result;
@@ -388,6 +401,7 @@ public static int selGetParameters(
 				out int pcy, 
 				out int pcx){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selGetParameters(sel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
 	
 	return _Result;
@@ -408,6 +422,7 @@ public static int selSetOrigin(
 				 int cy, 
 				 int cx){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selSetOrigin(sel.Pointer,   cy,   cx);
 	
 	return _Result;
@@ -426,6 +441,7 @@ public static int selGetTypeAtOrigin(
 				 Sel sel, 
 				out int ptype){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selGetTypeAtOrigin(sel.Pointer, out  ptype);
 	
 	return _Result;
@@ -446,6 +462,7 @@ public static String selaGetBrickName(
 				 int hsize, 
 				 int vsize){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	String _Result = Natives.selaGetBrickName(sela.Pointer,   hsize,   vsize);
 	
 	return _Result;
@@ -471,6 +488,7 @@ public static String selaGetCombName(
 				 int size, 
 				 int direction){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	String _Result = Natives.selaGetCombName(sela.Pointer,   size,   direction);
 	
 	return _Result;
@@ -529,6 +547,7 @@ public static int getCompositeParameters(
 public static Sarray selaGetSelnames(
 				 Sela sela){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	IntPtr _Result = Natives.selaGetSelnames(sela.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -559,6 +578,7 @@ public static int selFindMaxTranslations(
 				out int pxn, 
 				out int pyn){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selFindMaxTranslations(sel.Pointer, out  pxp, out  pyp, out  pxn, out  pyn);
 	
 	return _Result;
@@ -577,6 +597,7 @@ public static Sel selRotateOrth(
 				 Sel sel, 
 				 int quads){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	IntPtr _Result = Natives.selRotateOrth(sel.Pointer,   quads);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -594,6 +615,10 @@ public static Sel selRotateOrth(
 public static Sela selaRead(
 				 String fname){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+if (File.Exists (fname) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.selaRead(  fname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -611,6 +636,7 @@ public static Sela selaRead(
 public static Sela selaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.selaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -628,6 +654,10 @@ public static Sela selaReadStream(
 public static Sel selRead(
 				 String fname){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+if (File.Exists (fname) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.selRead(  fname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -645,6 +675,7 @@ public static Sel selRead(
 public static Sel selReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.selReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -664,6 +695,8 @@ public static int selaWrite(
 				 String fname, 
 				 Sela sela){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+		if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.selaWrite(  fname, sela.Pointer);
 	
 	return _Result;
@@ -682,6 +715,8 @@ public static int selaWriteStream(
 				 FILE fp, 
 				 Sela sela){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.selaWriteStream(fp.Pointer, sela.Pointer);
 	
 	return _Result;
@@ -700,6 +735,8 @@ public static int selWrite(
 				 String fname, 
 				 Sel sel){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selWrite(  fname, sel.Pointer);
 	
 	return _Result;
@@ -718,6 +755,8 @@ public static int selWriteStream(
 				 FILE fp, 
 				 Sel sel){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	int _Result = Natives.selWriteStream(fp.Pointer, sel.Pointer);
 	
 	return _Result;
@@ -761,6 +800,7 @@ public static Sel selCreateFromString(
 				 int w, 
 				 String name){
 
+if (text == null) {throw new ArgumentNullException  ("text cannot be Nothing");}
 	IntPtr _Result = Natives.selCreateFromString(  text,   h,   w,   name);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -790,6 +830,7 @@ public static Sel selCreateFromString(
 public static String selPrintToString(
 				 Sel sel){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	String _Result = Natives.selPrintToString(sel.Pointer);
 	
 	return _Result;
@@ -831,6 +872,10 @@ public static String selPrintToString(
 public static Sela selaCreateFromFile(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.selaCreateFromFile(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -857,6 +902,7 @@ public static Sel selCreateFromPta(
 				 int cx, 
 				 String name){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.selCreateFromPta(pta.Pointer,   cy,   cx,   name);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -883,6 +929,7 @@ public static Sel selCreateFromPix(
 				 int cx, 
 				 String name){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.selCreateFromPix(pix.Pointer,   cy,   cx,   name);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -906,6 +953,7 @@ public static Sel selCreateFromPix(
 public static Sel selReadFromColorImage(
 				 String pathname){
 
+if (pathname == null) {throw new ArgumentNullException  ("pathname cannot be Nothing");}
 	IntPtr _Result = Natives.selReadFromColorImage(  pathname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -941,6 +989,7 @@ public static Sel selCreateFromColorPix(
 				 Pix pixs, 
 				 String selname){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.selCreateFromColorPix(pixs.Pointer,   selname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -972,6 +1021,7 @@ public static Pix selDisplayInPix(
 				 int size, 
 				 int gthick){
 
+if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	IntPtr _Result = Natives.selDisplayInPix(sel.Pointer,   size,   gthick);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1005,6 +1055,7 @@ public static Pix selaDisplayInPix(
 				 int spacing, 
 				 int ncols){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	IntPtr _Result = Natives.selaDisplayInPix(sela.Pointer,   size,   gthick,   spacing,   ncols);
 	
 	if (_Result == IntPtr.Zero) {return null;}

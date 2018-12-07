@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -32,6 +33,8 @@ public static int recogTrainLabeled(
 				 String text, 
 				 DebugOnOff debug){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.recogTrainLabeled(recog.Pointer, pixs.Pointer, boxPtr,   text,  (int) debug);
@@ -62,6 +65,8 @@ public static int recogProcessLabeled(
 				 String text, 
 				out Pix ppix){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr ppixPtr = IntPtr.Zero;
 
@@ -96,6 +101,8 @@ public static int recogAddSample(
 				 Pix pix, 
 				 DebugOnOff debug){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.recogAddSample(recog.Pointer, pix.Pointer,  (int) debug);
 	
 	return _Result;
@@ -114,6 +121,8 @@ public static Pix recogModifyTemplate(
 				 L_Recog recog, 
 				 Pix pixs){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.recogModifyTemplate(recog.Pointer, pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -149,6 +158,7 @@ public static int recogAverageSamples(
 				 List<L_Recog> precog, 
 				 DebugOnOff debug){
 
+if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 	IntPtr precogPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogAverageSamples(precogPtr,  (int) debug);
@@ -184,6 +194,7 @@ public static int pixaAccumulateSamples(
 				out Single px, 
 				out Single py){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr ptaPtr = IntPtr.Zero; 	if (pta != null) {ptaPtr = pta.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
@@ -239,6 +250,7 @@ public static int recogTrainingFinished(
 				 int minsize, 
 				 Single minfract){
 
+if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 	IntPtr precogPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogTrainingFinished(precogPtr,   modifyflag,   minsize,   minfract);
@@ -281,6 +293,7 @@ public static Pixa recogFilterPixaBySize(
 				 Single max_ht_ratio, 
 				out Numa pna){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr pnaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.recogFilterPixaBySize(pixas.Pointer,   setsize,   maxkeep,   max_ht_ratio, out pnaPtr);
@@ -303,6 +316,7 @@ public static Pixaa recogSortPixaByClass(
 				 Pixa pixa, 
 				 int setsize){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.recogSortPixaByClass(pixa.Pointer,   setsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -337,6 +351,7 @@ public static int recogRemoveOutliers1(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 	IntPtr precogPtr = IntPtr.Zero;
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
@@ -395,6 +410,7 @@ public static Pixa pixaRemoveOutliers1(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
 
@@ -432,6 +448,7 @@ public static int recogRemoveOutliers2(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 	IntPtr precogPtr = IntPtr.Zero;
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
@@ -477,6 +494,7 @@ public static Pixa pixaRemoveOutliers2(
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr ppixsavePtr = IntPtr.Zero;
 	IntPtr ppixremPtr = IntPtr.Zero;
 
@@ -524,6 +542,8 @@ public static Pixa recogTrainFromBoot(
 				 int threshold, 
 				 DebugOnOff debug){
 
+if (recogboot == null) {throw new ArgumentNullException  ("recogboot cannot be Nothing");}
+		if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.recogTrainFromBoot(recogboot.Pointer, pixas.Pointer,   minscore,   threshold,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -579,6 +599,7 @@ public static int recogIsPaddingNeeded(
 				 L_Recog recog, 
 				out Sarray psa){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	IntPtr psaPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogIsPaddingNeeded(recog.Pointer, out psaPtr);
@@ -605,6 +626,8 @@ public static Pixa recogAddDigitPadTemplates(
 				 L_Recog recog, 
 				 Sarray sa){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.recogAddDigitPadTemplates(recog.Pointer, sa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -686,6 +709,8 @@ public static int recogShowContent(
 				 int index, 
 				 int display){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogShowContent(fp.Pointer, recog.Pointer,   index,   display);
 	
 	return _Result;
@@ -714,6 +739,7 @@ public static int recogDebugAverages(
 				 List<L_Recog> precog, 
 				 DebugOnOff debug){
 
+if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 	IntPtr precogPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogDebugAverages(precogPtr,  (int) debug);
@@ -736,6 +762,7 @@ public static int recogDebugAverages(
 public static int recogShowAverageTemplates(
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogShowAverageTemplates(recog.Pointer);
 	
 	return _Result;
@@ -770,6 +797,8 @@ public static int recogShowMatchesInRange(
 				 Single maxscore, 
 				 int display){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	int _Result = Natives.recogShowMatchesInRange(recog.Pointer, pixa.Pointer,   minscore,   maxscore,   display);
 	
 	return _Result;
@@ -809,6 +838,8 @@ public static Pix recogShowMatch(
 				 int index, 
 				 Single score){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
 	IntPtr pix2Ptr = IntPtr.Zero; 	if (pix2 != null) {pix2Ptr = pix2.Pointer;}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 

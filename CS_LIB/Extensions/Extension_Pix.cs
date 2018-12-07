@@ -219,20 +219,20 @@ public partial class Numa
 {
     public void DisplayNumaBarGraph(Numa NumaH = null, Pix BgPix = null, bool Swap = false)
     {
-        //    Numa NumaW = this;
-        //    if (Swap == true)
-        //    {
-        //        var TMpH = NumaH;
-        //        var TmpW = this;
-        //        NumaH = TmpW;
-        //        NumaW = TMpH;
-        //    }
-        //    int NumaHCnt = 1;
-        //    if ((NumaH != null))
-        //        NumaHCnt = NumaH.n;
-        //    int NumaWCnt = 1;
-        //    if ((NumaW != null))
-        //        NumaWCnt = NumaW.n;
+        Numa NumaW = this;
+        if (Swap == true)
+        {
+            var TMpH = NumaH;
+            var TmpW = this;
+            NumaH = TmpW;
+            NumaW = TMpH;
+        }
+        int NumaHCnt = 1;
+        if ((NumaH != null))
+            NumaHCnt = NumaH.n;
+        int NumaWCnt = 1;
+        if ((NumaW != null))
+            NumaWCnt = NumaW.n;
         //    //double NumaHMax = 1;
         //    //if ((NumaH != null))
         //    //    NumaHMax = (int) NumaH.array.Max();
@@ -277,23 +277,23 @@ public partial class Numa
 
     public void DisplayNumaHeatmap(Numa NumaH = null, Pix BgPix = null, bool Swap = false)
     {
-        //    Numa NumaW = this;
-        //    if (Swap == true)
-        //    {
-        //        var TMpH = NumaH;
-        //        var TmpW = NumaW;
-        //        NumaH = TmpW;
-        //        NumaW = TMpH;
-        //    }
-        //    int NumaHCnt = 1;
-        //    if ((NumaH != null))
-        //        NumaHCnt = NumaH.n;
-        //    int NumaWCnt = 1;
-        //    if ((NumaW != null))
-        //        NumaWCnt = NumaW.n;
-        //    double NumaHMax = 1;
-        //    if ((NumaH != null))
-        //        NumaHMax = (int)NumaH.array.Max();
+        Numa NumaW = this;
+        if (Swap == true)
+        {
+                var TMpH = NumaH;
+                var TmpW = NumaW;
+                NumaH = TmpW;
+                NumaW = TMpH;
+        }
+            int NumaHCnt = 1;
+            if ((NumaH != null))
+                NumaHCnt = NumaH.n;
+            int NumaWCnt = 1;
+            if ((NumaW != null))
+                NumaWCnt = NumaW.n;
+        //   double NumaHMax = 1;
+        //   if ((NumaH != null))
+        //       NumaHMax = (int)NumaH.array.Max();
         //    double NumaWMax = 1;
         //    if ((NumaW != null))
         //        NumaWMax = (int)NumaW.array.Max();

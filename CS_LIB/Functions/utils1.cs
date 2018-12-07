@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -46,6 +47,8 @@ public static int returnErrorInt(
 				 String procname, 
 				 int ival){
 
+if (msg == null) {throw new ArgumentNullException  ("msg cannot be Nothing");}
+		if (procname == null) {throw new ArgumentNullException  ("procname cannot be Nothing");}
 	int _Result = Natives.returnErrorInt(  msg,   procname,   ival);
 	
 	return _Result;
@@ -66,6 +69,8 @@ public static Single returnErrorFloat(
 				 String procname, 
 				 Single fval){
 
+if (msg == null) {throw new ArgumentNullException  ("msg cannot be Nothing");}
+		if (procname == null) {throw new ArgumentNullException  ("procname cannot be Nothing");}
 	Single _Result = Natives.returnErrorFloat(  msg,   procname,   fval);
 	
 	return _Result;
@@ -86,6 +91,9 @@ public static Object returnErrorPtr(
 				 String procname, 
 				 Object pval){
 
+if (msg == null) {throw new ArgumentNullException  ("msg cannot be Nothing");}
+		if (procname == null) {throw new ArgumentNullException  ("procname cannot be Nothing");}
+		if (pval == null) {throw new ArgumentNullException  ("pval cannot be Nothing");}
 		IntPtr pvalPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -112,6 +120,8 @@ public static int filesAreIdentical(
 				 String fname2, 
 				out int psame){
 
+if (fname1 == null) {throw new ArgumentNullException  ("fname1 cannot be Nothing");}
+		if (fname2 == null) {throw new ArgumentNullException  ("fname2 cannot be Nothing");}
 	int _Result = Natives.filesAreIdentical(  fname1,   fname2, out  psame);
 	
 	return _Result;
@@ -206,6 +216,8 @@ public static int fileCorruptByDeletion(
 				 Single size, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.fileCorruptByDeletion(  filein,   loc,   size,   fileout);
 	
 	return _Result;
@@ -240,6 +252,8 @@ public static int fileCorruptByMutation(
 				 Single size, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.fileCorruptByMutation(  filein,   loc,   size,   fileout);
 	
 	return _Result;
@@ -319,6 +333,7 @@ public static int l_hashStringToUint64(
 				 String str, 
 				out ulong phash){
 
+if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
 	int _Result = Natives.l_hashStringToUint64(  str, out  phash);
 	
 	return _Result;
@@ -533,6 +548,7 @@ public static IntPtr startTimerNested(){
 public static Single stopTimerNested(
 				 IntPtr utime_start){
 
+if (utime_start == null) {throw new ArgumentNullException  ("utime_start cannot be Nothing");}
 	Single _Result = Natives.stopTimerNested(  utime_start);
 	
 	return _Result;
@@ -548,6 +564,8 @@ public static void l_getCurrentTime(
 				 object sec, 
 				 object usec){
 
+if (sec == null) {throw new ArgumentNullException  ("sec cannot be Nothing");}
+		if (usec == null) {throw new ArgumentNullException  ("usec cannot be Nothing");}
 	Natives.l_getCurrentTime(  sec,   usec);
 	
 }

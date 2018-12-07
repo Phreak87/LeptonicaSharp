@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -23,6 +24,7 @@ public static Pta ptaSort(
 				 int sortorder, 
 				out Numa pnaindex){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.ptaSort(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
@@ -49,6 +51,7 @@ public static int ptaGetSortIndex(
 				 int sortorder, 
 				out Numa pnaindex){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaGetSortIndex(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
@@ -70,6 +73,8 @@ public static Pta ptaSortByIndex(
 				 Pta ptas, 
 				 Numa naindex){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+		if (naindex == null) {throw new ArgumentNullException  ("naindex cannot be Nothing");}
 	IntPtr _Result = Natives.ptaSortByIndex(ptas.Pointer, naindex.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -89,6 +94,8 @@ public static Ptaa ptaaSortByIndex(
 				 Ptaa ptaas, 
 				 Numa naindex){
 
+if (ptaas == null) {throw new ArgumentNullException  ("ptaas cannot be Nothing");}
+		if (naindex == null) {throw new ArgumentNullException  ("naindex cannot be Nothing");}
 	IntPtr _Result = Natives.ptaaSortByIndex(ptaas.Pointer, naindex.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -114,6 +121,7 @@ public static int ptaGetRankValue(
 				 int sorttype, 
 				out Single pval){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr ptasortPtr = IntPtr.Zero; 	if (ptasort != null) {ptasortPtr = ptasort.Pointer;}
 
 	int _Result = Natives.ptaGetRankValue(pta.Pointer,   fract, ptasortPtr,   sorttype, out  pval);
@@ -146,6 +154,8 @@ public static Pta ptaUnionByAset(
 				 Pta pta1, 
 				 Pta pta2){
 
+if (pta1 == null) {throw new ArgumentNullException  ("pta1 cannot be Nothing");}
+		if (pta2 == null) {throw new ArgumentNullException  ("pta2 cannot be Nothing");}
 	IntPtr _Result = Natives.ptaUnionByAset(pta1.Pointer, pta2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -168,6 +178,7 @@ public static Pta ptaUnionByAset(
 public static Pta ptaRemoveDupsByAset(
 				 Pta ptas){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaRemoveDupsByAset(ptas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -196,6 +207,8 @@ public static Pta ptaIntersectionByAset(
 				 Pta pta1, 
 				 Pta pta2){
 
+if (pta1 == null) {throw new ArgumentNullException  ("pta1 cannot be Nothing");}
+		if (pta2 == null) {throw new ArgumentNullException  ("pta2 cannot be Nothing");}
 	IntPtr _Result = Natives.ptaIntersectionByAset(pta1.Pointer, pta2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -213,6 +226,7 @@ public static Pta ptaIntersectionByAset(
 public static L_Rbtree l_asetCreateFromPta(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.l_asetCreateFromPta(pta.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -237,6 +251,8 @@ public static Pta ptaUnionByHash(
 				 Pta pta1, 
 				 Pta pta2){
 
+if (pta1 == null) {throw new ArgumentNullException  ("pta1 cannot be Nothing");}
+		if (pta2 == null) {throw new ArgumentNullException  ("pta2 cannot be Nothing");}
 	IntPtr _Result = Natives.ptaUnionByHash(pta1.Pointer, pta2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -278,6 +294,7 @@ public static int ptaRemoveDupsByHash(
 				out Pta pptad, 
 				out L_DnaHash pdahash){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr pptadPtr = IntPtr.Zero;
 	IntPtr pdahashPtr = IntPtr.Zero;
 
@@ -306,6 +323,8 @@ public static Pta ptaIntersectionByHash(
 				 Pta pta1, 
 				 Pta pta2){
 
+if (pta1 == null) {throw new ArgumentNullException  ("pta1 cannot be Nothing");}
+		if (pta2 == null) {throw new ArgumentNullException  ("pta2 cannot be Nothing");}
 	IntPtr _Result = Natives.ptaIntersectionByHash(pta1.Pointer, pta2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -345,6 +364,8 @@ public static int ptaFindPtByHash(
 				 int y, 
 				out int pindex){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
+		if (dahash == null) {throw new ArgumentNullException  ("dahash cannot be Nothing");}
 	int _Result = Natives.ptaFindPtByHash(pta.Pointer, dahash.Pointer,   x,   y, out  pindex);
 	
 	return _Result;
@@ -361,6 +382,7 @@ public static int ptaFindPtByHash(
 public static L_DnaHash l_dnaHashCreateFromPta(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaHashCreateFromPta(pta.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

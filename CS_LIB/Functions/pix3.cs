@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -49,6 +50,7 @@ public static int pixSetMasked(
 				 Pix pixm, 
 				 uint val){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixSetMasked(pixd.Pointer, pixmPtr,   val);
@@ -98,6 +100,7 @@ public static int pixSetMaskedGeneral(
 				 int x, 
 				 int y){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixSetMaskedGeneral(pixd.Pointer, pixmPtr,   val,   x,   y);
@@ -144,6 +147,8 @@ public static int pixCombineMasked(
 				 Pix pixs, 
 				 Pix pixm){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixCombineMasked(pixd.Pointer, pixs.Pointer, pixmPtr);
@@ -203,6 +208,8 @@ public static int pixCombineMaskedGeneral(
 				 int x, 
 				 int y){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixCombineMaskedGeneral(pixd.Pointer, pixs.Pointer, pixmPtr,   x,   y);
@@ -268,6 +275,7 @@ public static int pixPaintThroughMask(
 				 int y, 
 				 uint val){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixPaintThroughMask(pixd.Pointer, pixmPtr,   x,   y,   val);
@@ -356,6 +364,8 @@ public static int pixPaintSelfThroughMask(
 				 int ntiles, 
 				 int distblend){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	int _Result = Natives.pixPaintSelfThroughMask(pixd.Pointer, pixm.Pointer,   x,   y,   searchdir,   mindist,   tilesize,   ntiles,   distblend);
 	
 	return _Result;
@@ -380,6 +390,7 @@ public static Pix pixMakeMaskFromVal(
 				 Pix pixs, 
 				 int val){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMakeMaskFromVal(pixs.Pointer,   val);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -406,6 +417,8 @@ public static Pix pixMakeMaskFromLUT(
 				 Pix pixs, 
 				 int[] tab){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (tab == null) {throw new ArgumentNullException  ("tab cannot be Nothing");}
 	IntPtr _Result = Natives.pixMakeMaskFromLUT(pixs.Pointer,   tab);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -448,6 +461,8 @@ public static Pix pixMakeArbMaskFromRGB(
 				 Single bc, 
 				 Single thresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp RGB"); }
 	IntPtr _Result = Natives.pixMakeArbMaskFromRGB(pixs.Pointer,   rc,   gc,   bc,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -518,6 +533,7 @@ public static Pix pixSetUnderTransparency(
 				 uint val, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSetUnderTransparency(pixs.Pointer,   val,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -562,6 +578,8 @@ public static Pix pixMakeAlphaFromMask(
 				 int dist, 
 				out Box pbox){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixMakeAlphaFromMask(pixs.Pointer,   dist, out pboxPtr);
@@ -597,6 +615,10 @@ public static int pixGetColorNearMaskBoundary(
 				out uint pval, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixGetColorNearMaskBoundary(pixs.Pointer, pixm.Pointer, box.Pointer,   dist, out  pval,  (int) debug);
 	
 	return _Result;
@@ -628,6 +650,7 @@ public static Pix pixInvert(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixInvert(pixdPtr, pixs.Pointer);
@@ -676,6 +699,8 @@ public static Pix pixOr(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixOr(pixdPtr, pixs1.Pointer, pixs2.Pointer);
@@ -724,6 +749,8 @@ public static Pix pixAnd(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixAnd(pixdPtr, pixs1.Pointer, pixs2.Pointer);
@@ -772,6 +799,8 @@ public static Pix pixXor(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixXor(pixdPtr, pixs1.Pointer, pixs2.Pointer);
@@ -821,6 +850,8 @@ public static Pix pixSubtract(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixSubtract(pixdPtr, pixs1.Pointer, pixs2.Pointer);
@@ -853,6 +884,7 @@ public static int pixZero(
 				 Pix pix, 
 				out int pempty){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixZero(pix.Pointer, out  pempty);
 	
 	return _Result;
@@ -871,6 +903,8 @@ public static int pixForegroundFraction(
 				 Pix pix, 
 				out Single pfract){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixForegroundFraction(pix.Pointer, out  pfract);
 	
 	return _Result;
@@ -887,6 +921,7 @@ public static int pixForegroundFraction(
 public static Numa pixaCountPixels(
 				 Pixa pixa){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaCountPixels(pixa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -908,6 +943,8 @@ public static int pixCountPixels(
 				out int pcount, 
 				 int[] tab8){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixCountPixels(pixs.Pointer, out  pcount,   tab8);
 	
 	return _Result;
@@ -930,6 +967,9 @@ public static int pixCountPixelsInRect(
 				out int pcount, 
 				 int[] tab8){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixCountPixelsInRect(pixs.Pointer, box.Pointer, out  pcount,   tab8);
 	
 	return _Result;
@@ -952,6 +992,8 @@ public static Numa pixCountByRow(
 				 Pix pix, 
 				 Box box){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixCountByRow(pix.Pointer, boxPtr);
@@ -977,6 +1019,8 @@ public static Numa pixCountByColumn(
 				 Pix pix, 
 				 Box box){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixCountByColumn(pix.Pointer, boxPtr);
@@ -998,6 +1042,8 @@ public static Numa pixCountPixelsByRow(
 				 Pix pix, 
 				 int[] tab8){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixCountPixelsByRow(pix.Pointer,   tab8);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1015,6 +1061,8 @@ public static Numa pixCountPixelsByRow(
 public static Numa pixCountPixelsByColumn(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixCountPixelsByColumn(pix.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1038,6 +1086,8 @@ public static int pixCountPixelsInRow(
 				out int pcount, 
 				 int[] tab8){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixCountPixelsInRow(pix.Pointer,   row, out  pcount,   tab8);
 	
 	return _Result;
@@ -1056,6 +1106,8 @@ public static Numa pixGetMomentByColumn(
 				 Pix pix, 
 				 int order){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixGetMomentByColumn(pix.Pointer,   order);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1086,6 +1138,8 @@ public static int pixThresholdPixelSum(
 				out int pabove, 
 				 int[] tab8){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixThresholdPixelSum(pix.Pointer,   thresh, out  pabove,   tab8);
 	
 	return _Result;
@@ -1155,6 +1209,7 @@ public static Numa pixAverageByRow(
 				 Box box, 
 				 int type){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixAverageByRow(pix.Pointer, boxPtr,   type);
@@ -1185,6 +1240,7 @@ public static Numa pixAverageByColumn(
 				 Box box, 
 				 int type){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixAverageByColumn(pix.Pointer, boxPtr,   type);
@@ -1208,6 +1264,7 @@ public static int pixAverageInRect(
 				 Box box, 
 				out Single pave){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixAverageInRect(pix.Pointer, boxPtr, out  pave);
@@ -1235,6 +1292,7 @@ public static Numa pixVarianceByRow(
 				 Pix pix, 
 				 Box box){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixVarianceByRow(pix.Pointer, boxPtr);
@@ -1263,6 +1321,7 @@ public static Numa pixVarianceByColumn(
 				 Pix pix, 
 				 Box box){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixVarianceByColumn(pix.Pointer, boxPtr);
@@ -1286,6 +1345,7 @@ public static int pixVarianceInRect(
 				 Box box, 
 				out Single prootvar){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixVarianceInRect(pix.Pointer, boxPtr, out  prootvar);
@@ -1313,6 +1373,7 @@ public static Numa pixAbsDiffByRow(
 				 Pix pix, 
 				 Box box){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixAbsDiffByRow(pix.Pointer, boxPtr);
@@ -1341,6 +1402,7 @@ public static Numa pixAbsDiffByColumn(
 				 Pix pix, 
 				 Box box){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixAbsDiffByColumn(pix.Pointer, boxPtr);
@@ -1372,6 +1434,7 @@ public static int pixAbsDiffInRect(
 				 int dir, 
 				out Single pabsdiff){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixAbsDiffInRect(pix.Pointer, boxPtr,   dir, out  pabsdiff);
@@ -1407,6 +1470,7 @@ public static int pixAbsDiffOnLine(
 				 int y2, 
 				out Single pabsdiff){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixAbsDiffOnLine(pix.Pointer,   x1,   y1,   x2,   y2, out  pabsdiff);
 	
 	return _Result;
@@ -1438,6 +1502,7 @@ public static int pixCountArbInRect(
 				 int factor, 
 				out int pcount){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixCountArbInRect(pixs.Pointer, boxPtr,   val,   factor, out  pcount);
@@ -1471,6 +1536,7 @@ public static Pix pixMirroredTiling(
 				 int w, 
 				 int h){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMirroredTiling(pixs.Pointer,   w,   h);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1517,6 +1583,9 @@ public static int pixFindRepCloseTile(
 				out Box pboxtile, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pboxtilePtr = IntPtr.Zero;
 
 	int _Result = Natives.pixFindRepCloseTile(pixs.Pointer, box.Pointer,   searchdir,   mindist,   tsize,   ntiles, out pboxtilePtr,  (int) debug);

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -58,6 +59,7 @@ public static Pix pixHShear(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixHShear(pixdPtr, pixs.Pointer,   yloc,   radang,   incolor);
@@ -118,6 +120,7 @@ public static Pix pixVShear(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixVShear(pixdPtr, pixs.Pointer,   xloc,   radang,   incolor);
@@ -149,6 +152,7 @@ public static Pix pixHShearCorner(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixHShearCorner(pixdPtr, pixs.Pointer,   radang,   incolor);
@@ -180,6 +184,7 @@ public static Pix pixVShearCorner(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixVShearCorner(pixdPtr, pixs.Pointer,   radang,   incolor);
@@ -211,6 +216,7 @@ public static Pix pixHShearCenter(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixHShearCenter(pixdPtr, pixs.Pointer,   radang,   incolor);
@@ -242,6 +248,7 @@ public static Pix pixVShearCenter(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixVShearCenter(pixdPtr, pixs.Pointer,   radang,   incolor);
@@ -278,6 +285,7 @@ public static int pixHShearIP(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixHShearIP(pixs.Pointer,   yloc,   radang,   incolor);
 	
 	return _Result;
@@ -311,6 +319,7 @@ public static int pixVShearIP(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixVShearIP(pixs.Pointer,   xloc,   radang,   incolor);
 	
 	return _Result;
@@ -349,6 +358,7 @@ public static Pix pixHShearLI(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixHShearLI(pixs.Pointer,   yloc,   radang,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -388,6 +398,7 @@ public static Pix pixVShearLI(
 				 Single radang, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixVShearLI(pixs.Pointer,   xloc,   radang,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}

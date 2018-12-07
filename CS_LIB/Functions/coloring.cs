@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -47,6 +48,8 @@ public static Pix pixColorGrayRegions(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorGrayRegions(pixs.Pointer, boxa.Pointer,   type,   thresh,   rval,   gval,   bval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -109,6 +112,7 @@ public static int pixColorGray(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixColorGray(pixs.Pointer, boxPtr,   type,   thresh,   rval,   gval,   bval);
@@ -160,6 +164,8 @@ public static Pix pixColorGrayMasked(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorGrayMasked(pixs.Pointer, pixm.Pointer,   type,   thresh,   rval,   gval,   bval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -197,6 +203,7 @@ public static Pix pixSnapColor(
 				 uint dstval, 
 				 int diff){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixSnapColor(pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
@@ -236,6 +243,7 @@ public static Pix pixSnapColorCmap(
 				 uint dstval, 
 				 int diff){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixSnapColorCmap(pixdPtr, pixs.Pointer,   srcval,   dstval,   diff);
@@ -281,6 +289,8 @@ public static Pix pixLinearMapToTargetColor(
 				 uint srcval, 
 				 uint dstval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixLinearMapToTargetColor(pixdPtr, pixs.Pointer,   srcval,   dstval);
@@ -381,6 +391,8 @@ public static Pix pixShiftByComponent(
 				 uint srcval, 
 				 uint dstval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixShiftByComponent(pixdPtr, pixs.Pointer,   srcval,   dstval);

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -116,6 +117,7 @@ public static Pta pixSearchBinaryMaze(
 				 int yf, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixSearchBinaryMaze(pixs.Pointer,   xi,   yi,   xf,   yf, out ppixdPtr);
@@ -146,6 +148,7 @@ public static Pta pixSearchGrayMaze(
 				 int yf, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixSearchGrayMaze(pixs.Pointer,   xi,   yi,   xf,   yf, out ppixdPtr);

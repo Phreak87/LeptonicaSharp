@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -52,6 +53,7 @@ public static Pixacc pixaccCreateFromPix(
 				 Pix pix, 
 				 int negflag){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.pixaccCreateFromPix(pix.Pointer,   negflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -91,6 +93,7 @@ public static Pix pixaccFinal(
 				 Pixacc pixacc, 
 				 int outdepth){
 
+if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
 	IntPtr _Result = Natives.pixaccFinal(pixacc.Pointer,   outdepth);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -108,6 +111,7 @@ public static Pix pixaccFinal(
 public static Pix pixaccGetPix(
 				 Pixacc pixacc){
 
+if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
 	IntPtr _Result = Natives.pixaccGetPix(pixacc.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -125,6 +129,7 @@ public static Pix pixaccGetPix(
 public static int pixaccGetOffset(
 				 Pixacc pixacc){
 
+if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
 	int _Result = Natives.pixaccGetOffset(pixacc.Pointer);
 	
 	return _Result;
@@ -143,6 +148,8 @@ public static int pixaccAdd(
 				 Pixacc pixacc, 
 				 Pix pix){
 
+if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixaccAdd(pixacc.Pointer, pix.Pointer);
 	
 	return _Result;
@@ -161,6 +168,8 @@ public static int pixaccSubtract(
 				 Pixacc pixacc, 
 				 Pix pix){
 
+if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixaccSubtract(pixacc.Pointer, pix.Pointer);
 	
 	return _Result;
@@ -179,6 +188,7 @@ public static int pixaccMultConst(
 				 Pixacc pixacc, 
 				 Single factor){
 
+if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
 	int _Result = Natives.pixaccMultConst(pixacc.Pointer,   factor);
 	
 	return _Result;
@@ -203,6 +213,8 @@ public static int pixaccMultConstAccumulate(
 				 Pix pix, 
 				 Single factor){
 
+if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixaccMultConstAccumulate(pixacc.Pointer, pix.Pointer,   factor);
 	
 	return _Result;

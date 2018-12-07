@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,7 @@ public static String encodeBase64(
 				 int insize, 
 				out int poutsize){
 
+if (inarray == null) {throw new ArgumentNullException  ("inarray cannot be Nothing");}
 	String _Result = Natives.encodeBase64(  inarray,   insize, out  poutsize);
 	
 	return _Result;
@@ -56,6 +58,7 @@ public static Byte[] decodeBase64(
 				 int insize, 
 				out int poutsize){
 
+if (inarray == null) {throw new ArgumentNullException  ("inarray cannot be Nothing");}
 	Byte[] _Result = Natives.decodeBase64(  inarray,   insize, out  poutsize);
 	
 	return _Result;
@@ -81,6 +84,7 @@ public static String encodeAscii85(
 				 int insize, 
 				out int poutsize){
 
+if (inarray == null) {throw new ArgumentNullException  ("inarray cannot be Nothing");}
 	String _Result = Natives.encodeAscii85(  inarray,   insize, out  poutsize);
 	
 	return _Result;
@@ -108,6 +112,7 @@ public static Byte[] decodeAscii85(
 				 int insize, 
 				out int poutsize){
 
+if (inarray == null) {throw new ArgumentNullException  ("inarray cannot be Nothing");}
 	Byte[] _Result = Natives.decodeAscii85(  inarray,   insize, out  poutsize);
 	
 	return _Result;
@@ -143,6 +148,7 @@ public static String reformatPacked64(
 				 int addquotes, 
 				out int poutsize){
 
+if (inarray == null) {throw new ArgumentNullException  ("inarray cannot be Nothing");}
 	String _Result = Natives.reformatPacked64(  inarray,   insize,   leadspace,   linechars,   addquotes, out  poutsize);
 	
 	return _Result;

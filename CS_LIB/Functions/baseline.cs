@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -48,6 +49,8 @@ public static Numa pixFindBaselines(
 				out Pta ppta, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixadb == null) {throw new ArgumentNullException  ("pixadb cannot be Nothing");}
 	IntPtr pptaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixFindBaselines(pixs.Pointer, out pptaPtr, pixadb.Pointer);
@@ -100,6 +103,14 @@ public static Pix pixDeskewLocal(
 				 Single sweepdelta, 
 				 Single minbsdelta){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("sweep reduction factor: 1, 2, 4 or 8 use 0 for default value");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value");
+	};
 	IntPtr _Result = Natives.pixDeskewLocal(pixs.Pointer,   nslices,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -142,6 +153,13 @@ public static int pixGetLocalSkewTransform(
 				out Pta pptas, 
 				out Pta pptad){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("sweep reduction factor: 1, 2, 4 or 8 use 0 for default value");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value");
+	};
 	IntPtr pptasPtr = IntPtr.Zero;
 	IntPtr pptadPtr = IntPtr.Zero;
 
@@ -196,6 +214,14 @@ public static Numa pixGetLocalSkewAngles(
 				out Single pb, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("sweep reduction factor: 1, 2, 4 or 8 use 0 for default value");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value");
+	};
 	IntPtr _Result = Natives.pixGetLocalSkewAngles(pixs.Pointer,   nslices,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta, out  pa, out  pb,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}

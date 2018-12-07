@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -73,6 +74,10 @@ public static Pix pixBilateral(
 				 int ncomps, 
 				 int reduction){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("1, 2 or 4");
+	};
 	IntPtr _Result = Natives.pixBilateral(pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -103,6 +108,10 @@ public static Pix pixBilateralGray(
 				 int ncomps, 
 				 int reduction){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("1, 2 or 4");
+	};
 	IntPtr _Result = Natives.pixBilateralGray(pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -139,6 +148,8 @@ public static Pix pixBilateralExact(
 				 L_Kernel spatial_kel, 
 				 L_Kernel range_kel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (spatial_kel == null) {throw new ArgumentNullException  ("spatial_kel cannot be Nothing");}
 	IntPtr range_kelPtr = IntPtr.Zero; 	if (range_kel != null) {range_kelPtr = range_kel.Pointer;}
 
 	IntPtr _Result = Natives.pixBilateralExact(pixs.Pointer, spatial_kel.Pointer, range_kelPtr);
@@ -165,6 +176,8 @@ public static Pix pixBilateralGrayExact(
 				 L_Kernel spatial_kel, 
 				 L_Kernel range_kel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (spatial_kel == null) {throw new ArgumentNullException  ("spatial_kel cannot be Nothing");}
 	IntPtr range_kelPtr = IntPtr.Zero; 	if (range_kel != null) {range_kelPtr = range_kel.Pointer;}
 
 	IntPtr _Result = Natives.pixBilateralGrayExact(pixs.Pointer, spatial_kel.Pointer, range_kelPtr);
@@ -218,6 +231,7 @@ public static Pix pixBlockBilateralExact(
 				 Single spatial_stdev, 
 				 Single range_stdev){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixBlockBilateralExact(pixs.Pointer,   spatial_stdev,   range_stdev);
 	
 	if (_Result == IntPtr.Zero) {return null;}

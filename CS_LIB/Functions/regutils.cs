@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -49,6 +50,7 @@ public static int regTestSetup(
 				 String[] argv, 
 				out L_RegParams prp){
 
+if (argv == null) {throw new ArgumentNullException  ("argv cannot be Nothing");}
 	IntPtr argvPtr = 	Marshal.AllocHGlobal(Marshal.SizeOf(argv));
 	IntPtr prpPtr = IntPtr.Zero;
 
@@ -73,6 +75,7 @@ public static int regTestSetup(
 public static int regTestCleanup(
 				 L_RegParams rp){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 	int _Result = Natives.regTestCleanup(rp.Pointer);
 	
 	return _Result;
@@ -95,6 +98,7 @@ public static int regTestCompareValues(
 				 Single val2, 
 				 Single delta){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 	int _Result = Natives.regTestCompareValues(rp.Pointer,   val1,   val2,   delta);
 	
 	return _Result;
@@ -119,6 +123,9 @@ public static int regTestCompareStrings(
 				 Byte[] string2, 
 				 uint bytes2){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
+		if (string1 == null) {throw new ArgumentNullException  ("string1 cannot be Nothing");}
+		if (string2 == null) {throw new ArgumentNullException  ("string2 cannot be Nothing");}
 	int _Result = Natives.regTestCompareStrings(rp.Pointer,   string1,   bytes1,   string2,   bytes2);
 	
 	return _Result;
@@ -143,6 +150,9 @@ public static int regTestComparePix(
 				 Pix pix1, 
 				 Pix pix2){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
+		if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.regTestComparePix(rp.Pointer, pix1.Pointer, pix2.Pointer);
 	
 	return _Result;
@@ -185,6 +195,9 @@ public static int regTestCompareSimilarPix(
 				 Single maxfract, 
 				 int printstats){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
+		if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.regTestCompareSimilarPix(rp.Pointer, pix1.Pointer, pix2.Pointer,   mindiff,   maxfract,   printstats);
 	
 	return _Result;
@@ -217,6 +230,8 @@ public static int regTestCheckFile(
 				 L_RegParams rp, 
 				 String localname){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
+		if (localname == null) {throw new ArgumentNullException  ("localname cannot be Nothing");}
 	int _Result = Natives.regTestCheckFile(rp.Pointer,   localname);
 	
 	return _Result;
@@ -246,6 +261,7 @@ public static int regTestCompareFiles(
 				 int index1, 
 				 int index2){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 	int _Result = Natives.regTestCompareFiles(rp.Pointer,   index1,   index2);
 	
 	return _Result;
@@ -283,6 +299,8 @@ public static int regTestWritePixAndCheck(
 				 Pix pix, 
 				 IFF format){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.regTestWritePixAndCheck(rp.Pointer, pix.Pointer,  (int) format);
 	
 	return _Result;
@@ -327,6 +345,9 @@ public static int regTestWriteDataAndCheck(
 				 uint nbytes, 
 				 String ext){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
+		if (ext == null) {throw new ArgumentNullException  ("ext cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -360,6 +381,7 @@ public static String regTestGenLocalFilename(
 				 int index, 
 				 IFF format){
 
+if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 	String _Result = Natives.regTestGenLocalFilename(rp.Pointer,   index,  (int) format);
 	
 	return _Result;

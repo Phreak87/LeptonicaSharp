@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -35,6 +36,7 @@ public static L_Recog recogCreateFromRecog(
 				 int threshold, 
 				 int maxyshift){
 
+if (recs == null) {throw new ArgumentNullException  ("recs cannot be Nothing");}
 	IntPtr _Result = Natives.recogCreateFromRecog(recs.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -76,6 +78,7 @@ public static L_Recog recogCreateFromPixa(
 				 int threshold, 
 				 int maxyshift){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.recogCreateFromPixa(pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -110,6 +113,7 @@ public static L_Recog recogCreateFromPixaNoFinish(
 				 int threshold, 
 				 int maxyshift){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.recogCreateFromPixaNoFinish(pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -191,6 +195,7 @@ public static void recogDestroy(
 public static int recogGetCount(
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogGetCount(recog.Pointer);
 	
 	return _Result;
@@ -229,6 +234,7 @@ public static int recogSetParams(
 				 Single max_wh_ratio, 
 				 Single max_ht_ratio){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogSetParams(recog.Pointer,   type,   min_nopad,   max_wh_ratio,   max_ht_ratio);
 	
 	return _Result;
@@ -267,6 +273,8 @@ public static int recogGetClassIndex(
 				 String text, 
 				out int pindex){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (text == null) {throw new ArgumentNullException  ("text cannot be Nothing");}
 	int _Result = Natives.recogGetClassIndex(recog.Pointer,   val,   text, out  pindex);
 	
 	return _Result;
@@ -287,6 +295,8 @@ public static int recogStringToIndex(
 				 String text, 
 				out int pindex){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (text == null) {throw new ArgumentNullException  ("text cannot be Nothing");}
 	int _Result = Natives.recogStringToIndex(recog.Pointer,   text, out  pindex);
 	
 	return _Result;
@@ -313,6 +323,7 @@ public static int recogGetClassString(
 				 int index, 
 				out String[] pcharstr){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	IntPtr pcharstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogGetClassString(recog.Pointer,   index, out  pcharstrPtr);
@@ -334,6 +345,7 @@ public static int l_convertCharstrToInt(
 				 String str, 
 				out int pval){
 
+if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
 	int _Result = Natives.l_convertCharstrToInt(  str, out  pval);
 	
 	return _Result;
@@ -367,6 +379,10 @@ public static int l_convertCharstrToInt(
 public static L_Recog recogRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.recogRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -384,6 +400,7 @@ public static L_Recog recogRead(
 public static L_Recog recogReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.recogReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -403,6 +420,7 @@ public static L_Recog recogReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.recogReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -429,6 +447,8 @@ public static int recogWrite(
 				 String filename, 
 				 L_Recog recog){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogWrite(  filename, recog.Pointer);
 	
 	return _Result;
@@ -447,6 +467,8 @@ public static int recogWriteStream(
 				 FILE fp, 
 				 L_Recog recog){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogWriteStream(fp.Pointer, recog.Pointer);
 	
 	return _Result;
@@ -470,6 +492,7 @@ public static int recogWriteMem(
 				out uint psize, 
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogWriteMem(out  pdataPtr, out  psize, recog.Pointer);
@@ -498,6 +521,7 @@ public static int recogWriteMem(
 public static Pixa recogExtractPixa(
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	IntPtr _Result = Natives.recogExtractPixa(recog.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -79,6 +80,8 @@ public static int lqueueAdd(
 				 L_Queue lq, 
 				 Object item){
 
+if (lq == null) {throw new ArgumentNullException  ("lq cannot be Nothing");}
+		if (item == null) {throw new ArgumentNullException  ("item cannot be Nothing");}
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -103,6 +106,7 @@ public static int lqueueAdd(
 public static Object lqueueRemove(
 				 L_Queue lq){
 
+if (lq == null) {throw new ArgumentNullException  ("lq cannot be Nothing");}
 	IntPtr _Result = Natives.lqueueRemove(lq.Pointer);
 	
 	Byte[] B = new Byte[1];
@@ -121,6 +125,7 @@ public static Object lqueueRemove(
 public static int lqueueGetCount(
 				 L_Queue lq){
 
+if (lq == null) {throw new ArgumentNullException  ("lq cannot be Nothing");}
 	int _Result = Natives.lqueueGetCount(lq.Pointer);
 	
 	return _Result;
@@ -139,6 +144,8 @@ public static int lqueuePrint(
 				 FILE fp, 
 				 L_Queue lq){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (lq == null) {throw new ArgumentNullException  ("lq cannot be Nothing");}
 	int _Result = Natives.lqueuePrint(fp.Pointer, lq.Pointer);
 	
 	return _Result;

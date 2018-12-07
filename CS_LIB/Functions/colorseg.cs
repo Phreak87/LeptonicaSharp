@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -74,6 +75,7 @@ public static Pix pixColorSegment(
 				 int finalcolors, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorSegment(pixs.Pointer,   maxdist,   maxcolors,   selsize,   finalcolors,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -110,6 +112,7 @@ public static Pix pixColorSegmentCluster(
 				 int maxcolors, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorSegmentCluster(pixs.Pointer,   maxdist,   maxcolors,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -171,6 +174,9 @@ public static int pixAssignToNearestColor(
 				 int level, 
 				 int[] countarray){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixm.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixAssignToNearestColor(pixd.Pointer, pixs.Pointer, pixmPtr,   level,   countarray);
@@ -201,6 +207,8 @@ public static int pixColorSegmentClean(
 				 int selsize, 
 				 int[] countarray){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (countarray == null) {throw new ArgumentNullException  ("countarray cannot be Nothing");}
 	int _Result = Natives.pixColorSegmentClean(pixs.Pointer,   selsize,   countarray);
 	
 	return _Result;
@@ -231,6 +239,8 @@ public static int pixColorSegmentRemoveColors(
 				 Pix pixs, 
 				 int finalcolors){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixColorSegmentRemoveColors(pixd.Pointer, pixs.Pointer,   finalcolors);
 	
 	return _Result;

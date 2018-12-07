@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -43,6 +44,8 @@ public static int recogIdentifyMultiple(
 				out Pix ppixdb, 
 				 int debugsplit){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero;
@@ -94,6 +97,8 @@ public static int recogSplitIntoCharacters(
 				out Pixa ppixa, 
 				 DebugOnOff debug){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 
@@ -134,6 +139,8 @@ public static int recogCorrelationBestRow(
 				out Sarray psachar, 
 				 DebugOnOff debug){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr pnascorePtr = IntPtr.Zero;
 	IntPtr pnaindexPtr = IntPtr.Zero;
@@ -180,6 +187,8 @@ public static int recogCorrelationBestChar(
 				out String[] pcharstr, 
 				out Pix ppixdb){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxPtr = IntPtr.Zero;
 	IntPtr pcharstrPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero;
@@ -216,6 +225,8 @@ public static int recogIdentifyPixa(
 				 Pixa pixa, 
 				out Pix ppixdb){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogIdentifyPixa(recog.Pointer, pixa.Pointer, out ppixdbPtr);
@@ -258,6 +269,8 @@ public static int recogIdentifyPix(
 				 Pix pixs, 
 				out Pix ppixdb){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogIdentifyPix(recog.Pointer, pixs.Pointer, out ppixdbPtr);
@@ -281,6 +294,7 @@ public static int recogIdentifyPix(
 public static int recogSkipIdentify(
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogSkipIdentify(recog.Pointer);
 	
 	return _Result;
@@ -349,6 +363,7 @@ public static int rchaExtract(
 				out Numa pnayloc, 
 				out Numa pnawidth){
 
+if (rcha == null) {throw new ArgumentNullException  ("rcha cannot be Nothing");}
 	IntPtr pnaindexPtr = IntPtr.Zero;
 	IntPtr pnascorePtr = IntPtr.Zero;
 	IntPtr psatextPtr = IntPtr.Zero;
@@ -394,6 +409,7 @@ public static int rchExtract(
 				out int pyloc, 
 				out int pwidth){
 
+if (rch == null) {throw new ArgumentNullException  ("rch cannot be Nothing");}
 	IntPtr ptextPtr = IntPtr.Zero;
 
 	int _Result = Natives.rchExtract(rch.Pointer, out  pindex, out  pscore, out  ptextPtr, out  psample, out  pxloc, out  pyloc, out  pwidth);
@@ -422,6 +438,8 @@ public static Pix recogProcessToIdentify(
 				 Pix pixs, 
 				 int pad){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.recogProcessToIdentify(recog.Pointer, pixs.Pointer,   pad);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -474,6 +492,8 @@ public static Sarray recogExtractNumbers(
 				out Boxaa pbaa, 
 				out Numaa pnaa){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pbaaPtr = IntPtr.Zero;
 	IntPtr pnaaPtr = IntPtr.Zero;
 
@@ -510,6 +530,10 @@ public static Pixa showExtractNumbers(
 				 Numaa naa, 
 				out Pix ppixdb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.showExtractNumbers(pixs.Pointer, sa.Pointer, baa.Pointer, naa.Pointer, out ppixdbPtr);

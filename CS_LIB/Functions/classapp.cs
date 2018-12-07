@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -38,6 +39,8 @@ public static int jbCorrelation(
 				 int npages, 
 				 int renderflag){
 
+if (dirin == null) {throw new ArgumentNullException  ("dirin cannot be Nothing");}
+		if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 	int _Result = Natives.jbCorrelation(  dirin,   thresh,   weight,   components,   rootname,   firstpage,   npages,   renderflag);
 	
 	return _Result;
@@ -72,6 +75,8 @@ public static int jbRankHaus(
 				 int npages, 
 				 int renderflag){
 
+if (dirin == null) {throw new ArgumentNullException  ("dirin cannot be Nothing");}
+		if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 	int _Result = Natives.jbRankHaus(  dirin,   size,   rank,   components,   rootname,   firstpage,   npages,   renderflag);
 	
 	return _Result;
@@ -110,6 +115,10 @@ public static JbClasser jbWordsInTextlines(
 				 int firstpage, 
 				 int npages){
 
+if (dirin == null) {throw new ArgumentNullException  ("dirin cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("1 for full res 2 for half-res");
+	};
 	IntPtr pnatlPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.jbWordsInTextlines(  dirin,   reduction,   maxwidth,   maxheight,   thresh,   weight, out pnatlPtr,   firstpage,   npages);
@@ -179,6 +188,7 @@ public static int pixGetWordsInTextlines(
 				out Pixa ppixad, 
 				out Numa pnai){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxadPtr = IntPtr.Zero;
 	IntPtr ppixadPtr = IntPtr.Zero;
 	IntPtr pnaiPtr = IntPtr.Zero;
@@ -222,6 +232,7 @@ public static int pixGetWordBoxesInTextlines(
 				out Boxa pboxad, 
 				out Numa pnai){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxadPtr = IntPtr.Zero;
 	IntPtr pnaiPtr = IntPtr.Zero;
 
@@ -253,6 +264,8 @@ public static Numaa boxaExtractSortedPattern(
 				 Boxa boxa, 
 				 Numa na){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.boxaExtractSortedPattern(boxa.Pointer, na.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -317,6 +330,8 @@ public static int numaaCompareImagesByBoxes(
 				out int psame, 
 				 int debugflag){
 
+if (naa1 == null) {throw new ArgumentNullException  ("naa1 cannot be Nothing");}
+		if (naa2 == null) {throw new ArgumentNullException  ("naa2 cannot be Nothing");}
 	int _Result = Natives.numaaCompareImagesByBoxes(naa1.Pointer, naa2.Pointer,   nperline,   nreq,   maxshiftx,   maxshifty,   delx,   dely, out  psame,   debugflag);
 	
 	return _Result;

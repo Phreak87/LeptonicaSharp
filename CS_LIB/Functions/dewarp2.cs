@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -64,6 +65,7 @@ public static int dewarpBuildPageModel(
 				 L_Dewarp dew, 
 				 String debugfile){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	int _Result = Natives.dewarpBuildPageModel(dew.Pointer,   debugfile);
 	
 	return _Result;
@@ -106,6 +108,8 @@ public static int dewarpFindVertDisparity(
 				 Ptaa ptaa, 
 				 int rotflag){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.dewarpFindVertDisparity(dew.Pointer, ptaa.Pointer,   rotflag);
 	
 	return _Result;
@@ -140,6 +144,8 @@ public static int dewarpFindHorizDisparity(
 				 L_Dewarp dew, 
 				 Ptaa ptaa){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.dewarpFindHorizDisparity(dew.Pointer, ptaa.Pointer);
 	
 	return _Result;
@@ -164,6 +170,8 @@ public static Ptaa dewarpGetTextlineCenters(
 				 Pix pixs, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.dewarpGetTextlineCenters(pixs.Pointer,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -187,6 +195,9 @@ public static Ptaa dewarpRemoveShortLines(
 				 Single fract, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptaas == null) {throw new ArgumentNullException  ("ptaas cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.dewarpRemoveShortLines(pixs.Pointer, ptaas.Pointer,   fract,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -242,6 +253,8 @@ public static int dewarpFindHorizSlopeDisparity(
 				 Single fractthresh, 
 				 int parity){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
+		if (pixb == null) {throw new ArgumentNullException  ("pixb cannot be Nothing");}
 	int _Result = Natives.dewarpFindHorizSlopeDisparity(dew.Pointer, pixb.Pointer,   fractthresh,   parity);
 	
 	return _Result;
@@ -284,6 +297,7 @@ public static int dewarpBuildLineModel(
 				 int opensize, 
 				 String debugfile){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	int _Result = Natives.dewarpBuildLineModel(dew.Pointer,   opensize,   debugfile);
 	
 	return _Result;
@@ -309,6 +323,7 @@ public static int dewarpaModelStatus(
 				out int pvsuccess, 
 				out int phsuccess){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaModelStatus(dewa.Pointer,   pageno, out  pvsuccess, out  phsuccess);
 	
 	return _Result;

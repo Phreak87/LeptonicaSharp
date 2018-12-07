@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -40,6 +41,8 @@ public static Boxa recogDecode(
 				 int nlevels, 
 				out Pix ppixdb){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.recogDecode(recog.Pointer, pixs.Pointer,   nlevels, out ppixdbPtr);
@@ -62,6 +65,8 @@ public static int recogCreateDid(
 				 L_Recog recog, 
 				 Pix pixs){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.recogCreateDid(recog.Pointer, pixs.Pointer);
 	
 	return _Result;
@@ -82,6 +87,7 @@ public static int recogCreateDid(
 public static int recogDestroyDid(
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogDestroyDid(recog.Pointer);
 	
 	return _Result;
@@ -98,6 +104,7 @@ public static int recogDestroyDid(
 public static int recogDidExists(
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogDidExists(recog.Pointer);
 	
 	return _Result;
@@ -117,6 +124,7 @@ public static int recogDidExists(
 public static L_Rdid recogGetDid(
 				 L_Recog recog){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	IntPtr _Result = Natives.recogGetDid(recog.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -144,6 +152,7 @@ public static int recogSetChannelParams(
 				 L_Recog recog, 
 				 int nlevels){
 
+if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 	int _Result = Natives.recogSetChannelParams(recog.Pointer,   nlevels);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -17,6 +18,8 @@ public static String parseForProtos(
 				 String filein, 
 				 String prestring){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (prestring == null) {throw new ArgumentNullException  ("prestring cannot be Nothing");}
 	String _Result = Natives.parseForProtos(  filein,   prestring);
 	
 	return _Result;

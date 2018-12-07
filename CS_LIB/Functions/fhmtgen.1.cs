@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -25,6 +26,10 @@ public static Pix pixHMTDwa_1(
 				 Pix pixs, 
 				 String selname){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (selname == null) {throw new ArgumentNullException  ("selname cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixHMTDwa_1(pixd.Pointer, pixs.Pointer,   selname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -56,6 +61,10 @@ public static Pix pixFHMTGen_1(
 				 Pix pixs, 
 				 String selname){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (selname == null) {throw new ArgumentNullException  ("selname cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixFHMTGen_1(pixd.Pointer, pixs.Pointer,   selname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -78,6 +87,8 @@ public static int fhmtgen_low_1(
 				 int wpls, 
 				 int index){
 
+if (datad == null) {throw new ArgumentNullException  ("datad cannot be Nothing");}
+		if (datas == null) {throw new ArgumentNullException  ("datas cannot be Nothing");}
 	int _Result = Natives.fhmtgen_low_1(  datad,   w,   h,   wpld,   datas,   wpls,   index);
 	
 	return _Result;

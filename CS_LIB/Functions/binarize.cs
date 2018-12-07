@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -76,6 +77,8 @@ public static int pixOtsuAdaptiveThreshold(
 				out Pix ppixth, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr ppixthPtr = IntPtr.Zero;
 	IntPtr ppixdPtr = IntPtr.Zero;
 
@@ -135,6 +138,7 @@ public static Pix pixOtsuThreshOnBackgroundNorm(
 				 Single scorefract, 
 				out int pthresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 
 	IntPtr _Result = Natives.pixOtsuThreshOnBackgroundNorm(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy,   scorefract, out  pthresh);
@@ -196,6 +200,7 @@ public static Pix pixMaskedThreshOnBackgroundNorm(
 				 Single scorefract, 
 				out int pthresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 
 	IntPtr _Result = Natives.pixMaskedThreshOnBackgroundNorm(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   smoothx,   smoothy,   scorefract, out  pthresh);
@@ -246,6 +251,7 @@ public static int pixSauvolaBinarizeTiled(
 				out Pix ppixth, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixthPtr = IntPtr.Zero;
 	IntPtr ppixdPtr = IntPtr.Zero;
 
@@ -308,6 +314,7 @@ public static int pixSauvolaBinarize(
 				out Pix ppixth, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixmPtr = IntPtr.Zero;
 	IntPtr ppixsdPtr = IntPtr.Zero;
 	IntPtr ppixthPtr = IntPtr.Zero;
@@ -367,6 +374,8 @@ public static Pix pixSauvolaGetThreshold(
 				 Single factor, 
 				out Pix ppixsd){
 
+if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
+		if (pixms == null) {throw new ArgumentNullException  ("pixms cannot be Nothing");}
 	IntPtr ppixsdPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixSauvolaGetThreshold(pixm.Pointer, pixms.Pointer,   factor, out ppixsdPtr);
@@ -391,6 +400,8 @@ public static Pix pixApplyLocalThreshold(
 				 Pix pixth, 
 				 int redfactor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixth == null) {throw new ArgumentNullException  ("pixth cannot be Nothing");}
 	IntPtr _Result = Natives.pixApplyLocalThreshold(pixs.Pointer, pixth.Pointer,   redfactor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -463,6 +474,7 @@ public static int pixThresholdByConnComp(
 				out Pix ppixd, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 

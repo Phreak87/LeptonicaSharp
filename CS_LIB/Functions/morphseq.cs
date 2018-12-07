@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -90,6 +91,8 @@ public static Pix pixMorphSequence(
 				 String sequence, 
 				 int dispsep){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.pixMorphSequence(pixs.Pointer,   sequence,   dispsep);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -143,6 +146,8 @@ public static Pix pixMorphCompSequence(
 				 String sequence, 
 				 int dispsep){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.pixMorphCompSequence(pixs.Pointer,   sequence,   dispsep);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -179,6 +184,8 @@ public static Pix pixMorphSequenceDwa(
 				 String sequence, 
 				 int dispsep){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.pixMorphSequenceDwa(pixs.Pointer,   sequence,   dispsep);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -215,6 +222,8 @@ public static Pix pixMorphCompSequenceDwa(
 				 String sequence, 
 				 int dispsep){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.pixMorphCompSequenceDwa(pixs.Pointer,   sequence,   dispsep);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -239,6 +248,7 @@ public static Pix pixMorphCompSequenceDwa(
 public static int morphSequenceVerify(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	int _Result = Natives.morphSequenceVerify(sa.Pointer);
 	
 	return _Result;
@@ -302,6 +312,8 @@ public static Pix pixGrayMorphSequence(
 				 int dispsep, 
 				 int dispy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.pixGrayMorphSequence(pixs.Pointer,   sequence,   dispsep,   dispy);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -361,6 +373,8 @@ public static Pix pixColorMorphSequence(
 				 int dispsep, 
 				 int dispy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorMorphSequence(pixs.Pointer,   sequence,   dispsep,   dispy);
 	
 	if (_Result == IntPtr.Zero) {return null;}

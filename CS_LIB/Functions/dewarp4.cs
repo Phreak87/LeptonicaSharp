@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -40,6 +41,7 @@ public static int dewarpSinglePage(
 				out L_Dewarpa pdewa, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdPtr = IntPtr.Zero;
 	IntPtr pdewaPtr = IntPtr.Zero;
 
@@ -88,6 +90,7 @@ public static int dewarpSinglePageInit(
 				out Pix ppixb, 
 				out L_Dewarpa pdewa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixbPtr = IntPtr.Zero;
 	IntPtr pdewaPtr = IntPtr.Zero;
 
@@ -127,6 +130,10 @@ public static int dewarpSinglePageRun(
 				out Pix ppixd, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixb == null) {throw new ArgumentNullException  ("pixb cannot be Nothing");}
+		if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixb.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr ppixdPtr = IntPtr.Zero;
 
 	int _Result = Natives.dewarpSinglePageRun(pixs.Pointer, pixb.Pointer, dewa.Pointer, out ppixdPtr,  (int) debug);
@@ -155,6 +162,7 @@ public static int dewarpSinglePageRun(
 public static int dewarpaListPages(
 				 L_Dewarpa dewa){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaListPages(dewa.Pointer);
 	
 	return _Result;
@@ -190,6 +198,7 @@ public static int dewarpaSetValidModels(
 				 int notests, 
 				 DebugOnOff debug){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaSetValidModels(dewa.Pointer,   notests,  (int) debug);
 	
 	return _Result;
@@ -247,6 +256,7 @@ public static int dewarpaInsertRefModels(
 				 int notests, 
 				 DebugOnOff debug){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaInsertRefModels(dewa.Pointer,   notests,  (int) debug);
 	
 	return _Result;
@@ -269,6 +279,7 @@ public static int dewarpaInsertRefModels(
 public static int dewarpaStripRefModels(
 				 L_Dewarpa dewa){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaStripRefModels(dewa.Pointer);
 	
 	return _Result;
@@ -294,6 +305,7 @@ public static int dewarpaStripRefModels(
 public static int dewarpaRestoreModels(
 				 L_Dewarpa dewa){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaRestoreModels(dewa.Pointer);
 	
 	return _Result;
@@ -312,6 +324,8 @@ public static int dewarpaInfo(
 				 FILE fp, 
 				 L_Dewarpa dewa){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaInfo(fp.Pointer, dewa.Pointer);
 	
 	return _Result;
@@ -367,6 +381,7 @@ public static int dewarpaModelStats(
 				out int pnhvalid, 
 				out int pnref){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaModelStats(dewa.Pointer, out  pnnone, out  pnvsuccess, out  pnvvalid, out  pnhsuccess, out  pnhvalid, out  pnref);
 	
 	return _Result;
@@ -394,6 +409,7 @@ public static int dewarpaShowArrays(
 				 int first, 
 				 int last){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaShowArrays(dewa.Pointer,   scalefact,   first,   last);
 	
 	return _Result;
@@ -419,6 +435,8 @@ public static int dewarpDebug(
 				 String subdirs, 
 				 int index){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
+		if (subdirs == null) {throw new ArgumentNullException  ("subdirs cannot be Nothing");}
 	int _Result = Natives.dewarpDebug(dew.Pointer,   subdirs,   index);
 	
 	return _Result;
@@ -454,6 +472,10 @@ public static int dewarpShowResults(
 				 int lastpage, 
 				 String pdfout){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
+		if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (pdfout == null) {throw new ArgumentNullException  ("pdfout cannot be Nothing");}
 	int _Result = Natives.dewarpShowResults(dewa.Pointer, sa.Pointer, boxa.Pointer,   firstpage,   lastpage,   pdfout);
 	
 	return _Result;

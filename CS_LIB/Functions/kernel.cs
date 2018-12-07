@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -61,6 +62,7 @@ public static void kernelDestroy(
 public static L_Kernel kernelCopy(
 				 L_Kernel kels){
 
+if (kels == null) {throw new ArgumentNullException  ("kels cannot be Nothing");}
 	IntPtr _Result = Natives.kernelCopy(kels.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -84,6 +86,7 @@ public static int kernelGetElement(
 				 int col, 
 				out Single pval){
 
+if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelGetElement(kel.Pointer,   row,   col, out  pval);
 	
 	return _Result;
@@ -106,6 +109,7 @@ public static int kernelSetElement(
 				 int col, 
 				 Single val){
 
+if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelSetElement(kel.Pointer,   row,   col,   val);
 	
 	return _Result;
@@ -130,6 +134,7 @@ public static int kernelGetParameters(
 				out int pcy, 
 				out int pcx){
 
+if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelGetParameters(kel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
 	
 	return _Result;
@@ -150,6 +155,7 @@ public static int kernelSetOrigin(
 				 int cy, 
 				 int cx){
 
+if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelSetOrigin(kel.Pointer,   cy,   cx);
 	
 	return _Result;
@@ -168,6 +174,7 @@ public static int kernelGetSum(
 				 L_Kernel kel, 
 				out Single psum){
 
+if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelGetSum(kel.Pointer, out  psum);
 	
 	return _Result;
@@ -188,6 +195,7 @@ public static int kernelGetMinMax(
 				out Single pmin, 
 				out Single pmax){
 
+if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelGetMinMax(kel.Pointer, out  pmin, out  pmax);
 	
 	return _Result;
@@ -211,6 +219,7 @@ public static L_Kernel kernelNormalize(
 				 L_Kernel kels, 
 				 Single normsum){
 
+if (kels == null) {throw new ArgumentNullException  ("kels cannot be Nothing");}
 	IntPtr _Result = Natives.kernelNormalize(kels.Pointer,   normsum);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -232,6 +241,7 @@ public static L_Kernel kernelNormalize(
 public static L_Kernel kernelInvert(
 				 L_Kernel kels){
 
+if (kels == null) {throw new ArgumentNullException  ("kels cannot be Nothing");}
 	IntPtr _Result = Natives.kernelInvert(kels.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -281,6 +291,10 @@ public static List<Single[]> create2dFloatArray(
 public static L_Kernel kernelRead(
 				 String fname){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+if (File.Exists (fname) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.kernelRead(  fname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -298,6 +312,7 @@ public static L_Kernel kernelRead(
 public static L_Kernel kernelReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.kernelReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -317,6 +332,8 @@ public static int kernelWrite(
 				 String fname, 
 				 L_Kernel kel){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+		if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelWrite(  fname, kel.Pointer);
 	
 	return _Result;
@@ -335,6 +352,8 @@ public static int kernelWriteStream(
 				 FILE fp, 
 				 L_Kernel kel){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	int _Result = Natives.kernelWriteStream(fp.Pointer, kel.Pointer);
 	
 	return _Result;
@@ -372,6 +391,7 @@ public static L_Kernel kernelCreateFromString(
 				 int cx, 
 				 String kdata){
 
+if (kdata == null) {throw new ArgumentNullException  ("kdata cannot be Nothing");}
 	IntPtr _Result = Natives.kernelCreateFromString(  h,   w,   cy,   cx,   kdata);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -418,6 +438,10 @@ public static L_Kernel kernelCreateFromString(
 public static L_Kernel kernelCreateFromFile(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.kernelCreateFromFile(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -442,6 +466,7 @@ public static L_Kernel kernelCreateFromPix(
 				 int cy, 
 				 int cx){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.kernelCreateFromPix(pix.Pointer,   cy,   cx);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -480,6 +505,7 @@ public static Pix kernelDisplayInPix(
 				 int size, 
 				 int gthick){
 
+if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	IntPtr _Result = Natives.kernelDisplayInPix(kel.Pointer,   size,   gthick);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -502,6 +528,8 @@ public static Numa parseStringForNumbers(
 				 String str, 
 				 String seps){
 
+if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
+		if (seps == null) {throw new ArgumentNullException  ("seps cannot be Nothing");}
 	IntPtr _Result = Natives.parseStringForNumbers(  str,   seps);
 	
 	if (_Result == IntPtr.Zero) {return null;}

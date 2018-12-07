@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -102,6 +103,7 @@ public static Pix pixCreateNoInit(
 public static Pix pixCreateTemplate(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixCreateTemplate(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -125,6 +127,7 @@ public static Pix pixCreateTemplate(
 public static Pix pixCreateTemplateNoInit(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixCreateTemplateNoInit(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -192,6 +195,7 @@ public static Pix pixCreateHeader(
 public static Pix pixClone(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixClone(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -256,6 +260,7 @@ public static Pix pixCopy(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixCopy(pixdPtr, pixs.Pointer);
@@ -286,6 +291,8 @@ public static int pixResizeImageData(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixResizeImageData(pixd.Pointer, pixs.Pointer);
 	
 	return _Result;
@@ -308,6 +315,8 @@ public static int pixCopyColormap(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixCopyColormap(pixd.Pointer, pixs.Pointer);
 	
 	return _Result;
@@ -326,6 +335,8 @@ public static int pixSizesEqual(
 				 Pix pix1, 
 				 Pix pix2){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixSizesEqual(pix1.Pointer, pix2.Pointer);
 	
 	return _Result;
@@ -393,6 +404,7 @@ public static int pixTransferAllData(
 				 int copytext, 
 				 int copyformat){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	IntPtr ppixsPtr = IntPtr.Zero; 	if (ppixs != null) {ppixsPtr = ppixs.Pointer;}
 
 	int _Result = Natives.pixTransferAllData(pixd.Pointer, ref ppixsPtr,   copytext,   copyformat);
@@ -464,6 +476,7 @@ public static int pixSwapAndDestroy(
 public static int pixGetWidth(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetWidth(pix.Pointer);
@@ -482,6 +495,7 @@ public static int pixSetWidth(
 				 Pix pix, 
 				 int width){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetWidth(pix.Pointer,   width);
@@ -499,6 +513,7 @@ public static int pixSetWidth(
 public static int pixGetHeight(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetHeight(pix.Pointer);
@@ -517,6 +532,7 @@ public static int pixSetHeight(
 				 Pix pix, 
 				 int height){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetHeight(pix.Pointer,   height);
@@ -534,6 +550,7 @@ public static int pixSetHeight(
 public static int pixGetDepth(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetDepth(pix.Pointer);
@@ -552,6 +569,7 @@ public static int pixSetDepth(
 				 Pix pix, 
 				 int depth){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetDepth(pix.Pointer,   depth);
@@ -576,6 +594,7 @@ public static int pixGetDimensions(
 				out int ph, 
 				out int pd){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixGetDimensions(pix.Pointer, out  pw, out  ph, out  pd);
 	
 	return _Result;
@@ -598,6 +617,7 @@ public static int pixSetDimensions(
 				 int h, 
 				 int d){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixSetDimensions(pix.Pointer,   w,   h,   d);
 	
 	return _Result;
@@ -616,6 +636,8 @@ public static int pixCopyDimensions(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixCopyDimensions(pixd.Pointer, pixs.Pointer);
 	
 	return _Result;
@@ -631,6 +653,7 @@ public static int pixCopyDimensions(
 public static int pixGetSpp(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetSpp(pix.Pointer);
@@ -649,6 +672,7 @@ public static int pixSetSpp(
 				 Pix pix, 
 				 int spp){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetSpp(pix.Pointer,   spp);
@@ -669,6 +693,8 @@ public static int pixCopySpp(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixCopySpp(pixd.Pointer, pixs.Pointer);
 	
 	return _Result;
@@ -684,6 +710,7 @@ public static int pixCopySpp(
 public static int pixGetWpl(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetWpl(pix.Pointer);
@@ -702,6 +729,7 @@ public static int pixSetWpl(
 				 Pix pix, 
 				 int wpl){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetWpl(pix.Pointer,   wpl);
@@ -719,6 +747,7 @@ public static int pixSetWpl(
 public static int pixGetRefcount(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetRefcount(pix.Pointer);
@@ -737,6 +766,7 @@ public static int pixChangeRefcount(
 				 Pix pix, 
 				 int delta){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixChangeRefcount(pix.Pointer,   delta);
@@ -754,6 +784,7 @@ public static int pixChangeRefcount(
 public static int pixGetXRes(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetXRes(pix.Pointer);
@@ -772,6 +803,7 @@ public static int pixSetXRes(
 				 Pix pix, 
 				 int res){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetXRes(pix.Pointer,   res);
@@ -789,6 +821,7 @@ public static int pixSetXRes(
 public static int pixGetYRes(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetYRes(pix.Pointer);
@@ -807,6 +840,7 @@ public static int pixSetYRes(
 				 Pix pix, 
 				 int res){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetYRes(pix.Pointer,   res);
@@ -829,6 +863,7 @@ public static int pixGetResolution(
 				out int pxres, 
 				out int pyres){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixGetResolution(pix.Pointer, out  pxres, out  pyres);
 	
 	return _Result;
@@ -849,6 +884,7 @@ public static int pixSetResolution(
 				 int xres, 
 				 int yres){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixSetResolution(pix.Pointer,   xres,   yres);
 	
 	return _Result;
@@ -865,6 +901,8 @@ public static int pixCopyResolution(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -885,6 +923,7 @@ public static int pixScaleResolution(
 				 Single xscale, 
 				 Single yscale){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixScaleResolution(pix.Pointer,   xscale,   yscale);
@@ -902,6 +941,7 @@ public static int pixScaleResolution(
 public static int pixGetInputFormat(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixGetInputFormat(pix.Pointer);
@@ -920,6 +960,7 @@ public static int pixSetInputFormat(
 				 Pix pix, 
 				 IFF informat){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetInputFormat(pix.Pointer,  (int) informat);
@@ -938,6 +979,8 @@ public static int pixCopyInputFormat(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -957,6 +1000,7 @@ public static int pixSetSpecial(
 				 Pix pix, 
 				 int special){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixSetSpecial(pix.Pointer,   special);
@@ -979,6 +1023,7 @@ public static int pixSetSpecial(
 public static String pixGetText(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	String _Result = Natives.pixGetText(pix.Pointer);
 	
 	return _Result;
@@ -1001,6 +1046,7 @@ public static int pixSetText(
 				 Pix pix, 
 				 String textstring){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixSetText(pix.Pointer,   textstring);
 	
 	return _Result;
@@ -1025,6 +1071,7 @@ public static int pixAddText(
 				 Pix pix, 
 				 String textstring){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixAddText(pix.Pointer,   textstring);
 	
 	return _Result;
@@ -1041,6 +1088,8 @@ public static int pixCopyText(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -1059,6 +1108,7 @@ public static int pixCopyText(
 public static PixColormap pixGetColormap(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	IntPtr _Result = Natives.pixGetColormap(pix.Pointer);
@@ -1086,6 +1136,8 @@ public static int pixSetColormap(
 				 Pix pix, 
 				 PixColormap colormap){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (colormap == null) {throw new ArgumentNullException  ("colormap cannot be Nothing");}
 	int _Result = Natives.pixSetColormap(pix.Pointer, colormap.Pointer);
 	
 	return _Result;
@@ -1102,6 +1154,7 @@ public static int pixSetColormap(
 public static int pixDestroyColormap(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixDestroyColormap(pix.Pointer);
 	
 	return _Result;
@@ -1122,6 +1175,7 @@ public static int pixDestroyColormap(
 public static Byte[] pixGetData(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetData(pix.Pointer);
 	
 	Byte[] B = new Byte[pix.w * pix.h * (pix.d/8)];
@@ -1146,6 +1200,8 @@ public static int pixSetData(
 				 Pix pix, 
 				 Byte[] data){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
@@ -1175,6 +1231,7 @@ public static int pixSetData(
 public static Byte[] pixExtractData(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	IntPtr _Result = Natives.pixExtractData(pixs.Pointer);
@@ -1201,6 +1258,7 @@ public static Byte[] pixExtractData(
 public static int pixFreeData(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixFreeData(pix.Pointer);
 	
 	return _Result;
@@ -1284,6 +1342,7 @@ public static IntPtr[] pixGetLinePtrs(
 				 Pix pix, 
 				out int psize){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetLinePtrs(pix.Pointer, out  psize);
 	
 	IntPtr[] B = new IntPtr[psize];
@@ -1306,6 +1365,8 @@ public static int pixPrintStreamInfo(
 				 Pix pix, 
 				 String text){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixPrintStreamInfo(fp.Pointer, pix.Pointer,   text);
 	
 	return _Result;

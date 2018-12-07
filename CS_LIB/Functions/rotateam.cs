@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -28,6 +29,7 @@ public static Pix pixRotateAM(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateAM(pixs.Pointer,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -56,6 +58,7 @@ public static Pix pixRotateAMColor(
 				 Single angle, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateAMColor(pixs.Pointer,   angle,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -84,6 +87,8 @@ public static Pix pixRotateAMGray(
 				 Single angle, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixRotateAMGray(pixs.Pointer,   angle,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -112,6 +117,7 @@ public static Pix pixRotateAMCorner(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateAMCorner(pixs.Pointer,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -140,6 +146,7 @@ public static Pix pixRotateAMColorCorner(
 				 Single angle, 
 				 uint fillval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateAMColorCorner(pixs.Pointer,   angle,   fillval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -168,6 +175,7 @@ public static Pix pixRotateAMGrayCorner(
 				 Single angle, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateAMGrayCorner(pixs.Pointer,   angle,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -204,6 +212,7 @@ public static Pix pixRotateAMColorFast(
 				 Single angle, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateAMColorFast(pixs.Pointer,   angle,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}

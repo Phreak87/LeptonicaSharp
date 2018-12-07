@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -51,6 +52,13 @@ public static Pix pixReadJpeg(
 				out int pnwarn, 
 				 int hint){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
+	if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("scaling factor: 1, 2, 4 or 8");
+	};
 	IntPtr _Result = Natives.pixReadJpeg(  filename,   cmapflag,   reduction, out  pnwarn,   hint);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -79,6 +87,10 @@ public static Pix pixReadStreamJpeg(
 				out int pnwarn, 
 				 int hint){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("scaling factor: 1, 2, 4 or 8");
+	};
 	IntPtr _Result = Natives.pixReadStreamJpeg(fp.Pointer,   cmapflag,   reduction, out  pnwarn,   hint);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -106,6 +118,10 @@ public static int readHeaderJpeg(
 				out int pycck, 
 				out int pcmyk){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.readHeaderJpeg(  filename, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
 	return _Result;
@@ -132,6 +148,7 @@ public static int freadHeaderJpeg(
 				out int pycck, 
 				out int pcmyk){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.freadHeaderJpeg(fp.Pointer, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
 	return _Result;
@@ -149,6 +166,9 @@ public static int fgetJpegResolution(
 				 object pxres, 
 				 object pyres){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pxres == null) {throw new ArgumentNullException  ("pxres cannot be Nothing");}
+		if (pyres == null) {throw new ArgumentNullException  ("pyres cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
 	int _Result = Natives.fgetJpegResolution(fp.Pointer,   pxres,   pyres);
@@ -167,6 +187,8 @@ public static int fgetJpegComment(
 				 FILE fp, 
 				 object pcomment){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pcomment == null) {throw new ArgumentNullException  ("pcomment cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
 	int _Result = Natives.fgetJpegComment(fp.Pointer,   pcomment);
@@ -191,6 +213,8 @@ public static int pixWriteJpeg(
 				 int quality, 
 				 int progressive){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteJpeg(  filename, pix.Pointer,   quality,   progressive);
 	
 	return _Result;
@@ -239,6 +263,8 @@ public static int pixWriteStreamJpeg(
 				 int quality, 
 				 int progressive){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamJpeg(fp.Pointer, pixs.Pointer,   quality,   progressive);
 	
 	return _Result;
@@ -273,6 +299,10 @@ public static Pix pixReadMemJpeg(
 				out int pnwarn, 
 				 int hint){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("scaling factor: 1, 2, 4 or 8");
+	};
 	IntPtr _Result = Natives.pixReadMemJpeg(  data,   size,   cmflag,   reduction, out  pnwarn,   hint);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -302,6 +332,7 @@ public static int readHeaderMemJpeg(
 				out int pycck, 
 				out int pcmyk){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.readHeaderMemJpeg(  data,   size, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
 	return _Result;
@@ -324,6 +355,7 @@ public static int readResolutionMemJpeg(
 				out int pxres, 
 				out int pyres){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.readResolutionMemJpeg(  data,   size, out  pxres, out  pyres);
 	
 	return _Result;
@@ -352,6 +384,7 @@ public static int pixWriteMemJpeg(
 				 int quality, 
 				 int progressive){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemJpeg(out  pdataPtr, out  psize, pix.Pointer,   quality,   progressive);
@@ -383,6 +416,7 @@ public static int pixSetChromaSampling(
 				 Pix pix, 
 				 int sampling){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixSetChromaSampling(pix.Pointer,   sampling);
 	
 	return _Result;

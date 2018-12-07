@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -45,6 +46,8 @@ public static Pix pixStrokeWidthTransform(
 				 int depth, 
 				 int nangles){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixStrokeWidthTransform(pixs.Pointer,   color,   depth,   nangles);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -82,6 +85,8 @@ public static Pix pixRunlengthTransform(
 				 int direction, 
 				 int depth){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixRunlengthTransform(pixs.Pointer,   color,   direction,   depth);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -117,6 +122,10 @@ public static int pixFindHorizontalRuns(
 				 int[] xend, 
 				out int pn){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (xstart == null) {throw new ArgumentNullException  ("xstart cannot be Nothing");}
+		if (xend == null) {throw new ArgumentNullException  ("xend cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixFindHorizontalRuns(pix.Pointer,   y,   xstart,   xend, out  pn);
 	
 	return _Result;
@@ -151,6 +160,10 @@ public static int pixFindVerticalRuns(
 				 int[] yend, 
 				out int pn){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (ystart == null) {throw new ArgumentNullException  ("ystart cannot be Nothing");}
+		if (yend == null) {throw new ArgumentNullException  ("yend cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixFindVerticalRuns(pix.Pointer,   x,   ystart,   yend, out  pn);
 	
 	return _Result;
@@ -177,6 +190,8 @@ public static Numa pixFindMaxRuns(
 				 int direction, 
 				out Numa pnastart){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pnastartPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixFindMaxRuns(pix.Pointer,   direction, out pnastartPtr);
@@ -209,6 +224,8 @@ public static int pixFindMaxHorizontalRunOnLine(
 				out int pxstart, 
 				out int psize){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixFindMaxHorizontalRunOnLine(pix.Pointer,   y, out  pxstart, out  psize);
 	
 	return _Result;
@@ -237,6 +254,8 @@ public static int pixFindMaxVerticalRunOnLine(
 				out int pystart, 
 				out int psize){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixFindMaxVerticalRunOnLine(pix.Pointer,   x, out  pystart, out  psize);
 	
 	return _Result;
@@ -269,6 +288,9 @@ public static int runlengthMembershipOnLine(
 				 object _end_, 
 				 int n){
 
+if (buffer == null) {throw new ArgumentNullException  ("buffer cannot be Nothing");}
+		if (start == null) {throw new ArgumentNullException  ("start cannot be Nothing");}
+		if (_end_ == null) {throw new ArgumentNullException  ("_end_ cannot be Nothing");}
 	int _Result = Natives.runlengthMembershipOnLine(  buffer,   size,   depth,   start,   _end_,   n);
 	
 	return _Result;

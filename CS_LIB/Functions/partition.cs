@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -124,6 +125,8 @@ public static Boxa boxaGetWhiteblocks(
 				 Single fract, 
 				 int maxpops){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxaGetWhiteblocks(boxas.Pointer, box.Pointer,   sortflag,   maxboxes,   maxoverlap,   maxperim,   fract,   maxpops);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -153,6 +156,7 @@ public static Boxa boxaPruneSortedOnOverlap(
 				 Boxa boxas, 
 				 Single maxoverlap){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaPruneSortedOnOverlap(boxas.Pointer,   maxoverlap);
 	
 	if (_Result == IntPtr.Zero) {return null;}

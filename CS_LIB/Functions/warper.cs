@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -33,6 +34,7 @@ public static Pix pixSimpleCaptcha(
 				 uint color, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSimpleCaptcha(pixs.Pointer,   border,   nterms,   seed,   color,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -88,6 +90,7 @@ public static Pix pixRandomHarmonicWarp(
 				 uint seed, 
 				 int grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRandomHarmonicWarp(pixs.Pointer,   xmag,   ymag,   xfreq,   yfreq,   nx,   ny,   seed,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -187,6 +190,7 @@ public static Pix pixWarpStereoscopic(
 				 int ybendb, 
 				 int redleft){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixWarpStereoscopic(pixs.Pointer,   zbend,   zshiftt,   zshiftb,   ybendt,   ybendb,   redleft);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -232,6 +236,7 @@ public static Pix pixStretchHorizontal(
 				 int operation, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixStretchHorizontal(pixs.Pointer,   dir,   type,   hmax,   operation,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -260,6 +265,7 @@ public static Pix pixStretchHorizontalSampled(
 				 int hmax, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixStretchHorizontalSampled(pixs.Pointer,   dir,   type,   hmax,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -288,6 +294,7 @@ public static Pix pixStretchHorizontalLI(
 				 int hmax, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixStretchHorizontalLI(pixs.Pointer,   dir,   type,   hmax,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -335,6 +342,7 @@ public static Pix pixQuadraticVShear(
 				 int operation, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixQuadraticVShear(pixs.Pointer,   dir,   vmaxt,   vmaxb,   operation,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -363,6 +371,7 @@ public static Pix pixQuadraticVShearSampled(
 				 int vmaxb, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixQuadraticVShearSampled(pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -391,6 +400,7 @@ public static Pix pixQuadraticVShearLI(
 				 int vmaxb, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixQuadraticVShearLI(pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -439,6 +449,10 @@ public static Pix pixStereoFromPair(
 				 Single gwt, 
 				 Single bwt){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix1.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
+	if ((new List<int> {32}).Contains ((int)pix2.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixStereoFromPair(pix1.Pointer, pix2.Pointer,   rwt,   gwt,   bwt);
 	
 	if (_Result == IntPtr.Zero) {return null;}

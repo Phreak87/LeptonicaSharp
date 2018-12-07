@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -34,6 +35,7 @@ public static void rasteropUniLow(
 				 int dh, 
 				 int op){
 
+if (datad == null) {throw new ArgumentNullException  ("datad cannot be Nothing");}
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
 
@@ -82,6 +84,8 @@ public static void rasteropLow(
 				 int sx, 
 				 int sy){
 
+if (datad == null) {throw new ArgumentNullException  ("datad cannot be Nothing");}
+		if (datas == null) {throw new ArgumentNullException  ("datas cannot be Nothing");}
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
@@ -129,6 +133,7 @@ public static void rasteropVipLow(
 				 int w, 
 				 int shift){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
@@ -168,6 +173,7 @@ public static void rasteropHipLow(
 				 int h, 
 				 int shift){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 

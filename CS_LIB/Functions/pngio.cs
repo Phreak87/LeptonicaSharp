@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -43,6 +44,7 @@ public partial class _All {
 public static Pix pixReadStreamPng(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadStreamPng(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -77,6 +79,10 @@ public static int readHeaderPng(
 				out int pspp, 
 				out int piscmap){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.readHeaderPng(  filename, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 	return _Result;
@@ -106,6 +112,7 @@ public static int freadHeaderPng(
 				out int pspp, 
 				out int piscmap){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.freadHeaderPng(fp.Pointer, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 	return _Result;
@@ -147,6 +154,7 @@ public static int readHeaderMemPng(
 				out int pspp, 
 				out int piscmap){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.readHeaderMemPng(  data,   size, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 	return _Result;
@@ -164,6 +172,9 @@ public static int fgetPngResolution(
 				 object pxres, 
 				 object pyres){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pxres == null) {throw new ArgumentNullException  ("pxres cannot be Nothing");}
+		if (pyres == null) {throw new ArgumentNullException  ("pyres cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
 	int _Result = Natives.fgetPngResolution(fp.Pointer,   pxres,   pyres);
@@ -184,6 +195,10 @@ public static int isPngInterlaced(
 				 String filename, 
 				out int pinterlaced){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.isPngInterlaced(  filename, out  pinterlaced);
 	
 	return _Result;
@@ -201,6 +216,9 @@ public static int fgetPngColormapInfo(
 				 PixColormap pcmap, 
 				 object ptransparency){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pcmap == null) {throw new ArgumentNullException  ("pcmap cannot be Nothing");}
+		if (ptransparency == null) {throw new ArgumentNullException  ("ptransparency cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pcmapPtr = IntPtr.Zero; 	if (pcmap != null) {pcmapPtr = pcmap.Pointer;}
 
@@ -228,6 +246,8 @@ public static int pixWritePng(
 				 Pix pix, 
 				 Single gamma){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWritePng(  filename, pix.Pointer,   gamma);
 	
 	return _Result;
@@ -318,6 +338,8 @@ public static int pixWriteStreamPng(
 				 Pix pix, 
 				 Single gamma){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamPng(fp.Pointer, pix.Pointer,   gamma);
 	
 	return _Result;
@@ -349,6 +371,7 @@ public static int pixSetZlibCompression(
 				 Pix pix, 
 				 int compval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixSetZlibCompression(pix.Pointer,   compval);
 	
 	return _Result;
@@ -384,6 +407,7 @@ public static Pix pixReadMemPng(
 				 Byte[] filedata, 
 				 uint filesize){
 
+if (filedata == null) {throw new ArgumentNullException  ("filedata cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMemPng(  filedata,   filesize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -410,6 +434,7 @@ public static int pixWriteMemPng(
 				 Pix pix, 
 				 Single gamma){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pfiledataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemPng(out  pfiledataPtr, out  pfilesize, pix.Pointer,   gamma);

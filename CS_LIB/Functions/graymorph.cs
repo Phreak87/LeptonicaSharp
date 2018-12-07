@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,7 @@ public static Pix pixErodeGray(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixErodeGray(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -52,6 +54,7 @@ public static Pix pixDilateGray(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixDilateGray(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -78,6 +81,7 @@ public static Pix pixOpenGray(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixOpenGray(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -104,6 +108,7 @@ public static Pix pixCloseGray(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixCloseGray(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -136,6 +141,7 @@ public static Pix pixErodeGray3(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixErodeGray3(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -162,6 +168,7 @@ public static Pix pixDilateGray3(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixDilateGray3(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -191,6 +198,7 @@ public static Pix pixOpenGray3(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixOpenGray3(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -217,6 +225,7 @@ public static Pix pixCloseGray3(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixCloseGray3(pixs.Pointer,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}

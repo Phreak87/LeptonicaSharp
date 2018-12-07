@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -29,6 +30,7 @@ public static int pixAddConstantGray(
 				 Pix pixs, 
 				 int val){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixAddConstantGray(pixs.Pointer,   val);
 	
 	return _Result;
@@ -54,6 +56,7 @@ public static int pixMultConstantGray(
 				 Pix pixs, 
 				 Single val){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixMultConstantGray(pixs.Pointer,   val);
 	
 	return _Result;
@@ -90,6 +93,8 @@ public static Pix pixAddGray(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixAddGray(pixdPtr, pixs1.Pointer, pixs2.Pointer);
@@ -130,6 +135,8 @@ public static Pix pixSubtractGray(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixSubtractGray(pixdPtr, pixs1.Pointer, pixs2.Pointer);
@@ -161,6 +168,7 @@ public static Pix pixThresholdToValue(
 				 int threshval, 
 				 int setval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixThresholdToValue(pixdPtr, pixs.Pointer,   threshval,   setval);
@@ -231,6 +239,7 @@ public static Pix pixFinalAccumulate(
 				 uint offset, 
 				 int depth){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixFinalAccumulate(pixs.Pointer,   offset,   depth);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -257,6 +266,7 @@ public static Pix pixFinalAccumulateThreshold(
 				 uint offset, 
 				 uint threshold){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixFinalAccumulateThreshold(pixs.Pointer,   offset,   threshold);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -286,6 +296,8 @@ public static int pixAccumulate(
 				 Pix pixs, 
 				 int op){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixAccumulate(pixd.Pointer, pixs.Pointer,   op);
 	
 	return _Result;
@@ -313,6 +325,7 @@ public static int pixMultConstAccumulate(
 				 Single factor, 
 				 uint offset){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixMultConstAccumulate(pixs.Pointer,   factor,   offset);
 	
 	return _Result;
@@ -344,6 +357,8 @@ public static Pix pixAbsDifference(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr _Result = Natives.pixAbsDifference(pixs1.Pointer, pixs2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -374,6 +389,8 @@ public static Pix pixAddRGB(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr _Result = Natives.pixAddRGB(pixs1.Pointer, pixs2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -409,6 +426,8 @@ public static Pix pixMinOrMax(
 				 Pix pixs2, 
 				 int type){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixMinOrMax(pixdPtr, pixs1.Pointer, pixs2.Pointer,   type);
@@ -439,6 +458,7 @@ public static Pix pixMaxDynamicRange(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMaxDynamicRange(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -468,6 +488,7 @@ public static Pix pixMaxDynamicRangeRGB(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMaxDynamicRangeRGB(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -526,6 +547,7 @@ public static uint logScaleRGBVal(
 				 Single[] tab, 
 				 Single factor){
 
+if (tab == null) {throw new ArgumentNullException  ("tab cannot be Nothing");}
 	uint _Result = Natives.logScaleRGBVal(  sval,   tab,   factor);
 	
 	return _Result;
@@ -556,6 +578,7 @@ public static Single getLogBase2(
 				 int val, 
 				 Single[] logtab){
 
+if (logtab == null) {throw new ArgumentNullException  ("logtab cannot be Nothing");}
 	Single _Result = Natives.getLogBase2(  val,   logtab);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -17,6 +18,7 @@ public partial class _All {
 public static String stringNew(
 				 String src){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
 	String _Result = Natives.stringNew(  src);
 	
 	return _Result;
@@ -47,6 +49,7 @@ public static int stringCopy(
 				 String src, 
 				 int n){
 
+if (dest == null) {throw new ArgumentNullException  ("dest cannot be Nothing");}
 	int _Result = Natives.stringCopy(  dest,   src,   n);
 	
 	return _Result;
@@ -101,6 +104,7 @@ public static int stringLength(
 				 String src, 
 				 uint size){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
 	int _Result = Natives.stringLength(  src,   size);
 	
 	return _Result;
@@ -134,6 +138,8 @@ public static int stringCat(
 				 uint size, 
 				 String src){
 
+if (dest == null) {throw new ArgumentNullException  ("dest cannot be Nothing");}
+		if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
 	int _Result = Natives.stringCat(  dest,   size,   src);
 	
 	return _Result;
@@ -155,6 +161,7 @@ public static int stringCat(
 public static String stringConcatNew(
 				 String first){
 
+if (first == null) {throw new ArgumentNullException  ("first cannot be Nothing");}
 	String _Result = Natives.stringConcatNew(  first);
 	
 	return _Result;
@@ -242,6 +249,7 @@ public static int stringJoinIP(
 public static String stringReverse(
 				 String src){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
 	String _Result = Natives.stringReverse(  src);
 	
 	return _Result;
@@ -285,6 +293,8 @@ public static String strtokSafe(
 				 String seps, 
 				out String[] psaveptr){
 
+if (_cstr_ == null) {throw new ArgumentNullException  ("_cstr_ cannot be Nothing");}
+		if (seps == null) {throw new ArgumentNullException  ("seps cannot be Nothing");}
 	IntPtr psaveptrPtr = IntPtr.Zero;
 
 	String _Result = Natives.strtokSafe(  _cstr_,   seps, out  psaveptrPtr);
@@ -324,6 +334,8 @@ public static int stringSplitOnToken(
 				out String[] phead, 
 				out String[] ptail){
 
+if (_cstr_ == null) {throw new ArgumentNullException  ("_cstr_ cannot be Nothing");}
+		if (seps == null) {throw new ArgumentNullException  ("seps cannot be Nothing");}
 	IntPtr pheadPtr = IntPtr.Zero;
 	IntPtr ptailPtr = IntPtr.Zero;
 
@@ -353,6 +365,8 @@ public static int stringCheckForChars(
 				 String chars, 
 				out int pfound){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
+		if (chars == null) {throw new ArgumentNullException  ("chars cannot be Nothing");}
 	int _Result = Natives.stringCheckForChars(  src,   chars, out  pfound);
 	
 	return _Result;
@@ -371,6 +385,8 @@ public static String stringRemoveChars(
 				 String src, 
 				 String remchars){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
+		if (remchars == null) {throw new ArgumentNullException  ("remchars cannot be Nothing");}
 	String _Result = Natives.stringRemoveChars(  src,   remchars);
 	
 	return _Result;
@@ -399,6 +415,8 @@ public static int stringFindSubstr(
 				 String _sub_, 
 				out int ploc){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
+		if (_sub_ == null) {throw new ArgumentNullException  ("_sub_ cannot be Nothing");}
 	int _Result = Natives.stringFindSubstr(  src,   _sub_, out  ploc);
 	
 	return _Result;
@@ -438,6 +456,9 @@ public static String stringReplaceSubstr(
 				out int pfound, 
 				out int ploc){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
+		if (sub1 == null) {throw new ArgumentNullException  ("sub1 cannot be Nothing");}
+		if (sub2 == null) {throw new ArgumentNullException  ("sub2 cannot be Nothing");}
 	String _Result = Natives.stringReplaceSubstr(  src,   sub1,   sub2, out  pfound, out  ploc);
 	
 	return _Result;
@@ -467,6 +488,9 @@ public static String stringReplaceEachSubstr(
 				 String sub2, 
 				out int pcount){
 
+if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
+		if (sub1 == null) {throw new ArgumentNullException  ("sub1 cannot be Nothing");}
+		if (sub2 == null) {throw new ArgumentNullException  ("sub2 cannot be Nothing");}
 	String _Result = Natives.stringReplaceEachSubstr(  src,   sub1,   sub2, out  pcount);
 	
 	return _Result;
@@ -496,6 +520,8 @@ public static L_Dna arrayFindEachSequence(
 				 Byte[] sequence, 
 				 uint seqlen){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.arrayFindEachSequence(  data,   datalen,   sequence,   seqlen);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -535,6 +561,8 @@ public static int arrayFindSequence(
 				out int poffset, 
 				out int pfound){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	int _Result = Natives.arrayFindSequence(  data,   datalen,   sequence,   seqlen, out  poffset, out  pfound);
 	
 	return _Result;
@@ -589,6 +617,10 @@ public static Byte[] l_binaryRead(
 				 String filename, 
 				out uint pnbytes){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	Byte[] _Result = Natives.l_binaryRead(  filename, out  pnbytes);
 	
 	return _Result;
@@ -626,6 +658,7 @@ public static Byte[] l_binaryReadStream(
 				 FILE fp, 
 				out uint pnbytes){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	Byte[] _Result = Natives.l_binaryReadStream(fp.Pointer, out  pnbytes);
 	
 	return _Result;
@@ -652,6 +685,10 @@ public static Byte[] l_binaryReadSelect(
 				 uint nbytes, 
 				out uint pnread){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	Byte[] _Result = Natives.l_binaryReadSelect(  filename,   start,   nbytes, out  pnread);
 	
 	return _Result;
@@ -683,6 +720,7 @@ public static Byte[] l_binaryReadSelectStream(
 				 uint nbytes, 
 				out uint pnread){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	Byte[] _Result = Natives.l_binaryReadSelectStream(fp.Pointer,   start,   nbytes, out  pnread);
 	
 	return _Result;
@@ -705,6 +743,9 @@ public static int l_binaryWrite(
 				 Object data, 
 				 uint nbytes){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (operation == null) {throw new ArgumentNullException  ("operation cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -725,6 +766,10 @@ public static int l_binaryWrite(
 public static uint nbytesInFile(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	uint _Result = Natives.nbytesInFile(  filename);
 	
 	return _Result;
@@ -741,6 +786,7 @@ public static uint nbytesInFile(
 public static uint fnbytesInFile(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	uint _Result = Natives.fnbytesInFile(fp.Pointer);
 	
 	return _Result;
@@ -765,6 +811,7 @@ public static Byte[] l_binaryCopy(
 				 Byte[] datas, 
 				 uint size){
 
+if (datas == null) {throw new ArgumentNullException  ("datas cannot be Nothing");}
 	Byte[] _Result = Natives.l_binaryCopy(  datas,   size);
 	
 	return _Result;
@@ -783,6 +830,8 @@ public static int fileCopy(
 				 String srcfile, 
 				 String newfile){
 
+if (srcfile == null) {throw new ArgumentNullException  ("srcfile cannot be Nothing");}
+		if (newfile == null) {throw new ArgumentNullException  ("newfile cannot be Nothing");}
 	int _Result = Natives.fileCopy(  srcfile,   newfile);
 	
 	return _Result;
@@ -801,6 +850,8 @@ public static int fileConcatenate(
 				 String srcfile, 
 				 String destfile){
 
+if (srcfile == null) {throw new ArgumentNullException  ("srcfile cannot be Nothing");}
+		if (destfile == null) {throw new ArgumentNullException  ("destfile cannot be Nothing");}
 	int _Result = Natives.fileConcatenate(  srcfile,   destfile);
 	
 	return _Result;
@@ -819,6 +870,11 @@ public static int fileAppendString(
 				 String filename, 
 				 String str){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.fileAppendString(  filename,   str);
 	
 	return _Result;
@@ -842,6 +898,10 @@ public static int fileAppendString(
 public static FILE fopenReadStream(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.fopenReadStream(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -868,6 +928,8 @@ public static FILE fopenWriteStream(
 				 String filename, 
 				 String modestring){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (modestring == null) {throw new ArgumentNullException  ("modestring cannot be Nothing");}
 	IntPtr _Result = Natives.fopenWriteStream(  filename,   modestring);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -893,6 +955,7 @@ public static FILE fopenReadFromMemory(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.fopenReadFromMemory(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -936,6 +999,11 @@ public static FILE lept_fopen(
 				 String filename, 
 				 String mode){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (mode == null) {throw new ArgumentNullException  ("mode cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.lept_fopen(  filename,   mode);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -957,6 +1025,7 @@ public static FILE lept_fopen(
 public static int lept_fclose(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.lept_fclose(fp.Pointer);
 	
 	return _Result;
@@ -1001,6 +1070,7 @@ public static Object lept_calloc(
 public static void lept_free(
 				 Object ptr){
 
+if (ptr == null) {throw new ArgumentNullException  ("ptr cannot be Nothing");}
 		IntPtr ptrPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -1030,6 +1100,7 @@ public static void lept_free(
 public static int lept_mkdir(
 				 String subdir){
 
+if (subdir == null) {throw new ArgumentNullException  ("subdir cannot be Nothing");}
 	int _Result = Natives.lept_mkdir(  subdir);
 	
 	return _Result;
@@ -1061,6 +1132,7 @@ public static int lept_mkdir(
 public static int lept_rmdir(
 				 String subdir){
 
+if (subdir == null) {throw new ArgumentNullException  ("subdir cannot be Nothing");}
 	int _Result = Natives.lept_rmdir(  subdir);
 	
 	return _Result;
@@ -1086,6 +1158,7 @@ public static void lept_direxists(
 				 String dir, 
 				out int pexists){
 
+if (dir == null) {throw new ArgumentNullException  ("dir cannot be Nothing");}
 	Natives.lept_direxists(  dir, out  pexists);
 	
 }
@@ -1146,6 +1219,7 @@ public static int lept_rm(
 				 String subdir, 
 				 String tail){
 
+if (tail == null) {throw new ArgumentNullException  ("tail cannot be Nothing");}
 	int _Result = Natives.lept_rm(  subdir,   tail);
 	
 	return _Result;
@@ -1173,6 +1247,7 @@ public static int lept_rm(
 public static int lept_rmfile(
 				 String filepath){
 
+if (filepath == null) {throw new ArgumentNullException  ("filepath cannot be Nothing");}
 	int _Result = Natives.lept_rmfile(  filepath);
 	
 	return _Result;
@@ -1223,6 +1298,7 @@ public static int lept_mv(
 				 String newtail, 
 				out String[] pnewpath){
 
+if (srcfile == null) {throw new ArgumentNullException  ("srcfile cannot be Nothing");}
 	IntPtr pnewpathPtr = IntPtr.Zero;
 
 	int _Result = Natives.lept_mv(  srcfile,   newdir,   newtail, out  pnewpathPtr);
@@ -1276,6 +1352,7 @@ public static int lept_cp(
 				 String newtail, 
 				out String[] pnewpath){
 
+if (srcfile == null) {throw new ArgumentNullException  ("srcfile cannot be Nothing");}
 	IntPtr pnewpathPtr = IntPtr.Zero;
 
 	int _Result = Natives.lept_cp(  srcfile,   newdir,   newtail, out  pnewpathPtr);
@@ -1301,6 +1378,7 @@ public static int lept_cp(
 public static void callSystemDebug(
 				 String cmd){
 
+if (cmd == null) {throw new ArgumentNullException  ("cmd cannot be Nothing");}
 	Natives.callSystemDebug(  cmd);
 	
 }
@@ -1340,6 +1418,7 @@ public static int splitPathAtDirectory(
 				out String[] pdir, 
 				out String[] ptail){
 
+if (pathname == null) {throw new ArgumentNullException  ("pathname cannot be Nothing");}
 	IntPtr pdirPtr = IntPtr.Zero;
 	IntPtr ptailPtr = IntPtr.Zero;
 
@@ -1381,6 +1460,7 @@ public static int splitPathAtExtension(
 				out String[] pbasename, 
 				out String[] pextension){
 
+if (pathname == null) {throw new ArgumentNullException  ("pathname cannot be Nothing");}
 	IntPtr pbasenamePtr = IntPtr.Zero;
 	IntPtr pextensionPtr = IntPtr.Zero;
 
@@ -1462,6 +1542,8 @@ public static String appendSubdirs(
 				 String basedir, 
 				 String subdirs){
 
+if (basedir == null) {throw new ArgumentNullException  ("basedir cannot be Nothing");}
+		if (subdirs == null) {throw new ArgumentNullException  ("subdirs cannot be Nothing");}
 	String _Result = Natives.appendSubdirs(  basedir,   subdirs);
 	
 	return _Result;
@@ -1489,6 +1571,7 @@ public static int convertSepCharsInPath(
 				 String path, 
 				 int type){
 
+if (path == null) {throw new ArgumentNullException  ("path cannot be Nothing");}
 	int _Result = Natives.convertSepCharsInPath(  path,   type);
 	
 	return _Result;
@@ -1575,6 +1658,7 @@ public static int makeTempDirname(
 				 uint nbytes, 
 				 String subdir){
 
+if (result == null) {throw new ArgumentNullException  ("result cannot be Nothing");}
 	int _Result = Natives.makeTempDirname(  result,   nbytes,   subdir);
 	
 	return _Result;
@@ -1598,6 +1682,7 @@ public static int modifyTrailingSlash(
 				 uint nbytes, 
 				 int flag){
 
+if (path == null) {throw new ArgumentNullException  ("path cannot be Nothing");}
 	int _Result = Natives.modifyTrailingSlash(  path,   nbytes,   flag);
 	
 	return _Result;
@@ -1662,6 +1747,7 @@ public static int extractNumberFromFilename(
 				 int numpre, 
 				 int numpost){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 	int _Result = Natives.extractNumberFromFilename(  fname,   numpre,   numpost);
 	
 	return _Result;

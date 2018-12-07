@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -21,6 +22,8 @@ public static Pix pixExpandBinaryReplicate(
 				 int xfact, 
 				 int yfact){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixExpandBinaryReplicate(pixs.Pointer,   xfact,   yfact);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -40,6 +43,8 @@ public static Pix pixExpandBinaryPower2(
 				 Pix pixs, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixExpandBinaryPower2(pixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}

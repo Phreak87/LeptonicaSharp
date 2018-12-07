@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -19,6 +20,7 @@ public static int l_getDataBit(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -40,6 +42,7 @@ public static void l_setDataBit(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -60,6 +63,7 @@ public static void l_clearDataBit(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -91,6 +95,7 @@ public static void l_setDataBitVal(
 				 int n, 
 				 int val){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -112,6 +117,7 @@ public static int l_getDataDibit(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -135,6 +141,7 @@ public static void l_setDataDibit(
 				 int n, 
 				 int val){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -155,6 +162,7 @@ public static void l_clearDataDibit(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -176,6 +184,7 @@ public static int l_getDataQbit(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -199,6 +208,7 @@ public static void l_setDataQbit(
 				 int n, 
 				 int val){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -219,6 +229,7 @@ public static void l_clearDataQbit(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -240,6 +251,7 @@ public static int l_getDataByte(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -263,6 +275,7 @@ public static void l_setDataByte(
 				 int n, 
 				 int val){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -284,6 +297,7 @@ public static int l_getDataTwoBytes(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -307,6 +321,7 @@ public static void l_setDataTwoBytes(
 				 int n, 
 				 int val){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -328,6 +343,7 @@ public static int l_getDataFourBytes(
 				 Object line, 
 				 int n){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -351,6 +367,7 @@ public static void l_setDataFourBytes(
 				 int n, 
 				 int val){
 
+if (line == null) {throw new ArgumentNullException  ("line cannot be Nothing");}
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 

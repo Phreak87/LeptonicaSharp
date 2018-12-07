@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -31,6 +32,8 @@ public static Numa numaArithOp(
 				 Numa na2, 
 				 int op){
 
+if (na1 == null) {throw new ArgumentNullException  ("na1 cannot be Nothing");}
+		if (na2 == null) {throw new ArgumentNullException  ("na2 cannot be Nothing");}
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
 	IntPtr _Result = Natives.numaArithOp(nadPtr, na1.Pointer, na2.Pointer,   op);
@@ -69,6 +72,8 @@ public static Numa numaLogicalOp(
 				 Numa na2, 
 				 int op){
 
+if (na1 == null) {throw new ArgumentNullException  ("na1 cannot be Nothing");}
+		if (na2 == null) {throw new ArgumentNullException  ("na2 cannot be Nothing");}
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
 	IntPtr _Result = Natives.numaLogicalOp(nadPtr, na1.Pointer, na2.Pointer,   op);
@@ -97,6 +102,7 @@ public static Numa numaInvert(
 				 Numa nad, 
 				 Numa nas){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
 	IntPtr _Result = Natives.numaInvert(nadPtr, nas.Pointer);
@@ -127,6 +133,8 @@ public static int numaSimilar(
 				 Single maxdiff, 
 				out int psimilar){
 
+if (na1 == null) {throw new ArgumentNullException  ("na1 cannot be Nothing");}
+		if (na2 == null) {throw new ArgumentNullException  ("na2 cannot be Nothing");}
 	int _Result = Natives.numaSimilar(na1.Pointer, na2.Pointer,   maxdiff, out  psimilar);
 	
 	return _Result;
@@ -155,6 +163,7 @@ public static int numaAddToNumber(
 				 int index, 
 				 Single val){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaAddToNumber(na.Pointer,   index,   val);
 	
 	return _Result;
@@ -175,6 +184,7 @@ public static int numaGetMin(
 				out Single pminval, 
 				out int piminloc){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetMin(na.Pointer, out  pminval, out  piminloc);
 	
 	return _Result;
@@ -195,6 +205,7 @@ public static int numaGetMax(
 				out Single pmaxval, 
 				out int pimaxloc){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetMax(na.Pointer, out  pmaxval, out  pimaxloc);
 	
 	return _Result;
@@ -213,6 +224,7 @@ public static int numaGetSum(
 				 Numa na, 
 				out Single psum){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetSum(na.Pointer, out  psum);
 	
 	return _Result;
@@ -236,6 +248,7 @@ public static int numaGetSum(
 public static Numa numaGetPartialSums(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaGetPartialSums(na.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -259,6 +272,7 @@ public static int numaGetSumOnInterval(
 				 int last, 
 				out Single psum){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetSumOnInterval(na.Pointer,   first,   last, out  psum);
 	
 	return _Result;
@@ -283,6 +297,7 @@ public static int numaHasOnlyIntegers(
 				 int maxsamples, 
 				out int pallints){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaHasOnlyIntegers(na.Pointer,   maxsamples, out  pallints);
 	
 	return _Result;
@@ -301,6 +316,7 @@ public static Numa numaSubsample(
 				 Numa nas, 
 				 int subfactor){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaSubsample(nas.Pointer,   subfactor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -318,6 +334,7 @@ public static Numa numaSubsample(
 public static Numa numaMakeDelta(
 				 Numa nas){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaMakeDelta(nas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -377,6 +394,7 @@ public static Numa numaMakeAbsValue(
 				 Numa nad, 
 				 Numa nas){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
 	IntPtr _Result = Natives.numaMakeAbsValue(nadPtr, nas.Pointer);
@@ -402,6 +420,7 @@ public static Numa numaAddBorder(
 				 int right, 
 				 Single val){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaAddBorder(nas.Pointer,   left,   right,   val);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -425,6 +444,7 @@ public static Numa numaAddSpecifiedBorder(
 				 int right, 
 				 int type){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaAddSpecifiedBorder(nas.Pointer,   left,   right,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -446,6 +466,7 @@ public static Numa numaRemoveBorder(
 				 int left, 
 				 int right){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaRemoveBorder(nas.Pointer,   left,   right);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -465,6 +486,7 @@ public static int numaCountNonzeroRuns(
 				 Numa na, 
 				out int pcount){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaCountNonzeroRuns(na.Pointer, out  pcount);
 	
 	return _Result;
@@ -487,6 +509,7 @@ public static int numaGetNonzeroRange(
 				out int pfirst, 
 				out int plast){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetNonzeroRange(na.Pointer,   eps, out  pfirst, out  plast);
 	
 	return _Result;
@@ -507,6 +530,7 @@ public static int numaGetCountRelativeToZero(
 				 int type, 
 				out int pcount){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetCountRelativeToZero(na.Pointer,   type, out  pcount);
 	
 	return _Result;
@@ -534,6 +558,7 @@ public static Numa numaClipToInterval(
 				 int first, 
 				 int last){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaClipToInterval(nas.Pointer,   first,   last);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -560,6 +585,7 @@ public static Numa numaMakeThresholdIndicator(
 				 Single thresh, 
 				 int type){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaMakeThresholdIndicator(nas.Pointer,   thresh,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -583,6 +609,7 @@ public static Numa numaUniformSampling(
 				 Numa nas, 
 				 int nsamp){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaUniformSampling(nas.Pointer,   nsamp);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -607,6 +634,7 @@ public static Numa numaReverse(
 				 Numa nad, 
 				 Numa nas){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
 	IntPtr _Result = Natives.numaReverse(nadPtr, nas.Pointer);
@@ -635,6 +663,7 @@ public static Numa numaLowPassIntervals(
 				 Single thresh, 
 				 Single maxn){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaLowPassIntervals(nas.Pointer,   thresh,   maxn);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -672,6 +701,7 @@ public static Numa numaThresholdEdges(
 				 Single thresh2, 
 				 Single maxn){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaThresholdEdges(nas.Pointer,   thresh1,   thresh2,   maxn);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -695,6 +725,7 @@ public static int numaGetSpanValues(
 				out int pstart, 
 				out int pend){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetSpanValues(na.Pointer,   span, out  pstart, out  pend);
 	
 	return _Result;
@@ -719,6 +750,7 @@ public static int numaGetEdgeValues(
 				out int pend, 
 				out int psign){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetEdgeValues(na.Pointer,   edge, out  pstart, out  pend, out  psign);
 	
 	return _Result;
@@ -757,6 +789,7 @@ public static int numaInterpolateEqxVal(
 				 Single xval, 
 				out Single pyval){
 
+if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	int _Result = Natives.numaInterpolateEqxVal(  startx,   deltax, nay.Pointer,   type,   xval, out  pyval);
 	
 	return _Result;
@@ -791,6 +824,8 @@ public static int numaInterpolateArbxVal(
 				 Single xval, 
 				out Single pyval){
 
+if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
+		if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	int _Result = Natives.numaInterpolateArbxVal(nax.Pointer, nay.Pointer,   type,   xval, out  pyval);
 	
 	return _Result;
@@ -838,6 +873,7 @@ public static int numaInterpolateEqxInterval(
 				out Numa pnax, 
 				out Numa pnay){
 
+if (nasy == null) {throw new ArgumentNullException  ("nasy cannot be Nothing");}
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
 
@@ -890,6 +926,8 @@ public static int numaInterpolateArbxInterval(
 				out Numa pnadx, 
 				out Numa pnady){
 
+if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
+		if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr pnadxPtr = IntPtr.Zero;
 	IntPtr pnadyPtr = IntPtr.Zero;
 
@@ -934,6 +972,7 @@ public static int numaFitMax(
 				 Numa naloc, 
 				out Single pmaxloc){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr nalocPtr = IntPtr.Zero; 	if (naloc != null) {nalocPtr = naloc.Pointer;}
 
 	int _Result = Natives.numaFitMax(na.Pointer, out  pmaxval, nalocPtr, out  pmaxloc);
@@ -971,6 +1010,8 @@ public static int numaDifferentiateInterval(
 				out Numa pnadx, 
 				out Numa pnady){
 
+if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
+		if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr pnadxPtr = IntPtr.Zero;
 	IntPtr pnadyPtr = IntPtr.Zero;
 
@@ -1009,6 +1050,8 @@ public static int numaIntegrateInterval(
 				 int npts, 
 				out Single psum){
 
+if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
+		if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	int _Result = Natives.numaIntegrateInterval(nax.Pointer, nay.Pointer,   x0,   x1,   npts, out  psum);
 	
 	return _Result;
@@ -1063,6 +1106,7 @@ public static int numaSortGeneral(
 				 int sortorder, 
 				 int sorttype){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr pnasortPtr = IntPtr.Zero;
 	IntPtr pnaindexPtr = IntPtr.Zero;
 	IntPtr pnainvertPtr = IntPtr.Zero;
@@ -1092,6 +1136,7 @@ public static Numa numaSortAutoSelect(
 				 Numa nas, 
 				 int sortorder){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaSortAutoSelect(nas.Pointer,   sortorder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1115,6 +1160,7 @@ public static Numa numaSortIndexAutoSelect(
 				 Numa nas, 
 				 int sortorder){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaSortIndexAutoSelect(nas.Pointer,   sortorder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1138,6 +1184,7 @@ public static Numa numaSortIndexAutoSelect(
 public static int numaChooseSortType(
 				 Numa nas){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	int _Result = Natives.numaChooseSortType(nas.Pointer);
 	
 	return _Result;
@@ -1164,6 +1211,8 @@ public static Numa numaSort(
 				 Numa nain, 
 				 int sortorder){
 
+if (naout == null) {throw new ArgumentNullException  ("naout cannot be Nothing");}
+		if (nain == null) {throw new ArgumentNullException  ("nain cannot be Nothing");}
 	IntPtr _Result = Natives.numaSort(naout.Pointer, nain.Pointer,   sortorder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1190,6 +1239,7 @@ public static Numa numaBinSort(
 				 Numa nas, 
 				 int sortorder){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaBinSort(nas.Pointer,   sortorder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1209,6 +1259,7 @@ public static Numa numaGetSortIndex(
 				 Numa na, 
 				 int sortorder){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaGetSortIndex(na.Pointer,   sortorder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1238,6 +1289,7 @@ public static Numa numaGetBinSortIndex(
 				 Numa nas, 
 				 int sortorder){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaGetBinSortIndex(nas.Pointer,   sortorder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1257,6 +1309,8 @@ public static Numa numaSortByIndex(
 				 Numa nas, 
 				 Numa naindex){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
+		if (naindex == null) {throw new ArgumentNullException  ("naindex cannot be Nothing");}
 	IntPtr _Result = Natives.numaSortByIndex(nas.Pointer, naindex.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1283,6 +1337,7 @@ public static int numaIsSorted(
 				 int sortorder, 
 				out int psorted){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	int _Result = Natives.numaIsSorted(nas.Pointer,   sortorder, out  psorted);
 	
 	return _Result;
@@ -1311,6 +1366,8 @@ public static int numaSortPair(
 				out Numa pnasx, 
 				out Numa pnasy){
 
+if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
+		if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr pnasxPtr = IntPtr.Zero;
 	IntPtr pnasyPtr = IntPtr.Zero;
 
@@ -1337,6 +1394,7 @@ public static int numaSortPair(
 public static Numa numaInvertMap(
 				 Numa nas){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaInvertMap(nas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1381,6 +1439,7 @@ public static Numa numaRandomPermutation(
 				 Numa nas, 
 				 int seed){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaRandomPermutation(nas.Pointer,   seed);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1424,6 +1483,7 @@ public static int numaGetRankValue(
 				 int usebins, 
 				out Single pval){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr nasortPtr = IntPtr.Zero; 	if (nasort != null) {nasortPtr = nasort.Pointer;}
 
 	int _Result = Natives.numaGetRankValue(na.Pointer,   fract, nasortPtr,   usebins, out  pval);
@@ -1448,6 +1508,7 @@ public static int numaGetMedian(
 				 Numa na, 
 				out Single pval){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetMedian(na.Pointer, out  pval);
 	
 	return _Result;
@@ -1473,6 +1534,7 @@ public static int numaGetBinnedMedian(
 				 Numa na, 
 				out int pval){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetBinnedMedian(na.Pointer, out  pval);
 	
 	return _Result;
@@ -1500,6 +1562,7 @@ public static int numaGetMode(
 				out Single pval, 
 				out int pcount){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetMode(na.Pointer, out  pval, out  pcount);
 	
 	return _Result;
@@ -1528,6 +1591,7 @@ public static int numaGetMedianVariation(
 				out Single pmedval, 
 				out Single pmedvar){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetMedianVariation(na.Pointer, out  pmedval, out  pmedvar);
 	
 	return _Result;
@@ -1557,6 +1621,7 @@ public static int numaJoin(
 				 int istart, 
 				 int iend){
 
+if (nad == null) {throw new ArgumentNullException  ("nad cannot be Nothing");}
 	IntPtr nasPtr = IntPtr.Zero; 	if (nas != null) {nasPtr = nas.Pointer;}
 
 	int _Result = Natives.numaJoin(nad.Pointer, nasPtr,   istart,   iend);
@@ -1588,6 +1653,7 @@ public static int numaaJoin(
 				 int istart, 
 				 int iend){
 
+if (naad == null) {throw new ArgumentNullException  ("naad cannot be Nothing");}
 	IntPtr naasPtr = IntPtr.Zero; 	if (naas != null) {naasPtr = naas.Pointer;}
 
 	int _Result = Natives.numaaJoin(naad.Pointer, naasPtr,   istart,   iend);
@@ -1615,6 +1681,7 @@ public static int numaaJoin(
 public static Numa numaaFlattenToNuma(
 				 Numaa naa){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	IntPtr _Result = Natives.numaaFlattenToNuma(naa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

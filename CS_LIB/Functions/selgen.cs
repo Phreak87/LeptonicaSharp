@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -71,6 +72,7 @@ public static Sel pixGenerateSelWithRuns(
 				 int rightpix, 
 				out Pix ppixe){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixePtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixGenerateSelWithRuns(pixs.Pointer,   nhlines,   nvlines,   distance,   minlength,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
@@ -127,6 +129,7 @@ public static Sel pixGenerateSelRandom(
 				 int rightpix, 
 				out Pix ppixe){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixePtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixGenerateSelRandom(pixs.Pointer,   hitfract,   missfract,   distance,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
@@ -193,6 +196,7 @@ public static Sel pixGenerateSelBoundary(
 				 int rightflag, 
 				out Pix ppixe){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixePtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixGenerateSelBoundary(pixs.Pointer,   hitdist,   missdist,   hitskip,   missskip,   topflag,   botflag,   leftflag,   rightflag, out ppixePtr);
@@ -242,6 +246,8 @@ public static Numa pixGetRunCentersOnLine(
 				 int y, 
 				 int minlength){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixGetRunCentersOnLine(pixs.Pointer,   x,   y,   minlength);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -276,6 +282,8 @@ public static Numa pixGetRunsOnLine(
 				 int x2, 
 				 int y2){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixGetRunsOnLine(pixs.Pointer,   x1,   y1,   x2,   y2);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -311,6 +319,7 @@ public static Pta pixSubsampleBoundaryPixels(
 				 Pix pixs, 
 				 int skip){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSubsampleBoundaryPixels(pixs.Pointer,   skip);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -340,6 +349,8 @@ public static int adjacentOnPixelInRaster(
 				out int pxa, 
 				out int pya){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.adjacentOnPixelInRaster(pixs.Pointer,   x,   y, out  pxa, out  pya);
 	
 	return _Result;
@@ -370,6 +381,9 @@ public static Pix pixDisplayHitMissSel(
 				 uint hitcolor, 
 				 uint misscolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixDisplayHitMissSel(pixs.Pointer, sel.Pointer,   scalefactor,   hitcolor,   misscolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}

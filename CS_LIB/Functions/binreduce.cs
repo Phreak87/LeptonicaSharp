@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -29,6 +30,7 @@ public static Pix pixReduceBinary2(
 				 Pix pixs, 
 				 Byte[] intab){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixReduceBinary2(pixs.Pointer,   intab);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -59,6 +61,8 @@ public static Pix pixReduceRankBinaryCascade(
 				 int level3, 
 				 int level4){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixReduceRankBinaryCascade(pixs.Pointer,   level1,   level2,   level3,   level4);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -92,6 +96,8 @@ public static Pix pixReduceRankBinary2(
 				 int level, 
 				 Byte[] intab){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixReduceRankBinary2(pixs.Pointer,   level,   intab);
 	
 	if (_Result == IntPtr.Zero) {return null;}

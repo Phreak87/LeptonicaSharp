@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -33,6 +34,8 @@ public static Rb_Type l_amapFind(
 				 L_Rbtree m, 
 				 Rb_Type key){
 
+if (m == null) {throw new ArgumentNullException  ("m cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
 
@@ -53,6 +56,9 @@ public static void l_amapInsert(
 				 Rb_Type key, 
 				 Rb_Type value){
 
+if (m == null) {throw new ArgumentNullException  ("m cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
+		if (value == null) {throw new ArgumentNullException  ("value cannot be Nothing");}
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
 	IntPtr valuePtr = IntPtr.Zero; if (value != null) {valuePtr = value.Pointer;}
@@ -71,6 +77,8 @@ public static void l_amapDelete(
 				 L_Rbtree m, 
 				 Rb_Type key){
 
+if (m == null) {throw new ArgumentNullException  ("m cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
 
@@ -87,6 +95,7 @@ public static void l_amapDelete(
 public static void l_amapDestroy(
 				 L_Rbtree pm){
 
+if (pm == null) {throw new ArgumentNullException  ("pm cannot be Nothing");}
 	IntPtr pmPtr = IntPtr.Zero; 	if (pm != null) {pmPtr = pm.Pointer;}
 
 	Natives.l_amapDestroy(pmPtr);
@@ -103,6 +112,7 @@ public static void l_amapDestroy(
 public static L_Rbtree_Node l_amapGetFirst(
 				 L_Rbtree m){
 
+if (m == null) {throw new ArgumentNullException  ("m cannot be Nothing");}
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 
 	IntPtr _Result = Natives.l_amapGetFirst(m.Pointer);
@@ -121,6 +131,7 @@ public static L_Rbtree_Node l_amapGetFirst(
 public static L_Rbtree_Node l_amapGetNext(
 				 L_Rbtree_Node n){
 
+if (n == null) {throw new ArgumentNullException  ("n cannot be Nothing");}
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
 	IntPtr _Result = Natives.l_amapGetNext(n.Pointer);
@@ -139,6 +150,7 @@ public static L_Rbtree_Node l_amapGetNext(
 public static L_Rbtree_Node l_amapGetLast(
 				 L_Rbtree m){
 
+if (m == null) {throw new ArgumentNullException  ("m cannot be Nothing");}
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 
 	IntPtr _Result = Natives.l_amapGetLast(m.Pointer);
@@ -157,6 +169,7 @@ public static L_Rbtree_Node l_amapGetLast(
 public static L_Rbtree_Node l_amapGetPrev(
 				 L_Rbtree_Node n){
 
+if (n == null) {throw new ArgumentNullException  ("n cannot be Nothing");}
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
 	IntPtr _Result = Natives.l_amapGetPrev(n.Pointer);
@@ -175,6 +188,7 @@ public static L_Rbtree_Node l_amapGetPrev(
 public static int l_amapSize(
 				 L_Rbtree m){
 
+if (m == null) {throw new ArgumentNullException  ("m cannot be Nothing");}
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 
 	int _Result = Natives.l_amapSize(m.Pointer);
@@ -209,6 +223,8 @@ public static Rb_Type l_asetFind(
 				 L_Rbtree s, 
 				 Rb_Type key){
 
+if (s == null) {throw new ArgumentNullException  ("s cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
 
@@ -228,6 +244,8 @@ public static void l_asetInsert(
 				 L_Rbtree s, 
 				 Rb_Type key){
 
+if (s == null) {throw new ArgumentNullException  ("s cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
 
@@ -245,6 +263,8 @@ public static void l_asetDelete(
 				 L_Rbtree s, 
 				 Rb_Type key){
 
+if (s == null) {throw new ArgumentNullException  ("s cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
 
@@ -261,6 +281,7 @@ public static void l_asetDelete(
 public static void l_asetDestroy(
 				 L_Rbtree ps){
 
+if (ps == null) {throw new ArgumentNullException  ("ps cannot be Nothing");}
 	IntPtr psPtr = IntPtr.Zero; 	if (ps != null) {psPtr = ps.Pointer;}
 
 	Natives.l_asetDestroy(psPtr);
@@ -277,6 +298,7 @@ public static void l_asetDestroy(
 public static L_Rbtree_Node l_asetGetFirst(
 				 L_Rbtree s){
 
+if (s == null) {throw new ArgumentNullException  ("s cannot be Nothing");}
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 
 	IntPtr _Result = Natives.l_asetGetFirst(s.Pointer);
@@ -295,6 +317,7 @@ public static L_Rbtree_Node l_asetGetFirst(
 public static L_Rbtree_Node l_asetGetNext(
 				 L_Rbtree_Node n){
 
+if (n == null) {throw new ArgumentNullException  ("n cannot be Nothing");}
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
 	IntPtr _Result = Natives.l_asetGetNext(n.Pointer);
@@ -313,6 +336,7 @@ public static L_Rbtree_Node l_asetGetNext(
 public static L_Rbtree_Node l_asetGetLast(
 				 L_Rbtree s){
 
+if (s == null) {throw new ArgumentNullException  ("s cannot be Nothing");}
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 
 	IntPtr _Result = Natives.l_asetGetLast(s.Pointer);
@@ -331,6 +355,7 @@ public static L_Rbtree_Node l_asetGetLast(
 public static L_Rbtree_Node l_asetGetPrev(
 				 L_Rbtree_Node n){
 
+if (n == null) {throw new ArgumentNullException  ("n cannot be Nothing");}
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
 	IntPtr _Result = Natives.l_asetGetPrev(n.Pointer);
@@ -349,6 +374,7 @@ public static L_Rbtree_Node l_asetGetPrev(
 public static int l_asetSize(
 				 L_Rbtree s){
 
+if (s == null) {throw new ArgumentNullException  ("s cannot be Nothing");}
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 
 	int _Result = Natives.l_asetSize(s.Pointer);

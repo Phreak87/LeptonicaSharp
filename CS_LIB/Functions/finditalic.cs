@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -48,6 +49,8 @@ public static int pixItalicWords(
 				out Boxa pboxa, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr boxawPtr = IntPtr.Zero; 	if (boxaw != null) {boxawPtr = boxaw.Pointer;}
 	IntPtr pixwPtr = IntPtr.Zero; 	if (pixw != null) {pixwPtr = pixw.Pointer;}
 	IntPtr pboxaPtr = IntPtr.Zero;

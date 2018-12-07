@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -48,6 +49,7 @@ public static int pixSetSelectCmap(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixSetSelectCmap(pixs.Pointer, boxPtr,   sindex,   rval,   gval,   bval);
@@ -96,6 +98,8 @@ public static int pixColorGrayRegionsCmap(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.pixColorGrayRegionsCmap(pixs.Pointer, boxa.Pointer,   type,   rval,   gval,   bval);
 	
 	return _Result;
@@ -155,6 +159,7 @@ public static int pixColorGrayCmap(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixColorGrayCmap(pixs.Pointer, boxPtr,   type,   rval,   gval,   bval);
@@ -196,6 +201,8 @@ public static int pixColorGrayMaskedCmap(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	int _Result = Natives.pixColorGrayMaskedCmap(pixs.Pointer, pixm.Pointer,   type,   rval,   gval,   bval);
 	
 	return _Result;
@@ -244,6 +251,7 @@ public static int addColorizedGrayToCmap(
 				 int bval, 
 				out Numa pna){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr pnaPtr = IntPtr.Zero;
 
 	int _Result = Natives.addColorizedGrayToCmap(cmap.Pointer,   type,   rval,   gval,   bval, out pnaPtr);
@@ -292,6 +300,7 @@ public static int pixSetSelectMaskedCmap(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixSetSelectMaskedCmap(pixs.Pointer, pixmPtr,   x,   y,   sindex,   rval,   gval,   bval);
@@ -339,6 +348,7 @@ public static int pixSetMaskedCmap(
 				 int gval, 
 				 int bval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixSetMaskedCmap(pixs.Pointer, pixmPtr,   x,   y,   rval,   gval,   bval);

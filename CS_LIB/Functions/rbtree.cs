@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -36,6 +37,8 @@ public static Rb_Type l_rbtreeLookup(
 				 L_Rbtree t, 
 				 Rb_Type key){
 
+if (t == null) {throw new ArgumentNullException  ("t cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
 	IntPtr _Result = Natives.l_rbtreeLookup(t.Pointer, key.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -59,6 +62,9 @@ public static void l_rbtreeInsert(
 				 Rb_Type key, 
 				 Rb_Type value){
 
+if (t == null) {throw new ArgumentNullException  ("t cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
+		if (value == null) {throw new ArgumentNullException  ("value cannot be Nothing");}
 	Natives.l_rbtreeInsert(t.Pointer, key.Pointer, value.Pointer);
 	
 }
@@ -75,6 +81,8 @@ public static void l_rbtreeDelete(
 				 L_Rbtree t, 
 				 Rb_Type key){
 
+if (t == null) {throw new ArgumentNullException  ("t cannot be Nothing");}
+		if (key == null) {throw new ArgumentNullException  ("key cannot be Nothing");}
 	Natives.l_rbtreeDelete(t.Pointer, key.Pointer);
 	
 }
@@ -92,6 +100,7 @@ public static void l_rbtreeDelete(
 public static void l_rbtreeDestroy(
 				 List<L_Rbtree> pt){
 
+if (pt == null) {throw new ArgumentNullException  ("pt cannot be Nothing");}
 	IntPtr ptPtr = IntPtr.Zero;
 
 	Natives.l_rbtreeDestroy(ptPtr);
@@ -112,6 +121,7 @@ public static void l_rbtreeDestroy(
 public static L_Rbtree_Node l_rbtreeGetFirst(
 				 L_Rbtree t){
 
+if (t == null) {throw new ArgumentNullException  ("t cannot be Nothing");}
 	IntPtr _Result = Natives.l_rbtreeGetFirst(t.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -137,6 +147,7 @@ public static L_Rbtree_Node l_rbtreeGetFirst(
 public static L_Rbtree_Node l_rbtreeGetNext(
 				 L_Rbtree_Node n){
 
+if (n == null) {throw new ArgumentNullException  ("n cannot be Nothing");}
 	IntPtr _Result = Natives.l_rbtreeGetNext(n.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -157,6 +168,7 @@ public static L_Rbtree_Node l_rbtreeGetNext(
 public static L_Rbtree_Node l_rbtreeGetLast(
 				 L_Rbtree t){
 
+if (t == null) {throw new ArgumentNullException  ("t cannot be Nothing");}
 	IntPtr _Result = Natives.l_rbtreeGetLast(t.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -182,6 +194,7 @@ public static L_Rbtree_Node l_rbtreeGetLast(
 public static L_Rbtree_Node l_rbtreeGetPrev(
 				 L_Rbtree_Node n){
 
+if (n == null) {throw new ArgumentNullException  ("n cannot be Nothing");}
 	IntPtr _Result = Natives.l_rbtreeGetPrev(n.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -199,6 +212,7 @@ public static L_Rbtree_Node l_rbtreeGetPrev(
 public static int l_rbtreeGetCount(
 				 L_Rbtree t){
 
+if (t == null) {throw new ArgumentNullException  ("t cannot be Nothing");}
 	int _Result = Natives.l_rbtreeGetCount(t.Pointer);
 	
 	return _Result;
@@ -216,6 +230,8 @@ public static void l_rbtreePrint(
 				 FILE fp, 
 				 L_Rbtree t){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (t == null) {throw new ArgumentNullException  ("t cannot be Nothing");}
 	Natives.l_rbtreePrint(fp.Pointer, t.Pointer);
 	
 }

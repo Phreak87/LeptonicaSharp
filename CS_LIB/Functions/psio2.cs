@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -29,6 +30,8 @@ public static int pixWritePSEmbed(
 				 String filein, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.pixWritePSEmbed(  filein,   fileout);
 	
 	return _Result;
@@ -60,6 +63,8 @@ public static int pixWriteStreamPS(
 				 int res, 
 				 Single scale){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixWriteStreamPS(fp.Pointer, pix.Pointer, boxPtr,   res,   scale);
@@ -139,6 +144,8 @@ public static String pixWriteStringPS(
 				 int res, 
 				 Single scale){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	String _Result = Natives.pixWriteStringPS(pixs.Pointer, box.Pointer,   res,   scale);
 	
 	return _Result;
@@ -178,6 +185,7 @@ public static String generateUncompressedPS(
 				 Single hpt, 
 				 int boxflag){
 
+if (hexdata == null) {throw new ArgumentNullException  ("hexdata cannot be Nothing");}
 	String _Result = Natives.generateUncompressedPS(  hexdata,   w,   h,   d,   psbpl,   bps,   xpt,   ypt,   wpt,   hpt,   boxflag);
 	
 	return _Result;
@@ -263,6 +271,8 @@ public static int convertJpegToPSEmbed(
 				 String filein, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertJpegToPSEmbed(  filein,   fileout);
 	
 	return _Result;
@@ -348,6 +358,9 @@ public static int convertJpegToPS(
 				 int pageno, 
 				 int endpage){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
+		if (operation == null) {throw new ArgumentNullException  ("operation cannot be Nothing");}
 	int _Result = Natives.convertJpegToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
 	
 	return _Result;
@@ -383,6 +396,7 @@ public static int convertJpegToPSString(
 				 int pageno, 
 				 int endpage){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 	IntPtr poutstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertJpegToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
@@ -419,6 +433,7 @@ public static String generateJpegPS(
 				 int pageno, 
 				 int endpage){
 
+if (cid == null) {throw new ArgumentNullException  ("cid cannot be Nothing");}
 	String _Result = Natives.generateJpegPS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
 	
 	return _Result;
@@ -450,6 +465,8 @@ public static int convertG4ToPSEmbed(
 				 String filein, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertG4ToPSEmbed(  filein,   fileout);
 	
 	return _Result;
@@ -524,6 +541,9 @@ public static int convertG4ToPS(
 				 int maskflag, 
 				 int endpage){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
+		if (operation == null) {throw new ArgumentNullException  ("operation cannot be Nothing");}
 	int _Result = Natives.convertG4ToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
 	
 	return _Result;
@@ -563,6 +583,7 @@ public static int convertG4ToPSString(
 				 int maskflag, 
 				 int endpage){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 	IntPtr poutstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertG4ToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
@@ -601,6 +622,7 @@ public static String generateG4PS(
 				 int pageno, 
 				 int endpage){
 
+if (cid == null) {throw new ArgumentNullException  ("cid cannot be Nothing");}
 	String _Result = Natives.generateG4PS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   maskflag,   pageno,   endpage);
 	
 	return _Result;
@@ -629,6 +651,8 @@ public static int convertTiffMultipageToPS(
 				 String fileout, 
 				 Single fillfract){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertTiffMultipageToPS(  filein,   fileout,   fillfract);
 	
 	return _Result;
@@ -657,6 +681,8 @@ public static int convertFlateToPSEmbed(
 				 String filein, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertFlateToPSEmbed(  filein,   fileout);
 	
 	return _Result;
@@ -741,6 +767,9 @@ public static int convertFlateToPS(
 				 int pageno, 
 				 int endpage){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
+		if (operation == null) {throw new ArgumentNullException  ("operation cannot be Nothing");}
 	int _Result = Natives.convertFlateToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
 	
 	return _Result;
@@ -784,6 +813,7 @@ public static int convertFlateToPSString(
 				 int pageno, 
 				 int endpage){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 	IntPtr poutstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertFlateToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
@@ -817,6 +847,7 @@ public static String generateFlatePS(
 				 int pageno, 
 				 int endpage){
 
+if (cid == null) {throw new ArgumentNullException  ("cid cannot be Nothing");}
 	String _Result = Natives.generateFlatePS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
 	
 	return _Result;
@@ -849,6 +880,7 @@ public static int pixWriteMemPS(
 				 int res, 
 				 Single scale){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 

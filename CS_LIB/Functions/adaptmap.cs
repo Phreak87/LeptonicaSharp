@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -37,6 +38,7 @@ public static Pix pixCleanBackgroundToWhite(
 				 int blackval, 
 				 int whiteval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -69,6 +71,7 @@ public static Pix pixBackgroundNormSimple(
 				 Pix pixim, 
 				 Pix pixg){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -158,6 +161,7 @@ public static Pix pixBackgroundNorm(
 				 int smoothx, 
 				 int smoothy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -219,6 +223,10 @@ public static Pix pixBackgroundNormMorph(
 				 int size, 
 				 int bgval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("at which morph closings are done between 2 and 16");
+	};
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 
 	IntPtr _Result = Natives.pixBackgroundNormMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval);
@@ -263,6 +271,8 @@ public static int pixBackgroundNormGrayArray(
 				 int smoothy, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale"); }
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
@@ -314,6 +324,8 @@ public static int pixBackgroundNormRGBArrays(
 				out Pix ppixg, 
 				out Pix ppixb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 	IntPtr ppixrPtr = IntPtr.Zero;
@@ -356,6 +368,11 @@ public static int pixBackgroundNormGrayArrayMorph(
 				 int bgval, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale"); }
+	if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("at which morph closings are done between 2 and 16");
+	};
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
@@ -397,6 +414,11 @@ public static int pixBackgroundNormRGBArraysMorph(
 				out Pix ppixg, 
 				out Pix ppixb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
+	if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("at which morph closings are done between 2 and 16");
+	};
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixrPtr = IntPtr.Zero;
 	IntPtr ppixgPtr = IntPtr.Zero;
@@ -438,6 +460,7 @@ public static int pixGetBackgroundGrayMap(
 				 int mincount, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
@@ -482,6 +505,8 @@ public static int pixGetBackgroundRGBMap(
 				out Pix ppixmg, 
 				out Pix ppixmb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 	IntPtr ppixmrPtr = IntPtr.Zero;
@@ -515,6 +540,10 @@ public static int pixGetBackgroundGrayMapMorph(
 				 int size, 
 				out Pix ppixm){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("factor at which closing is performed");
+	};
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixmPtr = IntPtr.Zero;
 
@@ -547,6 +576,11 @@ public static int pixGetBackgroundRGBMapMorph(
 				out Pix ppixmg, 
 				out Pix ppixmb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
+	if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("factor at which closing is performed");
+	};
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 	IntPtr ppixmrPtr = IntPtr.Zero;
 	IntPtr ppixmgPtr = IntPtr.Zero;
@@ -603,6 +637,7 @@ public static int pixFillMapHoles(
 				 int ny, 
 				 int filltype){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixFillMapHoles(pix.Pointer,   nx,   ny,   filltype);
 	
 	return _Result;
@@ -626,6 +661,8 @@ public static Pix pixExtendByReplication(
 				 int addw, 
 				 int addh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixExtendByReplication(pixs.Pointer,   addw,   addh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -659,6 +696,7 @@ public static int pixSmoothConnectedRegions(
 				 Pix pixm, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixSmoothConnectedRegions(pixs.Pointer, pixmPtr,   factor);
@@ -689,6 +727,7 @@ public static Pix pixGetInvBackgroundMap(
 				 int smoothx, 
 				 int smoothy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetInvBackgroundMap(pixs.Pointer,   bgval,   smoothx,   smoothy);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -712,6 +751,8 @@ public static Pix pixApplyInvBackgroundGrayMap(
 				 int sx, 
 				 int sy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr _Result = Natives.pixApplyInvBackgroundGrayMap(pixs.Pointer, pixm.Pointer,   sx,   sy);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -739,6 +780,10 @@ public static Pix pixApplyInvBackgroundRGBMap(
 				 int sx, 
 				 int sy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixmr == null) {throw new ArgumentNullException  ("pixmr cannot be Nothing");}
+		if (pixmg == null) {throw new ArgumentNullException  ("pixmg cannot be Nothing");}
+		if (pixmb == null) {throw new ArgumentNullException  ("pixmb cannot be Nothing");}
 	IntPtr _Result = Natives.pixApplyInvBackgroundRGBMap(pixs.Pointer, pixmr.Pointer, pixmg.Pointer, pixmb.Pointer,   sx,   sy);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -777,6 +822,9 @@ public static Pix pixApplyVariableGrayMap(
 				 Pix pixg, 
 				 int target){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixg == null) {throw new ArgumentNullException  ("pixg cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixApplyVariableGrayMap(pixs.Pointer, pixg.Pointer,   target);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -831,6 +879,7 @@ public static Pix pixGlobalNormRGB(
 				 int bval, 
 				 int mapval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixGlobalNormRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   mapval);
@@ -886,6 +935,8 @@ public static Pix pixGlobalNormNoSatRGB(
 				 int factor, 
 				 Single rank){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixGlobalNormNoSatRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   factor,   rank);
@@ -954,6 +1005,7 @@ public static int pixThresholdSpreadNorm(
 				out Pix ppixb, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixthPtr = IntPtr.Zero;
 	IntPtr ppixbPtr = IntPtr.Zero;
 	IntPtr ppixdPtr = IntPtr.Zero;
@@ -1005,6 +1057,7 @@ public static Pix pixBackgroundNormFlex(
 				 int smoothy, 
 				 int delta){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixBackgroundNormFlex(pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   delta);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1065,6 +1118,7 @@ public static Pix pixContrastNorm(
 				 int smoothx, 
 				 int smoothy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixContrastNorm(pixdPtr, pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy);
@@ -1104,6 +1158,7 @@ public static int pixMinMaxTiles(
 				out Pix ppixmin, 
 				out Pix ppixmax){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixminPtr = IntPtr.Zero;
 	IntPtr ppixmaxPtr = IntPtr.Zero;
 
@@ -1140,6 +1195,10 @@ public static int pixSetLowContrast(
 				 Pix pixs2, 
 				 int mindiff){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs1.d) == false) { throw new ArgumentException ("8 bpp"); }
+	if ((new List<int> {8}).Contains ((int)pixs2.d) == false) { throw new ArgumentException ("8 bpp"); }
 	int _Result = Natives.pixSetLowContrast(pixs1.Pointer, pixs2.Pointer,   mindiff);
 	
 	return _Result;
@@ -1181,6 +1240,10 @@ public static Pix pixLinearTRCTiled(
 				 Pix pixmin, 
 				 Pix pixmax){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixmin == null) {throw new ArgumentNullException  ("pixmin cannot be Nothing");}
+		if (pixmax == null) {throw new ArgumentNullException  ("pixmax cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixd.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixLinearTRCTiled(pixdPtr, pixs.Pointer,   sx,   sy, pixmin.Pointer, pixmax.Pointer);

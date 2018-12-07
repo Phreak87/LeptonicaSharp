@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -31,6 +32,7 @@ public static GPlot gplotCreate(
 				 String xlabel, 
 				 String ylabel){
 
+if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 	IntPtr _Result = Natives.gplotCreate(  rootname,   outformat,   title,   xlabel,   ylabel);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -92,6 +94,8 @@ public static int gplotAddPlot(
 				 int plotstyle, 
 				 String plottitle){
 
+if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
+		if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	int _Result = Natives.gplotAddPlot(gplot.Pointer, naxPtr, nay.Pointer,   plotstyle,   plottitle);
@@ -117,6 +121,7 @@ public static int gplotSetScaling(
 				 GPlot gplot, 
 				 int scaling){
 
+if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
 	int _Result = Natives.gplotSetScaling(gplot.Pointer,   scaling);
 	
 	return _Result;
@@ -146,6 +151,7 @@ public static int gplotSetScaling(
 public static int gplotMakeOutput(
 				 GPlot gplot){
 
+if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
 	int _Result = Natives.gplotMakeOutput(gplot.Pointer);
 	
 	return _Result;
@@ -162,6 +168,7 @@ public static int gplotMakeOutput(
 public static int gplotGenCommandFile(
 				 GPlot gplot){
 
+if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
 	int _Result = Natives.gplotGenCommandFile(gplot.Pointer);
 	
 	return _Result;
@@ -183,6 +190,7 @@ public static int gplotGenCommandFile(
 public static int gplotGenDataFiles(
 				 GPlot gplot){
 
+if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
 	int _Result = Natives.gplotGenDataFiles(gplot.Pointer);
 	
 	return _Result;
@@ -213,6 +221,8 @@ public static int gplotSimple1(
 				 String outroot, 
 				 String title){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
+		if (outroot == null) {throw new ArgumentNullException  ("outroot cannot be Nothing");}
 	int _Result = Natives.gplotSimple1(na.Pointer,   outformat,   outroot,   title);
 	
 	return _Result;
@@ -245,6 +255,9 @@ public static int gplotSimple2(
 				 String outroot, 
 				 String title){
 
+if (na1 == null) {throw new ArgumentNullException  ("na1 cannot be Nothing");}
+		if (na2 == null) {throw new ArgumentNullException  ("na2 cannot be Nothing");}
+		if (outroot == null) {throw new ArgumentNullException  ("outroot cannot be Nothing");}
 	int _Result = Natives.gplotSimple2(na1.Pointer, na2.Pointer,   outformat,   outroot,   title);
 	
 	return _Result;
@@ -276,6 +289,8 @@ public static int gplotSimpleN(
 				 String outroot, 
 				 String title){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
+		if (outroot == null) {throw new ArgumentNullException  ("outroot cannot be Nothing");}
 	int _Result = Natives.gplotSimpleN(naa.Pointer,   outformat,   outroot,   title);
 	
 	return _Result;
@@ -314,6 +329,8 @@ public static int gplotSimpleXY1(
 				 String outroot, 
 				 String title){
 
+if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
+		if (outroot == null) {throw new ArgumentNullException  ("outroot cannot be Nothing");}
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	int _Result = Natives.gplotSimpleXY1(naxPtr, nay.Pointer,   plotstyle,   outformat,   outroot,   title);
@@ -356,6 +373,10 @@ public static int gplotSimpleXY2(
 				 String outroot, 
 				 String title){
 
+if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
+		if (nay1 == null) {throw new ArgumentNullException  ("nay1 cannot be Nothing");}
+		if (nay2 == null) {throw new ArgumentNullException  ("nay2 cannot be Nothing");}
+		if (outroot == null) {throw new ArgumentNullException  ("outroot cannot be Nothing");}
 	int _Result = Natives.gplotSimpleXY2(nax.Pointer, nay1.Pointer, nay2.Pointer,   plotstyle,   outformat,   outroot,   title);
 	
 	return _Result;
@@ -394,6 +415,8 @@ public static int gplotSimpleXYN(
 				 String outroot, 
 				 String title){
 
+if (naay == null) {throw new ArgumentNullException  ("naay cannot be Nothing");}
+		if (outroot == null) {throw new ArgumentNullException  ("outroot cannot be Nothing");}
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	int _Result = Natives.gplotSimpleXYN(naxPtr, naay.Pointer,   plotstyle,   outformat,   outroot,   title);
@@ -412,6 +435,10 @@ public static int gplotSimpleXYN(
 public static GPlot gplotRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.gplotRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -431,6 +458,8 @@ public static int gplotWrite(
 				 String filename, 
 				 GPlot gplot){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
 	int _Result = Natives.gplotWrite(  filename, gplot.Pointer);
 	
 	return _Result;

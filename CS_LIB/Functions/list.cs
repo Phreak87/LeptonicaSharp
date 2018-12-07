@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -51,6 +52,7 @@ public static int listAddToHead(
 				ref DoubleLinkedList phead, 
 				 Object data){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
@@ -93,6 +95,7 @@ public static int listAddToTail(
 				ref DoubleLinkedList ptail, 
 				 Object data){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 	IntPtr ptailPtr = IntPtr.Zero; 	if (ptail != null) {ptailPtr = ptail.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
@@ -134,6 +137,8 @@ public static int listInsertBefore(
 				 DoubleLinkedList elem, 
 				 Object data){
 
+if (elem == null) {throw new ArgumentNullException  ("elem cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
@@ -174,6 +179,8 @@ public static int listInsertAfter(
 				 DoubleLinkedList elem, 
 				 Object data){
 
+if (elem == null) {throw new ArgumentNullException  ("elem cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
@@ -204,6 +211,7 @@ public static Object listRemoveElement(
 				ref DoubleLinkedList phead, 
 				 DoubleLinkedList elem){
 
+if (elem == null) {throw new ArgumentNullException  ("elem cannot be Nothing");}
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
 	IntPtr _Result = Natives.listRemoveElement(ref pheadPtr, elem.Pointer);
@@ -304,6 +312,8 @@ public static DoubleLinkedList listFindElement(
 				 DoubleLinkedList head, 
 				 Object data){
 
+if (head == null) {throw new ArgumentNullException  ("head cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -325,6 +335,7 @@ public static DoubleLinkedList listFindElement(
 public static DoubleLinkedList listFindTail(
 				 DoubleLinkedList head){
 
+if (head == null) {throw new ArgumentNullException  ("head cannot be Nothing");}
 	IntPtr _Result = Natives.listFindTail(head.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -342,6 +353,7 @@ public static DoubleLinkedList listFindTail(
 public static int listGetCount(
 				 DoubleLinkedList head){
 
+if (head == null) {throw new ArgumentNullException  ("head cannot be Nothing");}
 	int _Result = Natives.listGetCount(head.Pointer);
 	
 	return _Result;

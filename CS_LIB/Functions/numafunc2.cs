@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -32,6 +33,7 @@ public static Numa numaErode(
 				 Numa nas, 
 				 int size){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaErode(nas.Pointer,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -56,6 +58,7 @@ public static Numa numaDilate(
 				 Numa nas, 
 				 int size){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaDilate(nas.Pointer,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -80,6 +83,7 @@ public static Numa numaOpen(
 				 Numa nas, 
 				 int size){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaOpen(nas.Pointer,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -111,6 +115,7 @@ public static Numa numaClose(
 				 Numa nas, 
 				 int size){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaClose(nas.Pointer,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -135,6 +140,7 @@ public static Numa numaTransform(
 				 Single shift, 
 				 Single scale){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaTransform(nas.Pointer,   shift,   scale);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -162,6 +168,7 @@ public static int numaSimpleStats(
 				out Single pvar, 
 				out Single prvar){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaSimpleStats(na.Pointer,   first,   last, out  pmean, out  pvar, out  prvar);
 	
 	return _Result;
@@ -209,6 +216,7 @@ public static int numaWindowedStats(
 				out Numa pnav, 
 				out Numa pnarv){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr pnamPtr = IntPtr.Zero;
 	IntPtr pnamsPtr = IntPtr.Zero;
 	IntPtr pnavPtr = IntPtr.Zero;
@@ -241,6 +249,7 @@ public static Numa numaWindowedMean(
 				 Numa nas, 
 				 int wc){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaWindowedMean(nas.Pointer,   wc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -265,6 +274,7 @@ public static Numa numaWindowedMeanSquare(
 				 Numa nas, 
 				 int wc){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaWindowedMeanSquare(nas.Pointer,   wc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -298,6 +308,8 @@ public static int numaWindowedVariance(
 				out Numa pnav, 
 				out Numa pnarv){
 
+if (nam == null) {throw new ArgumentNullException  ("nam cannot be Nothing");}
+		if (nams == null) {throw new ArgumentNullException  ("nams cannot be Nothing");}
 	IntPtr pnavPtr = IntPtr.Zero;
 	IntPtr pnarvPtr = IntPtr.Zero;
 
@@ -333,6 +345,7 @@ public static Numa numaWindowedMedian(
 				 Numa nas, 
 				 int halfwin){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaWindowedMedian(nas.Pointer,   halfwin);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -350,6 +363,7 @@ public static Numa numaWindowedMedian(
 public static Numa numaConvertToInt(
 				 Numa nas){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaConvertToInt(nas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -388,6 +402,7 @@ public static Numa numaMakeHistogram(
 				out int pbinsize, 
 				out int pbinstart){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaMakeHistogram(na.Pointer,   maxbins, out  pbinsize, out  pbinstart);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -422,6 +437,7 @@ public static Numa numaMakeHistogramAuto(
 				 Numa na, 
 				 int maxbins){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaMakeHistogramAuto(na.Pointer,   maxbins);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -451,6 +467,7 @@ public static Numa numaMakeHistogramClipped(
 				 Single binsize, 
 				 Single maxsize){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaMakeHistogramClipped(na.Pointer,   binsize,   maxsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -470,6 +487,7 @@ public static Numa numaRebinHistogram(
 				 Numa nas, 
 				 int newsize){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaRebinHistogram(nas.Pointer,   newsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -489,6 +507,7 @@ public static Numa numaNormalizeHistogram(
 				 Numa nas, 
 				 Single tsum){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaNormalizeHistogram(nas.Pointer,   tsum);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -556,6 +575,7 @@ public static int numaGetStatsUsingHistogram(
 				out Single prval, 
 				out Numa phisto){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr phistoPtr = IntPtr.Zero;
 
 	int _Result = Natives.numaGetStatsUsingHistogram(na.Pointer,   maxbins, out  pmin, out  pmax, out  pmean, out  pvariance, out  pmedian,   rank, out  prval, out phistoPtr);
@@ -594,6 +614,7 @@ public static int numaGetHistogramStats(
 				out Single pxmode, 
 				out Single pxvariance){
 
+if (nahisto == null) {throw new ArgumentNullException  ("nahisto cannot be Nothing");}
 	int _Result = Natives.numaGetHistogramStats(nahisto.Pointer,   startx,   deltax, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
 	
 	return _Result;
@@ -633,6 +654,7 @@ public static int numaGetHistogramStatsOnInterval(
 				out Single pxmode, 
 				out Single pxvariance){
 
+if (nahisto == null) {throw new ArgumentNullException  ("nahisto cannot be Nothing");}
 	int _Result = Natives.numaGetHistogramStatsOnInterval(nahisto.Pointer,   startx,   deltax,   ifirst,   ilast, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
 	
 	return _Result;
@@ -659,6 +681,7 @@ public static int numaMakeRankFromHistogram(
 				out Numa pnax, 
 				out Numa pnay){
 
+if (nasy == null) {throw new ArgumentNullException  ("nasy cannot be Nothing");}
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
 
@@ -698,6 +721,7 @@ public static int numaHistogramGetRankFromVal(
 				 Single rval, 
 				out Single prank){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaHistogramGetRankFromVal(na.Pointer,   rval, out  prank);
 	
 	return _Result;
@@ -732,6 +756,7 @@ public static int numaHistogramGetValFromRank(
 				 Single rank, 
 				out Single prval){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaHistogramGetValFromRank(na.Pointer,   rank, out  prval);
 	
 	return _Result;
@@ -774,6 +799,7 @@ public static int numaDiscretizeRankAndIntensity(
 				out Numa pnar, 
 				out Numa pnabb){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr pnarbinPtr = IntPtr.Zero;
 	IntPtr pnamPtr = IntPtr.Zero;
 	IntPtr pnarPtr = IntPtr.Zero;
@@ -811,6 +837,7 @@ public static int numaGetRankBinValues(
 				out Numa pnarbin, 
 				out Numa pnam){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr pnarbinPtr = IntPtr.Zero;
 	IntPtr pnamPtr = IntPtr.Zero;
 
@@ -882,6 +909,7 @@ public static int numaSplitDistribution(
 				out Single pnum2, 
 				out Numa pnascore){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr pnascorePtr = IntPtr.Zero;
 
 	int _Result = Natives.numaSplitDistribution(na.Pointer,   scorefract, out  psplitindex, out  pave1, out  pave2, out  pnum1, out  pnum2, out pnascorePtr);
@@ -920,6 +948,8 @@ public static int grayHistogramsToEMD(
 				 Numaa naa2, 
 				out Numa pnad){
 
+if (naa1 == null) {throw new ArgumentNullException  ("naa1 cannot be Nothing");}
+		if (naa2 == null) {throw new ArgumentNullException  ("naa2 cannot be Nothing");}
 	IntPtr pnadPtr = IntPtr.Zero;
 
 	int _Result = Natives.grayHistogramsToEMD(naa1.Pointer, naa2.Pointer, out pnadPtr);
@@ -964,6 +994,8 @@ public static int numaEarthMoverDistance(
 				 Numa na2, 
 				out Single pdist){
 
+if (na1 == null) {throw new ArgumentNullException  ("na1 cannot be Nothing");}
+		if (na2 == null) {throw new ArgumentNullException  ("na2 cannot be Nothing");}
 	int _Result = Natives.numaEarthMoverDistance(na1.Pointer, na2.Pointer, out  pdist);
 	
 	return _Result;
@@ -1026,6 +1058,7 @@ public static int grayInterHistogramStats(
 				out Numa pnav, 
 				out Numa pnarv){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	IntPtr pnamPtr = IntPtr.Zero;
 	IntPtr pnamsPtr = IntPtr.Zero;
 	IntPtr pnavPtr = IntPtr.Zero;
@@ -1062,6 +1095,7 @@ public static Numa numaFindPeaks(
 				 Single fract1, 
 				 Single fract2){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr _Result = Natives.numaFindPeaks(nas.Pointer,   nmax,   fract1,   fract2);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1101,6 +1135,7 @@ public static Numa numaFindExtrema(
 				 Single delta, 
 				out Numa pnav){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr pnavPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.numaFindExtrema(nas.Pointer,   delta, out pnavPtr);
@@ -1132,6 +1167,7 @@ public static int numaCountReversals(
 				out int pnr, 
 				out Single pnrpl){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	int _Result = Natives.numaCountReversals(nas.Pointer,   minreversal, out  pnr, out  pnrpl);
 	
 	return _Result;
@@ -1168,6 +1204,7 @@ public static int numaSelectCrossingThreshold(
 				 Single estthresh, 
 				out Single pbestthresh){
 
+if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	int _Result = Natives.numaSelectCrossingThreshold(naxPtr, nay.Pointer,   estthresh, out  pbestthresh);
@@ -1194,6 +1231,7 @@ public static Numa numaCrossingsByThreshold(
 				 Numa nay, 
 				 Single thresh){
 
+if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	IntPtr _Result = Natives.numaCrossingsByThreshold(naxPtr, nay.Pointer,   thresh);
@@ -1221,6 +1259,7 @@ public static Numa numaCrossingsByPeaks(
 				 Numa nay, 
 				 Single delta){
 
+if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	IntPtr _Result = Natives.numaCrossingsByPeaks(naxPtr, nay.Pointer,   delta);
@@ -1277,6 +1316,7 @@ public static int numaEvalBestHaarParameters(
 				out Single pbestshift, 
 				out Single pbestscore){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	int _Result = Natives.numaEvalBestHaarParameters(nas.Pointer,   relweight,   nwidth,   nshift,   minwidth,   maxwidth, out  pbestwidth, out  pbestshift, out  pbestscore);
 	
 	return _Result;
@@ -1322,6 +1362,7 @@ public static int numaEvalHaarSum(
 				 Single relweight, 
 				out Single pscore){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	int _Result = Natives.numaEvalHaarSum(nas.Pointer,   width,   shift,   relweight, out  pscore);
 	
 	return _Result;

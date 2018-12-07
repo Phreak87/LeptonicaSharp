@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -132,6 +133,7 @@ public static Pta ptaTranslate(
 				 Single transx, 
 				 Single transy){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaTranslate(ptas.Pointer,   transx,   transy);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -156,6 +158,7 @@ public static Pta ptaScale(
 				 Single scalex, 
 				 Single scaley){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaScale(ptas.Pointer,   scalex,   scaley);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -197,6 +200,7 @@ public static Pta ptaRotate(
 				 Single yc, 
 				 Single angle){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaRotate(ptas.Pointer,   xc,   yc,   angle);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -218,6 +222,7 @@ public static Boxa boxaTranslate(
 				 Single transx, 
 				 Single transy){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaTranslate(boxas.Pointer,   transx,   transy);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -239,6 +244,7 @@ public static Boxa boxaScale(
 				 Single scalex, 
 				 Single scaley){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaScale(boxas.Pointer,   scalex,   scaley);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -262,6 +268,7 @@ public static Boxa boxaRotate(
 				 Single yc, 
 				 Single angle){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaRotate(boxas.Pointer,   xc,   yc,   angle);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -281,6 +288,8 @@ public static Pta ptaAffineTransform(
 				 Pta ptas, 
 				 Single[] mat){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+		if (mat == null) {throw new ArgumentNullException  ("mat cannot be Nothing");}
 	IntPtr _Result = Natives.ptaAffineTransform(ptas.Pointer,   mat);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -300,6 +309,8 @@ public static Boxa boxaAffineTransform(
 				 Boxa boxas, 
 				 Single[] mat){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (mat == null) {throw new ArgumentNullException  ("mat cannot be Nothing");}
 	IntPtr _Result = Natives.boxaAffineTransform(boxas.Pointer,   mat);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -323,6 +334,9 @@ public static int l_productMatVec(
 				 Single[] vecd, 
 				 int size){
 
+if (mat == null) {throw new ArgumentNullException  ("mat cannot be Nothing");}
+		if (vecs == null) {throw new ArgumentNullException  ("vecs cannot be Nothing");}
+		if (vecd == null) {throw new ArgumentNullException  ("vecd cannot be Nothing");}
 	int _Result = Natives.l_productMatVec(  mat,   vecs,   vecd,   size);
 	
 	return _Result;
@@ -345,6 +359,9 @@ public static int l_productMat2(
 				 Single[] matd, 
 				 int size){
 
+if (mat1 == null) {throw new ArgumentNullException  ("mat1 cannot be Nothing");}
+		if (mat2 == null) {throw new ArgumentNullException  ("mat2 cannot be Nothing");}
+		if (matd == null) {throw new ArgumentNullException  ("matd cannot be Nothing");}
 	int _Result = Natives.l_productMat2(  mat1,   mat2,   matd,   size);
 	
 	return _Result;
@@ -369,6 +386,10 @@ public static int l_productMat3(
 				 Single[] matd, 
 				 int size){
 
+if (mat1 == null) {throw new ArgumentNullException  ("mat1 cannot be Nothing");}
+		if (mat2 == null) {throw new ArgumentNullException  ("mat2 cannot be Nothing");}
+		if (mat3 == null) {throw new ArgumentNullException  ("mat3 cannot be Nothing");}
+		if (matd == null) {throw new ArgumentNullException  ("matd cannot be Nothing");}
 	int _Result = Natives.l_productMat3(  mat1,   mat2,   mat3,   matd,   size);
 	
 	return _Result;
@@ -395,6 +416,11 @@ public static int l_productMat4(
 				 Single[] matd, 
 				 int size){
 
+if (mat1 == null) {throw new ArgumentNullException  ("mat1 cannot be Nothing");}
+		if (mat2 == null) {throw new ArgumentNullException  ("mat2 cannot be Nothing");}
+		if (mat3 == null) {throw new ArgumentNullException  ("mat3 cannot be Nothing");}
+		if (mat4 == null) {throw new ArgumentNullException  ("mat4 cannot be Nothing");}
+		if (matd == null) {throw new ArgumentNullException  ("matd cannot be Nothing");}
 	int _Result = Natives.l_productMat4(  mat1,   mat2,   mat3,   mat4,   matd,   size);
 	
 	return _Result;

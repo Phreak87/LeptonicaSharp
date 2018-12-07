@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -32,6 +33,7 @@ public static Byte[] zlibCompress(
 				 uint nin, 
 				out uint pnout){
 
+if (datain == null) {throw new ArgumentNullException  ("datain cannot be Nothing");}
 	Byte[] _Result = Natives.zlibCompress(  datain,   nin, out  pnout);
 	
 	return _Result;
@@ -55,6 +57,7 @@ public static Byte[] zlibUncompress(
 				 uint nin, 
 				out uint pnout){
 
+if (datain == null) {throw new ArgumentNullException  ("datain cannot be Nothing");}
 	Byte[] _Result = Natives.zlibUncompress(  datain,   nin, out  pnout);
 	
 	return _Result;

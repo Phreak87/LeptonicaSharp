@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -19,6 +20,7 @@ public static Pix pixRotateOrth(
 				 Pix pixs, 
 				 int quads){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateOrth(pixs.Pointer,   quads);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -54,6 +56,7 @@ public static Pix pixRotate180(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixRotate180(pixdPtr, pixs.Pointer);
@@ -81,6 +84,7 @@ public static Pix pixRotate90(
 				 Pix pixs, 
 				 int direction){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotate90(pixs.Pointer,   direction);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -137,6 +141,7 @@ public static Pix pixFlipLR(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixFlipLR(pixdPtr, pixs.Pointer);
@@ -180,6 +185,7 @@ public static Pix pixFlipTB(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixFlipTB(pixdPtr, pixs.Pointer);

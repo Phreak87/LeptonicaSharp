@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -21,6 +22,7 @@ public partial class _All {
 public static Pix pixReadStreamSpix(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadStreamSpix(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -51,6 +53,10 @@ public static int readHeaderSpix(
 				out int pspp, 
 				out int piscmap){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.readHeaderSpix(  filename, out  pwidth, out  pheight, out  pbps, out  pspp, out  piscmap);
 	
 	return _Result;
@@ -80,6 +86,7 @@ public static int freadHeaderSpix(
 				out int pspp, 
 				out int piscmap){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.freadHeaderSpix(fp.Pointer, out  pwidth, out  pheight, out  pbps, out  pspp, out  piscmap);
 	
 	return _Result;
@@ -109,6 +116,7 @@ public static int sreadHeaderSpix(
 				out int pspp, 
 				out int piscmap){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
@@ -131,6 +139,8 @@ public static int pixWriteStreamSpix(
 				 FILE fp, 
 				 Pix pix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamSpix(fp.Pointer, pix.Pointer);
 	
 	return _Result;
@@ -149,6 +159,7 @@ public static Pix pixReadMemSpix(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMemSpix(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -170,6 +181,7 @@ public static int pixWriteMemSpix(
 				out uint psize, 
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemSpix(out  pdataPtr, out  psize, pix.Pointer);
@@ -211,6 +223,7 @@ public static int pixSerializeToMemory(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixSerializeToMemory(pixs.Pointer, out  pdataPtr, out  pnbytes);
@@ -241,6 +254,7 @@ public static Pix pixDeserializeFromMemory(
 				 Byte[] data, 
 				 uint nbytes){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 

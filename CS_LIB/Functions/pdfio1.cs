@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -48,6 +49,8 @@ public static int convertFilesToPdf(
 				 String title, 
 				 String fileout){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertFilesToPdf(  dirname,   substr,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
 	return _Result;
@@ -79,6 +82,8 @@ public static int saConvertFilesToPdf(
 				 String title, 
 				 String fileout){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.saConvertFilesToPdf(sa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
 	return _Result;
@@ -112,6 +117,7 @@ public static int saConvertFilesToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.saConvertFilesToPdfData(sa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
@@ -148,6 +154,7 @@ public static int selectDefaultPdfEncoding(
 				 Pix pix, 
 				out int ptype){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.selectDefaultPdfEncoding(pix.Pointer, out  ptype);
 	
 	return _Result;
@@ -183,6 +190,8 @@ public static int convertUnscaledFilesToPdf(
 				 String title, 
 				 String fileout){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertUnscaledFilesToPdf(  dirname,   substr,   title,   fileout);
 	
 	return _Result;
@@ -206,6 +215,8 @@ public static int saConvertUnscaledFilesToPdf(
 				 String title, 
 				 String fileout){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.saConvertUnscaledFilesToPdf(sa.Pointer,   title,   fileout);
 	
 	return _Result;
@@ -228,6 +239,7 @@ public static int saConvertUnscaledFilesToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.saConvertUnscaledFilesToPdfData(sa.Pointer,   title, out  pdataPtr, out  pnbytes);
@@ -257,6 +269,7 @@ public static int convertUnscaledToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertUnscaledToPdfData(  fname,   title, out  pdataPtr, out  pnbytes);
@@ -303,6 +316,8 @@ public static int pixaConvertToPdf(
 				 String title, 
 				 String fileout){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.pixaConvertToPdf(pixa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
 	return _Result;
@@ -336,6 +351,7 @@ public static int pixaConvertToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixaConvertToPdfData(pixa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
@@ -413,6 +429,8 @@ public static int convertToPdf(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
 	int _Result = Natives.convertToPdf(  filein,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
@@ -458,6 +476,8 @@ public static int convertImageDataToPdf(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+if (imdata == null) {throw new ArgumentNullException  ("imdata cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
 	int _Result = Natives.convertImageDataToPdf(  imdata,   size,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
@@ -503,6 +523,7 @@ public static int convertToPdfData(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
@@ -556,6 +577,7 @@ public static int convertImageDataToPdfData(
 				out L_Pdf_Data plpd, 
 				 int position){
 
+if (imdata == null) {throw new ArgumentNullException  ("imdata cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero;
 
@@ -608,6 +630,8 @@ public static int pixConvertToPdf(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
 	int _Result = Natives.pixConvertToPdf(pix.Pointer,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
@@ -639,6 +663,8 @@ public static int pixWriteStreamPdf(
 				 int res, 
 				 String title){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamPdf(fp.Pointer, pix.Pointer,   res,   title);
 	
 	return _Result;
@@ -669,6 +695,7 @@ public static int pixWriteMemPdf(
 				 int res, 
 				 String title){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemPdf(out  pdataPtr, out  pnbytes, pix.Pointer,   res,   title);
@@ -738,6 +765,8 @@ public static int convertSegmentedFilesToPdf(
 				 String title, 
 				 String fileout){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr baaPtr = IntPtr.Zero; 	if (baa != null) {baaPtr = baa.Pointer;}
 
 	int _Result = Natives.convertSegmentedFilesToPdf(  dirname,   substr,   res,   type,   thresh, baaPtr,   quality,   scalefactor,   title,   fileout);
@@ -768,6 +797,7 @@ public static Boxaa convertNumberedMasksToBoxaa(
 				 int numpre, 
 				 int numpost){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr _Result = Natives.convertNumberedMasksToBoxaa(  dirname,   substr,   numpre,   numpost);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -847,6 +877,8 @@ public static int convertToPdfSegmented(
 				 String title, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
 	int _Result = Natives.convertToPdfSegmented(  filein,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title,   fileout);
@@ -884,6 +916,8 @@ public static int pixConvertToPdfSegmented(
 				 String title, 
 				 String fileout){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
 	int _Result = Natives.pixConvertToPdfSegmented(pixs.Pointer,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title,   fileout);
@@ -926,6 +960,7 @@ public static int convertToPdfDataSegmented(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
 
@@ -971,6 +1006,7 @@ public static int pixConvertToPdfDataSegmented(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
 
@@ -1010,6 +1046,8 @@ public static int concatenatePdf(
 				 String substr, 
 				 String fileout){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.concatenatePdf(  dirname,   substr,   fileout);
 	
 	return _Result;
@@ -1031,6 +1069,8 @@ public static int saConcatenatePdf(
 				 Sarray sa, 
 				 String fileout){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.saConcatenatePdf(sa.Pointer,   fileout);
 	
 	return _Result;
@@ -1052,6 +1092,8 @@ public static int ptraConcatenatePdf(
 				 L_Ptra pa, 
 				 String fileout){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.ptraConcatenatePdf(pa.Pointer,   fileout);
 	
 	return _Result;
@@ -1085,6 +1127,7 @@ public static int concatenatePdfToData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.concatenatePdfToData(  dirname,   substr, out  pdataPtr, out  pnbytes);
@@ -1115,6 +1158,7 @@ public static int saConcatenatePdfToData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.saConcatenatePdfToData(sa.Pointer, out  pdataPtr, out  pnbytes);

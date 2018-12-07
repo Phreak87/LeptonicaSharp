@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -35,6 +36,8 @@ public static int convertFilesTo1bpp(
 				 String dirout, 
 				 int outformat){
 
+if (dirin == null) {throw new ArgumentNullException  ("dirin cannot be Nothing");}
+		if (dirout == null) {throw new ArgumentNullException  ("dirout cannot be Nothing");}
 	int _Result = Natives.convertFilesTo1bpp(  dirin,   substr,   upscaling,   thresh,   firstpage,   npages,   dirout,   outformat);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -51,6 +52,7 @@ public static int l_jpegSetQuality(
 public static void setLeptDebugOK(
 				 int allow){
 
+// Todo: Raw Checks defined but only in VB-Version
 	Natives.setLeptDebugOK(  allow);
 	
 }
@@ -74,6 +76,8 @@ public static int pixaWriteFiles(
 				 Pixa pixa, 
 				 IFF format){
 
+if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
+		if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	int _Result = Natives.pixaWriteFiles(  rootname, pixa.Pointer,  (int) format);
 	
 	return _Result;
@@ -102,6 +106,8 @@ public static int pixWriteDebug(
 				 Pix pix, 
 				 IFF format){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteDebug(  fname, pix.Pointer,  (int) format);
 	
 	return _Result;
@@ -135,6 +141,8 @@ public static int pixWrite(
 				 Pix pix, 
 				 IFF format){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWrite(  fname, pix.Pointer,  (int) format);
 	
 	return _Result;
@@ -153,6 +161,8 @@ public static int pixWriteAutoFormat(
 				 String filename, 
 				 Pix pix){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteAutoFormat(  filename, pix.Pointer);
 	
 	return _Result;
@@ -173,6 +183,8 @@ public static int pixWriteStream(
 				 Pix pix, 
 				 IFF format){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStream(fp.Pointer, pix.Pointer,  (int) format);
 	
 	return _Result;
@@ -202,6 +214,8 @@ public static int pixWriteImpliedFormat(
 				 int quality, 
 				 int progressive){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteImpliedFormat(  filename, pix.Pointer,   quality,   progressive);
 	
 	return _Result;
@@ -225,6 +239,7 @@ public static int pixWriteImpliedFormat(
 public static int pixChooseOutputFormat(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixChooseOutputFormat(pix.Pointer);
 	
 	return _Result;
@@ -245,6 +260,10 @@ public static int pixChooseOutputFormat(
 public static int getImpliedFileFormat(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.getImpliedFileFormat(  filename);
 	
 	return _Result;
@@ -272,6 +291,8 @@ public static int pixGetAutoFormat(
 				 Pix pix, 
 				 object pformat){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (pformat == null) {throw new ArgumentNullException  ("pformat cannot be Nothing");}
 	int _Result = Natives.pixGetAutoFormat(pix.Pointer,   pformat);
 	
 	return _Result;
@@ -325,6 +346,7 @@ public static int pixWriteMem(
 				 Pix pix, 
 				 IFF format){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMem(out  pdataPtr, out  psize, pix.Pointer,  (int) format);
@@ -363,6 +385,10 @@ public static int l_fileDisplay(
 				 int y, 
 				 Single scale){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+if (File.Exists (fname) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.l_fileDisplay(  fname,   x,   y,   scale);
 	
 	return _Result;
@@ -417,6 +443,7 @@ public static int pixDisplay(
 				 int x, 
 				 int y){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixDisplay(pixs.Pointer,   x,   y);
@@ -447,6 +474,7 @@ public static int pixDisplayWithTitle(
 				 String title, 
 				 int dispflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixDisplayWithTitle(pixs.Pointer,   x,   y,   title,   dispflag);
@@ -475,6 +503,9 @@ public static int pixSaveTiled(
 				 int space, 
 				 int dp){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+if ((new List<int> {1,2,4,8,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 32 bpp"); }
 	int _Result = Natives.pixSaveTiled(pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   dp);
 	
 	return _Result;
@@ -531,6 +562,9 @@ public static int pixSaveTiledOutline(
 				 int linewidth, 
 				 int dp){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+if ((new List<int> {1,2,4,8,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 32 bpp"); }
 	int _Result = Natives.pixSaveTiledOutline(pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   linewidth,   dp);
 	
 	return _Result;
@@ -590,6 +624,9 @@ public static int pixSaveTiledWithText(
 				 uint val, 
 				 int location){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+if ((new List<int> {1,2,4,8,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 32 bpp"); }
 	IntPtr bmfPtr = IntPtr.Zero; 	if (bmf != null) {bmfPtr = bmf.Pointer;}
 
 	int _Result = Natives.pixSaveTiledWithText(pixs.Pointer, pixa.Pointer,   outwidth,   newrow,   space,   linewidth, bmfPtr,   textstr,   val,   location);
@@ -646,6 +683,10 @@ public static int pixDisplayWrite(
 				 Pix pixs, 
 				 int reduction){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("-1 to reset/erase 0 to disable otherwise this is a  factor");
+	};
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixDisplayWrite(pixs.Pointer,   reduction);

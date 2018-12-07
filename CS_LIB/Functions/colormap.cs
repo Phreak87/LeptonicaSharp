@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -98,6 +99,7 @@ public static PixColormap pixcmapCreateLinear(
 public static PixColormap pixcmapCopy(
 				 PixColormap cmaps){
 
+if (cmaps == null) {throw new ArgumentNullException  ("cmaps cannot be Nothing");}
 	IntPtr _Result = Natives.pixcmapCopy(cmaps.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -143,6 +145,7 @@ public static int pixcmapAddColor(
 				 int gval, 
 				 int bval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapAddColor(cmap.Pointer,   rval,   gval,   bval);
 	
 	return _Result;
@@ -170,6 +173,7 @@ public static int pixcmapAddRGBA(
 				 int bval, 
 				 int aval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapAddRGBA(cmap.Pointer,   rval,   gval,   bval,   aval);
 	
 	return _Result;
@@ -204,6 +208,7 @@ public static int pixcmapAddNewColor(
 				 int bval, 
 				out int pindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapAddNewColor(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 	return _Result;
@@ -236,6 +241,7 @@ public static int pixcmapAddNearestColor(
 				 int bval, 
 				out int pindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapAddNearestColor(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 	return _Result;
@@ -264,6 +270,7 @@ public static int pixcmapUsableColor(
 				 int bval, 
 				out int pusable){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapUsableColor(cmap.Pointer,   rval,   gval,   bval, out  pusable);
 	
 	return _Result;
@@ -294,6 +301,7 @@ public static int pixcmapAddBlackOrWhite(
 				 int color, 
 				out int pindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapAddBlackOrWhite(cmap.Pointer,   color, out  pindex);
 	
 	return _Result;
@@ -314,6 +322,7 @@ public static int pixcmapSetBlackAndWhite(
 				 int setblack, 
 				 int setwhite){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapSetBlackAndWhite(cmap.Pointer,   setblack,   setwhite);
 	
 	return _Result;
@@ -330,6 +339,7 @@ public static int pixcmapSetBlackAndWhite(
 public static int pixcmapGetCount(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetCount(cmap.Pointer);
 	
 	return _Result;
@@ -346,6 +356,7 @@ public static int pixcmapGetCount(
 public static int pixcmapGetFreeCount(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetFreeCount(cmap.Pointer);
 	
 	return _Result;
@@ -362,6 +373,7 @@ public static int pixcmapGetFreeCount(
 public static int pixcmapGetDepth(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetDepth(cmap.Pointer);
 	
 	return _Result;
@@ -383,6 +395,7 @@ public static int pixcmapGetMinDepth(
 				 PixColormap cmap, 
 				out int pmindepth){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetMinDepth(cmap.Pointer, out  pmindepth);
 	
 	return _Result;
@@ -402,6 +415,7 @@ public static int pixcmapGetMinDepth(
 public static int pixcmapClear(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapClear(cmap.Pointer);
 	
 	return _Result;
@@ -426,6 +440,7 @@ public static int pixcmapGetColor(
 				out int pgval, 
 				out int pbval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetColor(cmap.Pointer,   index, out  prval, out  pgval, out  pbval);
 	
 	return _Result;
@@ -449,6 +464,7 @@ public static int pixcmapGetColor32(
 				 int index, 
 				out uint pval32){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetColor32(cmap.Pointer,   index, out  pval32);
 	
 	return _Result;
@@ -475,6 +491,7 @@ public static int pixcmapGetRGBA(
 				out int pbval, 
 				out int paval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetRGBA(cmap.Pointer,   index, out  prval, out  pgval, out  pbval, out  paval);
 	
 	return _Result;
@@ -495,6 +512,7 @@ public static int pixcmapGetRGBA32(
 				 int index, 
 				out uint pval32){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetRGBA32(cmap.Pointer,   index, out  pval32);
 	
 	return _Result;
@@ -525,6 +543,7 @@ public static int pixcmapResetColor(
 				 int gval, 
 				 int bval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapResetColor(cmap.Pointer,   index,   rval,   gval,   bval);
 	
 	return _Result;
@@ -551,6 +570,7 @@ public static int pixcmapSetAlpha(
 				 int index, 
 				 int aval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapSetAlpha(cmap.Pointer,   index,   aval);
 	
 	return _Result;
@@ -575,6 +595,7 @@ public static int pixcmapGetIndex(
 				 int bval, 
 				out int pindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetIndex(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 	return _Result;
@@ -593,6 +614,7 @@ public static int pixcmapHasColor(
 				 PixColormap cmap, 
 				out int pcolor){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapHasColor(cmap.Pointer, out  pcolor);
 	
 	return _Result;
@@ -611,6 +633,7 @@ public static int pixcmapIsOpaque(
 				 PixColormap cmap, 
 				out int popaque){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapIsOpaque(cmap.Pointer, out  popaque);
 	
 	return _Result;
@@ -629,6 +652,7 @@ public static int pixcmapIsBlackAndWhite(
 				 PixColormap cmap, 
 				out int pblackwhite){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapIsBlackAndWhite(cmap.Pointer, out  pblackwhite);
 	
 	return _Result;
@@ -650,6 +674,7 @@ public static int pixcmapCountGrayColors(
 				 PixColormap cmap, 
 				out int pngray){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapCountGrayColors(cmap.Pointer, out  pngray);
 	
 	return _Result;
@@ -670,6 +695,7 @@ public static int pixcmapGetRankIntensity(
 				 Single rankval, 
 				out int pindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetRankIntensity(cmap.Pointer,   rankval, out  pindex);
 	
 	return _Result;
@@ -701,6 +727,7 @@ public static int pixcmapGetNearestIndex(
 				 int bval, 
 				out int pindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetNearestIndex(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 	return _Result;
@@ -728,6 +755,7 @@ public static int pixcmapGetNearestGrayIndex(
 				 int val, 
 				out int pindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetNearestGrayIndex(cmap.Pointer,   val, out  pindex);
 	
 	return _Result;
@@ -758,6 +786,7 @@ public static int pixcmapGetDistanceToColor(
 				 int bval, 
 				out int pdist){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetDistanceToColor(cmap.Pointer,   index,   rval,   gval,   bval, out  pdist);
 	
 	return _Result;
@@ -788,6 +817,7 @@ public static int pixcmapGetRangeValues(
 				out int pminindex, 
 				out int pmaxindex){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGetRangeValues(cmap.Pointer,   _select_, out  pminval, out  pmaxval, out  pminindex, out  pmaxindex);
 	
 	return _Result;
@@ -841,6 +871,7 @@ public static PixColormap pixcmapColorToGray(
 				 Single gwt, 
 				 Single bwt){
 
+if (cmaps == null) {throw new ArgumentNullException  ("cmaps cannot be Nothing");}
 	IntPtr _Result = Natives.pixcmapColorToGray(cmaps.Pointer,   rwt,   gwt,   bwt);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -862,6 +893,7 @@ public static PixColormap pixcmapColorToGray(
 public static PixColormap pixcmapConvertTo4(
 				 PixColormap cmaps){
 
+if (cmaps == null) {throw new ArgumentNullException  ("cmaps cannot be Nothing");}
 	IntPtr _Result = Natives.pixcmapConvertTo4(cmaps.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -883,6 +915,7 @@ public static PixColormap pixcmapConvertTo4(
 public static PixColormap pixcmapConvertTo8(
 				 PixColormap cmaps){
 
+if (cmaps == null) {throw new ArgumentNullException  ("cmaps cannot be Nothing");}
 	IntPtr _Result = Natives.pixcmapConvertTo8(cmaps.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -900,6 +933,10 @@ public static PixColormap pixcmapConvertTo8(
 public static PixColormap pixcmapRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.pixcmapRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -917,6 +954,7 @@ public static PixColormap pixcmapRead(
 public static PixColormap pixcmapReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixcmapReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -936,6 +974,7 @@ public static PixColormap pixcmapReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixcmapReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -955,6 +994,8 @@ public static int pixcmapWrite(
 				 String filename, 
 				 PixColormap cmap){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapWrite(  filename, cmap.Pointer);
 	
 	return _Result;
@@ -972,6 +1013,8 @@ public static int pixcmapWriteStream(
 				 FILE fp, 
 				 PixColormap cmap){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr cmapPtr = IntPtr.Zero; if (cmap != null) {cmapPtr = cmap.Pointer;}
 
 	int _Result = Natives.pixcmapWriteStream(fp.Pointer, cmap.Pointer);
@@ -997,6 +1040,7 @@ public static int pixcmapWriteMem(
 				out uint psize, 
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixcmapWriteMem(out  pdataPtr, out  psize, cmap.Pointer);
@@ -1028,6 +1072,7 @@ public static int pixcmapToArrays(
 				out List<int[]> pbmap, 
 				out List<int[]> pamap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr prmapPtr = IntPtr.Zero;
 	IntPtr pgmapPtr = IntPtr.Zero;
 	IntPtr pbmapPtr = IntPtr.Zero;
@@ -1057,6 +1102,7 @@ public static int pixcmapToRGBTable(
 				out Byte[] ptab, 
 				out int pncolors){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr ptabPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixcmapToRGBTable(cmap.Pointer, out  ptabPtr, out  pncolors);
@@ -1089,6 +1135,7 @@ public static int pixcmapSerializeToMemory(
 				out int pncolors, 
 				out Byte[] pdata){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixcmapSerializeToMemory(cmap.Pointer,   cpc, out  pncolors, out  pdataPtr);
@@ -1116,6 +1163,7 @@ public static PixColormap pixcmapDeserializeFromMemory(
 				 int cpc, 
 				 int ncolors){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixcmapDeserializeFromMemory(  data,   cpc,   ncolors);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1145,6 +1193,7 @@ public static String pixcmapConvertToHex(
 				 Byte[] data, 
 				 int ncolors){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	String _Result = Natives.pixcmapConvertToHex(  data,   ncolors);
 	
 	return _Result;
@@ -1173,6 +1222,7 @@ public static int pixcmapGammaTRC(
 				 int minval, 
 				 int maxval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapGammaTRC(cmap.Pointer,   gamma,   minval,   maxval);
 	
 	return _Result;
@@ -1197,6 +1247,7 @@ public static int pixcmapContrastTRC(
 				 PixColormap cmap, 
 				 Single factor){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapContrastTRC(cmap.Pointer,   factor);
 	
 	return _Result;
@@ -1228,6 +1279,7 @@ public static int pixcmapShiftIntensity(
 				 PixColormap cmap, 
 				 Single fraction){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapShiftIntensity(cmap.Pointer,   fraction);
 	
 	return _Result;
@@ -1258,6 +1310,7 @@ public static int pixcmapShiftByComponent(
 				 uint srcval, 
 				 uint dstval){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapShiftByComponent(cmap.Pointer,   srcval,   dstval);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -35,6 +36,8 @@ public static Pix pixConnCompTransform(
 				 int connect, 
 				 int depth){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixConnCompTransform(pixs.Pointer,   connect,   depth);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -61,6 +64,8 @@ public static Pix pixConnCompAreaTransform(
 				 Pix pixs, 
 				 int connect){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixConnCompAreaTransform(pixs.Pointer,   connect);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -102,6 +107,8 @@ public static int pixConnCompIncrInit(
 				out Ptaa pptaa, 
 				out int pncc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr ppixdPtr = IntPtr.Zero;
 	IntPtr pptaaPtr = IntPtr.Zero;
 
@@ -157,6 +164,8 @@ public static int pixConnCompIncrAdd(
 				 Single y, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.pixConnCompIncrAdd(pixs.Pointer, ptaa.Pointer, out  pncc,   x,   y,  (int) debug);
 	
 	return _Result;
@@ -195,6 +204,7 @@ public static int pixGetSortedNeighborValues(
 				out List<int[]> pneigh, 
 				out int pnvals){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pneighPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGetSortedNeighborValues(pixs.Pointer,   x,   y,   conn, out  pneighPtr, out  pnvals);
@@ -226,6 +236,8 @@ public static int pixGetSortedNeighborValues(
 public static Pix pixLocToColorTransform(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixLocToColorTransform(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

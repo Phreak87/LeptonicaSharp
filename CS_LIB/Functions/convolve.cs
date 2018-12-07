@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -30,6 +31,7 @@ public static Pix pixBlockconv(
 				 int wc, 
 				 int hc){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.pixBlockconv(pix.Pointer,   wc,   hc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -65,6 +67,9 @@ public static Pix pixBlockconvGray(
 				 int wc, 
 				 int hc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixBlockconvGray(pixs.Pointer, pixacc.Pointer,   wc,   hc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -90,6 +95,7 @@ public static Pix pixBlockconvGray(
 public static Pix pixBlockconvAccum(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixBlockconvAccum(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -143,6 +149,8 @@ public static Pix pixBlockconvGrayUnnormalized(
 				 int wc, 
 				 int hc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixBlockconvGrayUnnormalized(pixs.Pointer,   wc,   hc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -193,6 +201,7 @@ public static Pix pixBlockconvTiled(
 				 int nx, 
 				 int ny){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.pixBlockconvTiled(pix.Pointer,   wc,   hc,   nx,   ny);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -230,6 +239,8 @@ public static Pix pixBlockconvGrayTile(
 				 int wc, 
 				 int hc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixacc == null) {throw new ArgumentNullException  ("pixacc cannot be Nothing");}
 	IntPtr _Result = Natives.pixBlockconvGrayTile(pixs.Pointer, pixacc.Pointer,   wc,   hc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -288,6 +299,8 @@ public static int pixWindowedStats(
 				out FPix pfpixv, 
 				out FPix pfpixrv){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale"); }
 	IntPtr ppixmPtr = IntPtr.Zero;
 	IntPtr ppixmsPtr = IntPtr.Zero;
 	IntPtr pfpixvPtr = IntPtr.Zero;
@@ -342,6 +355,7 @@ public static Pix pixWindowedMean(
 				 int hasborder, 
 				 int normflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixWindowedMean(pixs.Pointer,   wc,   hc,   hasborder,   normflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -389,6 +403,8 @@ public static Pix pixWindowedMeanSquare(
 				 int hc, 
 				 int hasborder){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale"); }
 	IntPtr _Result = Natives.pixWindowedMeanSquare(pixs.Pointer,   wc,   hc,   hasborder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -426,6 +442,8 @@ public static int pixWindowedVariance(
 				out FPix pfpixv, 
 				out FPix pfpixrv){
 
+if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
+		if (pixms == null) {throw new ArgumentNullException  ("pixms cannot be Nothing");}
 	IntPtr pfpixvPtr = IntPtr.Zero;
 	IntPtr pfpixrvPtr = IntPtr.Zero;
 
@@ -460,6 +478,8 @@ public static int pixWindowedVariance(
 public static DPix pixMeanSquareAccum(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale"); }
 	IntPtr _Result = Natives.pixMeanSquareAccum(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -505,6 +525,8 @@ public static Pix pixBlockrank(
 				 int hc, 
 				 Single rank){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
 	IntPtr _Result = Natives.pixBlockrank(pixs.Pointer, pixaccPtr,   wc,   hc,   rank);
@@ -555,6 +577,8 @@ public static Pix pixBlocksum(
 				 int wc, 
 				 int hc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
 	IntPtr _Result = Natives.pixBlocksum(pixs.Pointer, pixaccPtr,   wc,   hc);
@@ -599,6 +623,8 @@ public static Pix pixCensusTransform(
 				 int halfsize, 
 				 Pix pixacc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
 	IntPtr _Result = Natives.pixCensusTransform(pixs.Pointer,   halfsize, pixaccPtr);
@@ -663,6 +689,8 @@ public static Pix pixConvolve(
 				 int outdepth, 
 				 int normflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvolve(pixs.Pointer, kel.Pointer,   outdepth,   normflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -725,6 +753,9 @@ public static Pix pixConvolveSep(
 				 int outdepth, 
 				 int normflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (kelx == null) {throw new ArgumentNullException  ("kelx cannot be Nothing");}
+		if (kely == null) {throw new ArgumentNullException  ("kely cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvolveSep(pixs.Pointer, kelx.Pointer, kely.Pointer,   outdepth,   normflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -763,6 +794,9 @@ public static Pix pixConvolveRGB(
 				 Pix pixs, 
 				 L_Kernel kel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixConvolveRGB(pixs.Pointer, kel.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -803,6 +837,10 @@ public static Pix pixConvolveRGBSep(
 				 L_Kernel kelx, 
 				 L_Kernel kely){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (kelx == null) {throw new ArgumentNullException  ("kelx cannot be Nothing");}
+		if (kely == null) {throw new ArgumentNullException  ("kely cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixConvolveRGBSep(pixs.Pointer, kelx.Pointer, kely.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -843,6 +881,8 @@ public static FPix fpixConvolve(
 				 L_Kernel kel, 
 				 int normflag){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
+		if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	IntPtr _Result = Natives.fpixConvolve(fpixs.Pointer, kel.Pointer,   normflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -887,6 +927,9 @@ public static FPix fpixConvolveSep(
 				 L_Kernel kely, 
 				 int normflag){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
+		if (kelx == null) {throw new ArgumentNullException  ("kelx cannot be Nothing");}
+		if (kely == null) {throw new ArgumentNullException  ("kely cannot be Nothing");}
 	IntPtr _Result = Natives.fpixConvolveSep(fpixs.Pointer, kelx.Pointer, kely.Pointer,   normflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -933,6 +976,8 @@ public static Pix pixConvolveWithBias(
 				 int force8, 
 				out int pbias){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (kel1 == null) {throw new ArgumentNullException  ("kel1 cannot be Nothing");}
 	IntPtr kel2Ptr = IntPtr.Zero; 	if (kel2 != null) {kel2Ptr = kel2.Pointer;}
 
 	IntPtr _Result = Natives.pixConvolveWithBias(pixs.Pointer, kel1.Pointer, kel2Ptr,   force8, out  pbias);
@@ -978,6 +1023,7 @@ public static Pix pixAddGaussianNoise(
 				 Pix pixs, 
 				 Single stdev){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixAddGaussianNoise(pixs.Pointer,   stdev);
 	
 	if (_Result == IntPtr.Zero) {return null;}

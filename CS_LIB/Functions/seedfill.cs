@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -46,6 +47,8 @@ public static Pix pixSeedfillBinary(
 				 Pix pixm, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixSeedfillBinary(pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity);
@@ -97,6 +100,8 @@ public static Pix pixSeedfillBinaryRestricted(
 				 int xmax, 
 				 int ymax){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixSeedfillBinaryRestricted(pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity,   xmax,   ymax);
@@ -123,6 +128,8 @@ public static Pix pixHolesByFilling(
 				 Pix pixs, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixHolesByFilling(pixs.Pointer,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -159,6 +166,8 @@ public static Pix pixFillClosedBorders(
 				 Pix pixs, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixFillClosedBorders(pixs.Pointer,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -178,6 +187,8 @@ public static Pix pixExtractBorderConnComps(
 				 Pix pixs, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixExtractBorderConnComps(pixs.Pointer,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -200,6 +211,8 @@ public static Pix pixRemoveBorderConnComps(
 				 Pix pixs, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixRemoveBorderConnComps(pixs.Pointer,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -237,6 +250,8 @@ public static Pix pixFillBgFromBorder(
 				 Pix pixs, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixFillBgFromBorder(pixs.Pointer,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -283,6 +298,8 @@ public static Pix pixFillHolesToBoundingRect(
 				 Single maxhfract, 
 				 Single minfgfract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixFillHolesToBoundingRect(pixs.Pointer,   minsize,   maxhfract,   minfgfract);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -321,6 +338,8 @@ public static int pixSeedfillGray(
 				 Pix pixm, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	int _Result = Natives.pixSeedfillGray(pixs.Pointer, pixm.Pointer,   connectivity);
 	
 	return _Result;
@@ -360,6 +379,8 @@ public static int pixSeedfillGrayInv(
 				 Pix pixm, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	int _Result = Natives.pixSeedfillGrayInv(pixs.Pointer, pixm.Pointer,   connectivity);
 	
 	return _Result;
@@ -397,6 +418,8 @@ public static int pixSeedfillGraySimple(
 				 Pix pixm, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	int _Result = Natives.pixSeedfillGraySimple(pixs.Pointer, pixm.Pointer,   connectivity);
 	
 	return _Result;
@@ -431,6 +454,8 @@ public static int pixSeedfillGrayInvSimple(
 				 Pix pixm, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	int _Result = Natives.pixSeedfillGrayInvSimple(pixs.Pointer, pixm.Pointer,   connectivity);
 	
 	return _Result;
@@ -476,6 +501,8 @@ public static Pix pixSeedfillGrayBasin(
 				 int delta, 
 				 int connectivity){
 
+if (pixb == null) {throw new ArgumentNullException  ("pixb cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr _Result = Natives.pixSeedfillGrayBasin(pixb.Pointer, pixm.Pointer,   delta,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -534,6 +561,7 @@ public static Pix pixDistanceFunction(
 				 int outdepth, 
 				 int boundcond){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixDistanceFunction(pixs.Pointer,   connectivity,   outdepth,   boundcond);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -587,6 +615,7 @@ public static Pix pixSeedspread(
 				 Pix pixs, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSeedspread(pixs.Pointer,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -638,6 +667,8 @@ public static int pixLocalExtrema(
 				out Pix ppixmin, 
 				out Pix ppixmax){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr ppixminPtr = IntPtr.Zero;
 	IntPtr ppixmaxPtr = IntPtr.Zero;
 
@@ -688,6 +719,8 @@ public static int pixSelectedLocalExtrema(
 				out Pix ppixmin, 
 				out Pix ppixmax){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr ppixminPtr = IntPtr.Zero;
 	IntPtr ppixmaxPtr = IntPtr.Zero;
 
@@ -716,6 +749,10 @@ public static Pix pixFindEqualValues(
 				 Pix pixs1, 
 				 Pix pixs2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs1.d) == false) { throw new ArgumentException ("8 bpp"); }
+	if ((new List<int> {8}).Contains ((int)pixs2.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixFindEqualValues(pixs1.Pointer, pixs2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -750,6 +787,10 @@ public static int pixSelectMinInConnComp(
 				out Pta ppta, 
 				out Numa pnav){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
+	if ((new List<int> {1}).Contains ((int)pixm.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pptaPtr = IntPtr.Zero;
 	IntPtr pnavPtr = IntPtr.Zero;
 
@@ -791,6 +832,8 @@ public static Pix pixRemoveSeededComponents(
 				 int connectivity, 
 				 int bordersize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixRemoveSeededComponents(pixdPtr, pixs.Pointer, pixm.Pointer,   connectivity,   bordersize);

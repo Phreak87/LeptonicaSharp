@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -82,6 +83,7 @@ public static Box boxCreateValid(
 public static Box boxCopy(
 				 Box box){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxCopy(box.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -99,6 +101,7 @@ public static Box boxCopy(
 public static Box boxClone(
 				 Box box){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxClone(box.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -146,6 +149,7 @@ public static int boxGetGeometry(
 				out int pw, 
 				out int ph){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxGetGeometry(box.Pointer, out  px, out  py, out  pw, out  ph);
 	
 	return _Result;
@@ -170,6 +174,7 @@ public static int boxSetGeometry(
 				 int w, 
 				 int h){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxSetGeometry(box.Pointer,   x,   y,   w,   h);
 	
 	return _Result;
@@ -197,6 +202,7 @@ public static int boxGetSideLocations(
 				out int pt, 
 				out int pb){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxGetSideLocations(box.Pointer, out  pl, out  pr, out  pt, out  pb);
 	
 	return _Result;
@@ -221,6 +227,7 @@ public static int boxSetSideLocations(
 				 int t, 
 				 int b){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxSetSideLocations(box.Pointer,   l,   r,   t,   b);
 	
 	return _Result;
@@ -237,6 +244,7 @@ public static int boxSetSideLocations(
 public static int boxGetRefcount(
 				 Box box){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxGetRefcount(box.Pointer);
 	
 	return _Result;
@@ -255,6 +263,7 @@ public static int boxChangeRefcount(
 				 Box box, 
 				 int delta){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxChangeRefcount(box.Pointer,   delta);
 	
 	return _Result;
@@ -273,6 +282,7 @@ public static int boxIsValid(
 				 Box box, 
 				out int pvalid){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxIsValid(box.Pointer, out  pvalid);
 	
 	return _Result;
@@ -313,6 +323,7 @@ public static Boxa boxaCopy(
 				 Boxa boxa, 
 				 int copyflag){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaCopy(boxa.Pointer,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -356,6 +367,8 @@ public static int boxaAddBox(
 				 Box box, 
 				 int copyflag){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxaAddBox(boxa.Pointer, box.Pointer,   copyflag);
 	
 	return _Result;
@@ -375,6 +388,7 @@ public static int boxaAddBox(
 public static int boxaExtendArray(
 				 Boxa boxa){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaExtendArray(boxa.Pointer);
 	
 	return _Result;
@@ -396,6 +410,7 @@ public static int boxaExtendArrayToSize(
 				 Boxa boxa, 
 				 int size){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaExtendArrayToSize(boxa.Pointer,   size);
 	
 	return _Result;
@@ -412,6 +427,7 @@ public static int boxaExtendArrayToSize(
 public static int boxaGetCount(
 				 Boxa boxa){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetCount(boxa.Pointer);
 	
 	return _Result;
@@ -428,6 +444,7 @@ public static int boxaGetCount(
 public static int boxaGetValidCount(
 				 Boxa boxa){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetValidCount(boxa.Pointer);
 	
 	return _Result;
@@ -448,6 +465,7 @@ public static Box boxaGetBox(
 				 int index, 
 				 int accessflag){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaGetBox(boxa.Pointer,   index,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -478,6 +496,7 @@ public static Box boxaGetValidBox(
 				 int index, 
 				 int accessflag){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaGetValidBox(boxa.Pointer,   index,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -495,6 +514,7 @@ public static Box boxaGetValidBox(
 public static Numa boxaFindInvalidBoxes(
 				 Boxa boxa){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaFindInvalidBoxes(boxa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -522,6 +542,7 @@ public static int boxaGetBoxGeometry(
 				out int pw, 
 				out int ph){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetBoxGeometry(boxa.Pointer,   index, out  px, out  py, out  pw, out  ph);
 	
 	return _Result;
@@ -540,6 +561,7 @@ public static int boxaIsFull(
 				 Boxa boxa, 
 				out int pfull){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaIsFull(boxa.Pointer, out  pfull);
 	
 	return _Result;
@@ -565,6 +587,8 @@ public static int boxaReplaceBox(
 				 int index, 
 				 Box box){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxaReplaceBox(boxa.Pointer,   index, box.Pointer);
 	
 	return _Result;
@@ -596,6 +620,8 @@ public static int boxaInsertBox(
 				 int index, 
 				 Box box){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxaInsertBox(boxa.Pointer,   index, box.Pointer);
 	
 	return _Result;
@@ -621,6 +647,7 @@ public static int boxaRemoveBox(
 				 Boxa boxa, 
 				 int index){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaRemoveBox(boxa.Pointer,   index);
 	
 	return _Result;
@@ -648,6 +675,7 @@ public static int boxaRemoveBoxAndSave(
 				 int index, 
 				out Box pbox){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pboxPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaRemoveBoxAndSave(boxa.Pointer,   index, out pboxPtr);
@@ -672,6 +700,7 @@ public static Boxa boxaSaveValid(
 				 Boxa boxas, 
 				 int copyflag){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSaveValid(boxas.Pointer,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -722,6 +751,7 @@ public static int boxaInitFull(
 				 Boxa boxa, 
 				 Box box){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.boxaInitFull(boxa.Pointer, boxPtr);
@@ -744,6 +774,7 @@ public static int boxaInitFull(
 public static int boxaClear(
 				 Boxa boxa){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaClear(boxa.Pointer);
 	
 	return _Result;
@@ -783,6 +814,7 @@ public static Boxaa boxaaCopy(
 				 Boxaa baas, 
 				 int copyflag){
 
+if (baas == null) {throw new ArgumentNullException  ("baas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaCopy(baas.Pointer,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -821,6 +853,8 @@ public static int boxaaAddBoxa(
 				 Boxa ba, 
 				 int copyflag){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (ba == null) {throw new ArgumentNullException  ("ba cannot be Nothing");}
 	int _Result = Natives.boxaaAddBoxa(baa.Pointer, ba.Pointer,   copyflag);
 	
 	return _Result;
@@ -837,6 +871,7 @@ public static int boxaaAddBoxa(
 public static int boxaaExtendArray(
 				 Boxaa baa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaExtendArray(baa.Pointer);
 	
 	return _Result;
@@ -858,6 +893,7 @@ public static int boxaaExtendArrayToSize(
 				 Boxaa baa, 
 				 int size){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaExtendArrayToSize(baa.Pointer,   size);
 	
 	return _Result;
@@ -874,6 +910,7 @@ public static int boxaaExtendArrayToSize(
 public static int boxaaGetCount(
 				 Boxaa baa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaGetCount(baa.Pointer);
 	
 	return _Result;
@@ -890,6 +927,7 @@ public static int boxaaGetCount(
 public static int boxaaGetBoxCount(
 				 Boxaa baa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaGetBoxCount(baa.Pointer);
 	
 	return _Result;
@@ -910,6 +948,7 @@ public static Boxa boxaaGetBoxa(
 				 int index, 
 				 int accessflag){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaGetBoxa(baa.Pointer,   index,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -933,6 +972,7 @@ public static Box boxaaGetBox(
 				 int ibox, 
 				 int accessflag){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaGetBox(baa.Pointer,   iboxa,   ibox,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -974,6 +1014,8 @@ public static int boxaaInitFull(
 				 Boxaa baa, 
 				 Boxa boxa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaaInitFull(baa.Pointer, boxa.Pointer);
 	
 	return _Result;
@@ -1000,6 +1042,8 @@ public static int boxaaExtendWithInit(
 				 int maxindex, 
 				 Boxa boxa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaaExtendWithInit(baa.Pointer,   maxindex, boxa.Pointer);
 	
 	return _Result;
@@ -1026,6 +1070,8 @@ public static int boxaaReplaceBoxa(
 				 int index, 
 				 Boxa boxa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaaReplaceBoxa(baa.Pointer,   index, boxa.Pointer);
 	
 	return _Result;
@@ -1057,6 +1103,8 @@ public static int boxaaInsertBoxa(
 				 int index, 
 				 Boxa boxa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaaInsertBoxa(baa.Pointer,   index, boxa.Pointer);
 	
 	return _Result;
@@ -1084,6 +1132,7 @@ public static int boxaaRemoveBoxa(
 				 Boxaa baa, 
 				 int index){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaRemoveBoxa(baa.Pointer,   index);
 	
 	return _Result;
@@ -1109,6 +1158,8 @@ public static int boxaaAddBox(
 				 Box box, 
 				 int accessflag){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxaaAddBox(baa.Pointer,   index, box.Pointer,   accessflag);
 	
 	return _Result;
@@ -1142,6 +1193,7 @@ public static Boxaa boxaaReadFromFiles(
 				 int first, 
 				 int nfiles){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaReadFromFiles(  dirname,   substr,   first,   nfiles);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1159,6 +1211,10 @@ public static Boxaa boxaaReadFromFiles(
 public static Boxaa boxaaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.boxaaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1176,6 +1232,7 @@ public static Boxaa boxaaRead(
 public static Boxaa boxaaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1195,6 +1252,7 @@ public static Boxaa boxaaReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1214,6 +1272,8 @@ public static int boxaaWrite(
 				 String filename, 
 				 Boxaa baa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaWrite(  filename, baa.Pointer);
 	
 	return _Result;
@@ -1232,6 +1292,8 @@ public static int boxaaWriteStream(
 				 FILE fp, 
 				 Boxaa baa){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaWriteStream(fp.Pointer, baa.Pointer);
 	
 	return _Result;
@@ -1255,6 +1317,7 @@ public static int boxaaWriteMem(
 				out uint psize, 
 				 Boxaa baa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaaWriteMem(out  pdataPtr, out  psize, baa.Pointer);
@@ -1278,6 +1341,10 @@ public static int boxaaWriteMem(
 public static Boxa boxaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.boxaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1295,6 +1362,7 @@ public static Boxa boxaRead(
 public static Boxa boxaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.boxaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1314,6 +1382,7 @@ public static Boxa boxaReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.boxaReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1341,6 +1410,8 @@ public static int boxaWriteDebug(
 				 String filename, 
 				 Boxa boxa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaWriteDebug(  filename, boxa.Pointer);
 	
 	return _Result;
@@ -1359,6 +1430,8 @@ public static int boxaWrite(
 				 String filename, 
 				 Boxa boxa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaWrite(  filename, boxa.Pointer);
 	
 	return _Result;
@@ -1377,6 +1450,8 @@ public static int boxaWriteStream(
 				 FILE fp, 
 				 Boxa boxa){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaWriteStream(fp.Pointer, boxa.Pointer);
 	
 	return _Result;
@@ -1400,6 +1475,7 @@ public static int boxaWriteMem(
 				out uint psize, 
 				 Boxa boxa){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaWriteMem(out  pdataPtr, out  psize, boxa.Pointer);
@@ -1429,6 +1505,8 @@ public static int boxPrintStreamInfo(
 				 FILE fp, 
 				 Box box){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxPrintStreamInfo(fp.Pointer, box.Pointer);
 	
 	return _Result;

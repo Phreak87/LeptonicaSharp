@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -22,6 +23,7 @@ public partial class _All {
 public static Pix pixReadStreamBmp(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadStreamBmp(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -41,6 +43,7 @@ public static Pix pixReadMemBmp(
 				 Byte[] cdata, 
 				 uint size){
 
+if (cdata == null) {throw new ArgumentNullException  ("cdata cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMemBmp(  cdata,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -60,6 +63,8 @@ public static int pixWriteStreamBmp(
 				 FILE fp, 
 				 Pix pix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamBmp(fp.Pointer, pix.Pointer);
 	
 	return _Result;
@@ -94,6 +99,8 @@ public static int pixWriteMemBmp(
 				out uint pfsize, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16, 32 bpp"); }
 	IntPtr pfdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemBmp(out  pfdataPtr, out  pfsize, pixs.Pointer);

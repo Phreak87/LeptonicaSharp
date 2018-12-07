@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -34,6 +35,9 @@ public static Pix pixProjectiveSampledPta(
 				 Pta ptas, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixProjectiveSampledPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -64,6 +68,8 @@ public static Pix pixProjectiveSampled(
 				 Single[] vc, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixProjectiveSampled(pixs.Pointer,   vc,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -92,6 +98,9 @@ public static Pix pixProjectivePta(
 				 Pta ptas, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixProjectivePta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -118,6 +127,8 @@ public static Pix pixProjective(
 				 Single[] vc, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixProjective(pixs.Pointer,   vc,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -141,6 +152,9 @@ public static Pix pixProjectivePtaColor(
 				 Pta ptas, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixProjectivePtaColor(pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -162,6 +176,8 @@ public static Pix pixProjectiveColor(
 				 Single[] vc, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixProjectiveColor(pixs.Pointer,   vc,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -185,6 +201,10 @@ public static Pix pixProjectivePtaGray(
 				 Pta ptas, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixProjectivePtaGray(pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -206,6 +226,9 @@ public static Pix pixProjectiveGray(
 				 Single[] vc, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixProjectiveGray(pixs.Pointer,   vc,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -269,6 +292,10 @@ public static Pix pixProjectivePtaWithAlpha(
 				 Single fract, 
 				 int border){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
 	IntPtr _Result = Natives.pixProjectivePtaWithAlpha(pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
@@ -292,6 +319,8 @@ public static int getProjectiveXformCoeffs(
 				 Pta ptad, 
 				out List<Single[]> pvc){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
 	IntPtr pvcPtr = IntPtr.Zero;
 
 	int _Result = Natives.getProjectiveXformCoeffs(ptas.Pointer, ptad.Pointer, out  pvcPtr);
@@ -324,6 +353,7 @@ public static int projectiveXformSampledPt(
 				out int pxp, 
 				out int pyp){
 
+if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	int _Result = Natives.projectiveXformSampledPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 	return _Result;
@@ -353,6 +383,7 @@ public static int projectiveXformPt(
 				out Single pxp, 
 				out Single pyp){
 
+if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	int _Result = Natives.projectiveXformPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 	return _Result;

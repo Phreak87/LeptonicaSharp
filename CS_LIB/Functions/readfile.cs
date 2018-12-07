@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -27,6 +28,7 @@ public static Pixa pixaReadFiles(
 				 String dirname, 
 				 String substr){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr _Result = Natives.pixaReadFiles(  dirname,   substr);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -44,6 +46,7 @@ public static Pixa pixaReadFiles(
 public static Pixa pixaReadFilesSA(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaReadFilesSA(sa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -64,6 +67,10 @@ public static Pixa pixaReadFilesSA(
 public static Pix pixRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.pixRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -87,6 +94,10 @@ public static Pix pixReadWithHint(
 				 String filename, 
 				 int hint){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.pixReadWithHint(  filename,   hint);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -128,6 +139,7 @@ public static Pix pixReadIndexed(
 				 Sarray sa, 
 				 int index){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadIndexed(sa.Pointer,   index);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -150,6 +162,7 @@ public static Pix pixReadStream(
 				 FILE fp, 
 				 int hint){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadStream(fp.Pointer,   hint);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -184,6 +197,10 @@ public static int pixReadHeader(
 				out int pspp, 
 				out int piscmap){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.pixReadHeader(  filename, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 	return _Result;
@@ -202,6 +219,10 @@ public static int findFileFormat(
 				 String filename, 
 				out int pformat){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.findFileFormat(  filename, out  pformat);
 	
 	return _Result;
@@ -223,6 +244,7 @@ public static int findFileFormatStream(
 				 FILE fp, 
 				out int pformat){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.findFileFormatStream(fp.Pointer, out  pformat);
 	
 	return _Result;
@@ -248,6 +270,7 @@ public static int findFileFormatBuffer(
 				 Byte[] buf, 
 				out int pformat){
 
+if (buf == null) {throw new ArgumentNullException  ("buf cannot be Nothing");}
 	int _Result = Natives.findFileFormatBuffer(  buf, out  pformat);
 	
 	return _Result;
@@ -264,6 +287,7 @@ public static int findFileFormatBuffer(
 public static int fileFormatIsTiff(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.fileFormatIsTiff(fp.Pointer);
 	
 	return _Result;
@@ -295,6 +319,7 @@ public static Pix pixReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -339,6 +364,7 @@ public static int pixReadHeaderMem(
 				out int pspp, 
 				out int piscmap){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.pixReadHeaderMem(  data,   size, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 	return _Result;
@@ -367,6 +393,8 @@ public static int writeImageFileInfo(
 				 FILE fpout, 
 				 int headeronly){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (fpout == null) {throw new ArgumentNullException  ("fpout cannot be Nothing");}
 	int _Result = Natives.writeImageFileInfo(  filename, fpout.Pointer,   headeronly);
 	
 	return _Result;
@@ -400,6 +428,10 @@ public static int writeImageFileInfo(
 public static int ioFormatTest(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.ioFormatTest(  filename);
 	
 	return _Result;

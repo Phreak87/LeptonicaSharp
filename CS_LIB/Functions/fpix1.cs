@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -48,6 +49,7 @@ public static FPix fpixCreate(
 public static FPix fpixCreateTemplate(
 				 FPix fpixs){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixCreateTemplate(fpixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -68,6 +70,7 @@ public static FPix fpixCreateTemplate(
 public static FPix fpixClone(
 				 FPix fpix){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	IntPtr _Result = Natives.fpixClone(fpix.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -110,6 +113,7 @@ public static FPix fpixCopy(
 				 FPix fpixd, 
 				 FPix fpixs){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
 	IntPtr _Result = Natives.fpixCopy(fpixdPtr, fpixs.Pointer);
@@ -137,6 +141,8 @@ public static int fpixResizeImageData(
 				 FPix fpixd, 
 				 FPix fpixs){
 
+if (fpixd == null) {throw new ArgumentNullException  ("fpixd cannot be Nothing");}
+		if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	int _Result = Natives.fpixResizeImageData(fpixd.Pointer, fpixs.Pointer);
 	
 	return _Result;
@@ -179,6 +185,7 @@ public static int fpixGetDimensions(
 				out int pw, 
 				out int ph){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixGetDimensions(fpix.Pointer, out  pw, out  ph);
 	
 	return _Result;
@@ -199,6 +206,7 @@ public static int fpixSetDimensions(
 				 int w, 
 				 int h){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixSetDimensions(fpix.Pointer,   w,   h);
 	
 	return _Result;
@@ -215,6 +223,7 @@ public static int fpixSetDimensions(
 public static int fpixGetWpl(
 				 FPix fpix){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixGetWpl(fpix.Pointer);
 	
 	return _Result;
@@ -233,6 +242,7 @@ public static int fpixSetWpl(
 				 FPix fpix, 
 				 int wpl){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixSetWpl(fpix.Pointer,   wpl);
 	
 	return _Result;
@@ -249,6 +259,7 @@ public static int fpixSetWpl(
 public static int fpixGetRefcount(
 				 FPix fpix){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixGetRefcount(fpix.Pointer);
 	
 	return _Result;
@@ -267,6 +278,7 @@ public static int fpixChangeRefcount(
 				 FPix fpix, 
 				 int delta){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixChangeRefcount(fpix.Pointer,   delta);
 	
 	return _Result;
@@ -287,6 +299,7 @@ public static int fpixGetResolution(
 				out int pxres, 
 				out int pyres){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixGetResolution(fpix.Pointer, out  pxres, out  pyres);
 	
 	return _Result;
@@ -307,6 +320,7 @@ public static int fpixSetResolution(
 				 int xres, 
 				 int yres){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixSetResolution(fpix.Pointer,   xres,   yres);
 	
 	return _Result;
@@ -325,6 +339,8 @@ public static int fpixCopyResolution(
 				 FPix fpixd, 
 				 FPix fpixs){
 
+if (fpixd == null) {throw new ArgumentNullException  ("fpixd cannot be Nothing");}
+		if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	int _Result = Natives.fpixCopyResolution(fpixd.Pointer, fpixs.Pointer);
 	
 	return _Result;
@@ -341,6 +357,7 @@ public static int fpixCopyResolution(
 public static Single[] fpixGetData(
 				 FPix fpix){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	Single[] _Result = Natives.fpixGetData(fpix.Pointer);
 	
 	return _Result;
@@ -359,6 +376,8 @@ public static int fpixSetData(
 				 FPix fpix, 
 				 Single[] data){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.fpixSetData(fpix.Pointer,   data);
 	
 	return _Result;
@@ -380,6 +399,7 @@ public static int fpixGetPixel(
 				 int y, 
 				out Single pval){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixGetPixel(fpix.Pointer,   x,   y, out  pval);
 	
 	return _Result;
@@ -401,6 +421,7 @@ public static int fpixSetPixel(
 				 int y, 
 				 Single val){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixSetPixel(fpix.Pointer,   x,   y,   val);
 	
 	return _Result;
@@ -442,6 +463,7 @@ public static FPixa fpixaCopy(
 				 FPixa fpixa, 
 				 int copyflag){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	IntPtr _Result = Natives.fpixaCopy(fpixa.Pointer,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -485,6 +507,8 @@ public static int fpixaAddFPix(
 				 FPix fpix, 
 				 int copyflag){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
+		if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixaAddFPix(fpixa.Pointer, fpix.Pointer,   copyflag);
 	
 	return _Result;
@@ -501,6 +525,7 @@ public static int fpixaAddFPix(
 public static int fpixaGetCount(
 				 FPixa fpixa){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	int _Result = Natives.fpixaGetCount(fpixa.Pointer);
 	
 	return _Result;
@@ -519,6 +544,7 @@ public static int fpixaChangeRefcount(
 				 FPixa fpixa, 
 				 int delta){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	int _Result = Natives.fpixaChangeRefcount(fpixa.Pointer,   delta);
 	
 	return _Result;
@@ -539,6 +565,7 @@ public static FPix fpixaGetFPix(
 				 int index, 
 				 int accesstype){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	IntPtr _Result = Natives.fpixaGetFPix(fpixa.Pointer,   index,   accesstype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -562,6 +589,7 @@ public static int fpixaGetFPixDimensions(
 				out int pw, 
 				out int ph){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	int _Result = Natives.fpixaGetFPixDimensions(fpixa.Pointer,   index, out  pw, out  ph);
 	
 	return _Result;
@@ -580,6 +608,7 @@ public static Single[] fpixaGetData(
 				 FPixa fpixa, 
 				 int index){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	Single[] _Result = Natives.fpixaGetData(fpixa.Pointer,   index);
 	
 	return _Result;
@@ -603,6 +632,7 @@ public static int fpixaGetPixel(
 				 int y, 
 				out Single pval){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	int _Result = Natives.fpixaGetPixel(fpixa.Pointer,   index,   x,   y, out  pval);
 	
 	return _Result;
@@ -626,6 +656,7 @@ public static int fpixaSetPixel(
 				 int y, 
 				 Single val){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	int _Result = Natives.fpixaSetPixel(fpixa.Pointer,   index,   x,   y,   val);
 	
 	return _Result;
@@ -673,6 +704,7 @@ public static DPix dpixCreate(
 public static DPix dpixCreateTemplate(
 				 DPix dpixs){
 
+if (dpixs == null) {throw new ArgumentNullException  ("dpixs cannot be Nothing");}
 	IntPtr _Result = Natives.dpixCreateTemplate(dpixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -693,6 +725,7 @@ public static DPix dpixCreateTemplate(
 public static DPix dpixClone(
 				 DPix dpix){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	IntPtr _Result = Natives.dpixClone(dpix.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -735,6 +768,7 @@ public static DPix dpixCopy(
 				 DPix dpixd, 
 				 DPix dpixs){
 
+if (dpixs == null) {throw new ArgumentNullException  ("dpixs cannot be Nothing");}
 	IntPtr dpixdPtr = IntPtr.Zero; 	if (dpixd != null) {dpixdPtr = dpixd.Pointer;}
 
 	IntPtr _Result = Natives.dpixCopy(dpixdPtr, dpixs.Pointer);
@@ -756,6 +790,8 @@ public static int dpixResizeImageData(
 				 DPix dpixd, 
 				 DPix dpixs){
 
+if (dpixd == null) {throw new ArgumentNullException  ("dpixd cannot be Nothing");}
+		if (dpixs == null) {throw new ArgumentNullException  ("dpixs cannot be Nothing");}
 	int _Result = Natives.dpixResizeImageData(dpixd.Pointer, dpixs.Pointer);
 	
 	return _Result;
@@ -798,6 +834,7 @@ public static int dpixGetDimensions(
 				out int pw, 
 				out int ph){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixGetDimensions(dpix.Pointer, out  pw, out  ph);
 	
 	return _Result;
@@ -818,6 +855,7 @@ public static int dpixSetDimensions(
 				 int w, 
 				 int h){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixSetDimensions(dpix.Pointer,   w,   h);
 	
 	return _Result;
@@ -834,6 +872,7 @@ public static int dpixSetDimensions(
 public static int dpixGetWpl(
 				 DPix dpix){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixGetWpl(dpix.Pointer);
 	
 	return _Result;
@@ -852,6 +891,7 @@ public static int dpixSetWpl(
 				 DPix dpix, 
 				 int wpl){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixSetWpl(dpix.Pointer,   wpl);
 	
 	return _Result;
@@ -868,6 +908,7 @@ public static int dpixSetWpl(
 public static int dpixGetRefcount(
 				 DPix dpix){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixGetRefcount(dpix.Pointer);
 	
 	return _Result;
@@ -886,6 +927,7 @@ public static int dpixChangeRefcount(
 				 DPix dpix, 
 				 int delta){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixChangeRefcount(dpix.Pointer,   delta);
 	
 	return _Result;
@@ -906,6 +948,7 @@ public static int dpixGetResolution(
 				out int pxres, 
 				out int pyres){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixGetResolution(dpix.Pointer, out  pxres, out  pyres);
 	
 	return _Result;
@@ -926,6 +969,7 @@ public static int dpixSetResolution(
 				 int xres, 
 				 int yres){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixSetResolution(dpix.Pointer,   xres,   yres);
 	
 	return _Result;
@@ -944,6 +988,8 @@ public static int dpixCopyResolution(
 				 DPix dpixd, 
 				 DPix dpixs){
 
+if (dpixd == null) {throw new ArgumentNullException  ("dpixd cannot be Nothing");}
+		if (dpixs == null) {throw new ArgumentNullException  ("dpixs cannot be Nothing");}
 	int _Result = Natives.dpixCopyResolution(dpixd.Pointer, dpixs.Pointer);
 	
 	return _Result;
@@ -960,6 +1006,7 @@ public static int dpixCopyResolution(
 public static Double[] dpixGetData(
 				 DPix dpix){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	Double[] _Result = Natives.dpixGetData(dpix.Pointer);
 	
 	return _Result;
@@ -978,6 +1025,8 @@ public static int dpixSetData(
 				 DPix dpix, 
 				 Double[] data){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
+		if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.dpixSetData(dpix.Pointer,   data);
 	
 	return _Result;
@@ -999,6 +1048,7 @@ public static int dpixGetPixel(
 				 int y, 
 				out Double[] pval){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixGetPixel(dpix.Pointer,   x,   y, out  pval);
 	
 	return _Result;
@@ -1020,6 +1070,7 @@ public static int dpixSetPixel(
 				 int y, 
 				 double val){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixSetPixel(dpix.Pointer,   x,   y,   val);
 	
 	return _Result;
@@ -1036,6 +1087,10 @@ public static int dpixSetPixel(
 public static FPix fpixRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.fpixRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1053,6 +1108,7 @@ public static FPix fpixRead(
 public static FPix fpixReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.fpixReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1072,6 +1128,7 @@ public static FPix fpixReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.fpixReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1091,6 +1148,8 @@ public static int fpixWrite(
 				 String filename, 
 				 FPix fpix){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixWrite(  filename, fpix.Pointer);
 	
 	return _Result;
@@ -1109,6 +1168,8 @@ public static int fpixWriteStream(
 				 FILE fp, 
 				 FPix fpix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixWriteStream(fp.Pointer, fpix.Pointer);
 	
 	return _Result;
@@ -1132,6 +1193,7 @@ public static int fpixWriteMem(
 				out uint psize, 
 				 FPix fpix){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.fpixWriteMem(out  pdataPtr, out  psize, fpix.Pointer);
@@ -1168,6 +1230,8 @@ public static FPix fpixEndianByteSwap(
 				 FPix fpixd, 
 				 FPix fpixs){
 
+if (fpixd == null) {throw new ArgumentNullException  ("fpixd cannot be Nothing");}
+		if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixEndianByteSwap(fpixd.Pointer, fpixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1185,6 +1249,10 @@ public static FPix fpixEndianByteSwap(
 public static DPix dpixRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.dpixRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1202,6 +1270,7 @@ public static DPix dpixRead(
 public static DPix dpixReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.dpixReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1221,6 +1290,7 @@ public static DPix dpixReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.dpixReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1240,6 +1310,8 @@ public static int dpixWrite(
 				 String filename, 
 				 DPix dpix){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixWrite(  filename, dpix.Pointer);
 	
 	return _Result;
@@ -1258,6 +1330,8 @@ public static int dpixWriteStream(
 				 FILE fp, 
 				 DPix dpix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixWriteStream(fp.Pointer, dpix.Pointer);
 	
 	return _Result;
@@ -1281,6 +1355,7 @@ public static int dpixWriteMem(
 				out uint psize, 
 				 DPix dpix){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.dpixWriteMem(out  pdataPtr, out  psize, dpix.Pointer);
@@ -1317,6 +1392,8 @@ public static DPix dpixEndianByteSwap(
 				 DPix dpixd, 
 				 DPix dpixs){
 
+if (dpixd == null) {throw new ArgumentNullException  ("dpixd cannot be Nothing");}
+		if (dpixs == null) {throw new ArgumentNullException  ("dpixs cannot be Nothing");}
 	IntPtr _Result = Natives.dpixEndianByteSwap(dpixd.Pointer, dpixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1341,6 +1418,8 @@ public static int fpixPrintStream(
 				 FPix fpix, 
 				 int factor){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixPrintStream(fp.Pointer, fpix.Pointer,   factor);
 	
 	return _Result;

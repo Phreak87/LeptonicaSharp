@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -16,6 +17,7 @@ public partial class _All {
 public static Pix pixReadStreamGif(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
 	IntPtr _Result = Natives.pixReadStreamGif(fp.Pointer);
@@ -35,6 +37,7 @@ public static Pix pixReadMemGif(
 				 Byte[] cdata, 
 				 uint size){
 
+if (cdata == null) {throw new ArgumentNullException  ("cdata cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMemGif(  cdata,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -52,6 +55,8 @@ public static int pixWriteStreamGif(
 				 FILE fp, 
 				 Pix pix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -72,6 +77,9 @@ public static int pixWriteMemGif(
 				 object psize, 
 				 Pix pix){
 
+if (pdata == null) {throw new ArgumentNullException  ("pdata cannot be Nothing");}
+		if (psize == null) {throw new ArgumentNullException  ("psize cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixWriteMemGif(  pdata,   psize, pix.Pointer);

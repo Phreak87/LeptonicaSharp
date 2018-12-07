@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -41,6 +42,7 @@ public static Pix pixOrientCorrect(
 				out int protation, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixOrientCorrect(pixs.Pointer,   minupconf,   minratio, out  pupconf, out  pleftconf, out  protation,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -118,6 +120,7 @@ public static int pixOrientDetect(
 				 int mincount, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixOrientDetect(pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 	
 	return _Result;
@@ -198,6 +201,7 @@ public static int pixUpDownDetect(
 				 int mincount, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixUpDownDetect(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 	return _Result;
@@ -251,6 +255,7 @@ public static int pixUpDownDetectGeneral(
 				 int npixels, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixUpDownDetectGeneral(pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 	
 	return _Result;
@@ -286,6 +291,7 @@ public static int pixOrientDetectDwa(
 				 int mincount, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixOrientDetectDwa(pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 	
 	return _Result;
@@ -322,6 +328,7 @@ public static int pixUpDownDetectDwa(
 				 int mincount, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixUpDownDetectDwa(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 	return _Result;
@@ -349,6 +356,7 @@ public static int pixUpDownDetectGeneralDwa(
 				 int npixels, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixUpDownDetectGeneralDwa(pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 	
 	return _Result;
@@ -402,6 +410,7 @@ public static int pixMirrorDetect(
 				 int mincount, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixMirrorDetect(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 	return _Result;
@@ -430,6 +439,7 @@ public static int pixMirrorDetectDwa(
 				 int mincount, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixMirrorDetectDwa(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 	return _Result;

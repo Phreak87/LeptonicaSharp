@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -52,6 +53,7 @@ public static int strcodeCreateFromFile(
 				 int fileno, 
 				 String outdir){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 	int _Result = Natives.strcodeCreateFromFile(  filein,   fileno,   outdir);
 	
 	return _Result;
@@ -81,6 +83,9 @@ public static int strcodeGenerate(
 				 String filein, 
 				 String type){
 
+if (strcode == null) {throw new ArgumentNullException  ("strcode cannot be Nothing");}
+		if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (type == null) {throw new ArgumentNullException  ("type cannot be Nothing");}
 	int _Result = Natives.strcodeGenerate(strcode.Pointer,   filein,   type);
 	
 	return _Result;
@@ -128,6 +133,10 @@ public static int l_getStructStrFromFile(
 				 int field, 
 				out String[] pstr){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr pstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.l_getStructStrFromFile(  filename,   field, out  pstrPtr);

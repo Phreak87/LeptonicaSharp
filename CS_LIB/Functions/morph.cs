@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -36,6 +37,9 @@ public static Pix pixDilate(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixDilate(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -74,6 +78,9 @@ public static Pix pixErode(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixErode(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -114,6 +121,9 @@ public static Pix pixHMT(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixHMT(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -152,6 +162,9 @@ public static Pix pixOpen(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixOpen(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -194,6 +207,9 @@ public static Pix pixClose(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixClose(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -241,6 +257,9 @@ public static Pix pixCloseSafe(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixCloseSafe(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -283,6 +302,9 @@ public static Pix pixOpenGeneralized(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixOpenGeneralized(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -327,6 +349,9 @@ public static Pix pixCloseGeneralized(
 				 Pix pixs, 
 				 Sel sel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixCloseGeneralized(pixdPtr, pixs.Pointer, sel.Pointer);
@@ -371,6 +396,8 @@ public static Pix pixDilateBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixDilateBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -415,6 +442,8 @@ public static Pix pixErodeBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixErodeBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -459,6 +488,8 @@ public static Pix pixOpenBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixOpenBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -503,6 +534,8 @@ public static Pix pixCloseBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixCloseBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -553,6 +586,8 @@ public static Pix pixCloseSafeBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixCloseSafeBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -574,6 +609,8 @@ public static int selectComposableSels(
 				 Sel psel1, 
 				 Sel psel2){
 
+if (psel1 == null) {throw new ArgumentNullException  ("psel1 cannot be Nothing");}
+		if (psel2 == null) {throw new ArgumentNullException  ("psel2 cannot be Nothing");}
 	IntPtr psel1Ptr = IntPtr.Zero; 	if (psel1 != null) {psel1Ptr = psel1.Pointer;}
 	IntPtr psel2Ptr = IntPtr.Zero; 	if (psel2 != null) {psel2Ptr = psel2.Pointer;}
 
@@ -668,6 +705,8 @@ public static Pix pixDilateCompBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixDilateCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -728,6 +767,8 @@ public static Pix pixErodeCompBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixErodeCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -788,6 +829,8 @@ public static Pix pixOpenCompBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixOpenCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -848,6 +891,8 @@ public static Pix pixCloseCompBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixCloseCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);
@@ -914,6 +959,8 @@ public static Pix pixCloseSafeCompBrick(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixCloseSafeCompBrick(pixdPtr, pixs.Pointer,   hsize,   vsize);

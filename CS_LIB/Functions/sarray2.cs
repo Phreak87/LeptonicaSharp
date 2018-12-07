@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -27,6 +28,8 @@ public static Sarray sarraySort(
 				 Sarray sain, 
 				 int sortorder){
 
+if (saout == null) {throw new ArgumentNullException  ("saout cannot be Nothing");}
+		if (sain == null) {throw new ArgumentNullException  ("sain cannot be Nothing");}
 	IntPtr _Result = Natives.sarraySort(saout.Pointer, sain.Pointer,   sortorder);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -46,6 +49,8 @@ public static Sarray sarraySortByIndex(
 				 Sarray sain, 
 				 Numa naindex){
 
+if (sain == null) {throw new ArgumentNullException  ("sain cannot be Nothing");}
+		if (naindex == null) {throw new ArgumentNullException  ("naindex cannot be Nothing");}
 	IntPtr _Result = Natives.sarraySortByIndex(sain.Pointer, naindex.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -69,6 +74,8 @@ public static int stringCompareLexical(
 				 String str1, 
 				 String str2){
 
+if (str1 == null) {throw new ArgumentNullException  ("str1 cannot be Nothing");}
+		if (str2 == null) {throw new ArgumentNullException  ("str2 cannot be Nothing");}
 	int _Result = Natives.stringCompareLexical(  str1,   str2);
 	
 	return _Result;
@@ -97,6 +104,8 @@ public static Sarray sarrayUnionByAset(
 				 Sarray sa1, 
 				 Sarray sa2){
 
+if (sa1 == null) {throw new ArgumentNullException  ("sa1 cannot be Nothing");}
+		if (sa2 == null) {throw new ArgumentNullException  ("sa2 cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayUnionByAset(sa1.Pointer, sa2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -124,6 +133,7 @@ public static Sarray sarrayUnionByAset(
 public static Sarray sarrayRemoveDupsByAset(
 				 Sarray sas){
 
+if (sas == null) {throw new ArgumentNullException  ("sas cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayRemoveDupsByAset(sas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -153,6 +163,8 @@ public static Sarray sarrayIntersectionByAset(
 				 Sarray sa1, 
 				 Sarray sa2){
 
+if (sa1 == null) {throw new ArgumentNullException  ("sa1 cannot be Nothing");}
+		if (sa2 == null) {throw new ArgumentNullException  ("sa2 cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayIntersectionByAset(sa1.Pointer, sa2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -170,6 +182,7 @@ public static Sarray sarrayIntersectionByAset(
 public static L_Rbtree l_asetCreateFromSarray(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.l_asetCreateFromSarray(sa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -206,6 +219,7 @@ public static int sarrayRemoveDupsByHash(
 				out Sarray psad, 
 				out L_DnaHash pdahash){
 
+if (sas == null) {throw new ArgumentNullException  ("sas cannot be Nothing");}
 	IntPtr psadPtr = IntPtr.Zero;
 	IntPtr pdahashPtr = IntPtr.Zero;
 
@@ -233,6 +247,8 @@ public static Sarray sarrayIntersectionByHash(
 				 Sarray sa1, 
 				 Sarray sa2){
 
+if (sa1 == null) {throw new ArgumentNullException  ("sa1 cannot be Nothing");}
+		if (sa2 == null) {throw new ArgumentNullException  ("sa2 cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayIntersectionByHash(sa1.Pointer, sa2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -270,6 +286,9 @@ public static int sarrayFindStringByHash(
 				 String str, 
 				out int pindex){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (dahash == null) {throw new ArgumentNullException  ("dahash cannot be Nothing");}
+		if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
 	int _Result = Natives.sarrayFindStringByHash(sa.Pointer, dahash.Pointer,   str, out  pindex);
 	
 	return _Result;
@@ -286,6 +305,7 @@ public static int sarrayFindStringByHash(
 public static L_DnaHash l_dnaHashCreateFromSarray(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaHashCreateFromSarray(sa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -335,6 +355,8 @@ public static int sarrayLookupCSKV(
 				 String keystring, 
 				out String[] pvalstring){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (keystring == null) {throw new ArgumentNullException  ("keystring cannot be Nothing");}
 	IntPtr pvalstringPtr = IntPtr.Zero;
 
 	int _Result = Natives.sarrayLookupCSKV(sa.Pointer,   keystring, out  pvalstringPtr);

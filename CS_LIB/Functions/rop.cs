@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -141,6 +142,8 @@ public static int pixRasterop(
 				 int sx, 
 				 int sy){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixRasterop(pixd.Pointer,   dx,   dy,   dw,   dh,   op, pixs.Pointer,   sx,   sy);
 	
 	return _Result;
@@ -175,6 +178,7 @@ public static int pixRasteropVip(
 				 int vshift, 
 				 int incolor){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	int _Result = Natives.pixRasteropVip(pixd.Pointer,   bx,   bw,   vshift,   incolor);
 	
 	return _Result;
@@ -209,6 +213,7 @@ public static int pixRasteropHip(
 				 int hshift, 
 				 int incolor){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	int _Result = Natives.pixRasteropHip(pixd.Pointer,   by,   bh,   hshift,   incolor);
 	
 	return _Result;
@@ -244,6 +249,7 @@ public static Pix pixTranslate(
 				 int vshift, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixTranslate(pixdPtr, pixs.Pointer,   hshift,   vshift,   incolor);
@@ -269,6 +275,7 @@ public static int pixRasteropIP(
 				 int vshift, 
 				 int incolor){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	int _Result = Natives.pixRasteropIP(pixd.Pointer,   hshift,   vshift,   incolor);
 	
 	return _Result;
@@ -296,6 +303,8 @@ public static int pixRasteropFullImage(
 				 Pix pixs, 
 				 int op){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixRasteropFullImage(pixd.Pointer, pixs.Pointer,   op);
 	
 	return _Result;

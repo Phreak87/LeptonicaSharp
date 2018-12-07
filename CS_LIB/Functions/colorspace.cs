@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -48,6 +49,7 @@ public static Pix pixConvertRGBToHSV(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvertRGBToHSV(pixdPtr, pixs.Pointer);
@@ -80,6 +82,7 @@ public static Pix pixConvertHSVToRGB(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvertHSVToRGB(pixdPtr, pixs.Pointer);
@@ -179,6 +182,7 @@ public static int convertHSVToRGB(
 public static int pixcmapConvertRGBToHSV(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapConvertRGBToHSV(cmap.Pointer);
 	
 	return _Result;
@@ -200,6 +204,7 @@ public static int pixcmapConvertRGBToHSV(
 public static int pixcmapConvertHSVToRGB(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapConvertHSVToRGB(cmap.Pointer);
 	
 	return _Result;
@@ -225,6 +230,7 @@ public static int pixcmapConvertHSVToRGB(
 public static Pix pixConvertRGBToHue(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvertRGBToHue(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -250,6 +256,7 @@ public static Pix pixConvertRGBToHue(
 public static Pix pixConvertRGBToSaturation(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvertRGBToSaturation(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -275,6 +282,7 @@ public static Pix pixConvertRGBToSaturation(
 public static Pix pixConvertRGBToValue(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvertRGBToValue(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -313,6 +321,8 @@ public static Pix pixMakeRangeMaskHS(
 				 int sathw, 
 				 int regionflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixMakeRangeMaskHS(pixs.Pointer,   huecenter,   huehw,   satcenter,   sathw,   regionflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -351,6 +361,8 @@ public static Pix pixMakeRangeMaskHV(
 				 int valhw, 
 				 int regionflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixMakeRangeMaskHV(pixs.Pointer,   huecenter,   huehw,   valcenter,   valhw,   regionflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -388,6 +400,8 @@ public static Pix pixMakeRangeMaskSV(
 				 int valhw, 
 				 int regionflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixMakeRangeMaskSV(pixs.Pointer,   satcenter,   sathw,   valcenter,   valhw,   regionflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -420,6 +434,7 @@ public static Pix pixMakeHistoHS(
 				out Numa pnahue, 
 				out Numa pnasat){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pnahuePtr = IntPtr.Zero;
 	IntPtr pnasatPtr = IntPtr.Zero;
 
@@ -457,6 +472,7 @@ public static Pix pixMakeHistoHV(
 				out Numa pnahue, 
 				out Numa pnaval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pnahuePtr = IntPtr.Zero;
 	IntPtr pnavalPtr = IntPtr.Zero;
 
@@ -494,6 +510,7 @@ public static Pix pixMakeHistoSV(
 				out Numa pnasat, 
 				out Numa pnaval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pnasatPtr = IntPtr.Zero;
 	IntPtr pnavalPtr = IntPtr.Zero;
 
@@ -546,6 +563,7 @@ public static int pixFindHistoPeaksHSV(
 				out Numa pnatot, 
 				out Pixa ppixa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pptaPtr = IntPtr.Zero;
 	IntPtr pnatotPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
@@ -626,6 +644,7 @@ public static Pix pixConvertRGBToYUV(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvertRGBToYUV(pixdPtr, pixs.Pointer);
@@ -657,6 +676,7 @@ public static Pix pixConvertYUVToRGB(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvertYUVToRGB(pixdPtr, pixs.Pointer);
@@ -751,6 +771,7 @@ public static int convertYUVToRGB(
 public static int pixcmapConvertRGBToYUV(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapConvertRGBToYUV(cmap.Pointer);
 	
 	return _Result;
@@ -772,6 +793,7 @@ public static int pixcmapConvertRGBToYUV(
 public static int pixcmapConvertYUVToRGB(
 				 PixColormap cmap){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int _Result = Natives.pixcmapConvertYUVToRGB(cmap.Pointer);
 	
 	return _Result;
@@ -810,6 +832,7 @@ public static int pixcmapConvertYUVToRGB(
 public static FPixa pixConvertRGBToXYZ(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvertRGBToXYZ(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -833,6 +856,7 @@ public static FPixa pixConvertRGBToXYZ(
 public static Pix fpixaConvertXYZToRGB(
 				 FPixa fpixa){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	IntPtr _Result = Natives.fpixaConvertXYZToRGB(fpixa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -928,6 +952,7 @@ public static int convertXYZToRGB(
 public static FPixa fpixaConvertXYZToLAB(
 				 FPixa fpixas){
 
+if (fpixas == null) {throw new ArgumentNullException  ("fpixas cannot be Nothing");}
 	IntPtr _Result = Natives.fpixaConvertXYZToLAB(fpixas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -949,6 +974,7 @@ public static FPixa fpixaConvertXYZToLAB(
 public static FPixa fpixaConvertLABToXYZ(
 				 FPixa fpixas){
 
+if (fpixas == null) {throw new ArgumentNullException  ("fpixas cannot be Nothing");}
 	IntPtr _Result = Natives.fpixaConvertLABToXYZ(fpixas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1022,6 +1048,7 @@ public static int convertLABToXYZ(
 public static FPixa pixConvertRGBToLAB(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvertRGBToLAB(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1042,6 +1069,7 @@ public static FPixa pixConvertRGBToLAB(
 public static Pix fpixaConvertLABToRGB(
 				 FPixa fpixa){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	IntPtr _Result = Natives.fpixaConvertLABToRGB(fpixa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,7 @@ public static PixComp pixcompCreateFromPix(
 				 Pix pix, 
 				 int comptype){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.pixcompCreateFromPix(pix.Pointer,   comptype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -53,6 +55,7 @@ public static PixComp pixcompCreateFromString(
 				 uint size, 
 				 int copyflag){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixcompCreateFromString(  data,   size,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -79,6 +82,10 @@ public static PixComp pixcompCreateFromFile(
 				 String filename, 
 				 int comptype){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.pixcompCreateFromFile(  filename,   comptype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -116,6 +123,7 @@ public static void pixcompDestroy(
 public static PixComp pixcompCopy(
 				 PixComp pixcs){
 
+if (pixcs == null) {throw new ArgumentNullException  ("pixcs cannot be Nothing");}
 	IntPtr _Result = Natives.pixcompCopy(pixcs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -139,6 +147,7 @@ public static int pixcompGetDimensions(
 				out int ph, 
 				out int pd){
 
+if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
 	int _Result = Natives.pixcompGetDimensions(pixc.Pointer, out  pw, out  ph, out  pd);
 	
 	return _Result;
@@ -163,6 +172,7 @@ public static int pixcompGetParameters(
 				out int pcomptype, 
 				out int pcmapflag){
 
+if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
 	int _Result = Natives.pixcompGetParameters(pixc.Pointer, out  pxres, out  pyres, out  pcomptype, out  pcmapflag);
 	
 	return _Result;
@@ -212,6 +222,7 @@ public static int pixcompDetermineFormat(
 public static Pix pixCreateFromPixcomp(
 				 PixComp pixc){
 
+if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
 	IntPtr _Result = Natives.pixCreateFromPixcomp(pixc.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -315,6 +326,7 @@ public static PixaComp pixacompCreateFromPixa(
 				 int comptype, 
 				 int accesstype){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompCreateFromPixa(pixa.Pointer,   comptype,   accesstype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -350,6 +362,7 @@ public static PixaComp pixacompCreateFromFiles(
 				 String substr, 
 				 int comptype){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompCreateFromFiles(  dirname,   substr,   comptype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -376,6 +389,7 @@ public static PixaComp pixacompCreateFromSA(
 				 Sarray sa, 
 				 int comptype){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompCreateFromSA(sa.Pointer,   comptype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -425,6 +439,8 @@ public static int pixacompAddPix(
 				 Pix pix, 
 				 int comptype){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixacompAddPix(pixac.Pointer, pix.Pointer,   comptype);
 	
 	return _Result;
@@ -450,6 +466,8 @@ public static int pixacompAddPixcomp(
 				 PixComp pixc, 
 				 int copyflag){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
 	int _Result = Natives.pixacompAddPixcomp(pixac.Pointer, pixc.Pointer,   copyflag);
 	
 	return _Result;
@@ -479,6 +497,8 @@ public static int pixacompReplacePix(
 				 Pix pix, 
 				 int comptype){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixacompReplacePix(pixac.Pointer,   index, pix.Pointer,   comptype);
 	
 	return _Result;
@@ -506,6 +526,8 @@ public static int pixacompReplacePixcomp(
 				 int index, 
 				 PixComp pixc){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
 	int _Result = Natives.pixacompReplacePixcomp(pixac.Pointer,   index, pixc.Pointer);
 	
 	return _Result;
@@ -526,6 +548,8 @@ public static int pixacompAddBox(
 				 Box box, 
 				 int copyflag){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixacompAddBox(pixac.Pointer, box.Pointer,   copyflag);
 	
 	return _Result;
@@ -542,6 +566,7 @@ public static int pixacompAddBox(
 public static int pixacompGetCount(
 				 PixaComp pixac){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompGetCount(pixac.Pointer);
 	
 	return _Result;
@@ -569,6 +594,7 @@ public static PixComp pixacompGetPixcomp(
 				 int index, 
 				 int copyflag){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompGetPixcomp(pixac.Pointer,   index,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -592,6 +618,7 @@ public static Pix pixacompGetPix(
 				 PixaComp pixac, 
 				 int index){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompGetPix(pixac.Pointer,   index);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -621,6 +648,7 @@ public static int pixacompGetPixDimensions(
 				out int ph, 
 				out int pd){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompGetPixDimensions(pixac.Pointer,   index, out  pw, out  ph, out  pd);
 	
 	return _Result;
@@ -639,6 +667,7 @@ public static Boxa pixacompGetBoxa(
 				 PixaComp pixac, 
 				 int accesstype){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompGetBoxa(pixac.Pointer,   accesstype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -656,6 +685,7 @@ public static Boxa pixacompGetBoxa(
 public static int pixacompGetBoxaCount(
 				 PixaComp pixac){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompGetBoxaCount(pixac.Pointer);
 	
 	return _Result;
@@ -691,6 +721,7 @@ public static Box pixacompGetBox(
 				 int index, 
 				 int accesstype){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompGetBox(pixac.Pointer,   index,   accesstype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -722,6 +753,7 @@ public static int pixacompGetBoxGeometry(
 				out int pw, 
 				out int ph){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompGetBoxGeometry(pixac.Pointer,   index, out  px, out  py, out  pw, out  ph);
 	
 	return _Result;
@@ -743,6 +775,7 @@ public static int pixacompGetBoxGeometry(
 public static int pixacompGetOffset(
 				 PixaComp pixac){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompGetOffset(pixac.Pointer);
 	
 	return _Result;
@@ -766,6 +799,7 @@ public static int pixacompSetOffset(
 				 PixaComp pixac, 
 				 int offset){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompSetOffset(pixac.Pointer,   offset);
 	
 	return _Result;
@@ -789,6 +823,7 @@ public static Pixa pixaCreateFromPixacomp(
 				 PixaComp pixac, 
 				 int accesstype){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.pixaCreateFromPixacomp(pixac.Pointer,   accesstype);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -821,6 +856,7 @@ public static int pixacompJoin(
 				 int istart, 
 				 int iend){
 
+if (pixacd == null) {throw new ArgumentNullException  ("pixacd cannot be Nothing");}
 	IntPtr pixacsPtr = IntPtr.Zero; 	if (pixacs != null) {pixacsPtr = pixacs.Pointer;}
 
 	int _Result = Natives.pixacompJoin(pixacd.Pointer, pixacsPtr,   istart,   iend);
@@ -845,6 +881,8 @@ public static PixaComp pixacompInterleave(
 				 PixaComp pixac1, 
 				 PixaComp pixac2){
 
+if (pixac1 == null) {throw new ArgumentNullException  ("pixac1 cannot be Nothing");}
+		if (pixac2 == null) {throw new ArgumentNullException  ("pixac2 cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompInterleave(pixac1.Pointer, pixac2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -867,6 +905,10 @@ public static PixaComp pixacompInterleave(
 public static PixaComp pixacompRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.pixacompRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -884,6 +926,7 @@ public static PixaComp pixacompRead(
 public static PixaComp pixacompReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -906,6 +949,7 @@ public static PixaComp pixacompReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -930,6 +974,8 @@ public static int pixacompWrite(
 				 String filename, 
 				 PixaComp pixac){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompWrite(  filename, pixac.Pointer);
 	
 	return _Result;
@@ -948,6 +994,8 @@ public static int pixacompWriteStream(
 				 FILE fp, 
 				 PixaComp pixac){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompWriteStream(fp.Pointer, pixac.Pointer);
 	
 	return _Result;
@@ -971,6 +1019,7 @@ public static int pixacompWriteMem(
 				out uint psize, 
 				 PixaComp pixac){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixacompWriteMem(out  pdataPtr, out  psize, pixac.Pointer);
@@ -1024,6 +1073,8 @@ public static int pixacompConvertToPdf(
 				 String title, 
 				 String fileout){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.pixacompConvertToPdf(pixac.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
 	return _Result;
@@ -1057,6 +1108,7 @@ public static int pixacompConvertToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixacompConvertToPdfData(pixac.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
@@ -1094,6 +1146,7 @@ public static int pixacompFastConvertToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixacompFastConvertToPdfData(pixac.Pointer,   title, out  pdataPtr, out  pnbytes);
@@ -1121,6 +1174,8 @@ public static int pixacompWriteStreamInfo(
 				 PixaComp pixac, 
 				 String text){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	int _Result = Natives.pixacompWriteStreamInfo(fp.Pointer, pixac.Pointer,   text);
 	
 	return _Result;
@@ -1141,6 +1196,8 @@ public static int pixcompWriteStreamInfo(
 				 PixComp pixc, 
 				 String text){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
 	int _Result = Natives.pixcompWriteStreamInfo(fp.Pointer, pixc.Pointer,   text);
 	
 	return _Result;
@@ -1176,6 +1233,7 @@ public static Pix pixacompDisplayTiledAndScaled(
 				 int spacing, 
 				 int border){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.pixacompDisplayTiledAndScaled(pixac.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1195,6 +1253,8 @@ public static int pixacompWriteFiles(
 				 PixaComp pixac, 
 				 String subdir){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (subdir == null) {throw new ArgumentNullException  ("subdir cannot be Nothing");}
 	int _Result = Natives.pixacompWriteFiles(pixac.Pointer,   subdir);
 	
 	return _Result;
@@ -1217,6 +1277,8 @@ public static int pixcompWriteFile(
 				 String rootname, 
 				 PixComp pixc){
 
+if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
+		if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
 	int _Result = Natives.pixcompWriteFile(  rootname, pixc.Pointer);
 	
 	return _Result;

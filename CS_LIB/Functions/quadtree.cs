@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -28,6 +29,8 @@ public static int pixQuadtreeMean(
 				 Pix pix_ma, 
 				out FPixa pfpixa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pix_ma == null) {throw new ArgumentNullException  ("pix_ma cannot be Nothing");}
 	IntPtr pfpixaPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixQuadtreeMean(pixs.Pointer,   nlevels, pix_ma.Pointer, out pfpixaPtr);
@@ -62,6 +65,9 @@ public static int pixQuadtreeVariance(
 				out FPixa pfpixa_v, 
 				out FPixa pfpixa_rv){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pix_ma == null) {throw new ArgumentNullException  ("pix_ma cannot be Nothing");}
+		if (dpix_msa == null) {throw new ArgumentNullException  ("dpix_msa cannot be Nothing");}
 	IntPtr pfpixa_vPtr = IntPtr.Zero;
 	IntPtr pfpixa_rvPtr = IntPtr.Zero;
 
@@ -94,6 +100,10 @@ public static int pixMeanInRectangle(
 				 Pix pixma, 
 				out Single pval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+		if (pixma == null) {throw new ArgumentNullException  ("pixma cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	int _Result = Natives.pixMeanInRectangle(pixs.Pointer, box.Pointer, pixma.Pointer, out  pval);
 	
 	return _Result;
@@ -126,6 +136,11 @@ public static int pixVarianceInRectangle(
 				out Single pvar, 
 				out Single prvar){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+		if (pix_ma == null) {throw new ArgumentNullException  ("pix_ma cannot be Nothing");}
+		if (dpix_msa == null) {throw new ArgumentNullException  ("dpix_msa cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	int _Result = Natives.pixVarianceInRectangle(pixs.Pointer, box.Pointer, pix_ma.Pointer, dpix_msa.Pointer, out  pvar, out  prvar);
 	
 	return _Result;
@@ -186,6 +201,7 @@ public static int quadtreeGetParent(
 				 int y, 
 				out Single pval){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	int _Result = Natives.quadtreeGetParent(fpixa.Pointer,   level,   x,   y, out  pval);
 	
 	return _Result;
@@ -221,6 +237,7 @@ public static int quadtreeGetChildren(
 				out Single pval01, 
 				out Single pval11){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	int _Result = Natives.quadtreeGetChildren(fpixa.Pointer,   level,   x,   y, out  pval00, out  pval10, out  pval01, out  pval11);
 	
 	return _Result;
@@ -271,6 +288,7 @@ public static Pix fpixaDisplayQuadtree(
 				 int factor, 
 				 int fontsize){
 
+if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 	IntPtr _Result = Natives.fpixaDisplayQuadtree(fpixa.Pointer,   factor,   fontsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -16,6 +17,7 @@ public partial class _All {
 public static Pix pixReadStreamWebP(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
 	IntPtr _Result = Natives.pixReadStreamWebP(fp.Pointer);
@@ -35,6 +37,7 @@ public static Pix pixReadMemWebP(
 				 Byte[] filedata, 
 				 uint filesize){
 
+if (filedata == null) {throw new ArgumentNullException  ("filedata cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMemWebP(  filedata,   filesize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -54,6 +57,13 @@ public static int readHeaderWebP(
 				 object ph, 
 				 object pspp){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pw == null) {throw new ArgumentNullException  ("pw cannot be Nothing");}
+		if (ph == null) {throw new ArgumentNullException  ("ph cannot be Nothing");}
+		if (pspp == null) {throw new ArgumentNullException  ("pspp cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.readHeaderWebP(  filename,   pw,   ph,   pspp);
 	
 	return _Result;
@@ -73,6 +83,10 @@ public static int readHeaderMemWebP(
 				 object ph, 
 				 object pspp){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
+		if (pw == null) {throw new ArgumentNullException  ("pw cannot be Nothing");}
+		if (ph == null) {throw new ArgumentNullException  ("ph cannot be Nothing");}
+		if (pspp == null) {throw new ArgumentNullException  ("pspp cannot be Nothing");}
 	int _Result = Natives.readHeaderMemWebP(  data,   size,   pw,   ph,   pspp);
 	
 	return _Result;
@@ -91,6 +105,8 @@ public static int pixWriteWebP(
 				 int quality, 
 				 int lossless){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixWriteWebP(  filename, pixs.Pointer,   quality,   lossless);
@@ -111,6 +127,8 @@ public static int pixWriteStreamWebP(
 				 int quality, 
 				 int lossless){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -133,6 +151,9 @@ public static int pixWriteMemWebP(
 				 int quality, 
 				 int lossless){
 
+if (pencdata == null) {throw new ArgumentNullException  ("pencdata cannot be Nothing");}
+		if (pencsize == null) {throw new ArgumentNullException  ("pencsize cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixWriteMemWebP(  pencdata,   pencsize, pixs.Pointer,   quality,   lossless);

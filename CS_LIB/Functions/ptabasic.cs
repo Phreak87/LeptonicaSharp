@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -36,6 +37,7 @@ public static Pta ptaCreateFromNuma(
 				 Numa nax, 
 				 Numa nay){
 
+if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	IntPtr _Result = Natives.ptaCreateFromNuma(naxPtr, nay.Pointer);
@@ -77,6 +79,7 @@ public static void ptaDestroy(
 public static Pta ptaCopy(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.ptaCopy(pta.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -98,6 +101,7 @@ public static Pta ptaCopyRange(
 				 int istart, 
 				 int iend){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaCopyRange(ptas.Pointer,   istart,   iend);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -115,6 +119,7 @@ public static Pta ptaCopyRange(
 public static Pta ptaClone(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.ptaClone(pta.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -135,6 +140,7 @@ public static Pta ptaClone(
 public static int ptaEmpty(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaEmpty(pta.Pointer);
 	
 	return _Result;
@@ -155,6 +161,7 @@ public static int ptaAddPt(
 				 Single x, 
 				 Single y){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaAddPt(pta.Pointer,   x,   y);
 	
 	return _Result;
@@ -177,6 +184,7 @@ public static int ptaInsertPt(
 				 int x, 
 				 int y){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaInsertPt(pta.Pointer,   index,   x,   y);
 	
 	return _Result;
@@ -201,6 +209,7 @@ public static int ptaRemovePt(
 				 Pta pta, 
 				 int index){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaRemovePt(pta.Pointer,   index);
 	
 	return _Result;
@@ -216,6 +225,7 @@ public static int ptaRemovePt(
 public static int ptaGetRefcount(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr ptaPtr = IntPtr.Zero; if (pta != null) {ptaPtr = pta.Pointer;}
 
 	int _Result = Natives.ptaGetRefcount(pta.Pointer);
@@ -234,6 +244,7 @@ public static int ptaChangeRefcount(
 				 Pta pta, 
 				 int delta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr ptaPtr = IntPtr.Zero; if (pta != null) {ptaPtr = pta.Pointer;}
 
 	int _Result = Natives.ptaChangeRefcount(pta.Pointer,   delta);
@@ -252,6 +263,7 @@ public static int ptaChangeRefcount(
 public static int ptaGetCount(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaGetCount(pta.Pointer);
 	
 	return _Result;
@@ -274,6 +286,7 @@ public static int ptaGetPt(
 				out Single px, 
 				out Single py){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaGetPt(pta.Pointer,   index, out  px, out  py);
 	
 	return _Result;
@@ -296,6 +309,7 @@ public static int ptaGetIPt(
 				out int px, 
 				out int py){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaGetIPt(pta.Pointer,   index, out  px, out  py);
 	
 	return _Result;
@@ -318,6 +332,7 @@ public static int ptaSetPt(
 				 Single x, 
 				 Single y){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaSetPt(pta.Pointer,   index,   x,   y);
 	
 	return _Result;
@@ -341,6 +356,7 @@ public static int ptaGetArrays(
 				out Numa pnax, 
 				out Numa pnay){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
 
@@ -362,6 +378,10 @@ public static int ptaGetArrays(
 public static Pta ptaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.ptaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -379,6 +399,7 @@ public static Pta ptaRead(
 public static Pta ptaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.ptaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -398,6 +419,7 @@ public static Pta ptaReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.ptaReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -427,6 +449,8 @@ public static int ptaWriteDebug(
 				 Pta pta, 
 				 int type){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaWriteDebug(  filename, pta.Pointer,   type);
 	
 	return _Result;
@@ -447,6 +471,8 @@ public static int ptaWrite(
 				 Pta pta, 
 				 int type){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaWrite(  filename, pta.Pointer,   type);
 	
 	return _Result;
@@ -467,6 +493,8 @@ public static int ptaWriteStream(
 				 Pta pta, 
 				 int type){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaWriteStream(fp.Pointer, pta.Pointer,   type);
 	
 	return _Result;
@@ -492,6 +520,7 @@ public static int ptaWriteMem(
 				 Pta pta, 
 				 int type){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaWriteMem(out  pdataPtr, out  psize, pta.Pointer,   type);
@@ -553,6 +582,8 @@ public static int ptaaAddPta(
 				 Pta pta, 
 				 int copyflag){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaaAddPta(ptaa.Pointer, pta.Pointer,   copyflag);
 	
 	return _Result;
@@ -569,6 +600,7 @@ public static int ptaaAddPta(
 public static int ptaaGetCount(
 				 Ptaa ptaa){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.ptaaGetCount(ptaa.Pointer);
 	
 	return _Result;
@@ -589,6 +621,7 @@ public static Pta ptaaGetPta(
 				 int index, 
 				 int accessflag){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	IntPtr _Result = Natives.ptaaGetPta(ptaa.Pointer,   index,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -614,6 +647,7 @@ public static int ptaaGetPt(
 				out Single px, 
 				out Single py){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.ptaaGetPt(ptaa.Pointer,   ipta,   jpt, out  px, out  py);
 	
 	return _Result;
@@ -632,6 +666,8 @@ public static int ptaaInitFull(
 				 Ptaa ptaa, 
 				 Pta pta){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaaInitFull(ptaa.Pointer, pta.Pointer);
 	
 	return _Result;
@@ -658,6 +694,8 @@ public static int ptaaReplacePta(
 				 int index, 
 				 Pta pta){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaaReplacePta(ptaa.Pointer,   index, pta.Pointer);
 	
 	return _Result;
@@ -679,6 +717,7 @@ public static int ptaaAddPt(
 				 Single x, 
 				 Single y){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.ptaaAddPt(ptaa.Pointer,   ipta,   x,   y);
 	
 	return _Result;
@@ -700,6 +739,7 @@ public static int ptaaAddPt(
 public static int ptaaTruncate(
 				 Ptaa ptaa){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.ptaaTruncate(ptaa.Pointer);
 	
 	return _Result;
@@ -716,6 +756,10 @@ public static int ptaaTruncate(
 public static Ptaa ptaaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.ptaaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -733,6 +777,7 @@ public static Ptaa ptaaRead(
 public static Ptaa ptaaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.ptaaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -752,6 +797,7 @@ public static Ptaa ptaaReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.ptaaReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -781,6 +827,8 @@ public static int ptaaWriteDebug(
 				 Ptaa ptaa, 
 				 int type){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.ptaaWriteDebug(  filename, ptaa.Pointer,   type);
 	
 	return _Result;
@@ -801,6 +849,8 @@ public static int ptaaWrite(
 				 Ptaa ptaa, 
 				 int type){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.ptaaWrite(  filename, ptaa.Pointer,   type);
 	
 	return _Result;
@@ -821,6 +871,8 @@ public static int ptaaWriteStream(
 				 Ptaa ptaa, 
 				 int type){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	int _Result = Natives.ptaaWriteStream(fp.Pointer, ptaa.Pointer,   type);
 	
 	return _Result;
@@ -846,6 +898,7 @@ public static int ptaaWriteMem(
 				 Ptaa ptaa, 
 				 int type){
 
+if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaaWriteMem(out  pdataPtr, out  psize, ptaa.Pointer,   type);

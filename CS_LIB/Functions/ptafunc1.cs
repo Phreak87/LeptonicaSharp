@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -19,6 +20,7 @@ public static Pta ptaSubsample(
 				 Pta ptas, 
 				 int subfactor){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaSubsample(ptas.Pointer,   subfactor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -49,6 +51,8 @@ public static int ptaJoin(
 				 int istart, 
 				 int iend){
 
+if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	int _Result = Natives.ptaJoin(ptad.Pointer, ptas.Pointer,   istart,   iend);
 	
 	return _Result;
@@ -78,6 +82,8 @@ public static int ptaaJoin(
 				 int istart, 
 				 int iend){
 
+if (ptaad == null) {throw new ArgumentNullException  ("ptaad cannot be Nothing");}
+		if (ptaas == null) {throw new ArgumentNullException  ("ptaas cannot be Nothing");}
 	int _Result = Natives.ptaaJoin(ptaad.Pointer, ptaas.Pointer,   istart,   iend);
 	
 	return _Result;
@@ -96,6 +102,7 @@ public static Pta ptaReverse(
 				 Pta ptas, 
 				 int type){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaReverse(ptas.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -113,6 +120,7 @@ public static Pta ptaReverse(
 public static Pta ptaTranspose(
 				 Pta ptas){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaTranspose(ptas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -140,6 +148,7 @@ public static Pta ptaCyclicPerm(
 				 int xs, 
 				 int ys){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaCyclicPerm(ptas.Pointer,   xs,   ys);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -161,6 +170,7 @@ public static Pta ptaSelectRange(
 				 int first, 
 				 int last){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaSelectRange(ptas.Pointer,   first,   last);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -183,6 +193,7 @@ public static Pta ptaSelectRange(
 public static Box ptaGetBoundingRegion(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.ptaGetBoundingRegion(pta.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -213,6 +224,7 @@ public static int ptaGetRange(
 				out Single pminy, 
 				out Single pmaxy){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaGetRange(pta.Pointer, out  pminx, out  pmaxx, out  pminy, out  pmaxy);
 	
 	return _Result;
@@ -231,6 +243,8 @@ public static Pta ptaGetInsideBox(
 				 Pta ptas, 
 				 Box box){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.ptaGetInsideBox(ptas.Pointer, box.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -252,6 +266,8 @@ public static Pta ptaGetInsideBox(
 public static Pta pixFindCornerPixels(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixFindCornerPixels(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -273,6 +289,7 @@ public static int ptaContainsPt(
 				 int x, 
 				 int y){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaContainsPt(pta.Pointer,   x,   y);
 	
 	return _Result;
@@ -291,6 +308,8 @@ public static int ptaTestIntersection(
 				 Pta pta1, 
 				 Pta pta2){
 
+if (pta1 == null) {throw new ArgumentNullException  ("pta1 cannot be Nothing");}
+		if (pta2 == null) {throw new ArgumentNullException  ("pta2 cannot be Nothing");}
 	int _Result = Natives.ptaTestIntersection(pta1.Pointer, pta2.Pointer);
 	
 	return _Result;
@@ -318,6 +337,7 @@ public static Pta ptaTransform(
 				 Single scalex, 
 				 Single scaley){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaTransform(ptas.Pointer,   shiftx,   shifty,   scalex,   scaley);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -341,6 +361,7 @@ public static int ptaPtInsidePolygon(
 				 Single y, 
 				out int pinside){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaPtInsidePolygon(pta.Pointer,   x,   y, out  pinside);
 	
 	return _Result;
@@ -393,6 +414,7 @@ public static int ptaGetMinMax(
 				out Single pxmax, 
 				out Single pymax){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.ptaGetMinMax(pta.Pointer, out  pxmin, out  pymin, out  pxmax, out  pymax);
 	
 	return _Result;
@@ -417,6 +439,7 @@ public static Pta ptaSelectByValue(
 				 int type, 
 				 int relation){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.ptaSelectByValue(ptas.Pointer,   xth,   yth,   type,   relation);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -436,6 +459,8 @@ public static Pta ptaCropToMask(
 				 Pta ptas, 
 				 Pix pixm){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr _Result = Natives.ptaCropToMask(ptas.Pointer, pixm.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -482,6 +507,7 @@ public static int ptaGetLinearLSF(
 				out Single pb, 
 				out Numa pnafit){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pnafitPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaGetLinearLSF(pta.Pointer, out  pa, out  pb, out pnafitPtr);
@@ -528,6 +554,7 @@ public static int ptaGetQuadraticLSF(
 				out Single pc, 
 				out Numa pnafit){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pnafitPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaGetQuadraticLSF(pta.Pointer, out  pa, out  pb, out  pc, out pnafitPtr);
@@ -578,6 +605,7 @@ public static int ptaGetCubicLSF(
 				out Single pd, 
 				out Numa pnafit){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pnafitPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaGetCubicLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out pnafitPtr);
@@ -631,6 +659,7 @@ public static int ptaGetQuarticLSF(
 				out Single pe, 
 				out Numa pnafit){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pnafitPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaGetQuarticLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out  pe, out pnafitPtr);
@@ -674,6 +703,7 @@ public static int ptaNoisyLinearLSF(
 				out Single pmederr, 
 				out Numa pnafit){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pptadPtr = IntPtr.Zero;
 	IntPtr pnafitPtr = IntPtr.Zero;
 
@@ -715,6 +745,7 @@ public static int ptaNoisyQuadraticLSF(
 				out Single pmederr, 
 				out Numa pnafit){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pptadPtr = IntPtr.Zero;
 	IntPtr pnafitPtr = IntPtr.Zero;
 
@@ -849,6 +880,8 @@ public static int pixPlotAlongPta(
 				 int outformat, 
 				 String title){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.pixPlotAlongPta(pixs.Pointer, pta.Pointer,   outformat,   title);
 	
 	return _Result;
@@ -871,6 +904,8 @@ public static Pta ptaGetPixelsFromPix(
 				 Pix pixs, 
 				 Box box){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.ptaGetPixelsFromPix(pixs.Pointer, boxPtr);
@@ -901,6 +936,7 @@ public static Pix pixGenerateFromPta(
 				 int w, 
 				 int h){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.pixGenerateFromPta(pta.Pointer,   w,   h);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -926,6 +962,8 @@ public static Pta ptaGetBoundaryPixels(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.ptaGetBoundaryPixels(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -963,6 +1001,8 @@ public static Ptaa ptaaGetBoundaryPixels(
 				out Boxa pboxa, 
 				out Pixa ppixa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 
@@ -1001,6 +1041,7 @@ public static Ptaa ptaaIndexLabeledPixels(
 				 Pix pixs, 
 				out int pncc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.ptaaIndexLabeledPixels(pixs.Pointer, out  pncc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1028,6 +1069,7 @@ public static Pta ptaGetNeighborPixLocs(
 				 int y, 
 				 int conn){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.ptaGetNeighborPixLocs(pixs.Pointer,   x,   y,   conn);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1045,6 +1087,7 @@ public static Pta ptaGetNeighborPixLocs(
 public static Pta numaConvertToPta1(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaConvertToPta1(na.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1064,6 +1107,8 @@ public static Pta numaConvertToPta2(
 				 Numa nax, 
 				 Numa nay){
 
+if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
+		if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 	IntPtr _Result = Natives.numaConvertToPta2(nax.Pointer, nay.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1085,6 +1130,7 @@ public static int ptaConvertToNuma(
 				out Numa pnax, 
 				out Numa pnay){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
 
@@ -1120,6 +1166,10 @@ public static Pix pixDisplayPta(
 				 Pix pixs, 
 				 Pta pta){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixDisplayPta(pixd.Pointer, pixs.Pointer, pta.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1162,6 +1212,10 @@ public static Pix pixDisplayPtaaPattern(
 				 int cx, 
 				 int cy){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
+		if (pixp == null) {throw new ArgumentNullException  ("pixp cannot be Nothing");}
 	IntPtr _Result = Natives.pixDisplayPtaaPattern(pixd.Pointer, pixs.Pointer, ptaa.Pointer, pixp.Pointer,   cx,   cy);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1204,6 +1258,11 @@ public static Pix pixDisplayPtaPattern(
 				 int cy, 
 				 uint color){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
+		if (pixp == null) {throw new ArgumentNullException  ("pixp cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixDisplayPtaPattern(pixd.Pointer, pixs.Pointer, pta.Pointer, pixp.Pointer,   cx,   cy,   color);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1241,6 +1300,7 @@ public static Pta ptaReplicatePattern(
 				 int w, 
 				 int h){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr pixpPtr = IntPtr.Zero; 	if (pixp != null) {pixpPtr = pixp.Pointer;}
 	IntPtr ptapPtr = IntPtr.Zero; 	if (ptap != null) {ptapPtr = ptap.Pointer;}
 
@@ -1263,6 +1323,9 @@ public static Pix pixDisplayPtaa(
 				 Pix pixs, 
 				 Ptaa ptaa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixDisplayPtaa(pixs.Pointer, ptaa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

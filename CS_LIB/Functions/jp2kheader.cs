@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -25,6 +26,10 @@ public static int readHeaderJp2k(
 				out int pbps, 
 				out int pspp){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.readHeaderJp2k(  filename, out  pw, out  ph, out  pbps, out  pspp);
 	
 	return _Result;
@@ -49,6 +54,7 @@ public static int freadHeaderJp2k(
 				out int pbps, 
 				out int pspp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.freadHeaderJp2k(fp.Pointer, out  pw, out  ph, out  pbps, out  pspp);
 	
 	return _Result;
@@ -88,6 +94,7 @@ public static int readHeaderMemJp2k(
 				out int pbps, 
 				out int pspp){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.readHeaderMemJp2k(  data,   size, out  pw, out  ph, out  pbps, out  pspp);
 	
 	return _Result;
@@ -105,6 +112,9 @@ public static int fgetJp2kResolution(
 				 object pxres, 
 				 object pyres){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pxres == null) {throw new ArgumentNullException  ("pxres cannot be Nothing");}
+		if (pyres == null) {throw new ArgumentNullException  ("pyres cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
 	int _Result = Natives.fgetJp2kResolution(fp.Pointer,   pxres,   pyres);

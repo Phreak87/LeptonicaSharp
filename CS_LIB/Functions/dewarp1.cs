@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,8 @@ public static L_Dewarp dewarpCreate(
 				 Pix pixs, 
 				 int pageno){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.dewarpCreate(pixs.Pointer,   pageno);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -168,6 +171,7 @@ public static L_Dewarpa dewarpaCreateFromPixacomp(
 				 int minlines, 
 				 int maxdist){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.dewarpaCreateFromPixacomp(pixac.Pointer,   useboth,   sampling,   minlines,   maxdist);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -204,6 +208,7 @@ public static int dewarpaDestroyDewarp(
 				 L_Dewarpa dewa, 
 				 int pageno){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaDestroyDewarp(dewa.Pointer,   pageno);
 	
 	return _Result;
@@ -233,6 +238,8 @@ public static int dewarpaInsertDewarp(
 				 L_Dewarpa dewa, 
 				 L_Dewarp dew){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
+		if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	int _Result = Natives.dewarpaInsertDewarp(dewa.Pointer, dew.Pointer);
 	
 	return _Result;
@@ -251,6 +258,7 @@ public static L_Dewarp dewarpaGetDewarp(
 				 L_Dewarpa dewa, 
 				 int index){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	IntPtr _Result = Natives.dewarpaGetDewarp(dewa.Pointer,   index);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -313,6 +321,7 @@ public static int dewarpaSetCurvatures(
 				 int max_diff_edgecurv, 
 				 int max_edgeslope){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaSetCurvatures(dewa.Pointer,   max_linecurv,   min_diff_linecurv,   max_diff_linecurv,   max_edgecurv,   max_diff_edgecurv,   max_edgeslope);
 	
 	return _Result;
@@ -337,6 +346,7 @@ public static int dewarpaUseBothArrays(
 				 L_Dewarpa dewa, 
 				 int useboth){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaUseBothArrays(dewa.Pointer,   useboth);
 	
 	return _Result;
@@ -370,6 +380,7 @@ public static int dewarpaSetCheckColumns(
 				 L_Dewarpa dewa, 
 				 int check_columns){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaSetCheckColumns(dewa.Pointer,   check_columns);
 	
 	return _Result;
@@ -391,6 +402,7 @@ public static int dewarpaSetMaxDistance(
 				 L_Dewarpa dewa, 
 				 int maxdist){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaSetMaxDistance(dewa.Pointer,   maxdist);
 	
 	return _Result;
@@ -407,6 +419,10 @@ public static int dewarpaSetMaxDistance(
 public static L_Dewarp dewarpRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.dewarpRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -434,6 +450,7 @@ public static L_Dewarp dewarpRead(
 public static L_Dewarp dewarpReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.dewarpReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -453,6 +470,7 @@ public static L_Dewarp dewarpReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.dewarpReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -472,6 +490,8 @@ public static int dewarpWrite(
 				 String filename, 
 				 L_Dewarp dew){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	int _Result = Natives.dewarpWrite(  filename, dew.Pointer);
 	
 	return _Result;
@@ -495,6 +515,8 @@ public static int dewarpWriteStream(
 				 FILE fp, 
 				 L_Dewarp dew){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	int _Result = Natives.dewarpWriteStream(fp.Pointer, dew.Pointer);
 	
 	return _Result;
@@ -518,6 +540,7 @@ public static int dewarpWriteMem(
 				out uint psize, 
 				 L_Dewarp dew){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.dewarpWriteMem(out  pdataPtr, out  psize, dew.Pointer);
@@ -541,6 +564,10 @@ public static int dewarpWriteMem(
 public static L_Dewarpa dewarpaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.dewarpaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -565,6 +592,7 @@ public static L_Dewarpa dewarpaRead(
 public static L_Dewarpa dewarpaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.dewarpaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -584,6 +612,7 @@ public static L_Dewarpa dewarpaReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.dewarpaReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -603,6 +632,8 @@ public static int dewarpaWrite(
 				 String filename, 
 				 L_Dewarpa dewa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaWrite(  filename, dewa.Pointer);
 	
 	return _Result;
@@ -621,6 +652,8 @@ public static int dewarpaWriteStream(
 				 FILE fp, 
 				 L_Dewarpa dewa){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	int _Result = Natives.dewarpaWriteStream(fp.Pointer, dewa.Pointer);
 	
 	return _Result;
@@ -644,6 +677,7 @@ public static int dewarpaWriteMem(
 				out uint psize, 
 				 L_Dewarpa dewa){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.dewarpaWriteMem(out  pdataPtr, out  psize, dewa.Pointer);

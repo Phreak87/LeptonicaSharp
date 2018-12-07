@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -48,6 +49,9 @@ public static Pix pixAffineSampledPta(
 				 Pta ptas, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixAffineSampledPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -78,6 +82,8 @@ public static Pix pixAffineSampled(
 				 Single[] vc, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixAffineSampled(pixs.Pointer,   vc,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -106,6 +112,9 @@ public static Pix pixAffinePta(
 				 Pta ptas, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixAffinePta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -132,6 +141,8 @@ public static Pix pixAffine(
 				 Single[] vc, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixAffine(pixs.Pointer,   vc,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -155,6 +166,9 @@ public static Pix pixAffinePtaColor(
 				 Pta ptas, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixAffinePtaColor(pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -176,6 +190,8 @@ public static Pix pixAffineColor(
 				 Single[] vc, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixAffineColor(pixs.Pointer,   vc,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -199,6 +215,10 @@ public static Pix pixAffinePtaGray(
 				 Pta ptas, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixAffinePtaGray(pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -220,6 +240,9 @@ public static Pix pixAffineGray(
 				 Single[] vc, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixAffineGray(pixs.Pointer,   vc,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -282,6 +305,10 @@ public static Pix pixAffinePtaWithAlpha(
 				 Single fract, 
 				 int border){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
 	IntPtr _Result = Natives.pixAffinePtaWithAlpha(pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
@@ -353,6 +380,8 @@ public static int getAffineXformCoeffs(
 				 Pta ptad, 
 				out List<Single[]> pvc){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
 	IntPtr pvcPtr = IntPtr.Zero;
 
 	int _Result = Natives.getAffineXformCoeffs(ptas.Pointer, ptad.Pointer, out  pvcPtr);
@@ -396,6 +425,7 @@ public static int affineInvertXform(
 				 Single[] vc, 
 				out List<Single[]> pvci){
 
+if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr pvciPtr = IntPtr.Zero;
 
 	int _Result = Natives.affineInvertXform(  vc, out  pvciPtr);
@@ -428,6 +458,7 @@ public static int affineXformSampledPt(
 				out int pxp, 
 				out int pyp){
 
+if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	int _Result = Natives.affineXformSampledPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 	return _Result;
@@ -457,6 +488,7 @@ public static int affineXformPt(
 				out Single pxp, 
 				out Single pyp){
 
+if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	int _Result = Natives.affineXformPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 	return _Result;
@@ -492,6 +524,7 @@ public static int linearInterpolatePixelColor(
 				 uint colorval, 
 				out uint pval){
 
+if (datas == null) {throw new ArgumentNullException  ("datas cannot be Nothing");}
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
 
@@ -531,6 +564,7 @@ public static int linearInterpolatePixelGray(
 				 int grayval, 
 				out int pval){
 
+if (datas == null) {throw new ArgumentNullException  ("datas cannot be Nothing");}
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
 
@@ -567,6 +601,8 @@ public static int gaussjordan(
 				 Single[] b, 
 				 int n){
 
+if (a == null) {throw new ArgumentNullException  ("a cannot be Nothing");}
+		if (b == null) {throw new ArgumentNullException  ("b cannot be Nothing");}
 	IntPtr aPtr = Marshal.AllocHGlobal(a.Count);
 
 	int _Result = Natives.gaussjordan(  aPtr,   b,   n);
@@ -612,6 +648,9 @@ public static Pix pixAffineSequential(
 				 int bw, 
 				 int bh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixAffineSequential(pixs.Pointer, ptad.Pointer, ptas.Pointer,   bw,   bh);
 	
 	if (_Result == IntPtr.Zero) {return null;}

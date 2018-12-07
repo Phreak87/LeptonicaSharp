@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,8 @@ public static FPix pixConvertToFPix(
 				 Pix pixs, 
 				 int ncomps){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertToFPix(pixs.Pointer,   ncomps);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -52,6 +55,8 @@ public static DPix pixConvertToDPix(
 				 Pix pixs, 
 				 int ncomps){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertToDPix(pixs.Pointer,   ncomps);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -89,6 +94,7 @@ public static Pix fpixConvertToPix(
 				 int negvals, 
 				 int errorflag){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixConvertToPix(fpixs.Pointer,   outdepth,   negvals,   errorflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -106,6 +112,7 @@ public static Pix fpixConvertToPix(
 public static Pix fpixDisplayMaxDynamicRange(
 				 FPix fpixs){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixDisplayMaxDynamicRange(fpixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -123,6 +130,7 @@ public static Pix fpixDisplayMaxDynamicRange(
 public static DPix fpixConvertToDPix(
 				 FPix fpix){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	IntPtr _Result = Natives.fpixConvertToDPix(fpix.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -160,6 +168,7 @@ public static Pix dpixConvertToPix(
 				 int negvals, 
 				 int errorflag){
 
+if (dpixs == null) {throw new ArgumentNullException  ("dpixs cannot be Nothing");}
 	IntPtr _Result = Natives.dpixConvertToPix(dpixs.Pointer,   outdepth,   negvals,   errorflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -177,6 +186,7 @@ public static Pix dpixConvertToPix(
 public static FPix dpixConvertToFPix(
 				 DPix dpix){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	IntPtr _Result = Natives.dpixConvertToFPix(dpix.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -200,6 +210,7 @@ public static int fpixGetMin(
 				out int pxminloc, 
 				out int pyminloc){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixGetMin(fpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 	
 	return _Result;
@@ -222,6 +233,7 @@ public static int fpixGetMax(
 				out int pxmaxloc, 
 				out int pymaxloc){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixGetMax(fpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 	
 	return _Result;
@@ -244,6 +256,7 @@ public static int dpixGetMin(
 				out int pxminloc, 
 				out int pyminloc){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixGetMin(dpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 	
 	return _Result;
@@ -266,6 +279,7 @@ public static int dpixGetMax(
 				out int pxmaxloc, 
 				out int pymaxloc){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixGetMax(dpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 	
 	return _Result;
@@ -295,6 +309,7 @@ public static FPix fpixScaleByInteger(
 				 FPix fpixs, 
 				 int factor){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixScaleByInteger(fpixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -325,6 +340,7 @@ public static DPix dpixScaleByInteger(
 				 DPix dpixs, 
 				 int factor){
 
+if (dpixs == null) {throw new ArgumentNullException  ("dpixs cannot be Nothing");}
 	IntPtr _Result = Natives.dpixScaleByInteger(dpixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -363,6 +379,8 @@ public static FPix fpixLinearCombination(
 				 Single a, 
 				 Single b){
 
+if (fpixs1 == null) {throw new ArgumentNullException  ("fpixs1 cannot be Nothing");}
+		if (fpixs2 == null) {throw new ArgumentNullException  ("fpixs2 cannot be Nothing");}
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
 	IntPtr _Result = Natives.fpixLinearCombination(fpixdPtr, fpixs1.Pointer, fpixs2.Pointer,   a,   b);
@@ -393,6 +411,7 @@ public static int fpixAddMultConstant(
 				 Single addc, 
 				 Single multc){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixAddMultConstant(fpix.Pointer,   addc,   multc);
 	
 	return _Result;
@@ -430,6 +449,8 @@ public static DPix dpixLinearCombination(
 				 Single a, 
 				 Single b){
 
+if (dpixs1 == null) {throw new ArgumentNullException  ("dpixs1 cannot be Nothing");}
+		if (dpixs2 == null) {throw new ArgumentNullException  ("dpixs2 cannot be Nothing");}
 	IntPtr dpixdPtr = IntPtr.Zero; 	if (dpixd != null) {dpixdPtr = dpixd.Pointer;}
 
 	IntPtr _Result = Natives.dpixLinearCombination(dpixdPtr, dpixs1.Pointer, dpixs2.Pointer,   a,   b);
@@ -460,6 +481,7 @@ public static int dpixAddMultConstant(
 				 double addc, 
 				 double multc){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixAddMultConstant(dpix.Pointer,   addc,   multc);
 	
 	return _Result;
@@ -478,6 +500,7 @@ public static int fpixSetAllArbitrary(
 				 FPix fpix, 
 				 Single inval){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	int _Result = Natives.fpixSetAllArbitrary(fpix.Pointer,   inval);
 	
 	return _Result;
@@ -496,6 +519,7 @@ public static int dpixSetAllArbitrary(
 				 DPix dpix, 
 				 double inval){
 
+if (dpix == null) {throw new ArgumentNullException  ("dpix cannot be Nothing");}
 	int _Result = Natives.dpixSetAllArbitrary(dpix.Pointer,   inval);
 	
 	return _Result;
@@ -523,6 +547,7 @@ public static FPix fpixAddBorder(
 				 int top, 
 				 int bot){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixAddBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -548,6 +573,7 @@ public static FPix fpixRemoveBorder(
 				 int top, 
 				 int bot){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixRemoveBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -576,6 +602,7 @@ public static FPix fpixAddMirroredBorder(
 				 int top, 
 				 int bot){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixAddMirroredBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -605,6 +632,7 @@ public static FPix fpixAddContinuedBorder(
 				 int top, 
 				 int bot){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixAddContinuedBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -635,6 +663,7 @@ public static FPix fpixAddSlopeBorder(
 				 int top, 
 				 int bot){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixAddSlopeBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -678,6 +707,8 @@ public static int fpixRasterop(
 				 int sx, 
 				 int sy){
 
+if (fpixd == null) {throw new ArgumentNullException  ("fpixd cannot be Nothing");}
+		if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	int _Result = Natives.fpixRasterop(fpixd.Pointer,   dx,   dy,   dw,   dh, fpixs.Pointer,   sx,   sy);
 	
 	return _Result;
@@ -696,6 +727,7 @@ public static FPix fpixRotateOrth(
 				 FPix fpixs, 
 				 int quads){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixRotateOrth(fpixs.Pointer,   quads);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -731,6 +763,7 @@ public static FPix fpixRotate180(
 				 FPix fpixd, 
 				 FPix fpixs){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
 	IntPtr _Result = Natives.fpixRotate180(fpixdPtr, fpixs.Pointer);
@@ -758,6 +791,7 @@ public static FPix fpixRotate90(
 				 FPix fpixs, 
 				 int direction){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixRotate90(fpixs.Pointer,   direction);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -795,6 +829,7 @@ public static FPix fpixFlipLR(
 				 FPix fpixd, 
 				 FPix fpixs){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
 	IntPtr _Result = Natives.fpixFlipLR(fpixdPtr, fpixs.Pointer);
@@ -834,6 +869,7 @@ public static FPix fpixFlipTB(
 				 FPix fpixd, 
 				 FPix fpixs){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
 	IntPtr _Result = Natives.fpixFlipTB(fpixdPtr, fpixs.Pointer);
@@ -872,6 +908,9 @@ public static FPix fpixAffinePta(
 				 int border, 
 				 Single inval){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.fpixAffinePta(fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -893,6 +932,8 @@ public static FPix fpixAffine(
 				 Single[] vc, 
 				 Single inval){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.fpixAffine(fpixs.Pointer,   vc,   inval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -929,6 +970,9 @@ public static FPix fpixProjectivePta(
 				 int border, 
 				 Single inval){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.fpixProjectivePta(fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -950,6 +994,8 @@ public static FPix fpixProjective(
 				 Single[] vc, 
 				 Single inval){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.fpixProjective(fpixs.Pointer,   vc,   inval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -984,6 +1030,7 @@ public static int linearInterpolatePixelFloat(
 				 Single inval, 
 				out Single pval){
 
+if (datas == null) {throw new ArgumentNullException  ("datas cannot be Nothing");}
 	int _Result = Natives.linearInterpolatePixelFloat(  datas,   w,   h,   x,   y,   inval, out  pval);
 	
 	return _Result;
@@ -1006,6 +1053,7 @@ public static Pix fpixThresholdToPix(
 				 FPix fpix, 
 				 Single thresh){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	IntPtr _Result = Natives.fpixThresholdToPix(fpix.Pointer,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1048,6 +1096,8 @@ public static FPix pixComponentFunction(
 				 Single gdenom, 
 				 Single bdenom){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixComponentFunction(pix.Pointer,   rnum,   gnum,   bnum,   rdenom,   gdenom,   bdenom);
 	
 	if (_Result == IntPtr.Zero) {return null;}

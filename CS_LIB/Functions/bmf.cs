@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -65,6 +66,7 @@ public static Pix bmfGetPix(
 				 L_Bmf bmf, 
 				 char chr){
 
+if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
 	IntPtr _Result = Natives.bmfGetPix(bmf.Pointer,   chr);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -86,6 +88,7 @@ public static int bmfGetWidth(
 				 char chr, 
 				out int pw){
 
+if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
 	int _Result = Natives.bmfGetWidth(bmf.Pointer,   chr, out  pw);
 	
 	return _Result;
@@ -106,6 +109,7 @@ public static int bmfGetBaseline(
 				 char chr, 
 				out int pbaseline){
 
+if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
 	int _Result = Natives.bmfGetBaseline(bmf.Pointer,   chr, out  pbaseline);
 	
 	return _Result;
@@ -133,6 +137,7 @@ public static Pixa pixaGetFont(
 				out int pbl1, 
 				out int pbl2){
 
+if (dir == null) {throw new ArgumentNullException  ("dir cannot be Nothing");}
 	IntPtr _Result = Natives.pixaGetFont(  dir,   fontsize, out  pbl0, out  pbl1, out  pbl2);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -163,6 +168,7 @@ public static int pixaSaveFont(
 				 String outdir, 
 				 int fontsize){
 
+if (outdir == null) {throw new ArgumentNullException  ("outdir cannot be Nothing");}
 	int _Result = Natives.pixaSaveFont(  indir,   outdir,   fontsize);
 	
 	return _Result;

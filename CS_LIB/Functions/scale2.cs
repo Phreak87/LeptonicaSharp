@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -80,6 +81,8 @@ public static Pix pixScaleToGray(
 				 Pix pixs, 
 				 Single scalefactor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGray(pixs.Pointer,   scalefactor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -113,6 +116,8 @@ public static Pix pixScaleToGrayFast(
 				 Pix pixs, 
 				 Single scalefactor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGrayFast(pixs.Pointer,   scalefactor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -130,6 +135,8 @@ public static Pix pixScaleToGrayFast(
 public static Pix pixScaleToGray2(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGray2(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -154,6 +161,8 @@ public static Pix pixScaleToGray2(
 public static Pix pixScaleToGray3(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGray3(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -174,6 +183,8 @@ public static Pix pixScaleToGray3(
 public static Pix pixScaleToGray4(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGray4(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -194,6 +205,8 @@ public static Pix pixScaleToGray4(
 public static Pix pixScaleToGray6(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGray6(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -211,6 +224,8 @@ public static Pix pixScaleToGray6(
 public static Pix pixScaleToGray8(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGray8(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -228,6 +243,8 @@ public static Pix pixScaleToGray8(
 public static Pix pixScaleToGray16(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGray16(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -266,6 +283,8 @@ public static Pix pixScaleToGrayMipmap(
 				 Pix pixs, 
 				 Single scalefactor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixScaleToGrayMipmap(pixs.Pointer,   scalefactor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -293,6 +312,8 @@ public static Pix pixScaleMipmap(
 				 Pix pixs2, 
 				 Single scale){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr _Result = Natives.pixScaleMipmap(pixs1.Pointer, pixs2.Pointer,   scale);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -312,6 +333,8 @@ public static Pix pixExpandReplicate(
 				 Pix pixs, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16, 32 bpp"); }
 	IntPtr _Result = Natives.pixExpandReplicate(pixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -350,6 +373,7 @@ public static Pix pixScaleGrayMinMax(
 				 int yfact, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixScaleGrayMinMax(pixs.Pointer,   xfact,   yfact,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -389,6 +413,7 @@ public static Pix pixScaleGrayMinMax2(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixScaleGrayMinMax2(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -419,6 +444,7 @@ public static Pix pixScaleGrayRankCascade(
 				 int level3, 
 				 int level4){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixScaleGrayRankCascade(pixs.Pointer,   level1,   level2,   level3,   level4);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -453,6 +479,7 @@ public static Pix pixScaleGrayRank2(
 				 Pix pixs, 
 				 int rank){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixScaleGrayRank2(pixs.Pointer,   rank);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -479,6 +506,8 @@ public static int pixScaleAndTransferAlpha(
 				 Single scalex, 
 				 Single scaley){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixScaleAndTransferAlpha(pixd.Pointer, pixs.Pointer,   scalex,   scaley);
 	
 	return _Result;
@@ -540,6 +569,7 @@ public static Pix pixScaleWithAlpha(
 				 Pix pixg, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
 	IntPtr _Result = Natives.pixScaleWithAlpha(pixs.Pointer,   scalex,   scaley, pixgPtr,   fract);

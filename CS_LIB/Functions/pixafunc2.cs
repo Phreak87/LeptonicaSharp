@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -35,6 +36,7 @@ public static Pix pixaDisplay(
 				 int w, 
 				 int h){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplay(pixa.Pointer,   w,   h);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -70,6 +72,7 @@ public static Pix pixaDisplayOnColor(
 				 int h, 
 				 uint bgcolor){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayOnColor(pixa.Pointer,   w,   h,   bgcolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -99,6 +102,7 @@ public static Pix pixaDisplayRandomCmap(
 				 int w, 
 				 int h){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayRandomCmap(pixa.Pointer,   w,   h);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -136,6 +140,7 @@ public static Pix pixaDisplayLinearly(
 				 int border, 
 				out Boxa pboxa){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr pboxaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixaDisplayLinearly(pixas.Pointer,   direction,   scalefactor,   background,   spacing,   border, out pboxaPtr);
@@ -178,6 +183,7 @@ public static Pix pixaDisplayOnLattice(
 				out int pncols, 
 				out Boxa pboxa){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr pboxaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixaDisplayOnLattice(pixa.Pointer,   cellw,   cellh, out  pncols, out pboxaPtr);
@@ -220,6 +226,7 @@ public static Pix pixaDisplayUnsplit(
 				 int borderwidth, 
 				 uint bordercolor){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayUnsplit(pixa.Pointer,   nx,   ny,   borderwidth,   bordercolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -260,6 +267,7 @@ public static Pix pixaDisplayTiled(
 				 int background, 
 				 int spacing){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayTiled(pixa.Pointer,   maxwidth,   background,   spacing);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -313,6 +321,7 @@ public static Pix pixaDisplayTiledInRows(
 				 int spacing, 
 				 int border){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayTiledInRows(pixa.Pointer,   outdepth,   maxwidth,   scalefactor,   background,   spacing,   border);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -360,6 +369,7 @@ public static Pix pixaDisplayTiledInColumns(
 				 int spacing, 
 				 int border){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayTiledInColumns(pixas.Pointer,   nx,   scalefactor,   spacing,   border);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -398,6 +408,7 @@ public static Pix pixaDisplayTiledAndScaled(
 				 int spacing, 
 				 int border){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayTiledAndScaled(pixa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -442,6 +453,7 @@ public static Pix pixaDisplayTiledWithText(
 				 int fontsize, 
 				 uint textcolor){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayTiledWithText(pixa.Pointer,   maxwidth,   scalefactor,   spacing,   border,   fontsize,   textcolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -487,6 +499,8 @@ public static Pix pixaDisplayTiledByIndex(
 				 int fontsize, 
 				 uint textcolor){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayTiledByIndex(pixa.Pointer, na.Pointer,   width,   spacing,   border,   fontsize,   textcolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -513,6 +527,7 @@ public static Pix pixaaDisplay(
 				 int w, 
 				 int h){
 
+if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaaDisplay(paa.Pointer,   w,   h);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -546,6 +561,7 @@ public static Pix pixaaDisplayByPixa(
 				 int yspace, 
 				 int maxw){
 
+if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaaDisplayByPixa(paa.Pointer,   xspace,   yspace,   maxw);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -581,6 +597,7 @@ public static Pixa pixaaDisplayTiledAndScaled(
 				 int spacing, 
 				 int border){
 
+if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaaDisplayTiledAndScaled(paa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -600,6 +617,7 @@ public static Pixa pixaConvertTo1(
 				 Pixa pixas, 
 				 int thresh){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaConvertTo1(pixas.Pointer,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -622,6 +640,7 @@ public static Pixa pixaConvertTo8(
 				 Pixa pixas, 
 				 int cmapflag){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaConvertTo8(pixas.Pointer,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -644,6 +663,7 @@ public static Pixa pixaConvertTo8Colormap(
 				 Pixa pixas, 
 				 int dither){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaConvertTo8Colormap(pixas.Pointer,   dither);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -667,6 +687,7 @@ public static Pixa pixaConvertTo8Colormap(
 public static Pixa pixaConvertTo32(
 				 Pixa pixas){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaConvertTo32(pixas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -703,6 +724,7 @@ public static Pixa pixaConstrainedSelect(
 				 int use_pairs, 
 				 int copyflag){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaConstrainedSelect(pixas.Pointer,   first,   last,   nmax,   use_pairs,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -748,6 +770,8 @@ public static int pixaSelectToPdf(
 				 int fontsize, 
 				 String fileout){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.pixaSelectToPdf(pixas.Pointer,   first,   last,   res,   scalefactor,   type,   quality,   color,   fontsize,   fileout);
 	
 	return _Result;
@@ -787,6 +811,7 @@ public static Pixa pixaDisplayMultiTiled(
 				 int spacing, 
 				 int border){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaDisplayMultiTiled(pixas.Pointer,   nx,   ny,   maxw,   maxh,   scalefactor,   spacing,   border);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -824,6 +849,7 @@ public static int pixaSplitIntoFiles(
 				 int write_pix, 
 				 int write_pdf){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	int _Result = Natives.pixaSplitIntoFiles(pixas.Pointer,   nsplit,   scale,   outwidth,   write_pixa,   write_pix,   write_pdf);
 	
 	return _Result;
@@ -871,6 +897,8 @@ public static int convertToNUpFiles(
 				 int fontsize, 
 				 String outdir){
 
+if (dir == null) {throw new ArgumentNullException  ("dir cannot be Nothing");}
+		if (outdir == null) {throw new ArgumentNullException  ("outdir cannot be Nothing");}
 	int _Result = Natives.convertToNUpFiles(  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize,   outdir);
 	
 	return _Result;
@@ -904,6 +932,7 @@ public static Pixa convertToNUpPixa(
 				 int border, 
 				 int fontsize){
 
+if (dir == null) {throw new ArgumentNullException  ("dir cannot be Nothing");}
 	IntPtr _Result = Natives.convertToNUpPixa(  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -942,6 +971,7 @@ public static Pixa pixaConvertToNUpPixa(
 				 int border, 
 				 int fontsize){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 
 	IntPtr _Result = Natives.pixaConvertToNUpPixa(pixas.Pointer, saPtr,   nx,   ny,   tw,   spacing,   border,   fontsize);
@@ -1004,6 +1034,9 @@ public static int pixaCompareInPdf(
 				 int fontsize, 
 				 String fileout){
 
+if (pixa1 == null) {throw new ArgumentNullException  ("pixa1 cannot be Nothing");}
+		if (pixa2 == null) {throw new ArgumentNullException  ("pixa2 cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.pixaCompareInPdf(pixa1.Pointer, pixa2.Pointer,   nx,   ny,   tw,   spacing,   border,   fontsize,   fileout);
 	
 	return _Result;

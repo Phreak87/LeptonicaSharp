@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -49,6 +50,7 @@ public static Pix pixRotate(
 				 int width, 
 				 int height){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotate(pixs.Pointer,   angle,   type,   incolor,   width,   height);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -108,6 +110,7 @@ public static Pix pixEmbedForRotation(
 				 int width, 
 				 int height){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixEmbedForRotation(pixs.Pointer,   angle,   incolor,   width,   height);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -141,6 +144,7 @@ public static Pix pixRotateBySampling(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateBySampling(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -179,6 +183,8 @@ public static Pix pixRotateBinaryNice(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixRotateBinaryNice(pixs.Pointer,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -244,6 +250,7 @@ public static Pix pixRotateWithAlpha(
 				 Pix pixg, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
 	IntPtr _Result = Natives.pixRotateWithAlpha(pixs.Pointer,   angle, pixgPtr,   fract);

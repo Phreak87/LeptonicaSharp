@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -27,6 +28,7 @@ public static int fmorphautogen(
 				 int fileindex, 
 				 String filename){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.fmorphautogen(sela.Pointer,   fileindex,   filename);
 	
 	return _Result;
@@ -61,6 +63,7 @@ public static int fmorphautogen1(
 				 int fileindex, 
 				 String filename){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.fmorphautogen1(sela.Pointer,   fileindex,   filename);
 	
 	return _Result;
@@ -78,6 +81,8 @@ public static int fmorphautogen2(
 				 int fileindex, 
 				 String filename){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
+		if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 	IntPtr selaPtr = IntPtr.Zero; if (sela != null) {selaPtr = sela.Pointer;}
 
 	int _Result = Natives.fmorphautogen2(sela.Pointer,   fileindex,   filename);

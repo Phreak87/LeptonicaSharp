@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,10 @@ public static Pix pixDeskewBoth(
 				 Pix pixs, 
 				 int redsearch){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default");
+	};
 	IntPtr _Result = Natives.pixDeskewBoth(pixs.Pointer,   redsearch);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -53,6 +58,10 @@ public static Pix pixDeskew(
 				 Pix pixs, 
 				 int redsearch){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default");
+	};
 	IntPtr _Result = Natives.pixDeskew(pixs.Pointer,   redsearch);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -81,6 +90,10 @@ public static Pix pixFindSkewAndDeskew(
 				out Single pangle, 
 				out Single pconf){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default");
+	};
 	IntPtr _Result = Natives.pixFindSkewAndDeskew(pixs.Pointer,   redsearch, out  pangle, out  pconf);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -117,6 +130,13 @@ public static Pix pixDeskewGeneral(
 				out Single pangle, 
 				out Single pconf){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("for linear search: reduction factor = 1, 2 or 4 use 0 for default");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default");
+	};
 	IntPtr _Result = Natives.pixDeskewGeneral(pixs.Pointer,   redsweep,   sweeprange,   sweepdelta,   redsearch,   thresh, out  pangle, out  pconf);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -146,6 +166,8 @@ public static int pixFindSkew(
 				out Single pangle, 
 				out Single pconf){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixFindSkew(pixs.Pointer, out  pangle, out  pconf);
 	
 	return _Result;
@@ -175,6 +197,11 @@ public static int pixFindSkewSweep(
 				 Single sweeprange, 
 				 Single sweepdelta){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("factor = 1, 2, 4 or 8");
+	};
 	int _Result = Natives.pixFindSkewSweep(pixs.Pointer, out  pangle,   reduction,   sweeprange,   sweepdelta);
 	
 	return _Result;
@@ -220,6 +247,14 @@ public static int pixFindSkewSweepAndSearch(
 				 Single sweepdelta, 
 				 Single minbsdelta){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("sweep reduction factor = 1, 2, 4 or 8");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("binary search reduction factor = 1, 2, 4 or 8 and must not exceed redsweep");
+	};
 	int _Result = Natives.pixFindSkewSweepAndSearch(pixs.Pointer, out  pangle, out  pconf,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta);
 	
 	return _Result;
@@ -276,6 +311,14 @@ public static int pixFindSkewSweepAndSearchScore(
 				 Single sweepdelta, 
 				 Single minbsdelta){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("sweep reduction factor = 1, 2, 4 or 8");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("binary search reduction factor = 1, 2, 4 or 8 and must not exceed redsweep");
+	};
 	int _Result = Natives.pixFindSkewSweepAndSearchScore(pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta);
 	
 	return _Result;
@@ -322,6 +365,14 @@ public static int pixFindSkewSweepAndSearchScorePivot(
 				 Single minbsdelta, 
 				 int pivot){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("sweep reduction factor = 1, 2, 4 or 8");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("binary search reduction factor = 1, 2, 4 or 8 and must not exceed redsweep");
+	};
 	int _Result = Natives.pixFindSkewSweepAndSearchScorePivot(pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta,   pivot);
 	
 	return _Result;
@@ -345,6 +396,15 @@ public static int pixFindSkewOrthogonalRange(
 				 Single minbsdelta, 
 				 Single confprior){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pangle == null) {throw new ArgumentNullException  ("pangle cannot be Nothing");}
+		if (pconf == null) {throw new ArgumentNullException  ("pconf cannot be Nothing");}
+if ((new List<int> {0,1,2,4,8}).Contains ((int)redsweep) == false) {
+	   throw new ArgumentException ("");
+	};
+	if ((new List<int> {0,1,2,4,8}).Contains ((int)redsearch) == false) {
+	   throw new ArgumentException ("");
+	};
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixFindSkewOrthogonalRange(pixs.Pointer,   pangle,   pconf,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta,   confprior);
@@ -371,6 +431,7 @@ public static int pixFindDifferentialSquareSum(
 				 Pix pixs, 
 				out Single psum){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixFindDifferentialSquareSum(pixs.Pointer, out  psum);
 	
 	return _Result;
@@ -404,6 +465,7 @@ public static int pixFindNormalizedSquareSum(
 				out Single pvratio, 
 				out Single pfract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixFindNormalizedSquareSum(pixs.Pointer, out  phratio, out  pvratio, out  pfract);
 	
 	return _Result;

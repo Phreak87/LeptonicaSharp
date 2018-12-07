@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -20,6 +21,14 @@ public static Pix pixReadJp2k(
 				 int hint, 
 				 DebugOnOff debug){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
+	if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("");
+	};
 	IntPtr boxPtr = IntPtr.Zero; if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixReadJp2k(  filename,   reduction, box.Pointer,   hint,  (int) debug);
@@ -42,6 +51,11 @@ public static Pix pixReadStreamJp2k(
 				 int hint, 
 				 DebugOnOff debug){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("");
+	};
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr boxPtr = IntPtr.Zero; if (box != null) {boxPtr = box.Pointer;}
 
@@ -66,6 +80,8 @@ public static int pixWriteJp2k(
 				 int hint, 
 				 DebugOnOff debug){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixWriteJp2k(  filename, pix.Pointer,   quality,   nlevels,   hint,  (int) debug);
@@ -88,6 +104,8 @@ public static int pixWriteStreamJp2k(
 				 int hint, 
 				 DebugOnOff debug){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -111,6 +129,11 @@ public static Pix pixReadMemJp2k(
 				 int hint, 
 				 DebugOnOff debug){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("");
+	};
 	IntPtr boxPtr = IntPtr.Zero; if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixReadMemJp2k(  data,   size,   reduction, box.Pointer,   hint,  (int) debug);
@@ -135,6 +158,9 @@ public static int pixWriteMemJp2k(
 				 int hint, 
 				 DebugOnOff debug){
 
+if (pdata == null) {throw new ArgumentNullException  ("pdata cannot be Nothing");}
+		if (psize == null) {throw new ArgumentNullException  ("psize cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.pixWriteMemJp2k(  pdata,   psize, pix.Pointer,   quality,   nlevels,   hint,  (int) debug);

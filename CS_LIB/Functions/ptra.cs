@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -81,6 +82,8 @@ public static int ptraAdd(
 				 L_Ptra pa, 
 				 Object item){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
+		if (item == null) {throw new ArgumentNullException  ("item cannot be Nothing");}
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -147,6 +150,8 @@ public static int ptraInsert(
 				 Object item, 
 				 int shiftflag){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
+		if (item == null) {throw new ArgumentNullException  ("item cannot be Nothing");}
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -183,6 +188,7 @@ public static Object ptraRemove(
 				 int index, 
 				 int flag){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	IntPtr _Result = Natives.ptraRemove(pa.Pointer,   index,   flag);
 	
 	Byte[] B = new Byte[1];
@@ -201,6 +207,7 @@ public static Object ptraRemove(
 public static Object ptraRemoveLast(
 				 L_Ptra pa){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	IntPtr _Result = Natives.ptraRemoveLast(pa.Pointer);
 	
 	Byte[] B = new Byte[1];
@@ -225,6 +232,8 @@ public static Object ptraReplace(
 				 Object item, 
 				 int freeflag){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
+		if (item == null) {throw new ArgumentNullException  ("item cannot be Nothing");}
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -251,6 +260,7 @@ public static int ptraSwap(
 				 int index1, 
 				 int index2){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	int _Result = Natives.ptraSwap(pa.Pointer,   index1,   index2);
 	
 	return _Result;
@@ -272,6 +282,7 @@ public static int ptraSwap(
 public static int ptraCompactArray(
 				 L_Ptra pa){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	int _Result = Natives.ptraCompactArray(pa.Pointer);
 	
 	return _Result;
@@ -288,6 +299,7 @@ public static int ptraCompactArray(
 public static int ptraReverse(
 				 L_Ptra pa){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	int _Result = Natives.ptraReverse(pa.Pointer);
 	
 	return _Result;
@@ -306,6 +318,8 @@ public static int ptraJoin(
 				 L_Ptra pa1, 
 				 L_Ptra pa2){
 
+if (pa1 == null) {throw new ArgumentNullException  ("pa1 cannot be Nothing");}
+		if (pa2 == null) {throw new ArgumentNullException  ("pa2 cannot be Nothing");}
 	int _Result = Natives.ptraJoin(pa1.Pointer, pa2.Pointer);
 	
 	return _Result;
@@ -339,6 +353,7 @@ public static int ptraGetMaxIndex(
 				 L_Ptra pa, 
 				out int pmaxindex){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	int _Result = Natives.ptraGetMaxIndex(pa.Pointer, out  pmaxindex);
 	
 	return _Result;
@@ -361,6 +376,7 @@ public static int ptraGetActualCount(
 				 L_Ptra pa, 
 				out int pcount){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	int _Result = Natives.ptraGetActualCount(pa.Pointer, out  pcount);
 	
 	return _Result;
@@ -387,6 +403,7 @@ public static Object ptraGetPtrToItem(
 				 L_Ptra pa, 
 				 int index){
 
+if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	IntPtr _Result = Natives.ptraGetPtrToItem(pa.Pointer,   index);
 	
 	Byte[] B = new Byte[1];
@@ -455,6 +472,7 @@ public static int ptraaGetSize(
 				 L_Ptraa paa, 
 				out int psize){
 
+if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 	int _Result = Natives.ptraaGetSize(paa.Pointer, out  psize);
 	
 	return _Result;
@@ -480,6 +498,8 @@ public static int ptraaInsertPtra(
 				 int index, 
 				 L_Ptra pa){
 
+if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
+		if (pa == null) {throw new ArgumentNullException  ("pa cannot be Nothing");}
 	int _Result = Natives.ptraaInsertPtra(paa.Pointer,   index, pa.Pointer);
 	
 	return _Result;
@@ -509,6 +529,7 @@ public static L_Ptra ptraaGetPtra(
 				 int index, 
 				 int accessflag){
 
+if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 	IntPtr _Result = Natives.ptraaGetPtra(paa.Pointer,   index,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -533,6 +554,7 @@ public static L_Ptra ptraaGetPtra(
 public static L_Ptra ptraaFlattenToPtra(
 				 L_Ptraa paa){
 
+if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 	IntPtr _Result = Natives.ptraaFlattenToPtra(paa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

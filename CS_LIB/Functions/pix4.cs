@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -29,6 +30,7 @@ public static Numa pixGetGrayHistogram(
 				 Pix pixs, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetGrayHistogram(pixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -67,6 +69,7 @@ public static Numa pixGetGrayHistogramMasked(
 				 int y, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	IntPtr _Result = Natives.pixGetGrayHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor);
@@ -99,6 +102,7 @@ public static Numa pixGetGrayHistogramInRect(
 				 Box box, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixGetGrayHistogramInRect(pixs.Pointer, boxPtr,   factor);
@@ -131,6 +135,7 @@ public static Numaa pixGetGrayHistogramTiled(
 				 int nx, 
 				 int ny){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetGrayHistogramTiled(pixs.Pointer,   factor,   nx,   ny);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -162,6 +167,7 @@ public static int pixGetColorHistogram(
 				out Numa pnag, 
 				out Numa pnab){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pnarPtr = IntPtr.Zero;
 	IntPtr pnagPtr = IntPtr.Zero;
 	IntPtr pnabPtr = IntPtr.Zero;
@@ -208,6 +214,7 @@ public static int pixGetColorHistogramMasked(
 				out Numa pnag, 
 				out Numa pnab){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr pnarPtr = IntPtr.Zero;
 	IntPtr pnagPtr = IntPtr.Zero;
@@ -240,6 +247,7 @@ public static Numa pixGetCmapHistogram(
 				 Pix pixs, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetCmapHistogram(pixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -273,6 +281,7 @@ public static Numa pixGetCmapHistogramMasked(
 				 int y, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	IntPtr _Result = Natives.pixGetCmapHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor);
@@ -304,6 +313,7 @@ public static Numa pixGetCmapHistogramInRect(
 				 Box box, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixGetCmapHistogramInRect(pixs.Pointer, boxPtr,   factor);
@@ -323,6 +333,7 @@ public static Numa pixGetCmapHistogramInRect(
 public static int pixCountRGBColors(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixCountRGBColors(pixs.Pointer);
 	
 	return _Result;
@@ -346,6 +357,7 @@ public static L_Rbtree pixGetColorAmapHistogram(
 				 Pix pixs, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetColorAmapHistogram(pixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -368,6 +380,7 @@ public static int amapGetCountForColor(
 				 L_Rbtree amap, 
 				 uint val){
 
+if (amap == null) {throw new ArgumentNullException  ("amap cannot be Nothing");}
 	int _Result = Natives.amapGetCountForColor(amap.Pointer,   val);
 	
 	return _Result;
@@ -396,6 +409,7 @@ public static int pixGetRankValue(
 				 Single rank, 
 				out uint pvalue){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixGetRankValue(pixs.Pointer,   factor,   rank, out  pvalue);
 	
 	return _Result;
@@ -441,6 +455,7 @@ public static int pixGetRankValueMaskedRGB(
 				out Single pgval, 
 				out Single pbval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixGetRankValueMaskedRGB(pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  prval, out  pgval, out  pbval);
@@ -494,6 +509,7 @@ public static int pixGetRankValueMasked(
 				out Single pval, 
 				out Numa pna){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr pnaPtr = IntPtr.Zero;
 
@@ -542,6 +558,7 @@ public static int pixGetPixelAverage(
 				 int factor, 
 				out uint pval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixGetPixelAverage(pixs.Pointer, pixmPtr,   x,   y,   factor, out  pval);
@@ -574,6 +591,7 @@ public static int pixGetPixelStats(
 				 int type, 
 				out uint pvalue){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixGetPixelStats(pixs.Pointer,   factor,   type, out  pvalue);
 	
 	return _Result;
@@ -614,6 +632,7 @@ public static int pixGetAverageMaskedRGB(
 				out Single pgval, 
 				out Single pbval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixGetAverageMaskedRGB(pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  prval, out  pgval, out  pbval);
@@ -666,6 +685,7 @@ public static int pixGetAverageMasked(
 				 int type, 
 				out Single pval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixGetAverageMasked(pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  pval);
@@ -702,6 +722,7 @@ public static int pixGetAverageTiledRGB(
 				out Pix ppixg, 
 				out Pix ppixb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixrPtr = IntPtr.Zero;
 	IntPtr ppixgPtr = IntPtr.Zero;
 	IntPtr ppixbPtr = IntPtr.Zero;
@@ -741,6 +762,7 @@ public static Pix pixGetAverageTiled(
 				 int sy, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetAverageTiled(pixs.Pointer,   sx,   sy,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -784,6 +806,7 @@ public static int pixRowStats(
 				out Numa pnavar, 
 				out Numa pnarootvar){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pnameanPtr = IntPtr.Zero;
 	IntPtr pnamedianPtr = IntPtr.Zero;
@@ -840,6 +863,7 @@ public static int pixColumnStats(
 				out Numa pnavar, 
 				out Numa pnarootvar){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pnameanPtr = IntPtr.Zero;
 	IntPtr pnamedianPtr = IntPtr.Zero;
@@ -881,6 +905,8 @@ public static int pixGetRangeValues(
 				out int pminval, 
 				out int pmaxval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8,16}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale, 32 bpp rgb, or colormapped"); }
 	int _Result = Natives.pixGetRangeValues(pixs.Pointer,   factor,   color, out  pminval, out  pmaxval);
 	
 	return _Result;
@@ -915,6 +941,8 @@ public static int pixGetExtremeValue(
 				out int pbval, 
 				out int pgrayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8,16}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale, 32 bpp rgb, or colormapped"); }
 	int _Result = Natives.pixGetExtremeValue(pixs.Pointer,   factor,   type, out  prval, out  pgval, out  pbval, out  pgrayval);
 	
 	return _Result;
@@ -947,6 +975,7 @@ public static int pixGetMaxValueInRect(
 				out int pxmax, 
 				out int pymax){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixGetMaxValueInRect(pixs.Pointer, boxPtr, out  pmaxval, out  pxmax, out  pymax);
@@ -984,6 +1013,8 @@ public static int pixGetBinnedComponentRange(
 				out Byte[] pcarray, 
 				 int fontsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pcarrayPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGetBinnedComponentRange(pixs.Pointer,   nbins,   factor,   color, out  pminval, out  pmaxval, out  pcarrayPtr,   fontsize);
@@ -1043,6 +1074,7 @@ public static int pixGetRankColorArray(
 				 int debugflag, 
 				 int fontsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pcarrayPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGetRankColorArray(pixs.Pointer,   nbins,   type,   factor, out  pcarrayPtr,   debugflag,   fontsize);
@@ -1092,6 +1124,9 @@ public static int pixGetBinnedColor(
 				out Byte[] pcarray, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixg == null) {throw new ArgumentNullException  ("pixg cannot be Nothing");}
+		if (nalut == null) {throw new ArgumentNullException  ("nalut cannot be Nothing");}
 	IntPtr pcarrayPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGetBinnedColor(pixs.Pointer, pixg.Pointer,   factor,   nbins, nalut.Pointer, out  pcarrayPtr,   debugflag);
@@ -1123,6 +1158,7 @@ public static Pix pixDisplayColorArray(
 				 int ncols, 
 				 int fontsize){
 
+if (carray == null) {throw new ArgumentNullException  ("carray cannot be Nothing");}
 		IntPtr carrayPtr = 	Marshal.AllocHGlobal(carray.Length);
 		Marshal.Copy(carray, 0, carrayPtr, carray.Length);
 
@@ -1171,6 +1207,7 @@ public static Pix pixRankBinByStrip(
 				 int nbins, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRankBinByStrip(pixs.Pointer,   direction,   size,   nbins,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1205,6 +1242,7 @@ public static Pix pixaGetAlignedStats(
 				 int nbins, 
 				 int thresh){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaGetAlignedStats(pixa.Pointer,   type,   nbins,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1226,6 +1264,8 @@ public static int pixaExtractColumnFromEachPix(
 				 int col, 
 				 Pix pixd){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+		if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 	int _Result = Natives.pixaExtractColumnFromEachPix(pixa.Pointer,   col, pixd.Pointer);
 	
 	return _Result;
@@ -1273,6 +1313,8 @@ public static int pixGetRowStats(
 				 int thresh, 
 				 Single[] colvect){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (colvect == null) {throw new ArgumentNullException  ("colvect cannot be Nothing");}
 	int _Result = Natives.pixGetRowStats(pixs.Pointer,   type,   nbins,   thresh,   colvect);
 	
 	return _Result;
@@ -1314,6 +1356,8 @@ public static int pixGetColumnStats(
 				 int thresh, 
 				 Single[] rowvect){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (rowvect == null) {throw new ArgumentNullException  ("rowvect cannot be Nothing");}
 	int _Result = Natives.pixGetColumnStats(pixs.Pointer,   type,   nbins,   thresh,   rowvect);
 	
 	return _Result;
@@ -1334,6 +1378,8 @@ public static int pixSetPixelColumn(
 				 int col, 
 				 Single[] colvect){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (colvect == null) {throw new ArgumentNullException  ("colvect cannot be Nothing");}
 	int _Result = Natives.pixSetPixelColumn(pix.Pointer,   col,   colvect);
 	
 	return _Result;
@@ -1358,6 +1404,7 @@ public static int pixThresholdForFgBg(
 				out int pfgval, 
 				out int pbgval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixThresholdForFgBg(pixs.Pointer,   factor,   thresh, out  pfgval, out  pbgval);
 	
 	return _Result;
@@ -1390,6 +1437,7 @@ public static int pixSplitDistributionFgBg(
 				out int pbgval, 
 				out Pix ppixdb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixSplitDistributionFgBg(pixs.Pointer,   scorefract,   factor, out  pthresh, out  pfgval, out  pbgval, out ppixdbPtr);

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -28,6 +29,8 @@ public static Pix pixBlend(
 				 int y, 
 				 Single fract){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr _Result = Natives.pixBlend(pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -72,6 +75,8 @@ public static Pix pixBlendMask(
 				 Single fract, 
 				 int type){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixBlendMask(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   type);
@@ -138,6 +143,8 @@ public static Pix pixBlendGray(
 				 int transparent, 
 				 uint transpix){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixBlendGray(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   type,   transparent,   transpix);
@@ -193,6 +200,8 @@ public static Pix pixBlendGrayInverse(
 				 int y, 
 				 Single fract){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixBlendGrayInverse(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
@@ -246,6 +255,8 @@ public static Pix pixBlendColor(
 				 int transparent, 
 				 uint transpix){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixBlendColor(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   transparent,   transpix);
@@ -273,6 +284,9 @@ public static Pix pixBlendColorByChannel(
 				 int transparent, 
 				 uint transpix){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixs1Ptr = IntPtr.Zero; if (pixs1 != null) {pixs1Ptr = pixs1.Pointer;}
 	IntPtr pixs2Ptr = IntPtr.Zero; if (pixs2 != null) {pixs2Ptr = pixs2.Pointer;}
@@ -339,6 +353,8 @@ public static Pix pixBlendGrayAdapt(
 				 Single fract, 
 				 int shift){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixBlendGrayAdapt(pixdPtr, pixs1.Pointer, pixs2.Pointer,   x,   y,   fract,   shift);
@@ -373,6 +389,8 @@ public static Pix pixFadeWithGray(
 				 Single factor, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixb == null) {throw new ArgumentNullException  ("pixb cannot be Nothing");}
 	IntPtr _Result = Natives.pixFadeWithGray(pixs.Pointer, pixb.Pointer,   factor,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -394,6 +412,9 @@ public static Pix pixBlendHardLight(
 				 int y, 
 				 Single fract){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixs1Ptr = IntPtr.Zero; if (pixs1 != null) {pixs1Ptr = pixs1.Pointer;}
 	IntPtr pixs2Ptr = IntPtr.Zero; if (pixs2 != null) {pixs2Ptr = pixs2.Pointer;}
@@ -442,6 +463,8 @@ public static int pixBlendCmap(
 				 int y, 
 				 int sindex){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixb == null) {throw new ArgumentNullException  ("pixb cannot be Nothing");}
 	int _Result = Natives.pixBlendCmap(pixs.Pointer, pixb.Pointer,   x,   y,   sindex);
 	
 	return _Result;
@@ -492,6 +515,8 @@ public static Pix pixBlendWithGrayMask(
 				 int x, 
 				 int y){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
 	IntPtr _Result = Natives.pixBlendWithGrayMask(pixs1.Pointer, pixs2.Pointer, pixgPtr,   x,   y);
@@ -540,6 +565,9 @@ public static Pix pixBlendBackgroundToColor(
 				 int minval, 
 				 int maxval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixBlendBackgroundToColor(pixdPtr, pixs.Pointer, box.Pointer,   color,   gamma,   minval,   maxval);
@@ -575,6 +603,9 @@ public static Pix pixMultiplyByColor(
 				 Box box, 
 				 uint color){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixMultiplyByColor(pixdPtr, pixs.Pointer, box.Pointer,   color);
@@ -605,6 +636,7 @@ public static Pix pixAlphaBlendUniform(
 				 Pix pixs, 
 				 uint color){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixAlphaBlendUniform(pixs.Pointer,   color);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -643,6 +675,7 @@ public static Pix pixAddAlphaToBlend(
 				 Single fract, 
 				 int invert){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixAddAlphaToBlend(pixs.Pointer,   fract,   invert);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -671,6 +704,7 @@ public static Pix pixAddAlphaToBlend(
 public static Pix pixSetAlphaOverWhite(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSetAlphaOverWhite(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -705,6 +739,7 @@ public static int pixLinearEdgeFade(
 				 Single distfract, 
 				 Single maxfade){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixLinearEdgeFade(pixs.Pointer,   dir,   fadeto,   distfract,   maxfade);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -101,6 +102,8 @@ public static int bbufferRead(
 				 Byte[] src, 
 				 int nbytes){
 
+if (bb == null) {throw new ArgumentNullException  ("bb cannot be Nothing");}
+		if (src == null) {throw new ArgumentNullException  ("src cannot be Nothing");}
 	int _Result = Natives.bbufferRead(bb.Pointer,   src,   nbytes);
 	
 	return _Result;
@@ -121,6 +124,8 @@ public static int bbufferReadStream(
 				 FILE fp, 
 				 int nbytes){
 
+if (bb == null) {throw new ArgumentNullException  ("bb cannot be Nothing");}
+		if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.bbufferReadStream(bb.Pointer, fp.Pointer,   nbytes);
 	
 	return _Result;
@@ -143,6 +148,7 @@ public static int bbufferExtendArray(
 				 L_ByteBuffer bb, 
 				 int nbytes){
 
+if (bb == null) {throw new ArgumentNullException  ("bb cannot be Nothing");}
 	int _Result = Natives.bbufferExtendArray(bb.Pointer,   nbytes);
 	
 	return _Result;
@@ -165,6 +171,8 @@ public static int bbufferWrite(
 				 uint nbytes, 
 				out uint pnout){
 
+if (bb == null) {throw new ArgumentNullException  ("bb cannot be Nothing");}
+		if (dest == null) {throw new ArgumentNullException  ("dest cannot be Nothing");}
 	int _Result = Natives.bbufferWrite(bb.Pointer,   dest,   nbytes, out  pnout);
 	
 	return _Result;
@@ -187,6 +195,8 @@ public static int bbufferWriteStream(
 				 uint nbytes, 
 				out uint pnout){
 
+if (bb == null) {throw new ArgumentNullException  ("bb cannot be Nothing");}
+		if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.bbufferWriteStream(bb.Pointer, fp.Pointer,   nbytes, out  pnout);
 	
 	return _Result;

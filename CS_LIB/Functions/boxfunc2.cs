@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -28,6 +29,7 @@ public static Boxa boxaTransform(
 				 Single scalex, 
 				 Single scaley){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaTransform(boxas.Pointer,   shiftx,   shifty,   scalex,   scaley);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -58,6 +60,7 @@ public static Box boxTransform(
 				 Single scalex, 
 				 Single scaley){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxTransform(box.Pointer,   shiftx,   shifty,   scalex,   scaley);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -114,6 +117,7 @@ public static Boxa boxaTransformOrdered(
 				 Single angle, 
 				 int order){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaTransformOrdered(boxas.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -189,6 +193,7 @@ public static Box boxTransformOrdered(
 				 Single angle, 
 				 int order){
 
+if (boxs == null) {throw new ArgumentNullException  ("boxs cannot be Nothing");}
 	IntPtr _Result = Natives.boxTransformOrdered(boxs.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -215,6 +220,7 @@ public static Boxa boxaRotateOrth(
 				 int h, 
 				 int rotation){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaRotateOrth(boxas.Pointer,   w,   h,   rotation);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -244,6 +250,7 @@ public static Box boxRotateOrth(
 				 int h, 
 				 int rotation){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxRotateOrth(box.Pointer,   w,   h,   rotation);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -270,6 +277,7 @@ public static Boxa boxaSort(
 				 int sortorder, 
 				out Numa pnaindex){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.boxaSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
@@ -304,6 +312,7 @@ public static Boxa boxaBinSort(
 				 int sortorder, 
 				out Numa pnaindex){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.boxaBinSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
@@ -326,6 +335,8 @@ public static Boxa boxaSortByIndex(
 				 Boxa boxas, 
 				 Numa naindex){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (naindex == null) {throw new ArgumentNullException  ("naindex cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSortByIndex(boxas.Pointer, naindex.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -387,6 +398,7 @@ public static Boxaa boxaSort2d(
 				 int delta2, 
 				 int minh1){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pnaadPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.boxaSort2d(boxas.Pointer, out pnaadPtr,   delta1,   delta2,   minh1);
@@ -409,6 +421,8 @@ public static Boxaa boxaSort2dByIndex(
 				 Boxa boxas, 
 				 Numaa naa){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSort2dByIndex(boxas.Pointer, naa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -449,6 +463,7 @@ public static int boxaExtractAsNuma(
 				out Numa pnah, 
 				 int keepinvalid){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pnalPtr = IntPtr.Zero;
 	IntPtr pnatPtr = IntPtr.Zero;
 	IntPtr pnarPtr = IntPtr.Zero;
@@ -503,6 +518,7 @@ public static int boxaExtractAsPta(
 				out Pta pptah, 
 				 int keepinvalid){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pptalPtr = IntPtr.Zero;
 	IntPtr pptatPtr = IntPtr.Zero;
 	IntPtr pptarPtr = IntPtr.Zero;
@@ -556,6 +572,7 @@ public static int boxaGetRankVals(
 				out int pw, 
 				out int ph){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetRankVals(boxa.Pointer,   fract, out  px, out  py, out  pw, out  ph);
 	
 	return _Result;
@@ -583,6 +600,7 @@ public static int boxaGetMedianVals(
 				out int pw, 
 				out int ph){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetMedianVals(boxa.Pointer, out  px, out  py, out  pw, out  ph);
 	
 	return _Result;
@@ -603,6 +621,7 @@ public static int boxaGetAverageSize(
 				out Single pw, 
 				out Single ph){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetAverageSize(boxa.Pointer, out  pw, out  ph);
 	
 	return _Result;
@@ -637,6 +656,7 @@ public static int boxaaGetExtent(
 				out Box pbox, 
 				out Boxa pboxa){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	IntPtr pboxPtr = IntPtr.Zero;
 	IntPtr pboxaPtr = IntPtr.Zero;
 
@@ -675,6 +695,7 @@ public static Boxa boxaaFlattenToBoxa(
 				out Numa pnaindex, 
 				 int copyflag){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.boxaaFlattenToBoxa(baa.Pointer, out pnaindexPtr,   copyflag);
@@ -710,6 +731,7 @@ public static Boxa boxaaFlattenAligned(
 				 Box fillerbox, 
 				 int copyflag){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	IntPtr fillerboxPtr = IntPtr.Zero; 	if (fillerbox != null) {fillerboxPtr = fillerbox.Pointer;}
 
 	IntPtr _Result = Natives.boxaaFlattenAligned(baa.Pointer,   num, fillerboxPtr,   copyflag);
@@ -739,6 +761,7 @@ public static Boxaa boxaEncapsulateAligned(
 				 int num, 
 				 int copyflag){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaEncapsulateAligned(boxa.Pointer,   num,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -769,6 +792,7 @@ public static Boxaa boxaEncapsulateAligned(
 public static Boxaa boxaaTranspose(
 				 Boxaa baas){
 
+if (baas == null) {throw new ArgumentNullException  ("baas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaTranspose(baas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -796,6 +820,8 @@ public static int boxaaAlignBox(
 				 int delta, 
 				out int pindex){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxaaAlignBox(baa.Pointer, box.Pointer,   delta, out  pindex);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -27,6 +28,7 @@ public static int fhmtautogen(
 				 int fileindex, 
 				 String filename){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.fhmtautogen(sela.Pointer,   fileindex,   filename);
 	
 	return _Result;
@@ -64,6 +66,7 @@ public static int fhmtautogen1(
 				 int fileindex, 
 				 String filename){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.fhmtautogen1(sela.Pointer,   fileindex,   filename);
 	
 	return _Result;
@@ -98,6 +101,7 @@ public static int fhmtautogen2(
 				 int fileindex, 
 				 String filename){
 
+if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	int _Result = Natives.fhmtautogen2(sela.Pointer,   fileindex,   filename);
 	
 	return _Result;

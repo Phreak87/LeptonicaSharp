@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -19,6 +20,9 @@ public static int convertFilesToPS(
 				 int res, 
 				 String fileout){
 
+if (dirin == null) {throw new ArgumentNullException  ("dirin cannot be Nothing");}
+		if (substr == null) {throw new ArgumentNullException  ("substr cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertFilesToPS(  dirin,   substr,   res,   fileout);
 	
 	return _Result;
@@ -36,6 +40,8 @@ public static int sarrayConvertFilesToPS(
 				 int res, 
 				 String fileout){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr saPtr = IntPtr.Zero; if (sa != null) {saPtr = sa.Pointer;}
 
 	int _Result = Natives.sarrayConvertFilesToPS(sa.Pointer,   res,   fileout);
@@ -57,6 +63,9 @@ public static int convertFilesFittedToPS(
 				 Single ypts, 
 				 String fileout){
 
+if (dirin == null) {throw new ArgumentNullException  ("dirin cannot be Nothing");}
+		if (substr == null) {throw new ArgumentNullException  ("substr cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertFilesFittedToPS(  dirin,   substr,   xpts,   ypts,   fileout);
 	
 	return _Result;
@@ -75,6 +84,8 @@ public static int sarrayConvertFilesFittedToPS(
 				 Single ypts, 
 				 String fileout){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr saPtr = IntPtr.Zero; if (sa != null) {saPtr = sa.Pointer;}
 
 	int _Result = Natives.sarrayConvertFilesFittedToPS(sa.Pointer,   xpts,   ypts,   fileout);
@@ -96,6 +107,10 @@ public static int writeImageCompressedToPSFile(
 				 object pfirstfile, 
 				 object pindex){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
+		if (pfirstfile == null) {throw new ArgumentNullException  ("pfirstfile cannot be Nothing");}
+		if (pindex == null) {throw new ArgumentNullException  ("pindex cannot be Nothing");}
 	int _Result = Natives.writeImageCompressedToPSFile(  filein,   fileout,   res,   pfirstfile,   pindex);
 	
 	return _Result;
@@ -122,6 +137,11 @@ public static int convertSegmentedPagesToPS(
 				 int threshold, 
 				 String fileout){
 
+if (pagedir == null) {throw new ArgumentNullException  ("pagedir cannot be Nothing");}
+		if (pagestr == null) {throw new ArgumentNullException  ("pagestr cannot be Nothing");}
+		if (maskdir == null) {throw new ArgumentNullException  ("maskdir cannot be Nothing");}
+		if (maskstr == null) {throw new ArgumentNullException  ("maskstr cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertSegmentedPagesToPS(  pagedir,   pagestr,   page_numpre,   maskdir,   maskstr,   mask_numpre,   numpost,   maxnum,   textscale,   imagescale,   threshold,   fileout);
 	
 	return _Result;
@@ -143,6 +163,9 @@ public static int pixWriteSegmentedPageToPS(
 				 int pageno, 
 				 String fileout){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -165,6 +188,9 @@ public static int pixWriteMixedToPS(
 				 int pageno, 
 				 String fileout){
 
+if (pixb == null) {throw new ArgumentNullException  ("pixb cannot be Nothing");}
+		if (pixc == null) {throw new ArgumentNullException  ("pixc cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr pixbPtr = IntPtr.Zero; if (pixb != null) {pixbPtr = pixb.Pointer;}
 	IntPtr pixcPtr = IntPtr.Zero; if (pixc != null) {pixcPtr = pixc.Pointer;}
 
@@ -185,6 +211,8 @@ public static int convertToPSEmbed(
 				 String fileout, 
 				 int level){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertToPSEmbed(  filein,   fileout,   level);
 	
 	return _Result;
@@ -203,6 +231,8 @@ public static int pixaWriteCompressedToPS(
 				 int res, 
 				 int level){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	IntPtr pixaPtr = IntPtr.Zero; if (pixa != null) {pixaPtr = pixa.Pointer;}
 
 	int _Result = Natives.pixaWriteCompressedToPS(pixa.Pointer,   fileout,   res,   level);

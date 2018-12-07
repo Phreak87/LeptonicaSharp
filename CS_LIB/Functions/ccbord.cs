@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -19,6 +20,7 @@ public static CCBorda ccbaCreate(
 				 Pix pixs, 
 				 int n){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.ccbaCreate(pixs.Pointer,   n);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -91,6 +93,8 @@ public static int ccbaAddCcb(
 				 CCBorda ccba, 
 				 CCBord ccb){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
+		if (ccb == null) {throw new ArgumentNullException  ("ccb cannot be Nothing");}
 	int _Result = Natives.ccbaAddCcb(ccba.Pointer, ccb.Pointer);
 	
 	return _Result;
@@ -107,6 +111,7 @@ public static int ccbaAddCcb(
 public static int ccbaGetCount(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaGetCount(ccba.Pointer);
 	
 	return _Result;
@@ -128,6 +133,7 @@ public static CCBord ccbaGetCcb(
 				 CCBorda ccba, 
 				 int index){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	IntPtr _Result = Natives.ccbaGetCcb(ccba.Pointer,   index);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -145,6 +151,8 @@ public static CCBord ccbaGetCcb(
 public static CCBorda pixGetAllCCBorders(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixGetAllCCBorders(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -184,6 +192,8 @@ public static CCBord pixGetCCBorders(
 				 Pix pixs, 
 				 Box box){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetCCBorders(pixs.Pointer, box.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -201,6 +211,8 @@ public static CCBord pixGetCCBorders(
 public static Ptaa pixGetOuterBordersPtaa(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixGetOuterBordersPtaa(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -229,6 +241,7 @@ public static Pta pixGetOuterBorderPta(
 				 Pix pixs, 
 				 Box box){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixGetOuterBorderPta(pixs.Pointer, boxPtr);
@@ -263,6 +276,9 @@ public static int pixGetOuterBorder(
 				 Pix pixs, 
 				 Box box){
 
+if (ccb == null) {throw new ArgumentNullException  ("ccb cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixGetOuterBorder(ccb.Pointer, pixs.Pointer, box.Pointer);
 	
 	return _Result;
@@ -296,6 +312,9 @@ public static int pixGetHoleBorder(
 				 int xs, 
 				 int ys){
 
+if (ccb == null) {throw new ArgumentNullException  ("ccb cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixGetHoleBorder(ccb.Pointer, pixs.Pointer, box.Pointer,   xs,   ys);
 	
 	return _Result;
@@ -335,6 +354,7 @@ public static int findNextBorderPixel(
 				out int pnpx, 
 				out int pnpy){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
@@ -390,6 +410,7 @@ public static void locateOutsideSeedPixel(
 public static int ccbaGenerateGlobalLocs(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaGenerateGlobalLocs(ccba.Pointer);
 	
 	return _Result;
@@ -421,6 +442,7 @@ public static int ccbaGenerateGlobalLocs(
 public static int ccbaGenerateStepChains(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaGenerateStepChains(ccba.Pointer);
 	
 	return _Result;
@@ -446,6 +468,7 @@ public static int ccbaStepChainsToPixCoords(
 				 CCBorda ccba, 
 				 int coordtype){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaStepChainsToPixCoords(ccba.Pointer,   coordtype);
 	
 	return _Result;
@@ -476,6 +499,7 @@ public static int ccbaGenerateSPGlobalLocs(
 				 CCBorda ccba, 
 				 int ptsflag){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaGenerateSPGlobalLocs(ccba.Pointer,   ptsflag);
 	
 	return _Result;
@@ -520,6 +544,7 @@ public static int ccbaGenerateSPGlobalLocs(
 public static int ccbaGenerateSinglePath(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaGenerateSinglePath(ccba.Pointer);
 	
 	return _Result;
@@ -556,6 +581,9 @@ public static Pta getCutPathForHole(
 				out int pdir, 
 				out int plen){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
+		if (boxinner == null) {throw new ArgumentNullException  ("boxinner cannot be Nothing");}
 	IntPtr _Result = Natives.getCutPathForHole(pix.Pointer, pta.Pointer, boxinner.Pointer, out  pdir, out  plen);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -578,6 +606,7 @@ public static Pta getCutPathForHole(
 public static Pix ccbaDisplayBorder(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	IntPtr _Result = Natives.ccbaDisplayBorder(ccba.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -600,6 +629,7 @@ public static Pix ccbaDisplayBorder(
 public static Pix ccbaDisplaySPBorder(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	IntPtr _Result = Natives.ccbaDisplaySPBorder(ccba.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -662,6 +692,7 @@ public static Pix ccbaDisplaySPBorder(
 public static Pix ccbaDisplayImage1(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	IntPtr _Result = Natives.ccbaDisplayImage1(ccba.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -695,6 +726,7 @@ public static Pix ccbaDisplayImage1(
 public static Pix ccbaDisplayImage2(
 				 CCBorda ccba){
 
+if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	IntPtr _Result = Natives.ccbaDisplayImage2(ccba.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -714,6 +746,8 @@ public static int ccbaWrite(
 				 String filename, 
 				 CCBorda ccba){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaWrite(  filename, ccba.Pointer);
 	
 	return _Result;
@@ -732,6 +766,8 @@ public static int ccbaWriteStream(
 				 FILE fp, 
 				 CCBorda ccba){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaWriteStream(fp.Pointer, ccba.Pointer);
 	
 	return _Result;
@@ -748,6 +784,10 @@ public static int ccbaWriteStream(
 public static CCBorda ccbaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.ccbaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -765,6 +805,7 @@ public static CCBorda ccbaRead(
 public static CCBorda ccbaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.ccbaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -784,6 +825,8 @@ public static int ccbaWriteSVG(
 				 String filename, 
 				 CCBorda ccba){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	int _Result = Natives.ccbaWriteSVG(  filename, ccba.Pointer);
 	
 	return _Result;
@@ -802,6 +845,8 @@ public static String ccbaWriteSVGString(
 				 String filename, 
 				 CCBorda ccba){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (ccba == null) {throw new ArgumentNullException  ("ccba cannot be Nothing");}
 	String _Result = Natives.ccbaWriteSVGString(  filename, ccba.Pointer);
 	
 	return _Result;

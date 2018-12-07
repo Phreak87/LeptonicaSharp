@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -26,6 +27,8 @@ public static Boxa pixConnComp(
 				out Pixa ppixa, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr ppixaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixConnComp(pixs.Pointer, out ppixaPtr,   connectivity);
@@ -66,6 +69,8 @@ public static Boxa pixConnCompPixa(
 				out Pixa ppixa, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr ppixaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixConnCompPixa(pixs.Pointer, out ppixaPtr,   connectivity);
@@ -96,6 +101,8 @@ public static Boxa pixConnCompBB(
 				 Pix pixs, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixConnCompBB(pixs.Pointer,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -117,6 +124,8 @@ public static int pixCountConnComp(
 				 int connectivity, 
 				out int pcount){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixCountConnComp(pixs.Pointer,   connectivity, out  pcount);
 	
 	return _Result;
@@ -141,6 +150,8 @@ public static int nextOnPixelInRaster(
 				out int px, 
 				out int py){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.nextOnPixelInRaster(pixs.Pointer,   xstart,   ystart, out  px, out  py);
 	
 	return _Result;
@@ -171,6 +182,7 @@ public static int nextOnPixelInRasterLow(
 				out int px, 
 				out int py){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
 
@@ -202,6 +214,9 @@ public static Box pixSeedfillBB(
 				 int y, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (stack == null) {throw new ArgumentNullException  ("stack cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixSeedfillBB(pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -248,6 +263,9 @@ public static Box pixSeedfill4BB(
 				 int x, 
 				 int y){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (stack == null) {throw new ArgumentNullException  ("stack cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixSeedfill4BB(pixs.Pointer, stack.Pointer,   x,   y);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -287,6 +305,9 @@ public static Box pixSeedfill8BB(
 				 int x, 
 				 int y){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (stack == null) {throw new ArgumentNullException  ("stack cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixSeedfill8BB(pixs.Pointer, stack.Pointer,   x,   y);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -316,6 +337,9 @@ public static int pixSeedfill(
 				 int y, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (stack == null) {throw new ArgumentNullException  ("stack cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixSeedfill(pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 	
 	return _Result;
@@ -346,6 +370,9 @@ public static int pixSeedfill4(
 				 int x, 
 				 int y){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (stack == null) {throw new ArgumentNullException  ("stack cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixSeedfill4(pixs.Pointer, stack.Pointer,   x,   y);
 	
 	return _Result;
@@ -376,6 +403,9 @@ public static int pixSeedfill8(
 				 int x, 
 				 int y){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (stack == null) {throw new ArgumentNullException  ("stack cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixSeedfill8(pixs.Pointer, stack.Pointer,   x,   y);
 	
 	return _Result;

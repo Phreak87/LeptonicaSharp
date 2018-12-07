@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -28,6 +29,7 @@ public static Boxa boxaSelectRange(
 				 int last, 
 				 int copyflag){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSelectRange(boxas.Pointer,   first,   last,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -56,6 +58,7 @@ public static Boxaa boxaaSelectRange(
 				 int last, 
 				 int copyflag){
 
+if (baas == null) {throw new ArgumentNullException  ("baas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaaSelectRange(baas.Pointer,   first,   last,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -97,6 +100,7 @@ public static Boxa boxaSelectBySize(
 				 int relation, 
 				out int pchanged){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSelectBySize(boxas.Pointer,   width,   height,   type,   relation, out  pchanged);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -134,6 +138,7 @@ public static Numa boxaMakeSizeIndicator(
 				 int type, 
 				 int relation){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaMakeSizeIndicator(boxa.Pointer,   width,   height,   type,   relation);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -165,6 +170,7 @@ public static Boxa boxaSelectByArea(
 				 int relation, 
 				out int pchanged){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSelectByArea(boxas.Pointer,   area,   relation, out  pchanged);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -192,6 +198,7 @@ public static Numa boxaMakeAreaIndicator(
 				 int area, 
 				 int relation){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaMakeAreaIndicator(boxa.Pointer,   area,   relation);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -223,6 +230,7 @@ public static Boxa boxaSelectByWHRatio(
 				 int relation, 
 				out int pchanged){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSelectByWHRatio(boxas.Pointer,   ratio,   relation, out  pchanged);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -250,6 +258,7 @@ public static Numa boxaMakeWHRatioIndicator(
 				 Single ratio, 
 				 int relation){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaMakeWHRatioIndicator(boxa.Pointer,   ratio,   relation);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -278,6 +287,8 @@ public static Boxa boxaSelectWithIndicator(
 				 Numa na, 
 				out int pchanged){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSelectWithIndicator(boxas.Pointer, na.Pointer, out  pchanged);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -302,6 +313,7 @@ public static Boxa boxaSelectWithIndicator(
 public static Boxa boxaPermutePseudorandom(
 				 Boxa boxas){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaPermutePseudorandom(boxas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -336,6 +348,7 @@ public static Boxa boxaPermuteRandom(
 				 Boxa boxad, 
 				 Boxa boxas){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr boxadPtr = IntPtr.Zero; 	if (boxad != null) {boxadPtr = boxad.Pointer;}
 
 	IntPtr _Result = Natives.boxaPermuteRandom(boxadPtr, boxas.Pointer);
@@ -359,6 +372,7 @@ public static int boxaSwapBoxes(
 				 int i, 
 				 int j){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaSwapBoxes(boxa.Pointer,   i,   j);
 	
 	return _Result;
@@ -381,6 +395,7 @@ public static Pta boxaConvertToPta(
 				 Boxa boxa, 
 				 int ncorners){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaConvertToPta(boxa.Pointer,   ncorners);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -406,6 +421,7 @@ public static Boxa ptaConvertToBoxa(
 				 Pta pta, 
 				 int ncorners){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.ptaConvertToBoxa(pta.Pointer,   ncorners);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -429,6 +445,7 @@ public static Pta boxConvertToPta(
 				 Box box, 
 				 int ncorners){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxConvertToPta(box.Pointer,   ncorners);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -450,6 +467,7 @@ public static Pta boxConvertToPta(
 public static Box ptaConvertToBox(
 				 Pta pta){
 
+if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.ptaConvertToBox(pta.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -491,6 +509,7 @@ public static Boxa boxaSmoothSequenceLS(
 				 int extrapixels, 
 				 DebugOnOff debug){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSmoothSequenceLS(boxas.Pointer,   factor,   subflag,   maxdiff,   extrapixels,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -543,6 +562,7 @@ public static Boxa boxaSmoothSequenceMedian(
 				 int extrapixels, 
 				 DebugOnOff debug){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSmoothSequenceMedian(boxas.Pointer,   halfwin,   subflag,   maxdiff,   extrapixels,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -589,6 +609,7 @@ public static Boxa boxaLinearFit(
 				 Single factor, 
 				 DebugOnOff debug){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaLinearFit(boxas.Pointer,   factor,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -620,6 +641,7 @@ public static Boxa boxaWindowedMedian(
 				 int halfwin, 
 				 DebugOnOff debug){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaWindowedMedian(boxas.Pointer,   halfwin,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -706,6 +728,8 @@ public static Boxa boxaModifyWithBoxa(
 				 int maxdiff, 
 				 int extrapixels){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (boxam == null) {throw new ArgumentNullException  ("boxam cannot be Nothing");}
 	IntPtr _Result = Natives.boxaModifyWithBoxa(boxas.Pointer, boxam.Pointer,   subflag,   maxdiff,   extrapixels);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -747,6 +771,7 @@ public static Boxa boxaConstrainSize(
 				 int height, 
 				 int heightflag){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaConstrainSize(boxas.Pointer,   width,   widthflag,   height,   heightflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -809,6 +834,7 @@ public static Boxa boxaReconcileEvenOddHeight(
 				 Single factor, 
 				 int start){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaReconcileEvenOddHeight(boxas.Pointer,   sides,   delh,   op,   factor,   start);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -852,6 +878,7 @@ public static Boxa boxaReconcilePairWidth(
 				 Single factor, 
 				 Numa na){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr naPtr = IntPtr.Zero; 	if (na != null) {naPtr = na.Pointer;}
 
 	IntPtr _Result = Natives.boxaReconcilePairWidth(boxas.Pointer,   delw,   op,   factor, naPtr);
@@ -894,6 +921,7 @@ public static int boxaPlotSides(
 				out Numa pnab, 
 				out Pix ppixd){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pnalPtr = IntPtr.Zero;
 	IntPtr pnatPtr = IntPtr.Zero;
 	IntPtr pnarPtr = IntPtr.Zero;
@@ -941,6 +969,7 @@ public static int boxaPlotSizes(
 				out Numa pnah, 
 				out Pix ppixd){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pnawPtr = IntPtr.Zero;
 	IntPtr pnahPtr = IntPtr.Zero;
 	IntPtr ppixdPtr = IntPtr.Zero;
@@ -977,6 +1006,7 @@ public static Boxa boxaFillSequence(
 				 int useflag, 
 				 DebugOnOff debug){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaFillSequence(boxas.Pointer,   useflag,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1015,6 +1045,7 @@ public static int boxaSizeVariation(
 				out Single prms_odd, 
 				out Single prms_all){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaSizeVariation(boxa.Pointer,   type, out  pdel_evenodd, out  prms_even, out  prms_odd, out  prms_all);
 	
 	return _Result;
@@ -1046,6 +1077,7 @@ public static int boxaGetExtent(
 				out int ph, 
 				out Box pbox){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pboxPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaGetExtent(boxa.Pointer, out  pw, out  ph, out pboxPtr);
@@ -1084,6 +1116,7 @@ public static int boxaGetCoverage(
 				 int exactflag, 
 				out Single pfract){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetCoverage(boxa.Pointer,   wc,   hc,   exactflag, out  pfract);
 	
 	return _Result;
@@ -1108,6 +1141,7 @@ public static int boxaaSizeRange(
 				out int pmaxw, 
 				out int pmaxh){
 
+if (baa == null) {throw new ArgumentNullException  ("baa cannot be Nothing");}
 	int _Result = Natives.boxaaSizeRange(baa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
 	return _Result;
@@ -1132,6 +1166,7 @@ public static int boxaSizeRange(
 				out int pmaxw, 
 				out int pmaxh){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaSizeRange(boxa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
 	return _Result;
@@ -1156,6 +1191,7 @@ public static int boxaLocationRange(
 				out int pmaxx, 
 				out int pmaxy){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaLocationRange(boxa.Pointer, out  pminx, out  pminy, out  pmaxx, out  pmaxy);
 	
 	return _Result;
@@ -1176,6 +1212,7 @@ public static int boxaGetSizes(
 				out Numa pnaw, 
 				out Numa pnah){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pnawPtr = IntPtr.Zero;
 	IntPtr pnahPtr = IntPtr.Zero;
 
@@ -1202,6 +1239,7 @@ public static int boxaGetArea(
 				 Boxa boxa, 
 				out int parea){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetArea(boxa.Pointer, out  parea);
 	
 	return _Result;
@@ -1242,6 +1280,7 @@ public static Pix boxaDisplayTiled(
 				 int spacing, 
 				 int border){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pixaPtr = IntPtr.Zero; 	if (pixa != null) {pixaPtr = pixa.Pointer;}
 
 	IntPtr _Result = Natives.boxaDisplayTiled(boxas.Pointer, pixaPtr,   maxwidth,   linewidth,   scalefactor,   background,   spacing,   border);

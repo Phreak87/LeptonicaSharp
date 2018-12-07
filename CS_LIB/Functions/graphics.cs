@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -74,6 +75,7 @@ public static Pta generatePtaBox(
 				 Box box, 
 				 int width){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.generatePtaBox(box.Pointer,   width);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -101,6 +103,7 @@ public static Pta generatePtaBoxa(
 				 int width, 
 				 int removedups){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.generatePtaBoxa(boxa.Pointer,   width,   removedups);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -132,6 +135,7 @@ public static Pta generatePtaHashBox(
 				 int orient, 
 				 int outline){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.generatePtaHashBox(box.Pointer,   spacing,   width,   orient,   outline);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -170,6 +174,7 @@ public static Pta generatePtaHashBoxa(
 				 int outline, 
 				 int removedups){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.generatePtaHashBoxa(boxa.Pointer,   spacing,   width,   orient,   outline,   removedups);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -194,6 +199,7 @@ public static Pta generatePtaHashBoxa(
 public static Ptaa generatePtaaBoxa(
 				 Boxa boxa){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.generatePtaaBoxa(boxa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -228,6 +234,7 @@ public static Ptaa generatePtaaHashBoxa(
 				 int orient, 
 				 int outline){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.generatePtaaHashBoxa(boxa.Pointer,   spacing,   width,   orient,   outline);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -251,6 +258,7 @@ public static Pta generatePtaPolyline(
 				 int closeflag, 
 				 int removedups){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.generatePtaPolyline(ptas.Pointer,   width,   closeflag,   removedups);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -301,6 +309,7 @@ public static Pta generatePtaGrid(
 public static Pta convertPtaLineTo4cc(
 				 Pta ptas){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.convertPtaLineTo4cc(ptas.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -439,6 +448,7 @@ public static int pixRenderPlotFromNuma(
 				 int max, 
 				 uint color){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
 	int _Result = Natives.pixRenderPlotFromNuma(ref ppixPtr, na.Pointer,   plotloc,   linewidth,   max,   color);
@@ -475,6 +485,7 @@ public static Pta makePlotPtaFromNuma(
 				 int linewidth, 
 				 int max){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.makePlotPtaFromNuma(na.Pointer,   size,   plotloc,   linewidth,   max);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -515,6 +526,7 @@ public static int pixRenderPlotFromNumaGen(
 				 int drawref, 
 				 uint color){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
 	int _Result = Natives.pixRenderPlotFromNumaGen(ref ppixPtr, na.Pointer,   orient,   linewidth,   refpos,   max,   drawref,   color);
@@ -563,6 +575,7 @@ public static Pta makePlotPtaFromNumaGen(
 				 int max, 
 				 int drawref){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.makePlotPtaFromNumaGen(na.Pointer,   orient,   linewidth,   refpos,   max,   drawref);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -597,6 +610,8 @@ public static int pixRenderPta(
 				 Pta pta, 
 				 int op){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.pixRenderPta(pix.Pointer, pta.Pointer,   op);
 	
 	return _Result;
@@ -635,6 +650,8 @@ public static int pixRenderPtaArb(
 				 byte gval, 
 				 byte bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	int _Result = Natives.pixRenderPtaArb(pix.Pointer, pta.Pointer,   rval,   gval,   bval);
 	
 	return _Result;
@@ -664,6 +681,9 @@ public static int pixRenderPtaBlend(
 				 byte bval, 
 				 Single fract){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixRenderPtaBlend(pix.Pointer, pta.Pointer,   rval,   gval,   bval,   fract);
 	
 	return _Result;
@@ -692,6 +712,7 @@ public static int pixRenderLine(
 				 int width, 
 				 int op){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixRenderLine(pix.Pointer,   x1,   y1,   x2,   y2,   width,   op);
 	
 	return _Result;
@@ -724,6 +745,7 @@ public static int pixRenderLineArb(
 				 byte gval, 
 				 byte bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixRenderLineArb(pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval);
 	
 	return _Result;
@@ -758,6 +780,8 @@ public static int pixRenderLineBlend(
 				 byte bval, 
 				 Single fract){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixRenderLineBlend(pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval,   fract);
 	
 	return _Result;
@@ -780,6 +804,8 @@ public static int pixRenderBox(
 				 int width, 
 				 int op){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixRenderBox(pix.Pointer, box.Pointer,   width,   op);
 	
 	return _Result;
@@ -806,6 +832,8 @@ public static int pixRenderBoxArb(
 				 byte gval, 
 				 byte bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixRenderBoxArb(pix.Pointer, box.Pointer,   width,   rval,   gval,   bval);
 	
 	return _Result;
@@ -834,6 +862,9 @@ public static int pixRenderBoxBlend(
 				 byte bval, 
 				 Single fract){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixRenderBoxBlend(pix.Pointer, box.Pointer,   width,   rval,   gval,   bval,   fract);
 	
 	return _Result;
@@ -856,6 +887,8 @@ public static int pixRenderBoxa(
 				 int width, 
 				 int op){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.pixRenderBoxa(pix.Pointer, boxa.Pointer,   width,   op);
 	
 	return _Result;
@@ -882,6 +915,8 @@ public static int pixRenderBoxaArb(
 				 byte gval, 
 				 byte bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.pixRenderBoxaArb(pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval);
 	
 	return _Result;
@@ -912,6 +947,9 @@ public static int pixRenderBoxaBlend(
 				 Single fract, 
 				 int removedups){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixRenderBoxaBlend(pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval,   fract,   removedups);
 	
 	return _Result;
@@ -940,6 +978,8 @@ public static int pixRenderHashBox(
 				 int outline, 
 				 int op){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixRenderHashBox(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   op);
 	
 	return _Result;
@@ -972,6 +1012,8 @@ public static int pixRenderHashBoxArb(
 				 int gval, 
 				 int bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixRenderHashBoxArb(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
 	return _Result;
@@ -1006,6 +1048,8 @@ public static int pixRenderHashBoxBlend(
 				 int bval, 
 				 Single fract){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.pixRenderHashBoxBlend(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
 	
 	return _Result;
@@ -1046,6 +1090,8 @@ public static int pixRenderHashMaskArb(
 				 int gval, 
 				 int bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	int _Result = Natives.pixRenderHashMaskArb(pix.Pointer, pixm.Pointer,   x,   y,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
 	return _Result;
@@ -1074,6 +1120,8 @@ public static int pixRenderHashBoxa(
 				 int outline, 
 				 int op){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.pixRenderHashBoxa(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   op);
 	
 	return _Result;
@@ -1106,6 +1154,8 @@ public static int pixRenderHashBoxaArb(
 				 int gval, 
 				 int bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.pixRenderHashBoxaArb(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
 	return _Result;
@@ -1140,6 +1190,9 @@ public static int pixRenderHashBoxaBlend(
 				 int bval, 
 				 Single fract){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixRenderHashBoxaBlend(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
 	
 	return _Result;
@@ -1167,6 +1220,8 @@ public static int pixRenderPolyline(
 				 int op, 
 				 int closeflag){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	int _Result = Natives.pixRenderPolyline(pix.Pointer, ptas.Pointer,   width,   op,   closeflag);
 	
 	return _Result;
@@ -1198,6 +1253,8 @@ public static int pixRenderPolylineArb(
 				 byte bval, 
 				 int closeflag){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	int _Result = Natives.pixRenderPolylineArb(pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   closeflag);
 	
 	return _Result;
@@ -1230,6 +1287,9 @@ public static int pixRenderPolylineBlend(
 				 int closeflag, 
 				 int removedups){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixRenderPolylineBlend(pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   fract,   closeflag,   removedups);
 	
 	return _Result;
@@ -1258,6 +1318,7 @@ public static int pixRenderGridArb(
 				 byte gval, 
 				 byte bval){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixRenderGridArb(pix.Pointer,   nx,   ny,   width,   rval,   gval,   bval);
 	
 	return _Result;
@@ -1300,6 +1361,9 @@ public static Pix pixRenderRandomCmapPtaa(
 				 int width, 
 				 int closeflag){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (ptaa == null) {throw new ArgumentNullException  ("ptaa cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pix.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16, 32 bpp"); }
 	IntPtr _Result = Natives.pixRenderRandomCmapPtaa(pix.Pointer, ptaa.Pointer,   polyflag,   width,   closeflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1331,6 +1395,7 @@ public static Pix pixRenderPolygon(
 				out int pxmin, 
 				out int pymin){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixRenderPolygon(ptas.Pointer,   width, out  pxmin, out  pymin);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1363,6 +1428,8 @@ public static Pix pixFillPolygon(
 				 int xmin, 
 				 int ymin){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 	IntPtr _Result = Natives.pixFillPolygon(pixs.Pointer, pta.Pointer,   xmin,   ymin);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1391,6 +1458,7 @@ public static Pix pixRenderContours(
 				 int incr, 
 				 int outdepth){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRenderContours(pixs.Pointer,   startval,   incr,   outdepth);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1418,6 +1486,7 @@ public static Pix fpixAutoRenderContours(
 				 FPix fpix, 
 				 int ncontours){
 
+if (fpix == null) {throw new ArgumentNullException  ("fpix cannot be Nothing");}
 	IntPtr _Result = Natives.fpixAutoRenderContours(fpix.Pointer,   ncontours);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1446,6 +1515,7 @@ public static Pix fpixRenderContours(
 				 Single incr, 
 				 Single proxim){
 
+if (fpixs == null) {throw new ArgumentNullException  ("fpixs cannot be Nothing");}
 	IntPtr _Result = Natives.fpixRenderContours(fpixs.Pointer,   incr,   proxim);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1476,6 +1546,8 @@ public static Pta pixGeneratePtaBoundary(
 				 Pix pixs, 
 				 int width){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixGeneratePtaBoundary(pixs.Pointer,   width);
 	
 	if (_Result == IntPtr.Zero) {return null;}

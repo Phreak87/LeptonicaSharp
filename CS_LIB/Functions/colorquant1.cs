@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -244,6 +245,7 @@ public static Pix pixOctreeColorQuant(
 				 int colors, 
 				 int ditherflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixOctreeColorQuant(pixs.Pointer,   colors,   ditherflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -299,6 +301,7 @@ public static Pix pixOctreeColorQuantGeneral(
 				 Single validthresh, 
 				 Single colorthresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixOctreeColorQuantGeneral(pixs.Pointer,   colors,   ditherflag,   validthresh,   colorthresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -389,6 +392,9 @@ public static void getOctcubeIndexFromRGB(
 				 Byte[] btab, 
 				out uint pindex){
 
+if (rtab == null) {throw new ArgumentNullException  ("rtab cannot be Nothing");}
+		if (gtab == null) {throw new ArgumentNullException  ("gtab cannot be Nothing");}
+		if (btab == null) {throw new ArgumentNullException  ("btab cannot be Nothing");}
 		IntPtr rtabPtr = 	Marshal.AllocHGlobal(rtab.Length);
 		Marshal.Copy(rtab, 0, rtabPtr, rtab.Length);
 		IntPtr gtabPtr = 	Marshal.AllocHGlobal(gtab.Length);
@@ -470,6 +476,8 @@ public static Pix pixOctreeQuantByPopulation(
 				 int level, 
 				 int ditherflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixOctreeQuantByPopulation(pixs.Pointer,   level,   ditherflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -561,6 +569,8 @@ public static Pix pixOctreeQuantNumColors(
 				 int maxcolors, 
 				 int subsample){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixOctreeQuantNumColors(pixs.Pointer,   maxcolors,   subsample);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -606,6 +616,8 @@ public static Pix pixOctcubeQuantMixedWithGray(
 				 int graylevels, 
 				 int delta){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixOctcubeQuantMixedWithGray(pixs.Pointer,   depth,   graylevels,   delta);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -674,6 +686,7 @@ public static Pix pixFixedOctcubeQuant256(
 				 Pix pixs, 
 				 int ditherflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixFixedOctcubeQuant256(pixs.Pointer,   ditherflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -718,6 +731,8 @@ public static Pix pixFewColorsOctcubeQuant1(
 				 Pix pixs, 
 				 int level){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixFewColorsOctcubeQuant1(pixs.Pointer,   level);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -777,6 +792,9 @@ public static Pix pixFewColorsOctcubeQuant2(
 				 int ncolors, 
 				out int pnerrors){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixFewColorsOctcubeQuant2(pixs.Pointer,   level, na.Pointer,   ncolors, out  pnerrors);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -847,6 +865,8 @@ public static Pix pixFewColorsOctcubeQuantMixed(
 				 Single minfract, 
 				 int maxspan){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixFewColorsOctcubeQuantMixed(pixs.Pointer,   level,   darkthresh,   lightthresh,   diffthresh,   minfract,   maxspan);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -874,6 +894,8 @@ public static Pix pixFixedOctcubeQuantGenRGB(
 				 Pix pixs, 
 				 int level){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixFixedOctcubeQuantGenRGB(pixs.Pointer,   level);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -911,6 +933,8 @@ public static Pix pixQuantFromCmap(
 				 int level, 
 				 int metric){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr _Result = Natives.pixQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -992,6 +1016,9 @@ public static Pix pixOctcubeQuantFromCmap(
 				 int level, 
 				 int metric){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixOctcubeQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1016,6 +1043,8 @@ public static Numa pixOctcubeHistogram(
 				 int level, 
 				out int pncolors){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixOctcubeHistogram(pixs.Pointer,   level, out  pncolors);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1076,6 +1105,7 @@ public static int[] pixcmapToOctcubeLUT(
 				 int level, 
 				 int metric){
 
+if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	int[] _Result = Natives.pixcmapToOctcubeLUT(cmap.Pointer,   level,   metric);
 	
 	return _Result;
@@ -1100,6 +1130,7 @@ public static int[] pixcmapToOctcubeLUT(
 public static int pixRemoveUnusedColors(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixRemoveUnusedColors(pixs.Pointer);
 	
 	return _Result;
@@ -1131,6 +1162,7 @@ public static int pixNumberOccupiedOctcubes(
 				 Single minfract, 
 				out int pncolors){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixNumberOccupiedOctcubes(pix.Pointer,   level,   mincount,   minfract, out  pncolors);
 	
 	return _Result;

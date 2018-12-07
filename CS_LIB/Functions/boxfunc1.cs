@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -21,6 +22,8 @@ public static int boxContains(
 				 Box box2, 
 				out int presult){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxContains(box1.Pointer, box2.Pointer, out  presult);
 	
 	return _Result;
@@ -41,6 +44,8 @@ public static int boxIntersects(
 				 Box box2, 
 				out int presult){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxIntersects(box1.Pointer, box2.Pointer, out  presult);
 	
 	return _Result;
@@ -62,6 +67,8 @@ public static Boxa boxaContainedInBox(
 				 Boxa boxas, 
 				 Box box){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxaContainedInBox(boxas.Pointer, box.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -83,6 +90,8 @@ public static int boxaContainedInBoxCount(
 				 Box box, 
 				out int pcount){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxaContainedInBoxCount(boxa.Pointer, box.Pointer, out  pcount);
 	
 	return _Result;
@@ -103,6 +112,8 @@ public static int boxaContainedInBoxa(
 				 Boxa boxa2, 
 				out int pcontained){
 
+if (boxa1 == null) {throw new ArgumentNullException  ("boxa1 cannot be Nothing");}
+		if (boxa2 == null) {throw new ArgumentNullException  ("boxa2 cannot be Nothing");}
 	int _Result = Natives.boxaContainedInBoxa(boxa1.Pointer, boxa2.Pointer, out  pcontained);
 	
 	return _Result;
@@ -125,6 +136,8 @@ public static Boxa boxaIntersectsBox(
 				 Boxa boxas, 
 				 Box box){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxaIntersectsBox(boxas.Pointer, box.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -146,6 +159,8 @@ public static int boxaIntersectsBoxCount(
 				 Box box, 
 				out int pcount){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxaIntersectsBoxCount(boxa.Pointer, box.Pointer, out  pcount);
 	
 	return _Result;
@@ -168,6 +183,8 @@ public static Boxa boxaClipToBox(
 				 Boxa boxas, 
 				 Box box){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxaClipToBox(boxas.Pointer, box.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -207,6 +224,7 @@ public static Boxa boxaCombineOverlaps(
 				 Boxa boxas, 
 				ref Pixa pixadb){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pixadbPtr = IntPtr.Zero; if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
 	IntPtr _Result = Natives.boxaCombineOverlaps(boxas.Pointer, ref pixadbPtr);
@@ -252,6 +270,8 @@ public static int boxaCombineOverlapsInPair(
 				out Boxa pboxad2, 
 				ref Pixa pixadb){
 
+if (boxas1 == null) {throw new ArgumentNullException  ("boxas1 cannot be Nothing");}
+		if (boxas2 == null) {throw new ArgumentNullException  ("boxas2 cannot be Nothing");}
 	IntPtr pboxad1Ptr = IntPtr.Zero;
 	IntPtr pboxad2Ptr = IntPtr.Zero;
 	IntPtr pixadbPtr = IntPtr.Zero; if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
@@ -280,6 +300,8 @@ public static Box boxOverlapRegion(
 				 Box box1, 
 				 Box box2){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	IntPtr _Result = Natives.boxOverlapRegion(box1.Pointer, box2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -302,6 +324,8 @@ public static Box boxBoundingRegion(
 				 Box box1, 
 				 Box box2){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	IntPtr _Result = Natives.boxBoundingRegion(box1.Pointer, box2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -327,6 +351,8 @@ public static int boxOverlapFraction(
 				 Box box2, 
 				out Single pfract){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxOverlapFraction(box1.Pointer, box2.Pointer, out  pfract);
 	
 	return _Result;
@@ -347,6 +373,8 @@ public static int boxOverlapArea(
 				 Box box2, 
 				out int parea){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxOverlapArea(box1.Pointer, box2.Pointer, out  parea);
 	
 	return _Result;
@@ -394,6 +422,7 @@ public static Boxa boxaHandleOverlaps(
 				 Single max_ratio, 
 				out Numa pnamap){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pnamapPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.boxaHandleOverlaps(boxas.Pointer,   op,   range,   min_overlap,   max_ratio, out pnamapPtr);
@@ -426,6 +455,8 @@ public static int boxSeparationDistance(
 				out int ph_sep, 
 				out int pv_sep){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxSeparationDistance(box1.Pointer, box2.Pointer, out  ph_sep, out  pv_sep);
 	
 	return _Result;
@@ -451,6 +482,8 @@ public static int boxCompareSize(
 				 int type, 
 				out int prel){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxCompareSize(box1.Pointer, box2.Pointer,   type, out  prel);
 	
 	return _Result;
@@ -473,6 +506,7 @@ public static int boxContainsPt(
 				 Single y, 
 				out int pcontains){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxContainsPt(box.Pointer,   x,   y, out  pcontains);
 	
 	return _Result;
@@ -496,6 +530,7 @@ public static Box boxaGetNearestToPt(
 				 int x, 
 				 int y){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaGetNearestToPt(boxa.Pointer,   x,   y);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -525,6 +560,7 @@ public static Box boxaGetNearestToLine(
 				 int x, 
 				 int y){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr _Result = Natives.boxaGetNearestToLine(boxa.Pointer,   x,   y);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -554,6 +590,7 @@ public static int boxaFindNearestBoxes(
 				out Numaa pnaaindex, 
 				out Numaa pnaadist){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pnaaindexPtr = IntPtr.Zero;
 	IntPtr pnaadistPtr = IntPtr.Zero;
 
@@ -597,6 +634,7 @@ public static int boxaGetNearestByDirection(
 				out int pindex, 
 				out int pdist){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	int _Result = Natives.boxaGetNearestByDirection(boxa.Pointer,   i,   dir,   dist_select,   range, out  pindex, out  pdist);
 	
 	return _Result;
@@ -617,6 +655,7 @@ public static int boxGetCenter(
 				out Single pcx, 
 				out Single pcy){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxGetCenter(box.Pointer, out  pcx, out  pcy);
 	
 	return _Result;
@@ -655,6 +694,7 @@ public static int boxIntersectByLine(
 				out int py2, 
 				out int pn){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	int _Result = Natives.boxIntersectByLine(box.Pointer,   x,   y,   slope, out  px1, out  py1, out  px2, out  py2, out  pn);
 	
 	return _Result;
@@ -680,6 +720,7 @@ public static Box boxClipToRectangle(
 				 int wi, 
 				 int hi){
 
+if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.boxClipToRectangle(box.Pointer,   wi,   hi);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -757,6 +798,7 @@ public static Box boxRelocateOneSide(
 				 int loc, 
 				 int sideflag){
 
+if (boxs == null) {throw new ArgumentNullException  ("boxs cannot be Nothing");}
 	IntPtr boxdPtr = IntPtr.Zero; 	if (boxd != null) {boxdPtr = boxd.Pointer;}
 
 	IntPtr _Result = Natives.boxRelocateOneSide(boxdPtr, boxs.Pointer,   loc,   sideflag);
@@ -792,6 +834,7 @@ public static Boxa boxaAdjustSides(
 				 int deltop, 
 				 int delbot){
 
+if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaAdjustSides(boxas.Pointer,   delleft,   delright,   deltop,   delbot);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -833,6 +876,7 @@ public static Box boxAdjustSides(
 				 int deltop, 
 				 int delbot){
 
+if (boxs == null) {throw new ArgumentNullException  ("boxs cannot be Nothing");}
 	IntPtr boxdPtr = IntPtr.Zero; 	if (boxd != null) {boxdPtr = boxd.Pointer;}
 
 	IntPtr _Result = Natives.boxAdjustSides(boxdPtr, boxs.Pointer,   delleft,   delright,   deltop,   delbot);
@@ -868,6 +912,8 @@ public static Boxa boxaSetSide(
 				 int val, 
 				 int thresh){
 
+if (boxad == null) {throw new ArgumentNullException  ("boxad cannot be Nothing");}
+		if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaSetSide(boxad.Pointer, boxas.Pointer,   side,   val,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -903,6 +949,8 @@ public static Boxa boxaAdjustWidthToTarget(
 				 int target, 
 				 int thresh){
 
+if (boxad == null) {throw new ArgumentNullException  ("boxad cannot be Nothing");}
+		if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaAdjustWidthToTarget(boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -938,6 +986,8 @@ public static Boxa boxaAdjustHeightToTarget(
 				 int target, 
 				 int thresh){
 
+if (boxad == null) {throw new ArgumentNullException  ("boxad cannot be Nothing");}
+		if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr _Result = Natives.boxaAdjustHeightToTarget(boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -959,6 +1009,8 @@ public static int boxEqual(
 				 Box box2, 
 				out int psame){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxEqual(box1.Pointer, box2.Pointer, out  psame);
 	
 	return _Result;
@@ -1002,6 +1054,8 @@ public static int boxaEqual(
 				out Numa pnaindex, 
 				out int psame){
 
+if (boxa1 == null) {throw new ArgumentNullException  ("boxa1 cannot be Nothing");}
+		if (boxa2 == null) {throw new ArgumentNullException  ("boxa2 cannot be Nothing");}
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaEqual(boxa1.Pointer, boxa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
@@ -1038,6 +1092,8 @@ public static int boxSimilar(
 				 int botdiff, 
 				out int psimilar){
 
+if (box1 == null) {throw new ArgumentNullException  ("box1 cannot be Nothing");}
+		if (box2 == null) {throw new ArgumentNullException  ("box2 cannot be Nothing");}
 	int _Result = Natives.boxSimilar(box1.Pointer, box2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff, out  psimilar);
 	
 	return _Result;
@@ -1080,6 +1136,8 @@ public static int boxaSimilar(
 				out int psimilar, 
 				out Numa pnasim){
 
+if (boxa1 == null) {throw new ArgumentNullException  ("boxa1 cannot be Nothing");}
+		if (boxa2 == null) {throw new ArgumentNullException  ("boxa2 cannot be Nothing");}
 	IntPtr pnasimPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaSimilar(boxa1.Pointer, boxa2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff,  (int) debug, out  psimilar, out pnasimPtr);
@@ -1114,6 +1172,8 @@ public static int boxaJoin(
 				 int istart, 
 				 int iend){
 
+if (boxad == null) {throw new ArgumentNullException  ("boxad cannot be Nothing");}
+		if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	int _Result = Natives.boxaJoin(boxad.Pointer, boxas.Pointer,   istart,   iend);
 	
 	return _Result;
@@ -1145,6 +1205,8 @@ public static int boxaaJoin(
 				 int istart, 
 				 int iend){
 
+if (baad == null) {throw new ArgumentNullException  ("baad cannot be Nothing");}
+		if (baas == null) {throw new ArgumentNullException  ("baas cannot be Nothing");}
 	int _Result = Natives.boxaaJoin(baad.Pointer, baas.Pointer,   istart,   iend);
 	
 	return _Result;
@@ -1174,6 +1236,7 @@ public static int boxaSplitEvenOdd(
 				out Boxa pboxae, 
 				out Boxa pboxao){
 
+if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr pboxaePtr = IntPtr.Zero;
 	IntPtr pboxaoPtr = IntPtr.Zero;
 
@@ -1207,6 +1270,8 @@ public static Boxa boxaMergeEvenOdd(
 				 Boxa boxao, 
 				 int fillflag){
 
+if (boxae == null) {throw new ArgumentNullException  ("boxae cannot be Nothing");}
+		if (boxao == null) {throw new ArgumentNullException  ("boxao cannot be Nothing");}
 	IntPtr _Result = Natives.boxaMergeEvenOdd(boxae.Pointer, boxao.Pointer,   fillflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}

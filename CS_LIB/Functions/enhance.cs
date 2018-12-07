@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -64,6 +65,7 @@ public static Pix pixGammaTRC(
 				 int minval, 
 				 int maxval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixGammaTRC(pixdPtr, pixs.Pointer,   gamma,   minval,   maxval);
@@ -101,6 +103,7 @@ public static Pix pixGammaTRCMasked(
 				 int minval, 
 				 int maxval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -135,6 +138,7 @@ public static Pix pixGammaTRCWithAlpha(
 				 int minval, 
 				 int maxval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixGammaTRCWithAlpha(pixdPtr, pixs.Pointer,   gamma,   minval,   maxval);
@@ -214,6 +218,7 @@ public static Pix pixContrastTRC(
 				 Pix pixs, 
 				 Single factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixContrastTRC(pixdPtr, pixs.Pointer,   factor);
@@ -247,6 +252,7 @@ public static Pix pixContrastTRCMasked(
 				 Pix pixm, 
 				 Single factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -326,6 +332,7 @@ public static Pix pixEqualizeTRC(
 				 Single fract, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixEqualizeTRC(pixdPtr, pixs.Pointer,   fract,   factor);
@@ -359,6 +366,7 @@ public static Numa numaEqualizeTRC(
 				 Single fract, 
 				 int factor){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.numaEqualizeTRC(pix.Pointer,   fract,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -395,6 +403,8 @@ public static int pixTRCMap(
 				 Pix pixm, 
 				 Numa na){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixTRCMap(pixs.Pointer, pixmPtr, na.Pointer);
@@ -427,6 +437,7 @@ public static Pix pixUnsharpMasking(
 				 int halfwidth, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixUnsharpMasking(pixs.Pointer,   halfwidth,   fract);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -458,6 +469,7 @@ public static Pix pixUnsharpMaskingGray(
 				 int halfwidth, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixUnsharpMaskingGray(pixs.Pointer,   halfwidth,   fract);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -513,6 +525,7 @@ public static Pix pixUnsharpMaskingFast(
 				 Single fract, 
 				 int direction){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixUnsharpMaskingFast(pixs.Pointer,   halfwidth,   fract,   direction);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -542,6 +555,7 @@ public static Pix pixUnsharpMaskingGrayFast(
 				 Single fract, 
 				 int direction){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixUnsharpMaskingGrayFast(pixs.Pointer,   halfwidth,   fract,   direction);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -571,6 +585,7 @@ public static Pix pixUnsharpMaskingGray1D(
 				 Single fract, 
 				 int direction){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixUnsharpMaskingGray1D(pixs.Pointer,   halfwidth,   fract,   direction);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -599,6 +614,7 @@ public static Pix pixUnsharpMaskingGray2D(
 				 int halfwidth, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixUnsharpMaskingGray2D(pixs.Pointer,   halfwidth,   fract);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -635,6 +651,8 @@ public static Pix pixModifyHue(
 				 Pix pixs, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixModifyHue(pixdPtr, pixs.Pointer,   fract);
@@ -671,6 +689,8 @@ public static Pix pixModifySaturation(
 				 Pix pixs, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixModifySaturation(pixdPtr, pixs.Pointer,   fract);
@@ -694,6 +714,8 @@ public static int pixMeasureSaturation(
 				 int factor, 
 				out Single psat){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixMeasureSaturation(pixs.Pointer,   factor, out  psat);
 	
 	return _Result;
@@ -727,6 +749,8 @@ public static Pix pixModifyBrightness(
 				 Pix pixs, 
 				 Single fract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixModifyBrightness(pixdPtr, pixs.Pointer,   fract);
@@ -772,6 +796,8 @@ public static Pix pixMosaicColorShiftRGB(
 				 Single delta, 
 				 int nincr){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixMosaicColorShiftRGB(pixs.Pointer,   roff,   goff,   boff,   delta,   nincr);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -812,6 +838,8 @@ public static Pix pixColorShiftRGB(
 				 Single gfract, 
 				 Single bfract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixColorShiftRGB(pixs.Pointer,   rfract,   gfract,   bfract);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -850,6 +878,8 @@ public static Pix pixDarkenGray(
 				 int thresh, 
 				 int satlimit){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixDarkenGray(pixdPtr, pixs.Pointer,   thresh,   satlimit);
@@ -883,6 +913,7 @@ public static Pix pixMultConstantColor(
 				 Single gfact, 
 				 Single bfact){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMultConstantColor(pixs.Pointer,   rfact,   gfact,   bfact);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -929,6 +960,8 @@ public static Pix pixMultMatrixColor(
 				 Pix pixs, 
 				 L_Kernel kel){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (kel == null) {throw new ArgumentNullException  ("kel cannot be Nothing");}
 	IntPtr _Result = Natives.pixMultMatrixColor(pixs.Pointer, kel.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -978,6 +1011,7 @@ public static Pix pixHalfEdgeByBandpass(
 				 int sm2h, 
 				 int sm2v){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixHalfEdgeByBandpass(pixs.Pointer,   sm1h,   sm1v,   sm2h,   sm2v);
 	
 	if (_Result == IntPtr.Zero) {return null;}

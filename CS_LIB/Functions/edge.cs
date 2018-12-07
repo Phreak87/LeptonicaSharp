@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -36,6 +37,7 @@ public static Pix pixSobelEdgeFilter(
 				 Pix pixs, 
 				 int orientflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSobelEdgeFilter(pixs.Pointer,   orientflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -76,6 +78,7 @@ public static Pix pixTwoSidedEdgeFilter(
 				 Pix pixs, 
 				 int orientflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixTwoSidedEdgeFilter(pixs.Pointer,   orientflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -122,6 +125,8 @@ public static int pixMeasureEdgeSmoothness(
 				out Single prpl, 
 				 String debugfile){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixMeasureEdgeSmoothness(pixs.Pointer,   side,   minjump,   minreversal, out  pjpl, out  pjspl, out  prpl,   debugfile);
 	
 	return _Result;
@@ -142,6 +147,8 @@ public static Numa pixGetEdgeProfile(
 				 int side, 
 				 String debugfile){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixGetEdgeProfile(pixs.Pointer,   side,   debugfile);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -162,6 +169,8 @@ public static int pixGetLastOffPixelInRun(
 				 int direction, 
 				 object ploc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ploc == null) {throw new ArgumentNullException  ("ploc cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixGetLastOffPixelInRun(pixs.Pointer,   x,   y,   direction,   ploc);
@@ -183,6 +192,8 @@ public static int pixGetLastOnPixelInRun(
 				 int direction, 
 				 object ploc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ploc == null) {throw new ArgumentNullException  ("ploc cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	int _Result = Natives.pixGetLastOnPixelInRun(pixs.Pointer,   x,   y,   direction,   ploc);

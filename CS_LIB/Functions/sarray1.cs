@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -36,6 +37,7 @@ public static Sarray sarrayCreateInitialized(
 				 int n, 
 				 String initstr){
 
+if (initstr == null) {throw new ArgumentNullException  ("initstr cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayCreateInitialized(  n,   initstr);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -56,6 +58,7 @@ public static Sarray sarrayCreateInitialized(
 public static Sarray sarrayCreateWordsFromString(
 				 String _string_){
 
+if (_string_ == null) {throw new ArgumentNullException  ("_string_ cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayCreateWordsFromString(  _string_);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -81,6 +84,7 @@ public static Sarray sarrayCreateLinesFromString(
 				 String _string_, 
 				 int blankflag){
 
+if (_string_ == null) {throw new ArgumentNullException  ("_string_ cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayCreateLinesFromString(  _string_,   blankflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -120,6 +124,7 @@ public static void sarrayDestroy(
 public static Sarray sarrayCopy(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayCopy(sa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -137,6 +142,7 @@ public static Sarray sarrayCopy(
 public static Sarray sarrayClone(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayClone(sa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -161,6 +167,8 @@ public static int sarrayAddString(
 				 String _string_, 
 				 int copyflag){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (_string_ == null) {throw new ArgumentNullException  ("_string_ cannot be Nothing");}
 	int _Result = Natives.sarrayAddString(sa.Pointer,   _string_,   copyflag);
 	
 	return _Result;
@@ -179,6 +187,7 @@ public static String sarrayRemoveString(
 				 Sarray sa, 
 				 int index){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	String _Result = Natives.sarrayRemoveString(sa.Pointer,   index);
 	
 	return _Result;
@@ -209,6 +218,8 @@ public static int sarrayReplaceString(
 				 String newstr, 
 				 int copyflag){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (newstr == null) {throw new ArgumentNullException  ("newstr cannot be Nothing");}
 	int _Result = Natives.sarrayReplaceString(sa.Pointer,   index,   newstr,   copyflag);
 	
 	return _Result;
@@ -225,6 +236,7 @@ public static int sarrayReplaceString(
 public static int sarrayClear(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	int _Result = Natives.sarrayClear(sa.Pointer);
 	
 	return _Result;
@@ -241,6 +253,7 @@ public static int sarrayClear(
 public static int sarrayGetCount(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	int _Result = Natives.sarrayGetCount(sa.Pointer);
 	
 	return _Result;
@@ -265,6 +278,7 @@ public static String[] sarrayGetArray(
 				out int pnalloc, 
 				out int pn){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayGetArray(sa.Pointer, out  pnalloc, out  pn);
 	
 	IntPtr[] PTRArr = new IntPtr[pn];
@@ -298,6 +312,7 @@ public static String sarrayGetString(
 				 int index, 
 				 int copyflag){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	String _Result = Natives.sarrayGetString(sa.Pointer,   index,   copyflag);
 	
 	return _Result;
@@ -314,6 +329,7 @@ public static String sarrayGetString(
 public static int sarrayGetRefcount(
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	int _Result = Natives.sarrayGetRefcount(sa.Pointer);
 	
 	return _Result;
@@ -332,6 +348,7 @@ public static int sarrayChangeRefcount(
 				 Sarray sa, 
 				 int delta){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	int _Result = Natives.sarrayChangeRefcount(sa.Pointer,   delta);
 	
 	return _Result;
@@ -362,6 +379,7 @@ public static String sarrayToString(
 				 Sarray sa, 
 				 int addnlflag){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	String _Result = Natives.sarrayToString(sa.Pointer,   addnlflag);
 	
 	return _Result;
@@ -394,6 +412,7 @@ public static String sarrayToStringRange(
 				 int nstrings, 
 				 int addnlflag){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	String _Result = Natives.sarrayToStringRange(sa.Pointer,   first,   nstrings,   addnlflag);
 	
 	return _Result;
@@ -415,6 +434,8 @@ public static int sarrayJoin(
 				 Sarray sa1, 
 				 Sarray sa2){
 
+if (sa1 == null) {throw new ArgumentNullException  ("sa1 cannot be Nothing");}
+		if (sa2 == null) {throw new ArgumentNullException  ("sa2 cannot be Nothing");}
 	int _Result = Natives.sarrayJoin(sa1.Pointer, sa2.Pointer);
 	
 	return _Result;
@@ -443,6 +464,8 @@ public static int sarrayAppendRange(
 				 int start, 
 				 int _end_){
 
+if (sa1 == null) {throw new ArgumentNullException  ("sa1 cannot be Nothing");}
+		if (sa2 == null) {throw new ArgumentNullException  ("sa2 cannot be Nothing");}
 	int _Result = Natives.sarrayAppendRange(sa1.Pointer, sa2.Pointer,   start,   _end_);
 	
 	return _Result;
@@ -470,6 +493,9 @@ public static int sarrayPadToSameSize(
 				 Sarray sa2, 
 				 String padstring){
 
+if (sa1 == null) {throw new ArgumentNullException  ("sa1 cannot be Nothing");}
+		if (sa2 == null) {throw new ArgumentNullException  ("sa2 cannot be Nothing");}
+		if (padstring == null) {throw new ArgumentNullException  ("padstring cannot be Nothing");}
 	int _Result = Natives.sarrayPadToSameSize(sa1.Pointer, sa2.Pointer,   padstring);
 	
 	return _Result;
@@ -488,6 +514,7 @@ public static Sarray sarrayConvertWordsToLines(
 				 Sarray sa, 
 				 int linesize){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayConvertWordsToLines(sa.Pointer,   linesize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -506,6 +533,9 @@ public static int sarraySplitString(
 				 String str, 
 				 String separators){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
+		if (separators == null) {throw new ArgumentNullException  ("separators cannot be Nothing");}
 	IntPtr saPtr = IntPtr.Zero; if (sa != null) {saPtr = sa.Pointer;}
 
 	int _Result = Natives.sarraySplitString(sa.Pointer,   str,   separators);
@@ -533,6 +563,7 @@ public static Sarray sarraySelectBySubstring(
 				 Sarray sain, 
 				 String substr){
 
+if (sain == null) {throw new ArgumentNullException  ("sain cannot be Nothing");}
 	IntPtr _Result = Natives.sarraySelectBySubstring(sain.Pointer,   substr);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -559,6 +590,7 @@ public static Sarray sarraySelectByRange(
 				 int first, 
 				 int last){
 
+if (sain == null) {throw new ArgumentNullException  ("sain cannot be Nothing");}
 	IntPtr _Result = Natives.sarraySelectByRange(sain.Pointer,   first,   last);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -613,6 +645,8 @@ public static int sarrayParseRange(
 				 String substr, 
 				 int loc){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (substr == null) {throw new ArgumentNullException  ("substr cannot be Nothing");}
 	int _Result = Natives.sarrayParseRange(sa.Pointer,   start, out  pactualstart, out  pend, out  pnewstart,   substr,   loc);
 	
 	return _Result;
@@ -629,6 +663,10 @@ public static int sarrayParseRange(
 public static Sarray sarrayRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.sarrayRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -655,6 +693,7 @@ public static Sarray sarrayRead(
 public static Sarray sarrayReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -674,6 +713,7 @@ public static Sarray sarrayReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.sarrayReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -693,6 +733,8 @@ public static int sarrayWrite(
 				 String filename, 
 				 Sarray sa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	int _Result = Natives.sarrayWrite(  filename, sa.Pointer);
 	
 	return _Result;
@@ -715,6 +757,8 @@ public static int sarrayWriteStream(
 				 FILE fp, 
 				 Sarray sa){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	int _Result = Natives.sarrayWriteStream(fp.Pointer, sa.Pointer);
 	
 	return _Result;
@@ -738,6 +782,7 @@ public static int sarrayWriteMem(
 				out uint psize, 
 				 Sarray sa){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.sarrayWriteMem(out  pdataPtr, out  psize, sa.Pointer);
@@ -763,6 +808,11 @@ public static int sarrayAppend(
 				 String filename, 
 				 Sarray sa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.sarrayAppend(  filename, sa.Pointer);
 	
 	return _Result;
@@ -819,6 +869,7 @@ public static Sarray getNumberedPathnamesInDirectory(
 				 int numpost, 
 				 int maxnum){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr _Result = Natives.getNumberedPathnamesInDirectory(  dirname,   substr,   numpre,   numpost,   maxnum);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -853,6 +904,7 @@ public static Sarray getSortedPathnamesInDirectory(
 				 int first, 
 				 int nfiles){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr _Result = Natives.getSortedPathnamesInDirectory(  dirname,   substr,   first,   nfiles);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -880,6 +932,7 @@ public static Sarray convertSortedToNumberedPathnames(
 				 int numpost, 
 				 int maxnum){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.convertSortedToNumberedPathnames(sa.Pointer,   numpre,   numpost,   maxnum);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -896,6 +949,7 @@ public static Sarray convertSortedToNumberedPathnames(
 public static Sarray getFilenamesInDirectory(
 				 String dirname){
 
+if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 	IntPtr _Result = Natives.getFilenamesInDirectory(  dirname);
 	
 	if (_Result == IntPtr.Zero) {return null;}

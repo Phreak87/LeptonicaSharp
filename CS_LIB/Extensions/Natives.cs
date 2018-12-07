@@ -3,8 +3,6 @@ using System.IO;
 using System.Windows.Forms ; 
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Linq;
-using System.Text;
 
 	public partial class Natives
 	{

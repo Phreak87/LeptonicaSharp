@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -22,6 +23,7 @@ public partial class _All {
 public static IntPtr pixGetWindowsHBITMAP(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetWindowsHBITMAP(pix.Pointer);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -45,6 +46,8 @@ public static Pix pixAddSingleTextblock(
 				 int location, 
 				out int poverflow){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
 	IntPtr _Result = Natives.pixAddSingleTextblock(pixs.Pointer, bmf.Pointer,   textstr,   val,   location, out  poverflow);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -92,6 +95,8 @@ public static Pix pixAddTextlines(
 				 uint val, 
 				 int location){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
 	IntPtr _Result = Natives.pixAddTextlines(pixs.Pointer, bmf.Pointer,   textstr,   val,   location);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -141,6 +146,9 @@ public static int pixSetTextblock(
 				 int firstindent, 
 				out int poverflow){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
+		if (textstr == null) {throw new ArgumentNullException  ("textstr cannot be Nothing");}
 	int _Result = Natives.pixSetTextblock(pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0,   wtext,   firstindent, out  poverflow);
 	
 	return _Result;
@@ -187,6 +195,9 @@ public static int pixSetTextline(
 				out int pwidth, 
 				out int poverflow){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
+		if (textstr == null) {throw new ArgumentNullException  ("textstr cannot be Nothing");}
 	int _Result = Natives.pixSetTextline(pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0, out  pwidth, out  poverflow);
 	
 	return _Result;
@@ -229,6 +240,8 @@ public static Pixa pixaAddTextNumber(
 				 uint val, 
 				 int location){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
+		if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
 	IntPtr naPtr = IntPtr.Zero; 	if (na != null) {naPtr = na.Pointer;}
 
 	IntPtr _Result = Natives.pixaAddTextNumber(pixas.Pointer, bmf.Pointer, naPtr,   val,   location);
@@ -277,6 +290,8 @@ public static Pixa pixaAddTextlines(
 				 uint val, 
 				 int location){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
+		if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 
 	IntPtr _Result = Natives.pixaAddTextlines(pixas.Pointer, bmf.Pointer, saPtr,   val,   location);
@@ -327,6 +342,11 @@ public static int pixaAddPixWithText(
 				 uint val, 
 				 int location){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if (reduction > 2 && reduction < 16){
+	   throw new ArgumentException ("integer subsampling factor");
+	};
 	IntPtr bmfPtr = IntPtr.Zero; 	if (bmf != null) {bmfPtr = bmf.Pointer;}
 
 	int _Result = Natives.pixaAddPixWithText(pixa.Pointer, pixs.Pointer,   reduction, bmfPtr,   textstr,   val,   location);
@@ -357,6 +377,8 @@ public static Sarray bmfGetLineStrings(
 				 int firstindent, 
 				out int ph){
 
+if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
+		if (textstr == null) {throw new ArgumentNullException  ("textstr cannot be Nothing");}
 	IntPtr _Result = Natives.bmfGetLineStrings(bmf.Pointer,   textstr,   maxw,   firstindent, out  ph);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -378,6 +400,9 @@ public static Numa bmfGetWordWidths(
 				 String textstr, 
 				 Sarray sa){
 
+if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
+		if (textstr == null) {throw new ArgumentNullException  ("textstr cannot be Nothing");}
+		if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
 	IntPtr _Result = Natives.bmfGetWordWidths(bmf.Pointer,   textstr, sa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -399,6 +424,8 @@ public static int bmfGetStringWidth(
 				 String textstr, 
 				out int pw){
 
+if (bmf == null) {throw new ArgumentNullException  ("bmf cannot be Nothing");}
+		if (textstr == null) {throw new ArgumentNullException  ("textstr cannot be Nothing");}
 	int _Result = Natives.bmfGetStringWidth(bmf.Pointer,   textstr, out  pw);
 	
 	return _Result;
@@ -417,6 +444,7 @@ public static Sarray splitStringToParagraphs(
 				 String textstr, 
 				 int splitflag){
 
+if (textstr == null) {throw new ArgumentNullException  ("textstr cannot be Nothing");}
 	IntPtr _Result = Natives.splitStringToParagraphs(  textstr,   splitflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -67,6 +68,8 @@ public static int lstackAdd(
 				 L_Stack lstack, 
 				 Object item){
 
+if (lstack == null) {throw new ArgumentNullException  ("lstack cannot be Nothing");}
+		if (item == null) {throw new ArgumentNullException  ("item cannot be Nothing");}
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -87,6 +90,7 @@ public static int lstackAdd(
 public static Object lstackRemove(
 				 L_Stack lstack){
 
+if (lstack == null) {throw new ArgumentNullException  ("lstack cannot be Nothing");}
 	IntPtr _Result = Natives.lstackRemove(lstack.Pointer);
 	
 	Byte[] B = new Byte[1];
@@ -105,6 +109,7 @@ public static Object lstackRemove(
 public static int lstackGetCount(
 				 L_Stack lstack){
 
+if (lstack == null) {throw new ArgumentNullException  ("lstack cannot be Nothing");}
 	int _Result = Natives.lstackGetCount(lstack.Pointer);
 	
 	return _Result;
@@ -123,6 +128,8 @@ public static int lstackPrint(
 				 FILE fp, 
 				 L_Stack lstack){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (lstack == null) {throw new ArgumentNullException  ("lstack cannot be Nothing");}
 	int _Result = Natives.lstackPrint(fp.Pointer, lstack.Pointer);
 	
 	return _Result;

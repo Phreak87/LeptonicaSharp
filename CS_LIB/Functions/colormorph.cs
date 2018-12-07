@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -31,6 +32,7 @@ public static Pix pixColorMorph(
 				 int hsize, 
 				 int vsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorMorph(pixs.Pointer,   type,   hsize,   vsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}

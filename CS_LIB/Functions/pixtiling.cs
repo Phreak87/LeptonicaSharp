@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -47,6 +48,7 @@ public static PixTiling pixTilingCreate(
 				 int xoverlap, 
 				 int yoverlap){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixTilingCreate(pixs.Pointer,   nx,   ny,   w,   h,   xoverlap,   yoverlap);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -85,6 +87,7 @@ public static int pixTilingGetCount(
 				out int pnx, 
 				out int pny){
 
+if (pt == null) {throw new ArgumentNullException  ("pt cannot be Nothing");}
 	int _Result = Natives.pixTilingGetCount(pt.Pointer, out  pnx, out  pny);
 	
 	return _Result;
@@ -105,6 +108,7 @@ public static int pixTilingGetSize(
 				out int pw, 
 				out int ph){
 
+if (pt == null) {throw new ArgumentNullException  ("pt cannot be Nothing");}
 	int _Result = Natives.pixTilingGetSize(pt.Pointer, out  pw, out  ph);
 	
 	return _Result;
@@ -125,6 +129,7 @@ public static Pix pixTilingGetTile(
 				 int i, 
 				 int j){
 
+if (pt == null) {throw new ArgumentNullException  ("pt cannot be Nothing");}
 	IntPtr _Result = Natives.pixTilingGetTile(pt.Pointer,   i,   j);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -149,6 +154,7 @@ public static Pix pixTilingGetTile(
 public static int pixTilingNoStripOnPaint(
 				 PixTiling pt){
 
+if (pt == null) {throw new ArgumentNullException  ("pt cannot be Nothing");}
 	int _Result = Natives.pixTilingNoStripOnPaint(pt.Pointer);
 	
 	return _Result;
@@ -173,6 +179,9 @@ public static int pixTilingPaintTile(
 				 Pix pixs, 
 				 PixTiling pt){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pt == null) {throw new ArgumentNullException  ("pt cannot be Nothing");}
 	int _Result = Natives.pixTilingPaintTile(pixd.Pointer,   i,   j, pixs.Pointer, pt.Pointer);
 	
 	return _Result;

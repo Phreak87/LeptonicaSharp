@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -24,6 +25,8 @@ public static int pixFindStrokeLength(
 				 int[] tab8, 
 				out int plength){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixFindStrokeLength(pixs.Pointer,   tab8, out  plength);
 	
 	return _Result;
@@ -59,6 +62,8 @@ public static int pixFindStrokeWidth(
 				out Single pwidth, 
 				out Numa pnahisto){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pnahistoPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixFindStrokeWidth(pixs.Pointer,   thresh,   tab8, out  pwidth, out pnahistoPtr);
@@ -87,6 +92,7 @@ public static Numa pixaFindStrokeWidth(
 				 int[] tab8, 
 				 DebugOnOff debug){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaFindStrokeWidth(pixa.Pointer,   thresh,   tab8,  (int) debug);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -106,6 +112,7 @@ public static Pixa pixaModifyStrokeWidth(
 				 Pixa pixas, 
 				out Single targetw){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaModifyStrokeWidth(pixas.Pointer, out  targetw);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -127,6 +134,7 @@ public static Pix pixModifyStrokeWidth(
 				 Single width, 
 				 Single targetw){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixModifyStrokeWidth(pixs.Pointer,   width,   targetw);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -160,6 +168,7 @@ public static Pixa pixaSetStrokeWidth(
 				 int thinfirst, 
 				 int connectivity){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr _Result = Natives.pixaSetStrokeWidth(pixas.Pointer,   width,   thinfirst,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -191,6 +200,7 @@ public static Pix pixSetStrokeWidth(
 				 int thinfirst, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSetStrokeWidth(pixs.Pointer,   width,   thinfirst,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}

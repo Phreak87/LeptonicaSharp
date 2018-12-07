@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -46,6 +47,8 @@ public static int pixEqual(
 				 Pix pix2, 
 				out int psame){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixEqual(pix1.Pointer, pix2.Pointer, out  psame);
 	
 	return _Result;
@@ -75,6 +78,8 @@ public static int pixEqualWithAlpha(
 				 int use_alpha, 
 				out int psame){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixEqualWithAlpha(pix1.Pointer, pix2.Pointer,   use_alpha, out  psame);
 	
 	return _Result;
@@ -108,6 +113,8 @@ public static int pixEqualWithCmap(
 				 Pix pix2, 
 				out int psame){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixEqualWithCmap(pix1.Pointer, pix2.Pointer, out  psame);
 	
 	return _Result;
@@ -136,6 +143,8 @@ public static int cmapEqual(
 				 int ncomps, 
 				out int psame){
 
+if (cmap1 == null) {throw new ArgumentNullException  ("cmap1 cannot be Nothing");}
+		if (cmap2 == null) {throw new ArgumentNullException  ("cmap2 cannot be Nothing");}
 	int _Result = Natives.cmapEqual(cmap1.Pointer, cmap2.Pointer,   ncomps, out  psame);
 	
 	return _Result;
@@ -164,6 +173,7 @@ public static int pixUsesCmapColor(
 				 Pix pixs, 
 				out int pcolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixUsesCmapColor(pixs.Pointer, out  pcolor);
 	
 	return _Result;
@@ -198,6 +208,10 @@ public static int pixCorrelationBinary(
 				 Pix pix2, 
 				out Single pval){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix1.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {1}).Contains ((int)pix2.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixCorrelationBinary(pix1.Pointer, pix2.Pointer, out  pval);
 	
 	return _Result;
@@ -227,6 +241,10 @@ public static Pix pixDisplayDiffBinary(
 				 Pix pix1, 
 				 Pix pix2){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix1.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {1}).Contains ((int)pix2.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixDisplayDiffBinary(pix1.Pointer, pix2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -260,6 +278,10 @@ public static int pixCompareBinary(
 				out Single pfract, 
 				out Pix ppixdiff){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix1.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {1}).Contains ((int)pix2.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixCompareBinary(pix1.Pointer, pix2.Pointer,   comptype, out  pfract, out ppixdiffPtr);
@@ -323,6 +345,8 @@ public static int pixCompareGrayOrRGB(
 				out Single prmsdiff, 
 				out Pix ppixdiff){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixCompareGrayOrRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
@@ -364,6 +388,8 @@ public static int pixCompareGray(
 				out Single prmsdiff, 
 				out Pix ppixdiff){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixCompareGray(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
@@ -403,6 +429,10 @@ public static int pixCompareRGB(
 				out Single prmsdiff, 
 				out Pix ppixdiff){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pix1.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
+	if ((new List<int> {32}).Contains ((int)pix2.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixCompareRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
@@ -447,6 +477,8 @@ public static int pixCompareTiled(
 				 int type, 
 				out Pix ppixdiff){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixCompareTiled(pix1.Pointer, pix2.Pointer,   sx,   sy,   type, out ppixdiffPtr);
@@ -489,6 +521,8 @@ public static Numa pixCompareRankDifference(
 				 Pix pix2, 
 				 int factor){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr _Result = Natives.pixCompareRankDifference(pix1.Pointer, pix2.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -555,6 +589,8 @@ public static int pixTestForSimilarity(
 				out int psimilar, 
 				 int details){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixTestForSimilarity(pix1.Pointer, pix2.Pointer,   factor,   mindiff,   maxfract,   maxave, out  psimilar,   details);
 	
 	return _Result;
@@ -613,6 +649,8 @@ public static int pixGetDifferenceStats(
 				out Single pavediff, 
 				 int details){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixGetDifferenceStats(pix1.Pointer, pix2.Pointer,   factor,   mindiff, out  pfractdiff, out  pavediff,   details);
 	
 	return _Result;
@@ -644,6 +682,8 @@ public static Numa pixGetDifferenceHistogram(
 				 Pix pix2, 
 				 int factor){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr _Result = Natives.pixGetDifferenceHistogram(pix1.Pointer, pix2.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -712,6 +752,8 @@ public static int pixGetPerceptualDiff(
 				out Pix ppixdiff1, 
 				out Pix ppixdiff2){
 
+if (pixs1 == null) {throw new ArgumentNullException  ("pixs1 cannot be Nothing");}
+		if (pixs2 == null) {throw new ArgumentNullException  ("pixs2 cannot be Nothing");}
 	IntPtr ppixdiff1Ptr = IntPtr.Zero;
 	IntPtr ppixdiff2Ptr = IntPtr.Zero;
 
@@ -761,6 +803,8 @@ public static int pixGetPSNR(
 				 int factor, 
 				out Single ppsnr){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixGetPSNR(pix1.Pointer, pix2.Pointer,   factor, out  ppsnr);
 	
 	return _Result;
@@ -827,6 +871,7 @@ public static int pixaComparePhotoRegionsByHisto(
 				out Pix ppixd, 
 				 DebugOnOff debug){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr pnaiPtr = IntPtr.Zero;
 	IntPtr pscoresPtr = IntPtr.Zero;
 	IntPtr ppixdPtr = IntPtr.Zero;
@@ -912,6 +957,8 @@ public static int pixComparePhotoRegionsByHisto(
 				out Single pscore, 
 				 int debugflag){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr box1Ptr = IntPtr.Zero; 	if (box1 != null) {box1Ptr = box1.Pointer;}
 	IntPtr box2Ptr = IntPtr.Zero; 	if (box2 != null) {box2Ptr = box2.Pointer;}
 
@@ -967,6 +1014,7 @@ public static int pixGenPhotoHistos(
 				out int ph, 
 				 int debugindex){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pnaaPtr = IntPtr.Zero;
 
@@ -995,6 +1043,7 @@ public static Pix pixPadToCenterCentroid(
 				 Pix pixs, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixPadToCenterCentroid(pixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1025,6 +1074,8 @@ public static int pixCentroid8(
 				out Single pcx, 
 				out Single pcy){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	int _Result = Natives.pixCentroid8(pixs.Pointer,   factor, out  pcx, out  pcy);
 	
 	return _Result;
@@ -1071,6 +1122,7 @@ public static int pixDecideIfPhotoImage(
 				out Numaa pnaa, 
 				 Pixa pixadebug){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pnaaPtr = IntPtr.Zero;
 	IntPtr pixadebugPtr = IntPtr.Zero; 	if (pixadebug != null) {pixadebugPtr = pixadebug.Pointer;}
 
@@ -1119,6 +1171,8 @@ public static int compareTilesByHisto(
 				out Single pscore, 
 				 Pixa pixadebug){
 
+if (naa1 == null) {throw new ArgumentNullException  ("naa1 cannot be Nothing");}
+		if (naa2 == null) {throw new ArgumentNullException  ("naa2 cannot be Nothing");}
 	IntPtr pixadebugPtr = IntPtr.Zero; 	if (pixadebug != null) {pixadebugPtr = pixadebug.Pointer;}
 
 	int _Result = Natives.compareTilesByHisto(naa1.Pointer, naa2.Pointer,   minratio,   w1,   h1,   w2,   h2, out  pscore, pixadebugPtr);
@@ -1212,6 +1266,8 @@ public static int pixCompareGrayByHisto(
 				out Single pscore, 
 				 int debugflag){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr box1Ptr = IntPtr.Zero; 	if (box1 != null) {box1Ptr = box1.Pointer;}
 	IntPtr box2Ptr = IntPtr.Zero; 	if (box2 != null) {box2Ptr = box2.Pointer;}
 
@@ -1244,6 +1300,8 @@ public static int pixCropAlignedToCentroid(
 				out Box pbox1, 
 				out Box pbox2){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	IntPtr pbox1Ptr = IntPtr.Zero;
 	IntPtr pbox2Ptr = IntPtr.Zero;
 
@@ -1284,6 +1342,7 @@ public static Byte[] l_compressGrayHistograms(
 				 int h, 
 				out uint psize){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	Byte[] _Result = Natives.l_compressGrayHistograms(naa.Pointer,   w,   h, out  psize);
 	
 	return _Result;
@@ -1315,6 +1374,7 @@ public static Numaa l_uncompressGrayHistograms(
 				out int pw, 
 				out int ph){
 
+if (bytea == null) {throw new ArgumentNullException  ("bytea cannot be Nothing");}
 	IntPtr _Result = Natives.l_uncompressGrayHistograms(  bytea,   size, out  pw, out  ph);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1364,6 +1424,8 @@ public static int pixCompareWithTranslation(
 				out Single pscore, 
 				 int debugflag){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
 	int _Result = Natives.pixCompareWithTranslation(pix1.Pointer, pix2.Pointer,   thresh, out  pdelx, out  pdely, out  pscore,   debugflag);
 	
 	return _Result;
@@ -1423,6 +1485,10 @@ public static int pixBestCorrelation(
 				out Single pscore, 
 				 int debugflag){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix1.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {1}).Contains ((int)pix2.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixBestCorrelation(pix1.Pointer, pix2.Pointer,   area1,   area2,   etransx,   etransy,   maxshift,   tab8, out  pdelx, out  pdely, out  pscore,   debugflag);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -23,6 +24,8 @@ public static Pix pixExtractBoundary(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixExtractBoundary(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -52,6 +55,9 @@ public static Pix pixMorphSequenceMasked(
 				 String sequence, 
 				 int dispsep){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	IntPtr _Result = Natives.pixMorphSequenceMasked(pixs.Pointer, pixmPtr,   sequence,   dispsep);
@@ -95,6 +101,9 @@ public static Pix pixMorphSequenceByComponent(
 				 int minh, 
 				out Boxa pboxa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixMorphSequenceByComponent(pixs.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
@@ -132,6 +141,8 @@ public static Pixa pixaMorphSequenceByComponent(
 				 int minw, 
 				 int minh){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
 	IntPtr _Result = Natives.pixaMorphSequenceByComponent(pixas.Pointer,   sequence,   minw,   minh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -179,6 +190,10 @@ public static Pix pixMorphSequenceByRegion(
 				 int minh, 
 				out Boxa pboxa){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixMorphSequenceByRegion(pixs.Pointer, pixm.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
@@ -220,6 +235,10 @@ public static Pixa pixaMorphSequenceByRegion(
 				 int minw, 
 				 int minh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixam == null) {throw new ArgumentNullException  ("pixam cannot be Nothing");}
+		if (sequence == null) {throw new ArgumentNullException  ("sequence cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixaMorphSequenceByRegion(pixs.Pointer, pixam.Pointer,   sequence,   minw,   minh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -241,6 +260,8 @@ public static Pix pixUnionOfMorphOps(
 				 Sela sela, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	IntPtr _Result = Natives.pixUnionOfMorphOps(pixs.Pointer, sela.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -262,6 +283,8 @@ public static Pix pixIntersectionOfMorphOps(
 				 Sela sela, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 	IntPtr _Result = Natives.pixIntersectionOfMorphOps(pixs.Pointer, sela.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -285,6 +308,7 @@ public static Pix pixSelectiveConnCompFill(
 				 int minw, 
 				 int minh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixSelectiveConnCompFill(pixs.Pointer,   connectivity,   minw,   minh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -323,6 +347,9 @@ public static int pixRemoveMatchedPattern(
 				 int y0, 
 				 int dsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixp == null) {throw new ArgumentNullException  ("pixp cannot be Nothing");}
+		if (pixe == null) {throw new ArgumentNullException  ("pixe cannot be Nothing");}
 	int _Result = Natives.pixRemoveMatchedPattern(pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   dsize);
 	
 	return _Result;
@@ -368,6 +395,9 @@ public static Pix pixDisplayMatchedPattern(
 				 Single scale, 
 				 int nlevels){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixp == null) {throw new ArgumentNullException  ("pixp cannot be Nothing");}
+		if (pixe == null) {throw new ArgumentNullException  ("pixe cannot be Nothing");}
 	IntPtr _Result = Natives.pixDisplayMatchedPattern(pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   color,   scale,   nlevels);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -404,6 +434,8 @@ public static Pixa pixaExtendByMorph(
 				 Sel sel, 
 				 int include){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
+		if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 	IntPtr _Result = Natives.pixaExtendByMorph(pixas.Pointer,   type,   niters, sel.Pointer,   include);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -435,6 +467,8 @@ public static Pixa pixaExtendByScaling(
 				 int type, 
 				 int include){
 
+if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
+		if (nasc == null) {throw new ArgumentNullException  ("nasc cannot be Nothing");}
 	IntPtr _Result = Natives.pixaExtendByScaling(pixas.Pointer, nasc.Pointer,   type,   include);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -466,6 +500,8 @@ public static Pix pixSeedfillMorph(
 				 int maxiters, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr _Result = Natives.pixSeedfillMorph(pixs.Pointer, pixm.Pointer,   maxiters,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -489,6 +525,7 @@ public static Numa pixRunHistogramMorph(
 				 int direction, 
 				 int maxsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRunHistogramMorph(pixs.Pointer,   runtype,   direction,   maxsize);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -522,6 +559,7 @@ public static Pix pixTophat(
 				 int vsize, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixTophat(pixs.Pointer,   hsize,   vsize,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -586,6 +624,7 @@ public static Pix pixHDome(
 				 int height, 
 				 int connectivity){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixHDome(pixs.Pointer,   height,   connectivity);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -628,6 +667,7 @@ public static Pix pixFastTophat(
 				 int ysize, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixFastTophat(pixs.Pointer,   xsize,   ysize,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -651,6 +691,7 @@ public static Pix pixMorphGradient(
 				 int vsize, 
 				 int smoothing){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMorphGradient(pixs.Pointer,   hsize,   vsize,   smoothing);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -673,6 +714,7 @@ public static Pix pixMorphGradient(
 public static Pta pixaCentroids(
 				 Pixa pixa){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr _Result = Natives.pixaCentroids(pixa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -702,6 +744,7 @@ public static int pixCentroid(
 				out Single pxave, 
 				out Single pyave){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixCentroid(pix.Pointer,   centtab,   sumtab, out  pxave, out  pyave);
 	
 	return _Result;

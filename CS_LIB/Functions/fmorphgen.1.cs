@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -30,6 +31,10 @@ public static Pix pixMorphDwa_1(
 				 int operation, 
 				 String selname){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (selname == null) {throw new ArgumentNullException  ("selname cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixMorphDwa_1(pixd.Pointer, pixs.Pointer,   operation,   selname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -66,6 +71,10 @@ public static Pix pixFMorphopGen_1(
 				 int operation, 
 				 String selname){
 
+if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (selname == null) {throw new ArgumentNullException  ("selname cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixFMorphopGen_1(pixd.Pointer, pixs.Pointer,   operation,   selname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -88,6 +97,8 @@ public static int fmorphopgen_low_1(
 				 int wpls, 
 				 int index){
 
+if (datad == null) {throw new ArgumentNullException  ("datad cannot be Nothing");}
+		if (datas == null) {throw new ArgumentNullException  ("datas cannot be Nothing");}
 	int _Result = Natives.fmorphopgen_low_1(  datad,   w,   h,   wpld,   datas,   wpls,   index);
 	
 	return _Result;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -78,6 +79,9 @@ public static int pixCorrelationScore(
 				 int[] tab, 
 				out Single pscore){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+		if (tab == null) {throw new ArgumentNullException  ("tab cannot be Nothing");}
 	int _Result = Natives.pixCorrelationScore(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
 	
 	return _Result;
@@ -144,6 +148,10 @@ public static int pixCorrelationScoreThresholded(
 				 int[] downcount, 
 				 Single score_threshold){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+		if (tab == null) {throw new ArgumentNullException  ("tab cannot be Nothing");}
+		if (downcount == null) {throw new ArgumentNullException  ("downcount cannot be Nothing");}
 	int _Result = Natives.pixCorrelationScoreThresholded(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab,   downcount,   score_threshold);
 	
 	return _Result;
@@ -185,6 +193,9 @@ public static int pixCorrelationScoreSimple(
 				 int[] tab, 
 				out Single pscore){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+		if (tab == null) {throw new ArgumentNullException  ("tab cannot be Nothing");}
 	int _Result = Natives.pixCorrelationScoreSimple(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
 	
 	return _Result;
@@ -237,6 +248,11 @@ public static int pixCorrelationScoreShifted(
 				 int[] tab, 
 				out Single pscore){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+		if (tab == null) {throw new ArgumentNullException  ("tab cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pix1.d) == false) { throw new ArgumentException ("1 bpp"); }
+	if ((new List<int> {1}).Contains ((int)pix2.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixCorrelationScoreShifted(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   tab, out  pscore);
 	
 	return _Result;

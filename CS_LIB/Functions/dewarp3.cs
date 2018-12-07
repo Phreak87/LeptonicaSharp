@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -66,6 +67,8 @@ public static int dewarpaApplyDisparity(
 				out Pix ppixd, 
 				 String debugfile){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
 	int _Result = Natives.dewarpaApplyDisparity(dewa.Pointer,   pageno, pixs.Pointer,   grayin,   x,   y, out ppixdPtr,   debugfile);
@@ -115,6 +118,9 @@ public static int dewarpaApplyDisparityBoxa(
 				out Boxa pboxad, 
 				 String debugfile){
 
+if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 	IntPtr pboxadPtr = IntPtr.Zero;
 
 	int _Result = Natives.dewarpaApplyDisparityBoxa(dewa.Pointer,   pageno, pixs.Pointer, boxas.Pointer,   mapdir,   x,   y, out pboxadPtr,   debugfile);
@@ -139,6 +145,7 @@ public static int dewarpaApplyDisparityBoxa(
 public static int dewarpMinimize(
 				 L_Dewarp dew){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	int _Result = Natives.dewarpMinimize(dew.Pointer);
 	
 	return _Result;
@@ -182,6 +189,7 @@ public static int dewarpPopulateFullRes(
 				 int x, 
 				 int y){
 
+if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 	IntPtr pixPtr = IntPtr.Zero; 	if (pix != null) {pixPtr = pix.Pointer;}
 
 	int _Result = Natives.dewarpPopulateFullRes(dew.Pointer, pixPtr,   x,   y);

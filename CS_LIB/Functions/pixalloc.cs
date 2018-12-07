@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -42,6 +43,8 @@ public static int pmsCreate(
 				 Numa numalloc, 
 				 String logfile){
 
+if (numalloc == null) {throw new ArgumentNullException  ("numalloc cannot be Nothing");}
+		if (logfile == null) {throw new ArgumentNullException  ("logfile cannot be Nothing");}
 	int _Result = Natives.pmsCreate(  minsize,   smallest, numalloc.Pointer,   logfile);
 	
 	return _Result;
@@ -99,6 +102,7 @@ public static Object pmsCustomAlloc(
 public static void pmsCustomDealloc(
 				 Object data){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -169,6 +173,7 @@ public static int pmsGetLevelForDealloc(
 				 Object data, 
 				out int plevel){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 

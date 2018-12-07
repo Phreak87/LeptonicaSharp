@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -46,6 +47,7 @@ public static int pixConvertToPdfData(
 				ref L_Pdf_Data plpd, 
 				 int position){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
@@ -102,6 +104,7 @@ public static int ptraConcatenatePdfToData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (pa_data == null) {throw new ArgumentNullException  ("pa_data cannot be Nothing");}
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
 
@@ -132,6 +135,8 @@ public static int convertTiffMultipageToPdf(
 				 String filein, 
 				 String fileout){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.convertTiffMultipageToPdf(  filein,   fileout);
 	
 	return _Result;
@@ -201,6 +206,7 @@ public static L_Compressed_Data l_generateFlateDataPdf(
 				 String fname, 
 				 Pix pixs){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
 
 	IntPtr _Result = Natives.l_generateFlateDataPdf(  fname, pixsPtr);
@@ -231,6 +237,7 @@ public static L_Compressed_Data l_generateJpegData(
 				 String fname, 
 				 int ascii85flag){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 	IntPtr _Result = Natives.l_generateJpegData(  fname,   ascii85flag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -255,6 +262,7 @@ public static L_Compressed_Data l_generateJpegDataMem(
 				 uint nbytes, 
 				 int ascii85flag){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.l_generateJpegDataMem(  data,   nbytes,   ascii85flag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -293,6 +301,7 @@ public static int l_generateCIData(
 				 int ascii85, 
 				out L_Compressed_Data pcid){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 	IntPtr pcidPtr = IntPtr.Zero;
 
 	int _Result = Natives.l_generateCIData(  fname,   type,   quality,   ascii85, out pcidPtr);
@@ -325,6 +334,7 @@ public static int pixGenerateCIData(
 				 int ascii85, 
 				out L_Compressed_Data pcid){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pcidPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGenerateCIData(pixs.Pointer,   type,   quality,   ascii85, out pcidPtr);
@@ -357,6 +367,7 @@ public static L_Compressed_Data l_generateFlateData(
 				 String fname, 
 				 int ascii85flag){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 	IntPtr _Result = Natives.l_generateFlateData(  fname,   ascii85flag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -382,6 +393,7 @@ public static L_Compressed_Data l_generateG4Data(
 				 String fname, 
 				 int ascii85flag){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 	IntPtr _Result = Natives.l_generateG4Data(  fname,   ascii85flag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -409,6 +421,7 @@ public static int cidConvertToPdfData(
 				out Byte[] pdata, 
 				out uint pnbytes){
 
+if (cid == null) {throw new ArgumentNullException  ("cid cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.cidConvertToPdfData(cid.Pointer,   title, out  pdataPtr, out  pnbytes);

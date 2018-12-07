@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -30,6 +31,7 @@ public static int l_dnaJoin(
 				 int istart, 
 				 int iend){
 
+if (dad == null) {throw new ArgumentNullException  ("dad cannot be Nothing");}
 	IntPtr dasPtr = IntPtr.Zero; 	if (das != null) {dasPtr = das.Pointer;}
 
 	int _Result = Natives.l_dnaJoin(dad.Pointer, dasPtr,   istart,   iend);
@@ -54,6 +56,7 @@ public static int l_dnaJoin(
 public static L_Dna l_dnaaFlattenToDna(
 				 L_Dnaa daa){
 
+if (daa == null) {throw new ArgumentNullException  ("daa cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaaFlattenToDna(daa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -71,6 +74,7 @@ public static L_Dna l_dnaaFlattenToDna(
 public static Numa l_dnaConvertToNuma(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaConvertToNuma(da.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -88,6 +92,7 @@ public static Numa l_dnaConvertToNuma(
 public static L_Dna numaConvertToDna(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaConvertToDna(na.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -115,6 +120,8 @@ public static L_Dna l_dnaUnionByAset(
 				 L_Dna da1, 
 				 L_Dna da2){
 
+if (da1 == null) {throw new ArgumentNullException  ("da1 cannot be Nothing");}
+		if (da2 == null) {throw new ArgumentNullException  ("da2 cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaUnionByAset(da1.Pointer, da2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -132,6 +139,7 @@ public static L_Dna l_dnaUnionByAset(
 public static L_Dna l_dnaRemoveDupsByAset(
 				 L_Dna das){
 
+if (das == null) {throw new ArgumentNullException  ("das cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaRemoveDupsByAset(das.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -159,6 +167,8 @@ public static L_Dna l_dnaIntersectionByAset(
 				 L_Dna da1, 
 				 L_Dna da2){
 
+if (da1 == null) {throw new ArgumentNullException  ("da1 cannot be Nothing");}
+		if (da2 == null) {throw new ArgumentNullException  ("da2 cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaIntersectionByAset(da1.Pointer, da2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -176,6 +186,7 @@ public static L_Dna l_dnaIntersectionByAset(
 public static L_Rbtree l_asetCreateFromDna(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	IntPtr _Result = Natives.l_asetCreateFromDna(da.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -193,6 +204,7 @@ public static L_Rbtree l_asetCreateFromDna(
 public static L_Dna l_dnaDiffAdjValues(
 				 L_Dna das){
 
+if (das == null) {throw new ArgumentNullException  ("das cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaDiffAdjValues(das.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -34,6 +35,7 @@ public static Pix pixRankFilter(
 				 int hf, 
 				 Single rank){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRankFilter(pixs.Pointer,   wf,   hf,   rank);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -70,6 +72,7 @@ public static Pix pixRankFilterRGB(
 				 int hf, 
 				 Single rank){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRankFilterRGB(pixs.Pointer,   wf,   hf,   rank);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -116,6 +119,7 @@ public static Pix pixRankFilterGray(
 				 int hf, 
 				 Single rank){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRankFilterGray(pixs.Pointer,   wf,   hf,   rank);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -137,6 +141,7 @@ public static Pix pixMedianFilter(
 				 int wf, 
 				 int hf){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMedianFilter(pixs.Pointer,   wf,   hf);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -170,6 +175,7 @@ public static Pix pixRankFilterWithScaling(
 				 Single rank, 
 				 Single scalefactor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRankFilterWithScaling(pixs.Pointer,   wf,   hf,   rank,   scalefactor);
 	
 	if (_Result == IntPtr.Zero) {return null;}

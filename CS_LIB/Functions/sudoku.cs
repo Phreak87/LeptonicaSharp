@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -23,6 +24,10 @@ public partial class _All {
 public static int[] sudokuReadFile(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int[] _Result = Natives.sudokuReadFile(  filename);
 	
 	return _Result;
@@ -43,6 +48,7 @@ public static int[] sudokuReadFile(
 public static int[] sudokuReadString(
 				 String str){
 
+if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
 	int[] _Result = Natives.sudokuReadString(  str);
 	
 	return _Result;
@@ -65,6 +71,7 @@ public static int[] sudokuReadString(
 public static L_Sudoku sudokuCreate(
 				 int[] array){
 
+if (array == null) {throw new ArgumentNullException  ("array cannot be Nothing");}
 	IntPtr _Result = Natives.sudokuCreate(  array);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -99,6 +106,7 @@ public static void sudokuDestroy(
 public static int sudokuSolve(
 				 L_Sudoku sud){
 
+if (sud == null) {throw new ArgumentNullException  ("sud cannot be Nothing");}
 	int _Result = Natives.sudokuSolve(sud.Pointer);
 	
 	return _Result;
@@ -124,6 +132,7 @@ public static int sudokuTestUniqueness(
 				 int[] array, 
 				out int punique){
 
+if (array == null) {throw new ArgumentNullException  ("array cannot be Nothing");}
 	int _Result = Natives.sudokuTestUniqueness(  array, out  punique);
 	
 	return _Result;
@@ -157,6 +166,7 @@ public static L_Sudoku sudokuGenerate(
 				 int minelems, 
 				 int maxtries){
 
+if (array == null) {throw new ArgumentNullException  ("array cannot be Nothing");}
 	IntPtr _Result = Natives.sudokuGenerate(  array,   seed,   minelems,   maxtries);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -180,6 +190,7 @@ public static int sudokuOutput(
 				 L_Sudoku sud, 
 				 int arraytype){
 
+if (sud == null) {throw new ArgumentNullException  ("sud cannot be Nothing");}
 	int _Result = Natives.sudokuOutput(sud.Pointer,   arraytype);
 	
 	return _Result;

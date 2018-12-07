@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -30,6 +31,8 @@ public static int pixGetRegionsBinary(
 				out Pix ppixtb, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixadb == null) {throw new ArgumentNullException  ("pixadb cannot be Nothing");}
 	IntPtr ppixhmPtr = IntPtr.Zero;
 	IntPtr ppixtmPtr = IntPtr.Zero;
 	IntPtr ppixtbPtr = IntPtr.Zero;
@@ -61,6 +64,9 @@ public static Pix pixGenHalftoneMask(
 				 object phtfound, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ppixtext == null) {throw new ArgumentNullException  ("ppixtext cannot be Nothing");}
+		if (phtfound == null) {throw new ArgumentNullException  ("phtfound cannot be Nothing");}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 	IntPtr ppixtextPtr = IntPtr.Zero; 	if (ppixtext != null) {ppixtextPtr = ppixtext.Pointer;}
 
@@ -91,6 +97,8 @@ public static Pix pixGenerateHalftoneMask(
 				out int phtfound, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixadb == null) {throw new ArgumentNullException  ("pixadb cannot be Nothing");}
 	IntPtr ppixtextPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixGenerateHalftoneMask(pixs.Pointer, out ppixtextPtr, out  phtfound, pixadb.Pointer);
@@ -128,6 +136,8 @@ public static Pix pixGenTextlineMask(
 				out int ptlfound, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixadb == null) {throw new ArgumentNullException  ("pixadb cannot be Nothing");}
 	IntPtr ppixvwsPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixGenTextlineMask(pixs.Pointer, out ppixvwsPtr, out  ptlfound, pixadb.Pointer);
@@ -165,6 +175,9 @@ public static Pix pixGenTextblockMask(
 				 Pix pixvws, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixvws == null) {throw new ArgumentNullException  ("pixvws cannot be Nothing");}
+		if (pixadb == null) {throw new ArgumentNullException  ("pixadb cannot be Nothing");}
 	IntPtr _Result = Natives.pixGenTextblockMask(pixs.Pointer, pixvws.Pointer, pixadb.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -208,6 +221,8 @@ public static Box pixFindPageForeground(
 				 int showmorph, 
 				 PixaComp pixac){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 	IntPtr _Result = Natives.pixFindPageForeground(pixs.Pointer,   threshold,   mindist,   erasedist,   showmorph, pixac.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -245,6 +260,7 @@ public static int pixSplitIntoCharacters(
 				out Pixa ppixa, 
 				out Pix ppixdebug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
 	IntPtr ppixdebugPtr = IntPtr.Zero;
@@ -280,6 +296,7 @@ public static Boxa pixSplitComponentWithProfile(
 				 int mindel, 
 				out Pix ppixdebug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdebugPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixSplitComponentWithProfile(pixs.Pointer,   delta,   mindel, out ppixdebugPtr);
@@ -349,6 +366,8 @@ public static Pixa pixExtractTextlines(
 				 int adjh, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixadb == null) {throw new ArgumentNullException  ("pixadb cannot be Nothing");}
 	IntPtr _Result = Natives.pixExtractTextlines(pixs.Pointer,   maxw,   maxh,   minw,   minh,   adjw,   adjh, pixadb.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -403,6 +422,8 @@ public static Pixa pixExtractRawTextlines(
 				 int adjh, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixadb == null) {throw new ArgumentNullException  ("pixadb cannot be Nothing");}
 	IntPtr _Result = Natives.pixExtractRawTextlines(pixs.Pointer,   maxw,   maxh,   adjw,   adjh, pixadb.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -442,6 +463,8 @@ public static int pixCountTextColumns(
 				out int pncols, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixadbPtr = IntPtr.Zero; 	if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
 	int _Result = Natives.pixCountTextColumns(pixs.Pointer,   deltafract,   peakfract,   clipfract, out  pncols, pixadbPtr);
@@ -486,6 +509,7 @@ public static int pixDecideIfText(
 				out int pistext, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pixadbPtr = IntPtr.Zero; 	if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
@@ -511,6 +535,8 @@ public static int pixFindThreshFgExtent(
 				out int ptop, 
 				out int pbot){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	int _Result = Natives.pixFindThreshFgExtent(pixs.Pointer,   thresh, out  ptop, out  pbot);
 	
 	return _Result;
@@ -573,6 +599,7 @@ public static int pixDecideIfTable(
 				out int pscore, 
 				 Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pixadbPtr = IntPtr.Zero; 	if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
@@ -602,6 +629,7 @@ public static Pix pixPrepare1bpp(
 				 Single cropfract, 
 				 int outres){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	IntPtr _Result = Natives.pixPrepare1bpp(pixs.Pointer, boxPtr,   cropfract,   outres);
@@ -630,6 +658,7 @@ public static int pixEstimateBackground(
 				 Single edgecrop, 
 				out int pbg){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixEstimateBackground(pixs.Pointer,   darkthresh,   edgecrop, out  pbg);
 	
 	return _Result;
@@ -670,6 +699,8 @@ public static int pixFindLargeRectangles(
 				out Boxa pboxa, 
 				ref Pix ppixdb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero; 	if (ppixdb != null) {ppixdbPtr = ppixdb.Pointer;}
 
@@ -738,6 +769,8 @@ public static int pixFindLargestRectangle(
 				out Box pbox, 
 				ref Pix ppixdb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxPtr = IntPtr.Zero;
 	IntPtr ppixdbPtr = IntPtr.Zero; 	if (ppixdb != null) {ppixdbPtr = ppixdb.Pointer;}
 

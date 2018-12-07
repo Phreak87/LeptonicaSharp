@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -37,6 +38,7 @@ public static Pix pixRotateShear(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateShear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -81,6 +83,7 @@ public static Pix pixRotate2Shear(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotate2Shear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -132,6 +135,7 @@ public static Pix pixRotate3Shear(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotate3Shear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -178,6 +182,7 @@ public static int pixRotateShearIP(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixRotateShearIP(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
 	return _Result;
@@ -198,6 +203,7 @@ public static Pix pixRotateShearCenter(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRotateShearCenter(pixs.Pointer,   angle,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -219,6 +225,7 @@ public static int pixRotateShearCenterIP(
 				 Single angle, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixRotateShearCenterIP(pixs.Pointer,   angle,   incolor);
 	
 	return _Result;

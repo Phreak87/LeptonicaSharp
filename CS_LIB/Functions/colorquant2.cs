@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -23,6 +24,7 @@ public static Pix pixMedianCutQuant(
 				 Pix pixs, 
 				 int ditherflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMedianCutQuant(pixs.Pointer,   ditherflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -83,6 +85,7 @@ public static Pix pixMedianCutQuantGeneral(
 				 int maxsub, 
 				 int checkbw){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMedianCutQuantGeneral(pixs.Pointer,   ditherflag,   outdepth,   maxcolors,   sigbits,   maxsub,   checkbw);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -136,6 +139,7 @@ public static Pix pixMedianCutQuantMixed(
 				 int lightthresh, 
 				 int diffthresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMedianCutQuantMixed(pixs.Pointer,   ncolor,   ngray,   darkthresh,   lightthresh,   diffthresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -196,6 +200,8 @@ public static Pix pixFewColorsMedianCutQuantMixed(
 				 int lightthresh, 
 				 int diffthresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixFewColorsMedianCutQuantMixed(pixs.Pointer,   ncolor,   ngray,   maxncolors,   darkthresh,   lightthresh,   diffthresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -224,6 +230,7 @@ public static int[] pixMedianCutHisto(
 				 int sigbits, 
 				 int subsample){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int[] _Result = Natives.pixMedianCutHisto(pixs.Pointer,   sigbits,   subsample);
 	
 	return _Result;

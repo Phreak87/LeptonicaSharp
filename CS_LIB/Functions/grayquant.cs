@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -17,6 +18,7 @@ public partial class _All {
 public static Pix pixDitherToBinary(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixDitherToBinary(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -46,6 +48,7 @@ public static Pix pixDitherToBinarySpec(
 				 int lowerclip, 
 				 int upperclip){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixDitherToBinarySpec(pixs.Pointer,   lowerclip,   upperclip);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -74,6 +77,9 @@ public static void ditherToBinaryLineLow(
 				 int upperclip, 
 				 int lastlineflag){
 
+if (lined == null) {throw new ArgumentNullException  ("lined cannot be Nothing");}
+		if (bufs1 == null) {throw new ArgumentNullException  ("bufs1 cannot be Nothing");}
+		if (bufs2 == null) {throw new ArgumentNullException  ("bufs2 cannot be Nothing");}
 		IntPtr linedPtr = 	Marshal.AllocHGlobal(lined.Length);
 		Marshal.Copy(lined, 0, linedPtr, lined.Length);
 		IntPtr bufs1Ptr = 	Marshal.AllocHGlobal(bufs1.Length);
@@ -109,6 +115,8 @@ public static Pix pixThresholdToBinary(
 				 Pix pixs, 
 				 int thresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {4,8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("4 or 8 bpp"); }
 	IntPtr _Result = Natives.pixThresholdToBinary(pixs.Pointer,   thresh);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -128,6 +136,8 @@ public static void thresholdToBinaryLineLow(
 				 int d, 
 				 int thresh){
 
+if (lined == null) {throw new ArgumentNullException  ("lined cannot be Nothing");}
+		if (lines == null) {throw new ArgumentNullException  ("lines cannot be Nothing");}
 	Natives.thresholdToBinaryLineLow(  lined,   w,   lines,   d,   thresh);
 	
 }
@@ -149,6 +159,9 @@ public static Pix pixVarThresholdToBinary(
 				 Pix pixs, 
 				 Pix pixg){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixg == null) {throw new ArgumentNullException  ("pixg cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixVarThresholdToBinary(pixs.Pointer, pixg.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -190,6 +203,8 @@ public static Pix pixAdaptThresholdToBinary(
 				 Pix pixm, 
 				 Single gamma){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	IntPtr _Result = Natives.pixAdaptThresholdToBinary(pixs.Pointer, pixmPtr,   gamma);
@@ -234,6 +249,8 @@ public static Pix pixAdaptThresholdToBinaryGen(
 				 int whiteval, 
 				 int thresh){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	IntPtr _Result = Natives.pixAdaptThresholdToBinaryGen(pixs.Pointer, pixmPtr,   gamma,   blackval,   whiteval,   thresh);
@@ -267,6 +284,7 @@ public static Pix pixGenerateMaskByValue(
 				 int val, 
 				 int usecmap){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGenerateMaskByValue(pixs.Pointer,   val,   usecmap);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -304,6 +322,7 @@ public static Pix pixGenerateMaskByBand(
 				 int inband, 
 				 int usecmap){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGenerateMaskByBand(pixs.Pointer,   lower,   upper,   inband,   usecmap);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -323,6 +342,8 @@ public static Pix pixDitherTo2bpp(
 				 Pix pixs, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixDitherTo2bpp(pixs.Pointer,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -354,6 +375,8 @@ public static Pix pixDitherTo2bppSpec(
 				 int upperclip, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixDitherTo2bppSpec(pixs.Pointer,   lowerclip,   upperclip,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -415,6 +438,8 @@ public static Pix pixThresholdTo2bpp(
 				 int nlevels, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixThresholdTo2bpp(pixs.Pointer,   nlevels,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -478,6 +503,7 @@ public static Pix pixThresholdTo4bpp(
 				 int nlevels, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixThresholdTo4bpp(pixs.Pointer,   nlevels,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -512,6 +538,7 @@ public static Pix pixThresholdOn8bpp(
 				 int nlevels, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixThresholdOn8bpp(pixs.Pointer,   nlevels,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -574,6 +601,8 @@ public static Pix pixThresholdGrayArb(
 				 int setblack, 
 				 int setwhite){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (edgevals == null) {throw new ArgumentNullException  ("edgevals cannot be Nothing");}
 	IntPtr _Result = Natives.pixThresholdGrayArb(pixs.Pointer,   edgevals,   outdepth,   use_average,   setblack,   setwhite);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -636,6 +665,7 @@ public static int makeGrayQuantTableArb(
 				out List<int[]> ptab, 
 				out PixColormap pcmap){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr ptabPtr = IntPtr.Zero;
 	IntPtr pcmapPtr = IntPtr.Zero;
 
@@ -681,6 +711,7 @@ public static Pix pixGenerateMaskByBand32(
 				 Single fractm, 
 				 Single fractp){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGenerateMaskByBand32(pixs.Pointer,   refval,   delm,   delp,   fractm,   fractp);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -715,6 +746,7 @@ public static Pix pixGenerateMaskByDiscr32(
 				 uint refval2, 
 				 int distflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixGenerateMaskByDiscr32(pixs.Pointer,   refval1,   refval2,   distflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -777,6 +809,7 @@ public static Pix pixGrayQuantFromHisto(
 				 Single minfract, 
 				 int maxsize){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -806,6 +839,8 @@ public static Pix pixGrayQuantFromCmap(
 				 PixColormap cmap, 
 				 int mindepth){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (cmap == null) {throw new ArgumentNullException  ("cmap cannot be Nothing");}
 	IntPtr _Result = Natives.pixGrayQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth);
 	
 	if (_Result == IntPtr.Zero) {return null;}

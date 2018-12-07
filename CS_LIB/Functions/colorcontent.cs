@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -53,6 +54,7 @@ public static int pixColorContent(
 				out Pix ppixg, 
 				out Pix ppixb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixrPtr = IntPtr.Zero;
 	IntPtr ppixgPtr = IntPtr.Zero;
 	IntPtr ppixbPtr = IntPtr.Zero;
@@ -124,6 +126,7 @@ public static Pix pixColorMagnitude(
 				 int bwhite, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorMagnitude(pixs.Pointer,   rwhite,   gwhite,   bwhite,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -163,6 +166,7 @@ public static Pix pixMaskOverColorPixels(
 				 int threshdiff, 
 				 int mindist){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMaskOverColorPixels(pixs.Pointer,   threshdiff,   mindist);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -192,6 +196,7 @@ public static Pix pixMaskOverColorRange(
 				 int bmin, 
 				 int bmax){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixMaskOverColorRange(pixs.Pointer,   rmin,   rmax,   gmin,   gmax,   bmin,   bmax);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -258,6 +263,8 @@ public static int pixColorFraction(
 				out Single ppixfract, 
 				out Single pcolorfract){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	int _Result = Natives.pixColorFraction(pixs.Pointer,   darkthresh,   lightthresh,   diffthresh,   factor, out  ppixfract, out  pcolorfract);
 	
 	return _Result;
@@ -344,6 +351,8 @@ public static int pixFindColorRegions(
 				out Pix pcolormask2, 
 				out Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr pcolormask1Ptr = IntPtr.Zero;
 	IntPtr pcolormask2Ptr = IntPtr.Zero;
@@ -396,6 +405,7 @@ public static int pixNumSignificantGrayColors(
 				 int factor, 
 				out int pncolors){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixNumSignificantGrayColors(pixs.Pointer,   darkthresh,   lightthresh,   minfract,   factor, out  pncolors);
 	
 	return _Result;
@@ -486,6 +496,7 @@ public static int pixColorsForQuantization(
 				out int piscolor, 
 				 DebugOnOff debug){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixColorsForQuantization(pixs.Pointer,   thresh, out  pncolors, out  piscolor,  (int) debug);
 	
 	return _Result;
@@ -521,6 +532,7 @@ public static int pixNumColors(
 				 int factor, 
 				out int pncolors){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	int _Result = Natives.pixNumColors(pixs.Pointer,   factor, out  pncolors);
 	
 	return _Result;
@@ -557,6 +569,8 @@ public static int pixGetMostPopulatedColors(
 				out Byte[] parray, 
 				out PixColormap pcmap){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr parrayPtr = IntPtr.Zero;
 	IntPtr pcmapPtr = IntPtr.Zero;
 
@@ -606,6 +620,8 @@ public static Pix pixSimpleColorQuantize(
 				 int factor, 
 				 int ncolors){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixSimpleColorQuantize(pixs.Pointer,   sigbits,   factor,   ncolors);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -635,6 +651,8 @@ public static Numa pixGetRGBHistogram(
 				 int sigbits, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixGetRGBHistogram(pixs.Pointer,   sigbits,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -759,6 +777,8 @@ public static int pixHasHighlightRed(
 				out Single pratio, 
 				out Pix ppixdb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr ppixdbPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixHasHighlightRed(pixs.Pointer,   factor,   fract,   fthresh, out  phasred, out  pratio, out ppixdbPtr);

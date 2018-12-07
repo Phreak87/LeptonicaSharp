@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -56,6 +57,7 @@ public static void l_dnaHashDestroy(
 public static int l_dnaHashGetCount(
 				 L_DnaHash dahash){
 
+if (dahash == null) {throw new ArgumentNullException  ("dahash cannot be Nothing");}
 	int _Result = Natives.l_dnaHashGetCount(dahash.Pointer);
 	
 	return _Result;
@@ -72,6 +74,7 @@ public static int l_dnaHashGetCount(
 public static int l_dnaHashGetTotalCount(
 				 L_DnaHash dahash){
 
+if (dahash == null) {throw new ArgumentNullException  ("dahash cannot be Nothing");}
 	int _Result = Natives.l_dnaHashGetTotalCount(dahash.Pointer);
 	
 	return _Result;
@@ -92,6 +95,7 @@ public static L_Dna l_dnaHashGetDna(
 				 ulong key, 
 				 int copyflag){
 
+if (dahash == null) {throw new ArgumentNullException  ("dahash cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaHashGetDna(dahash.Pointer,   key,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -113,6 +117,7 @@ public static int l_dnaHashAdd(
 				 ulong key, 
 				 double value){
 
+if (dahash == null) {throw new ArgumentNullException  ("dahash cannot be Nothing");}
 	int _Result = Natives.l_dnaHashAdd(dahash.Pointer,   key,   value);
 	
 	return _Result;
@@ -133,6 +138,7 @@ public static int l_dnaHashAdd(
 public static L_DnaHash l_dnaHashCreateFromDna(
 				 L_Dna da){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaHashCreateFromDna(da.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -161,6 +167,7 @@ public static int l_dnaRemoveDupsByHash(
 				out L_Dna pdad, 
 				out L_DnaHash pdahash){
 
+if (das == null) {throw new ArgumentNullException  ("das cannot be Nothing");}
 	IntPtr pdadPtr = IntPtr.Zero;
 	IntPtr pdahashPtr = IntPtr.Zero;
 
@@ -205,6 +212,7 @@ public static int l_dnaMakeHistoByHash(
 				out L_Dna pdav, 
 				out L_Dna pdac){
 
+if (das == null) {throw new ArgumentNullException  ("das cannot be Nothing");}
 	IntPtr pdahashPtr = IntPtr.Zero;
 	IntPtr pdavPtr = IntPtr.Zero;
 	IntPtr pdacPtr = IntPtr.Zero;
@@ -234,6 +242,8 @@ public static L_Dna l_dnaIntersectionByHash(
 				 L_Dna da1, 
 				 L_Dna da2){
 
+if (da1 == null) {throw new ArgumentNullException  ("da1 cannot be Nothing");}
+		if (da2 == null) {throw new ArgumentNullException  ("da2 cannot be Nothing");}
 	IntPtr _Result = Natives.l_dnaIntersectionByHash(da1.Pointer, da2.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -262,6 +272,8 @@ public static int l_dnaFindValByHash(
 				 double val, 
 				out int pindex){
 
+if (da == null) {throw new ArgumentNullException  ("da cannot be Nothing");}
+		if (dahash == null) {throw new ArgumentNullException  ("dahash cannot be Nothing");}
 	int _Result = Natives.l_dnaFindValByHash(da.Pointer, dahash.Pointer,   val, out  pindex);
 	
 	return _Result;

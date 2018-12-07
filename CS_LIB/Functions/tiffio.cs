@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -27,6 +28,10 @@ public static Pix pixReadTiff(
 				 String filename, 
 				 int n){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.pixReadTiff(  filename,   n);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -51,6 +56,7 @@ public static Pix pixReadStreamTiff(
 				 FILE fp, 
 				 int n){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadStreamTiff(fp.Pointer,   n);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -83,6 +89,9 @@ public static int pixWriteTiff(
 				 int comptype, 
 				 String modestr){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (modestr == null) {throw new ArgumentNullException  ("modestr cannot be Nothing");}
 	int _Result = Natives.pixWriteTiff(  filename, pix.Pointer,   comptype,   modestr);
 	
 	return _Result;
@@ -113,6 +122,9 @@ public static int pixWriteTiffCustom(
 				 Sarray satypes, 
 				 Numa nasizes){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (modestr == null) {throw new ArgumentNullException  ("modestr cannot be Nothing");}
 	IntPtr natagsPtr = IntPtr.Zero; 	if (natags != null) {natagsPtr = natags.Pointer;}
 	IntPtr savalsPtr = IntPtr.Zero; 	if (savals != null) {savalsPtr = savals.Pointer;}
 	IntPtr satypesPtr = IntPtr.Zero; 	if (satypes != null) {satypesPtr = satypes.Pointer;}
@@ -156,6 +168,8 @@ public static int pixWriteStreamTiff(
 				 Pix pix, 
 				 int comptype){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamTiff(fp.Pointer, pix.Pointer,   comptype);
 	
 	return _Result;
@@ -178,6 +192,9 @@ public static int pixWriteStreamTiffWA(
 				 int comptype, 
 				 String modestr){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+		if (modestr == null) {throw new ArgumentNullException  ("modestr cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamTiffWA(fp.Pointer, pix.Pointer,   comptype,   modestr);
 	
 	return _Result;
@@ -224,6 +241,10 @@ public static Pix pixReadFromMultipageTiff(
 				 String fname, 
 				ref Byte[] poffset){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+if (File.Exists (fname) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 		IntPtr poffsetPtr = 	Marshal.AllocHGlobal(poffset.Length);
 		Marshal.Copy(poffset, 0, poffsetPtr, poffset.Length);
 
@@ -249,6 +270,10 @@ public static Pix pixReadFromMultipageTiff(
 public static Pixa pixaReadMultipageTiff(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.pixaReadMultipageTiff(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -273,6 +298,8 @@ public static int pixaWriteMultipageTiff(
 				 String fname, 
 				 Pixa pixa){
 
+if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
+		if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	int _Result = Natives.pixaWriteMultipageTiff(  fname, pixa.Pointer);
 	
 	return _Result;
@@ -310,6 +337,8 @@ public static int writeMultipageTiff(
 				 String substr, 
 				 String fileout){
 
+if (dirin == null) {throw new ArgumentNullException  ("dirin cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.writeMultipageTiff(  dirin,   substr,   fileout);
 	
 	return _Result;
@@ -331,6 +360,8 @@ public static int writeMultipageTiffSA(
 				 Sarray sa, 
 				 String fileout){
 
+if (sa == null) {throw new ArgumentNullException  ("sa cannot be Nothing");}
+		if (fileout == null) {throw new ArgumentNullException  ("fileout cannot be Nothing");}
 	int _Result = Natives.writeMultipageTiffSA(sa.Pointer,   fileout);
 	
 	return _Result;
@@ -349,6 +380,8 @@ public static int fprintTiffInfo(
 				 FILE fpout, 
 				 String tiffile){
 
+if (fpout == null) {throw new ArgumentNullException  ("fpout cannot be Nothing");}
+		if (tiffile == null) {throw new ArgumentNullException  ("tiffile cannot be Nothing");}
 	int _Result = Natives.fprintTiffInfo(fpout.Pointer,   tiffile);
 	
 	return _Result;
@@ -367,6 +400,7 @@ public static int tiffGetCount(
 				 FILE fp, 
 				out int pn){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.tiffGetCount(fp.Pointer, out  pn);
 	
 	return _Result;
@@ -391,6 +425,7 @@ public static int getTiffResolution(
 				out int pxres, 
 				out int pyres){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.getTiffResolution(fp.Pointer, out  pxres, out  pyres);
 	
 	return _Result;
@@ -428,6 +463,10 @@ public static int readHeaderTiff(
 				out int pcmap, 
 				out int pformat){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.readHeaderTiff(  filename,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
 	return _Result;
@@ -465,6 +504,7 @@ public static int freadHeaderTiff(
 				out int pcmap, 
 				out int pformat){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.freadHeaderTiff(fp.Pointer,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
 	return _Result;
@@ -502,6 +542,7 @@ public static int readHeaderMemTiff(
 				out int pcmap, 
 				out int pformat){
 
+if (cdata == null) {throw new ArgumentNullException  ("cdata cannot be Nothing");}
 	int _Result = Natives.readHeaderMemTiff(  cdata,   size,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
 	return _Result;
@@ -532,6 +573,7 @@ public static int findTiffCompression(
 				 FILE fp, 
 				out int pcomptype){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.findTiffCompression(fp.Pointer, out  pcomptype);
 	
 	return _Result;
@@ -558,6 +600,7 @@ public static int extractG4DataFromFile(
 				out int ph, 
 				out int pminisblack){
 
+if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.extractG4DataFromFile(  filein, out  pdataPtr, out  pnbytes, out  pw, out  ph, out  pminisblack);
@@ -598,6 +641,7 @@ public static Pix pixReadMemTiff(
 				 uint size, 
 				 int n){
 
+if (cdata == null) {throw new ArgumentNullException  ("cdata cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMemTiff(  cdata,   size,   n);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -634,6 +678,7 @@ public static Pix pixReadMemFromMultipageTiff(
 				 uint size, 
 				ref Byte[] poffset){
 
+if (cdata == null) {throw new ArgumentNullException  ("cdata cannot be Nothing");}
 		IntPtr poffsetPtr = 	Marshal.AllocHGlobal(poffset.Length);
 		Marshal.Copy(poffset, 0, poffsetPtr, poffset.Length);
 
@@ -664,6 +709,7 @@ public static Pixa pixaReadMemMultipageTiff(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixaReadMemMultipageTiff(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -693,6 +739,7 @@ public static int pixaWriteMemMultipageTiff(
 				out uint psize, 
 				 Pixa pixa){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixaWriteMemMultipageTiff(out  pdataPtr, out  psize, pixa.Pointer);
@@ -722,6 +769,7 @@ public static int pixWriteMemTiff(
 				 Pix pix, 
 				 int comptype){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemTiff(out  pdataPtr, out  psize, pix.Pointer,   comptype);
@@ -759,6 +807,7 @@ public static int pixWriteMemTiffCustom(
 				 Sarray satypes, 
 				 Numa nasizes){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr natagsPtr = IntPtr.Zero; 	if (natags != null) {natagsPtr = natags.Pointer;}
 	IntPtr savalsPtr = IntPtr.Zero; 	if (savals != null) {savalsPtr = savals.Pointer;}

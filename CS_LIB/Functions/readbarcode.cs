@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -25,6 +26,7 @@ public static Sarray pixProcessBarcodes(
 				out Sarray psaw, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr psawPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixProcessBarcodes(pixs.Pointer,  (int) format,   method, out psawPtr,   debugflag);
@@ -47,6 +49,7 @@ public static Pixa pixExtractBarcodes(
 				 Pix pixs, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixExtractBarcodes(pixs.Pointer,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -72,6 +75,7 @@ public static Sarray pixReadBarcodes(
 				out Sarray psaw, 
 				 int debugflag){
 
+if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 	IntPtr psawPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixReadBarcodes(pixa.Pointer,  (int) format,   method, out psawPtr,   debugflag);
@@ -96,6 +100,7 @@ public static Numa pixReadBarcodeWidths(
 				 int method, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadBarcodeWidths(pixs.Pointer,   method,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -119,6 +124,7 @@ public static Boxa pixLocateBarcodes(
 				out Pix ppixb, 
 				out Pix ppixm){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixbPtr = IntPtr.Zero;
 	IntPtr ppixmPtr = IntPtr.Zero;
 
@@ -157,6 +163,9 @@ public static Pix pixDeskewBarcode(
 				out Single pangle, 
 				out Single pconf){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixb == null) {throw new ArgumentNullException  ("pixb cannot be Nothing");}
+		if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 	IntPtr _Result = Natives.pixDeskewBarcode(pixs.Pointer, pixb.Pointer, box.Pointer,   margin,   threshold, out  pangle, out  pconf);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -193,6 +202,7 @@ public static Numa pixExtractBarcodeWidths1(
 				out Numa pnaohist, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pnaehistPtr = IntPtr.Zero;
 	IntPtr pnaohistPtr = IntPtr.Zero;
 
@@ -237,6 +247,7 @@ public static Numa pixExtractBarcodeWidths2(
 				out Numa pnac, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pnacPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixExtractBarcodeWidths2(pixs.Pointer,   thresh, out  pwidth, out pnacPtr,   debugflag);
@@ -261,6 +272,7 @@ public static Numa pixExtractBarcodeCrossings(
 				 Single thresh, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixExtractBarcodeCrossings(pixs.Pointer,   thresh,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -298,6 +310,7 @@ public static Numa numaQuantizeCrossingsByWidth(
 				out Numa pnaohist, 
 				 int debugflag){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr pnaehistPtr = IntPtr.Zero;
 	IntPtr pnaohistPtr = IntPtr.Zero;
 
@@ -339,6 +352,7 @@ public static Numa numaQuantizeCrossingsByWindow(
 				out Numa pnac, 
 				 int debugflag){
 
+if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	IntPtr pnacPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.numaQuantizeCrossingsByWindow(nas.Pointer,   ratio, out  pwidth, out  pfirstloc, out pnacPtr,   debugflag);

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -36,6 +37,8 @@ public static L_WShed wshedCreate(
 				 int mindepth, 
 				 int debugflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pixm == null) {throw new ArgumentNullException  ("pixm cannot be Nothing");}
 	IntPtr _Result = Natives.wshedCreate(pixs.Pointer, pixm.Pointer,   mindepth,   debugflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -70,6 +73,7 @@ public static void wshedDestroy(
 public static int wshedApply(
 				 L_WShed wshed){
 
+if (wshed == null) {throw new ArgumentNullException  ("wshed cannot be Nothing");}
 	int _Result = Natives.wshedApply(wshed.Pointer);
 	
 	return _Result;
@@ -90,6 +94,7 @@ public static int wshedBasins(
 				out Pixa ppixa, 
 				out Numa pnalevels){
 
+if (wshed == null) {throw new ArgumentNullException  ("wshed cannot be Nothing");}
 	IntPtr ppixaPtr = IntPtr.Zero;
 	IntPtr pnalevelsPtr = IntPtr.Zero;
 
@@ -111,6 +116,7 @@ public static int wshedBasins(
 public static Pix wshedRenderFill(
 				 L_WShed wshed){
 
+if (wshed == null) {throw new ArgumentNullException  ("wshed cannot be Nothing");}
 	IntPtr _Result = Natives.wshedRenderFill(wshed.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -128,6 +134,7 @@ public static Pix wshedRenderFill(
 public static Pix wshedRenderColors(
 				 L_WShed wshed){
 
+if (wshed == null) {throw new ArgumentNullException  ("wshed cannot be Nothing");}
 	IntPtr _Result = Natives.wshedRenderColors(wshed.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}

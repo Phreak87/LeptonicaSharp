@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -34,6 +35,9 @@ public static Pix pixBilinearSampledPta(
 				 Pta ptas, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixBilinearSampledPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -64,6 +68,8 @@ public static Pix pixBilinearSampled(
 				 Single[] vc, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixBilinearSampled(pixs.Pointer,   vc,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -92,6 +98,9 @@ public static Pix pixBilinearPta(
 				 Pta ptas, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixBilinearPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -118,6 +127,8 @@ public static Pix pixBilinear(
 				 Single[] vc, 
 				 int incolor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixBilinear(pixs.Pointer,   vc,   incolor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -141,6 +152,9 @@ public static Pix pixBilinearPtaColor(
 				 Pta ptas, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 	IntPtr _Result = Natives.pixBilinearPtaColor(pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -162,6 +176,8 @@ public static Pix pixBilinearColor(
 				 Single[] vc, 
 				 uint colorval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	IntPtr _Result = Natives.pixBilinearColor(pixs.Pointer,   vc,   colorval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -185,6 +201,10 @@ public static Pix pixBilinearPtaGray(
 				 Pta ptas, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixBilinearPtaGray(pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -206,6 +226,9 @@ public static Pix pixBilinearGray(
 				 Single[] vc, 
 				 byte grayval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixBilinearGray(pixs.Pointer,   vc,   grayval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -268,6 +291,10 @@ public static Pix pixBilinearPtaWithAlpha(
 				 Single fract, 
 				 int border){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
+		if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
 	IntPtr _Result = Natives.pixBilinearPtaWithAlpha(pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPtr,   fract,   border);
@@ -325,6 +352,8 @@ public static int getBilinearXformCoeffs(
 				 Pta ptad, 
 				out List<Single[]> pvc){
 
+if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
+		if (ptad == null) {throw new ArgumentNullException  ("ptad cannot be Nothing");}
 	IntPtr pvcPtr = IntPtr.Zero;
 
 	int _Result = Natives.getBilinearXformCoeffs(ptas.Pointer, ptad.Pointer, out  pvcPtr);
@@ -357,6 +386,7 @@ public static int bilinearXformSampledPt(
 				out int pxp, 
 				out int pyp){
 
+if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	int _Result = Natives.bilinearXformSampledPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 	return _Result;
@@ -386,6 +416,7 @@ public static int bilinearXformPt(
 				out Single pxp, 
 				out Single pyp){
 
+if (vc == null) {throw new ArgumentNullException  ("vc cannot be Nothing");}
 	int _Result = Natives.bilinearXformPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 	return _Result;

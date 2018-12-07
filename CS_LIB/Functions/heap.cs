@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -67,6 +68,8 @@ public static int lheapAdd(
 				 L_Heap lh, 
 				 Object item){
 
+if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
+		if (item == null) {throw new ArgumentNullException  ("item cannot be Nothing");}
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Functions.cs:SecureIn - Define coversation for object type
 
@@ -87,6 +90,7 @@ public static int lheapAdd(
 public static Object lheapRemove(
 				 L_Heap lh){
 
+if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
 	IntPtr _Result = Natives.lheapRemove(lh.Pointer);
 	
 	Byte[] B = new Byte[1];
@@ -105,6 +109,7 @@ public static Object lheapRemove(
 public static int lheapGetCount(
 				 L_Heap lh){
 
+if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
 	int _Result = Natives.lheapGetCount(lh.Pointer);
 	
 	return _Result;
@@ -132,6 +137,7 @@ public static int lheapSwapUp(
 				 L_Heap lh, 
 				 int index){
 
+if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
 	int _Result = Natives.lheapSwapUp(lh.Pointer,   index);
 	
 	return _Result;
@@ -162,6 +168,7 @@ public static int lheapSwapUp(
 public static int lheapSwapDown(
 				 L_Heap lh){
 
+if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
 	int _Result = Natives.lheapSwapDown(lh.Pointer);
 	
 	return _Result;
@@ -182,6 +189,7 @@ public static int lheapSwapDown(
 public static int lheapSort(
 				 L_Heap lh){
 
+if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
 	int _Result = Natives.lheapSort(lh.Pointer);
 	
 	return _Result;
@@ -208,6 +216,7 @@ public static int lheapSort(
 public static int lheapSortStrictOrder(
 				 L_Heap lh){
 
+if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
 	int _Result = Natives.lheapSortStrictOrder(lh.Pointer);
 	
 	return _Result;
@@ -226,6 +235,8 @@ public static int lheapPrint(
 				 FILE fp, 
 				 L_Heap lh){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (lh == null) {throw new ArgumentNullException  ("lh cannot be Nothing");}
 	int _Result = Natives.lheapPrint(fp.Pointer, lh.Pointer);
 	
 	return _Result;

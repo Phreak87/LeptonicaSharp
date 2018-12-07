@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -42,6 +43,7 @@ public static Numa numaCreateFromIArray(
 				 int[] iarray, 
 				 int size){
 
+if (iarray == null) {throw new ArgumentNullException  ("iarray cannot be Nothing");}
 	IntPtr _Result = Natives.numaCreateFromIArray(  iarray,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -68,6 +70,7 @@ public static Numa numaCreateFromFArray(
 				 int size, 
 				 int copyflag){
 
+if (farray == null) {throw new ArgumentNullException  ("farray cannot be Nothing");}
 	IntPtr _Result = Natives.numaCreateFromFArray(  farray,   size,   copyflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -90,6 +93,7 @@ public static Numa numaCreateFromFArray(
 public static Numa numaCreateFromString(
 				 String str){
 
+if (str == null) {throw new ArgumentNullException  ("str cannot be Nothing");}
 	IntPtr _Result = Natives.numaCreateFromString(  str);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -129,6 +133,7 @@ public static void numaDestroy(
 public static Numa numaCopy(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaCopy(na.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -146,6 +151,7 @@ public static Numa numaCopy(
 public static Numa numaClone(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaClone(na.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -168,6 +174,7 @@ public static Numa numaClone(
 public static int numaEmpty(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaEmpty(na.Pointer);
 	
 	return _Result;
@@ -186,6 +193,7 @@ public static int numaAddNumber(
 				 Numa na, 
 				 Single val){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaAddNumber(na.Pointer,   val);
 	
 	return _Result;
@@ -213,6 +221,7 @@ public static int numaInsertNumber(
 				 int index, 
 				 Single val){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaInsertNumber(na.Pointer,   index,   val);
 	
 	return _Result;
@@ -237,6 +246,7 @@ public static int numaRemoveNumber(
 				 Numa na, 
 				 int index){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaRemoveNumber(na.Pointer,   index);
 	
 	return _Result;
@@ -257,6 +267,7 @@ public static int numaReplaceNumber(
 				 int index, 
 				 Single val){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaReplaceNumber(na.Pointer,   index,   val);
 	
 	return _Result;
@@ -273,6 +284,7 @@ public static int numaReplaceNumber(
 public static int numaGetCount(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetCount(na.Pointer);
 	
 	return _Result;
@@ -300,6 +312,7 @@ public static int numaSetCount(
 				 Numa na, 
 				 int newcount){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaSetCount(na.Pointer,   newcount);
 	
 	return _Result;
@@ -324,6 +337,7 @@ public static int numaGetFValue(
 				 int index, 
 				out Single pval){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetFValue(na.Pointer,   index, out  pval);
 	
 	return _Result;
@@ -348,6 +362,7 @@ public static int numaGetIValue(
 				 int index, 
 				out int pival){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetIValue(na.Pointer,   index, out  pival);
 	
 	return _Result;
@@ -368,6 +383,7 @@ public static int numaSetValue(
 				 int index, 
 				 Single val){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaSetValue(na.Pointer,   index,   val);
 	
 	return _Result;
@@ -388,6 +404,7 @@ public static int numaShiftValue(
 				 int index, 
 				 Single diff){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaShiftValue(na.Pointer,   index,   diff);
 	
 	return _Result;
@@ -417,6 +434,7 @@ public static int numaShiftValue(
 public static int[] numaGetIArray(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int[] _Result = Natives.numaGetIArray(na.Pointer);
 	
 	return _Result;
@@ -448,6 +466,7 @@ public static Single[] numaGetFArray(
 				 Numa na, 
 				 int copyflag){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	Single[] _Result = Natives.numaGetFArray(na.Pointer,   copyflag);
 	
 	return _Result;
@@ -464,6 +483,7 @@ public static Single[] numaGetFArray(
 public static int numaGetRefcount(
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetRefcount(na.Pointer);
 	
 	return _Result;
@@ -482,6 +502,7 @@ public static int numaChangeRefcount(
 				 Numa na, 
 				 int delta){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaChangeRefcount(na.Pointer,   delta);
 	
 	return _Result;
@@ -502,6 +523,7 @@ public static int numaGetParameters(
 				out Single pstartx, 
 				out Single pdelx){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaGetParameters(na.Pointer, out  pstartx, out  pdelx);
 	
 	return _Result;
@@ -522,6 +544,7 @@ public static int numaSetParameters(
 				 Single startx, 
 				 Single delx){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaSetParameters(na.Pointer,   startx,   delx);
 	
 	return _Result;
@@ -540,6 +563,8 @@ public static int numaCopyParameters(
 				 Numa nad, 
 				 Numa nas){
 
+if (nad == null) {throw new ArgumentNullException  ("nad cannot be Nothing");}
+		if (nas == null) {throw new ArgumentNullException  ("nas cannot be Nothing");}
 	int _Result = Natives.numaCopyParameters(nad.Pointer, nas.Pointer);
 	
 	return _Result;
@@ -568,6 +593,7 @@ public static Sarray numaConvertToSarray(
 				 int addzeros, 
 				 int type){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.numaConvertToSarray(na.Pointer,   size1,   size2,   addzeros,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -585,6 +611,10 @@ public static Sarray numaConvertToSarray(
 public static Numa numaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.numaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -602,6 +632,7 @@ public static Numa numaRead(
 public static Numa numaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.numaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -621,6 +652,7 @@ public static Numa numaReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.numaReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -648,6 +680,8 @@ public static int numaWriteDebug(
 				 String filename, 
 				 Numa na){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaWriteDebug(  filename, na.Pointer);
 	
 	return _Result;
@@ -666,6 +700,8 @@ public static int numaWrite(
 				 String filename, 
 				 Numa na){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaWrite(  filename, na.Pointer);
 	
 	return _Result;
@@ -684,6 +720,8 @@ public static int numaWriteStream(
 				 FILE fp, 
 				 Numa na){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaWriteStream(fp.Pointer, na.Pointer);
 	
 	return _Result;
@@ -707,6 +745,7 @@ public static int numaWriteMem(
 				out uint psize, 
 				 Numa na){
 
+if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.numaWriteMem(out  pdataPtr, out  psize, na.Pointer);
@@ -777,6 +816,7 @@ public static Numaa numaaCreateFull(
 public static int numaaTruncate(
 				 Numaa naa){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaTruncate(naa.Pointer);
 	
 	return _Result;
@@ -814,6 +854,8 @@ public static int numaaAddNuma(
 				 Numa na, 
 				 int copyflag){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaaAddNuma(naa.Pointer, na.Pointer,   copyflag);
 	
 	return _Result;
@@ -830,6 +872,7 @@ public static int numaaAddNuma(
 public static int numaaGetCount(
 				 Numaa naa){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaGetCount(naa.Pointer);
 	
 	return _Result;
@@ -848,6 +891,7 @@ public static int numaaGetNumaCount(
 				 Numaa naa, 
 				 int index){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaGetNumaCount(naa.Pointer,   index);
 	
 	return _Result;
@@ -864,6 +908,7 @@ public static int numaaGetNumaCount(
 public static int numaaGetNumberCount(
 				 Numaa naa){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaGetNumberCount(naa.Pointer);
 	
 	return _Result;
@@ -901,6 +946,7 @@ public static int numaaGetNumberCount(
 public static Numa numaaGetPtrArray(
 				 Numaa naa){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	IntPtr _Result = Natives.numaaGetPtrArray(naa.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -923,6 +969,7 @@ public static Numa numaaGetNuma(
 				 int index, 
 				 int accessflag){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	IntPtr _Result = Natives.numaaGetNuma(naa.Pointer,   index,   accessflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -950,6 +997,8 @@ public static int numaaReplaceNuma(
 				 int index, 
 				 Numa na){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	int _Result = Natives.numaaReplaceNuma(naa.Pointer,   index, na.Pointer);
 	
 	return _Result;
@@ -974,6 +1023,7 @@ public static int numaaGetValue(
 				out Single pfval, 
 				out int pival){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaGetValue(naa.Pointer,   i,   j, out  pfval, out  pival);
 	
 	return _Result;
@@ -997,6 +1047,7 @@ public static int numaaAddNumber(
 				 int index, 
 				 Single val){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaAddNumber(naa.Pointer,   index,   val);
 	
 	return _Result;
@@ -1013,6 +1064,10 @@ public static int numaaAddNumber(
 public static Numaa numaaRead(
 				 String filename){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	IntPtr _Result = Natives.numaaRead(  filename);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1030,6 +1085,7 @@ public static Numaa numaaRead(
 public static Numaa numaaReadStream(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.numaaReadStream(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1049,6 +1105,7 @@ public static Numaa numaaReadMem(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.numaaReadMem(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1068,6 +1125,8 @@ public static int numaaWrite(
 				 String filename, 
 				 Numaa naa){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+		if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaWrite(  filename, naa.Pointer);
 	
 	return _Result;
@@ -1086,6 +1145,8 @@ public static int numaaWriteStream(
 				 FILE fp, 
 				 Numaa naa){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	int _Result = Natives.numaaWriteStream(fp.Pointer, naa.Pointer);
 	
 	return _Result;
@@ -1109,6 +1170,7 @@ public static int numaaWriteMem(
 				out uint psize, 
 				 Numaa naa){
 
+if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.numaaWriteMem(out  pdataPtr, out  psize, naa.Pointer);

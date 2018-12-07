@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -21,6 +22,7 @@ public static String barcodeDispatchDecoder(
 				 IFF format, 
 				 int debugflag){
 
+if (barstr == null) {throw new ArgumentNullException  ("barstr cannot be Nothing");}
 	String _Result = Natives.barcodeDispatchDecoder(  barstr,  (int) format,   debugflag);
 	
 	return _Result;

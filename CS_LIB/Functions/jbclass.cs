@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -111,6 +112,8 @@ public static int jbAddPages(
 				 JbClasser classer, 
 				 Sarray safiles){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
+		if (safiles == null) {throw new ArgumentNullException  ("safiles cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	int _Result = Natives.jbAddPages(classer.Pointer, safiles.Pointer);
@@ -130,6 +133,8 @@ public static int jbAddPage(
 				 JbClasser classer, 
 				 Pix pixs){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	int _Result = Natives.jbAddPage(classer.Pointer, pixs.Pointer);
@@ -157,6 +162,10 @@ public static int jbAddPageComponents(
 				 Boxa boxas, 
 				 Pixa pixas){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
+		if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	int _Result = Natives.jbAddPageComponents(classer.Pointer, pixs.Pointer, boxas.Pointer, pixas.Pointer);
@@ -178,6 +187,9 @@ public static int jbClassifyRankHaus(
 				 Boxa boxa, 
 				 Pixa pixas){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	int _Result = Natives.jbClassifyRankHaus(classer.Pointer, boxa.Pointer, pixas.Pointer);
@@ -221,6 +233,10 @@ public static int pixHaustest(
 				 int maxdiffw, 
 				 int maxdiffh){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+		if (pix3 == null) {throw new ArgumentNullException  ("pix3 cannot be Nothing");}
+		if (pix4 == null) {throw new ArgumentNullException  ("pix4 cannot be Nothing");}
 	int _Result = Natives.pixHaustest(pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer,   delx,   dely,   maxdiffw,   maxdiffh);
 	
 	return _Result;
@@ -273,6 +289,11 @@ public static int pixRankHaustest(
 				 Single rank, 
 				 int[] tab8){
 
+if (pix1 == null) {throw new ArgumentNullException  ("pix1 cannot be Nothing");}
+		if (pix2 == null) {throw new ArgumentNullException  ("pix2 cannot be Nothing");}
+		if (pix3 == null) {throw new ArgumentNullException  ("pix3 cannot be Nothing");}
+		if (pix4 == null) {throw new ArgumentNullException  ("pix4 cannot be Nothing");}
+		if (tab8 == null) {throw new ArgumentNullException  ("tab8 cannot be Nothing");}
 	int _Result = Natives.pixRankHaustest(pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer,   delx,   dely,   maxdiffw,   maxdiffh,   area1,   area3,   rank,   tab8);
 	
 	return _Result;
@@ -292,6 +313,9 @@ public static int jbClassifyCorrelation(
 				 Boxa boxa, 
 				 Pixa pixas){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
+		if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	int _Result = Natives.jbClassifyCorrelation(classer.Pointer, boxa.Pointer, pixas.Pointer);
@@ -318,6 +342,10 @@ public static int jbGetComponents(
 				 Boxa pboxad, 
 				 Pixa ppixad){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (pboxad == null) {throw new ArgumentNullException  ("pboxad cannot be Nothing");}
+		if (ppixad == null) {throw new ArgumentNullException  ("ppixad cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pboxadPtr = IntPtr.Zero; 	if (pboxad != null) {pboxadPtr = pboxad.Pointer;}
 	IntPtr ppixadPtr = IntPtr.Zero; 	if (ppixad != null) {ppixadPtr = ppixad.Pointer;}
 
@@ -365,6 +393,8 @@ public static int pixWordMaskByDilation(
 				out int psize, 
 				out Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (ppixm == null) {throw new ArgumentNullException  ("ppixm cannot be Nothing");}
 	IntPtr ppixmPtr = IntPtr.Zero; 	if (ppixm != null) {ppixmPtr = ppixm.Pointer;}
 	IntPtr pixadbPtr = IntPtr.Zero;
 
@@ -404,6 +434,7 @@ public static int pixWordBoxesByDilation(
 				out int psize, 
 				out Pixa pixadb){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr pixadbPtr = IntPtr.Zero;
 
@@ -428,6 +459,8 @@ public static Pixa jbAccumulateComposites(
 				 Numa pna, 
 				out Pta pptat){
 
+if (pixaa == null) {throw new ArgumentNullException  ("pixaa cannot be Nothing");}
+		if (pna == null) {throw new ArgumentNullException  ("pna cannot be Nothing");}
 	IntPtr pnaPtr = IntPtr.Zero; 	if (pna != null) {pnaPtr = pna.Pointer;}
 	IntPtr pptatPtr = IntPtr.Zero;
 
@@ -451,6 +484,8 @@ public static Pixa jbTemplatesFromComposites(
 				 Pixa pixac, 
 				 Numa na){
 
+if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
+		if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 	IntPtr _Result = Natives.jbTemplatesFromComposites(pixac.Pointer, na.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -485,6 +520,7 @@ public static JbClasser jbClasserCreate(
 public static void jbClasserDestroy(
 				 JbClasser pclasser){
 
+if (pclasser == null) {throw new ArgumentNullException  ("pclasser cannot be Nothing");}
 	IntPtr pclasserPtr = IntPtr.Zero; 	if (pclasser != null) {pclasserPtr = pclasser.Pointer;}
 
 	Natives.jbClasserDestroy(pclasserPtr);
@@ -513,6 +549,7 @@ public static void jbClasserDestroy(
 public static JbData jbDataSave(
 				 JbClasser classer){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	IntPtr _Result = Natives.jbDataSave(classer.Pointer);
@@ -530,6 +567,7 @@ public static JbData jbDataSave(
 public static void jbDataDestroy(
 				 JbData pdata){
 
+if (pdata == null) {throw new ArgumentNullException  ("pdata cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero; 	if (pdata != null) {pdataPtr = pdata.Pointer;}
 
 	Natives.jbDataDestroy(pdataPtr);
@@ -551,6 +589,8 @@ public static int jbDataWrite(
 				 String rootout, 
 				 JbData jbdata){
 
+if (rootout == null) {throw new ArgumentNullException  ("rootout cannot be Nothing");}
+		if (jbdata == null) {throw new ArgumentNullException  ("jbdata cannot be Nothing");}
 	int _Result = Natives.jbDataWrite(  rootout, jbdata.Pointer);
 	
 	return _Result;
@@ -567,6 +607,7 @@ public static int jbDataWrite(
 public static JbData jbDataRead(
 				 String rootname){
 
+if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 	IntPtr _Result = Natives.jbDataRead(  rootname);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -585,6 +626,7 @@ public static Pixa jbDataRender(
 				 JbData data, 
 				 int debugflag){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr dataPtr = IntPtr.Zero; if (data != null) {dataPtr = data.Pointer;}
 
 	IntPtr _Result = Natives.jbDataRender(data.Pointer,   debugflag);
@@ -624,6 +666,9 @@ public static int jbGetULCorners(
 				 Pix pixs, 
 				 Boxa boxa){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
+		if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+		if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	int _Result = Natives.jbGetULCorners(classer.Pointer, pixs.Pointer, boxa.Pointer);
@@ -662,6 +707,7 @@ public static int jbGetULCorners(
 public static int jbGetLLCorners(
 				 JbClasser classer){
 
+if (classer == null) {throw new ArgumentNullException  ("classer cannot be Nothing");}
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
 	int _Result = Natives.jbGetLLCorners(classer.Pointer);

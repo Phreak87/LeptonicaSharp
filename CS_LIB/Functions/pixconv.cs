@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -46,6 +47,8 @@ public static Pix pixThreshold8(
 				 int nlevels, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale"); }
 	IntPtr _Result = Natives.pixThreshold8(pixs.Pointer,   d,   nlevels,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -73,6 +76,7 @@ public static Pix pixRemoveColormapGeneral(
 				 int type, 
 				 int ifnocmap){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRemoveColormapGeneral(pixs.Pointer,   type,   ifnocmap);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -112,6 +116,7 @@ public static Pix pixRemoveColormap(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRemoveColormap(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -132,6 +137,8 @@ public static Pix pixRemoveColormap(
 public static int pixAddGrayColormap8(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	int _Result = Natives.pixAddGrayColormap8(pixs.Pointer);
 	
 	return _Result;
@@ -153,6 +160,8 @@ public static int pixAddGrayColormap8(
 public static Pix pixAddMinimalGrayColormap8(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixAddMinimalGrayColormap8(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -173,6 +182,8 @@ public static Pix pixAddMinimalGrayColormap8(
 public static Pix pixConvertRGBToLuminance(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp RGB"); }
 	IntPtr _Result = Natives.pixConvertRGBToLuminance(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -199,6 +210,8 @@ public static Pix pixConvertRGBToGray(
 				 Single gwt, 
 				 Single bwt){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp RGB"); }
 	IntPtr _Result = Natives.pixConvertRGBToGray(pixs.Pointer,   rwt,   gwt,   bwt);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -225,6 +238,8 @@ public static Pix pixConvertRGBToGray(
 public static Pix pixConvertRGBToGrayFast(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp RGB"); }
 	IntPtr _Result = Natives.pixConvertRGBToGrayFast(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -254,6 +269,8 @@ public static Pix pixConvertRGBToGrayMinMax(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp RGB"); }
 	IntPtr _Result = Natives.pixConvertRGBToGrayMinMax(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -296,6 +313,8 @@ public static Pix pixConvertRGBToGraySatBoost(
 				 Pix pixs, 
 				 int refval){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixConvertRGBToGraySatBoost(pixs.Pointer,   refval);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -326,6 +345,8 @@ public static Pix pixConvertRGBToGrayArb(
 				 Single gc, 
 				 Single bc){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp RGB"); }
 	IntPtr _Result = Natives.pixConvertRGBToGrayArb(pixs.Pointer,   rc,   gc,   bc);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -359,6 +380,8 @@ public static Pix pixConvertRGBToBinaryArb(
 				 int thresh, 
 				 int relation){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp RGB"); }
 	IntPtr _Result = Natives.pixConvertRGBToBinaryArb(pixs.Pointer,   rc,   gc,   bc,   thresh,   relation);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -394,6 +417,8 @@ public static Pix pixConvertRGBToBinaryArb(
 public static Pix pixConvertGrayToColormap(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {2,4,8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("2, 4 or 8 bpp grayscale"); }
 	IntPtr _Result = Natives.pixConvertGrayToColormap(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -428,6 +453,8 @@ public static Pix pixConvertGrayToColormap8(
 				 Pix pixs, 
 				 int mindepth){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale"); }
 	IntPtr _Result = Natives.pixConvertGrayToColormap8(pixs.Pointer,   mindepth);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -455,6 +482,7 @@ public static Pix pixColorizeGray(
 				 uint color, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixColorizeGray(pixs.Pointer,   color,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -498,6 +526,8 @@ public static Pix pixConvertRGBToColormap(
 				 Pix pixs, 
 				 int ditherflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixConvertRGBToColormap(pixs.Pointer,   ditherflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -523,6 +553,7 @@ public static Pix pixConvertRGBToColormap(
 public static Pix pixConvertCmapTo1(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvertCmapTo1(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -565,6 +596,7 @@ public static int pixQuantizeIfFewColors(
 				 int octlevel, 
 				out Pix ppixd){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr ppixdPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixQuantizeIfFewColors(pixs.Pointer,   maxcolors,   mingraycolors,   octlevel, out ppixdPtr);
@@ -593,6 +625,8 @@ public static Pix pixConvert16To8(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {16}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("16 bpp"); }
 	IntPtr _Result = Natives.pixConvert16To8(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -620,6 +654,8 @@ public static Pix pixConvertGrayToFalseColor(
 				 Pix pixs, 
 				 Single gamma){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8,16}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 or 16 bpp grayscale"); }
 	IntPtr _Result = Natives.pixConvertGrayToFalseColor(pixs.Pointer,   gamma);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -645,6 +681,8 @@ public static Pix pixUnpackBinary(
 				 int depth, 
 				 int invert){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixUnpackBinary(pixs.Pointer,   depth,   invert);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -674,6 +712,8 @@ public static Pix pixConvert1To16(
 				 ushort val0, 
 				 ushort val1){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvert1To16(pixdPtr, pixs.Pointer,   val0,   val1);
@@ -705,6 +745,8 @@ public static Pix pixConvert1To32(
 				 uint val0, 
 				 uint val1){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvert1To32(pixdPtr, pixs.Pointer,   val0,   val1);
@@ -727,6 +769,8 @@ public static Pix pixConvert1To32(
 public static Pix pixConvert1To2Cmap(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixConvert1To2Cmap(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -760,6 +804,8 @@ public static Pix pixConvert1To2(
 				 int val0, 
 				 int val1){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvert1To2(pixdPtr, pixs.Pointer,   val0,   val1);
@@ -782,6 +828,8 @@ public static Pix pixConvert1To2(
 public static Pix pixConvert1To4Cmap(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixConvert1To4Cmap(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -815,6 +863,9 @@ public static Pix pixConvert1To4(
 				 int val0, 
 				 int val1){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {4}).Contains ((int)pixd.d) == false) { throw new ArgumentException ("4 bpp, can be null"); }
+	if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvert1To4(pixdPtr, pixs.Pointer,   val0,   val1);
@@ -837,6 +888,8 @@ public static Pix pixConvert1To4(
 public static Pix pixConvert1To8Cmap(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr _Result = Natives.pixConvert1To8Cmap(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -871,6 +924,8 @@ public static Pix pixConvert1To8(
 				 byte val0, 
 				 byte val1){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixConvert1To8(pixdPtr, pixs.Pointer,   val0,   val1);
@@ -917,6 +972,7 @@ public static Pix pixConvert2To8(
 				 byte val3, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvert2To8(pixs.Pointer,   val0,   val1,   val2,   val3,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -951,6 +1007,8 @@ public static Pix pixConvert4To8(
 				 Pix pixs, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {4}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("4 bpp"); }
 	IntPtr _Result = Natives.pixConvert4To8(pixs.Pointer,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -976,6 +1034,7 @@ public static Pix pixConvert8To16(
 				 Pix pixs, 
 				 int leftshift){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvert8To16(pixs.Pointer,   leftshift);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1002,6 +1061,8 @@ public static Pix pixConvert8To16(
 public static Pix pixConvertTo2(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 32 bpp colormap OK but will be removed"); }
 	IntPtr _Result = Natives.pixConvertTo2(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1022,6 +1083,8 @@ public static Pix pixConvertTo2(
 public static Pix pixConvert8To2(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pix.d) == false) { throw new ArgumentException ("8 bpp colormap OK"); }
 	IntPtr _Result = Natives.pixConvert8To2(pix.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1048,6 +1111,8 @@ public static Pix pixConvert8To2(
 public static Pix pixConvertTo4(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 32 bpp colormap OK but will be removed"); }
 	IntPtr _Result = Natives.pixConvertTo4(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1068,6 +1133,8 @@ public static Pix pixConvertTo4(
 public static Pix pixConvert8To4(
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pix.d) == false) { throw new ArgumentException ("8 bpp colormap OK"); }
 	IntPtr _Result = Natives.pixConvert8To4(pix.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1096,6 +1163,8 @@ public static Pix pixConvertTo1(
 				 Pix pixs, 
 				 int threshold){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo1(pixs.Pointer,   threshold);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1122,6 +1191,8 @@ public static Pix pixConvertTo1BySampling(
 				 int factor, 
 				 int threshold){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo1BySampling(pixs.Pointer,   factor,   threshold);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1160,6 +1231,8 @@ public static Pix pixConvertTo8(
 				 Pix pixs, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo8(pixs.Pointer,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1186,6 +1259,8 @@ public static Pix pixConvertTo8BySampling(
 				 int factor, 
 				 int cmapflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo8BySampling(pixs.Pointer,   factor,   cmapflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1221,6 +1296,8 @@ public static Pix pixConvertTo8Colormap(
 				 Pix pixs, 
 				 int dither){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo8Colormap(pixs.Pointer,   dither);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1238,6 +1315,8 @@ public static Pix pixConvertTo8Colormap(
 public static Pix pixConvertTo16(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 8 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo16(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1258,6 +1337,8 @@ public static Pix pixConvertTo16(
 public static Pix pixConvertTo32(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo32(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1282,6 +1363,8 @@ public static Pix pixConvertTo32BySampling(
 				 Pix pixs, 
 				 int factor){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16 or 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertTo32BySampling(pixs.Pointer,   factor);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1303,6 +1386,8 @@ public static Pix pixConvertTo32BySampling(
 public static Pix pixConvert8To32(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp"); }
 	IntPtr _Result = Natives.pixConvert8To32(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1334,6 +1419,8 @@ public static Pix pixConvertTo8Or32(
 				 int copyflag, 
 				 int warnflag){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16, with or without colormap or 32 bpp rgb"); }
 	IntPtr _Result = Natives.pixConvertTo8Or32(pixs.Pointer,   copyflag,   warnflag);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1365,6 +1452,8 @@ public static Pix pixConvertTo8Or32(
 public static Pix pixConvert24To32(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {24}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("24 bpp rgb"); }
 	IntPtr _Result = Natives.pixConvert24To32(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1385,6 +1474,8 @@ public static Pix pixConvert24To32(
 public static Pix pixConvert32To24(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp rgb"); }
 	IntPtr _Result = Natives.pixConvert32To24(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1408,6 +1499,8 @@ public static Pix pixConvert32To16(
 				 Pix pixs, 
 				 int type){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp, single component"); }
 	IntPtr _Result = Natives.pixConvert32To16(pixs.Pointer,   type);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1429,6 +1522,8 @@ public static Pix pixConvert32To8(
 				 int type16, 
 				 int type8){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp, single component"); }
 	IntPtr _Result = Natives.pixConvert32To8(pixs.Pointer,   type16,   type8);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1449,6 +1544,7 @@ public static Pix pixConvert32To8(
 public static Pix pixRemoveAlpha(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixRemoveAlpha(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1478,6 +1574,8 @@ public static Pix pixAddAlphaTo1bpp(
 				 Pix pixd, 
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1 bpp"); }
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
 	IntPtr _Result = Natives.pixAddAlphaTo1bpp(pixdPtr, pixs.Pointer);
@@ -1508,6 +1606,8 @@ public static Pix pixConvertLossless(
 				 Pix pixs, 
 				 int d){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8 bpp, not cmapped"); }
 	IntPtr _Result = Natives.pixConvertLossless(pixs.Pointer,   d);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1536,6 +1636,8 @@ public static Pix pixConvertLossless(
 public static Pix pixConvertForPSWrap(
 				 Pix pixs){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {1,2,4,8,16,32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("1, 2, 4, 8, 16, 32 bpp"); }
 	IntPtr _Result = Natives.pixConvertForPSWrap(pixs.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1576,6 +1678,8 @@ public static Pix pixConvertToSubpixelRGB(
 				 Single scaley, 
 				 int order){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {8,16}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("8 bpp grayscale, 32 bpp rgb, or colormapped"); }
 	IntPtr _Result = Natives.pixConvertToSubpixelRGB(pixs.Pointer,   scalex,   scaley,   order);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1617,6 +1721,7 @@ public static Pix pixConvertGrayToSubpixelRGB(
 				 Single scaley, 
 				 int order){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 	IntPtr _Result = Natives.pixConvertGrayToSubpixelRGB(pixs.Pointer,   scalex,   scaley,   order);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -1655,6 +1760,8 @@ public static Pix pixConvertColorToSubpixelRGB(
 				 Single scaley, 
 				 int order){
 
+if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
+if ((new List<int> {32}).Contains ((int)pixs.d) == false) { throw new ArgumentException ("32 bpp or colormapped"); }
 	IntPtr _Result = Natives.pixConvertColorToSubpixelRGB(pixs.Pointer,   scalex,   scaley,   order);
 	
 	if (_Result == IntPtr.Zero) {return null;}

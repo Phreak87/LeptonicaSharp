@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -17,6 +18,7 @@ public partial class _All {
 public static Pix pixReadStreamPnm(
 				 FILE fp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadStreamPnm(fp.Pointer);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -46,6 +48,10 @@ public static int readHeaderPnm(
 				out int pbps, 
 				out int pspp){
 
+if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
+if (File.Exists (filename) == false) {
+	   throw new ArgumentException ("File is missing");
+	};
 	int _Result = Natives.readHeaderPnm(  filename, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
 	return _Result;
@@ -74,6 +80,7 @@ public static int freadHeaderPnm(
 				out int pbps, 
 				out int pspp){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 	int _Result = Natives.freadHeaderPnm(fp.Pointer, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
 	return _Result;
@@ -101,6 +108,8 @@ public static int pixWriteStreamPnm(
 				 FILE fp, 
 				 Pix pix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamPnm(fp.Pointer, pix.Pointer);
 	
 	return _Result;
@@ -119,6 +128,8 @@ public static int pixWriteStreamAsciiPnm(
 				 FILE fp, 
 				 Pix pix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamAsciiPnm(fp.Pointer, pix.Pointer);
 	
 	return _Result;
@@ -143,6 +154,8 @@ public static int pixWriteStreamPam(
 				 FILE fp, 
 				 Pix pix){
 
+if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
+		if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	int _Result = Natives.pixWriteStreamPam(fp.Pointer, pix.Pointer);
 	
 	return _Result;
@@ -164,6 +177,7 @@ public static Pix pixReadMemPnm(
 				 Byte[] data, 
 				 uint size){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	IntPtr _Result = Natives.pixReadMemPnm(  data,   size);
 	
 	if (_Result == IntPtr.Zero) {return null;}
@@ -195,6 +209,7 @@ public static int readHeaderMemPnm(
 				out int pbps, 
 				out int pspp){
 
+if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 	int _Result = Natives.readHeaderMemPnm(  data,   size, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
 	return _Result;
@@ -219,6 +234,7 @@ public static int pixWriteMemPnm(
 				out uint psize, 
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemPnm(out  pdataPtr, out  psize, pix.Pointer);
@@ -250,6 +266,7 @@ public static int pixWriteMemPam(
 				out uint psize, 
 				 Pix pix){
 
+if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemPam(out  pdataPtr, out  psize, pix.Pointer);

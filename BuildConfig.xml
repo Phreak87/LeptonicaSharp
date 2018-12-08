@@ -7,11 +7,11 @@
 	Semicolon Separates Arrays (Array(sx) of  Array (sy))
 	####################################################
 	-->
+	
 	<!-- Klassennamen immer in UPPERCASE -->
 	<Class Name="SEL">
 		<Parameter Name ="data">		<Size>sy;sx</Size>				</Parameter>
 	</Class>
-	
 	<Class Name="PIX">
 		<!-- Diese Parameter beziehen sich NUR auf das Property in der oben benannten Klasse! -->
 		
@@ -78,7 +78,6 @@
 		<Extend    Name="pixConvertToPdf" 	Type="Sub" 			Source="pix"/>
 		
 	</Class>
-		
 	<Class Name="L_BYTEA">
 		<Extend    Name="l_byteaCreate" 			Type="Construct" 	Source=""/>
 		<Extend    Name="l_byteaInitFromMem" 		Type="Construct" 	Source=""/>
@@ -93,7 +92,6 @@
 		<Extend    Name="l_byteaWrite" 				Type="Function" 	Source="ba" 		return="return"/>
 		<Extend    Name="l_byteaWriteStream" 		Type="Function" 	Source="ba" 		return="return"/>
 	</Class>
-	
 	<Class Name="PIXCOLORMAP">
 		<Extend    Name="pixcmapCreate" 			Type="Construct" 	Source=""/> 
 		<Extend    Name="pixcmapGetCount" 			Type="Function" 	Source="cmap" 		return="return"/>
@@ -101,11 +99,7 @@
 		<Extend    Name="pixcmapAddColor" 			Type="Function" 	Source="cmap" 		return="return"/>
 	</Class>
 	
-	<!-- 
-	##############################################
-	Set defaults for functions (set to optional)
-	##############################################
-	-->
+	<!-- Set defaults for functions (set to optional) and define return array size-->
 	<Function Name="setLeptDebugOK">
 		<RawCheck>If IsNothing(Natives.GetFullPathFromWindows("i_view32.exe")) Then MsgBox("I_View32.exe missing", MsgBoxStyle.Exclamation)</RawCheck>
 	</Function>
@@ -113,12 +107,12 @@
 		<Parameter Name="thresh"><Default>0</Default></Parameter>
 	</Function>
 	<Function Name="pixCleanBackgroundToWhite">		
-		<Parameter Name="gamma"><Default>1.0</Default></Parameter>
+		<Parameter Name="gamma"><Default>1.0f</Default></Parameter>
 		<Parameter Name="blackval"><Default>70</Default></Parameter>
 		<Parameter Name="whiteval"><Default>180</Default></Parameter>
 	</Function>
 	<Function Name="pixSauvolaBinarize">		
-		<Parameter Name="factor"><Default>0.35</Default></Parameter>
+		<Parameter Name="factor"><Default>0.35f</Default></Parameter>
 		<Parameter Name="addborder"><Default>0</Default></Parameter>
 	</Function>
 	<Function Name="pixConvertToPdf">
@@ -141,6 +135,9 @@
 	</Function>
 	<Function Name="pixGetData">
 		<Parameter Name="return"><Size>pix.w * pix.h * (pix.d/8)</Size></Parameter>
+	</Function>
+	<Function Name="create2dIntArray">
+		<Parameter Name ="return"><Size>sy;sx</Size></Parameter>
 	</Function>
 	
 	<!-- Alle Filename-Checks (only if parameter name = filename) -->
@@ -202,7 +199,6 @@
 	<Function Name="pixReadFromMultipageTiff"><Parameter Name="fname"><CheckFile/></Parameter></Function>
 	<Function Name="l_fileDisplay"><Parameter Name="fname"><CheckFile/></Parameter></Function>
 
-	
 	<!-- 
 	##########################################################
 	Function without Name = All Functions

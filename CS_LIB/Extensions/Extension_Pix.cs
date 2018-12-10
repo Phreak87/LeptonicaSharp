@@ -174,13 +174,15 @@ public partial class Pix
 			using (var ms = new System.IO.MemoryStream(pdatafile)) {
 				img = new Bitmap(ms);
 			}
-
+            img.SetResolution(this.xres, this.yres);
 			return img;
 		} else
 		{ _All.pixWriteMemBmp(out Bytes, out Size, this); }
 
 		System.IO.MemoryStream MemStrm = new System.IO.MemoryStream(Bytes);
-		return new Bitmap(MemStrm, true);
+		var bmp = new Bitmap(MemStrm, true);
+        bmp.SetResolution(this.xres, this.yres);
+        return bmp;
 	}
 
 	public Bitmap ConvertTo1BPPBMP(Pix Pix)
@@ -200,6 +202,7 @@ public partial class Pix
 			}
 
 			img.UnlockBits(imgData);
+            img.SetResolution(Pix.xres, Pix.yres);
 			return img;
 		} catch
 		{ }

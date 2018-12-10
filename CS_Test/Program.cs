@@ -7,12 +7,6 @@ namespace TestAppCSharp
 {
     internal class Program
     {
-        //const string DllPath = "leptonica-1.77.0d.dll";
-        //const CallingConvention CConv = CallingConvention.Cdecl;
-
-        //[DllImport(DllPath, CallingConvention = CConv, EntryPoint = "create2dIntArray")]
-        //public static extern IntPtr create2dIntArray2(int sy, int sx);
-
         private const string img1bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\feyn.tif";
         private const string img8bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\w91frag.jpg";
         private const string img24bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\zanotti-78.jpg";
@@ -26,7 +20,6 @@ namespace TestAppCSharp
             setLeptDebugOK(1);
 
             var app = new Program();
-            //app.TestBitmapAccess(img1bpp);
             //app.TestpixGetRegionsBinary(img1bpp);
             //app.TestProjections(img1bpp);
             //app.OtsuTest2(carplate);
@@ -36,7 +29,7 @@ namespace TestAppCSharp
             //app.TestBitmap();
             //app.TestMarkusByteA();
             //app.FindForeground();
-            app.Sel();
+            //app.Sel();
         }
 
         private void Sel()
@@ -46,46 +39,7 @@ namespace TestAppCSharp
                                    "  x";
             var sel41 = selCreateFromString(sel_4_1, 3, 3, "sel_4_1");
             var sel = selCreate(3, 3, "height");
-            //var seldata = marshal2d(3, 3);
         }
-
-        //private int[][] create2dIntArray(int sy, int sx)
-        //{
-        //    // Native Call
-        //    IntPtr _Result = Natives.create2dIntArray(sy, sx);
-        //    // Create the 2d array
-        //    var arr = new int[sy][];
-        //    // Create arry of IntPtr rows
-        //    IntPtr[] outPtrArray = new IntPtr[sy];
-        //    // Copy rows from Native result to row ptr array
-        //    Marshal.Copy(_Result, outPtrArray, 0, sy);
-
-        //    for (int i = 0; i < outPtrArray.Length; i++)
-        //    {
-        //        // Create a new row
-        //        arr[i] = new int[sx];
-        //        // Marshal the row array to the managed row array
-        //        Marshal.Copy(outPtrArray[i], arr[i], 0, sx);
-        //    }
-
-        //    return arr;
-        //}
-
-        //private int[][] marshal2d(int sy, int sx)
-        //{
-        //    var _Result = create2dIntArray2(sy, sx);
-        //    var arr = new int[sy][];
-
-        //    IntPtr[] outputArrayJaggedPtrArray = new IntPtr[sy];
-        //    Marshal.Copy(_Result, outputArrayJaggedPtrArray, 0, sy);
-        //    for (int i = 0; i < outputArrayJaggedPtrArray.Length; i++)
-        //    {
-        //        arr[i] = new int[sx];
-        //        Marshal.Copy(outputArrayJaggedPtrArray[i], arr[i], 0, sx);
-        //    }
-
-        //    return arr;
-        //}
 
         private void FindForeground()
         {
@@ -220,18 +174,11 @@ namespace TestAppCSharp
             {
                 g.Clear(System.Drawing.Color.White);
                 g.DrawImage(vBmp, 0, 0);
-                //g.DrawImage(pixs.BitmapStatic, vBmp.Width, 0);
-                g.DrawImage(System.Drawing.Image.FromFile(pixfn), vBmp.Width, 0);
+                g.DrawImage(pixs.BitmapStatic, vBmp.Width, 0);
+                //g.DrawImage(System.Drawing.Image.FromFile(pixfn), vBmp.Width, 0);
                 g.DrawImage(hBmp, vBmp.Width, height);
             }
         }
-
-        //private void TestBitmapAccess(string pixfn)
-        //{
-        //    var pixs = new Pix(pixfn);
-        //    var bmp = pixs.ToBitmap();
-        //    var bmp2 = pixs.BitmapStatic;
-        //}
 
         private void TestpixGetRegionsBinary(string pixfn)
         {

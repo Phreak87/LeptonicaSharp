@@ -160,6 +160,7 @@ public partial class Pix
 	{
 		uint Size = 0;
 		byte[] Bytes = null;
+        const int xr = 96, yr = 96;
 
 		if (this.d == 1)
 		{ return ConvertTo1BPPBMP(this); }
@@ -173,23 +174,31 @@ public partial class Pix
 
 			using (var ms = new System.IO.MemoryStream(pdatafile)) {
 				img = new Bitmap(ms);
-			}
-            img.SetResolution(this.xres, this.yres);
-			return img;
+                if (this.xres != 0 && this.yres != 0)
+                    img.SetResolution(this.xres, this.yres);
+                else
+                    img.SetResolution(xr, yr);
+            }
+            return img;
 		} else
 		{ _All.pixWriteMemBmp(out Bytes, out Size, this); }
 
 		System.IO.MemoryStream MemStrm = new System.IO.MemoryStream(Bytes);
 		var bmp = new Bitmap(MemStrm, true);
-        bmp.SetResolution(this.xres, this.yres);
+        if (this.xres != 0 && this.yres != 0)
+            bmp.SetResolution(this.xres, this.yres);
+        else
+            bmp.SetResolution(xr, yr);
         return bmp;
 	}
 
 	public Bitmap ConvertTo1BPPBMP(Pix Pix)
 	{
 		Pix PixSwap = _All.pixEndianByteSwapNew(Pix);
+        int xr = 96, yr = 96;
 
-		try {
+        try
+        {
 			Bitmap img = new Bitmap((int)Pix.w, (int)Pix.h, PixelFormat.Format1bppIndexed);
 			BitmapData imgData = img.LockBits(new Rectangle(0, 0, (int)img.Width, (int)img.Height), ImageLockMode.ReadOnly, PixelFormat.Format1bppIndexed);
 
@@ -202,8 +211,12 @@ public partial class Pix
 			}
 
 			img.UnlockBits(imgData);
-            img.SetResolution(Pix.xres, Pix.yres);
-			return img;
+            if (Pix.xres != 0 && Pix.yres != 0)
+                img.SetResolution(Pix.xres, Pix.yres);
+            else
+                img.SetResolution(xr, yr);
+
+            return img;
 		} catch
 		{ }
 		finally {

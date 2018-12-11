@@ -25,7 +25,7 @@ Partial Public Class PixColormap
             Dim QList As New List(Of Color)
             For i As Integer = 0 To Array_Bytes.Count - 1 Step 4
                 Dim B(3) As Byte : System.Array.Copy(Array_Bytes, i, B, 0, B.Length)
-                QList.Add(Color.FromArgb(B(0), B(1), B(2), B(3)))
+                QList.Add(Color.FromArgb(B(3), B(2), B(1), B(0)))
             Next
             Return QList.ToArray
         End Get

@@ -13,7 +13,10 @@ Public Class Release
         'Dim PixSkw2 As Pix = Pix8.pixDeskew() : If IsNothing(PixSkw2) Then Throw New Exception ' VB-Defaulted
 
         Dim Pix32 As Pix = Pix8.pixConvertTo32 : If IsNothing(Pix32) Then Throw New Exception
+        Dim Pix33 As Pix = Pix32.bilateral(1, 50, 10, 4)
         Dim Pix1 As Pix = Pix8.pixConvertTo1(128) : If IsNothing(Pix1) Then Throw New Exception
+        Dim FPIX1 As FPix = New FPix(50, 50) : If IsNothing(FPIX1) Then Throw New Exception
+        Dim DPIX1 As DPix = New DPix(50, 50) : If IsNothing(DPIX1) Then Throw New Exception
 
         Dim PixT1 As Pix = Pix8.pixBackgroundNormSimple(Nothing, Nothing) : If IsNothing(PixT1) Then Throw New Exception
         ' Dim PixT12 As Pix = Pix8.pixBackgroundNormSimple() : If IsNothing(PixT1) Then Throw New Exception ' VB-Defaulted

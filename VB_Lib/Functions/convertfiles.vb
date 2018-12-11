@@ -1,15 +1,14 @@
-Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _All
+Imports System.Runtime.InteropServices
 
-' SRC\convertfiles.c (67, 1)
+Public Partial Class _All
+
+' convertfiles.c (67, 1)
 ' convertFilesTo1bpp(dirin, substr, upscaling, thresh, firstpage, npages, dirout, outformat) as Integer
 ' convertFilesTo1bpp(const char *, const char *, l_int32, l_int32, l_int32, l_int32, const char *, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Images are sorted lexicographically, and the names in the
-''' output directory are retained except for the extension.
+'''output directory are retained except for the extension.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -24,22 +23,23 @@ Partial Public Class _All
 '''  <param name="outformat">[in] - IFF_PNG, IFF_TIFF_G4</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertFilesTo1bpp(
-				 ByVal dirin as String, 
-				 ByVal substr as String, 
-				 ByVal upscaling as Integer, 
-				 ByVal thresh as Integer, 
-				 ByVal firstpage as Integer, 
-				 ByVal npages as Integer, 
-				 ByVal dirout as String, 
-				 ByVal outformat as Enumerations.IFF) as Integer
-
-	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
-	If IsNothing (dirout) then Throw New ArgumentNullException  ("dirout cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertFilesTo1bpp( dirin, substr, upscaling, thresh, firstpage, npages, dirout, outformat)
+				ByVal dirin as String, 
+				ByVal substr as String, 
+				ByVal upscaling as Integer, 
+				ByVal thresh as Integer, 
+				ByVal firstpage as Integer, 
+				ByVal npages as Integer, 
+				ByVal dirout as String, 
+				ByVal outformat as Enumerations.IFF) as Integer
 
 
-	Return _Result
+if IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
+		if IsNothing (dirout) then Throw New ArgumentNullException  ("dirout cannot be Nothing")
+	Dim _Result as Integer = Natives.convertFilesTo1bpp(  dirin,   substr,   upscaling,   thresh,   firstpage,   npages,   dirout,   outformat)
+	
+	return _Result
 End Function
 
 End Class
+
+

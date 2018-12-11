@@ -3,7 +3,7 @@ Imports System.Drawing
 Imports System.Reflection
 Imports System.Drawing.Imaging
 
-
+#Region "Functional"
 Partial Public Class Box
     Public Function GetBitmap(Optional ByVal Pix As Pix = Nothing) As Pix
         If IsNothing(Pix) Then Pix = New Pix(Me.w + Me.x + 5, Me.h + Me.y + 5)
@@ -12,7 +12,7 @@ Partial Public Class Box
         Dim p As New Pen(Brushes.Red, 3)
         g.DrawImage(Pix.BitmapStatic, 0, 0, Pix.w, Pix.h)
         g.DrawRectangle(p, New Rectangle(Me.x, Me.y, Me.w, Me.h))
-        Dim RPix As New Pix(n): n.Dispose(): Return RPix
+        Dim RPix As New Pix(n) : n.Dispose() : Return RPix
     End Function
     Public Sub Display(Optional Pix As Pix = Nothing)
         Dim n As New ShowPix(GetBitmap(Pix))
@@ -42,16 +42,6 @@ Partial Public Class Boxa
     End Sub
 End Class
 
-Partial Public Class Pixa
-    Function GetBitmap(Optional NCols As Integer = 4) As Pix
-        Dim pixc = LeptonicaSharp._All.pixaDisplayTiledAndScaled(Me, 32, 500, NCols, 0, 1, 3)
-        Return pixc
-    End Function
-    Sub Display(Optional NCols As Integer = 4)
-        Dim n As New ShowPix(GetBitmap)
-    End Sub
-End Class
-
 Partial Public Class Pix
 #Region "Redirects"
     ''' <summary>
@@ -66,35 +56,13 @@ Partial Public Class Pix
         End Get
     End Property
 
-    ''' <summary>
-    ''' This Property returns a pix as a system-bitmap
-    ''' this value is cached. For Bitmaps from Pointer
-    ''' use the ToBitmap-Function.
-    ''' </summary>
     ReadOnly Property BitmapStatic As Bitmap
         Get
             If Pointer = IntPtr.Zero Then Return Nothing
-            If Caching.ContainsKey("Bitmap") Then Caching("Bitmap").dispose() : Caching.Remove("Bitmap")
+            If Caching.ContainsKey("Bitmap") Then Return Caching("Bitmap")
             Caching.Add("Bitmap", Me.ToBitmap) : Return Caching("Bitmap")
         End Get
     End Property
-
-#Region "Constructors"
-    ''' <summary>
-    ''' Use this for Construct a empty Pix (to be filled ByRef)
-    ''' </summary>
-    Sub New()
-    End Sub
-    Sub New(w As Integer, h As Integer)
-        Dim OBJ = LeptonicaSharp._All.pixCreate(w, h, 32)
-        Pointer = OBJ.Pointer
-    End Sub
-    Sub New(ByVal Bitmap As Bitmap)
-        Dim Stream As New System.IO.MemoryStream : Bitmap.Save(Stream, Imaging.ImageFormat.Bmp)
-        Dim OBJ = _All.pixReadMemBmp(Stream.GetBuffer, Stream.Length)
-        Pointer = OBJ.Pointer
-    End Sub
-#End Region
 
 #Region "Saving"
     Public Sub save_jpg(ByVal filename As String, Optional ByVal quality As Integer = 95, Optional ByVal progressive As Integer = 0)
@@ -114,7 +82,6 @@ Partial Public Class Pix
     End Function
 #End Region
 #End Region
-
 #Region "Functions"
     Sub RefreshStatic()
         For Each Entry In Caching
@@ -133,7 +100,7 @@ Partial Public Class Pix
         Dim MemStrm As New IO.MemoryStream(Bytes)
         Return New Bitmap(MemStrm, True)
     End Function
-	
+
     Public Function ConvertTo1BPPBMP(ByVal Pix As Pix) As Bitmap
         Dim MSH As New Marshal_Pix
         Dim PixSwap As Pix = LeptonicaSharp._All.pixEndianByteSwapNew(Pix)
@@ -155,6 +122,17 @@ Partial Public Class Pix
     End Function
 #End Region
 End Class
+
+Partial Public Class Pixa
+    Function GetBitmap(Optional NCols As Integer = 4) As Pix
+        Dim pixc = LeptonicaSharp._All.pixaDisplayTiledAndScaled(Me, 32, 500, NCols, 0, 1, 3)
+        Return pixc
+    End Function
+    Sub Display(Optional NCols As Integer = 4)
+        Dim n As New ShowPix(GetBitmap)
+    End Sub
+End Class
+
 Partial Public Class Numa
     Sub DisplayNumaBarGraph(Optional ByVal NumaH As Numa = Nothing,
                             Optional ByVal BgPix As Pix = Nothing,
@@ -253,3 +231,15 @@ Partial Public Class Numa
         PX.Dispose()
     End Sub
 End Class
+
+Partial Public Class Sel
+    Sub Display()
+        Dim n As New ShowPix(LeptonicaSharp._All.selDisplayInPix(Me, 1, 1))
+    End Sub
+    Sub Display(ByVal Pix As Pix)
+        Dim CRed As UInt32 = BitConverter.ToUInt32({255, 0, 0, 0}, 0)
+        Dim CBlu As UInt32 = BitConverter.ToUInt32({0, 255, 0, 0}, 0)
+        Dim n As New ShowPix(LeptonicaSharp._All.pixDisplayHitMissSel(Pix, Me, 1, CRed, CBlu))
+    End Sub
+End Class
+#End Region

@@ -1,21 +1,20 @@
-Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _All
+Imports System.Runtime.InteropServices
 
-' SRC\bmf.c (114, 1)
+Public Partial Class _All
+
+' bmf.c (114, 1)
 ' bmfCreate(dir, fontsize) as L_Bmf
 ' bmfCreate(const char *, l_int32) as L_BMF *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) If %dir == null, this generates the font bitmaps from a
-''' compiled string.<para/>
-''' 
-''' (2) Otherwise, this tries to read a pre-computed pixa file with the
-''' 95 ascii chars in it.  If the file is not found, it then
-''' attempts to generate the pixa and associated baseline
-''' data from a tiff image containing all the characters.  If
-''' that fails, it uses the compiled string.
+'''compiled string.<para/>
+'''
+'''(2) Otherwise, this tries to read a pre-computed pixa file with the
+'''95 ascii chars in it.  If the file is not found, it then
+'''attempts to generate the pixa and associated baseline
+'''data from a tiff image containing all the characters.  If
+'''that fails, it uses the compiled string.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -24,38 +23,43 @@ Partial Public Class _All
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''   <returns>bmf holding the bitmap font and associated information</returns>
 Public Shared Function bmfCreate(
-				 ByVal dir as String, 
-				 ByVal fontsize as Integer) as L_Bmf
+				ByVal dir as String, 
+				ByVal fontsize as Integer) as L_Bmf
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfCreate( dir, fontsize)
 
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new L_Bmf(_Result)
+	Dim _Result as IntPtr = Natives.bmfCreate(  dir,   fontsize)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new L_Bmf(_Result)
 End Function
 
-' SRC\bmf.c (166, 1)
+' bmf.c (166, 1)
 ' bmfDestroy(pbmf) as Object
 ' bmfDestroy(L_BMF **) as void
+'''  <summary>
+''' bmfDestroy()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfDestroy/*"/>
 '''  <param name="pbmf">[in,out] - set to null</param>
 Public Shared Sub bmfDestroy(
-				 ByRef pbmf as L_Bmf)
+				ByRef pbmf as L_Bmf)
 
-	Dim pbmfPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbmf) Then pbmfPTR = pbmf.Pointer
 
-	LeptonicaSharp.Natives.bmfDestroy( pbmfPTR)
+	Dim pbmfPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(pbmf) Then pbmfPtr = pbmf.Pointer
 
-If pbmfPTR = IntPtr.Zero Then pbmf = Nothing
-If pbmfPTR <> IntPtr.Zero Then pbmf = New L_Bmf(pbmfPTR)
-
+	Natives.bmfDestroy( pbmfPtr)
+	
+	if pbmfPtr = IntPtr.Zero then pbmf = Nothing else pbmf = new L_Bmf(pbmfPtr)
 End Sub
 
-' SRC\bmf.c (202, 1)
+' bmf.c (202, 1)
 ' bmfGetPix(bmf, chr) as Pix
 ' bmfGetPix(L_BMF *, char) as PIX *
+'''  <summary>
+''' bmfGetPix()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetPix/*"/>
@@ -63,22 +67,23 @@ End Sub
 '''  <param name="chr">[in] - should be one of the 95 supported printable bitmaps</param>
 '''   <returns>pix clone of pix in bmf, or NULL on error</returns>
 Public Shared Function bmfGetPix(
-				 ByVal bmf as L_Bmf, 
-				 ByVal chr as Char) as Pix
+				ByVal bmf as L_Bmf, 
+				ByVal chr as Char) as Pix
 
-	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
-	If IsNothing (chr) then Throw New ArgumentNullException  ("chr cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfGetPix( bmf.Pointer, chr)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pix(_Result)
+if IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
+	Dim _Result as IntPtr = Natives.bmfGetPix(bmf.Pointer,   chr)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pix(_Result)
 End Function
 
-' SRC\bmf.c (237, 1)
+' bmf.c (237, 1)
 ' bmfGetWidth(bmf, chr, pw) as Integer
 ' bmfGetWidth(L_BMF *, char, l_int32 *) as l_ok
+'''  <summary>
+''' bmfGetWidth()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetWidth/*"/>
@@ -87,22 +92,23 @@ End Function
 '''  <param name="pw">[out] - character width -1 if not printable</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function bmfGetWidth(
-				 ByVal bmf as L_Bmf, 
-				 ByVal chr as Char, 
-				<Out()> ByRef pw as Integer) as Integer
-
-	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
-	If IsNothing (chr) then Throw New ArgumentNullException  ("chr cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetWidth( bmf.Pointer, chr, pw)
+				ByVal bmf as L_Bmf, 
+				ByVal chr as Char, 
+				<Out()>  ByRef pw as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
+	Dim _Result as Integer = Natives.bmfGetWidth(bmf.Pointer,   chr,   pw)
+	
+	return _Result
 End Function
 
-' SRC\bmf.c (276, 1)
+' bmf.c (276, 1)
 ' bmfGetBaseline(bmf, chr, pbaseline) as Integer
 ' bmfGetBaseline(L_BMF *, char, l_int32 *) as l_ok
+'''  <summary>
+''' bmfGetBaseline()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetBaseline/*"/>
@@ -111,25 +117,21 @@ End Function
 '''  <param name="pbaseline">[out] - distance below UL corner of bitmap char</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function bmfGetBaseline(
-				 ByVal bmf as L_Bmf, 
-				 ByVal chr as Char, 
-				<Out()> ByRef pbaseline as Integer) as Integer
-
-	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
-	If IsNothing (chr) then Throw New ArgumentNullException  ("chr cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetBaseline( bmf.Pointer, chr, pbaseline)
+				ByVal bmf as L_Bmf, 
+				ByVal chr as Char, 
+				<Out()>  ByRef pbaseline as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
+	Dim _Result as Integer = Natives.bmfGetBaseline(bmf.Pointer,   chr,   pbaseline)
+	
+	return _Result
 End Function
 
-' SRC\bmf.c (322, 1)
+' bmf.c (322, 1)
 ' pixaGetFont(dir, fontsize, pbl0, pbl1, pbl2) as Pixa
 ' pixaGetFont(const char *, l_int32, l_int32 *, l_int32 *, l_int32 *) as PIXA *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This reads a pre-computed pixa file with the 95 ascii chars.
 '''  </summary>
 '''  <remarks>
@@ -142,34 +144,31 @@ End Function
 '''  <param name="pbl2">[out] - baseline of row 3</param>
 '''   <returns>pixa of font bitmaps for 95 characters, or NULL on error</returns>
 Public Shared Function pixaGetFont(
-				 ByVal dir as String, 
-				 ByVal fontsize as Integer, 
-				<Out()> ByRef pbl0 as Integer, 
-				<Out()> ByRef pbl1 as Integer, 
-				<Out()> ByRef pbl2 as Integer) as Pixa
+				ByVal dir as String, 
+				ByVal fontsize as Integer, 
+				<Out()>  ByRef pbl0 as Integer, 
+				<Out()>  ByRef pbl1 as Integer, 
+				<Out()>  ByRef pbl2 as Integer) as Pixa
 
-	If IsNothing (dir) then Throw New ArgumentNullException  ("dir cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetFont( dir, fontsize, pbl0, pbl1, pbl2)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pixa(_Result)
+if IsNothing (dir) then Throw New ArgumentNullException  ("dir cannot be Nothing")
+	Dim _Result as IntPtr = Natives.pixaGetFont(  dir,   fontsize,   pbl0,   pbl1,   pbl2)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pixa(_Result)
 End Function
 
-' SRC\bmf.c (372, 1)
+' bmf.c (372, 1)
 ' pixaSaveFont(indir, outdir, fontsize) as Integer
 ' pixaSaveFont(const char *, const char *, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This saves a font of a particular size.<para/>
-''' 
-''' (2) If %dir == null, this generates the font bitmaps from a
-''' compiled string.<para/>
-''' 
-''' (3) prog/genfonts calls this function for each of the
-''' nine font sizes, to generate all the font pixa files.
+'''
+'''(2) If %dir == null, this generates the font bitmaps from a
+'''compiled string.<para/>
+'''
+'''(3) prog/genfonts calls this function for each of the
+'''nine font sizes, to generate all the font pixa files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -179,16 +178,17 @@ End Function
 '''  <param name="fontsize">[in] - in pts, at 300 ppi</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaSaveFont(
-				 ByVal indir as String, 
-				 ByVal outdir as String, 
-				 ByVal fontsize as Integer) as Integer
-
-	If IsNothing (outdir) then Throw New ArgumentNullException  ("outdir cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixaSaveFont( indir, outdir, fontsize)
+				ByVal indir as String, 
+				ByVal outdir as String, 
+				ByVal fontsize as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (outdir) then Throw New ArgumentNullException  ("outdir cannot be Nothing")
+	Dim _Result as Integer = Natives.pixaSaveFont(  indir,   outdir,   fontsize)
+	
+	return _Result
 End Function
 
 End Class
+
+

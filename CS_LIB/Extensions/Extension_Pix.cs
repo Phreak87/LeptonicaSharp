@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -156,63 +156,75 @@ public partial class Pix
 		ShowPix n = new ShowPix(this, Text);
 	}
 
-	public Image ToBitmap()
-	{
-		uint Size = 0;
-		byte[] Bytes = null;
-
-		if (this.d == 1)
-		{ return ConvertTo1BPPBMP(this); }
-		else if (this.d == 24)
-		{ _All.pixWriteMemBmp(out Bytes, out Size, this.pixConvertTo32()); }
-		else if (this.d == 32) {
-			byte[] pdatafile;
-			uint pfilesize;
-			_All.pixWriteMemPng(out pdatafile, out pfilesize, this, 0.0f);
-			Bitmap img;
-
-			using (var ms = new System.IO.MemoryStream(pdatafile)) {
-				img = new Bitmap(ms);
-			}
-
-			img.SetResolution(this.xres, this.yres);
-			return img;
-		} else
-		{ _All.pixWriteMemBmp(out Bytes, out Size, this); }
-
-		System.IO.MemoryStream MemStrm = new System.IO.MemoryStream(Bytes);
-		var bmp = new Bitmap(MemStrm, true);
-		bmp.SetResolution(this.xres, this.yres);
-		return bmp;
-	}
-
-	public Bitmap ConvertTo1BPPBMP(Pix Pix)
-	{
-		Pix PixSwap = _All.pixEndianByteSwapNew(Pix);
-
-		try {
-			Bitmap img = new Bitmap((int)Pix.w, (int)Pix.h, PixelFormat.Format1bppIndexed);
-			BitmapData imgData = img.LockBits(new Rectangle(0, 0, (int)img.Width, (int)img.Height), ImageLockMode.ReadOnly, PixelFormat.Format1bppIndexed);
-
-			for (int Line = 0; Line <= Pix.h - 1; Line++) {
-				for (int Col = 0; Col <= Pix.w - 1; Col += 8) {
-					int index = ((int)Line * (int)PixSwap.wpl * 4) + (Col >> 3);
-					Byte Byt = PixSwap.DataStatic[index];
-					Marshal.WriteByte(imgData.Scan0, index, (Byte)(Byt ^ 0xff));
-				}
-			}
-
-			img.UnlockBits(imgData);
-			img.SetResolution(Pix.xres, Pix.yres);
-			return img;
-		} catch
-		{ }
-		finally {
-			_All.pixDestroy(ref PixSwap);
-		}
-
-		return null;
-	}
+	public Image ToBitmap() 
+	{ 
+		uint Size = 0; 
+		byte[] Bytes = null; 
+        const int xr = 96, yr = 96; 
+ 
+		if (this.d == 1) 
+		{ return ConvertTo1BPPBMP(this); } 
+		else if (this.d == 24) 
+		{ _All.pixWriteMemBmp(out Bytes, out Size, this.pixConvertTo32()); } 
+		else if (this.d == 32) { 
+			byte[] pdatafile; 
+			uint pfilesize; 
+			_All.pixWriteMemPng(out pdatafile, out pfilesize, this, 0.0f); 
+			Bitmap img; 
+ 
+			using (var ms = new System.IO.MemoryStream(pdatafile)) { 
+				img = new Bitmap(ms); 
+                if (this.xres != 0 && this.yres != 0) 
+                    img.SetResolution(this.xres, this.yres); 
+                else 
+                    img.SetResolution(xr, yr); 
+            } 
+            return img; 
+		} else 
+		{ _All.pixWriteMemBmp(out Bytes, out Size, this); } 
+ 
+		System.IO.MemoryStream MemStrm = new System.IO.MemoryStream(Bytes); 
+		var bmp = new Bitmap(MemStrm, true); 
+        if (this.xres != 0 && this.yres != 0) 
+            bmp.SetResolution(this.xres, this.yres); 
+        else 
+            bmp.SetResolution(xr, yr); 
+        return bmp; 
+	} 
+ 
+	public Bitmap ConvertTo1BPPBMP(Pix Pix) 
+	{ 
+		Pix PixSwap = _All.pixEndianByteSwapNew(Pix); 
+        int xr = 96, yr = 96; 
+ 
+        try 
+        { 
+			Bitmap img = new Bitmap((int)Pix.w, (int)Pix.h, PixelFormat.Format1bppIndexed); 
+			BitmapData imgData = img.LockBits(new Rectangle(0, 0, (int)img.Width, (int)img.Height), ImageLockMode.ReadOnly, PixelFormat.Format1bppIndexed); 
+ 
+			for (int Line = 0; Line <= Pix.h - 1; Line++) { 
+				for (int Col = 0; Col <= Pix.w - 1; Col += 8) { 
+					int index = ((int)Line * (int)PixSwap.wpl * 4) + (Col >> 3); 
+					Byte Byt = PixSwap.DataStatic[index]; 
+					Marshal.WriteByte(imgData.Scan0, index, (Byte)(Byt ^ 0xff)); 
+				} 
+			} 
+ 
+			img.UnlockBits(imgData); 
+            if (Pix.xres != 0 && Pix.yres != 0) 
+                img.SetResolution(Pix.xres, Pix.yres); 
+            else 
+                img.SetResolution(xr, yr); 
+ 
+            return img; 
+		} catch 
+		{ } 
+		finally { 
+			_All.pixDestroy(ref PixSwap); 
+		} 
+ 
+		return null; 
+	} 
 	#endregion
 }
 

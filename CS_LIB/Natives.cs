@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 using System;
 public partial class Natives {
 #if DEBUG
-   const string DllPath = "leptonica-1.77.0.dll";
+   const string DllPath = "leptonica-1.77.0d.dll";
 #else
    const string DllPath = "leptonica-1.77.0.dll";
 #endif
@@ -24782,6 +24782,24 @@ internal static extern int makeGaussianKernelSep (	 int halfheight, 	 int halfwi
 ///   <returns>kernel, or NULL on error</returns>
 [DllImport(DllPath, CallingConvention = CConv, EntryPoint="makeDoGKernel")]
 internal static extern IntPtr makeDoGKernel (	 int halfheight, 	 int halfwidth, 	 Single stdev, 	 Single ratio);
+
+#endregion
+#region"leptwin.c"
+// leptwin.c (303, 1)
+// pixGetWindowsHBITMAP(pix) as IntPtr
+// pixGetWindowsHBITMAP(PIX *) as HBITMAP
+///  <summary>
+/// (1) It's the responsibility of the caller to destroy the
+/// returned hBitmap with a call to DeleteObject (or with
+/// something that eventually calls DeleteObject).
+///  </summary>
+///  <remarks>
+///  </remarks>
+///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
+///  <param name="pix">[in] - </param>
+///   <returns>Windows hBitmap, or NULL on error</returns>
+[DllImport(DllPath, CallingConvention = CConv, EntryPoint="pixGetWindowsHBITMAP")]
+internal static extern IntPtr pixGetWindowsHBITMAP (	 IntPtr pix);
 
 #endregion
 #region"libversions.c"

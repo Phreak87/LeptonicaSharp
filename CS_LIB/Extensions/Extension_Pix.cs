@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -104,34 +104,6 @@ public partial class Pix
 		}
 	}
 
-	#region "Saving"
-
-	public void save_jpg(string filename, int quality = 95, int progressive = 0)
-	{
-		Natives.pixWriteJpeg(filename, Pointer, quality, progressive);
-	}
-
-	public void save_png(string filename, float gamma = 95, int progressive = 0)
-	{
-		Natives.pixWritePng(filename, Pointer, gamma);
-	}
-
-	public void save_tiff(string filename)
-	{
-		Natives.pixWriteTiff(filename, Pointer, (int)Enumerations.IFF.IFF_TIFF, "a");
-	}
-
-	public int save_format(string filename, Enumerations.IFF format)
-	{
-		return Natives.pixWrite(filename, Pointer, (int)format);
-	}
-
-	public int save_autoformat(string filename)
-	{
-		return Natives.pixWriteAutoFormat(filename, Pointer);
-	}
-
-	#endregion
 	#endregion
 
 	#region "Functions"
@@ -165,7 +137,7 @@ public partial class Pix
 		if (this.d == 1) 
 		{ return ConvertTo1BPPBMP(this); } 
 		else if (this.d == 24) 
-		{ _All.pixWriteMemBmp(out Bytes, out Size, this.pixConvertTo32()); } 
+		{ _All.pixWriteMemBmp(out Bytes, out Size, this._ConvertTo32()); } 
 		else if (this.d == 32) { 
 			byte[] pdatafile; 
 			uint pfilesize; 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using static LeptonicaSharp._All;
 
 namespace TestAppCSharp
@@ -30,6 +31,77 @@ namespace TestAppCSharp
             //app.TestMarkusByteA();
             //app.FindForeground();
             //app.Sel();
+            //app.BinaryWrite();
+            app.MemoryCheck();
+        }
+
+        private void MemoryCheck()
+        {
+            //var ta = new byte[1000];
+            //for (int i = 0; i < ta.Length; i++)
+            //{
+            //    ta[i] = (byte)(i + 100);
+            //}
+            //Array.Clear(ta, 0, ta.Length);
+            //ta = null;
+            //GC.Collect();
+
+            var pix = new Pix(carplate);
+            //var bs = pix.BitmapStatic;
+            //var p1 = AddHelper.AddressOf(pix);
+            //var c1 = AddHelper.AddressOf(pix.colormap);
+            //var c2 = AddHelper.AddressOf(pix.colormap.Values.array);
+            pix.colormap.Dispose();
+
+            //for (int i = 0; i < 100000; i++)
+            //{
+            //    var b = pix.colormap.Array_Bytes;
+            //    if (i % 10000 == 0)
+            //    {
+            //        System.Threading.Thread.Sleep(1000);
+            //        GC.Collect();
+            //    }
+            //}
+
+            //var pw = AddHelper.AddressOf(pix.w);
+            //var pwv = AddHelper.AddressOf(pix.Values.w);
+            //var ph = AddHelper.AddressOf(pix.h);
+            //var phv = AddHelper.AddressOf(pix.Values.h);
+            //var pd = AddHelper.AddressOf(pix.d);
+            //var pdv = AddHelper.AddressOf(pix.Values.d);
+            //var pspp = AddHelper.AddressOf(pix.spp);
+            //var psppv = AddHelper.AddressOf(pix.Values.spp);
+            //var pwpl = AddHelper.AddressOf(pix.wpl);
+            //var pwplv = AddHelper.AddressOf(pix.Values.wpl);
+            //var prefcount = AddHelper.AddressOf(pix.refcount);
+            //var prefcountv = AddHelper.AddressOf(pix.Values.refcount);
+            //var pxres = AddHelper.AddressOf(pix.xres);
+            //var pxresv = AddHelper.AddressOf(pix.Values.xres);
+            //var pyres = AddHelper.AddressOf(pix.yres);
+            //var pyresv = AddHelper.AddressOf(pix.Values.yres);
+            //var pinformat = AddHelper.AddressOf(pix.informat);
+            //var pinformatv = AddHelper.AddressOf(pix.Values.informat);
+            //var pspecial = AddHelper.AddressOf(pix.special);
+            //var pspecialv = AddHelper.AddressOf(pix.Values.special);
+
+            //var ptext = AddHelper.AddressOf(pix.text);
+            //var ptextv = AddHelper.AddressOf(pix.Values.text);
+            //var pcolormap = AddHelper.AddressOf(pix.colormap);
+            //var pcolormapv = AddHelper.AddressOf(pix.Values.colormap);
+            //var pcolormapp = AddHelper.AddressOf(pix.colormap.Pointer);
+            //var pcolormapa = AddHelper.AddressOf(pix.colormap.array);
+            //var pcolormapva = AddHelper.AddressOf(pix.colormap.Values.array);
+            //var pdata = AddHelper.AddressOf(pix.data);
+            //var pdatav = AddHelper.AddressOf(pix.Values.data);
+
+            pixDestroy(ref pix);
+
+        }
+
+        private void BinaryWrite()
+        {
+            var pix = new Pix(carplate);
+            l_binaryWrite("Test", "w", pix, (uint)pix.data.Length);
         }
 
         private void Sel()
@@ -320,6 +392,47 @@ namespace TestAppCSharp
         public static int save_format(this Pix pixs, string filename, Enumerations.IFF format)
         {
             return pixWrite(filename, pixs, format);
+        }
+    }
+
+    public unsafe static class AddHelper
+    {
+        public unsafe static IntPtr AddressOf(object obj)
+        {
+            if (obj == null)
+                return System.IntPtr.Zero;
+
+            TypedReference reference = __makeref(obj);
+            TypedReference* pRef = &reference;
+            var ret = (IntPtr)pRef;
+
+            return **(IntPtr**)(&reference);
+        }
+
+        public unsafe static IntPtr AddressOf<T>(T t)
+        {
+            TypedReference reference = __makeref(t);
+            TypedReference* pRef = &reference;
+            var ret = (IntPtr)pRef;
+
+            return **(IntPtr**)(&reference);
+        }
+
+        static unsafe IntPtr AddressOfRef<T>(ref T t)
+        {
+            TypedReference reference = __makeref(t);
+            TypedReference* pRef = &reference;
+            var ret = (IntPtr)pRef;
+
+            return **(IntPtr**)(&reference);
+        }
+        public unsafe static IntPtr AddressOfByteArray(byte[] array)
+        {
+            if (array == null)
+                return System.IntPtr.Zero;
+
+            fixed (byte* ptr = array)
+                return (IntPtr)(ptr - 2 * sizeof(void*)); //Todo staticaly determine size of void?
         }
     }
 }

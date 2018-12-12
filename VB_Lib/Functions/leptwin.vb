@@ -23,9 +23,6 @@ Public Shared Function pixGetWindowsHBITMAP(
 if IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	Dim _Result as IntPtr = Natives.pixGetWindowsHBITMAP(pix.Pointer)
 	
-
-
-
 	return _Result
 End Function
 

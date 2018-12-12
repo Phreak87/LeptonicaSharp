@@ -25843,6 +25843,25 @@ Friend Shared Function makeDoGKernel(	ByVal halfheight as Integer, 	ByVal halfwi
 End Function
 
 #End Region
+#Region"leptwin.c"
+' leptwin.c (303, 1)
+' pixGetWindowsHBITMAP(pix) as IntPtr
+' pixGetWindowsHBITMAP(PIX *) as HBITMAP
+'''  <summary>
+''' (1) It's the responsibility of the caller to destroy the
+'''returned hBitmap with a call to DeleteObject (or with
+'''something that eventually calls DeleteObject).
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
+'''  <param name="pix">[in] - </param>
+'''   <returns>Windows hBitmap, or NULL on error</returns>
+<DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixGetWindowsHBITMAP")> _
+Friend Shared Function pixGetWindowsHBITMAP(	ByVal pix as IntPtr) as IntPtr
+End Function
+
+#End Region
 #Region"libversions.c"
 ' libversions.c (101, 1)
 ' getImagelibVersions() as String

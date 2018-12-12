@@ -9,8 +9,74 @@
 	-->
 	
 	<!-- Klassennamen immer in UPPERCASE -->
+	<Class Name="BOX">
+		<Extend    Name="^box([A-Z0-9].*)" 		Type="RegexFunc" 	Source="boxs" 		return="return"/>
+	</Class>
+	<Class Name="BOXA">
+		<Extend    Name="^boxa([A-Z0-9].*)" 		Type="RegexFunc" 	Source="boxas" 		return="return"/>
+	</Class>
+	<Class Name="BOXAA">
+		<Extend    Name="^boxaa([A-Z0-9].*)" 		Type="RegexFunc" 	Source="boxaas" 		return="return"/>
+	</Class>
+	<Class Name="CCBORD">
+		<Extend    Name="^CCBord([A-Z0-9].*)" 		Type="RegexFunc" 	Source="" 		return="return"/>
+	</Class>
+	<Class Name="CCBORDA">
+		<Extend    Name="^CCBorda([A-Z0-9].*)" 		Type="RegexFunc" 	Source="" 		return="return"/>
+	</Class>
+	<Class Name="NUMA">
+		<Extend    Name="^numa([A-Z0-9].*)" 		Type="RegexFunc" 	Source="na" 		return="return"/>
+	</Class>
+	<Class Name="NUMAA">
+		<Extend    Name="^numaa([A-Z0-9].*)" 		Type="RegexFunc" 	Source="naa" 		return="return"/>
+	</Class>
 	<Class Name="SEL">
 		<Parameter Name ="data">		<Size>sy;sx</Size>				</Parameter>
+		<Extend    Name="^sel([A-Z0-9].*)" 			Type="RegexFunc" 	Source="sel" 		return="return"/>
+	</Class>
+	<Class Name="SELA">
+		<Extend    Name="^sela([A-Z0-9].*)" 		Type="RegexFunc" 	Source="sela" 		return="return"/>
+	</Class>
+	<Class Name="FPIX">
+		<Extend    Name="fpixRead" 				Type="Construct" 	Source="fpixs"/> 
+		<Extend    Name="fpixCreate" 			Type="Construct" 	Source="fpixs"/> 
+		<Extend    Name="fpixCreateTemplate" 	Type="Construct" 	Source="fpixs"/> 
+		<Extend    Name="^fpix([A-Z0-9].*)" 	Type="RegexFunc" 	Source="fpixs" 		return="return"/>
+	</Class>
+	<Class Name="FPIXA">
+		<Extend    Name="^fpixa([A-Z0-9].*)" 	Type="RegexFunc" 	Source="fpixa" 	return="return"/>
+	</Class>
+	<Class Name="PIXA">
+		<Extend    Name="^pixa([A-Z0-9].*)" 	Type="RegexFunc" 	Source="pixa" 	return="return"/>
+	</Class>
+	<Class Name="GPLOT">
+		<Extend    Name="^gplot([A-Z0-9].*)" 	Type="RegexFunc" 	Source="gplot" 		return="return"/>
+	</Class>
+
+	<Class Name="PTA">
+		<Extend    Name="^pta([A-Z0-9].*)" 		Type="RegexFunc" 	Source="ptas" 		return="return"/>
+	</Class>
+	<Class Name="PTAA">
+		<Extend    Name="^ptaa([A-Z0-9].*)" 		Type="RegexFunc" 	Source="ptaa" 		return="return"/>
+	</Class>
+	<Class Name="PTRA">
+		<Extend    Name="^ptra([A-Z0-9].*)" 		Type="RegexFunc" 	Source="pa" 		return="return"/>
+	</Class>
+	<Class Name="L_PTRA">
+		<Extend    Name="^ptra([A-Z0-9].*)" 		Type="RegexFunc" 	Source="pa" 		return="return"/>
+	</Class>
+	<Class Name="L_PTRAA">
+		<Extend    Name="^ptraa([A-Z0-9].*)" 		Type="RegexFunc" 	Source="paa" 		return="return"/>
+	</Class>
+	<Class Name="SARRAY">
+		<Extend    Name="^sarray([A-Z0-9].*)" 		Type="RegexFunc" 	Source="sa" 		return="return"/>
+	</Class>
+	
+	<Class Name="DPIX">
+		<Extend    Name="dpixRead" 				Type="Construct" 	Source="pixs"/> 
+		<Extend    Name="dpixCreate" 			Type="Construct" 	Source="pixs"/> 
+		<Extend    Name="dpixCreateTemplate" 	Type="Construct" 	Source="pixs"/> 
+		<Extend    Name="^dpix([A-Z0-9].*)" 	Type="RegexFunc" 	Source="dpixs" 		return="return"/>
 	</Class>
 	<Class Name="PIX">
 		<!-- Diese Parameter beziehen sich NUR auf das Property in der oben benannten Klasse! -->
@@ -30,7 +96,9 @@
 		Choose only 1 Constructor with the same parameters.
 		#############################################################################################################
 		-->
-		<Extend    Name="pixRead" 			Type="Construct" 	Source="pixs"/> 
+		<Extend    Name="pixRead" 				Type="Construct" 	Source="pixs"/> 
+		<Extend    Name="pixCreate" 			Type="Construct" 	Source="pixs"/> 
+		<Extend    Name="pixCreateTemplate" 	Type="Construct" 	Source="pixs"/> 
 		
 		<!-- 
 		#############################################################################################################
@@ -42,61 +110,28 @@
 		e.g. pixConvert16to8 und pixConvert32to8 are Defaulted in pixConvertTo8.
 		#############################################################################################################
 		-->
-		<Extend    Name="pixConvertTo32" 			Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="PixConvertTo16"  			Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvertTo8" 			Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvertTo4" 			Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvertTo2" 			Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvertTo1" 			Type="Function" 	Source="pixs" 		return="return"/>
-		
-		<Extend    Name="pixCopy" 					Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixDeskew" 				Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixInvert" 				Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixOrientCorrect" 			Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixBackgroundNormSimple" 	Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixCleanBackgroundToWhite" Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixGetRegionsBinary" 		Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend	   Name="pixConvertRGBToGray"		Type="Function"		Source="pixs"		return="return"/>
-		<Extend	   Name="pixOctcubeQuantMixedWithGray" Type="Function"	Source="pixs"		return="return"/>
+		<Extend    Name="^pix([A-Z0-9].*)" 			Type="RegexFunc" 	Source="pixs" 		return="return"/>
 		<Extend    Name="pixGetColormap" 			Type="Function" 	Source="pix" 		return="return"/>
 		<Extend    Name="pixSetColormap" 			Type="Function" 	Source="pix" 		return="return"/>
-		
-		
-		<!-- 
-		#############################################################################################################
-		If Parameter is selected the returned parameter must be the same as the class and a ByRef Parameter of the Function
-		Source will be replace by this class (me) and is always a optional value
-		#############################################################################################################
-		-->
-		<Extend    Name="dewarpSinglePage" 	Type="Function" 	Source="pixs" 		return="ppixd"/>
-		
+		<Extend    Name="dewarpSinglePage" 			Type="Function" 	Source="pixs" 		return="ppixd"/>
+
 		<!-- 
 		#############################################################################################################
 		No Return, But all ByRefs are returned
 		#############################################################################################################
-		-->
 		<Extend    Name="pixConvertToPdf" 	Type="Sub" 			Source="pix"/>
+		-->
 		
 	</Class>
 	<Class Name="L_BYTEA">
 		<Extend    Name="l_byteaCreate" 			Type="Construct" 	Source=""/>
 		<Extend    Name="l_byteaInitFromMem" 		Type="Construct" 	Source=""/>
 		<Extend    Name="l_byteaInitFromFile" 		Type="Construct" 	Source=""/>
-		<Extend    Name="l_byteaAppendString" 		Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaAppendData" 		Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaCopy" 				Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaCopyData" 			Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaGetData" 			Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaJoin" 				Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaSplit" 				Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaWrite" 				Type="Function" 	Source="ba" 		return="return"/>
-		<Extend    Name="l_byteaWriteStream" 		Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="^l_bytea([A-Z0-9].*)" 		Type="RegexFunc" 	Source="ba" 		return="return"/>
 	</Class>
 	<Class Name="PIXCOLORMAP">
+		<Extend	   Name="^pixcmap([A-Z0-9].*)"		Type="RegexFunc"	Source="cmap"		return="return"/>
 		<Extend    Name="pixcmapCreate" 			Type="Construct" 	Source=""/> 
-		<Extend    Name="pixcmapGetCount" 			Type="Function" 	Source="cmap" 		return="return"/>
-		<Extend    Name="pixcmapGetColor" 			Type="Function" 	Source="cmap" 		return="return"/>
-		<Extend    Name="pixcmapAddColor" 			Type="Function" 	Source="cmap" 		return="return"/>
 	</Class>
 	
 	<!-- Set defaults for functions (set to optional) and define return array size-->
@@ -276,5 +311,8 @@
 			<Default>1</Default>
 		</Parameter>
 	</Function>
+	
+	
+	
 	
 </Builder>

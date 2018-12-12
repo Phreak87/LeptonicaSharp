@@ -31,10 +31,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
+    <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>Full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -43,7 +44,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x86\Release\</OutputPath>
-    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <Optimize>true</Optimize>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugType>pdbonly</DebugType>
@@ -73,11 +75,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\Convert.vb" />
-    <Compile Include="Extensions\ExtensionEnumerations.vb" />
-    <Compile Include="Extensions\Extension_ColorMap_RGBAQuad.vb" />
+    <Compile Include="Extensions\Enumerations.vb" />
+    <Compile Include="Extensions\Colormaps.vb" />
     <Compile Include="Extensions\Extension_Pix.vb" />
     <Compile Include="Extensions\Konstruktoren.vb" />
-    <Compile Include="Extensions\MissingClass.vb" />
+    <Compile Include="Extensions\SystemClass.vb" />
     <Compile Include="Extensions\Natives.vb" />
     <Compile Include="Extensions\ShowPix.Designer.vb">
       <DependentUpon>ShowPix.vb</DependentUpon>

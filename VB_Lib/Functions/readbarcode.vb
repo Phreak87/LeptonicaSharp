@@ -1,10 +1,14 @@
-Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _All
+Imports System.Runtime.InteropServices
 
-' SRC\readbarcode.c (134, 1)
+Public Partial Class _All
+
+' readbarcode.c (134, 1)
 ' pixProcessBarcodes(pixs, format, method, psaw, debugflag) as Sarray
 ' pixProcessBarcodes(PIX *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
+'''  <summary>
+''' pixProcessBarcodes()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProcessBarcodes/*"/>
@@ -15,28 +19,29 @@ Partial Public Class _All
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>sarray text of barcodes, or NULL if none found or on error</returns>
 Public Shared Function pixProcessBarcodes(
-				 ByVal pixs as Pix, 
-				 ByVal format as Enumerations.IFF, 
-				 ByVal method as Enumerations.L_USE_WIS, 
-				<Out()> ByRef psaw as Sarray, 
-				 ByVal debugflag as Integer) as Sarray
+				ByVal pixs as Pix, 
+				ByVal format as Enumerations.IFF, 
+				ByVal method as Enumerations.L_USE_WIS, 
+				<Out()>  ByRef psaw as Sarray, 
+				ByVal debugflag as Integer) as Sarray
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-Dim psawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psaw) Then psawPTR = psaw.Pointer
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	Dim psawPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProcessBarcodes( pixs.Pointer, format, method, psawPTR, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-If psawPTR = IntPtr.Zero Then psaw = Nothing
-If psawPTR <> IntPtr.Zero Then psaw = New Sarray(psawPTR)
-
-	Return  new Sarray(_Result)
+	Dim _Result as IntPtr = Natives.pixProcessBarcodes(pixs.Pointer,   format,   method, psawPtr,   debugflag)
+	
+	if psawPtr = IntPtr.Zero then psaw = Nothing else psaw = new Sarray(psawPtr)
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Sarray(_Result)
 End Function
 
-' SRC\readbarcode.c (182, 1)
+' readbarcode.c (182, 1)
 ' pixExtractBarcodes(pixs, debugflag) as Pixa
 ' pixExtractBarcodes(PIX *, l_int32) as PIXA *
+'''  <summary>
+''' pixExtractBarcodes()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBarcodes/*"/>
@@ -44,21 +49,23 @@ End Function
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>pixa deskewed and cropped barcodes, or NULL if none found or on error</returns>
 Public Shared Function pixExtractBarcodes(
-				 ByVal pixs as Pix, 
-				 ByVal debugflag as Integer) as Pixa
+				ByVal pixs as Pix, 
+				ByVal debugflag as Integer) as Pixa
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodes( pixs.Pointer, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pixa(_Result)
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	Dim _Result as IntPtr = Natives.pixExtractBarcodes(pixs.Pointer,   debugflag)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pixa(_Result)
 End Function
 
-' SRC\readbarcode.c (254, 1)
+' readbarcode.c (254, 1)
 ' pixReadBarcodes(pixa, format, method, psaw, debugflag) as Sarray
 ' pixReadBarcodes(PIXA *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
+'''  <summary>
+''' pixReadBarcodes()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadBarcodes/*"/>
@@ -69,28 +76,29 @@ End Function
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>sa sarray of widths, one string for each barcode found, or NULL on error</returns>
 Public Shared Function pixReadBarcodes(
-				 ByVal pixa as Pixa, 
-				 ByVal format as Enumerations.IFF, 
-				 ByVal method as Enumerations.L_USE_WIS, 
-				<Out()> ByRef psaw as Sarray, 
-				 ByVal debugflag as Integer) as Sarray
+				ByVal pixa as Pixa, 
+				ByVal format as Enumerations.IFF, 
+				ByVal method as Enumerations.L_USE_WIS, 
+				<Out()>  ByRef psaw as Sarray, 
+				ByVal debugflag as Integer) as Sarray
 
-	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-Dim psawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psaw) Then psawPTR = psaw.Pointer
+if IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+	Dim psawPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadBarcodes( pixa.Pointer, format, method, psawPTR, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-If psawPTR = IntPtr.Zero Then psaw = Nothing
-If psawPTR <> IntPtr.Zero Then psaw = New Sarray(psawPTR)
-
-	Return  new Sarray(_Result)
+	Dim _Result as IntPtr = Natives.pixReadBarcodes(pixa.Pointer,   format,   method, psawPtr,   debugflag)
+	
+	if psawPtr = IntPtr.Zero then psaw = Nothing else psaw = new Sarray(psawPtr)
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Sarray(_Result)
 End Function
 
-' SRC\readbarcode.c (335, 1)
+' readbarcode.c (335, 1)
 ' pixReadBarcodeWidths(pixs, method, debugflag) as Numa
 ' pixReadBarcodeWidths(PIX *, l_int32, l_int32) as NUMA *
+'''  <summary>
+''' pixReadBarcodeWidths()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadBarcodeWidths/*"/>
@@ -99,22 +107,24 @@ End Function
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>na numa of widths (each in set {1,2,3,4}, or NULL on error</returns>
 Public Shared Function pixReadBarcodeWidths(
-				 ByVal pixs as Pix, 
-				 ByVal method as Enumerations.L_USE_WIS, 
-				 ByVal debugflag as Integer) as Numa
+				ByVal pixs as Pix, 
+				ByVal method as Enumerations.L_USE_WIS, 
+				ByVal debugflag as Integer) as Numa
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadBarcodeWidths( pixs.Pointer, method, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Numa(_Result)
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	Dim _Result as IntPtr = Natives.pixReadBarcodeWidths(pixs.Pointer,   method,   debugflag)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Numa(_Result)
 End Function
 
-' SRC\readbarcode.c (384, 1)
+' readbarcode.c (384, 1)
 ' pixLocateBarcodes(pixs, thresh, ppixb, ppixm) as Boxa
 ' pixLocateBarcodes(PIX *, l_int32, PIX **, PIX **) as BOXA *
+'''  <summary>
+''' pixLocateBarcodes()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLocateBarcodes/*"/>
@@ -124,35 +134,30 @@ End Function
 '''  <param name="ppixm">[out][optional] - mask over barcodes</param>
 '''   <returns>boxa location of barcodes, or NULL if none found or on error</returns>
 Public Shared Function pixLocateBarcodes(
-				 ByVal pixs as Pix, 
-				 ByVal thresh as Integer, 
-				<Out()> Optional ByRef ppixb as Pix = Nothing, 
-				<Out()> Optional ByRef ppixm as Pix = Nothing) as Boxa
+				ByVal pixs as Pix, 
+				ByVal thresh as Integer, 
+				<Out()> Optional  ByRef ppixb as Pix = Nothing, 
+				<Out()> Optional  ByRef ppixm as Pix = Nothing) as Boxa
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
-Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	Dim ppixbPtr as IntPtr = IntPtr.Zero
+	Dim ppixmPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixLocateBarcodes( pixs.Pointer, thresh, ppixbPTR, ppixmPTR)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
-If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
-If ppixmPTR = IntPtr.Zero Then ppixm = Nothing
-If ppixmPTR <> IntPtr.Zero Then ppixm = New Pix(ppixmPTR)
-
-	Return  new Boxa(_Result)
+	Dim _Result as IntPtr = Natives.pixLocateBarcodes(pixs.Pointer,   thresh, ppixbPtr, ppixmPtr)
+	
+	if ppixbPtr = IntPtr.Zero then ppixb = Nothing else ppixb = new Pix(ppixbPtr)
+	if ppixmPtr = IntPtr.Zero then ppixm = Nothing else ppixm = new Pix(ppixmPtr)
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Boxa(_Result)
 End Function
 
-' SRC\readbarcode.c (500, 1)
+' readbarcode.c (500, 1)
 ' pixDeskewBarcode(pixs, pixb, box, margin, threshold, pangle, pconf) as Pix
 ' pixDeskewBarcode(PIX *, PIX *, BOX *, l_int32, l_int32, l_float32 *, l_float32 *) as PIX *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) The (optional) angle returned is the angle in degrees (cw positive)
-''' necessary to rotate the image so that it is deskewed.
+'''necessary to rotate the image so that it is deskewed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -166,38 +171,35 @@ End Function
 '''  <param name="pconf">[out][optional] - confidence</param>
 '''   <returns>pixd deskewed barcode, or NULL on error</returns>
 Public Shared Function pixDeskewBarcode(
-				 ByVal pixs as Pix, 
-				 ByVal pixb as Pix, 
-				 ByVal box as Box, 
-				 ByVal margin as Integer, 
-				 ByVal threshold as Integer, 
-				<Out()> Optional ByRef pangle as Single = Nothing, 
-				<Out()> Optional ByRef pconf as Single = Nothing) as Pix
+				ByVal pixs as Pix, 
+				ByVal pixb as Pix, 
+				ByVal box as Box, 
+				ByVal margin as Integer, 
+				ByVal threshold as Integer, 
+				<Out()> Optional  ByRef pangle as Single = 0f, 
+				<Out()> Optional  ByRef pconf as Single = 0f) as Pix
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
-	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewBarcode( pixs.Pointer, pixb.Pointer, box.Pointer, margin, threshold, pangle, pconf)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pix(_Result)
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+		if IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
+		if IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+	Dim _Result as IntPtr = Natives.pixDeskewBarcode(pixs.Pointer, pixb.Pointer, box.Pointer,   margin,   threshold,   pangle,   pconf)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pix(_Result)
 End Function
 
-' SRC\readbarcode.c (626, 1)
+' readbarcode.c (626, 1)
 ' pixExtractBarcodeWidths1(pixs, thresh, binfract, pnaehist, pnaohist, debugflag) as Numa
 ' pixExtractBarcodeWidths1(PIX *, l_float32, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) The widths are alternating black/white, starting with black
-''' and ending with black.<para/>
-''' 
-''' (2) This method uses the widths of the bars directly, in terms
-''' of the (float) number of pixels between transitions.
-''' The histograms of these widths for black and white bars is
-''' generated and interpreted.
+'''and ending with black.<para/>
+'''
+'''(2) This method uses the widths of the bars directly, in terms
+'''of the (float) number of pixels between transitions.
+'''The histograms of these widths for black and white bars is
+'''generated and interpreted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -210,47 +212,42 @@ End Function
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>nad numa of barcode widths in encoded integer units, or NULL on error</returns>
 Public Shared Function pixExtractBarcodeWidths1(
-				 ByVal pixs as Pix, 
-				 ByVal thresh as Single, 
-				 ByVal binfract as Single, 
-				<Out()> ByRef pnaehist as Numa, 
-				<Out()> ByRef pnaohist as Numa, 
-				 ByVal debugflag as Integer) as Numa
+				ByVal pixs as Pix, 
+				ByVal thresh as Single, 
+				ByVal binfract as Single, 
+				<Out()>  ByRef pnaehist as Numa, 
+				<Out()>  ByRef pnaohist as Numa, 
+				ByVal debugflag as Integer) as Numa
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-Dim pnaehistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaehist) Then pnaehistPTR = pnaehist.Pointer
-Dim pnaohistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaohist) Then pnaohistPTR = pnaohist.Pointer
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	Dim pnaehistPtr as IntPtr = IntPtr.Zero
+	Dim pnaohistPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodeWidths1( pixs.Pointer, thresh, binfract, pnaehistPTR, pnaohistPTR, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-If pnaehistPTR = IntPtr.Zero Then pnaehist = Nothing
-If pnaehistPTR <> IntPtr.Zero Then pnaehist = New Numa(pnaehistPTR)
-If pnaohistPTR = IntPtr.Zero Then pnaohist = Nothing
-If pnaohistPTR <> IntPtr.Zero Then pnaohist = New Numa(pnaohistPTR)
-
-	Return  new Numa(_Result)
+	Dim _Result as IntPtr = Natives.pixExtractBarcodeWidths1(pixs.Pointer,   thresh,   binfract, pnaehistPtr, pnaohistPtr,   debugflag)
+	
+	if pnaehistPtr = IntPtr.Zero then pnaehist = Nothing else pnaehist = new Numa(pnaehistPtr)
+	if pnaohistPtr = IntPtr.Zero then pnaohist = Nothing else pnaohist = new Numa(pnaohistPtr)
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Numa(_Result)
 End Function
 
-' SRC\readbarcode.c (679, 1)
+' readbarcode.c (679, 1)
 ' pixExtractBarcodeWidths2(pixs, thresh, pwidth, pnac, debugflag) as Numa
 ' pixExtractBarcodeWidths2(PIX *, l_float32, l_float32 *, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) The widths are alternating black/white, starting with black
-''' and ending with black.<para/>
-''' 
-''' (2) The optional best decoding window width is the width of the window
-''' that is used to make a decision about whether a transition occurs.
-''' It is approximately the average width in pixels of the narrowest
-''' white and black bars (i.e., those corresponding to unit width).<para/>
-''' 
-''' (3) The optional return signal %nac is a sequence of 0s, 1s,
-''' and perhaps a few 2s, giving the number of crossings in each window.
-''' On the occasion where there is a '2', it is interpreted as
-''' as ending two runs: the previous one and another one that has length 1.
+'''and ending with black.<para/>
+'''
+'''(2) The optional best decoding window width is the width of the window
+'''that is used to make a decision about whether a transition occurs.
+'''It is approximately the average width in pixels of the narrowest
+'''white and black bars (i.e., those corresponding to unit width).<para/>
+'''
+'''(3) The optional return signal %nac is a sequence of 0s, 1s,
+'''and perhaps a few 2s, giving the number of crossings in each window.
+'''On the occasion where there is a '2', it is interpreted as
+'''as ending two runs: the previous one and another one that has length 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -262,28 +259,29 @@ End Function
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>nad numa of barcode widths in encoded integer units, or NULL on error</returns>
 Public Shared Function pixExtractBarcodeWidths2(
-				 ByVal pixs as Pix, 
-				 ByVal thresh as Single, 
-				<Out()> ByRef pwidth as Single, 
-				<Out()> ByRef pnac as Numa, 
-				 ByVal debugflag as Integer) as Numa
+				ByVal pixs as Pix, 
+				ByVal thresh as Single, 
+				<Out()>  ByRef pwidth as Single, 
+				<Out()>  ByRef pnac as Numa, 
+				ByVal debugflag as Integer) as Numa
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-Dim pnacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnac) Then pnacPTR = pnac.Pointer
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	Dim pnacPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodeWidths2( pixs.Pointer, thresh, pwidth, pnacPTR, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-If pnacPTR = IntPtr.Zero Then pnac = Nothing
-If pnacPTR <> IntPtr.Zero Then pnac = New Numa(pnacPTR)
-
-	Return  new Numa(_Result)
+	Dim _Result as IntPtr = Natives.pixExtractBarcodeWidths2(pixs.Pointer,   thresh,   pwidth, pnacPtr,   debugflag)
+	
+	if pnacPtr = IntPtr.Zero then pnac = Nothing else pnac = new Numa(pnacPtr)
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Numa(_Result)
 End Function
 
-' SRC\readbarcode.c (713, 1)
+' readbarcode.c (713, 1)
 ' pixExtractBarcodeCrossings(pixs, thresh, debugflag) as Numa
 ' pixExtractBarcodeCrossings(PIX *, l_float32, l_int32) as NUMA *
+'''  <summary>
+''' pixExtractBarcodeCrossings()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBarcodeCrossings/*"/>
@@ -292,35 +290,32 @@ End Function
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>numa of crossings, in pixel units, or NULL on error</returns>
 Public Shared Function pixExtractBarcodeCrossings(
-				 ByVal pixs as Pix, 
-				 ByVal thresh as Single, 
-				 ByVal debugflag as Integer) as Numa
+				ByVal pixs as Pix, 
+				ByVal thresh as Single, 
+				ByVal debugflag as Integer) as Numa
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodeCrossings( pixs.Pointer, thresh, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Numa(_Result)
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	Dim _Result as IntPtr = Natives.pixExtractBarcodeCrossings(pixs.Pointer,   thresh,   debugflag)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Numa(_Result)
 End Function
 
-' SRC\readbarcode.c (837, 1)
+' readbarcode.c (837, 1)
 ' numaQuantizeCrossingsByWidth(nas, binfract, pnaehist, pnaohist, debugflag) as Numa
 ' numaQuantizeCrossingsByWidth(NUMA *, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This first computes the histogram of black and white bar widths,
-''' binned in appropriate units.  There should be well-defined
-''' peaks, each corresponding to a specific width.  The sequence
-''' of barcode widths (namely, the integers from the set {1,2,3,4})
-''' is returned.<para/>
-''' 
-''' (2) The optional returned histograms are binned in width units
-''' that are inversely proportional to %binfract.  For example,
-''' if %binfract = 0.25, there are 4.0 bins in the distance of
-''' the width of the narrowest bar.
+'''binned in appropriate units.  There should be well-defined
+'''peaks, each corresponding to a specific width.  The sequence
+'''of barcode widths (namely, the integers from the set {1,2,3,4})
+'''is returned.<para/>
+'''
+'''(2) The optional returned histograms are binned in width units
+'''that are inversely proportional to %binfract.  For example,
+'''if %binfract = 0.25, there are 4.0 bins in the distance of
+'''the width of the narrowest bar.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -332,41 +327,36 @@ End Function
 '''  <param name="debugflag">[in] - 1 to generate plots of histograms of bar widths</param>
 '''   <returns>nad sequence of widths, in unit sizes, or NULL on error</returns>
 Public Shared Function numaQuantizeCrossingsByWidth(
-				 ByVal nas as Numa, 
-				 ByVal binfract as Single, 
-				<Out()> ByRef pnaehist as Numa, 
-				<Out()> ByRef pnaohist as Numa, 
-				 ByVal debugflag as Integer) as Numa
+				ByVal nas as Numa, 
+				ByVal binfract as Single, 
+				<Out()>  ByRef pnaehist as Numa, 
+				<Out()>  ByRef pnaohist as Numa, 
+				ByVal debugflag as Integer) as Numa
 
-	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
-Dim pnaehistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaehist) Then pnaehistPTR = pnaehist.Pointer
-Dim pnaohistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaohist) Then pnaohistPTR = pnaohist.Pointer
+if IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+	Dim pnaehistPtr as IntPtr = IntPtr.Zero
+	Dim pnaohistPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaQuantizeCrossingsByWidth( nas.Pointer, binfract, pnaehistPTR, pnaohistPTR, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-If pnaehistPTR = IntPtr.Zero Then pnaehist = Nothing
-If pnaehistPTR <> IntPtr.Zero Then pnaehist = New Numa(pnaehistPTR)
-If pnaohistPTR = IntPtr.Zero Then pnaohist = Nothing
-If pnaohistPTR <> IntPtr.Zero Then pnaohist = New Numa(pnaohistPTR)
-
-	Return  new Numa(_Result)
+	Dim _Result as IntPtr = Natives.numaQuantizeCrossingsByWidth(nas.Pointer,   binfract, pnaehistPtr, pnaohistPtr,   debugflag)
+	
+	if pnaehistPtr = IntPtr.Zero then pnaehist = Nothing else pnaehist = new Numa(pnaehistPtr)
+	if pnaohistPtr = IntPtr.Zero then pnaohist = Nothing else pnaohist = new Numa(pnaohistPtr)
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Numa(_Result)
 End Function
 
-' SRC\readbarcode.c (1267, 1)
+' readbarcode.c (1267, 1)
 ' numaQuantizeCrossingsByWindow(nas, ratio, pwidth, pfirstloc, pnac, debugflag) as Numa
 ' numaQuantizeCrossingsByWindow(NUMA *, l_float32, l_float32 *, l_float32 *, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) The minimum size of the window is set by the minimum
-''' distance between zero crossings.<para/>
-''' 
-''' (2) The optional return signal %nac is a sequence of 0s, 1s,
-''' and perhaps a few 2s, giving the number of crossings in each window.
-''' On the occasion where there is a '2', it is interpreted as
-''' ending two runs: the previous one and another one that has length 1.
+'''distance between zero crossings.<para/>
+'''
+'''(2) The optional return signal %nac is a sequence of 0s, 1s,
+'''and perhaps a few 2s, giving the number of crossings in each window.
+'''On the occasion where there is a '2', it is interpreted as
+'''ending two runs: the previous one and another one that has length 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -379,24 +369,24 @@ End Function
 '''  <param name="debugflag">[in] - 1 to generate various plots of intermediate results</param>
 '''   <returns>nad sequence of widths, in unit sizes, or NULL on error</returns>
 Public Shared Function numaQuantizeCrossingsByWindow(
-				 ByVal nas as Numa, 
-				 ByVal ratio as Single, 
-				<Out()> ByRef pwidth as Single, 
-				<Out()> ByRef pfirstloc as Single, 
-				<Out()> ByRef pnac as Numa, 
-				 ByVal debugflag as Integer) as Numa
+				ByVal nas as Numa, 
+				ByVal ratio as Single, 
+				<Out()>  ByRef pwidth as Single, 
+				<Out()>  ByRef pfirstloc as Single, 
+				<Out()>  ByRef pnac as Numa, 
+				ByVal debugflag as Integer) as Numa
 
-	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
-Dim pnacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnac) Then pnacPTR = pnac.Pointer
+if IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+	Dim pnacPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaQuantizeCrossingsByWindow( nas.Pointer, ratio, pwidth, pfirstloc, pnacPTR, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-If pnacPTR = IntPtr.Zero Then pnac = Nothing
-If pnacPTR <> IntPtr.Zero Then pnac = New Numa(pnacPTR)
-
-	Return  new Numa(_Result)
+	Dim _Result as IntPtr = Natives.numaQuantizeCrossingsByWindow(nas.Pointer,   ratio,   pwidth,   pfirstloc, pnacPtr,   debugflag)
+	
+	if pnacPtr = IntPtr.Zero then pnac = Nothing else pnac = new Numa(pnacPtr)
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Numa(_Result)
 End Function
 
 End Class
+
+

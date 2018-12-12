@@ -1,28 +1,35 @@
-Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _All
+Imports System.Runtime.InteropServices
 
-' SRC\ptabasic.c (116, 1)
+Public Partial Class _All
+
+' ptabasic.c (116, 1)
 ' ptaCreate(n) as Pta
 ' ptaCreate(l_int32) as PTA *
+'''  <summary>
+''' ptaCreate()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaCreate/*"/>
 '''  <param name="n">[in] - initial array sizes</param>
 '''   <returns>pta, or NULL on error.</returns>
 Public Shared Function ptaCreate(
-				 ByVal n as Integer) as Pta
+				ByVal n as Integer) as Pta
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCreate( n)
 
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+	Dim _Result as IntPtr = Natives.ptaCreate(  n)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (149, 1)
+' ptabasic.c (149, 1)
 ' ptaCreateFromNuma(nax, nay) as Pta
 ' ptaCreateFromNuma(NUMA *, NUMA *) as PTA *
+'''  <summary>
+''' ptaCreateFromNuma()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaCreateFromNuma/*"/>
@@ -30,69 +37,70 @@ End Function
 '''  <param name="nay">[in] - </param>
 '''   <returns>pta, or NULL on error.</returns>
 Public Shared Function ptaCreateFromNuma(
-				 ByVal nax as Numa, 
-				 ByVal nay as Numa) as Pta
+				ByVal nax as Numa, 
+				ByVal nay as Numa) as Pta
 
-	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 
-	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
+if IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
+	Dim naxPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(nax) Then naxPtr = nax.Pointer
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCreateFromNuma( naxPTR, nay.Pointer)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+	Dim _Result as IntPtr = Natives.ptaCreateFromNuma(naxPtr, nay.Pointer)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (192, 1)
+' ptabasic.c (192, 1)
 ' ptaDestroy(ppta) as Object
 ' ptaDestroy(PTA **) as void
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Decrements the ref count and, if 0, destroys the pta.<para/>
-''' 
-''' (2) Always nulls the input ptr.
+'''
+'''(2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaDestroy/*"/>
 '''  <param name="ppta">[in,out] - to be nulled</param>
 Public Shared Sub ptaDestroy(
-				 ByRef ppta as Pta)
+				ByRef ppta as Pta)
 
-	Dim pptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppta) Then pptaPTR = ppta.Pointer
 
-	LeptonicaSharp.Natives.ptaDestroy( pptaPTR)
+	Dim pptaPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(ppta) Then pptaPtr = ppta.Pointer
 
-If pptaPTR = IntPtr.Zero Then ppta = Nothing
-If pptaPTR <> IntPtr.Zero Then ppta = New Pta(pptaPTR)
-
+	Natives.ptaDestroy( pptaPtr)
+	
+	if pptaPtr = IntPtr.Zero then ppta = Nothing else ppta = new Pta(pptaPtr)
 End Sub
 
-' SRC\ptabasic.c (225, 1)
+' ptabasic.c (225, 1)
 ' ptaCopy(pta) as Pta
 ' ptaCopy(PTA *) as PTA *
+'''  <summary>
+''' ptaCopy()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaCopy/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>copy of pta, or NULL on error</returns>
 Public Shared Function ptaCopy(
-				 ByVal pta as Pta) as Pta
+				ByVal pta as Pta) as Pta
 
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCopy( pta.Pointer)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaCopy(pta.Pointer)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (257, 1)
+' ptabasic.c (257, 1)
 ' ptaCopyRange(ptas, istart, iend) as Pta
 ' ptaCopyRange(PTA *, l_int32, l_int32) as PTA *
+'''  <summary>
+''' ptaCopyRange()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaCopyRange/*"/>
@@ -101,44 +109,44 @@ End Function
 '''  <param name="iend">[in] - ending index in ptas use 0 to copy to end</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaCopyRange(
-				 ByVal ptas as Pta, 
-				 ByVal istart as Integer, 
-				 ByVal iend as Integer) as Pta
+				ByVal ptas as Pta, 
+				ByVal istart as Integer, 
+				ByVal iend as Integer) as Pta
 
-	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCopyRange( ptas.Pointer, istart, iend)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+if IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaCopyRange(ptas.Pointer,   istart,   iend)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (296, 1)
+' ptabasic.c (296, 1)
 ' ptaClone(pta) as Pta
 ' ptaClone(PTA *) as PTA *
+'''  <summary>
+''' ptaClone()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaClone/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>ptr to same pta, or NULL on error</returns>
 Public Shared Function ptaClone(
-				 ByVal pta as Pta) as Pta
+				ByVal pta as Pta) as Pta
 
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaClone( pta.Pointer)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaClone(pta.Pointer)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (320, 1)
+' ptabasic.c (320, 1)
 ' ptaEmpty(pta) as Integer
 ' ptaEmpty(PTA *) as l_ok
 '''  <summary>
-''' Notes:
 ''' This only resets the Pta::n field, for reuse
 '''  </summary>
 '''  <remarks>
@@ -147,19 +155,21 @@ End Function
 '''  <param name="pta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaEmpty(
-				 ByVal pta as Pta) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaEmpty( pta.Pointer)
+				ByVal pta as Pta) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaEmpty(pta.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (342, 1)
+' ptabasic.c (342, 1)
 ' ptaAddPt(pta, x, y) as Integer
 ' ptaAddPt(PTA *, l_float32, l_float32) as l_ok
+'''  <summary>
+''' ptaAddPt()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaAddPt/*"/>
@@ -168,21 +178,23 @@ End Function
 '''  <param name="y">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaAddPt(
-				 ByVal pta as Pta, 
-				 ByVal x as Single, 
-				 ByVal y as Single) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaAddPt( pta.Pointer, x, y)
+				ByVal pta as Pta, 
+				ByVal x as Single, 
+				ByVal y as Single) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaAddPt(pta.Pointer,   x,   y)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (404, 1)
+' ptabasic.c (404, 1)
 ' ptaInsertPt(pta, index, x, y) as Integer
 ' ptaInsertPt(PTA *, l_int32, l_int32, l_int32) as l_ok
+'''  <summary>
+''' ptaInsertPt()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaInsertPt/*"/>
@@ -192,29 +204,26 @@ End Function
 '''  <param name="y">[in] - point values</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaInsertPt(
-				 ByVal pta as Pta, 
-				 ByVal index as Integer, 
-				 ByVal x as Integer, 
-				 ByVal y as Integer) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaInsertPt( pta.Pointer, index, x, y)
+				ByVal pta as Pta, 
+				ByVal index as Integer, 
+				ByVal x as Integer, 
+				ByVal y as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaInsertPt(pta.Pointer,   index,   x,   y)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (447, 1)
+' ptabasic.c (447, 1)
 ' ptaRemovePt(pta, index) as Integer
 ' ptaRemovePt(PTA *, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This shifts pta[i] to pta[i - 1] for all i  is greater  index.<para/>
-''' 
-''' (2) It should not be used repeatedly on large arrays,
-''' because the function is O(n).
+'''
+'''(2) It should not be used repeatedly on large arrays,
+'''because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -223,18 +232,17 @@ End Function
 '''  <param name="index">[in] - of point to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaRemovePt(
-				 ByVal pta as Pta, 
-				 ByVal index as Integer) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaRemovePt( pta.Pointer, index)
+				ByVal pta as Pta, 
+				ByVal index as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaRemovePt(pta.Pointer,   index)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (474, 1)
+' ptabasic.c (474, 1)
 ' ptaGetRefcount(pta) as Integer
 ' ptaGetRefcount(PTA *) as l_int32
 '''  <remarks>
@@ -242,19 +250,18 @@ End Function
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function ptaGetRefcount(
-				 ByVal pta as Pta) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-Dim ptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pta) Then ptaPTR = pta.Pointer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetRefcount( pta.Pointer)
+				ByVal pta as Pta) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim ptaPtr as IntPtr = IntPtr.Zero : If Not IsNothing(pta) Then ptaPtr = pta.Pointer
+
+	Dim _Result as Integer = Natives.ptaGetRefcount(pta.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (485, 1)
+' ptabasic.c (485, 1)
 ' ptaChangeRefcount(pta, delta) as Integer
 ' ptaChangeRefcount(PTA *, l_int32) as l_int32
 '''  <remarks>
@@ -262,41 +269,45 @@ End Function
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaChangeRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function ptaChangeRefcount(
-				 ByVal pta as Pta, 
-				 ByVal delta as Integer) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-Dim ptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pta) Then ptaPTR = pta.Pointer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaChangeRefcount( pta.Pointer, delta)
+				ByVal pta as Pta, 
+				ByVal delta as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim ptaPtr as IntPtr = IntPtr.Zero : If Not IsNothing(pta) Then ptaPtr = pta.Pointer
+
+	Dim _Result as Integer = Natives.ptaChangeRefcount(pta.Pointer,   delta)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (504, 1)
+' ptabasic.c (504, 1)
 ' ptaGetCount(pta) as Integer
 ' ptaGetCount(PTA *) as l_int32
+'''  <summary>
+''' ptaGetCount()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetCount/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>count, or 0 if no pta</returns>
 Public Shared Function ptaGetCount(
-				 ByVal pta as Pta) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetCount( pta.Pointer)
+				ByVal pta as Pta) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaGetCount(pta.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (525, 1)
+' ptabasic.c (525, 1)
 ' ptaGetPt(pta, index, px, py) as Integer
 ' ptaGetPt(PTA *, l_int32, l_float32 *, l_float32 *) as l_ok
+'''  <summary>
+''' ptaGetPt()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetPt/*"/>
@@ -306,22 +317,24 @@ End Function
 '''  <param name="py">[out][optional] - float y value</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaGetPt(
-				 ByVal pta as Pta, 
-				 ByVal index as Integer, 
-				<Out()> Optional ByRef px as Single = Nothing, 
-				<Out()> Optional ByRef py as Single = Nothing) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetPt( pta.Pointer, index, px, py)
+				ByVal pta as Pta, 
+				ByVal index as Integer, 
+				<Out()> Optional  ByRef px as Single = 0f, 
+				<Out()> Optional  ByRef py as Single = 0f) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaGetPt(pta.Pointer,   index,   px,   py)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (555, 1)
+' ptabasic.c (555, 1)
 ' ptaGetIPt(pta, index, px, py) as Integer
 ' ptaGetIPt(PTA *, l_int32, l_int32 *, l_int32 *) as l_ok
+'''  <summary>
+''' ptaGetIPt()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetIPt/*"/>
@@ -331,22 +344,24 @@ End Function
 '''  <param name="py">[out][optional] - integer y value</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaGetIPt(
-				 ByVal pta as Pta, 
-				 ByVal index as Integer, 
-				<Out()> Optional ByRef px as Integer = Nothing, 
-				<Out()> Optional ByRef py as Integer = Nothing) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetIPt( pta.Pointer, index, px, py)
+				ByVal pta as Pta, 
+				ByVal index as Integer, 
+				<Out()> Optional  ByRef px as Integer = 0, 
+				<Out()> Optional  ByRef py as Integer = 0) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaGetIPt(pta.Pointer,   index,   px,   py)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (584, 1)
+' ptabasic.c (584, 1)
 ' ptaSetPt(pta, index, x, y) as Integer
 ' ptaSetPt(PTA *, l_int32, l_float32, l_float32) as l_ok
+'''  <summary>
+''' ptaSetPt()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaSetPt/*"/>
@@ -356,25 +371,22 @@ End Function
 '''  <param name="y">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaSetPt(
-				 ByVal pta as Pta, 
-				 ByVal index as Integer, 
-				 ByVal x as Single, 
-				 ByVal y as Single) as Integer
-
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaSetPt( pta.Pointer, index, x, y)
+				ByVal pta as Pta, 
+				ByVal index as Integer, 
+				ByVal x as Single, 
+				ByVal y as Single) as Integer
 
 
-	Return _Result
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaSetPt(pta.Pointer,   index,   x,   y)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (616, 1)
+' ptabasic.c (616, 1)
 ' ptaGetArrays(pta, pnax, pnay) as Integer
 ' ptaGetArrays(PTA *, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This copies the internal arrays into new Numas.
 '''  </summary>
 '''  <remarks>
@@ -385,70 +397,75 @@ End Function
 '''  <param name="pnay">[out][optional] - numa of y array</param>
 '''   <returns>0 if OK 1 on error or if pta is empty</returns>
 Public Shared Function ptaGetArrays(
-				 ByVal pta as Pta, 
-				<Out()> Optional ByRef pnax as Numa = Nothing, 
-				<Out()> Optional ByRef pnay as Numa = Nothing) as Integer
+				ByVal pta as Pta, 
+				<Out()> Optional  ByRef pnax as Numa = Nothing, 
+				<Out()> Optional  ByRef pnay as Numa = Nothing) as Integer
 
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-Dim pnaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnax) Then pnaxPTR = pnax.Pointer
-Dim pnayPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnay) Then pnayPTR = pnay.Pointer
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim pnaxPtr as IntPtr = IntPtr.Zero
+	Dim pnayPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetArrays( pta.Pointer, pnaxPTR, pnayPTR)
-
-If pnaxPTR = IntPtr.Zero Then pnax = Nothing
-If pnaxPTR <> IntPtr.Zero Then pnax = New Numa(pnaxPTR)
-If pnayPTR = IntPtr.Zero Then pnay = Nothing
-If pnayPTR <> IntPtr.Zero Then pnay = New Numa(pnayPTR)
-
-	Return _Result
+	Dim _Result as Integer = Natives.ptaGetArrays(pta.Pointer, pnaxPtr, pnayPtr)
+	
+	if pnaxPtr = IntPtr.Zero then pnax = Nothing else pnax = new Numa(pnaxPtr)
+	if pnayPtr = IntPtr.Zero then pnay = Nothing else pnay = new Numa(pnayPtr)
+	return _Result
 End Function
 
-' SRC\ptabasic.c (664, 1)
+' ptabasic.c (664, 1)
 ' ptaRead(filename) as Pta
 ' ptaRead(const char *) as PTA *
+'''  <summary>
+''' ptaRead()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaRead(
-				 ByVal filename as String) as Pta
+				ByVal filename as String) as Pta
 
-	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
-
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaRead( filename)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+If My.Computer.Filesystem.FileExists (filename) = false then 
+	   Throw New ArgumentException ("File is missing")
+	End If
+	Dim _Result as IntPtr = Natives.ptaRead(  filename)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (691, 1)
+' ptabasic.c (691, 1)
 ' ptaReadStream(fp) as Pta
 ' ptaReadStream(FILE *) as PTA *
+'''  <summary>
+''' ptaReadStream()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaReadStream(
-				 ByVal fp as FILE) as Pta
+				ByVal fp as FILE) as Pta
 
-	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaReadStream( fp.Pointer)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaReadStream(fp.Pointer)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (744, 1)
+' ptabasic.c (744, 1)
 ' ptaReadMem(data, size) as Pta
 ' ptaReadMem(const l_uint8 *, size_t) as PTA *
+'''  <summary>
+''' ptaReadMem()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaReadMem/*"/>
@@ -456,30 +473,27 @@ End Function
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaReadMem(
-				 ByVal data as Byte(), 
-				 ByVal size as UInteger) as Pta
+				ByVal data as Byte(), 
+				ByVal size as UInteger) as Pta
 
-	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaReadMem( data, size)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+if IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaReadMem(  data,   size)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (782, 1)
+' ptabasic.c (782, 1)
 ' ptaWriteDebug(filename, pta, type) as Integer
 ' ptaWriteDebug(const char *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Debug version, intended for use in the library when writing
-''' to files in a temp directory with names that are compiled in.
-''' This is used instead of ptaWrite() for all such library calls.<para/>
-''' 
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set
-''' or cleared by the function setLeptDebugOK().
+'''to files in a temp directory with names that are compiled in.
+'''This is used instead of ptaWrite() for all such library calls.<para/>
+'''
+'''(2) The global variable LeptDebugOK defaults to 0, and can be set
+'''or cleared by the function setLeptDebugOK().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -489,22 +503,24 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaWriteDebug(
-				 ByVal filename as String, 
-				 ByVal pta as Pta, 
-				 ByVal type as Integer) as Integer
-
-	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWriteDebug( filename, pta.Pointer, type)
+				ByVal filename as String, 
+				ByVal pta as Pta, 
+				ByVal type as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+		if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaWriteDebug(  filename, pta.Pointer,   type)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (806, 1)
+' ptabasic.c (806, 1)
 ' ptaWrite(filename, pta, type) as Integer
 ' ptaWrite(const char *, PTA *, l_int32) as l_ok
+'''  <summary>
+''' ptaWrite()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaWrite/*"/>
@@ -513,22 +529,24 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaWrite(
-				 ByVal filename as String, 
-				 ByVal pta as Pta, 
-				 ByVal type as Integer) as Integer
-
-	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWrite( filename, pta.Pointer, type)
+				ByVal filename as String, 
+				ByVal pta as Pta, 
+				ByVal type as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+		if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaWrite(  filename, pta.Pointer,   type)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (839, 1)
+' ptabasic.c (839, 1)
 ' ptaWriteStream(fp, pta, type) as Integer
 ' ptaWriteStream(FILE *, PTA *, l_int32) as l_ok
+'''  <summary>
+''' ptaWriteStream()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaWriteStream/*"/>
@@ -537,25 +555,22 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaWriteStream(
-				 ByVal fp as FILE, 
-				 ByVal pta as Pta, 
-				 ByVal type as Integer) as Integer
-
-	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWriteStream( fp.Pointer, pta.Pointer, type)
+				ByVal fp as FILE, 
+				ByVal pta as Pta, 
+				ByVal type as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+		if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaWriteStream(fp.Pointer, pta.Pointer,   type)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (888, 1)
+' ptabasic.c (888, 1)
 ' ptaWriteMem(pdata, psize, pta, type) as Integer
 ' ptaWriteMem(l_uint8 **, size_t *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Serializes a pta in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
@@ -567,62 +582,72 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaWriteMem(
-				<Out()> ByRef pdata as Byte(), 
-				<Out()> ByRef psize as UInteger, 
-				 ByVal pta as Pta, 
-				 ByVal type as Integer) as Integer
+				<Out()>  ByRef pdata as Byte(), 
+				<Out()>  ByRef psize as UInteger, 
+				ByVal pta as Pta, 
+				ByVal type as Integer) as Integer
 
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-	Dim pdataPTR As IntPtr = IntPtr.Zero
+if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim pdataPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWriteMem( pdataPTR, psize, pta.Pointer, type)
-
-	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
-
-	Return _Result
+	Dim _Result as Integer = Natives.ptaWriteMem(  pdataPtr,   psize, pta.Pointer,   type)
+	
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1)
+	If pdataPtr <> IntPtr.Zero Then 
+	  Marshal.Copy(pdataPtr, pdata, 0, pdata.count)
+	End If
+	return _Result
 End Function
 
-' SRC\ptabasic.c (939, 1)
+' ptabasic.c (939, 1)
 ' ptaaCreate(n) as Ptaa
 ' ptaaCreate(l_int32) as PTAA *
+'''  <summary>
+''' ptaaCreate()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaCreate(
-				 ByVal n as Integer) as Ptaa
+				ByVal n as Integer) as Ptaa
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaCreate( n)
 
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Ptaa(_Result)
+	Dim _Result as IntPtr = Natives.ptaaCreate(  n)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Ptaa(_Result)
 End Function
 
-' SRC\ptabasic.c (967, 1)
+' ptabasic.c (967, 1)
 ' ptaaDestroy(pptaa) as Object
 ' ptaaDestroy(PTAA **) as void
+'''  <summary>
+''' ptaaDestroy()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaDestroy/*"/>
 '''  <param name="pptaa">[in,out] - to be nulled</param>
 Public Shared Sub ptaaDestroy(
-				 ByRef pptaa as Ptaa)
+				ByRef pptaa as Ptaa)
 
-	Dim pptaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptaa) Then pptaaPTR = pptaa.Pointer
 
-	LeptonicaSharp.Natives.ptaaDestroy( pptaaPTR)
+	Dim pptaaPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(pptaa) Then pptaaPtr = pptaa.Pointer
 
-If pptaaPTR = IntPtr.Zero Then pptaa = Nothing
-If pptaaPTR <> IntPtr.Zero Then pptaa = New Ptaa(pptaaPTR)
-
+	Natives.ptaaDestroy( pptaaPtr)
+	
+	if pptaaPtr = IntPtr.Zero then pptaa = Nothing else pptaa = new Ptaa(pptaaPtr)
 End Sub
 
-' SRC\ptabasic.c (1004, 1)
+' ptabasic.c (1004, 1)
 ' ptaaAddPta(ptaa, pta, copyflag) as Integer
 ' ptaaAddPta(PTAA *, PTA *, l_int32) as l_ok
+'''  <summary>
+''' ptaaAddPta()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaAddPta/*"/>
@@ -631,41 +656,45 @@ End Sub
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaAddPta(
-				 ByVal ptaa as Ptaa, 
-				 ByVal pta as Pta, 
-				 ByVal copyflag as Enumerations.L_access_storage) as Integer
-
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaAddPta( ptaa.Pointer, pta.Pointer, copyflag)
+				ByVal ptaa as Ptaa, 
+				ByVal pta as Pta, 
+				ByVal copyflag as Enumerations.L_access_storage) as Integer
 
 
-	Return _Result
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+		if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaAddPta(ptaa.Pointer, pta.Pointer,   copyflag)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1074, 1)
+' ptabasic.c (1074, 1)
 ' ptaaGetCount(ptaa) as Integer
 ' ptaaGetCount(PTAA *) as l_int32
+'''  <summary>
+''' ptaaGetCount()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaGetCount/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''   <returns>count, or 0 if no ptaa</returns>
 Public Shared Function ptaaGetCount(
-				 ByVal ptaa as Ptaa) as Integer
-
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaGetCount( ptaa.Pointer)
+				ByVal ptaa as Ptaa) as Integer
 
 
-	Return _Result
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaGetCount(ptaa.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1094, 1)
+' ptabasic.c (1094, 1)
 ' ptaaGetPta(ptaa, index, accessflag) as Pta
 ' ptaaGetPta(PTAA *, l_int32, l_int32) as PTA *
+'''  <summary>
+''' ptaaGetPta()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaGetPta/*"/>
@@ -674,22 +703,24 @@ End Function
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaaGetPta(
-				 ByVal ptaa as Ptaa, 
-				 ByVal index as Integer, 
-				 ByVal accessflag as Enumerations.L_access_storage) as Pta
+				ByVal ptaa as Ptaa, 
+				ByVal index as Integer, 
+				ByVal accessflag as Enumerations.L_access_storage) as Pta
 
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaGetPta( ptaa.Pointer, index, accessflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pta(_Result)
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaaGetPta(ptaa.Pointer,   index,   accessflag)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pta(_Result)
 End Function
 
-' SRC\ptabasic.c (1125, 1)
+' ptabasic.c (1125, 1)
 ' ptaaGetPt(ptaa, ipta, jpt, px, py) as Integer
 ' ptaaGetPt(PTAA *, l_int32, l_int32, l_float32 *, l_float32 *) as l_ok
+'''  <summary>
+''' ptaaGetPt()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaGetPt/*"/>
@@ -700,23 +731,25 @@ End Function
 '''  <param name="py">[out][optional] - float y value</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaGetPt(
-				 ByVal ptaa as Ptaa, 
-				 ByVal ipta as Integer, 
-				 ByVal jpt as Integer, 
-				<Out()> Optional ByRef px as Single = Nothing, 
-				<Out()> Optional ByRef py as Single = Nothing) as Integer
-
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaGetPt( ptaa.Pointer, ipta, jpt, px, py)
+				ByVal ptaa as Ptaa, 
+				ByVal ipta as Integer, 
+				ByVal jpt as Integer, 
+				<Out()> Optional  ByRef px as Single = 0f, 
+				<Out()> Optional  ByRef py as Single = 0f) as Integer
 
 
-	Return _Result
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaGetPt(ptaa.Pointer,   ipta,   jpt,   px,   py)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1165, 1)
+' ptabasic.c (1165, 1)
 ' ptaaInitFull(ptaa, pta) as Integer
 ' ptaaInitFull(PTAA *, PTA *) as l_ok
+'''  <summary>
+''' ptaaInitFull()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaInitFull/*"/>
@@ -724,28 +757,25 @@ End Function
 '''  <param name="pta">[in] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaInitFull(
-				 ByVal ptaa as Ptaa, 
-				 ByVal pta as Pta) as Integer
-
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaInitFull( ptaa.Pointer, pta.Pointer)
+				ByVal ptaa as Ptaa, 
+				ByVal pta as Pta) as Integer
 
 
-	Return _Result
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+		if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaInitFull(ptaa.Pointer, pta.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1204, 1)
+' ptabasic.c (1204, 1)
 ' ptaaReplacePta(ptaa, index, pta) as Integer
 ' ptaaReplacePta(PTAA *, l_int32, PTA *) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Any existing pta is destroyed, and the input one
-''' is inserted in its place.<para/>
-''' 
-''' (2) If the index is invalid, return 1 (error)
+'''is inserted in its place.<para/>
+'''
+'''(2) If the index is invalid, return 1 (error)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -755,22 +785,24 @@ End Function
 '''  <param name="pta">[in] - insert and replace any existing one</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaReplacePta(
-				 ByVal ptaa as Ptaa, 
-				 ByVal index as Integer, 
-				 ByVal pta as Pta) as Integer
-
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaReplacePta( ptaa.Pointer, index, pta.Pointer)
+				ByVal ptaa as Ptaa, 
+				ByVal index as Integer, 
+				ByVal pta as Pta) as Integer
 
 
-	Return _Result
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+		if IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaReplacePta(ptaa.Pointer,   index, pta.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1235, 1)
+' ptabasic.c (1235, 1)
 ' ptaaAddPt(ptaa, ipta, x, y) as Integer
 ' ptaaAddPt(PTAA *, l_int32, l_float32, l_float32) as l_ok
+'''  <summary>
+''' ptaaAddPt()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaAddPt/*"/>
@@ -779,28 +811,25 @@ End Function
 '''  <param name="x">[in] - ,y point coordinates</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaAddPt(
-				 ByVal ptaa as Ptaa, 
-				 ByVal ipta as Integer, 
-				 ByVal x as Single, 
-				 ByVal y as Single) as Integer
-
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaAddPt( ptaa.Pointer, ipta, x, y)
+				ByVal ptaa as Ptaa, 
+				ByVal ipta as Integer, 
+				ByVal x as Single, 
+				ByVal y as Single) as Integer
 
 
-	Return _Result
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaAddPt(ptaa.Pointer,   ipta,   x,   y)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1270, 1)
+' ptabasic.c (1270, 1)
 ' ptaaTruncate(ptaa) as Integer
 ' ptaaTruncate(PTAA *) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This identifies the largest index containing a pta that
-''' has any points within it, destroys all pta above that index,
-''' and resets the count.
+'''has any points within it, destroys all pta above that index,
+'''and resets the count.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -808,61 +837,68 @@ End Function
 '''  <param name="ptaa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaTruncate(
-				 ByVal ptaa as Ptaa) as Integer
-
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaTruncate( ptaa.Pointer)
+				ByVal ptaa as Ptaa) as Integer
 
 
-	Return _Result
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaTruncate(ptaa.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1310, 1)
+' ptabasic.c (1310, 1)
 ' ptaaRead(filename) as Ptaa
 ' ptaaRead(const char *) as PTAA *
+'''  <summary>
+''' ptaaRead()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaRead(
-				 ByVal filename as String) as Ptaa
+				ByVal filename as String) as Ptaa
 
-	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
-
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaRead( filename)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Ptaa(_Result)
+if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+If My.Computer.Filesystem.FileExists (filename) = false then 
+	   Throw New ArgumentException ("File is missing")
+	End If
+	Dim _Result as IntPtr = Natives.ptaaRead(  filename)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Ptaa(_Result)
 End Function
 
-' SRC\ptabasic.c (1337, 1)
+' ptabasic.c (1337, 1)
 ' ptaaReadStream(fp) as Ptaa
 ' ptaaReadStream(FILE *) as PTAA *
+'''  <summary>
+''' ptaaReadStream()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaReadStream(
-				 ByVal fp as FILE) as Ptaa
+				ByVal fp as FILE) as Ptaa
 
-	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaReadStream( fp.Pointer)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Ptaa(_Result)
+if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaaReadStream(fp.Pointer)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Ptaa(_Result)
 End Function
 
-' SRC\ptabasic.c (1377, 1)
+' ptabasic.c (1377, 1)
 ' ptaaReadMem(data, size) as Ptaa
 ' ptaaReadMem(const l_uint8 *, size_t) as PTAA *
+'''  <summary>
+''' ptaaReadMem()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaReadMem/*"/>
@@ -870,30 +906,27 @@ End Function
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaReadMem(
-				 ByVal data as Byte(), 
-				 ByVal size as UInteger) as Ptaa
+				ByVal data as Byte(), 
+				ByVal size as UInteger) as Ptaa
 
-	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaReadMem( data, size)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Ptaa(_Result)
+if IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+	Dim _Result as IntPtr = Natives.ptaaReadMem(  data,   size)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Ptaa(_Result)
 End Function
 
-' SRC\ptabasic.c (1415, 1)
+' ptabasic.c (1415, 1)
 ' ptaaWriteDebug(filename, ptaa, type) as Integer
 ' ptaaWriteDebug(const char *, PTAA *, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Debug version, intended for use in the library when writing
-''' to files in a temp directory with names that are compiled in.
-''' This is used instead of ptaaWrite() for all such library calls.<para/>
-''' 
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set
-''' or cleared by the function setLeptDebugOK().
+'''to files in a temp directory with names that are compiled in.
+'''This is used instead of ptaaWrite() for all such library calls.<para/>
+'''
+'''(2) The global variable LeptDebugOK defaults to 0, and can be set
+'''or cleared by the function setLeptDebugOK().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -903,22 +936,24 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaWriteDebug(
-				 ByVal filename as String, 
-				 ByVal ptaa as Ptaa, 
-				 ByVal type as Integer) as Integer
-
-	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaWriteDebug( filename, ptaa.Pointer, type)
+				ByVal filename as String, 
+				ByVal ptaa as Ptaa, 
+				ByVal type as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+		if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaWriteDebug(  filename, ptaa.Pointer,   type)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1439, 1)
+' ptabasic.c (1439, 1)
 ' ptaaWrite(filename, ptaa, type) as Integer
 ' ptaaWrite(const char *, PTAA *, l_int32) as l_ok
+'''  <summary>
+''' ptaaWrite()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaWrite/*"/>
@@ -927,22 +962,24 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaWrite(
-				 ByVal filename as String, 
-				 ByVal ptaa as Ptaa, 
-				 ByVal type as Integer) as Integer
-
-	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaWrite( filename, ptaa.Pointer, type)
+				ByVal filename as String, 
+				ByVal ptaa as Ptaa, 
+				ByVal type as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+		if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaWrite(  filename, ptaa.Pointer,   type)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1472, 1)
+' ptabasic.c (1472, 1)
 ' ptaaWriteStream(fp, ptaa, type) as Integer
 ' ptaaWriteStream(FILE *, PTAA *, l_int32) as l_ok
+'''  <summary>
+''' ptaaWriteStream()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaWriteStream/*"/>
@@ -951,25 +988,22 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaWriteStream(
-				 ByVal fp as FILE, 
-				 ByVal ptaa as Ptaa, 
-				 ByVal type as Integer) as Integer
-
-	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaWriteStream( fp.Pointer, ptaa.Pointer, type)
+				ByVal fp as FILE, 
+				ByVal ptaa as Ptaa, 
+				ByVal type as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+		if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim _Result as Integer = Natives.ptaaWriteStream(fp.Pointer, ptaa.Pointer,   type)
+	
+	return _Result
 End Function
 
-' SRC\ptabasic.c (1514, 1)
+' ptabasic.c (1514, 1)
 ' ptaaWriteMem(pdata, psize, ptaa, type) as Integer
 ' ptaaWriteMem(l_uint8 **, size_t *, PTAA *, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Serializes a ptaa in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
@@ -981,20 +1015,24 @@ End Function
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaWriteMem(
-				<Out()> ByRef pdata as Byte(), 
-				<Out()> ByRef psize as UInteger, 
-				 ByVal ptaa as Ptaa, 
-				 ByVal type as Integer) as Integer
+				<Out()>  ByRef pdata as Byte(), 
+				<Out()>  ByRef psize as UInteger, 
+				ByVal ptaa as Ptaa, 
+				ByVal type as Integer) as Integer
 
-	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
-	Dim pdataPTR As IntPtr = IntPtr.Zero
+if IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+	Dim pdataPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaWriteMem( pdataPTR, psize, ptaa.Pointer, type)
-
-	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
-
-	Return _Result
+	Dim _Result as Integer = Natives.ptaaWriteMem(  pdataPtr,   psize, ptaa.Pointer,   type)
+	
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1)
+	If pdataPtr <> IntPtr.Zero Then 
+	  Marshal.Copy(pdataPtr, pdata, 0, pdata.count)
+	End If
+	return _Result
 End Function
 
 End Class
+
+

@@ -1,6 +1,3 @@
-# Commit # 83
-- CSLib:	Created a C# Library too. (Alpha, only use for development)
-
 # Commit #75/76
 
 - Bugfix: 	File existing check for write-methods removed.

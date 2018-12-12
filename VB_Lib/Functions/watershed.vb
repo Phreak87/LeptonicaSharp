@@ -1,24 +1,23 @@
-Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _All
+Imports System.Runtime.InteropServices
 
-' SRC\watershed.c (203, 1)
+Public Partial Class _All
+
+' watershed.c (203, 1)
 ' wshedCreate(pixs, pixm, mindepth, debugflag) as L_WShed
 ' wshedCreate(PIX *, PIX *, l_int32, l_int32) as L_WSHED *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) It is not necessary for the fg pixels in the seed image
-''' be at minima, or that they be isolated.  We extract a
-''' single pixel from each connected component, and a seed
-''' anywhere in a watershed will eventually label the watershed
-''' when the filling level reaches it.<para/>
-''' 
-''' (2) Set mindepth to some value to ignore noise in pixs that
-''' can create small local minima.  Any watershed shallower
-''' than mindepth, even if it has a seed, will not be saved
-''' It will either be incorporated in another watershed or
-''' eliminated.
+'''be at minima, or that they be isolated.  We extract a
+'''single pixel from each connected component, and a seed
+'''anywhere in a watershed will eventually label the watershed
+'''when the filling level reaches it.<para/>
+'''
+'''(2) Set mindepth to some value to ignore noise in pixs that
+'''can create small local minima.  Any watershed shallower
+'''than mindepth, even if it has a seed, will not be saved
+'''It will either be incorporated in another watershed or
+'''eliminated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -29,62 +28,68 @@ Partial Public Class _All
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>WShed, or NULL on error</returns>
 Public Shared Function wshedCreate(
-				 ByVal pixs as Pix, 
-				 ByVal pixm as Pix, 
-				 ByVal mindepth as Integer, 
-				 ByVal debugflag as Integer) as L_WShed
+				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
+				ByVal mindepth as Integer, 
+				ByVal debugflag as Integer) as L_WShed
 
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.wshedCreate( pixs.Pointer, pixm.Pointer, mindepth, debugflag)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new L_WShed(_Result)
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+		if IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
+	Dim _Result as IntPtr = Natives.wshedCreate(pixs.Pointer, pixm.Pointer,   mindepth,   debugflag)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new L_WShed(_Result)
 End Function
 
-' SRC\watershed.c (250, 1)
+' watershed.c (250, 1)
 ' wshedDestroy(pwshed) as Object
 ' wshedDestroy(L_WSHED **) as void
+'''  <summary>
+''' wshedDestroy()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/wshedDestroy/*"/>
 '''  <param name="pwshed">[in,out] - will be set to null before returning</param>
 Public Shared Sub wshedDestroy(
-				 ByRef pwshed as L_WShed)
+				ByRef pwshed as L_WShed)
 
-	Dim pwshedPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pwshed) Then pwshedPTR = pwshed.Pointer
 
-	LeptonicaSharp.Natives.wshedDestroy( pwshedPTR)
+	Dim pwshedPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(pwshed) Then pwshedPtr = pwshed.Pointer
 
-If pwshedPTR = IntPtr.Zero Then pwshed = Nothing
-If pwshedPTR <> IntPtr.Zero Then pwshed = New L_WShed(pwshedPTR)
-
+	Natives.wshedDestroy( pwshedPtr)
+	
+	if pwshedPtr = IntPtr.Zero then pwshed = Nothing else pwshed = new L_WShed(pwshedPtr)
 End Sub
 
-' SRC\watershed.c (305, 1)
+' watershed.c (305, 1)
 ' wshedApply(wshed) as Integer
 ' wshedApply(L_WSHED *) as l_ok
+'''  <summary>
+''' wshedApply()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/wshedApply/*"/>
 '''  <param name="wshed">[in] - generated from wshedCreate()</param>
 '''   <returns>0 if OK, 1 on error Iportant note: 1 This is buggy.  It seems to locate watersheds that are duplicates.  The watershed extraction after complete fill grabs some regions belonging to existing watersheds. See prog/watershedtest.c for testing.</returns>
 Public Shared Function wshedApply(
-				 ByVal wshed as L_WShed) as Integer
-
-	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.wshedApply( wshed.Pointer)
+				ByVal wshed as L_WShed) as Integer
 
 
-	Return _Result
+if IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
+	Dim _Result as Integer = Natives.wshedApply(wshed.Pointer)
+	
+	return _Result
 End Function
 
-' SRC\watershed.c (1034, 1)
+' watershed.c (1034, 1)
 ' wshedBasins(wshed, ppixa, pnalevels) as Integer
 ' wshedBasins(L_WSHED *, PIXA **, NUMA **) as l_ok
+'''  <summary>
+''' wshedBasins()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/wshedBasins/*"/>
@@ -93,63 +98,66 @@ End Function
 '''  <param name="pnalevels">[out][optional] - watershed levels</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function wshedBasins(
-				 ByVal wshed as L_WShed, 
-				<Out()> Optional ByRef ppixa as Pixa = Nothing, 
-				<Out()> Optional ByRef pnalevels as Numa = Nothing) as Integer
+				ByVal wshed as L_WShed, 
+				<Out()> Optional  ByRef ppixa as Pixa = Nothing, 
+				<Out()> Optional  ByRef pnalevels as Numa = Nothing) as Integer
 
-	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
 
-Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
-Dim pnalevelsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnalevels) Then pnalevelsPTR = pnalevels.Pointer
+if IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
+	Dim ppixaPtr as IntPtr = IntPtr.Zero
+	Dim pnalevelsPtr as IntPtr = IntPtr.Zero
 
-	Dim _Result as Integer = LeptonicaSharp.Natives.wshedBasins( wshed.Pointer, ppixaPTR, pnalevelsPTR)
-
-If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
-If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
-If pnalevelsPTR = IntPtr.Zero Then pnalevels = Nothing
-If pnalevelsPTR <> IntPtr.Zero Then pnalevels = New Numa(pnalevelsPTR)
-
-	Return _Result
+	Dim _Result as Integer = Natives.wshedBasins(wshed.Pointer, ppixaPtr, pnalevelsPtr)
+	
+	if ppixaPtr = IntPtr.Zero then ppixa = Nothing else ppixa = new Pixa(ppixaPtr)
+	if pnalevelsPtr = IntPtr.Zero then pnalevels = Nothing else pnalevels = new Numa(pnalevelsPtr)
+	return _Result
 End Function
 
-' SRC\watershed.c (1058, 1)
+' watershed.c (1058, 1)
 ' wshedRenderFill(wshed) as Pix
 ' wshedRenderFill(L_WSHED *) as PIX *
+'''  <summary>
+''' wshedRenderFill()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/wshedRenderFill/*"/>
 '''  <param name="wshed">[in] - </param>
 '''   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 Public Shared Function wshedRenderFill(
-				 ByVal wshed as L_WShed) as Pix
+				ByVal wshed as L_WShed) as Pix
 
-	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.wshedRenderFill( wshed.Pointer)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pix(_Result)
+if IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
+	Dim _Result as IntPtr = Natives.wshedRenderFill(wshed.Pointer)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pix(_Result)
 End Function
 
-' SRC\watershed.c (1094, 1)
+' watershed.c (1094, 1)
 ' wshedRenderColors(wshed) as Pix
 ' wshedRenderColors(L_WSHED *) as PIX *
+'''  <summary>
+''' wshedRenderColors()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/wshedRenderColors/*"/>
 '''  <param name="wshed">[in] - </param>
 '''   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 Public Shared Function wshedRenderColors(
-				 ByVal wshed as L_WShed) as Pix
+				ByVal wshed as L_WShed) as Pix
 
-	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
 
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.wshedRenderColors( wshed.Pointer)
-
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new Pix(_Result)
+if IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
+	Dim _Result as IntPtr = Natives.wshedRenderColors(wshed.Pointer)
+	
+	If _Result = IntPtr.Zero then Return Nothing
+	return  new Pix(_Result)
 End Function
 
 End Class
+
+

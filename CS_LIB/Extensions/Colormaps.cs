@@ -46,7 +46,7 @@ public partial class PixColormap
 			for (int i = 0; i <= Array_Bytes.Count() - 1; i += 4) {
 				byte[] B = new byte[4];
 				System.Array.Copy(Array_Bytes, i, B, 0, B.Length);
-				QList.Add(Color.FromArgb(B[0], B[1], B[2], B[3]));
+				QList.Add(Color.FromArgb(B[3], B[2], B[1], B[0]));
 			}
 
 			return QList.ToArray();

@@ -1,21 +1,20 @@
-Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _All
+Imports System.Runtime.InteropServices
 
-' SRC\psio2.c (152, 1)
+Public Partial Class _All
+
+' psio2.c (152, 1)
 ' pixWritePSEmbed(filein, fileout) as Integer
 ' pixWritePSEmbed(const char *, const char *) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This is a simple wrapper function that generates an
-''' uncompressed PS file, with a bounding box.<para/>
-''' 
-''' (2) The bounding box is required when a program such as TeX
-''' (through epsf) places and rescales the image.<para/>
-''' 
-''' (3) The bounding box is sized for fitting the image to an
-''' 8.5 x 11.0 inch page.
+'''uncompressed PS file, with a bounding box.<para/>
+'''
+'''(2) The bounding box is required when a program such as TeX
+'''(through epsf) places and rescales the image.<para/>
+'''
+'''(3) The bounding box is sized for fitting the image to an
+'''8.5 x 11.0 inch page.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -24,29 +23,26 @@ Partial Public Class _All
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixWritePSEmbed(
-				 ByVal filein as String, 
-				 ByVal fileout as String) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixWritePSEmbed( filein, fileout)
+				ByVal filein as String, 
+				ByVal fileout as String) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+	Dim _Result as Integer = Natives.pixWritePSEmbed(  filein,   fileout)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (205, 1)
+' psio2.c (205, 1)
 ' pixWriteStreamPS(fp, pix, box, res, scale) as Integer
 ' pixWriteStreamPS(FILE *, PIX *, BOX *, l_int32, l_float32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This writes image in PS format, optionally scaled,
-''' adjusted for the printer resolution, and with
-''' a bounding box.<para/>
-''' 
-''' (2) For details on use of parameters, see pixWriteStringPS().
+'''adjusted for the printer resolution, and with
+'''a bounding box.<para/>
+'''
+'''(2) For details on use of parameters, see pixWriteStringPS().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -58,80 +54,79 @@ End Function
 '''  <param name="scale">[in] - to prevent scaling, use either 1.0 or 0.0</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixWriteStreamPS(
-				 ByVal fp as FILE, 
-				 ByVal pix as Pix, 
-				 ByVal box as Box, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single) as Integer
-
-	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPS( fp.Pointer, pix.Pointer, boxPTR, res, scale)
+				ByVal fp as FILE, 
+				ByVal pix as Pix, 
+				ByVal box as Box, 
+				ByVal res as Integer, 
+				ByVal scale as Single) as Integer
 
 
-	Return _Result
+if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+		if IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+	Dim boxPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(box) Then boxPtr = box.Pointer
+
+	Dim _Result as Integer = Natives.pixWriteStreamPS(fp.Pointer, pix.Pointer, boxPtr,   res,   scale)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (303, 1)
+' psio2.c (303, 1)
 ' pixWriteStringPS(pixs, box, res, scale) as String
 ' pixWriteStringPS(PIX *, BOX *, l_int32, l_float32) as char *
 '''  <summary>
 ''' a) If %box == NULL, image is placed, optionally scaled,
-''' in a standard b.b. at the center of the page.
-''' This is to be used when another program like
-''' TeX through epsf places the image.
-''' b) If %box != NULL, image is placed without a
-''' b.b. at the specified page location and with
-''' optional scaling.  This is to be used when
-''' you want to specify exactly where and optionally
-''' how big you want the image to be.
-''' Note that all coordinates are in PS convention,
-''' with 0,0 at LL corner of the page:
-''' x,y  location of LL corner of image, in mils.
-''' w,h  scaled size, in mils.  Use 0 to
-''' scale with "scale" and "res" input.
-''' %scale: If no scaling is desired, use either 1.0 or 0.0.
-''' Scaling just resets the resolution parameter the actual
-''' scaling is done in the interpreter at rendering time.
-''' This is important:  it allows you to scale the image up
-''' without increasing the file size.
-''' Notes:<para/>
-''' 
-''' (1) OK, this seems a bit complicated, because there are various
-''' ways to scale and not to scale.  Here's a summary:<para/>
-''' 
-''' (2) If you don't want any scaling at all:
-''' if you are using a box:
-''' set w = 0, h = 0, and use scale = 1.0 it will print
-''' each pixel unscaled at printer resolution
-''' if you are not using a box:
-''' set scale = 1.0 it will print at printer resolution<para/>
-''' 
-''' (3) If you want the image to be a certain size in inches:
-''' you must use a box and set the box (w,h) in mils<para/>
-''' 
-''' (4) If you want the image to be scaled by a scale factor != 1.0:
-''' if you are using a box:
-''' set w = 0, h = 0, and use the desired scale factor
-''' the higher the printer resolution, the smaller the
-''' image will actually appear.
-''' if you are not using a box:
-''' set the desired scale factor the higher the printer
-''' resolution, the smaller the image will actually appear.<para/>
-''' 
-''' (5) Another complication is the proliferation of distance units:
-''' The interface distances are in milli-inches.
-''' Three different units are used internally:
-''' ~ pixels  (units of 1/res inch)
-''' ~ printer pts (units of 1/72 inch)
-''' ~ inches
-''' Here is a quiz on volume units from a reviewer:
-''' How many UK milli-cups in a US kilo-teaspoon?
-''' (Hint: 1.0 US cup = 0.75 UK cup + 0.2 US gill
-''' 1.0 US gill = 24.0 US teaspoons)
+'''in a standard b.b. at the center of the page.
+'''This is to be used when another program like
+'''TeX through epsf places the image.
+'''b) If %box != NULL, image is placed without a
+'''b.b. at the specified page location and with
+'''optional scaling.  This is to be used when
+'''you want to specify exactly where and optionally
+'''how big you want the image to be.
+'''Note that all coordinates are in PS convention,
+'''with 0,0 at LL corner of the page:
+'''x,y  location of LL corner of image, in mils.
+'''w,h  scaled size, in mils.  Use 0 to
+'''scale with "scale" and "res" input.
+'''%scale: If no scaling is desired, use either 1.0 or 0.0.
+'''Scaling just resets the resolution parameter the actual
+'''scaling is done in the interpreter at rendering time.
+'''This is important:  it allows you to scale the image up
+'''without increasing the file size.
+'''Notes:<para/>
+'''
+'''(1) OK, this seems a bit complicated, because there are various
+'''ways to scale and not to scale.  Here's a summary:<para/>
+'''
+'''(2) If you don't want any scaling at all:
+'''if you are using a box:
+'''set w = 0, h = 0, and use scale = 1.0 it will print
+'''each pixel unscaled at printer resolution
+'''if you are not using a box:
+'''set scale = 1.0 it will print at printer resolution<para/>
+'''
+'''(3) If you want the image to be a certain size in inches:
+'''you must use a box and set the box (w,h) in mils<para/>
+'''
+'''(4) If you want the image to be scaled by a scale factor != 1.0:
+'''if you are using a box:
+'''set w = 0, h = 0, and use the desired scale factor
+'''the higher the printer resolution, the smaller the
+'''image will actually appear.
+'''if you are not using a box:
+'''set the desired scale factor the higher the printer
+'''resolution, the smaller the image will actually appear.<para/>
+'''
+'''(5) Another complication is the proliferation of distance units:
+'''The interface distances are in milli-inches.
+'''Three different units are used internally:
+'''~ pixels  (units of 1/res inch)
+'''~ printer pts (units of 1/72 inch)
+'''~ inches
+'''Here is a quiz on volume units from a reviewer:
+'''How many UK milli-cups in a US kilo-teaspoon?
+'''(Hint: 1.0 US cup = 0.75 UK cup + 0.2 US gill
+'''1.0 US gill = 24.0 US teaspoons)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -142,26 +137,23 @@ End Function
 '''  <param name="scale">[in] - scale factor.  If no scaling is desired, use either 1.0 or 0.0.   Scaling just resets the resolution parameter the actual scaling is done in the interpreter at rendering time.  This is important: it allows you to scale the image up without increasing the file size.</param>
 '''   <returns>ps string if OK, or NULL on error</returns>
 Public Shared Function pixWriteStringPS(
-				 ByVal pixs as Pix, 
-				 ByVal box as Box, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single) as String
-
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-	Dim _Result as String = LeptonicaSharp.Natives.pixWriteStringPS( pixs.Pointer, box.Pointer, res, scale)
+				ByVal pixs as Pix, 
+				ByVal box as Box, 
+				ByVal res as Integer, 
+				ByVal scale as Single) as String
 
 
-	Return _Result
+if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+		if IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+	Dim _Result as String = Natives.pixWriteStringPS(pixs.Pointer, box.Pointer,   res,   scale)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (413, 1)
+' psio2.c (413, 1)
 ' generateUncompressedPS(hexdata, w, h, d, psbpl, bps, xpt, ypt, wpt, hpt, boxflag) as String
 ' generateUncompressedPS(char *, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32, l_int32) as char *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Low-level function.
 '''  </summary>
 '''  <remarks>
@@ -180,37 +172,34 @@ End Function
 '''  <param name="boxflag">[in] - 1 to print out bounding box hint 0 to skip</param>
 '''   <returns>PS string, or NULL on error</returns>
 Public Shared Function generateUncompressedPS(
-				 ByVal hexdata as String, 
-				 ByVal w as Integer, 
-				 ByVal h as Integer, 
-				 ByVal d as Integer, 
-				 ByVal psbpl as Integer, 
-				 ByVal bps as Integer, 
-				 ByVal xpt as Single, 
-				 ByVal ypt as Single, 
-				 ByVal wpt as Single, 
-				 ByVal hpt as Single, 
-				 ByVal boxflag as Integer) as String
-
-	If IsNothing (hexdata) then Throw New ArgumentNullException  ("hexdata cannot be Nothing")
-
-	Dim _Result as String = LeptonicaSharp.Natives.generateUncompressedPS( hexdata, w, h, d, psbpl, bps, xpt, ypt, wpt, hpt, boxflag)
+				ByVal hexdata as String, 
+				ByVal w as Integer, 
+				ByVal h as Integer, 
+				ByVal d as Integer, 
+				ByVal psbpl as Integer, 
+				ByVal bps as Integer, 
+				ByVal xpt as Single, 
+				ByVal ypt as Single, 
+				ByVal wpt as Single, 
+				ByVal hpt as Single, 
+				ByVal boxflag as Integer) as String
 
 
-	Return _Result
+if IsNothing (hexdata) then Throw New ArgumentNullException  ("hexdata cannot be Nothing")
+	Dim _Result as String = Natives.generateUncompressedPS(  hexdata,   w,   h,   d,   psbpl,   bps,   xpt,   ypt,   wpt,   hpt,   boxflag)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (522, 1)
+' psio2.c (522, 1)
 ' getScaledParametersPS(box, wpix, hpix, res, scale, pxpt, pypt, pwpt, phpt) as Object
 ' getScaledParametersPS(BOX *, l_int32, l_int32, l_int32, l_float32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as void
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) The image is always scaled, depending on res and scale.<para/>
-''' 
-''' (2) If no box, the image is centered on the page.<para/>
-''' 
-''' (3) If there is a box, the image is placed within it.
+'''
+'''(2) If no box, the image is centered on the page.<para/>
+'''
+'''(3) If there is a box, the image is placed within it.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -225,26 +214,29 @@ End Function
 '''  <param name="pwpt">[out] - image width in pts</param>
 '''  <param name="phpt">[out] - image height in pts</param>
 Public Shared Sub getScaledParametersPS(
-				 ByVal box as Box, 
-				 ByVal wpix as Integer, 
-				 ByVal hpix as Integer, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single, 
-				<Out()> ByRef pxpt as Single, 
-				<Out()> ByRef pypt as Single, 
-				<Out()> ByRef pwpt as Single, 
-				<Out()> ByRef phpt as Single)
-
-	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
-
-	LeptonicaSharp.Natives.getScaledParametersPS( boxPTR, wpix, hpix, res, scale, pxpt, pypt, pwpt, phpt)
+				ByVal box as Box, 
+				ByVal wpix as Integer, 
+				ByVal hpix as Integer, 
+				ByVal res as Integer, 
+				ByVal scale as Single, 
+				<Out()>  ByRef pxpt as Single, 
+				<Out()>  ByRef pypt as Single, 
+				<Out()>  ByRef pwpt as Single, 
+				<Out()>  ByRef phpt as Single)
 
 
+	Dim boxPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(box) Then boxPtr = box.Pointer
+
+	Natives.getScaledParametersPS(boxPtr,   wpix,   hpix,   res,   scale,   pxpt,   pypt,   pwpt,   phpt)
+	
 End Sub
 
-' SRC\psio2.c (601, 1)
+' psio2.c (601, 1)
 ' convertByteToHexAscii(byteval, pnib1, pnib2) as Object
 ' convertByteToHexAscii(l_uint8, char *, char *) as void
+'''  <summary>
+''' convertByteToHexAscii()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertByteToHexAscii/*"/>
@@ -252,31 +244,27 @@ End Sub
 '''  <param name="pnib1">[out] - two hex ascii characters</param>
 '''  <param name="pnib2">[out] - two hex ascii characters</param>
 Public Shared Sub convertByteToHexAscii(
-				 ByVal byteval as Byte, 
-				<Out()> ByRef pnib1 as String, 
-				<Out()> ByRef pnib2 as String)
-
-	If IsNothing (byteval) then Throw New ArgumentNullException  ("byteval cannot be Nothing")
-
-	LeptonicaSharp.Natives.convertByteToHexAscii( byteval, pnib1, pnib2)
+				ByVal byteval as Byte, 
+				<Out()>  ByRef pnib1 as String, 
+				<Out()>  ByRef pnib2 as String)
 
 
+	Natives.convertByteToHexAscii(  byteval,   pnib1,   pnib2)
+	
 End Sub
 
-' SRC\psio2.c (643, 1)
+' psio2.c (643, 1)
 ' convertJpegToPSEmbed(filein, fileout) as Integer
 ' convertJpegToPSEmbed(const char *, const char *) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This function takes a jpeg file as input and generates a DCT
-''' compressed, ascii85 encoded PS file, with a bounding box.<para/>
-''' 
-''' (2) The bounding box is required when a program such as TeX
-''' (through epsf) places and rescales the image.<para/>
-''' 
-''' (3) The bounding box is sized for fitting the image to an
-''' 8.5 x 11.0 inch page.
+'''compressed, ascii85 encoded PS file, with a bounding box.<para/>
+'''
+'''(2) The bounding box is required when a program such as TeX
+'''(through epsf) places and rescales the image.<para/>
+'''
+'''(3) The bounding box is sized for fitting the image to an
+'''8.5 x 11.0 inch page.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -285,75 +273,72 @@ End Sub
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertJpegToPSEmbed(
-				 ByVal filein as String, 
-				 ByVal fileout as String) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPSEmbed( filein, fileout)
+				ByVal filein as String, 
+				ByVal fileout as String) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+	Dim _Result as Integer = Natives.convertJpegToPSEmbed(  filein,   fileout)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (758, 1)
+' psio2.c (758, 1)
 ' convertJpegToPS(filein, fileout, operation, x, y, res, scale, pageno, endpage) as Integer
 ' convertJpegToPS(const char *, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This is simpler to use than pixWriteStringPS(), and
-''' it outputs in level 2 PS as compressed DCT (overlaid
-''' with ascii85 encoding).<para/>
-''' 
-''' (2) An output file can contain multiple pages, each with
-''' multiple images.  The arguments to convertJpegToPS()
-''' allow you to control placement of jpeg images on multiple
-''' pages within a PostScript file.<para/>
-''' 
-''' (3) For the first image written to a file, use "w", which
-''' opens for write and clears the file.  For all subsequent
-''' images written to that file, use "a".<para/>
-''' 
-''' (4) The (x, y) parameters give the LL corner of the image
-''' relative to the LL corner of the page.  They are in
-''' units of pixels if scale = 1.0.  If you use (e.g.)
-''' scale = 2.0, the image is placed at (2x, 2y) on the page,
-''' and the image dimensions are also doubled.<para/>
-''' 
-''' (5) Display vs printed resolution:
-''' If your display is 75 ppi and your image was created
-''' at a resolution of 300 ppi, you can get the image
-''' to print at the same size as it appears on your display
-''' by either setting scale = 4.0 or by setting  res = 75.
-''' Both tell the printer to make a 4x enlarged image.
-''' If your image is generated at 150 ppi and you use scale = 1,
-''' it will be rendered such that 150 pixels correspond
-''' to 72 pts (1 inch on the printer).  This function does
-''' the conversion from pixels (with or without scaling) to
-''' pts, which are the units that the printer uses.
-''' The printer will choose its own resolution to use
-''' in rendering the image, which will not affect the size
-''' of the rendered image.  That is because the output
-''' PostScript file describes the geometry in terms of pts,
-''' which are defined to be 1/72 inch.  The printer will
-''' only see the size of the image in pts, through the
-''' scale and translate parameters and the affine
-''' transform (the ImageMatrix) of the image.<para/>
-''' 
-''' (6) To render multiple images on the same page, set
-''' endpage = FALSE for each image until you get to the
-''' last, for which you set endpage = TRUE.  This causes the
-''' "showpage" command to be invoked.  Showpage outputs
-''' the entire page and clears the raster buffer for the
-''' next page to be added.  Without a "showpage",
-''' subsequent images from the next page will overlay those
-''' previously put down.<para/>
-''' 
-''' (7) For multiple pages, increment the page number, starting
-''' with page 1.  This allows PostScript (and PDF) to build
-''' a page directory, which viewers use for navigation.
+'''it outputs in level 2 PS as compressed DCT (overlaid
+'''with ascii85 encoding).<para/>
+'''
+'''(2) An output file can contain multiple pages, each with
+'''multiple images.  The arguments to convertJpegToPS()
+'''allow you to control placement of jpeg images on multiple
+'''pages within a PostScript file.<para/>
+'''
+'''(3) For the first image written to a file, use "w", which
+'''opens for write and clears the file.  For all subsequent
+'''images written to that file, use "a".<para/>
+'''
+'''(4) The (x, y) parameters give the LL corner of the image
+'''relative to the LL corner of the page.  They are in
+'''units of pixels if scale = 1.0.  If you use (e.g.)
+'''scale = 2.0, the image is placed at (2x, 2y) on the page,
+'''and the image dimensions are also doubled.<para/>
+'''
+'''(5) Display vs printed resolution:
+'''If your display is 75 ppi and your image was created
+'''at a resolution of 300 ppi, you can get the image
+'''to print at the same size as it appears on your display
+'''by either setting scale = 4.0 or by setting  res = 75.
+'''Both tell the printer to make a 4x enlarged image.
+'''If your image is generated at 150 ppi and you use scale = 1,
+'''it will be rendered such that 150 pixels correspond
+'''to 72 pts (1 inch on the printer).  This function does
+'''the conversion from pixels (with or without scaling) to
+'''pts, which are the units that the printer uses.
+'''The printer will choose its own resolution to use
+'''in rendering the image, which will not affect the size
+'''of the rendered image.  That is because the output
+'''PostScript file describes the geometry in terms of pts,
+'''which are defined to be 1/72 inch.  The printer will
+'''only see the size of the image in pts, through the
+'''scale and translate parameters and the affine
+'''transform (the ImageMatrix) of the image.<para/>
+'''
+'''(6) To render multiple images on the same page, set
+'''endpage = FALSE for each image until you get to the
+'''last, for which you set endpage = TRUE.  This causes the
+'''"showpage" command to be invoked.  Showpage outputs
+'''the entire page and clears the raster buffer for the
+'''next page to be added.  Without a "showpage",
+'''subsequent images from the next page will overlay those
+'''previously put down.<para/>
+'''
+'''(7) For multiple pages, increment the page number, starting
+'''with page 1.  This allows PostScript (and PDF) to build
+'''a page directory, which viewers use for navigation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -369,32 +354,29 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertJpegToPS(
-				 ByVal filein as String, 
-				 ByVal fileout as String, 
-				 ByVal operation as String, 
-				 ByVal x as Integer, 
-				 ByVal y as Integer, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal endpage as Integer) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPS( filein, fileout, operation, x, y, res, scale, pageno, endpage)
+				ByVal filein as String, 
+				ByVal fileout as String, 
+				ByVal operation as String, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal res as Integer, 
+				ByVal scale as Single, 
+				ByVal pageno as Integer, 
+				ByVal endpage as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+		if IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
+	Dim _Result as Integer = Natives.convertJpegToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (817, 1)
+' psio2.c (817, 1)
 ' convertJpegToPSString(filein, poutstr, pnbytes, x, y, res, scale, pageno, endpage) as Integer
 ' convertJpegToPSString(const char *, char **, l_int32 *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) For usage, see convertJpegToPS()
 '''  </summary>
 '''  <remarks>
@@ -411,32 +393,30 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertJpegToPSString(
-				 ByVal filein as String, 
-				<Out()> ByRef poutstr as String(), 
-				<Out()> ByRef pnbytes as Integer, 
-				 ByVal x as Integer, 
-				 ByVal y as Integer, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal endpage as Integer) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-
-Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(poutstr.toArray))
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPSString( filein, poutstrPTR, pnbytes, x, y, res, scale, pageno, endpage)
+				ByVal filein as String, 
+				<Out()>  ByRef poutstr as String(), 
+				<Out()>  ByRef pnbytes as Integer, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal res as Integer, 
+				ByVal scale as Single, 
+				ByVal pageno as Integer, 
+				ByVal endpage as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+	Dim poutstrPtr as IntPtr = IntPtr.Zero
+
+	Dim _Result as Integer = Natives.convertJpegToPSString(  filein,   poutstrPtr,   pnbytes,   x,   y,   res,   scale,   pageno,   endpage)
+	
+	if IsNothing(poutstr) then poutstr = nothing else poutstr = poutstr
+	return _Result
 End Function
 
-' SRC\psio2.c (911, 1)
+' psio2.c (911, 1)
 ' generateJpegPS(filein, cid, xpt, ypt, wpt, hpt, pageno, endpage) as String
 ' generateJpegPS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32) as char *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Low-level function.
 '''  </summary>
 '''  <remarks>
@@ -452,40 +432,37 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>PS string, or NULL on error</returns>
 Public Shared Function generateJpegPS(
-				 ByVal filein as String, 
-				 ByVal cid as L_Compressed_Data, 
-				 ByVal xpt as Single, 
-				 ByVal ypt as Single, 
-				 ByVal wpt as Single, 
-				 ByVal hpt as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal endpage as Integer) as String
-
-	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
-
-	Dim _Result as String = LeptonicaSharp.Natives.generateJpegPS( filein, cid.Pointer, xpt, ypt, wpt, hpt, pageno, endpage)
+				ByVal filein as String, 
+				ByVal cid as L_Compressed_Data, 
+				ByVal xpt as Single, 
+				ByVal ypt as Single, 
+				ByVal wpt as Single, 
+				ByVal hpt as Single, 
+				ByVal pageno as Integer, 
+				ByVal endpage as Integer) as String
 
 
-	Return _Result
+if IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
+	Dim _Result as String = Natives.generateJpegPS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1039, 1)
+' psio2.c (1039, 1)
 ' convertG4ToPSEmbed(filein, fileout) as Integer
 ' convertG4ToPSEmbed(const char *, const char *) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This function takes a g4 compressed tif file as input and
-''' generates a g4 compressed, ascii85 encoded PS file, with
-''' a bounding box.<para/>
-''' 
-''' (2) The bounding box is required when a program such as TeX
-''' (through epsf) places and rescales the image.<para/>
-''' 
-''' (3) The bounding box is sized for fitting the image to an
-''' 8.5 x 11.0 inch page.<para/>
-''' 
-''' (4) We paint this through a mask, over whatever is below.
+'''generates a g4 compressed, ascii85 encoded PS file, with
+'''a bounding box.<para/>
+'''
+'''(2) The bounding box is required when a program such as TeX
+'''(through epsf) places and rescales the image.<para/>
+'''
+'''(3) The bounding box is sized for fitting the image to an
+'''8.5 x 11.0 inch page.<para/>
+'''
+'''(4) We paint this through a mask, over whatever is below.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -494,62 +471,59 @@ End Function
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertG4ToPSEmbed(
-				 ByVal filein as String, 
-				 ByVal fileout as String) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPSEmbed( filein, fileout)
+				ByVal filein as String, 
+				ByVal fileout as String) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+	Dim _Result as Integer = Natives.convertG4ToPSEmbed(  filein,   fileout)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1145, 1)
+' psio2.c (1145, 1)
 ' convertG4ToPS(filein, fileout, operation, x, y, res, scale, pageno, maskflag, endpage) as Integer
 ' convertG4ToPS(const char *, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) See the usage comments in convertJpegToPS(), some of
-''' which are repeated here.<para/>
-''' 
-''' (2) This is a wrapper for tiff g4.  The PostScript that
-''' is generated is expanded by about 5/4 (due to the
-''' ascii85 encoding.  If you convert to pdf (ps2pdf), the
-''' ascii85 decoder is automatically invoked, so that the
-''' pdf wrapped g4 file is essentially the same size as
-''' the original g4 file.  It's useful to have the PS
-''' file ascii85 encoded, because many printers will not
-''' print binary PS files.<para/>
-''' 
-''' (3) For the first image written to a file, use "w", which
-''' opens for write and clears the file.  For all subsequent
-''' images written to that file, use "a".<para/>
-''' 
-''' (4) To render multiple images on the same page, set
-''' endpage = FALSE for each image until you get to the
-''' last, for which you set endpage = TRUE.  This causes the
-''' "showpage" command to be invoked.  Showpage outputs
-''' the entire page and clears the raster buffer for the
-''' next page to be added.  Without a "showpage",
-''' subsequent images from the next page will overlay those
-''' previously put down.<para/>
-''' 
-''' (5) For multiple images to the same page, where you are writing
-''' both jpeg and tiff-g4, you have two options:
-''' (a) write the g4 first, as either image (maskflag == FALSE)
-''' or imagemask (maskflag == TRUE), and then write the
-''' jpeg over it.
-''' (b) write the jpeg first and as the last item, write
-''' the g4 as an imagemask (maskflag == TRUE), to paint
-''' through the foreground only.
-''' We have this flexibility with the tiff-g4 because it is 1 bpp.<para/>
-''' 
-''' (6) For multiple pages, increment the page number, starting
-''' with page 1.  This allows PostScript (and PDF) to build
-''' a page directory, which viewers use for navigation.
+'''which are repeated here.<para/>
+'''
+'''(2) This is a wrapper for tiff g4.  The PostScript that
+'''is generated is expanded by about 5/4 (due to the
+'''ascii85 encoding.  If you convert to pdf (ps2pdf), the
+'''ascii85 decoder is automatically invoked, so that the
+'''pdf wrapped g4 file is essentially the same size as
+'''the original g4 file.  It's useful to have the PS
+'''file ascii85 encoded, because many printers will not
+'''print binary PS files.<para/>
+'''
+'''(3) For the first image written to a file, use "w", which
+'''opens for write and clears the file.  For all subsequent
+'''images written to that file, use "a".<para/>
+'''
+'''(4) To render multiple images on the same page, set
+'''endpage = FALSE for each image until you get to the
+'''last, for which you set endpage = TRUE.  This causes the
+'''"showpage" command to be invoked.  Showpage outputs
+'''the entire page and clears the raster buffer for the
+'''next page to be added.  Without a "showpage",
+'''subsequent images from the next page will overlay those
+'''previously put down.<para/>
+'''
+'''(5) For multiple images to the same page, where you are writing
+'''both jpeg and tiff-g4, you have two options:
+'''(a) write the g4 first, as either image (maskflag == FALSE)
+'''or imagemask (maskflag == TRUE), and then write the
+'''jpeg over it.
+'''(b) write the jpeg first and as the last item, write
+'''the g4 as an imagemask (maskflag == TRUE), to paint
+'''through the foreground only.
+'''We have this flexibility with the tiff-g4 because it is 1 bpp.<para/>
+'''
+'''(6) For multiple pages, increment the page number, starting
+'''with page 1.  This allows PostScript (and PDF) to build
+'''a page directory, which viewers use for navigation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -566,36 +540,33 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertG4ToPS(
-				 ByVal filein as String, 
-				 ByVal fileout as String, 
-				 ByVal operation as String, 
-				 ByVal x as Integer, 
-				 ByVal y as Integer, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal maskflag as Integer, 
-				 ByVal endpage as Integer) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPS( filein, fileout, operation, x, y, res, scale, pageno, maskflag, endpage)
+				ByVal filein as String, 
+				ByVal fileout as String, 
+				ByVal operation as String, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal res as Integer, 
+				ByVal scale as Single, 
+				ByVal pageno as Integer, 
+				ByVal maskflag as Integer, 
+				ByVal endpage as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+		if IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
+	Dim _Result as Integer = Natives.convertG4ToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   maskflag,   endpage)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1208, 1)
+' psio2.c (1208, 1)
 ' convertG4ToPSString(filein, poutstr, pnbytes, x, y, res, scale, pageno, maskflag, endpage) as Integer
 ' convertG4ToPSString(const char *, char **, l_int32 *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Generates PS string in G4 compressed tiff format from G4 tiff file.<para/>
-''' 
-''' (2) For usage, see convertG4ToPS().
+'''
+'''(2) For usage, see convertG4ToPS().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -612,33 +583,31 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertG4ToPSString(
-				 ByVal filein as String, 
-				<Out()> ByRef poutstr as String(), 
-				<Out()> ByRef pnbytes as Integer, 
-				 ByVal x as Integer, 
-				 ByVal y as Integer, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal maskflag as Integer, 
-				 ByVal endpage as Integer) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-
-Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(poutstr.toArray))
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPSString( filein, poutstrPTR, pnbytes, x, y, res, scale, pageno, maskflag, endpage)
+				ByVal filein as String, 
+				<Out()>  ByRef poutstr as String(), 
+				<Out()>  ByRef pnbytes as Integer, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal res as Integer, 
+				ByVal scale as Single, 
+				ByVal pageno as Integer, 
+				ByVal maskflag as Integer, 
+				ByVal endpage as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+	Dim poutstrPtr as IntPtr = IntPtr.Zero
+
+	Dim _Result as Integer = Natives.convertG4ToPSString(  filein,   poutstrPtr,   pnbytes,   x,   y,   res,   scale,   pageno,   maskflag,   endpage)
+	
+	if IsNothing(poutstr) then poutstr = nothing else poutstr = poutstr
+	return _Result
 End Function
 
-' SRC\psio2.c (1304, 1)
+' psio2.c (1304, 1)
 ' generateG4PS(filein, cid, xpt, ypt, wpt, hpt, maskflag, pageno, endpage) as String
 ' generateG4PS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32, l_int32) as char *
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) Low-level function.
 '''  </summary>
 '''  <remarks>
@@ -655,36 +624,33 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>PS string, or NULL on error</returns>
 Public Shared Function generateG4PS(
-				 ByVal filein as String, 
-				 ByVal cid as L_Compressed_Data, 
-				 ByVal xpt as Single, 
-				 ByVal ypt as Single, 
-				 ByVal wpt as Single, 
-				 ByVal hpt as Single, 
-				 ByVal maskflag as Integer, 
-				 ByVal pageno as Integer, 
-				 ByVal endpage as Integer) as String
-
-	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
-
-	Dim _Result as String = LeptonicaSharp.Natives.generateG4PS( filein, cid.Pointer, xpt, ypt, wpt, hpt, maskflag, pageno, endpage)
+				ByVal filein as String, 
+				ByVal cid as L_Compressed_Data, 
+				ByVal xpt as Single, 
+				ByVal ypt as Single, 
+				ByVal wpt as Single, 
+				ByVal hpt as Single, 
+				ByVal maskflag as Integer, 
+				ByVal pageno as Integer, 
+				ByVal endpage as Integer) as String
 
 
-	Return _Result
+if IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
+	Dim _Result as String = Natives.generateG4PS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   maskflag,   pageno,   endpage)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1438, 1)
+' psio2.c (1438, 1)
 ' convertTiffMultipageToPS(filein, fileout, fillfract) as Integer
 ' convertTiffMultipageToPS(const char *, const char *, l_float32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This converts a multipage tiff file of binary page images
-''' into a ccitt g4 compressed PS file.<para/>
-''' 
-''' (2) If the images are generated from a standard resolution fax,
-''' the vertical resolution is doubled to give a normal-looking
-''' aspect ratio.
+'''into a ccitt g4 compressed PS file.<para/>
+'''
+'''(2) If the images are generated from a standard resolution fax,
+'''the vertical resolution is doubled to give a normal-looking
+'''aspect ratio.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -694,33 +660,30 @@ End Function
 '''  <param name="fillfract">[in] - factor for filling 8.5 x 11 inch page use 0.0 for DEFAULT_FILL_FRACTION</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertTiffMultipageToPS(
-				 ByVal filein as String, 
-				 ByVal fileout as String, 
-				 Optional ByVal fillfract as Single = 0) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertTiffMultipageToPS( filein, fileout, fillfract)
+				ByVal filein as String, 
+				ByVal fileout as String, 
+				Optional ByVal fillfract as Single = 0) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+	Dim _Result as Integer = Natives.convertTiffMultipageToPS(  filein,   fileout,   fillfract)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1518, 1)
+' psio2.c (1518, 1)
 ' convertFlateToPSEmbed(filein, fileout) as Integer
 ' convertFlateToPSEmbed(const char *, const char *) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This function takes any image file as input and generates a
-''' flate-compressed, ascii85 encoded PS file, with a bounding box.<para/>
-''' 
-''' (2) The bounding box is required when a program such as TeX
-''' (through epsf) places and rescales the image.<para/>
-''' 
-''' (3) The bounding box is sized for fitting the image to an
-''' 8.5 x 11.0 inch page.
+'''flate-compressed, ascii85 encoded PS file, with a bounding box.<para/>
+'''
+'''(2) The bounding box is required when a program such as TeX
+'''(through epsf) places and rescales the image.<para/>
+'''
+'''(3) The bounding box is sized for fitting the image to an
+'''8.5 x 11.0 inch page.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -729,74 +692,71 @@ End Function
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertFlateToPSEmbed(
-				 ByVal filein as String, 
-				 ByVal fileout as String) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPSEmbed( filein, fileout)
+				ByVal filein as String, 
+				ByVal fileout as String) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+	Dim _Result as Integer = Natives.convertFlateToPSEmbed(  filein,   fileout)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1631, 1)
+' psio2.c (1631, 1)
 ' convertFlateToPS(filein, fileout, operation, x, y, res, scale, pageno, endpage) as Integer
 ' convertFlateToPS(const char *, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) This outputs level 3 PS as flate compressed (overlaid
-''' with ascii85 encoding).<para/>
-''' 
-''' (2) An output file can contain multiple pages, each with
-''' multiple images.  The arguments to convertFlateToPS()
-''' allow you to control placement of png images on multiple
-''' pages within a PostScript file.<para/>
-''' 
-''' (3) For the first image written to a file, use "w", which
-''' opens for write and clears the file.  For all subsequent
-''' images written to that file, use "a".<para/>
-''' 
-''' (4) The (x, y) parameters give the LL corner of the image
-''' relative to the LL corner of the page.  They are in
-''' units of pixels if scale = 1.0.  If you use (e.g.)
-''' scale = 2.0, the image is placed at (2x, 2y) on the page,
-''' and the image dimensions are also doubled.<para/>
-''' 
-''' (5) Display vs printed resolution:
-''' If your display is 75 ppi and your image was created
-''' at a resolution of 300 ppi, you can get the image
-''' to print at the same size as it appears on your display
-''' by either setting scale = 4.0 or by setting  res = 75.
-''' Both tell the printer to make a 4x enlarged image.
-''' If your image is generated at 150 ppi and you use scale = 1,
-''' it will be rendered such that 150 pixels correspond
-''' to 72 pts (1 inch on the printer).  This function does
-''' the conversion from pixels (with or without scaling) to
-''' pts, which are the units that the printer uses.
-''' The printer will choose its own resolution to use
-''' in rendering the image, which will not affect the size
-''' of the rendered image.  That is because the output
-''' PostScript file describes the geometry in terms of pts,
-''' which are defined to be 1/72 inch.  The printer will
-''' only see the size of the image in pts, through the
-''' scale and translate parameters and the affine
-''' transform (the ImageMatrix) of the image.<para/>
-''' 
-''' (6) To render multiple images on the same page, set
-''' endpage = FALSE for each image until you get to the
-''' last, for which you set endpage = TRUE.  This causes the
-''' "showpage" command to be invoked.  Showpage outputs
-''' the entire page and clears the raster buffer for the
-''' next page to be added.  Without a "showpage",
-''' subsequent images from the next page will overlay those
-''' previously put down.<para/>
-''' 
-''' (7) For multiple pages, increment the page number, starting
-''' with page 1.  This allows PostScript (and PDF) to build
-''' a page directory, which viewers use for navigation.
+'''with ascii85 encoding).<para/>
+'''
+'''(2) An output file can contain multiple pages, each with
+'''multiple images.  The arguments to convertFlateToPS()
+'''allow you to control placement of png images on multiple
+'''pages within a PostScript file.<para/>
+'''
+'''(3) For the first image written to a file, use "w", which
+'''opens for write and clears the file.  For all subsequent
+'''images written to that file, use "a".<para/>
+'''
+'''(4) The (x, y) parameters give the LL corner of the image
+'''relative to the LL corner of the page.  They are in
+'''units of pixels if scale = 1.0.  If you use (e.g.)
+'''scale = 2.0, the image is placed at (2x, 2y) on the page,
+'''and the image dimensions are also doubled.<para/>
+'''
+'''(5) Display vs printed resolution:
+'''If your display is 75 ppi and your image was created
+'''at a resolution of 300 ppi, you can get the image
+'''to print at the same size as it appears on your display
+'''by either setting scale = 4.0 or by setting  res = 75.
+'''Both tell the printer to make a 4x enlarged image.
+'''If your image is generated at 150 ppi and you use scale = 1,
+'''it will be rendered such that 150 pixels correspond
+'''to 72 pts (1 inch on the printer).  This function does
+'''the conversion from pixels (with or without scaling) to
+'''pts, which are the units that the printer uses.
+'''The printer will choose its own resolution to use
+'''in rendering the image, which will not affect the size
+'''of the rendered image.  That is because the output
+'''PostScript file describes the geometry in terms of pts,
+'''which are defined to be 1/72 inch.  The printer will
+'''only see the size of the image in pts, through the
+'''scale and translate parameters and the affine
+'''transform (the ImageMatrix) of the image.<para/>
+'''
+'''(6) To render multiple images on the same page, set
+'''endpage = FALSE for each image until you get to the
+'''last, for which you set endpage = TRUE.  This causes the
+'''"showpage" command to be invoked.  Showpage outputs
+'''the entire page and clears the raster buffer for the
+'''next page to be added.  Without a "showpage",
+'''subsequent images from the next page will overlay those
+'''previously put down.<para/>
+'''
+'''(7) For multiple pages, increment the page number, starting
+'''with page 1.  This allows PostScript (and PDF) to build
+'''a page directory, which viewers use for navigation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -812,41 +772,38 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertFlateToPS(
-				 ByVal filein as String, 
-				 ByVal fileout as String, 
-				 ByVal operation as String, 
-				 ByVal x as Integer, 
-				 ByVal y as Integer, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal endpage as Integer) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPS( filein, fileout, operation, x, y, res, scale, pageno, endpage)
+				ByVal filein as String, 
+				ByVal fileout as String, 
+				ByVal operation as String, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal res as Integer, 
+				ByVal scale as Single, 
+				ByVal pageno as Integer, 
+				ByVal endpage as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+		if IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+		if IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
+	Dim _Result as Integer = Natives.convertFlateToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1697, 1)
+' psio2.c (1697, 1)
 ' convertFlateToPSString(filein, poutstr, pnbytes, x, y, res, scale, pageno, endpage) as Integer
 ' convertFlateToPSString(const char *, char **, l_int32 *, l_int32, l_int32, l_int32, l_float32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) The returned PS character array is a null-terminated
-''' ascii string.  All the raster data is ascii85 encoded, so
-''' there are no null bytes embedded in it.<para/>
-''' 
-''' (2) The raster encoding is made with gzip, the same as that
-''' in a png file that is compressed without prediction.
-''' The raster data itself is 25% larger than that in the
-''' binary form, due to the ascii85 encoding.
-''' Usage:  See convertFlateToPS()
+'''ascii string.  All the raster data is ascii85 encoded, so
+'''there are no null bytes embedded in it.<para/>
+'''
+'''(2) The raster encoding is made with gzip, the same as that
+'''in a png file that is compressed without prediction.
+'''The raster data itself is 25% larger than that in the
+'''binary form, due to the ascii85 encoding.
+'''Usage:  See convertFlateToPS()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -862,29 +819,32 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertFlateToPSString(
-				 ByVal filein as String, 
-				<Out()> ByRef poutstr as String(), 
-				<Out()> ByRef pnbytes as Integer, 
-				 ByVal x as Integer, 
-				 ByVal y as Integer, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal endpage as Integer) as Integer
-
-	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-
-Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(poutstr.toArray))
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPSString( filein, poutstrPTR, pnbytes, x, y, res, scale, pageno, endpage)
+				ByVal filein as String, 
+				<Out()>  ByRef poutstr as String(), 
+				<Out()>  ByRef pnbytes as Integer, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal res as Integer, 
+				ByVal scale as Single, 
+				ByVal pageno as Integer, 
+				ByVal endpage as Integer) as Integer
 
 
-	Return _Result
+if IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+	Dim poutstrPtr as IntPtr = IntPtr.Zero
+
+	Dim _Result as Integer = Natives.convertFlateToPSString(  filein,   poutstrPtr,   pnbytes,   x,   y,   res,   scale,   pageno,   endpage)
+	
+	if IsNothing(poutstr) then poutstr = nothing else poutstr = poutstr
+	return _Result
 End Function
 
-' SRC\psio2.c (1781, 1)
+' psio2.c (1781, 1)
 ' generateFlatePS(filein, cid, xpt, ypt, wpt, hpt, pageno, endpage) as String
 ' generateFlatePS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32) as char *
+'''  <summary>
+''' generateFlatePS()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generateFlatePS/*"/>
@@ -898,33 +858,30 @@ End Function
 '''  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 '''   <returns>PS string, or NULL on error</returns>
 Public Shared Function generateFlatePS(
-				 ByVal filein as String, 
-				 ByVal cid as L_Compressed_Data, 
-				 ByVal xpt as Single, 
-				 ByVal ypt as Single, 
-				 ByVal wpt as Single, 
-				 ByVal hpt as Single, 
-				 ByVal pageno as Integer, 
-				 ByVal endpage as Integer) as String
-
-	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
-
-	Dim _Result as String = LeptonicaSharp.Natives.generateFlatePS( filein, cid.Pointer, xpt, ypt, wpt, hpt, pageno, endpage)
+				ByVal filein as String, 
+				ByVal cid as L_Compressed_Data, 
+				ByVal xpt as Single, 
+				ByVal ypt as Single, 
+				ByVal wpt as Single, 
+				ByVal hpt as Single, 
+				ByVal pageno as Integer, 
+				ByVal endpage as Integer) as String
 
 
-	Return _Result
+if IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
+	Dim _Result as String = Natives.generateFlatePS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1922, 1)
+' psio2.c (1922, 1)
 ' pixWriteMemPS(pdata, psize, pix, box, res, scale) as Integer
 ' pixWriteMemPS(l_uint8 **, size_t *, PIX *, BOX *, l_int32, l_float32) as l_ok
 '''  <summary>
-''' Notes:<para/>
-''' 
 ''' (1) See pixWriteStringPS() for usage.<para/>
-''' 
-''' (2) This is just a wrapper for pixWriteStringPS(), which
-''' writes uncompressed image data to memory.
+'''
+'''(2) This is just a wrapper for pixWriteStringPS(), which
+'''writes uncompressed image data to memory.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -937,28 +894,33 @@ End Function
 '''  <param name="scale">[in] - to prevent scaling, use either 1.0 or 0.0</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixWriteMemPS(
-				<Out()> ByRef pdata as Byte(), 
-				<Out()> ByRef psize as UInteger, 
-				 ByVal pix as Pix, 
-				 ByVal box as Box, 
-				 ByVal res as Integer, 
-				 ByVal scale as Single) as Integer
+				<Out()>  ByRef pdata as Byte(), 
+				<Out()>  ByRef psize as UInteger, 
+				ByVal pix as Pix, 
+				ByVal box as Box, 
+				ByVal res as Integer, 
+				ByVal scale as Single) as Integer
 
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-	Dim pdataPTR As IntPtr = IntPtr.Zero
-	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
+if IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+	Dim pdataPtr as IntPtr = IntPtr.Zero
+	Dim boxPtr as IntPtr = IntPtr.Zero : 	If Not IsNothing(box) Then boxPtr = box.Pointer
 
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPS( pdataPTR, psize, pix.Pointer, boxPTR, res, scale)
-
-	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
-
-	Return _Result
+	Dim _Result as Integer = Natives.pixWriteMemPS(  pdataPtr,   psize, pix.Pointer, boxPtr,   res,   scale)
+	
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1)
+	If pdataPtr <> IntPtr.Zero Then 
+	  Marshal.Copy(pdataPtr, pdata, 0, pdata.count)
+	End If
+	return _Result
 End Function
 
-' SRC\psio2.c (1957, 1)
+' psio2.c (1957, 1)
 ' getResLetterPage(w, h, fillfract) as Integer
 ' getResLetterPage(l_int32, l_int32, l_float32) as l_int32
+'''  <summary>
+''' getResLetterPage()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getResLetterPage/*"/>
@@ -967,19 +929,22 @@ End Function
 '''  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
 '''   <returns>resolution</returns>
 Public Shared Function getResLetterPage(
-				 ByVal w as Integer, 
-				 ByVal h as Integer, 
-				 ByVal fillfract as Single) as Integer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.getResLetterPage( w, h, fillfract)
+				ByVal w as Integer, 
+				ByVal h as Integer, 
+				ByVal fillfract as Single) as Integer
 
 
-	Return _Result
+	Dim _Result as Integer = Natives.getResLetterPage(  w,   h,   fillfract)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (1982, 1)
+' psio2.c (1982, 1)
 ' getResA4Page(w, h, fillfract) as Integer
 ' getResA4Page(l_int32, l_int32, l_float32) as l_int32
+'''  <summary>
+''' getResA4Page()
+'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getResA4Page/*"/>
@@ -988,28 +953,30 @@ End Function
 '''  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
 '''   <returns>resolution</returns>
 Public Shared Function getResA4Page(
-				 ByVal w as Integer, 
-				 ByVal h as Integer, 
-				 ByVal fillfract as Single) as Integer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.getResA4Page( w, h, fillfract)
+				ByVal w as Integer, 
+				ByVal h as Integer, 
+				ByVal fillfract as Single) as Integer
 
 
-	Return _Result
+	Dim _Result as Integer = Natives.getResA4Page(  w,   h,   fillfract)
+	
+	return _Result
 End Function
 
-' SRC\psio2.c (2001, 1)
+' psio2.c (2001, 1)
 ' l_psWriteBoundingBox(flag) as Object
 ' l_psWriteBoundingBox(l_int32) as void
 '''  <remarks>
 '''  </remarks>
 '''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_psWriteBoundingBox/*"/>
 Public Shared Sub l_psWriteBoundingBox(
-				 ByVal flag as Integer)
-
-	LeptonicaSharp.Natives.l_psWriteBoundingBox( flag)
+				ByVal flag as Integer)
 
 
+	Natives.l_psWriteBoundingBox(  flag)
+	
 End Sub
 
 End Class
+
+

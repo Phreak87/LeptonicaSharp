@@ -24,7 +24,7 @@ namespace TestAppCSharp
             //app.TestpixGetRegionsBinary(img1bpp);
             //app.TestProjections(img1bpp);
             //app.OtsuTest2(carplate);
-            //app.TestProjectionsOnImage(carplate);
+            app.TestProjectionsOnImage(carplate);
             //app.TestArrayFunctions();
             //app.TestCCBorder(img1bpp);
             //app.TestBitmap();
@@ -32,7 +32,7 @@ namespace TestAppCSharp
             //app.FindForeground();
             //app.Sel();
             //app.BinaryWrite();
-            app.MemoryCheck();
+            //app.MemoryCheck();
         }
 
         private void MemoryCheck()
@@ -202,6 +202,12 @@ namespace TestAppCSharp
                 var pxByRow = pixCountPixelsByRow(pixBinary, null);
                 colProjections = Array.ConvertAll(pxByCol.array, x => (int)x);
                 rowProjections = Array.ConvertAll(pxByRow.array, x => (int)x);
+
+                // Markus' functions
+                var px1 = pxByCol.DisplayNumaBarGraph(pxByCol, pixBinary);
+                var px2 = pxByRow.DisplayNumaBarGraph(pxByRow, pixBinary);
+                var px3 = pxByCol.DisplayNumaHeatmap(pxByCol, pixBinary);
+                var px4 = pxByRow.DisplayNumaHeatmap(pxByRow, pixBinary);
             }
 
             const float wRatio = 1 / 5f;

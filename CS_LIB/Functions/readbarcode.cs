@@ -26,7 +26,7 @@ namespace LeptonicaSharp
 		///   <returns>sarray text of barcodes, or NULL if none found or on error</returns>
 		public static Sarray pixProcessBarcodes(
 						Pix pixs,
-						IFF format,
+						Enumerations.IFF format,
 						int method,
 						out Sarray psaw,
 						int debugflag)
@@ -84,7 +84,7 @@ namespace LeptonicaSharp
 		///   <returns>sa sarray of widths, one string for each barcode found, or NULL on error</returns>
 		public static Sarray pixReadBarcodes(
 						Pixa pixa,
-						IFF format,
+						Enumerations.IFF format,
 						int method,
 						out Sarray psaw,
 						int debugflag)

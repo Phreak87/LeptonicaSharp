@@ -898,7 +898,7 @@ namespace LeptonicaSharp
 						out Numa pnai,
 						out List<Single[]> pscores,
 						out Pix ppixd,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -1151,7 +1151,7 @@ namespace LeptonicaSharp
 						int ny,
 						Single thresh,
 						out Numaa pnaa,
-						Pixa pixadebug)
+						Pixa pixadebug = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1200,7 +1200,7 @@ namespace LeptonicaSharp
 						int w2,
 						int h2,
 						out Single pscore,
-						Pixa pixadebug)
+						Pixa pixadebug = null)
 		{
 			if (naa1 == null) {throw new ArgumentNullException  ("naa1 cannot be Nothing");}
 

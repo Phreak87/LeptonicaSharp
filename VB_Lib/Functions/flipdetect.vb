@@ -36,7 +36,7 @@ Public Shared Function pixOrientCorrect(
 				<Out()> Optional  ByRef pupconf as Single = 0f, 
 				<Out()> Optional  ByRef pleftconf as Single = 0f, 
 				<Out()> Optional  ByRef protation as Integer = 0, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -115,7 +115,7 @@ Public Shared Function pixOrientDetect(
 				<Out()>  ByRef pupconf as Single, 
 				<Out()>  ByRef pleftconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -164,7 +164,7 @@ Public Shared Function makeOrientDecision(
 				ByVal minupconf as Single, 
 				ByVal minratio as Single, 
 				<Out()>  ByRef porient as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 	Dim _Result as Integer = Natives.makeOrientDecision(  upconf,   leftconf,   minupconf,   minratio,   porient,   debug)
@@ -198,7 +198,7 @@ Public Shared Function pixUpDownDetect(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -253,7 +253,7 @@ Public Shared Function pixUpDownDetectGeneral(
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
 				ByVal npixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -290,7 +290,7 @@ Public Shared Function pixOrientDetectDwa(
 				<Out()>  ByRef pupconf as Single, 
 				<Out()>  ByRef pleftconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -328,7 +328,7 @@ Public Shared Function pixUpDownDetectDwa(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -357,7 +357,7 @@ Public Shared Function pixUpDownDetectGeneralDwa(
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
 				ByVal npixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -412,7 +412,7 @@ Public Shared Function pixMirrorDetect(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -442,7 +442,7 @@ Public Shared Function pixMirrorDetectDwa(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

@@ -156,8 +156,8 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK 1 on error</returns>
 		public static Pta ptaScale(
 						Pta ptas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 
@@ -254,8 +254,8 @@ namespace LeptonicaSharp
 		///   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dScale() for details of transform.</returns>
 		public static Boxa boxaScale(
 						Boxa boxas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 

@@ -174,7 +174,7 @@ End Function
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaMakeThinSets(
 				ByVal index as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Sela
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Sela
 
 
 	Dim _Result as IntPtr = Natives.selaMakeThinSets(  index,   debug)

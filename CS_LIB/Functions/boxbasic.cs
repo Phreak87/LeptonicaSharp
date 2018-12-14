@@ -187,10 +187,10 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int boxSetGeometry(
 						Box box,
-						int x,
-						int y,
-						int w,
-						int h)
+						int x = 0,
+						int y = 0,
+						int w = 0,
+						int h = 0)
 		{
 			if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 
@@ -243,10 +243,10 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int boxSetSideLocations(
 						Box box,
-						int l,
-						int r,
-						int t,
-						int b)
+						int l = 0,
+						int r = 0,
+						int t = 0,
+						int b = 0)
 		{
 			if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 
@@ -815,7 +815,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int boxaInitFull(
 						Boxa boxa,
-						Box box)
+						Box box = null)
 		{
 			if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 

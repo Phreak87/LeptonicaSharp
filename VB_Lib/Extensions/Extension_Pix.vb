@@ -96,7 +96,7 @@ Partial Public Class Pix
         Dim Bytes As Byte() = Nothing
 
         If Me.d = 1 Then Return ConvertTo1BPPBMP(Me)
-        _All.pixWriteMemBmp(Bytes, Size, IIf(Me.d = 24, Me._ConvertTo32, Me))
+        _All.pixWriteMemBmp(Bytes, Size, IIf(Me.d = 24, Me.ConvertTo32, Me))
         Dim MemStrm As New IO.MemoryStream(Bytes)
         Return New Bitmap(MemStrm, True)
     End Function

@@ -542,7 +542,7 @@ namespace LeptonicaSharp
 						int subflag,
 						int maxdiff,
 						int extrapixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -597,7 +597,7 @@ namespace LeptonicaSharp
 						int subflag,
 						int maxdiff,
 						int extrapixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -646,7 +646,7 @@ namespace LeptonicaSharp
 		public static Boxa boxaLinearFit(
 						Boxa boxas,
 						Single factor,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -680,7 +680,7 @@ namespace LeptonicaSharp
 		public static Boxa boxaWindowedMedian(
 						Boxa boxas,
 						int halfwin,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -926,7 +926,7 @@ namespace LeptonicaSharp
 						int delw,
 						int op,
 						Single factor,
-						Numa na)
+						Numa na = null)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -1055,7 +1055,7 @@ namespace LeptonicaSharp
 		public static Boxa boxaFillSequence(
 						Boxa boxas,
 						int useflag,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 

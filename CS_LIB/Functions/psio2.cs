@@ -659,7 +659,7 @@ namespace LeptonicaSharp
 		public static int convertTiffMultipageToPS(
 						String filein,
 						String fileout,
-						Single fillfract)
+						Single fillfract = 0)
 		{
 			if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 

@@ -536,7 +536,7 @@ End Function
 Public Shared Function pixSetUnderTransparency(
 				ByVal pixs as Pix, 
 				ByVal val as UInteger, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -620,7 +620,7 @@ Public Shared Function pixGetColorNearMaskBoundary(
 				ByVal box as Box, 
 				ByVal dist as Integer, 
 				<Out()>  ByRef pval as UInteger, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -1650,7 +1650,7 @@ Public Shared Function pixFindRepCloseTile(
 				ByVal tsize as Integer, 
 				ByVal ntiles as Integer, 
 				<Out()>  ByRef pboxtile as Box, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

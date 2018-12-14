@@ -31,9 +31,9 @@ namespace LeptonicaSharp
 		public static int recogTrainLabeled(
 						L_Recog recog,
 						Pix pixs,
-						Box box,
-						String text,
-						DebugOnOff debug)
+						Box box = null,
+						String text = "",
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 
@@ -102,7 +102,7 @@ namespace LeptonicaSharp
 		public static int recogAddSample(
 						L_Recog recog,
 						Pix pix,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 
@@ -166,7 +166,7 @@ namespace LeptonicaSharp
 		///   <returns>0 on success, 1 on failure</returns>
 		public static int recogAverageSamples(
 						List<L_Recog> precog,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 
@@ -556,7 +556,7 @@ namespace LeptonicaSharp
 						Pixa pixas,
 						Single minscore,
 						int threshold,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recogboot == null) {throw new ArgumentNullException  ("recogboot cannot be Nothing");}
 
@@ -685,7 +685,7 @@ namespace LeptonicaSharp
 						int scaleh,
 						int linew,
 						int maxyshift,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			IntPtr _Result = Natives.recogMakeBootDigitRecog(  scaleh,   linew,   maxyshift,  (int) debug);
 
@@ -706,7 +706,7 @@ namespace LeptonicaSharp
 		///  <param name="debug">[in] - 1 for display of templates</param>
 		///   <returns>pixa   of templates or NULL on error</returns>
 		public static Pixa recogMakeBootDigitTemplates(
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			IntPtr _Result = Natives.recogMakeBootDigitTemplates( (int) debug);
 
@@ -764,7 +764,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int recogDebugAverages(
 						List<L_Recog> precog,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 

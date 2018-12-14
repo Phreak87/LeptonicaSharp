@@ -78,7 +78,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK 1 on error</returns>
 		public static int stringReplace(
 						out String[] pdest,
-						String src)
+						String src = "")
 		{
 			IntPtr pdestPtr = IntPtr.Zero;
 			int _Result = Natives.stringReplace(out  pdestPtr,   src);
@@ -232,7 +232,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int stringJoinIP(
 						ref String[] psrc1,
-						String src2)
+						String src2 = "")
 		{
 			IntPtr psrc1Ptr = 	Marshal.AllocHGlobal(Marshal.SizeOf(psrc1));
 			int _Result = Natives.stringJoinIP(ref  psrc1Ptr,   src2);
@@ -1733,7 +1733,7 @@ namespace LeptonicaSharp
 		public static int makeTempDirname(
 						String result,
 						uint nbytes,
-						String subdir)
+						String subdir = "")
 		{
 			if (result == null) {throw new ArgumentNullException  ("result cannot be Nothing");}
 

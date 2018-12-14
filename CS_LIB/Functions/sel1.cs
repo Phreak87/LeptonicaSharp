@@ -68,7 +68,7 @@ namespace LeptonicaSharp
 		public static Sel selCreate(
 						int height,
 						int width,
-						String name)
+						String name = "")
 		{
 			IntPtr _Result = Natives.selCreate(  height,   width,   name);
 
@@ -323,7 +323,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int selSetName(
 						Sel sel,
-						String name)
+						String name = "")
 		{
 			if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 
@@ -349,7 +349,7 @@ namespace LeptonicaSharp
 						Sela sela,
 						String name,
 						out int pindex,
-						List<Sel> psel)
+						List<Sel> psel = null)
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -886,7 +886,7 @@ namespace LeptonicaSharp
 						String text,
 						int h,
 						int w,
-						String name)
+						String name = "")
 		{
 			if (text == null) {throw new ArgumentNullException  ("text cannot be Nothing");}
 
@@ -991,7 +991,7 @@ namespace LeptonicaSharp
 						Pta pta,
 						int cy,
 						int cx,
-						String name)
+						String name = "")
 		{
 			if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 
@@ -1020,7 +1020,7 @@ namespace LeptonicaSharp
 						Pix pix,
 						int cy,
 						int cx,
-						String name)
+						String name = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1084,7 +1084,7 @@ namespace LeptonicaSharp
 		///   <returns>sel if OK, NULL on error</returns>
 		public static Sel selCreateFromColorPix(
 						Pix pixs,
-						String selname)
+						String selname = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

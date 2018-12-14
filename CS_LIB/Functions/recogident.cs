@@ -98,7 +98,7 @@ namespace LeptonicaSharp
 						int skipsplit,
 						out Boxa pboxa,
 						out Pixa ppixa,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 
@@ -141,7 +141,7 @@ namespace LeptonicaSharp
 						out Numa pnascore,
 						out Numa pnaindex,
 						out Sarray psachar,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 

@@ -65,7 +65,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 if unable to build the model or on error</returns>
 		public static int dewarpBuildPageModel(
 						L_Dewarp dew,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 
@@ -308,7 +308,7 @@ namespace LeptonicaSharp
 		public static int dewarpBuildLineModel(
 						L_Dewarp dew,
 						int opensize,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 

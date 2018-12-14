@@ -59,7 +59,7 @@ Public Shared Function pixGenHalftoneMask(
 				ByVal pixs as Pix, 
 				ByVal ppixtext as Pix, 
 				ByVal phtfound as object, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

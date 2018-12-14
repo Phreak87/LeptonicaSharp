@@ -30,9 +30,9 @@ namespace LeptonicaSharp
 		public static GPlot gplotCreate(
 						String rootname,
 						int outformat,
-						String title,
-						String xlabel,
-						String ylabel)
+						String title = "",
+						String xlabel = "",
+						String ylabel = "")
 		{
 			if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 
@@ -97,7 +97,7 @@ namespace LeptonicaSharp
 						Numa nax,
 						Numa nay,
 						int plotstyle,
-						String plottitle)
+						String plottitle = "")
 		{
 			if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
 
@@ -227,7 +227,7 @@ namespace LeptonicaSharp
 						Numa na,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 
@@ -262,7 +262,7 @@ namespace LeptonicaSharp
 						Numa na2,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (na1 == null) {throw new ArgumentNullException  ("na1 cannot be Nothing");}
 
@@ -298,7 +298,7 @@ namespace LeptonicaSharp
 						Numaa naa,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 
@@ -339,7 +339,7 @@ namespace LeptonicaSharp
 						int plotstyle,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 
@@ -383,7 +383,7 @@ namespace LeptonicaSharp
 						int plotstyle,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
 
@@ -428,7 +428,7 @@ namespace LeptonicaSharp
 						int plotstyle,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (naay == null) {throw new ArgumentNullException  ("naay cannot be Nothing");}
 

@@ -685,7 +685,7 @@ namespace LeptonicaSharp
 						FILE fp,
 						Pix pix,
 						int res,
-						String title)
+						String title = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -718,7 +718,7 @@ namespace LeptonicaSharp
 						out uint pnbytes,
 						Pix pix,
 						int res,
-						String title)
+						String title = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 

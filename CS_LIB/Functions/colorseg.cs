@@ -178,7 +178,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Pix pixm,
 						int level,
-						int[] countarray)
+						int[] countarray = null)
 		{
 			if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 

@@ -35,11 +35,11 @@ namespace LeptonicaSharp
 		///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 		public static Pix pixCleanBackgroundToWhite(
 						Pix pixs,
-						Pix pixim,
-						Pix pixg,
-						Single gamma,
-						int blackval,
-						int whiteval)
+						Pix pixim = null,
+						Pix pixg = null,
+						Single gamma = 1.0f,
+						int blackval = 70,
+						int whiteval = 180)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -72,8 +72,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 		public static Pix pixBackgroundNormSimple(
 						Pix pixs,
-						Pix pixim,
-						Pix pixg)
+						Pix pixim = null,
+						Pix pixg = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -2140,8 +2140,8 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK 1 on error</returns>
 		public static Pta ptaScale(
 						Pta ptas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 
@@ -2238,8 +2238,8 @@ namespace LeptonicaSharp
 		///   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dScale() for details of transform.</returns>
 		public static Boxa boxaScale(
 						Boxa boxas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -3074,7 +3074,7 @@ namespace LeptonicaSharp
 		///   <returns>data string of decoded barcode data, or NULL on error</returns>
 		public static String barcodeDispatchDecoder(
 						String barstr,
-						IFF format,
+						Enumerations.IFF format,
 						int debugflag)
 		{
 			if (barstr == null) {throw new ArgumentNullException  ("barstr cannot be Nothing");}
@@ -3095,7 +3095,7 @@ namespace LeptonicaSharp
 		///  <param name="format">[in] - </param>
 		///   <returns>1 if format is one of those supported 0 otherwise</returns>
 		public static int barcodeFormatIsSupported(
-						IFF format)
+						Enumerations.IFF format)
 		{
 			int _Result = Natives.barcodeFormatIsSupported( (int) format);
 			return _Result;
@@ -3195,11 +3195,11 @@ namespace LeptonicaSharp
 		public static Pix pixDeskewLocal(
 						Pix pixs,
 						int nslices,
-						int redsweep,
-						int redsearch,
-						Single sweeprange,
-						Single sweepdelta,
-						Single minbsdelta)
+						int redsweep = 0,
+						int redsearch = 0,
+						Single sweeprange = 0,
+						Single sweepdelta = 0,
+						Single minbsdelta = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -3315,7 +3315,7 @@ namespace LeptonicaSharp
 						Single minbsdelta,
 						out Single pa,
 						out Single pb,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -3686,7 +3686,7 @@ namespace LeptonicaSharp
 		public static Pix pixBilateralExact(
 						Pix pixs,
 						L_Kernel spatial_kel,
-						L_Kernel range_kel)
+						L_Kernel range_kel = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -3716,7 +3716,7 @@ namespace LeptonicaSharp
 		public static Pix pixBilateralGrayExact(
 						Pix pixs,
 						L_Kernel spatial_kel,
-						L_Kernel range_kel)
+						L_Kernel range_kel = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -4840,7 +4840,7 @@ namespace LeptonicaSharp
 		///   <returns>pixd 2x subsampled, or NULL on error</returns>
 		public static Pix pixReduceBinary2(
 						Pix pixs,
-						Byte[] intab)
+						Byte[] intab = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -4910,7 +4910,7 @@ namespace LeptonicaSharp
 		public static Pix pixReduceRankBinary2(
 						Pix pixs,
 						int level,
-						Byte[] intab)
+						Byte[] intab = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -6269,10 +6269,10 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int boxSetGeometry(
 						Box box,
-						int x,
-						int y,
-						int w,
-						int h)
+						int x = 0,
+						int y = 0,
+						int w = 0,
+						int h = 0)
 		{
 			if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 
@@ -6325,10 +6325,10 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int boxSetSideLocations(
 						Box box,
-						int l,
-						int r,
-						int t,
-						int b)
+						int l = 0,
+						int r = 0,
+						int t = 0,
+						int b = 0)
 		{
 			if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 
@@ -6897,7 +6897,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int boxaInitFull(
 						Boxa boxa,
-						Box box)
+						Box box = null)
 		{
 			if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 
@@ -8945,7 +8945,7 @@ namespace LeptonicaSharp
 						int rightdiff,
 						int topdiff,
 						int botdiff,
-						DebugOnOff debug,
+						Enumerations.DebugOnOff debug,
 						out int psimilar,
 						out Numa pnasim)
 		{
@@ -9118,8 +9118,8 @@ namespace LeptonicaSharp
 						Boxa boxas,
 						int shiftx,
 						int shifty,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -9151,8 +9151,8 @@ namespace LeptonicaSharp
 						Box box,
 						int shiftx,
 						int shifty,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 
@@ -11180,7 +11180,7 @@ namespace LeptonicaSharp
 						int subflag,
 						int maxdiff,
 						int extrapixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -11235,7 +11235,7 @@ namespace LeptonicaSharp
 						int subflag,
 						int maxdiff,
 						int extrapixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -11284,7 +11284,7 @@ namespace LeptonicaSharp
 		public static Boxa boxaLinearFit(
 						Boxa boxas,
 						Single factor,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -11318,7 +11318,7 @@ namespace LeptonicaSharp
 		public static Boxa boxaWindowedMedian(
 						Boxa boxas,
 						int halfwin,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -11564,7 +11564,7 @@ namespace LeptonicaSharp
 						int delw,
 						int op,
 						Single factor,
-						Numa na)
+						Numa na = null)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -11693,7 +11693,7 @@ namespace LeptonicaSharp
 		public static Boxa boxaFillSequence(
 						Boxa boxas,
 						int useflag,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -12658,7 +12658,7 @@ namespace LeptonicaSharp
 		///   <returns>pta of outer border, in global coords, or NULL on error</returns>
 		public static Pta pixGetOuterBorderPta(
 						Pix pixs,
-						Box box)
+						Box box = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -13491,7 +13491,7 @@ namespace LeptonicaSharp
 		///   <returns>sela, or NULL on error</returns>
 		public static Sela selaMakeThinSets(
 						int index,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			IntPtr _Result = Natives.selaMakeThinSets(  index,  (int) debug);
 
@@ -14336,7 +14336,7 @@ namespace LeptonicaSharp
 						int thresh,
 						out int pncolors,
 						out int piscolor,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -18152,7 +18152,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Pix pixm,
 						int level,
-						int[] countarray)
+						int[] countarray = null)
 		{
 			if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 
@@ -20278,7 +20278,7 @@ namespace LeptonicaSharp
 						out Numa pnai,
 						out List<Single[]> pscores,
 						out Pix ppixd,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -20531,7 +20531,7 @@ namespace LeptonicaSharp
 						int ny,
 						Single thresh,
 						out Numaa pnaa,
-						Pixa pixadebug)
+						Pixa pixadebug = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -20580,7 +20580,7 @@ namespace LeptonicaSharp
 						int w2,
 						int h2,
 						out Single pscore,
-						Pixa pixadebug)
+						Pixa pixadebug = null)
 		{
 			if (naa1 == null) {throw new ArgumentNullException  ("naa1 cannot be Nothing");}
 
@@ -22019,7 +22019,7 @@ namespace LeptonicaSharp
 		public static Pix pixCensusTransform(
 						Pix pixs,
 						int halfsize,
-						Pix pixacc)
+						Pix pixacc = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -23529,7 +23529,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 if unable to build the model or on error</returns>
 		public static int dewarpBuildPageModel(
 						L_Dewarp dew,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 
@@ -23772,7 +23772,7 @@ namespace LeptonicaSharp
 		public static int dewarpBuildLineModel(
 						L_Dewarp dew,
 						int opensize,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dew == null) {throw new ArgumentNullException  ("dew cannot be Nothing");}
 
@@ -23866,7 +23866,7 @@ namespace LeptonicaSharp
 						int x,
 						int y,
 						out Pix ppixd,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 
@@ -23918,7 +23918,7 @@ namespace LeptonicaSharp
 						int x,
 						int y,
 						out Boxa pboxad,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 
@@ -24034,7 +24034,7 @@ namespace LeptonicaSharp
 						int check_columns,
 						out Pix ppixd,
 						out L_Dewarpa pdewa,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -24123,7 +24123,7 @@ namespace LeptonicaSharp
 						Pix pixb,
 						L_Dewarpa dewa,
 						out Pix ppixd,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -24193,7 +24193,7 @@ namespace LeptonicaSharp
 		public static int dewarpaSetValidModels(
 						L_Dewarpa dewa,
 						int notests,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 
@@ -24251,7 +24251,7 @@ namespace LeptonicaSharp
 		public static int dewarpaInsertRefModels(
 						L_Dewarpa dewa,
 						int notests,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 
@@ -26337,7 +26337,7 @@ namespace LeptonicaSharp
 						out Single pjpl,
 						out Single pjspl,
 						out Single prpl,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -26362,7 +26362,7 @@ namespace LeptonicaSharp
 		public static Numa pixGetEdgeProfile(
 						Pix pixs,
 						int side,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -27643,7 +27643,7 @@ namespace LeptonicaSharp
 		public static int fhmtautogen(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -27681,7 +27681,7 @@ namespace LeptonicaSharp
 		public static int fhmtautogen1(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -27716,7 +27716,7 @@ namespace LeptonicaSharp
 		public static int fhmtautogen2(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -27913,7 +27913,7 @@ namespace LeptonicaSharp
 						out Single pupconf,
 						out Single pleftconf,
 						out int protation,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -27993,7 +27993,7 @@ namespace LeptonicaSharp
 						out Single pupconf,
 						out Single pleftconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28041,7 +28041,7 @@ namespace LeptonicaSharp
 						Single minupconf,
 						Single minratio,
 						out int porient,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			int _Result = Natives.makeOrientDecision(  upconf,   leftconf,   minupconf,   minratio, out  porient,  (int) debug);
 			return _Result;
@@ -28073,7 +28073,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28127,7 +28127,7 @@ namespace LeptonicaSharp
 						out Single pconf,
 						int mincount,
 						int npixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28163,7 +28163,7 @@ namespace LeptonicaSharp
 						out Single pupconf,
 						out Single pleftconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28200,7 +28200,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28228,7 +28228,7 @@ namespace LeptonicaSharp
 						out Single pconf,
 						int mincount,
 						int npixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28282,7 +28282,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28311,7 +28311,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -28369,7 +28369,7 @@ namespace LeptonicaSharp
 		public static int fmorphautogen(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -28404,7 +28404,7 @@ namespace LeptonicaSharp
 		public static int fmorphautogen1(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -31445,9 +31445,9 @@ namespace LeptonicaSharp
 		public static GPlot gplotCreate(
 						String rootname,
 						int outformat,
-						String title,
-						String xlabel,
-						String ylabel)
+						String title = "",
+						String xlabel = "",
+						String ylabel = "")
 		{
 			if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 
@@ -31512,7 +31512,7 @@ namespace LeptonicaSharp
 						Numa nax,
 						Numa nay,
 						int plotstyle,
-						String plottitle)
+						String plottitle = "")
 		{
 			if (gplot == null) {throw new ArgumentNullException  ("gplot cannot be Nothing");}
 
@@ -31642,7 +31642,7 @@ namespace LeptonicaSharp
 						Numa na,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (na == null) {throw new ArgumentNullException  ("na cannot be Nothing");}
 
@@ -31677,7 +31677,7 @@ namespace LeptonicaSharp
 						Numa na2,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (na1 == null) {throw new ArgumentNullException  ("na1 cannot be Nothing");}
 
@@ -31713,7 +31713,7 @@ namespace LeptonicaSharp
 						Numaa naa,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (naa == null) {throw new ArgumentNullException  ("naa cannot be Nothing");}
 
@@ -31754,7 +31754,7 @@ namespace LeptonicaSharp
 						int plotstyle,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (nay == null) {throw new ArgumentNullException  ("nay cannot be Nothing");}
 
@@ -31798,7 +31798,7 @@ namespace LeptonicaSharp
 						int plotstyle,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (nax == null) {throw new ArgumentNullException  ("nax cannot be Nothing");}
 
@@ -31843,7 +31843,7 @@ namespace LeptonicaSharp
 						int plotstyle,
 						int outformat,
 						String outroot,
-						String title)
+						String title = "")
 		{
 			if (naay == null) {throw new ArgumentNullException  ("naay cannot be Nothing");}
 
@@ -35873,7 +35873,7 @@ namespace LeptonicaSharp
 						uint reduction,
 						Box box,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -35903,7 +35903,7 @@ namespace LeptonicaSharp
 						uint reduction,
 						Box box,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -35933,7 +35933,7 @@ namespace LeptonicaSharp
 						int quality,
 						int nlevels,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -35957,7 +35957,7 @@ namespace LeptonicaSharp
 						int quality,
 						int nlevels,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -35982,7 +35982,7 @@ namespace LeptonicaSharp
 						uint reduction,
 						Box box,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 
@@ -36012,7 +36012,7 @@ namespace LeptonicaSharp
 						int quality,
 						int nlevels,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (pdata == null) {throw new ArgumentNullException  ("pdata cannot be Nothing");}
 
@@ -36070,7 +36070,7 @@ namespace LeptonicaSharp
 						int cmapflag,
 						int reduction,
 						out int pnwarn,
-						int hint)
+						int hint = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -36105,7 +36105,7 @@ namespace LeptonicaSharp
 						int cmapflag,
 						int reduction,
 						out int pnwarn,
-						int hint)
+						int hint = 0)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -36241,8 +36241,8 @@ namespace LeptonicaSharp
 		public static int pixWriteJpeg(
 						String filename,
 						Pix pix,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -36292,8 +36292,8 @@ namespace LeptonicaSharp
 		public static int pixWriteStreamJpeg(
 						FILE fp,
 						Pix pixs,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -36330,7 +36330,7 @@ namespace LeptonicaSharp
 						int cmflag,
 						int reduction,
 						out int pnwarn,
-						int hint)
+						int hint = 0)
 		{
 			if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 
@@ -36421,8 +36421,8 @@ namespace LeptonicaSharp
 						out Byte[] pdata,
 						out uint psize,
 						Pix pix,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -45830,7 +45830,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Pix ppixtext,
 						object phtfound,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -46250,7 +46250,7 @@ namespace LeptonicaSharp
 						Single peakfract,
 						Single clipfract,
 						out int pncols,
-						Pixa pixadb)
+						Pixa pixadb = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -46295,7 +46295,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Box box,
 						out int pistext,
-						Pixa pixadb)
+						Pixa pixadb = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -46387,7 +46387,7 @@ namespace LeptonicaSharp
 						Box box,
 						int orient,
 						out int pscore,
-						Pixa pixadb)
+						Pixa pixadb = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -47782,7 +47782,7 @@ namespace LeptonicaSharp
 						FILE fp,
 						Pix pix,
 						int res,
-						String title)
+						String title = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -47815,7 +47815,7 @@ namespace LeptonicaSharp
 						out uint pnbytes,
 						Pix pix,
 						int res,
-						String title)
+						String title = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -48505,7 +48505,7 @@ namespace LeptonicaSharp
 		///   <returns>cid containing png data, or NULL on error</returns>
 		public static L_Compressed_Data l_generateFlateDataPdf(
 						String fname,
-						Pix pixs)
+						Pix pixs = null)
 		{
 			if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 
@@ -49768,7 +49768,7 @@ namespace LeptonicaSharp
 		///   <returns></returns>
 		public static int pixSetInputFormat(
 						Pix pix,
-						IFF informat)
+						Enumerations.IFF informat)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -49852,7 +49852,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int pixSetText(
 						Pix pix,
-						String textstring)
+						String textstring = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -49877,7 +49877,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int pixAddText(
 						Pix pix,
-						String textstring)
+						String textstring = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -50178,7 +50178,7 @@ namespace LeptonicaSharp
 		public static int pixPrintStreamInfo(
 						FILE fp,
 						Pix pix,
-						String text)
+						String text = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -52210,7 +52210,7 @@ namespace LeptonicaSharp
 		public static int pixCombineMasked(
 						Pix pixd,
 						Pix pixs,
-						Pix pixm)
+						Pix pixm = null)
 		{
 			if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 
@@ -52603,7 +52603,7 @@ namespace LeptonicaSharp
 		public static Pix pixSetUnderTransparency(
 						Pix pixs,
 						uint val,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -52688,7 +52688,7 @@ namespace LeptonicaSharp
 						Box box,
 						int dist,
 						out uint pval,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -53038,7 +53038,7 @@ namespace LeptonicaSharp
 		public static int pixCountPixels(
 						Pix pixs,
 						out int pcount,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -53065,7 +53065,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Box box,
 						out int pcount,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -53091,7 +53091,7 @@ namespace LeptonicaSharp
 		///   <returns>na of number of ON pixels by row, or NULL on error</returns>
 		public static Numa pixCountByRow(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53119,7 +53119,7 @@ namespace LeptonicaSharp
 		///   <returns>na of number of ON pixels by column, or NULL on error</returns>
 		public static Numa pixCountByColumn(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53146,7 +53146,7 @@ namespace LeptonicaSharp
 		///   <returns>na of counts, or NULL on error</returns>
 		public static Numa pixCountPixelsByRow(
 						Pix pix,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53200,7 +53200,7 @@ namespace LeptonicaSharp
 						Pix pix,
 						int row,
 						out int pcount,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53257,7 +53257,7 @@ namespace LeptonicaSharp
 						Pix pix,
 						int thresh,
 						out int pabove,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53413,7 +53413,7 @@ namespace LeptonicaSharp
 		///   <returns>na of rmsdev by row, or NULL on error</returns>
 		public static Numa pixVarianceByRow(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53443,7 +53443,7 @@ namespace LeptonicaSharp
 		///   <returns>na of rmsdev by column, or NULL on error</returns>
 		public static Numa pixVarianceByColumn(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53498,7 +53498,7 @@ namespace LeptonicaSharp
 		///   <returns>na of abs val pixel difference averages by row, or NULL on error</returns>
 		public static Numa pixAbsDiffByRow(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53528,7 +53528,7 @@ namespace LeptonicaSharp
 		///   <returns>na of abs val pixel difference averages by column, or NULL on error</returns>
 		public static Numa pixAbsDiffByColumn(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -53710,7 +53710,7 @@ namespace LeptonicaSharp
 						int tsize,
 						int ntiles,
 						out Box pboxtile,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -54742,7 +54742,7 @@ namespace LeptonicaSharp
 						out int pminval,
 						out int pmaxval,
 						out Byte[] pcarray,
-						int fontsize)
+						int fontsize = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -54804,7 +54804,7 @@ namespace LeptonicaSharp
 						int factor,
 						out Byte[] pcarray,
 						int debugflag,
-						int fontsize)
+						int fontsize = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -55461,7 +55461,7 @@ namespace LeptonicaSharp
 		public static Numa pixaFindAreaFractionMasked(
 						Pixa pixa,
 						Pix pixm,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -57266,7 +57266,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error.</returns>
 		public static int pixaSetText(
 						Pixa pixa,
-						Sarray sa)
+						Sarray sa = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -57351,7 +57351,7 @@ namespace LeptonicaSharp
 						Pixa pixa,
 						int index,
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -57388,7 +57388,7 @@ namespace LeptonicaSharp
 						Pixa pixa,
 						int index,
 						Pix pixs,
-						Box box)
+						Box box = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -57504,8 +57504,8 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int pixaInitFull(
 						Pixa pixa,
-						Pix pix,
-						Box box)
+						Pix pix = null,
+						Box box = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -59676,8 +59676,8 @@ namespace LeptonicaSharp
 		///   <returns>paad, or NULL on error</returns>
 		public static Pixaa pixaaScaleToSizeVar(
 						Pixaa paas,
-						Numa nawd,
-						Numa nahd)
+						Numa nawd = null,
+						Numa nahd = null)
 		{
 			if (paas == null) {throw new ArgumentNullException  ("paas cannot be Nothing");}
 
@@ -59761,8 +59761,8 @@ namespace LeptonicaSharp
 		///   <returns>pixad, or NULL on error</returns>
 		public static Pixa pixaScale(
 						Pixa pixas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 
@@ -59788,8 +59788,8 @@ namespace LeptonicaSharp
 		///   <returns>pixad, or NULL on error</returns>
 		public static Pixa pixaScaleBySampling(
 						Pixa pixas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 
@@ -63449,7 +63449,7 @@ namespace LeptonicaSharp
 		public static int pixacompWriteStreamInfo(
 						FILE fp,
 						PixaComp pixac,
-						String text)
+						String text = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -63475,7 +63475,7 @@ namespace LeptonicaSharp
 		public static int pixcompWriteStreamInfo(
 						FILE fp,
 						PixComp pixc,
-						String text)
+						String text = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -63784,9 +63784,9 @@ namespace LeptonicaSharp
 		///   <returns>8 bpp pix, or NULL on error</returns>
 		public static Pix pixConvertRGBToGray(
 						Pix pixs,
-						Single rwt,
-						Single gwt,
-						Single bwt)
+						Single rwt = 0,
+						Single gwt = 0,
+						Single bwt = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -65625,7 +65625,7 @@ namespace LeptonicaSharp
 						out int pncc,
 						Single x,
 						Single y,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -67997,7 +67997,7 @@ namespace LeptonicaSharp
 		public static int convertTiffMultipageToPS(
 						String filein,
 						String fileout,
-						Single fillfract)
+						Single fillfract = 0)
 		{
 			if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 
@@ -69695,8 +69695,8 @@ namespace LeptonicaSharp
 						Pta ptas,
 						int shiftx,
 						int shifty,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 
@@ -70265,7 +70265,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Pta pta,
 						int outformat,
-						String title)
+						String title = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -70290,7 +70290,7 @@ namespace LeptonicaSharp
 		///   <returns>pta, or NULL on error</returns>
 		public static Pta ptaGetPixelsFromPix(
 						Pix pixs,
-						Box box)
+						Box box = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -72746,7 +72746,7 @@ namespace LeptonicaSharp
 		///   <returns>sarray text of barcodes, or NULL if none found or on error</returns>
 		public static Sarray pixProcessBarcodes(
 						Pix pixs,
-						IFF format,
+						Enumerations.IFF format,
 						int method,
 						out Sarray psaw,
 						int debugflag)
@@ -72804,7 +72804,7 @@ namespace LeptonicaSharp
 		///   <returns>sa sarray of widths, one string for each barcode found, or NULL on error</returns>
 		public static Sarray pixReadBarcodes(
 						Pixa pixa,
-						IFF format,
+						Enumerations.IFF format,
 						int method,
 						out Sarray psaw,
 						int debugflag)
@@ -73140,7 +73140,7 @@ namespace LeptonicaSharp
 		///   <returns>pixa, or NULL on error</returns>
 		public static Pixa pixaReadFiles(
 						String dirname,
-						String substr)
+						String substr = "")
 		{
 			if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 
@@ -73214,7 +73214,7 @@ namespace LeptonicaSharp
 		///   <returns>pix if OK NULL on error</returns>
 		public static Pix pixReadWithHint(
 						String filename,
-						int hint)
+						int hint = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -73285,7 +73285,7 @@ namespace LeptonicaSharp
 		///   <returns>pix if OK NULL on error</returns>
 		public static Pix pixReadStream(
 						FILE fp,
-						int hint)
+						int hint = 0)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -74389,7 +74389,7 @@ namespace LeptonicaSharp
 						int skipsplit,
 						out Boxa pboxa,
 						out Pixa ppixa,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 
@@ -74432,7 +74432,7 @@ namespace LeptonicaSharp
 						out Numa pnascore,
 						out Numa pnaindex,
 						out Sarray psachar,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 
@@ -74880,9 +74880,9 @@ namespace LeptonicaSharp
 		public static int recogTrainLabeled(
 						L_Recog recog,
 						Pix pixs,
-						Box box,
-						String text,
-						DebugOnOff debug)
+						Box box = null,
+						String text = "",
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 
@@ -74951,7 +74951,7 @@ namespace LeptonicaSharp
 		public static int recogAddSample(
 						L_Recog recog,
 						Pix pix,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recog == null) {throw new ArgumentNullException  ("recog cannot be Nothing");}
 
@@ -75015,7 +75015,7 @@ namespace LeptonicaSharp
 		///   <returns>0 on success, 1 on failure</returns>
 		public static int recogAverageSamples(
 						List<L_Recog> precog,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 
@@ -75405,7 +75405,7 @@ namespace LeptonicaSharp
 						Pixa pixas,
 						Single minscore,
 						int threshold,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (recogboot == null) {throw new ArgumentNullException  ("recogboot cannot be Nothing");}
 
@@ -75534,7 +75534,7 @@ namespace LeptonicaSharp
 						int scaleh,
 						int linew,
 						int maxyshift,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			IntPtr _Result = Natives.recogMakeBootDigitRecog(  scaleh,   linew,   maxyshift,  (int) debug);
 
@@ -75555,7 +75555,7 @@ namespace LeptonicaSharp
 		///  <param name="debug">[in] - 1 for display of templates</param>
 		///   <returns>pixa   of templates or NULL on error</returns>
 		public static Pixa recogMakeBootDigitTemplates(
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			IntPtr _Result = Natives.recogMakeBootDigitTemplates( (int) debug);
 
@@ -75613,7 +75613,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int recogDebugAverages(
 						List<L_Recog> precog,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
 
@@ -76032,7 +76032,7 @@ namespace LeptonicaSharp
 		public static int regTestWritePixAndCheck(
 						L_RegParams rp,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 
@@ -76128,7 +76128,7 @@ namespace LeptonicaSharp
 		public static String regTestGenLocalFilename(
 						L_RegParams rp,
 						int index,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 
@@ -78487,7 +78487,7 @@ namespace LeptonicaSharp
 		///   <returns>saout output sarray, filtered with substring or NULL on error</returns>
 		public static Sarray sarraySelectBySubstring(
 						Sarray sain,
-						String substr)
+						String substr = "")
 		{
 			if (sain == null) {throw new ArgumentNullException  ("sain cannot be Nothing");}
 
@@ -79331,8 +79331,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error This function scales 32 bpp RGB 2, 4 or 8 bpp palette color 2, 4, 8 or 16 bpp gray and binary images. When the input has palette color, the colormap is removed and the result is either 8 bpp gray or 32 bpp RGB, depending on whether the colormap has color entries.  Images with 2, 4 or 16 bpp are converted to 8 bpp. Because pixScale is meant to be a very simple interface to a number of scaling functions, including the use of unsharp masking, the type of scaling and the sharpening parameters are chosen by default.  Grayscale and color images are scaled using one of four methods, depending on the scale factors: 1 antialiased subsampling (lowpass filtering followed by subsampling, implemented here by area mapping), for scale factors less than 0.2 2 antialiased subsampling with sharpening, for scale factors between 0.2 and 0.7 3 linear interpolation with sharpening, for scale factors between 0.7 and 1.4 4 linear interpolation without sharpening, for scale factors greater or equal 1.4. One could use subsampling for scale factors very close to 1.0, because it preserves sharp edges.  Linear interpolation blurs edges because the dest pixels will typically straddle two src edge pixels.  Subsmpling removes entire columns and rows, so the edge is not blurred.  However, there are two reasons for not doing this. First, it moves edges, so that a straight line at a large angle to both horizontal and vertical will have noticeable kinks where horizontal and vertical rasters are removed.  Second, although it is very fast, you get good results on sharp edges by applying a sharpening filter. For images with sharp edges, sharpening substantially improves the image quality for scale factors between about 0.2 and about 2.0. pixScale uses a small amount of sharpening by default because it strengthens edge pixels that are weak due to anti-aliasing. The default sharpening factors are: for scaling factors  is smaller 0.7:   sharpfract = 0.2    sharpwidth = 1 for scaling factors greater or equal 0.7:  sharpfract = 0.4    sharpwidth = 2 The cases where the sharpening halfwidth is 1 or 2 have special implementations and are about twice as fast as the general case. However, sharpening is computationally expensive, and one needs to consider the speed-quality tradeoff: For upscaling of RGB images, linear interpolation plus default sharpening is about 5 times slower than upscaling alone. For downscaling, area mapping plus default sharpening is about 10 times slower than downscaling alone. When the scale factor is larger than 1.4, the cost of sharpening, which is proportional to image area, is very large compared to the incremental quality improvement, so we cut off the default use of sharpening at 1.4.  Thus, for scale factors greater than 1.4, pixScale only does linear interpolation. In many situations you will get a satisfactory result by scaling without sharpening: call pixScaleGeneral with %sharpfract = 0.0. Alternatively, if you wish to sharpen but not use the default value, first call pixScaleGeneral with %sharpfract = 0.0, and then sharpen explicitly using pixUnsharpMasking. Binary images are scaled to binary by sampling the closest pixel, without any low-pass filtering averaging of neighboring pixels. This will introduce aliasing for reductions.  Aliasing can be prevented by using pixScaleToGray instead.</returns>
 		public static Pix pixScale(
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -79479,8 +79479,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error</returns>
 		public static Pix pixScaleLI(
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -79519,8 +79519,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error</returns>
 		public static Pix pixScaleColorLI(
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -79609,8 +79609,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error This function is appropriate for upscaling magnification, where the scale factor is  is greater  1, as well as for a small amount of downscaling reduction, with scale factor  is greater  0.7.  If the scale factor is  is smaller 0.7, the best result is obtained by area mapping, but this is relatiely expensive.  A less expensive alternative with scale factor  is smaller 0.7 is low-pass filtering followed by subsampling (pixScaleSmooth()), which is effectively a cheap form of area mapping. Some more details follow. For each pixel in the dest, this does a linear interpolation of 4 neighboring pixels in the src. Specifically, consider the UL corner of src and dest pixels.  The UL corner of the dest falls within a src pixel, whose four corners are the UL corners of 4 adjacent src pixels.  The value of the dest is taken by linear interpolation using the values of the four src pixels and the distance of the UL corner of the dest from each corner. If the image is expanded so that the dest pixel is smaller than the src pixel, such interpolation is a reasonable approach.  This interpolation is also good for a small image reduction factor that is not more than a 2x reduction. Note that the linear interpolation algorithm for scaling is identical in form to the area-mapping algorithm for grayscale rotation.  The latter corresponds to a translation of each pixel without scaling. This function is NOT optimal if the scaling involves a large reduction.    If the image is significantly reduced, so that the dest pixel is much larger than the src pixels, this interpolation, which is over src pixels only near the UL corner of the dest pixel, is not going to give a good area-mapping average. Because area mapping for image scaling is considerably more computationally intensive than linear interpolation, we choose not to use it.   For large image reduction, linear interpolation over adjacent src pixels degenerates asymptotically to subsampling.  But subsampling without a low-pass pre-filter causes aliasing by the nyquist theorem.  To avoid aliasing, a low-pass filter e.g., an averaging filter of size roughly equal to the dest pixel i.e., the reduction factor should be applied to the src before subsampling. As an alternative to low-pass filtering and subsampling for large reduction factors, linear interpolation can also be done between the widely separated src pixels in which the corners of the dest pixel lie.  This also is not optimal, as it samples src pixels only near the corners of the dest pixel, and it is not implemented. The speed on circa 2005 Intel hardware for the general case (not 2x) is about 13  10^6 dest-pixels/sec/GHz.  The special 2x case runs at about 100  10^6 dest-pixels/sec/GHz.</returns>
 		public static Pix pixScaleGrayLI(
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -79826,8 +79826,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error</returns>
 		public static Pix pixScaleBySampling(
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -80042,8 +80042,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error</returns>
 		public static Pix pixScaleSmooth(
 						Pix pix,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -80155,8 +80155,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error</returns>
 		public static Pix pixScaleAreaMap(
 						Pix pix,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -80259,8 +80259,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd, or NULL on error</returns>
 		public static Pix pixScaleBinary(
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -80813,8 +80813,8 @@ namespace LeptonicaSharp
 		public static int pixScaleAndTransferAlpha(
 						Pix pixd,
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 
@@ -81826,7 +81826,7 @@ namespace LeptonicaSharp
 		public static Sel selCreate(
 						int height,
 						int width,
-						String name)
+						String name = "")
 		{
 			IntPtr _Result = Natives.selCreate(  height,   width,   name);
 
@@ -82081,7 +82081,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int selSetName(
 						Sel sel,
-						String name)
+						String name = "")
 		{
 			if (sel == null) {throw new ArgumentNullException  ("sel cannot be Nothing");}
 
@@ -82107,7 +82107,7 @@ namespace LeptonicaSharp
 						Sela sela,
 						String name,
 						out int pindex,
-						List<Sel> psel)
+						List<Sel> psel = null)
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -82644,7 +82644,7 @@ namespace LeptonicaSharp
 						String text,
 						int h,
 						int w,
-						String name)
+						String name = "")
 		{
 			if (text == null) {throw new ArgumentNullException  ("text cannot be Nothing");}
 
@@ -82749,7 +82749,7 @@ namespace LeptonicaSharp
 						Pta pta,
 						int cy,
 						int cx,
-						String name)
+						String name = "")
 		{
 			if (pta == null) {throw new ArgumentNullException  ("pta cannot be Nothing");}
 
@@ -82778,7 +82778,7 @@ namespace LeptonicaSharp
 						Pix pix,
 						int cy,
 						int cx,
-						String name)
+						String name = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -82842,7 +82842,7 @@ namespace LeptonicaSharp
 		///   <returns>sel if OK, NULL on error</returns>
 		public static Sel selCreateFromColorPix(
 						Pix pixs,
-						String selname)
+						String selname = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -83997,7 +83997,7 @@ namespace LeptonicaSharp
 		///   <returns>pixd deskewed pix, or NULL on error</returns>
 		public static Pix pixDeskewBoth(
 						Pix pixs,
-						int redsearch)
+						int redsearch = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -84030,7 +84030,7 @@ namespace LeptonicaSharp
 		///   <returns>pixd deskewed pix, or NULL on error</returns>
 		public static Pix pixDeskew(
 						Pix pixs,
-						int redsearch)
+						int redsearch = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -84940,7 +84940,7 @@ namespace LeptonicaSharp
 		public static int strcodeCreateFromFile(
 						String filein,
 						int fileno,
-						String outdir)
+						String outdir = "")
 		{
 			if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 
@@ -84996,7 +84996,7 @@ namespace LeptonicaSharp
 		///   <returns>void</returns>
 		public static int strcodeFinalize(
 						ref L_StrCode pstrcode,
-						String outdir)
+						String outdir = "")
 		{
 			IntPtr pstrcodePtr = IntPtr.Zero; 	if (pstrcode != null) {pstrcodePtr = pstrcode.Pointer;}
 			int _Result = Natives.strcodeFinalize(ref pstrcodePtr,   outdir);
@@ -85122,8 +85122,8 @@ namespace LeptonicaSharp
 		public static Numa pixaFindStrokeWidth(
 						Pixa pixa,
 						Single thresh,
-						int[] tab8,
-						DebugOnOff debug)
+						int[] tab8 = null,
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -86053,10 +86053,10 @@ namespace LeptonicaSharp
 						Pix pix,
 						int comptype,
 						String modestr,
-						Numa natags,
-						Sarray savals,
-						Sarray satypes,
-						Numa nasizes)
+						Numa natags = null,
+						Sarray savals = null,
+						Sarray satypes = null,
+						Numa nasizes = null)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -86783,10 +86783,10 @@ namespace LeptonicaSharp
 						out uint psize,
 						Pix pix,
 						int comptype,
-						Numa natags,
-						Sarray savals,
-						Sarray satypes,
-						Numa nasizes)
+						Numa natags = null,
+						Sarray savals = null,
+						Sarray satypes = null,
+						Numa nasizes = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -87532,7 +87532,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK 1 on error</returns>
 		public static int stringReplace(
 						out String[] pdest,
-						String src)
+						String src = "")
 		{
 			IntPtr pdestPtr = IntPtr.Zero;
 			int _Result = Natives.stringReplace(out  pdestPtr,   src);
@@ -87686,7 +87686,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int stringJoinIP(
 						ref String[] psrc1,
-						String src2)
+						String src2 = "")
 		{
 			IntPtr psrc1Ptr = 	Marshal.AllocHGlobal(Marshal.SizeOf(psrc1));
 			int _Result = Natives.stringJoinIP(ref  psrc1Ptr,   src2);
@@ -89187,7 +89187,7 @@ namespace LeptonicaSharp
 		public static int makeTempDirname(
 						String result,
 						uint nbytes,
-						String subdir)
+						String subdir = "")
 		{
 			if (result == null) {throw new ArgumentNullException  ("result cannot be Nothing");}
 
@@ -90148,7 +90148,7 @@ namespace LeptonicaSharp
 		public static int pixaWriteFiles(
 						String rootname,
 						Pixa pixa,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 
@@ -90179,7 +90179,7 @@ namespace LeptonicaSharp
 		public static int pixWriteDebug(
 						String fname,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 
@@ -90215,7 +90215,7 @@ namespace LeptonicaSharp
 		public static int pixWrite(
 						String fname,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 
@@ -90265,7 +90265,7 @@ namespace LeptonicaSharp
 		public static int pixWriteStream(
 						FILE fp,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -90296,8 +90296,8 @@ namespace LeptonicaSharp
 		public static int pixWriteImpliedFormat(
 						String filename,
 						Pix pix,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -90398,7 +90398,7 @@ namespace LeptonicaSharp
 		///  <param name="format">[in] - integer</param>
 		///   <returns>extension string, or NULL if format is out of range</returns>
 		public static String getFormatExtension(
-						IFF format)
+						Enumerations.IFF format)
 		{
 			String _Result = Natives.getFormatExtension( (int) format);
 			return _Result;
@@ -90430,7 +90430,7 @@ namespace LeptonicaSharp
 						out Byte[] pdata,
 						out uint psize,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 

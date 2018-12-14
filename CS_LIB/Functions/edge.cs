@@ -129,7 +129,7 @@ namespace LeptonicaSharp
 						out Single pjpl,
 						out Single pjspl,
 						out Single prpl,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -154,7 +154,7 @@ namespace LeptonicaSharp
 		public static Numa pixGetEdgeProfile(
 						Pix pixs,
 						int side,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

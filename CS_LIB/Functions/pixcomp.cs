@@ -1249,7 +1249,7 @@ namespace LeptonicaSharp
 		public static int pixacompWriteStreamInfo(
 						FILE fp,
 						PixaComp pixac,
-						String text)
+						String text = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -1275,7 +1275,7 @@ namespace LeptonicaSharp
 		public static int pixcompWriteStreamInfo(
 						FILE fp,
 						PixComp pixc,
-						String text)
+						String text = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 

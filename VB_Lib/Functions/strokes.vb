@@ -88,7 +88,7 @@ Public Shared Function pixaFindStrokeWidth(
 				ByVal pixa as Pixa, 
 				ByVal thresh as Single, 
 				Optional ByVal tab8 as Integer() = nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Numa
 
 
 if IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")

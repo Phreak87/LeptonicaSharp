@@ -67,7 +67,7 @@ namespace LeptonicaSharp
 						int x,
 						int y,
 						out Pix ppixd,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 
@@ -119,7 +119,7 @@ namespace LeptonicaSharp
 						int x,
 						int y,
 						out Boxa pboxad,
-						String debugfile)
+						String debugfile = "")
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 

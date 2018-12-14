@@ -91,8 +91,8 @@ namespace LeptonicaSharp
 		public static Numa pixaFindStrokeWidth(
 						Pixa pixa,
 						Single thresh,
-						int[] tab8,
-						DebugOnOff debug)
+						int[] tab8 = null,
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 

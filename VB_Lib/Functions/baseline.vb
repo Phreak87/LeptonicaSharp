@@ -211,7 +211,7 @@ Public Shared Function pixGetLocalSkewAngles(
 				Optional ByVal minbsdelta as Single = 0, 
 				<Out()> Optional  ByRef pa as Single = 0f, 
 				<Out()> Optional  ByRef pb as Single = 0f, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Numa
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

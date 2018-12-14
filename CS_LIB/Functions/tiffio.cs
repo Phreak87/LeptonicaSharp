@@ -127,10 +127,10 @@ namespace LeptonicaSharp
 						Pix pix,
 						int comptype,
 						String modestr,
-						Numa natags,
-						Sarray savals,
-						Sarray satypes,
-						Numa nasizes)
+						Numa natags = null,
+						Sarray savals = null,
+						Sarray satypes = null,
+						Numa nasizes = null)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -857,10 +857,10 @@ namespace LeptonicaSharp
 						out uint psize,
 						Pix pix,
 						int comptype,
-						Numa natags,
-						Sarray savals,
-						Sarray satypes,
-						Numa nasizes)
+						Numa natags = null,
+						Sarray savals = null,
+						Sarray satypes = null,
+						Numa nasizes = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 

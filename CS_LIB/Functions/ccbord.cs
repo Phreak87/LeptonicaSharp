@@ -273,7 +273,7 @@ namespace LeptonicaSharp
 		///   <returns>pta of outer border, in global coords, or NULL on error</returns>
 		public static Pta pixGetOuterBorderPta(
 						Pix pixs,
-						Box box)
+						Box box = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

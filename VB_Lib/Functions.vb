@@ -3281,7 +3281,7 @@ Public Shared Function pixGetLocalSkewAngles(
 				Optional ByVal minbsdelta as Single = 0, 
 				<Out()> Optional  ByRef pa as Single = 0f, 
 				<Out()> Optional  ByRef pb as Single = 0f, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Numa
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -11073,7 +11073,7 @@ Public Shared Function boxaSmoothSequenceLS(
 				ByVal subflag as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal maxdiff as Integer, 
 				ByVal extrapixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -11127,7 +11127,7 @@ Public Shared Function boxaSmoothSequenceMedian(
 				ByVal subflag as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal maxdiff as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal extrapixels as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -11175,7 +11175,7 @@ End Function
 Public Shared Function boxaLinearFit(
 				ByVal boxas as Boxa, 
 				ByVal factor as Single, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -11208,7 +11208,7 @@ End Function
 Public Shared Function boxaWindowedMedian(
 				ByVal boxas as Boxa, 
 				ByVal halfwin as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -11580,7 +11580,7 @@ End Function
 Public Shared Function boxaFillSequence(
 				ByVal boxas as Boxa, 
 				ByVal useflag as Enumerations.L_USE_BOXES, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -13387,7 +13387,7 @@ End Function
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaMakeThinSets(
 				ByVal index as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Sela
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Sela
 
 
 	Dim _Result as IntPtr = Natives.selaMakeThinSets(  index,   debug)
@@ -14234,7 +14234,7 @@ Public Shared Function pixColorsForQuantization(
 				ByVal thresh as Integer, 
 				<Out()>  ByRef pncolors as Integer, 
 				<Out()> Optional  ByRef piscolor as Integer = 0, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -20183,7 +20183,7 @@ Public Shared Function pixaComparePhotoRegionsByHisto(
 				<Out()>  ByRef pnai as Numa, 
 				<Out()> Optional  ByRef pscores as List(of Single()) = nothing, 
 				<Out()> Optional  ByRef ppixd as Pix = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
@@ -23916,7 +23916,7 @@ Public Shared Function dewarpSinglePage(
 				ByVal check_columns as Integer, 
 				<Out()>  ByRef ppixd as Pix, 
 				<Out()> Optional  ByRef pdewa as L_Dewarpa = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -24007,7 +24007,7 @@ Public Shared Function dewarpSinglePageRun(
 				ByVal pixb as Pix, 
 				ByVal dewa as L_Dewarpa, 
 				<Out()>  ByRef ppixd as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -24077,7 +24077,7 @@ End Function
 Public Shared Function dewarpaSetValidModels(
 				ByVal dewa as L_Dewarpa, 
 				ByVal notests as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
@@ -24136,7 +24136,7 @@ End Function
 Public Shared Function dewarpaInsertRefModels(
 				ByVal dewa as L_Dewarpa, 
 				ByVal notests as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
@@ -27805,7 +27805,7 @@ Public Shared Function pixOrientCorrect(
 				<Out()> Optional  ByRef pupconf as Single = 0f, 
 				<Out()> Optional  ByRef pleftconf as Single = 0f, 
 				<Out()> Optional  ByRef protation as Integer = 0, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -27884,7 +27884,7 @@ Public Shared Function pixOrientDetect(
 				<Out()>  ByRef pupconf as Single, 
 				<Out()>  ByRef pleftconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -27933,7 +27933,7 @@ Public Shared Function makeOrientDecision(
 				ByVal minupconf as Single, 
 				ByVal minratio as Single, 
 				<Out()>  ByRef porient as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 	Dim _Result as Integer = Natives.makeOrientDecision(  upconf,   leftconf,   minupconf,   minratio,   porient,   debug)
@@ -27967,7 +27967,7 @@ Public Shared Function pixUpDownDetect(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -28022,7 +28022,7 @@ Public Shared Function pixUpDownDetectGeneral(
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
 				ByVal npixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -28059,7 +28059,7 @@ Public Shared Function pixOrientDetectDwa(
 				<Out()>  ByRef pupconf as Single, 
 				<Out()>  ByRef pleftconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -28097,7 +28097,7 @@ Public Shared Function pixUpDownDetectDwa(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -28126,7 +28126,7 @@ Public Shared Function pixUpDownDetectGeneralDwa(
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
 				ByVal npixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -28181,7 +28181,7 @@ Public Shared Function pixMirrorDetect(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -28211,7 +28211,7 @@ Public Shared Function pixMirrorDetectDwa(
 				ByVal pixs as Pix, 
 				<Out()>  ByRef pconf as Single, 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -35750,8 +35750,8 @@ Public Shared Function pixReadJp2k(
 				ByVal filename as String, 
 				ByVal reduction as UInteger, 
 				ByVal box as Box, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -35781,8 +35781,8 @@ Public Shared Function pixReadStreamJp2k(
 				ByVal fp as FILE, 
 				ByVal reduction as UInteger, 
 				ByVal box as Box, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -35811,8 +35811,8 @@ Public Shared Function pixWriteJp2k(
 				ByVal pix as Pix, 
 				ByVal quality as Integer, 
 				ByVal nlevels as Integer, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -35836,8 +35836,8 @@ Public Shared Function pixWriteStreamJp2k(
 				ByVal pix as Pix, 
 				ByVal quality as Integer, 
 				ByVal nlevels as Integer, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -35862,8 +35862,8 @@ Public Shared Function pixReadMemJp2k(
 				ByVal size as UInteger, 
 				ByVal reduction as UInteger, 
 				ByVal box as Box, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
@@ -35892,8 +35892,8 @@ Public Shared Function pixWriteMemJp2k(
 				ByVal pix as Pix, 
 				ByVal quality as Integer, 
 				ByVal nlevels as Integer, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
@@ -35950,8 +35950,8 @@ Public Shared Function pixReadJpeg(
 				ByVal filename as String, 
 				ByVal cmapflag as Integer, 
 				ByVal reduction as Integer, 
-				<Out()>  ByRef pnwarn as Integer, 
-				ByVal hint as Integer) as Pix
+				<Out()> Optional  ByRef pnwarn as Integer = 0, 
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -35986,8 +35986,8 @@ Public Shared Function pixReadStreamJpeg(
 				ByVal fp as FILE, 
 				ByVal cmapflag as Integer, 
 				ByVal reduction as Integer, 
-				<Out()>  ByRef pnwarn as Integer, 
-				ByVal hint as Integer) as Pix
+				<Out()> Optional  ByRef pnwarn as Integer = 0, 
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -36126,8 +36126,8 @@ End Function
 Public Shared Function pixWriteJpeg(
 				ByVal filename as String, 
 				ByVal pix as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -36177,8 +36177,8 @@ End Function
 Public Shared Function pixWriteStreamJpeg(
 				ByVal fp as FILE, 
 				ByVal pixs as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -36214,8 +36214,8 @@ Public Shared Function pixReadMemJpeg(
 				ByVal size as UInteger, 
 				ByVal cmflag as Integer, 
 				ByVal reduction as Integer, 
-				<Out()>  ByRef pnwarn as Integer, 
-				ByVal hint as Integer) as Pix
+				<Out()> Optional  ByRef pnwarn as Integer = 0, 
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
@@ -36308,8 +36308,8 @@ Public Shared Function pixWriteMemJpeg(
 				<Out()>  ByRef pdata as Byte(), 
 				<Out()>  ByRef psize as UInteger, 
 				ByVal pix as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
@@ -45706,7 +45706,7 @@ Public Shared Function pixGenHalftoneMask(
 				ByVal pixs as Pix, 
 				ByVal ppixtext as Pix, 
 				ByVal phtfound as object, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -52564,7 +52564,7 @@ End Function
 Public Shared Function pixSetUnderTransparency(
 				ByVal pixs as Pix, 
 				ByVal val as UInteger, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -52648,7 +52648,7 @@ Public Shared Function pixGetColorNearMaskBoundary(
 				ByVal box as Box, 
 				ByVal dist as Integer, 
 				<Out()>  ByRef pval as UInteger, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -53678,7 +53678,7 @@ Public Shared Function pixFindRepCloseTile(
 				ByVal tsize as Integer, 
 				ByVal ntiles as Integer, 
 				<Out()>  ByRef pboxtile as Box, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -55443,7 +55443,7 @@ End Function
 Public Shared Function pixaFindAreaFractionMasked(
 				ByVal pixa as Pixa, 
 				ByVal pixm as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Numa
 
 
 if IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
@@ -65532,7 +65532,7 @@ Public Shared Function pixConnCompIncrAdd(
 				<Out()>  ByRef pncc as Integer, 
 				ByVal x as Single, 
 				ByVal y as Single, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -73104,7 +73104,7 @@ End Function
 '''   <returns>pix if OK NULL on error</returns>
 Public Shared Function pixReadWithHint(
 				ByVal filename as String, 
-				ByVal hint as Integer) as Pix
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -73174,7 +73174,7 @@ End Function
 '''   <returns>pix if OK NULL on error</returns>
 Public Shared Function pixReadStream(
 				ByVal fp as FILE, 
-				ByVal hint as Integer) as Pix
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -74284,7 +74284,7 @@ Public Shared Function recogSplitIntoCharacters(
 				ByVal skipsplit as Integer, 
 				<Out()>  ByRef pboxa as Boxa, 
 				<Out()>  ByRef ppixa as Pixa, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
@@ -74327,7 +74327,7 @@ Public Shared Function recogCorrelationBestRow(
 				<Out()> Optional  ByRef pnascore as Numa = Nothing, 
 				<Out()> Optional  ByRef pnaindex as Numa = Nothing, 
 				<Out()> Optional  ByRef psachar as Sarray = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
@@ -74780,7 +74780,7 @@ Public Shared Function recogTrainLabeled(
 				ByVal pixs as Pix, 
 				Optional ByVal box as Box = Nothing, 
 				Optional ByVal text as String = "", 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
@@ -74850,7 +74850,7 @@ End Function
 Public Shared Function recogAddSample(
 				ByVal recog as L_Recog, 
 				ByVal pix as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
@@ -74912,7 +74912,7 @@ End Function
 '''   <returns>0 on success, 1 on failure</returns>
 Public Shared Function recogAverageSamples(
 				ByVal precog as List(of L_Recog), 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
@@ -75308,7 +75308,7 @@ Public Shared Function recogTrainFromBoot(
 				ByVal pixas as Pixa, 
 				ByVal minscore as Single, 
 				ByVal threshold as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pixa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pixa
 
 
 if IsNothing (recogboot) then Throw New ArgumentNullException  ("recogboot cannot be Nothing")
@@ -75436,7 +75436,7 @@ Public Shared Function recogMakeBootDigitRecog(
 				ByVal scaleh as Integer, 
 				ByVal linew as Integer, 
 				ByVal maxyshift as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as L_Recog
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as L_Recog
 
 
 	Dim _Result as IntPtr = Natives.recogMakeBootDigitRecog(  scaleh,   linew,   maxyshift,   debug)
@@ -75515,7 +75515,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogDebugAverages(
 				ByVal precog as List(of L_Recog), 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
@@ -84958,7 +84958,7 @@ Public Shared Function pixaFindStrokeWidth(
 				ByVal pixa as Pixa, 
 				ByVal thresh as Single, 
 				Optional ByVal tab8 as Integer() = nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Numa
 
 
 if IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
@@ -90170,8 +90170,8 @@ End Function
 Public Shared Function pixWriteImpliedFormat(
 				ByVal filename as String, 
 				ByVal pix as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")

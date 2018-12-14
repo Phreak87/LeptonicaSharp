@@ -8,7 +8,7 @@ Imports System.Drawing.Imaging
 Module Module1
 
     Sub Main()
-
+        ' DisplayChecks()
         ' ------------------------------
         ' Vor dem Release immer prüfen!
         ' ------------------------------
@@ -118,25 +118,23 @@ Module Module1
     End Sub
 
     Sub DisplayChecks()
-        'Dim Amor As New Pix("amoris.jpg")
-        'Dim SEL As New LeptonicaSharp.Sel("ooooCoooo", 3, 3, "TEST")
-        'Dim LicPIXA As New Pixa(1)
-        'Dim LicPixa2 As Pixa = _All.pixExtractTextlines(Amor, 25, 25, 15, 15, 1, 1, LicPIXA)
-        'Dim pxByCol = _All.pixCountPixelsByColumn(LicPIXA.pix(2))
-        'Dim pxByRow = _All.pixCountPixelsByRow(LicPIXA.pix(2), Nothing)
+        Dim Amor As New Pix("amoris.jpg")
+        Dim LicPIXA As New Pixa(1)
+        Dim LicPixa2 As Pixa = _All.pixExtractTextlines(Amor, 25, 25, 15, 15, 1, 1, LicPIXA)
+        Dim pxByCol = _All.pixCountPixelsByColumn(LicPIXA.pix(2))
+        Dim pxByRow = _All.pixCountPixelsByRow(LicPIXA.pix(2), Nothing)
 
-        'SEL.Display()
-        'Amor.Display()
-        'LicPIXA.Display()
-        'LicPixa2.Display()
-        'LicPixa2.boxa.Display(Amor)
-        'LicPixa2.boxa.box(0).Display(Amor)
-        'LicPixa2.boxa.Display()
-        'LicPixa2.boxa.box(0).Display()
-        'pxByRow.DisplayNumaHeatmap(pxByCol)
-        'pxByRow.DisplayNumaHeatmap(pxByCol, LicPIXA.pix(2))
-        'pxByRow.DisplayNumaBarGraph(pxByCol)
-        'pxByRow.DisplayNumaBarGraph(pxByCol, LicPIXA.pix(2))
+        Amor.Display()
+        LicPIXA.Display()
+        LicPixa2.Display()
+        LicPixa2.boxa.Display(Amor)
+        LicPixa2.boxa.box(0).Display(Amor)
+        LicPixa2.boxa.Display()
+        LicPixa2.boxa.box(0).Display()
+        pxByRow.DisplayNumaHeatmap(pxByCol)
+        pxByRow.DisplayNumaHeatmap(pxByCol, LicPIXA.pix(2))
+        pxByRow.DisplayNumaBarGraph(pxByCol)
+        pxByRow.DisplayNumaBarGraph(pxByCol, LicPIXA.pix(2))
     End Sub
     
     Sub TestPix01()

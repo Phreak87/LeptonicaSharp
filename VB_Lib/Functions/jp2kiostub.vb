@@ -14,8 +14,8 @@ Public Shared Function pixReadJp2k(
 				ByVal filename as String, 
 				ByVal reduction as UInteger, 
 				ByVal box as Box, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -45,8 +45,8 @@ Public Shared Function pixReadStreamJp2k(
 				ByVal fp as FILE, 
 				ByVal reduction as UInteger, 
 				ByVal box as Box, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -75,8 +75,8 @@ Public Shared Function pixWriteJp2k(
 				ByVal pix as Pix, 
 				ByVal quality as Integer, 
 				ByVal nlevels as Integer, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -100,8 +100,8 @@ Public Shared Function pixWriteStreamJp2k(
 				ByVal pix as Pix, 
 				ByVal quality as Integer, 
 				ByVal nlevels as Integer, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -126,8 +126,8 @@ Public Shared Function pixReadMemJp2k(
 				ByVal size as UInteger, 
 				ByVal reduction as UInteger, 
 				ByVal box as Box, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 
 if IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
@@ -156,8 +156,8 @@ Public Shared Function pixWriteMemJp2k(
 				ByVal pix as Pix, 
 				ByVal quality as Integer, 
 				ByVal nlevels as Integer, 
-				ByVal hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal hint as Integer = 0, 
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")

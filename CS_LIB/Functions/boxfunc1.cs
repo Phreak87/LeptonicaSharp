@@ -1208,7 +1208,7 @@ namespace LeptonicaSharp
 						int rightdiff,
 						int topdiff,
 						int botdiff,
-						DebugOnOff debug,
+						Enumerations.DebugOnOff debug,
 						out int psimilar,
 						out Numa pnasim)
 		{

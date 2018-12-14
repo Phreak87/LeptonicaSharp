@@ -30,7 +30,7 @@ namespace LeptonicaSharp
 		///   <returns>pixd 2x subsampled, or NULL on error</returns>
 		public static Pix pixReduceBinary2(
 						Pix pixs,
-						Byte[] intab)
+						Byte[] intab = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -100,7 +100,7 @@ namespace LeptonicaSharp
 		public static Pix pixReduceRankBinary2(
 						Pix pixs,
 						int level,
-						Byte[] intab)
+						Byte[] intab = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

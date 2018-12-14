@@ -168,7 +168,7 @@ namespace LeptonicaSharp
 						out int pncc,
 						Single x,
 						Single y,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

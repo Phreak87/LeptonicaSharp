@@ -1025,7 +1025,7 @@ namespace LeptonicaSharp
 						out int pminval,
 						out int pmaxval,
 						out Byte[] pcarray,
-						int fontsize)
+						int fontsize = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -1087,7 +1087,7 @@ namespace LeptonicaSharp
 						int factor,
 						out Byte[] pcarray,
 						int debugflag,
-						int fontsize)
+						int fontsize = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

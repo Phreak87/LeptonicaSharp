@@ -28,7 +28,7 @@ namespace LeptonicaSharp
 		public static int fhmtautogen(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -66,7 +66,7 @@ namespace LeptonicaSharp
 		public static int fhmtautogen1(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -101,7 +101,7 @@ namespace LeptonicaSharp
 		public static int fhmtautogen2(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 

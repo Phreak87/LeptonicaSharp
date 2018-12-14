@@ -101,11 +101,11 @@ namespace LeptonicaSharp
 		public static Pix pixDeskewLocal(
 						Pix pixs,
 						int nslices,
-						int redsweep,
-						int redsearch,
-						Single sweeprange,
-						Single sweepdelta,
-						Single minbsdelta)
+						int redsweep = 0,
+						int redsearch = 0,
+						Single sweeprange = 0,
+						Single sweepdelta = 0,
+						Single minbsdelta = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -221,7 +221,7 @@ namespace LeptonicaSharp
 						Single minbsdelta,
 						out Single pa,
 						out Single pb,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

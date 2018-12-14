@@ -28,8 +28,8 @@ namespace LeptonicaSharp
 						Boxa boxas,
 						int shiftx,
 						int shifty,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (boxas == null) {throw new ArgumentNullException  ("boxas cannot be Nothing");}
 
@@ -61,8 +61,8 @@ namespace LeptonicaSharp
 						Box box,
 						int shiftx,
 						int shifty,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (box == null) {throw new ArgumentNullException  ("box cannot be Nothing");}
 

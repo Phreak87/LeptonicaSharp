@@ -2,6 +2,7 @@
 
 Public Class Release
 
+
     Sub ReleaseTests()
         ' -----------------------------------------
         ' Pix-Testing
@@ -9,31 +10,42 @@ Public Class Release
         Dim PIXD As New Pix(50, 50) : If PIXD.w <> 50 Then Throw New Exception
         Dim Pix8 As New Pix("Lic.png") : If IsNothing(Pix8) Then Throw New Exception
 
-        Dim PixSkw As Pix = Pix8._Deskew(2) : If IsNothing(PixSkw) Then Throw New Exception
+        Pix8.WriteJpeg("Test.jpg", 0, 0)
+        Pix8.WriteJpeg("Test.jpg")
+
+        Dim PixSkw As Pix = Pix8.Deskew(2) : If IsNothing(PixSkw) Then Throw New Exception
         'Dim PixSkw2 As Pix = Pix8.pixDeskew() : If IsNothing(PixSkw2) Then Throw New Exception ' VB-Defaulted
 
-        Dim Pix32 As Pix = Pix8._ConvertTo32 : If IsNothing(Pix32) Then Throw New Exception
-        Dim Pix33 As Pix = Pix32._Bilateral(1, 50, 10, 4)
-        Dim Pix1 As Pix = Pix8._ConvertTo1(128) : If IsNothing(Pix1) Then Throw New Exception
+        Dim Pix32 As Pix = Pix8.ConvertTo32 : If IsNothing(Pix32) Then Throw New Exception
+        Dim Pix33 As Pix = Pix32.Bilateral(1, 50, 10, 4)
+        Dim Pix1 As Pix = Pix8.ConvertTo1(128) : If IsNothing(Pix1) Then Throw New Exception
         Dim FPIX1 As FPix = New FPix(50, 50) : If IsNothing(FPIX1) Then Throw New Exception
         Dim DPIX1 As DPix = New DPix(50, 50) : If IsNothing(DPIX1) Then Throw New Exception
 
-        Dim PixT1 As Pix = Pix8._BackgroundNormSimple(Nothing, Nothing) : If IsNothing(PixT1) Then Throw New Exception
+        Dim PixT1 As Pix = Pix8.BackgroundNormSimple(Nothing, Nothing) : If IsNothing(PixT1) Then Throw New Exception
         ' Dim PixT12 As Pix = Pix8.pixBackgroundNormSimple() : If IsNothing(PixT1) Then Throw New Exception ' VB-Defaulted
-        Dim PixT2 As Pix = Pix8._CleanBackgroundToWhite(Nothing, Nothing, 1, 180, 70) : If IsNothing(PixT2) Then Throw New Exception
+        Dim PixT2 As Pix = Pix8.CleanBackgroundToWhite(Nothing, Nothing, 1, 180, 70) : If IsNothing(PixT2) Then Throw New Exception
         ' Dim PixT22 As Pix = Pix8.pixCleanBackgroundToWhite() : If IsNothing(PixT2) Then Throw New Exception ' VB-Defaulted
 
         Dim Test = PixT2.BitmapStatic
         PixT1.Dispose() : If Not IsNothing(PixT1.data) Then Throw New Exception
 
+
+        ' --------------------------
+        ' Parameter Order tests
+        ' --------------------------
+        'Pix1.GetLocalSkewAngles(2) '                                                    Only VB-Version (out and ref can be optional with default)
+        Pix1.GetLocalSkewAngles(2, New Single, New Single) '                            Classname replaced, moved parameters for optional (out, ref, opt to front)
+        _All.pixGetLocalSkewAngles(Pix1, 2, 1, 1, 1, 1, 1, New Single, New Single) '    Original order, last parameters can be optional (Debug = last)
+
         ' -----------------------------------------
         ' Colormap Testing 
         ' -----------------------------------------
-        Dim CM As PixColormap = Pix8.pixGetColormap
+        Dim CM As PixColormap = Pix8.GetColormap
         If CM.Array_Color.Count <> 256 Then Throw New Exception
         If CM.Array_RGBAQ.Count <> 256 Then Throw New Exception
         If CM.Array_Bytes.Count <> 1024 Then Throw New Exception
-        CM._Clear()
+        CM.Clear()
         CM.Dispose()
 
         ' -----------------------------------------
@@ -49,7 +61,7 @@ Public Class Release
         LeptonicaSharp._All.l_binaryWrite("Test", "w", New Byte() {1, 2, 2}, 3)
         LeptonicaSharp._All.l_binaryWrite("Test", "w", Pix1, Pix1.data.Length)
         LeptonicaSharp._All.l_binaryWrite("Test", "w", Pix1.Pointer, 1)
-        Dim X1Res = x1._GetSize()
+        Dim X1Res = x1.GetSize()
 
         ' -----------------------------------------
         ' PixA-Testing
@@ -58,7 +70,7 @@ Public Class Release
         Dim LicPixa2 As Pixa = _All.pixExtractTextlines(Pix32, 25, 25, 15, 15, 1, 1, Pixa1)
         If Pixa1.pix.Count < 5 Then Throw New Exception
         Pixa1.Dispose() : If Not IsNothing(Pixa1.pix) Then Throw New Exception
-        Pixa1._GetCount()
+        Dim Pixa1Count = Pixa1.GetCount()
 
         ' -----------------------------------------
         ' Byte-Arrays
@@ -74,9 +86,10 @@ Public Class Release
         Dim histoRGB As Numa = _All.pixGetRGBHistogram(Pix32, 2, 1) : If IsNothing(histoRGB) Then Throw New Exception
         Dim normaRGB As Numa = _All.numaNormalizeHistogram(histoRGB, 1) : If IsNothing(normaRGB) Then Throw New Exception
         Dim histo As Numa = _All.pixGetGrayHistogram(Pix8, 1) : If IsNothing(histo) Then Throw New Exception
+        histo.DisplayNumaBarGraph(Nothing, Nothing, True)
         Dim norma As Numa = _All.numaNormalizeHistogram(histo, 1) : If IsNothing(norma) Then Throw New Exception
         Dim closed As Numa = _All.numaDilate(norma, 5) : If IsNothing(closed) Then Throw New Exception
-        numa._AddBorder(numa, 1, 1, 2)
+        numa.AddBorder(1, 1, 0) ' Todo - Results in other PTR, Map together-
 
         ' --------------------------
         ' String-Functions
@@ -86,7 +99,7 @@ Public Class Release
         Dim Stri2 = LeptonicaSharp._All.sarrayGetArray(Stri, Nothing, Nothing) : If Stri2.Count <> 4 Then Throw New Exception
         Dim Stri3 As Integer = LeptonicaSharp._All.sarrayGetCount(Stri) : If Stri3 <> 4 Then Throw New Exception
         Dim Stri4 As String = LeptonicaSharp._All.sarrayGetString(Stri, 0, 1) : If Stri4 <> "Das" Then Throw New Exception
-        Stri._AddString("Programm", 1) : If Stri.n <> 5 Then Throw New Exception
+        Stri.AddString("Programm", 1) : If Stri.n <> 5 Then Throw New Exception
 
         ' --------------------------
         ' Sel Functions
@@ -94,26 +107,26 @@ Public Class Release
         Dim Sel = New Sel("ooooo" & "oC  o" & "o   o" & "ooooo", 5, 4, "Test")
         If Sel.data.Count <> 4 Then Throw New Exception
         If Sel.data(0).Count <> 5 Then Throw New Exception
-        Sel._GetName()
+        Sel.GetName()
 
         ' --------------------------
         ' Dewa-Tests
         ' --------------------------
         Dim dewa1 As L_Dewarpa = _All.dewarpaCreate(1, 0, 2, 0, -1) : If dewa1.redfactor <> 2 Then Throw New Exception
-        Dim Dew As L_Dewarp = _All.dewarpCreate(Pix32._ConvertTo1(128), 0) : If IsNothing(Dew) Then Throw New Exception
+        Dim Dew As L_Dewarp = _All.dewarpCreate(Pix32.ConvertTo1(128), 0) : If IsNothing(Dew) Then Throw New Exception
 
         ' --------------------------
         ' Box Functions
         ' --------------------------
         Dim Box As New Box(50, 50, 100, 100) : If Box.w <> 100 Then Throw New Exception
-        Box._AdjustSides(1, 1, 1, 1, Nothing)
+        Box.AdjustSides(1, 1, 1, 1, Nothing)
 
         ' --------------------------
         ' PTA Functions
         ' --------------------------
         Dim ptra As L_Ptra = LeptonicaSharp._All.ptraCreate(3)
         If ptra.nalloc <> 3 Then Throw New Exception
-        ptra._GetActualCount(0)
+        ptra.GetActualCount(0)
 
         ' --------------------------
         ' Int-Array (Todo: VB,C#)
@@ -134,13 +147,13 @@ Public Class Release
     End Sub
 
     Sub TestErrorChecks()
-        Dim Pix32 As New Pix("Lic.png") : Pix32 = Pix32._ConvertTo32
+        Dim Pix32 As New Pix("Lic.png") : Pix32 = Pix32.ConvertTo32
 
         _All.setLeptDebugOK(1)                                              ' Muss Dateiprüfung oder RawCode enthalten (I_View32 exists)
         Dim PIXER As New Pix("MissingFile.jpg")                             ' Muss fehler ausgeben (FileCheck)
         'Pix32.pixDeskew(10)                                                 ' Muss Fehler ausgeben (0 - 8)
         LeptonicaSharp._All.pixWrite(Nothing, Pix32, Enumerations.IFF.IFF_JFIF_JPEG)     ' Muss Fehler wegen Nothing ausgeben und IFF as Enum enthalten
-        Pix32._ConvertTo16()                                              ' Muss Fehler ausgeben Convert nur 1-8 BPP
+        Pix32.ConvertTo16()                                              ' Muss Fehler ausgeben Convert nur 1-8 BPP
     End Sub
 
 End Class

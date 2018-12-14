@@ -613,7 +613,7 @@ namespace LeptonicaSharp
 		///   <returns>saout output sarray, filtered with substring or NULL on error</returns>
 		public static Sarray sarraySelectBySubstring(
 						Sarray sain,
-						String substr)
+						String substr = "")
 		{
 			if (sain == null) {throw new ArgumentNullException  ("sain cannot be Nothing");}
 

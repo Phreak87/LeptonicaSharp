@@ -377,8 +377,8 @@ namespace LeptonicaSharp
 						Pta ptas,
 						int shiftx,
 						int shifty,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (ptas == null) {throw new ArgumentNullException  ("ptas cannot be Nothing");}
 
@@ -947,7 +947,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Pta pta,
 						int outformat,
-						String title)
+						String title = "")
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -972,7 +972,7 @@ namespace LeptonicaSharp
 		///   <returns>pta, or NULL on error</returns>
 		public static Pta ptaGetPixelsFromPix(
 						Pix pixs,
-						Box box)
+						Box box = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

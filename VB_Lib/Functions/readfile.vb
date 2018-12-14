@@ -94,7 +94,7 @@ End Function
 '''   <returns>pix if OK NULL on error</returns>
 Public Shared Function pixReadWithHint(
 				ByVal filename as String, 
-				ByVal hint as Integer) as Pix
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -164,7 +164,7 @@ End Function
 '''   <returns>pix if OK NULL on error</returns>
 Public Shared Function pixReadStream(
 				ByVal fp as FILE, 
-				ByVal hint as Integer) as Pix
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")

@@ -261,7 +261,7 @@ End Function
 Public Shared Function pixaFindAreaFractionMasked(
 				ByVal pixa as Pixa, 
 				ByVal pixm as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Numa
 
 
 if IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")

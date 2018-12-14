@@ -265,7 +265,7 @@ namespace LeptonicaSharp
 		public static Numa pixaFindAreaFractionMasked(
 						Pixa pixa,
 						Pix pixm,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 

@@ -74,7 +74,7 @@ namespace LeptonicaSharp
 		public static int pixaWriteFiles(
 						String rootname,
 						Pixa pixa,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (rootname == null) {throw new ArgumentNullException  ("rootname cannot be Nothing");}
 
@@ -105,7 +105,7 @@ namespace LeptonicaSharp
 		public static int pixWriteDebug(
 						String fname,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 
@@ -141,7 +141,7 @@ namespace LeptonicaSharp
 		public static int pixWrite(
 						String fname,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 
@@ -191,7 +191,7 @@ namespace LeptonicaSharp
 		public static int pixWriteStream(
 						FILE fp,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -222,8 +222,8 @@ namespace LeptonicaSharp
 		public static int pixWriteImpliedFormat(
 						String filename,
 						Pix pix,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -324,7 +324,7 @@ namespace LeptonicaSharp
 		///  <param name="format">[in] - integer</param>
 		///   <returns>extension string, or NULL if format is out of range</returns>
 		public static String getFormatExtension(
-						IFF format)
+						Enumerations.IFF format)
 		{
 			String _Result = Natives.getFormatExtension( (int) format);
 			return _Result;
@@ -356,7 +356,7 @@ namespace LeptonicaSharp
 						out Byte[] pdata,
 						out uint psize,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 

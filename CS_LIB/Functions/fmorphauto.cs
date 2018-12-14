@@ -28,7 +28,7 @@ namespace LeptonicaSharp
 		public static int fmorphautogen(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 
@@ -63,7 +63,7 @@ namespace LeptonicaSharp
 		public static int fmorphautogen1(
 						Sela sela,
 						int fileindex,
-						String filename)
+						String filename = "")
 		{
 			if (sela == null) {throw new ArgumentNullException  ("sela cannot be Nothing");}
 

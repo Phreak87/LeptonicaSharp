@@ -312,7 +312,7 @@ namespace LeptonicaSharp
 		public static int regTestWritePixAndCheck(
 						L_RegParams rp,
 						Pix pix,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 
@@ -408,7 +408,7 @@ namespace LeptonicaSharp
 		public static String regTestGenLocalFilename(
 						L_RegParams rp,
 						int index,
-						IFF format)
+						Enumerations.IFF format)
 		{
 			if (rp == null) {throw new ArgumentNullException  ("rp cannot be Nothing");}
 

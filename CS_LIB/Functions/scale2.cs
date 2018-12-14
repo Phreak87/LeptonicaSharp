@@ -548,8 +548,8 @@ namespace LeptonicaSharp
 		public static int pixScaleAndTransferAlpha(
 						Pix pixd,
 						Pix pixs,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 

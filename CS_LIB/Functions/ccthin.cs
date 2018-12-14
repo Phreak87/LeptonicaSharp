@@ -184,7 +184,7 @@ namespace LeptonicaSharp
 		///   <returns>sela, or NULL on error</returns>
 		public static Sela selaMakeThinSets(
 						int index,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			IntPtr _Result = Natives.selaMakeThinSets(  index,  (int) debug);
 

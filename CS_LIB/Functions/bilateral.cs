@@ -150,7 +150,7 @@ namespace LeptonicaSharp
 		public static Pix pixBilateralExact(
 						Pix pixs,
 						L_Kernel spatial_kel,
-						L_Kernel range_kel)
+						L_Kernel range_kel = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -180,7 +180,7 @@ namespace LeptonicaSharp
 		public static Pix pixBilateralGrayExact(
 						Pix pixs,
 						L_Kernel spatial_kel,
-						L_Kernel range_kel)
+						L_Kernel range_kel = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

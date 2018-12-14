@@ -52,7 +52,7 @@ namespace LeptonicaSharp
 						int cmapflag,
 						int reduction,
 						out int pnwarn,
-						int hint)
+						int hint = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -87,7 +87,7 @@ namespace LeptonicaSharp
 						int cmapflag,
 						int reduction,
 						out int pnwarn,
-						int hint)
+						int hint = 0)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -223,8 +223,8 @@ namespace LeptonicaSharp
 		public static int pixWriteJpeg(
 						String filename,
 						Pix pix,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -274,8 +274,8 @@ namespace LeptonicaSharp
 		public static int pixWriteStreamJpeg(
 						FILE fp,
 						Pix pixs,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -312,7 +312,7 @@ namespace LeptonicaSharp
 						int cmflag,
 						int reduction,
 						out int pnwarn,
-						int hint)
+						int hint = 0)
 		{
 			if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 
@@ -403,8 +403,8 @@ namespace LeptonicaSharp
 						out Byte[] pdata,
 						out uint psize,
 						Pix pix,
-						int quality,
-						int progressive)
+						int quality = 0,
+						int progressive = 0)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 

@@ -220,8 +220,8 @@ End Function
 Public Shared Function pixWriteImpliedFormat(
 				ByVal filename as String, 
 				ByVal pix as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")

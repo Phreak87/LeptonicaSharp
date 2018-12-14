@@ -27,7 +27,7 @@ Public Shared Function recogTrainLabeled(
 				ByVal pixs as Pix, 
 				Optional ByVal box as Box = Nothing, 
 				Optional ByVal text as String = "", 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
@@ -97,7 +97,7 @@ End Function
 Public Shared Function recogAddSample(
 				ByVal recog as L_Recog, 
 				ByVal pix as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
@@ -159,7 +159,7 @@ End Function
 '''   <returns>0 on success, 1 on failure</returns>
 Public Shared Function recogAverageSamples(
 				ByVal precog as List(of L_Recog), 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
@@ -555,7 +555,7 @@ Public Shared Function recogTrainFromBoot(
 				ByVal pixas as Pixa, 
 				ByVal minscore as Single, 
 				ByVal threshold as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pixa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Pixa
 
 
 if IsNothing (recogboot) then Throw New ArgumentNullException  ("recogboot cannot be Nothing")
@@ -683,7 +683,7 @@ Public Shared Function recogMakeBootDigitRecog(
 				ByVal scaleh as Integer, 
 				ByVal linew as Integer, 
 				ByVal maxyshift as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as L_Recog
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as L_Recog
 
 
 	Dim _Result as IntPtr = Natives.recogMakeBootDigitRecog(  scaleh,   linew,   maxyshift,   debug)
@@ -762,7 +762,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogDebugAverages(
 				ByVal precog as List(of L_Recog), 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")

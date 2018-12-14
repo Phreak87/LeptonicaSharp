@@ -45,8 +45,8 @@ Public Shared Function pixReadJpeg(
 				ByVal filename as String, 
 				ByVal cmapflag as Integer, 
 				ByVal reduction as Integer, 
-				<Out()>  ByRef pnwarn as Integer, 
-				ByVal hint as Integer) as Pix
+				<Out()> Optional  ByRef pnwarn as Integer = 0, 
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -81,8 +81,8 @@ Public Shared Function pixReadStreamJpeg(
 				ByVal fp as FILE, 
 				ByVal cmapflag as Integer, 
 				ByVal reduction as Integer, 
-				<Out()>  ByRef pnwarn as Integer, 
-				ByVal hint as Integer) as Pix
+				<Out()> Optional  ByRef pnwarn as Integer = 0, 
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -221,8 +221,8 @@ End Function
 Public Shared Function pixWriteJpeg(
 				ByVal filename as String, 
 				ByVal pix as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
@@ -272,8 +272,8 @@ End Function
 Public Shared Function pixWriteStreamJpeg(
 				ByVal fp as FILE, 
 				ByVal pixs as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
@@ -309,8 +309,8 @@ Public Shared Function pixReadMemJpeg(
 				ByVal size as UInteger, 
 				ByVal cmflag as Integer, 
 				ByVal reduction as Integer, 
-				<Out()>  ByRef pnwarn as Integer, 
-				ByVal hint as Integer) as Pix
+				<Out()> Optional  ByRef pnwarn as Integer = 0, 
+				Optional ByVal hint as Integer = 0) as Pix
 
 
 if IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
@@ -403,8 +403,8 @@ Public Shared Function pixWriteMemJpeg(
 				<Out()>  ByRef pdata as Byte(), 
 				<Out()>  ByRef psize as UInteger, 
 				ByVal pix as Pix, 
-				ByVal quality as Integer, 
-				ByVal progressive as Integer) as Integer
+				Optional ByVal quality as Integer = 0, 
+				Optional ByVal progressive as Integer = 0) as Integer
 
 
 if IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")

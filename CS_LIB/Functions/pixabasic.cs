@@ -635,7 +635,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error.</returns>
 		public static int pixaSetText(
 						Pixa pixa,
-						Sarray sa)
+						Sarray sa = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -720,7 +720,7 @@ namespace LeptonicaSharp
 						Pixa pixa,
 						int index,
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -757,7 +757,7 @@ namespace LeptonicaSharp
 						Pixa pixa,
 						int index,
 						Pix pixs,
-						Box box)
+						Box box = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
@@ -873,8 +873,8 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int pixaInitFull(
 						Pixa pixa,
-						Pix pix,
-						Box box)
+						Pix pix = null,
+						Box box = null)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 

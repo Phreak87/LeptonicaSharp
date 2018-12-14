@@ -16,10 +16,10 @@ public class Convert
 	public static void WriteHelpExtension(string Name, Pix PixSource, Pix PixTarget, string[] Line1, Languages Lang = Languages.vbnet)
 	{
 		if (PixSource != null)
-		{ PixSource.pixWriteJpeg ("..\\..\\ALL_Help\\HelpImages\\" + Name + "_S.jpg", 75, 0); }
+		{ PixSource.WriteJpeg ("..\\..\\ALL_Help\\HelpImages\\" + Name + "_S.jpg", 75, 0); }
 
 		if (PixTarget != null)
-		{ PixTarget.pixWriteJpeg("..\\..\\ALL_Help\\HelpImages\\" + Name + "_T.jpg", 75, 0); }
+		{ PixTarget.WriteJpeg("..\\..\\ALL_Help\\HelpImages\\" + Name + "_T.jpg", 75, 0); }
 
 		if (File.Exists("..\\..\\VB_Lib\\IncludeComments.xml") == true) {
 			System.Xml.XmlDocument XML = new System.Xml.XmlDocument();

@@ -883,7 +883,7 @@ Public Shared Function pixaComparePhotoRegionsByHisto(
 				<Out()>  ByRef pnai as Numa, 
 				<Out()> Optional  ByRef pscores as List(of Single()) = nothing, 
 				<Out()> Optional  ByRef ppixd as Pix = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")

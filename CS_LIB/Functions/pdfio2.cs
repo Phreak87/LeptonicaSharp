@@ -209,7 +209,7 @@ namespace LeptonicaSharp
 		///   <returns>cid containing png data, or NULL on error</returns>
 		public static L_Compressed_Data l_generateFlateDataPdf(
 						String fname,
-						Pix pixs)
+						Pix pixs = null)
 		{
 			if (fname == null) {throw new ArgumentNullException  ("fname cannot be Nothing");}
 

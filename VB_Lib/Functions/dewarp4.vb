@@ -35,7 +35,7 @@ Public Shared Function dewarpSinglePage(
 				ByVal check_columns as Integer, 
 				<Out()>  ByRef ppixd as Pix, 
 				<Out()> Optional  ByRef pdewa as L_Dewarpa = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -126,7 +126,7 @@ Public Shared Function dewarpSinglePageRun(
 				ByVal pixb as Pix, 
 				ByVal dewa as L_Dewarpa, 
 				<Out()>  ByRef ppixd as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -196,7 +196,7 @@ End Function
 Public Shared Function dewarpaSetValidModels(
 				ByVal dewa as L_Dewarpa, 
 				ByVal notests as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
@@ -255,7 +255,7 @@ End Function
 Public Shared Function dewarpaInsertRefModels(
 				ByVal dewa as L_Dewarpa, 
 				ByVal notests as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")

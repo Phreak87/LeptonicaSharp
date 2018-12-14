@@ -21,7 +21,7 @@ namespace LeptonicaSharp
 						uint reduction,
 						Box box,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -51,7 +51,7 @@ namespace LeptonicaSharp
 						uint reduction,
 						Box box,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -81,7 +81,7 @@ namespace LeptonicaSharp
 						int quality,
 						int nlevels,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -105,7 +105,7 @@ namespace LeptonicaSharp
 						int quality,
 						int nlevels,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 
@@ -130,7 +130,7 @@ namespace LeptonicaSharp
 						uint reduction,
 						Box box,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (data == null) {throw new ArgumentNullException  ("data cannot be Nothing");}
 
@@ -160,7 +160,7 @@ namespace LeptonicaSharp
 						int quality,
 						int nlevels,
 						int hint,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (pdata == null) {throw new ArgumentNullException  ("pdata cannot be Nothing");}
 

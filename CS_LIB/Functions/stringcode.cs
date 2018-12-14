@@ -54,7 +54,7 @@ namespace LeptonicaSharp
 		public static int strcodeCreateFromFile(
 						String filein,
 						int fileno,
-						String outdir)
+						String outdir = "")
 		{
 			if (filein == null) {throw new ArgumentNullException  ("filein cannot be Nothing");}
 
@@ -110,7 +110,7 @@ namespace LeptonicaSharp
 		///   <returns>void</returns>
 		public static int strcodeFinalize(
 						ref L_StrCode pstrcode,
-						String outdir)
+						String outdir = "")
 		{
 			IntPtr pstrcodePtr = IntPtr.Zero; 	if (pstrcode != null) {pstrcodePtr = pstrcode.Pointer;}
 			int _Result = Natives.strcodeFinalize(ref pstrcodePtr,   outdir);

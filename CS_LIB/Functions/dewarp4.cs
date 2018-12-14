@@ -41,7 +41,7 @@ namespace LeptonicaSharp
 						int check_columns,
 						out Pix ppixd,
 						out L_Dewarpa pdewa,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -130,7 +130,7 @@ namespace LeptonicaSharp
 						Pix pixb,
 						L_Dewarpa dewa,
 						out Pix ppixd,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -200,7 +200,7 @@ namespace LeptonicaSharp
 		public static int dewarpaSetValidModels(
 						L_Dewarpa dewa,
 						int notests,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 
@@ -258,7 +258,7 @@ namespace LeptonicaSharp
 		public static int dewarpaInsertRefModels(
 						L_Dewarpa dewa,
 						int notests,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (dewa == null) {throw new ArgumentNullException  ("dewa cannot be Nothing");}
 

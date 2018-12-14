@@ -28,7 +28,7 @@ namespace LeptonicaSharp
 		///   <returns>pixa, or NULL on error</returns>
 		public static Pixa pixaReadFiles(
 						String dirname,
-						String substr)
+						String substr = "")
 		{
 			if (dirname == null) {throw new ArgumentNullException  ("dirname cannot be Nothing");}
 
@@ -102,7 +102,7 @@ namespace LeptonicaSharp
 		///   <returns>pix if OK NULL on error</returns>
 		public static Pix pixReadWithHint(
 						String filename,
-						int hint)
+						int hint = 0)
 		{
 			if (filename == null) {throw new ArgumentNullException  ("filename cannot be Nothing");}
 
@@ -173,7 +173,7 @@ namespace LeptonicaSharp
 		///   <returns>pix if OK NULL on error</returns>
 		public static Pix pixReadStream(
 						FILE fp,
-						int hint)
+						int hint = 0)
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 

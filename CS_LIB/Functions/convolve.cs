@@ -646,7 +646,7 @@ namespace LeptonicaSharp
 		public static Pix pixCensusTransform(
 						Pix pixs,
 						int halfsize,
-						Pix pixacc)
+						Pix pixacc = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

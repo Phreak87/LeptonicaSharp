@@ -34,11 +34,11 @@ namespace LeptonicaSharp
 		///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 		public static Pix pixCleanBackgroundToWhite(
 						Pix pixs,
-						Pix pixim,
-						Pix pixg,
-						Single gamma,
-						int blackval,
-						int whiteval)
+						Pix pixim = null,
+						Pix pixg = null,
+						Single gamma = 1.0f,
+						int blackval = 70,
+						int whiteval = 180)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -71,8 +71,8 @@ namespace LeptonicaSharp
 		///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 		public static Pix pixBackgroundNormSimple(
 						Pix pixs,
-						Pix pixim,
-						Pix pixg)
+						Pix pixim = null,
+						Pix pixg = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

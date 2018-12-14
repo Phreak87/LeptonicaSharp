@@ -500,7 +500,7 @@ Public Shared Function pixColorsForQuantization(
 				ByVal thresh as Integer, 
 				<Out()>  ByRef pncolors as Integer, 
 				<Out()> Optional  ByRef piscolor as Integer = 0, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

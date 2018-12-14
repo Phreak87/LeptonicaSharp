@@ -911,8 +911,8 @@ namespace LeptonicaSharp
 		///   <returns>paad, or NULL on error</returns>
 		public static Pixaa pixaaScaleToSizeVar(
 						Pixaa paas,
-						Numa nawd,
-						Numa nahd)
+						Numa nawd = null,
+						Numa nahd = null)
 		{
 			if (paas == null) {throw new ArgumentNullException  ("paas cannot be Nothing");}
 
@@ -996,8 +996,8 @@ namespace LeptonicaSharp
 		///   <returns>pixad, or NULL on error</returns>
 		public static Pixa pixaScale(
 						Pixa pixas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 
@@ -1023,8 +1023,8 @@ namespace LeptonicaSharp
 		///   <returns>pixad, or NULL on error</returns>
 		public static Pixa pixaScaleBySampling(
 						Pixa pixas,
-						Single scalex,
-						Single scaley)
+						Single scalex = 1,
+						Single scaley = 1)
 		{
 			if (pixas == null) {throw new ArgumentNullException  ("pixas cannot be Nothing");}
 

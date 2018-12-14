@@ -218,9 +218,9 @@ namespace LeptonicaSharp
 		///   <returns>8 bpp pix, or NULL on error</returns>
 		public static Pix pixConvertRGBToGray(
 						Pix pixs,
-						Single rwt,
-						Single gwt,
-						Single bwt)
+						Single rwt = 0,
+						Single gwt = 0,
+						Single bwt = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

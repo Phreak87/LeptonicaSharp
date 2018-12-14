@@ -65,7 +65,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Pix ppixtext,
 						object phtfound,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -485,7 +485,7 @@ namespace LeptonicaSharp
 						Single peakfract,
 						Single clipfract,
 						out int pncols,
-						Pixa pixadb)
+						Pixa pixadb = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -530,7 +530,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Box box,
 						out int pistext,
-						Pixa pixadb)
+						Pixa pixadb = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -622,7 +622,7 @@ namespace LeptonicaSharp
 						Box box,
 						int orient,
 						out int pscore,
-						Pixa pixadb)
+						Pixa pixadb = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

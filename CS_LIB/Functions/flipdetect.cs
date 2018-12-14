@@ -42,7 +42,7 @@ namespace LeptonicaSharp
 						out Single pupconf,
 						out Single pleftconf,
 						out int protation,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -122,7 +122,7 @@ namespace LeptonicaSharp
 						out Single pupconf,
 						out Single pleftconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -170,7 +170,7 @@ namespace LeptonicaSharp
 						Single minupconf,
 						Single minratio,
 						out int porient,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			int _Result = Natives.makeOrientDecision(  upconf,   leftconf,   minupconf,   minratio, out  porient,  (int) debug);
 			return _Result;
@@ -202,7 +202,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -256,7 +256,7 @@ namespace LeptonicaSharp
 						out Single pconf,
 						int mincount,
 						int npixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -292,7 +292,7 @@ namespace LeptonicaSharp
 						out Single pupconf,
 						out Single pleftconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -329,7 +329,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -357,7 +357,7 @@ namespace LeptonicaSharp
 						out Single pconf,
 						int mincount,
 						int npixels,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -411,7 +411,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -440,7 +440,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						out Single pconf,
 						int mincount,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

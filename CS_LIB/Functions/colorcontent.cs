@@ -505,7 +505,7 @@ namespace LeptonicaSharp
 						int thresh,
 						out int pncolors,
 						out int piscolor,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

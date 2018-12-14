@@ -522,7 +522,7 @@ Public Shared Function boxaSmoothSequenceLS(
 				ByVal subflag as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal maxdiff as Integer, 
 				ByVal extrapixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -576,7 +576,7 @@ Public Shared Function boxaSmoothSequenceMedian(
 				ByVal subflag as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal maxdiff as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal extrapixels as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -624,7 +624,7 @@ End Function
 Public Shared Function boxaLinearFit(
 				ByVal boxas as Boxa, 
 				ByVal factor as Single, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -657,7 +657,7 @@ End Function
 Public Shared Function boxaWindowedMedian(
 				ByVal boxas as Boxa, 
 				ByVal halfwin as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -1029,7 +1029,7 @@ End Function
 Public Shared Function boxaFillSequence(
 				ByVal boxas as Boxa, 
 				ByVal useflag as Enumerations.L_USE_BOXES, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Boxa
 
 
 if IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")

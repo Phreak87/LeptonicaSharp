@@ -161,7 +161,7 @@ Public Shared Function pixConnCompIncrAdd(
 				<Out()>  ByRef pncc as Integer, 
 				ByVal x as Single, 
 				ByVal y as Single, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

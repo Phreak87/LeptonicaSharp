@@ -145,7 +145,7 @@ namespace LeptonicaSharp
 		public static int pixCombineMasked(
 						Pix pixd,
 						Pix pixs,
-						Pix pixm)
+						Pix pixm = null)
 		{
 			if (pixd == null) {throw new ArgumentNullException  ("pixd cannot be Nothing");}
 
@@ -538,7 +538,7 @@ namespace LeptonicaSharp
 		public static Pix pixSetUnderTransparency(
 						Pix pixs,
 						uint val,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -623,7 +623,7 @@ namespace LeptonicaSharp
 						Box box,
 						int dist,
 						out uint pval,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -973,7 +973,7 @@ namespace LeptonicaSharp
 		public static int pixCountPixels(
 						Pix pixs,
 						out int pcount,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -1000,7 +1000,7 @@ namespace LeptonicaSharp
 						Pix pixs,
 						Box box,
 						out int pcount,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -1026,7 +1026,7 @@ namespace LeptonicaSharp
 		///   <returns>na of number of ON pixels by row, or NULL on error</returns>
 		public static Numa pixCountByRow(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1054,7 +1054,7 @@ namespace LeptonicaSharp
 		///   <returns>na of number of ON pixels by column, or NULL on error</returns>
 		public static Numa pixCountByColumn(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1081,7 +1081,7 @@ namespace LeptonicaSharp
 		///   <returns>na of counts, or NULL on error</returns>
 		public static Numa pixCountPixelsByRow(
 						Pix pix,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1135,7 +1135,7 @@ namespace LeptonicaSharp
 						Pix pix,
 						int row,
 						out int pcount,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1192,7 +1192,7 @@ namespace LeptonicaSharp
 						Pix pix,
 						int thresh,
 						out int pabove,
-						int[] tab8)
+						int[] tab8 = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1348,7 +1348,7 @@ namespace LeptonicaSharp
 		///   <returns>na of rmsdev by row, or NULL on error</returns>
 		public static Numa pixVarianceByRow(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1378,7 +1378,7 @@ namespace LeptonicaSharp
 		///   <returns>na of rmsdev by column, or NULL on error</returns>
 		public static Numa pixVarianceByColumn(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1433,7 +1433,7 @@ namespace LeptonicaSharp
 		///   <returns>na of abs val pixel difference averages by row, or NULL on error</returns>
 		public static Numa pixAbsDiffByRow(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1463,7 +1463,7 @@ namespace LeptonicaSharp
 		///   <returns>na of abs val pixel difference averages by column, or NULL on error</returns>
 		public static Numa pixAbsDiffByColumn(
 						Pix pix,
-						Box box)
+						Box box = null)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1645,7 +1645,7 @@ namespace LeptonicaSharp
 						int tsize,
 						int ntiles,
 						out Box pboxtile,
-						DebugOnOff debug)
+						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

@@ -92,7 +92,7 @@ Public Shared Function recogSplitIntoCharacters(
 				ByVal skipsplit as Integer, 
 				<Out()>  ByRef pboxa as Boxa, 
 				<Out()>  ByRef ppixa as Pixa, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
@@ -135,7 +135,7 @@ Public Shared Function recogCorrelationBestRow(
 				<Out()> Optional  ByRef pnascore as Numa = Nothing, 
 				<Out()> Optional  ByRef pnaindex as Numa = Nothing, 
 				<Out()> Optional  ByRef psachar as Sarray = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				Optional ByVal debug as Enumerations.DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 
 if IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")

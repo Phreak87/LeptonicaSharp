@@ -977,7 +977,7 @@ namespace LeptonicaSharp
 		///   <returns></returns>
 		public static int pixSetInputFormat(
 						Pix pix,
-						IFF informat)
+						Enumerations.IFF informat)
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1061,7 +1061,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int pixSetText(
 						Pix pix,
-						String textstring)
+						String textstring = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1086,7 +1086,7 @@ namespace LeptonicaSharp
 		///   <returns>0 if OK, 1 on error</returns>
 		public static int pixAddText(
 						Pix pix,
-						String textstring)
+						String textstring = "")
 		{
 			if (pix == null) {throw new ArgumentNullException  ("pix cannot be Nothing");}
 
@@ -1387,7 +1387,7 @@ namespace LeptonicaSharp
 		public static int pixPrintStreamInfo(
 						FILE fp,
 						Pix pix,
-						String text)
+						String text = "")
 		{
 			if (fp == null) {throw new ArgumentNullException  ("fp cannot be Nothing");}
 

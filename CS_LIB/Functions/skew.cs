@@ -27,7 +27,7 @@ namespace LeptonicaSharp
 		///   <returns>pixd deskewed pix, or NULL on error</returns>
 		public static Pix pixDeskewBoth(
 						Pix pixs,
-						int redsearch)
+						int redsearch = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 
@@ -60,7 +60,7 @@ namespace LeptonicaSharp
 		///   <returns>pixd deskewed pix, or NULL on error</returns>
 		public static Pix pixDeskew(
 						Pix pixs,
-						int redsearch)
+						int redsearch = 0)
 		{
 			if (pixs == null) {throw new ArgumentNullException  ("pixs cannot be Nothing");}
 

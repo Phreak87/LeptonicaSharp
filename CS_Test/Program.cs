@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -204,10 +205,20 @@ namespace TestAppCSharp
                 rowProjections = Array.ConvertAll(pxByRow.array, x => (int)x);
 
                 // Markus' functions
-                var px1 = pxByCol.DisplayNumaBarGraph(pxByCol, pixBinary);
-                var px2 = pxByRow.DisplayNumaBarGraph(pxByRow, pixBinary);
-                var px3 = pxByCol.DisplayNumaHeatmap(pxByCol, pixBinary);
-                var px4 = pxByRow.DisplayNumaHeatmap(pxByRow, pixBinary);
+                //var px1 = pxByCol.DisplayNumaBarGraph(pxByCol, pixBinary, false);
+                //var px1a = pxByCol.DisplayNumaBarGraph(pxByCol, pixBinary, true);
+                //var px1b = pxByCol.DisplayNumaBarGraph(NumaH: null, BgPix: pixBinary, false);
+                //var px1c = pxByCol.DisplayNumaBarGraph(NumaH: null, BgPix: pixBinary, true);
+
+                //var px3 = pxByCol.DisplayNumaHeatmap(pxByCol, pixBinary, false);
+                //var px4 = pxByCol.DisplayNumaHeatmap(pxByRow, pixBinary, true);
+                //var px5 = pxByCol.DisplayNumaHeatmap(NumaH: null, BgPix: pixBinary, false);
+                //var px6 = pxByCol.DisplayNumaHeatmap(NumaH: null, BgPix: pixBinary, true);
+
+                var px1 = pxByCol.DisplayProjectionsOnPix(pixBinary);
+                var px2 = pxByRow.DisplayProjectionsOnPix(pixBinary);
+                var px3 = pxByCol.DisplayProjectionsOnPix(pixBinary, pxByRow);
+                var px4 = pxByRow.DisplayProjectionsOnPix(pixBinary, pxByCol);
             }
 
             const float wRatio = 1 / 5f;
@@ -398,6 +409,101 @@ namespace TestAppCSharp
         public static int save_format(this Pix pixs, string filename, Enumerations.IFF format)
         {
             return pixWrite(filename, pixs, format);
+        }
+
+        /// <summary>
+        /// Draw projection histogram on Pix.
+        /// </summary>
+        /// <param name="numa">First Numa. Either column projection or row projection</param>
+        /// <param name="pixs">The Pix for the background</param>
+        /// <param name="otherNuma">If supplied, also draw the "other" numa histogram.
+        /// This should be the opposite direction of the one supplied as the first parameter.
+        /// E.G. If first parameter is Row projection, this should be the Col projection and vice versa.</param>
+        /// <returns></returns>
+        public static Pix DisplayProjectionsOnPix(this Numa numa, Pix pixs, Numa otherNuma = null)
+        {
+            try
+            {
+                var w = (int)pixs.w;
+                var h = (int)pixs.h;
+                var rows = numa.n == h ? true : false;
+                var cols = numa.n == w ? true : false;
+                float rowsRatio = 0.0f, colsRatio = 0.0f;
+                var numamax = numa.array.Max();
+                var otherNumaMax = otherNuma != null ? otherNuma.array.Max() : 0.0f;
+
+                if (rows)
+                {
+                    // Normalize so we stretch rows to max
+                    rowsRatio = h > 0 ? numamax / h : 1;
+                    if (otherNuma != null)
+                        colsRatio = otherNumaMax > 0 ? w / otherNumaMax : 1;
+                }
+                else if (cols)
+                {
+                    // Normalize so we stretch cols to max
+                    colsRatio = numamax > 0 ? w / numamax : 1;
+                    if (otherNuma != null)
+                        rowsRatio = h > 0 ? otherNumaMax / h : 1;
+                }
+
+                using (var pen1 = new Pen(Color.FromArgb(150, 0, 255, 0), 1.0f))
+                using (var pen2 = new Pen(Color.FromArgb(150, 255, 0, 0), 1.0f))
+                using (var bmp = new Bitmap(w, h, System.Drawing.Imaging.PixelFormat.Format32bppArgb))
+                {
+                    bmp.SetResolution(pixs.xres, pixs.yres);
+                    using (var g = Graphics.FromImage(bmp))
+                    {
+                        g.DrawImage(pixs.BitmapStatic, new Point(0, 0));
+                        if (rows)
+                        {
+                            for (int i = 0; i < numa.n; i++)
+                            {
+                                var pt1 = new PointF(0, i);
+                                var width = numa.array[i] * rowsRatio;
+                                var pt2 = new PointF(width, i);
+                                g.DrawLine(pen1, pt1, pt2);
+                            }
+                            if (otherNuma != null)
+                            {
+                                for (int i = 0; i < otherNuma.n; i++)
+                                {
+                                    var pt1 = new PointF(i, h);
+                                    var height = h - otherNuma.array[i] * colsRatio;
+                                    var pt2 = new PointF(i, height);
+                                    g.DrawLine(pen2, pt1, pt2);
+                                }
+                            }
+                        }
+                        else if (cols)
+                        {
+                            for (int i = 0; i < numa.n; i++)
+                            {
+                                var pt1 = new PointF(i, h);
+                                var height = h - numa.array[i] * colsRatio;
+                                var pt2 = new PointF(i, height);
+                                g.DrawLine(pen2, pt1, pt2);
+                            }
+                            if (otherNuma != null)
+                            {
+                                for (int i = 0; i < otherNuma.n; i++)
+                                {
+                                    var pt1 = new PointF(0, i);
+                                    var width = otherNuma.array[i] * rowsRatio;
+                                    var pt2 = new PointF(width, i);
+                                    g.DrawLine(pen1, pt1, pt2);
+                                }
+                            }
+                        }
+                    }
+                    return new Pix(bmp);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
         }
     }
 

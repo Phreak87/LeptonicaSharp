@@ -49722,7 +49722,7 @@ public partial class Natives
 	///  <param name="debug">[in] - </param>
 	///   <returns>0 on success, 1 on failure</returns>
 	[DllImport(DllPath, CallingConvention = CConv, EntryPoint = "recogAverageSamples")]
-	internal static extern int recogAverageSamples (	 IntPtr precog, 	 int debug);
+	internal static extern int recogAverageSamples (	ref IntPtr precog, 	 int debug);
 
 	// recogtrain.c (664, 1)
 	// pixaAccumulateSamples(pixa, pta, ppixd, px, py) as int
@@ -49789,7 +49789,7 @@ public partial class Natives
 	///  <param name="minfract">[in] - set to -1.0 for default</param>
 	///   <returns>0 if OK, 1 on error (input recog will be destroyed)</returns>
 	[DllImport(DllPath, CallingConvention = CConv, EntryPoint = "recogTrainingFinished")]
-	internal static extern int recogTrainingFinished (	 IntPtr precog, 	 int modifyflag, 	 int minsize, 	 Single minfract);
+	internal static extern int recogTrainingFinished (	ref IntPtr precog, 	 int modifyflag, 	 int minsize, 	 Single minfract);
 
 	// recogtrain.c (970, 1)
 	// recogFilterPixaBySize(pixas, setsize, maxkeep, max_ht_ratio, pna) as Pixa

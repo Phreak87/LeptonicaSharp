@@ -348,11 +348,11 @@ namespace LeptonicaSharp
 		public static PixaComp pixacompCreateFromPixa(
 						Pixa pixa,
 						int comptype,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixacompCreateFromPixa(pixa.Pointer,   comptype,   accesstype);
+			IntPtr _Result = Natives.pixacompCreateFromPixa(pixa.Pointer,   comptype,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -711,11 +711,11 @@ namespace LeptonicaSharp
 		///   <returns>boxa, or NULL on error</returns>
 		public static Boxa pixacompGetBoxa(
 						PixaComp pixac,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixacompGetBoxa(pixac.Pointer,   accesstype);
+			IntPtr _Result = Natives.pixacompGetBoxa(pixac.Pointer,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -770,11 +770,11 @@ namespace LeptonicaSharp
 		public static Box pixacompGetBox(
 						PixaComp pixac,
 						int index,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixacompGetBox(pixac.Pointer,   index,   accesstype);
+			IntPtr _Result = Natives.pixacompGetBox(pixac.Pointer,   index,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -874,11 +874,11 @@ namespace LeptonicaSharp
 		///   <returns>pixa if OK, or NULL on error</returns>
 		public static Pixa pixaCreateFromPixacomp(
 						PixaComp pixac,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixaCreateFromPixacomp(pixac.Pointer,   accesstype);
+			IntPtr _Result = Natives.pixaCreateFromPixacomp(pixac.Pointer,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 

@@ -53,7 +53,6 @@ namespace LeptonicaSharp
 		public static void setLeptDebugOK(
 						int allow)
 		{
-			// Todo: Raw Checks defined but only in VB-Version
 			Natives.setLeptDebugOK(  allow);
 		}
 

@@ -29162,11 +29162,11 @@ namespace LeptonicaSharp
 		public static FPix fpixaGetFPix(
 						FPixa fpixa,
 						int index,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 
-			IntPtr _Result = Natives.fpixaGetFPix(fpixa.Pointer,   index,   accesstype);
+			IntPtr _Result = Natives.fpixaGetFPix(fpixa.Pointer,   index,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -56948,11 +56948,11 @@ namespace LeptonicaSharp
 		public static Pix pixaGetPix(
 						Pixa pixa,
 						int index,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixaGetPix(pixa.Pointer,   index,   accesstype);
+			IntPtr _Result = Natives.pixaGetPix(pixa.Pointer,   index,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -57001,11 +57001,11 @@ namespace LeptonicaSharp
 		///   <returns>boxa, or NULL on error</returns>
 		public static Boxa pixaGetBoxa(
 						Pixa pixa,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixaGetBoxa(pixa.Pointer,   accesstype);
+			IntPtr _Result = Natives.pixaGetBoxa(pixa.Pointer,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -57057,11 +57057,11 @@ namespace LeptonicaSharp
 		public static Box pixaGetBox(
 						Pixa pixa,
 						int index,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixaGetBox(pixa.Pointer,   index,   accesstype);
+			IntPtr _Result = Natives.pixaGetBox(pixa.Pointer,   index,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -57114,13 +57114,13 @@ namespace LeptonicaSharp
 		public static int pixaSetBoxa(
 						Pixa pixa,
 						Boxa boxa,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
 			if (boxa == null) {throw new ArgumentNullException  ("boxa cannot be Nothing");}
 
-			int _Result = Natives.pixaSetBoxa(pixa.Pointer, boxa.Pointer,   accesstype);
+			int _Result = Natives.pixaSetBoxa(pixa.Pointer, boxa.Pointer,  (int) accesstype);
 			return _Result;
 		}
 
@@ -57877,11 +57877,11 @@ namespace LeptonicaSharp
 		public static Pixa pixaaGetPixa(
 						Pixaa paa,
 						int index,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixaaGetPixa(paa.Pointer,   index,   accesstype);
+			IntPtr _Result = Natives.pixaaGetPixa(paa.Pointer,   index,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -57904,11 +57904,11 @@ namespace LeptonicaSharp
 		///   <returns>boxa, or NULL on error</returns>
 		public static Boxa pixaaGetBoxa(
 						Pixaa paa,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (paa == null) {throw new ArgumentNullException  ("paa cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixaaGetBoxa(paa.Pointer,   accesstype);
+			IntPtr _Result = Natives.pixaaGetBoxa(paa.Pointer,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -62548,11 +62548,11 @@ namespace LeptonicaSharp
 		public static PixaComp pixacompCreateFromPixa(
 						Pixa pixa,
 						int comptype,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixa == null) {throw new ArgumentNullException  ("pixa cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixacompCreateFromPixa(pixa.Pointer,   comptype,   accesstype);
+			IntPtr _Result = Natives.pixacompCreateFromPixa(pixa.Pointer,   comptype,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -62911,11 +62911,11 @@ namespace LeptonicaSharp
 		///   <returns>boxa, or NULL on error</returns>
 		public static Boxa pixacompGetBoxa(
 						PixaComp pixac,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixacompGetBoxa(pixac.Pointer,   accesstype);
+			IntPtr _Result = Natives.pixacompGetBoxa(pixac.Pointer,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -62970,11 +62970,11 @@ namespace LeptonicaSharp
 		public static Box pixacompGetBox(
 						PixaComp pixac,
 						int index,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixacompGetBox(pixac.Pointer,   index,   accesstype);
+			IntPtr _Result = Natives.pixacompGetBox(pixac.Pointer,   index,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -63074,11 +63074,11 @@ namespace LeptonicaSharp
 		///   <returns>pixa if OK, or NULL on error</returns>
 		public static Pixa pixaCreateFromPixacomp(
 						PixaComp pixac,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (pixac == null) {throw new ArgumentNullException  ("pixac cannot be Nothing");}
 
-			IntPtr _Result = Natives.pixaCreateFromPixacomp(pixac.Pointer,   accesstype);
+			IntPtr _Result = Natives.pixaCreateFromPixacomp(pixac.Pointer,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 
@@ -75014,13 +75014,13 @@ namespace LeptonicaSharp
 		///  <param name="debug">[in] - </param>
 		///   <returns>0 on success, 1 on failure</returns>
 		public static int recogAverageSamples(
-						List<L_Recog> precog,
+						ref L_Recog precog,
 						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
-			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
+			IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
+			int _Result = Natives.recogAverageSamples(ref precogPtr,  (int) debug);
+			if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
-			IntPtr precogPtr = IntPtr.Zero;
-			int _Result = Natives.recogAverageSamples(precogPtr,  (int) debug);
 			return _Result;
 		}
 
@@ -75103,15 +75103,15 @@ namespace LeptonicaSharp
 		///  <param name="minfract">[in] - set to -1.0 for default</param>
 		///   <returns>0 if OK, 1 on error (input recog will be destroyed)</returns>
 		public static int recogTrainingFinished(
-						List<L_Recog> precog,
+						ref L_Recog precog,
 						int modifyflag,
 						int minsize,
 						Single minfract)
 		{
-			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
+			IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
+			int _Result = Natives.recogTrainingFinished(ref precogPtr,   modifyflag,   minsize,   minfract);
+			if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
-			IntPtr precogPtr = IntPtr.Zero;
-			int _Result = Natives.recogTrainingFinished(precogPtr,   modifyflag,   minsize,   minfract);
 			return _Result;
 		}
 
@@ -90127,7 +90127,6 @@ namespace LeptonicaSharp
 		public static void setLeptDebugOK(
 						int allow)
 		{
-			// Todo: Raw Checks defined but only in VB-Version
 			Natives.setLeptDebugOK(  allow);
 		}
 

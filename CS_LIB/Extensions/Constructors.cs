@@ -27,6 +27,9 @@ public partial class Pix
 		Pix OBJ = LeptonicaSharp._All.pixCreate(w, h, 32);
 		Pointer = OBJ.Pointer;
 	}
+	public Pix()
+	{
+	}
 }
 public partial class Pixa
 {
@@ -99,4 +102,5 @@ public partial class Sarray
 		this.Pointer = LeptonicaSharp._All.sarrayCreate(Count).Pointer ;
 	}
 }
+
 #endregion

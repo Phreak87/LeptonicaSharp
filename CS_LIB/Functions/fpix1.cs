@@ -628,11 +628,11 @@ namespace LeptonicaSharp
 		public static FPix fpixaGetFPix(
 						FPixa fpixa,
 						int index,
-						int accesstype)
+						Enumerations.L_access_storage accesstype)
 		{
 			if (fpixa == null) {throw new ArgumentNullException  ("fpixa cannot be Nothing");}
 
-			IntPtr _Result = Natives.fpixaGetFPix(fpixa.Pointer,   index,   accesstype);
+			IntPtr _Result = Natives.fpixaGetFPix(fpixa.Pointer,   index,  (int) accesstype);
 
 			if (_Result == IntPtr.Zero) {return null;}
 

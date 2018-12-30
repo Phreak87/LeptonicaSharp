@@ -165,13 +165,13 @@ namespace LeptonicaSharp
 		///  <param name="debug">[in] - </param>
 		///   <returns>0 on success, 1 on failure</returns>
 		public static int recogAverageSamples(
-						List<L_Recog> precog,
+						ref L_Recog precog,
 						Enumerations.DebugOnOff debug = DebugOnOff.DebugOn)
 		{
-			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
+			IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
+			int _Result = Natives.recogAverageSamples(ref precogPtr,  (int) debug);
+			if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
-			IntPtr precogPtr = IntPtr.Zero;
-			int _Result = Natives.recogAverageSamples(precogPtr,  (int) debug);
 			return _Result;
 		}
 
@@ -254,15 +254,15 @@ namespace LeptonicaSharp
 		///  <param name="minfract">[in] - set to -1.0 for default</param>
 		///   <returns>0 if OK, 1 on error (input recog will be destroyed)</returns>
 		public static int recogTrainingFinished(
-						List<L_Recog> precog,
+						ref L_Recog precog,
 						int modifyflag,
 						int minsize,
 						Single minfract)
 		{
-			if (precog == null) {throw new ArgumentNullException  ("precog cannot be Nothing");}
+			IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
+			int _Result = Natives.recogTrainingFinished(ref precogPtr,   modifyflag,   minsize,   minfract);
+			if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
-			IntPtr precogPtr = IntPtr.Zero;
-			int _Result = Natives.recogTrainingFinished(precogPtr,   modifyflag,   minsize,   minfract);
 			return _Result;
 		}
 

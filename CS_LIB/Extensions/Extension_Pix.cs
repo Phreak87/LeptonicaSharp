@@ -27,6 +27,7 @@ public partial class Box
 	{
 		var n = new ShowPix(GetBitmap(Pix));
 	}
+
 }
 
 public partial class Boxa
@@ -128,7 +129,10 @@ public partial class Pix
 	{
 		var n = new ShowPix(this, Text);
 	}
-
+	public void Display(Boxa boxa)
+	{
+		var n = new ShowPix(_All.pixDrawBoxa(this, boxa, 1, Convert.RGBAUInt(Color.Red )));
+	}
 	public Image ToBitmap()
 	{
 		uint Size = 0;

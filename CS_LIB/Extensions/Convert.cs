@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO ;
+using System.Drawing;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -45,6 +46,11 @@ public class Convert
 	public static double Grad2Dec(double Grad)
 	{
 		return Grad / (Math.PI / 180);
+	}
+	public static uint RGBAUInt(Color color)
+	{
+		return (uint)((color.R << 24) | (color.G << 16) |
+					  (color.B << 8) | (color.A << 0));
 	}
 }
 

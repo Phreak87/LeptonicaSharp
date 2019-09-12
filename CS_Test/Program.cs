@@ -394,7 +394,7 @@ namespace TestAppCSharp
             var n = pixaGetCount(pixa);
             for (int i = 0; i < n; i++)
             {
-                var pix1 = pixaGetPix(pixa, i, (int)Enumerations.L_access_storage.L_CLONE);
+                var pix1 = pixaGetPix(pixa, i, Enumerations.L_access_storage.L_CLONE);
                 var fn = $"{prefix}-{i.ToString().PadLeft(2, '0')}.png";
                 pix1.save_format(fn, Enumerations.IFF.IFF_PNG);
                 pixDestroy(ref pix1);
